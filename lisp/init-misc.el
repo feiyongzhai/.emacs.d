@@ -39,6 +39,13 @@
     ;; 启动 emacs 后的默认文件夹是桌面文件夹
     (cd "D:/桌面"))
 
+;;; quick set key and unset key
+(global-set-key (kbd "<f9>") (defun global-set-or-unset-key (arg)
+			       (interactive "P")
+			       (if arg
+				   (call-interactively 'global-unset-key)
+				 (call-interactively 'global-set-key))))
+
 ;;; cd-to-emacs
 (global-set-key (kbd "C-c M-e") 
 		(defun user/cd-to-emacs ()

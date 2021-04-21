@@ -1,4 +1,4 @@
-;;; init-test.el --- 尝试一些新功能
+;;; init-local.el --- 尝试一些新功能
 
 ;;; Comentary:
 ;; 每次提交的时候我会默认把这个文件的变动忽略，或者说直接在 emacs 中提
@@ -18,11 +18,11 @@
 
 ;; (require 'netease-cloud-music)
 
-(load-theme 'doom-gruvbox t)
+
 
 (custom-set-faces
  '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 180 :width normal)))))
 
 
-(provide 'init-test)
-;;; init-test.el ends here.
+(provide 'init-local)
+;;; init-local.el ends here.

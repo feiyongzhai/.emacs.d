@@ -4,10 +4,10 @@
 
 ;;; Add to list `user/package-ensure-installed'
 (add-to-list 'user/package-ensure-installed 'paredit)
+(add-to-list 'user/package-ensure-installed 'treemacs-all-the-icons)
 
-;;; recentf-mode
-;; (recentf-mode 1)
-;; (setq recentf-max-menu-item 10)
+;;; treemacs 按键
+(global-set-key (kbd "C-c SPC") 'treemacs)
 
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 

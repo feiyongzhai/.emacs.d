@@ -1,4 +1,4 @@
-;;; init-encode.el  --configs for encode
+;;; init-encode.el  --- configs for encode
 
 ;;; Code:
 

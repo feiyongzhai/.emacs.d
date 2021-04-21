@@ -2,11 +2,9 @@
 
 ;;; Code:
 
-;;; Add to list `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'treemacs-all-the-icons)
-
-;;; treemacs 按键
-(global-set-key (kbd "C-c SPC") 'treemacs)
+;;; recentf-mode
+;; (recentf-mode 1)
+;; (setq recentf-max-menu-item 10)
 
 ;;; autoload the changes
 (global-auto-revert-mode t)

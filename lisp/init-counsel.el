@@ -26,12 +26,6 @@
         (buffer-substring (region-beginning) (region-end))
       (read-string "Google: ")))))
 
-;;; counsel-rg
-(define-key global-map (kbd "C-c M-r") #'counsel-rg)
-
-;;; counsel-git
-(define-key global-map (kbd "C-c M-g") #'counsel-git)
-
 ;;; counsel-bookmark
 (global-set-key (kbd "C-c B") 'counsel-bookmark)
 
@@ -67,6 +61,10 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-c l") 'counsel-locate)
 ;; 这个配置会使得 M-* 类别的键失效
 ;; (define-key ivy-minibuffer-map (kbd "<ESC>") 'minibuffer-keyboard-quit)
 

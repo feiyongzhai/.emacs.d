@@ -50,8 +50,8 @@
 (require 'init-thing-edit)
 (require 'init-auto-save)
 
-;;;; test
-(require 'init-test)
+;;;; local configs
+(require 'init-local)
 
 ;; 如果有custom.el文件，就加载custom.el文件
 ;; 如果不加这局话。custom.el中的配置无法加载

@@ -1,4 +1,4 @@
-;;; init-ime.el  --中文输入法相关配置
+;;; init-ime.el  --- 中文输入法相关配置
 
 ;;; Code:
 
@@ -7,6 +7,7 @@
 (add-to-list 'user/package-ensure-installed 'rime)
 
 ;;; configs for pyim
+
 ;; (require 'pyim)
 ;; (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
 ;; (pyim-basedict-enable)	 ; 拼音词库，五笔用户 *不需要* 此行设置
@@ -35,8 +36,6 @@
 ;; linux version :
 ;; linux mint 20
 ;; windows 现在可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
-
-;; (setq module-file-suffix ".so")
 
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.config/fcitx/rime"))

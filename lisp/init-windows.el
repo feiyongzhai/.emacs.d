@@ -1,4 +1,4 @@
-;;; init-windows.el  --configs for windows
+;;; init-windows.el  --- configs for windows
 
 ;;; Code:
 

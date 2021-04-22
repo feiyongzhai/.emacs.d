@@ -3,9 +3,9 @@
 ;;; Code:
 
 (with-eval-after-load 'dired
-  ;; 避免删除 `dired' 文件不进回收站
+  ;; 删除 `dired' 文件进入回收站
   (setq delete-by-moving-to-trash t)
-  ;; 其实这两句就是交换这两个命令的默认绑定，不知道有没有更好的写法
+  ;; 交换这两个命令的默认绑定
   (define-key dired-mode-map (kbd "w") 'browse-url-of-dired-file)
   (define-key dired-mode-map (kbd "W") 'dired-copy-filename-as-kill)
   (define-key dired-mode-map (kbd "b") 'dired-up-directory))

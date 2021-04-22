@@ -1,4 +1,4 @@
-;;; init-var.el --variable for initial time
+;;; init-var.el --- variable for initial time
 
 ;;; Code:
 

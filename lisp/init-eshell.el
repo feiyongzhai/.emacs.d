@@ -1,4 +1,4 @@
-;;; init-eshell.el  --configs for eshell
+;;; init-eshell.el  --- configs for eshell
 
 ;;; Code:
 

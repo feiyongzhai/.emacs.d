@@ -34,6 +34,7 @@
 (require 'init-ibuffer)
 (require 'init-windows)
 (require 'init-dired)
+(require 'init-proxy)
 
 (require 'init-org)
 

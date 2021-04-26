@@ -34,9 +34,10 @@
 ;; (add-to-list 'ibuffer-never-show-predicates "zowie")
 ;;; 自动打开高亮行
 (add-hook 'ibuffer-mode-hook #'hl-line-mode)
+(add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode)
 
 ;; shortkeys
-;; (global-set-key (kbd "C-x b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "M-o") 'ibuffer)
 
 (provide 'init-ibuffer)

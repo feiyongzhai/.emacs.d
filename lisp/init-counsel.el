@@ -12,28 +12,16 @@
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)
 
 ;;; counsel-search
-(define-key global-map (kbd "M-p") 'user/google-search)
+;; (define-key global-map (kbd "M-p") 'counsel-search)
 (setq counsel-search-engine 'google)
-
-;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
-(defun user/google-search ()
-  "Googles a query or region if any."
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if mark-active
-        (buffer-substring (region-beginning) (region-end))
-      (read-string "Google: ")))))
 
 ;;; counsel-bookmark
 (global-set-key (kbd "C-c B") 'counsel-bookmark)
+(global-set-key (kbd "C-c b") 'list-bookmarks)
 
 ;;; ivy-views
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
-
-(global-set-key (kbd "C-x C-b") 'ivy-switch-buffer)
 
 ;;; config for swiper, including counsel and ivy
 ;; 现在好像直接写这么一句话就可以了，下面这些键绑定都不需要了
@@ -56,8 +44,8 @@
 
 ;; (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-c M-x") 'counsel-M-x)
+;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 (global-set-key (kbd "C-c g") 'counsel-git)

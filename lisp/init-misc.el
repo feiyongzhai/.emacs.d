@@ -48,9 +48,18 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-;;; 一些常用键位优化
-(define-key global-map (kbd "M-z") 'switch-to-buffer)
-(global-set-key (kbd "C-c b") 'list-bookmarks)
+(define-key global-map (kbd "M-p") 'user/google-search)
+
+;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
+(defun user/google-search ()
+  "Googles a query or region if any."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google: ")))))
 
 ;;; 避免自己手贱动不动就关闭 emacs
 ;; (emacs-lock-mode)

@@ -7,7 +7,7 @@
     ;; turn off the toolbar 仅在图形界面生效
     (progn
       (tool-bar-mode -1)
-      (menu-bar-mode -1)
+      ;; (menu-bar-mode -1)
       (scroll-bar-mode -1)))
 
 ;; 避免光标闪烁

@@ -21,7 +21,7 @@
 
 ;;; ivy-views
 (global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-pop-view)
+(global-set-key (kbd "C-c V") 'ivy-switch-view)
 
 ;;; config for swiper, including counsel and ivy
 ;; 现在好像直接写这么一句话就可以了，下面这些键绑定都不需要了

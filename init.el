@@ -33,8 +33,8 @@
 
 ;;;; elpa
 (require 'init-company)
-(require 'init-ido)
 (require 'init-counsel)
+(require 'init-ido)
 ;; (require 'init-projectile)
 (require 'init-evil)
 (require 'init-ime)

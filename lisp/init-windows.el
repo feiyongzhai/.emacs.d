@@ -99,8 +99,8 @@
 
 ;;; window resize
 (let ((map global-map))
-  (define-key map (kbd "C-x |") 'maximize-window)
-  (define-key map (kbd "C-x \\") 'minimize-window))
+  (define-key global-map (kbd "C-x w M") 'maximize-window)
+  (define-key global-map (kbd "C-x w m") 'minimize-window))
 
 ;;; 关闭 buffer 自定义函数
 (defun user/kill-current-buffer()

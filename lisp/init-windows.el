@@ -8,6 +8,30 @@
 
 ;;; winner-mode
 (winner-mode 1)
+(global-set-key (kbd "C-x w u") #'transient-winner-undo)
+(global-set-key (kbd "C-x w U") #'transient-winner-redo)
+
+(defun transient-winner-undo ()
+  (interactive)
+  (let ((echo-keystrokes nil))
+    (winner-undo)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (define-key map "u" #'winner-undo)
+       (define-key map "U" #'winner-redo)
+       map)
+     t)))
+
+(defun transient-winner-redo ()
+  (interactive)
+  (let ((echo-keystrokes nil))
+    (winner-redo)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (define-key map "u" #'winner-undo)
+       (define-key map "U" #'winner-redo)
+       map)
+     t)))
 
 ;;; Ace-windows
 ;; (global-set-key [remap other-window] 'ace-window)

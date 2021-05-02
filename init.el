@@ -28,6 +28,7 @@
 (require 'init-windows)
 (require 'init-dired)
 (require 'init-proxy)
+(require 'init-vc)
 
 (require 'init-org)
 

@@ -1,4 +1,4 @@
-;;; init-ui.el  --configs for UI
+;;; init-ui.el  --- configs for UI
 
 ;; inhibit the startup screen
 (setq inhibit-splash-screen t)
@@ -12,6 +12,8 @@
 
 ;; 避免光标闪烁
 (blink-cursor-mode -1)
+
+(display-time-mode 1)
 
 ;; enable show-paren-mode
 (show-paren-mode 1)
@@ -27,8 +29,8 @@
 ;;      ;; Setting Chinese Font
 ;;      (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
 ;;; 一个更好地字体设置,下面heigh的默认值是98
-(custom-set-faces
- '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+;; (custom-set-faces
+;;  '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
 
 (if *is-windows*
  ;; customize the size of frame way2 仅在 windows 下生效

@@ -10,7 +10,7 @@
 ;;; UI
 ;; 这个文件 `early-init' 可以对于 emacsclient 生效
 (tool-bar-mode -1)
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; (add-hook 'server-visit-hook (lambda ()

@@ -21,9 +21,10 @@
 
 ;; (load-theme 'doom-gruvbox t)
 
+;; (custom-set-faces
+;;  '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 180 :width normal)))))
 (custom-set-faces
- '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 180 :width normal)))))
-
+ '(markdown-table-face ((t nil))))
 
 (provide 'init-local)
 ;;; init-local.el ends here.

@@ -12,6 +12,8 @@
 
 (global-set-key (kbd "M-P") #'helm-chrome-bookmarks)
 
+(global-set-key (kbd "C-c y") #'youdao-dictionary-search-at-point-tooltip)
+
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
 ;;; expand-region

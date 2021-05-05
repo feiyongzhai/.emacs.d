@@ -10,6 +10,11 @@
 (winner-mode 1)
 (global-set-key (kbd "C-x w u") #'transient-winner-undo)
 (global-set-key (kbd "C-x w U") #'transient-winner-redo)
+(global-set-key (kbd "C-x w e") #'balance-windows)
+(global-set-key (kbd "C-x w h") #'windmove-swap-states-left)
+(global-set-key (kbd "C-x w j") #'windmove-swap-states-down)
+(global-set-key (kbd "C-x w k") #'windmove-swap-states-up)
+(global-set-key (kbd "C-x w l") #'windmove-swap-states-right)
 
 (defun transient-winner-undo ()
   (interactive)

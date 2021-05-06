@@ -4,7 +4,6 @@
 
 ;;; Burly: bookmark windows and frame.
 (add-to-list 'user/package-ensure-installed 'burly)
-(add-to-list 'user/package-ensure-installed 'ace-window)
 
 ;;; winner-mode
 (winner-mode 1)
@@ -41,14 +40,6 @@
        (define-key map "U" #'winner-redo)
        map)
      t)))
-
-;;; Ace-windows
-;; (global-set-key [remap other-window] 'ace-window)
-(custom-set-faces
- '(aw-leading-char-face ((t (:inherit ace-jump-face-forehround :height 3.0)))))
-;; 按键
-;; (global-set-key (kbd "<C-tab>") 'ace-window)
-(global-set-key (kbd "<C-tab>") 'tab-next)
 
 ;;; Alternative windows switch scheme
 (defun other-window-backward ()

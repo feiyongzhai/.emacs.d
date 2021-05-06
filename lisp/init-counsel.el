@@ -57,18 +57,7 @@
 
 ;;; some tweaks about ivy
 (with-eval-after-load 'counsel
-  (setq-default ivy-initial-inputs-alist
-		'((counsel-minor . "^+")
-		  (counsel-package . "^+")
-		  (counsel-org-capture . "^")
-		  (counsel-M-x . ignore)
-		  (counsel-describe-function . "^")
-		  (counsel-describe-variable . "^")
-		  (org-refile . "^")
-		  (org-agenda-refile . "^")
-		  (org-capture-refile . "^")
-		  (Man-completion-table . "^")
-		  (woman . "^"))))
+  (setq-default ivy-initial-inputs-alist nil))
 
 ;; 让 ivy 的显示移到中间来，使用中发现一个问题，输入法光标不跟随
 ;; (ivy-posframe-mode 1)

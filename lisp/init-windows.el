@@ -2,6 +2,10 @@
 
 ;;; Code:
 
+;;;TODO
+;; 1. 给transient类函数添加message提示
+;; 2. 可以尝试写一个宏，优化一下代码，因为这些transient类的函数都差不多
+
 ;;; Burly: bookmark windows and frame.
 (add-to-list 'user/package-ensure-installed 'burly)
 
@@ -66,8 +70,13 @@
     (call-interactively 'enlarge-window-horizontally)
     (set-transient-map
      (let ((map (make-sparse-keymap)))
-       (define-key map "{" #'shrink-window-horizontally)
        (define-key map "}" #'enlarge-window-horizontally)
+       (define-key map "{" #'shrink-window-horizontally)
+       (define-key map "]" #'enlarge-window-horizontally)
+       (define-key map "[" #'shrink-window-horizontally)
+       (define-key map "=" #'balance-windows)
+       (define-key map "|" #'maximize-window)
+       (define-key map "\\" #'minimize-window)
        map)
      t)))
 ;; 按键
@@ -82,6 +91,8 @@
      (let ((map (make-sparse-keymap)))
        (define-key map "}" #'enlarge-window-horizontally)
        (define-key map "{" #'shrink-window-horizontally)
+       (define-key map "]" #'enlarge-window-horizontally)
+       (define-key map "[" #'shrink-window-horizontally)
        (define-key map "=" #'balance-windows)
        (define-key map "|" #'maximize-window)
        (define-key map "\\" #'minimize-window)

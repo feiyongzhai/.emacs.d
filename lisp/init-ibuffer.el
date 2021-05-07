@@ -23,6 +23,7 @@
 		 )))
 ;;; 不显示空组
 (setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-movement-cycle nil)
 
 ;; 我也不知道为什么，反正没有下面这句话就不奏效
 ;; (add-hook 'ibuffer-mode-hook

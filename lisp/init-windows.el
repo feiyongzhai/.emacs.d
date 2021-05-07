@@ -117,14 +117,9 @@
 (defun user/kill-current-buffer()
 "智能关闭 windows 和 buffer"
   (interactive)
-  ;; 现在有一个工作逻辑不符合我的预期，只有一个windows的时候我希望关闭
-  ;; buffer得到我的确认。现在完成了前半个需求，在一个window的时候，不会
-  ;; 之间关，但是现在无法实现得到我的确认的需求
   (if (not (one-window-p))
-      (progn
-	(kill-current-buffer)
-	(delete-window))
-    (kill-current-buffer)
+      (delete-window)
+    (previous-buffer)
     ;; (kill-buffer-and-window)
     ;; (kill-buffer)
     ))

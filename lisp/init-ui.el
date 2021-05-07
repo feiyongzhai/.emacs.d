@@ -37,15 +37,5 @@
 	  (set-frame-size frame w h)))
      (arrange-frame 84 30 170 20)))
 
-;; (if *is-linux*
-;;     ;; 这个主要是为了方便 windows 下的 wsl 的终端主题，现在我不怎么用
-;;     ;; wsl 开 emacs 了，就暂时不需要了
-;;     (load-theme (quote tsdh-dark)))
-
-;; (if *is-linux*
-;;     (set-face-attribute
-;;      'default nil
-;;      :height 120))
-
 (provide 'init-ui)
 ;;; init-ui.el ends here.

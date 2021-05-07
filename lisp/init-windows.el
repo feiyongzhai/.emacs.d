@@ -22,6 +22,13 @@
 (global-set-key (kbd "C-x w J") #'windmove-swap-states-down)
 (global-set-key (kbd "C-x w K") #'windmove-swap-states-up)
 (global-set-key (kbd "C-x w L") #'windmove-swap-states-right)
+(global-set-key (kbd "C-x w m") #'maximize-window)
+(global-set-key (kbd "C-x w M") #'minimize-window)
+(global-set-key (kbd "C-1") 'delete-other-windows)
+(global-set-key (kbd "M-1") 'delete-other-windows)
+(global-set-key (kbd "M-2") 'split-window-below)
+(global-set-key (kbd "M-3") 'split-window-right)
+(define-key global-map  (kbd "M-0") #'delete-window)
 
 (defun transient-winner-undo ()
   (interactive)
@@ -100,18 +107,6 @@
      t)))
 ;; 按键
 (global-set-key (kbd "C-x {") #'transient-shrink-window)
-
-;;; 自定义按键
-(global-set-key (kbd "C-1") 'delete-other-windows)
-(global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
-(define-key global-map  (kbd "M-0") #'delete-window)
-
-;;; window resize
-(let ((map global-map))
-  (define-key global-map (kbd "C-x w M") 'maximize-window)
-  (define-key global-map (kbd "C-x w m") 'minimize-window))
 
 ;;; 关闭 buffer 自定义函数
 (defun user/kill-current-buffer()

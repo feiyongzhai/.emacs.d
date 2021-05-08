@@ -31,6 +31,13 @@
 ;;; redirect the backup file path
 (setq backup-directory-alist (quote (("."."~/.emacs.d/.backup"))))
 
+(save-place-mode t)
+;;; 这个配置配合`auto-save'避免写在*scratch*中的文件未保存导致的数据丢失
+(add-hook 'after-init-hook (lambda ()
+			     (kill-buffer "*scratch*")
+			     (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+			     ))
+
 ;;; personal configs
 (if *is-windows*
     ;; 启动 emacs 后的默认文件夹是桌面文件夹

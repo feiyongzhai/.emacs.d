@@ -34,3 +34,5 @@ ido.last
 dmenu-items
 lisp/init-local.el
 image-dired/.image-dired_db
+@scratch@
+places

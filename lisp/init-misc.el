@@ -34,8 +34,11 @@
 (save-place-mode t)
 ;;; 这个配置配合`auto-save'避免写在*scratch*中的文件未保存导致的数据丢失
 (add-hook 'after-init-hook (lambda ()
+			     ;; bugfix: 更换这个代码之后修改了下面代码出现的问题
+			     (find-file "~/.emacs.d/@scratch@")
+			     ;; bugin: Linux mint, bspwm emacs(非client) -> 下面的代码片段之后启动的时候有轻微的闪动
+			     ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
 			     (kill-buffer "*scratch*")
-			     (setq initial-buffer-choice "~/.emacs.d/@scratch@")
 			     ))
 
 ;;; personal configs

@@ -36,8 +36,9 @@
 (add-hook 'after-init-hook (lambda ()
 			     ;; bugfix: 更换这个代码之后修改了下面代码出现的问题
 			     (find-file "~/.emacs.d/@scratch@")
-			     ;; bugin: Linux mint, bspwm emacs(非client) -> 下面的代码片段之后启动的时候有轻微的闪动
+			     ;; bugin: Linux mint, bspwm emacs(非client) -> 该设置之后启动的时候有轻微的闪动
 			     ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+			     ;; 重新测试发现：去除`early-init.el'中的字体设置后上述两个设置没有明显区别
 			     (kill-buffer "*scratch*")
 			     ))
 

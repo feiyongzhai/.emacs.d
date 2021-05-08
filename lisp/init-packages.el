@@ -10,7 +10,7 @@
 ;;; treemacs 按键
 (global-set-key (kbd "C-c SPC") 'treemacs)
 
-(global-set-key (kbd "M-P") #'helm-chrome-bookmarks)
+(global-set-key (kbd "M-S-0") #'helm-chrome-bookmarks)
 
 (global-set-key (kbd "C-c y y") #'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-c y i") #'youdao-dictionary-search-from-input)

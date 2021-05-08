@@ -24,11 +24,6 @@
 (global-set-key (kbd "C-x w L") #'windmove-swap-states-right)
 (global-set-key (kbd "C-x w M") #'maximize-window)
 (global-set-key (kbd "C-x w m") #'user/minimize-window)
-(global-set-key (kbd "C-1") 'delete-other-windows)
-(global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
-(define-key global-map  (kbd "M-0") #'delete-window)
 
 (defun user/minimize-window ()
   (interactive)

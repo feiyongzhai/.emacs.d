@@ -57,7 +57,7 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(define-key global-map (kbd "M-p") 'user/google-search)
+(define-key global-map (kbd "M-0") 'user/google-search)
 
 ;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
 (defun user/google-search ()

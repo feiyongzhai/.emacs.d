@@ -31,7 +31,7 @@
 ;; 这个配置似乎可以自动调用 recentf-mode 
 (setq ivy-use-virtual-buffers nil)
 ;; 按键
-(define-key global-map (kbd "C-r") #'counsel-recentf)
+(define-key global-map (kbd "C-c C-r") #'counsel-recentf)
 
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
@@ -45,7 +45,7 @@
 )
 
 ;; (global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
+;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c M-x") 'counsel-M-x)
 ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)

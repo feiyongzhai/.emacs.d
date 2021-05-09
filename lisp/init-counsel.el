@@ -7,6 +7,7 @@
 (add-to-list 'user/package-ensure-installed 'counsel)
 (add-to-list 'user/package-ensure-installed 'ivy)
 (add-to-list 'user/package-ensure-installed 'ctrlf)
+(add-to-list 'user/package-ensure-installed 'anzu)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)
@@ -36,7 +37,8 @@
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 
-(ctrlf-mode 1)
+;; (ctrlf-mode 1)
+(global-anzu-mode t)
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
   (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))

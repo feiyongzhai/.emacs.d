@@ -13,7 +13,7 @@
   (pyim-basedict-enable)	 ; 拼音词库，五笔用户 *不需要* 此行设置
   (setq pyim-default-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
-  (pyim-isearch-mode 1)
+  ;; (pyim-isearch-mode 1)
   )
 ;; (setq default-input-method "pyim")
 ;; (setq-default pyim-english-input-switch-functions

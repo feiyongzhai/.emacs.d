@@ -8,11 +8,14 @@
 
 ;;; configs for pyim
 
-;; (require 'pyim)
-;; (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
-;; (pyim-basedict-enable)	 ; 拼音词库，五笔用户 *不需要* 此行设置
+(with-eval-after-load 'pyim
+  (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
+  (pyim-basedict-enable)	 ; 拼音词库，五笔用户 *不需要* 此行设置
+  (setq pyim-default-scheme 'xiaohe-shuangpin)
+  (setq pyim-page-tooltip 'posframe)
+  (pyim-isearch-mode 1)
+  )
 ;; (setq default-input-method "pyim")
-;; (setq pyim-default-scheme 'xiaohe-shuangpin)
 ;; (setq-default pyim-english-input-switch-functions
 ;; 	      '(pyim-probe-dynamic-english
 ;; 		pyim-probe-isearch-mode
@@ -23,7 +26,6 @@
 ;; 		pyim-probe-punctuation-after-punctuation))
 ;; (global-set-key (kbd "M-j") 'pyim-convert-code-at-point)
 ;; (global-set-key (kbd "C-;") 'pyim-delete-word-from-personal-buffer)
-;; (pyim-isearch-mode 1)
 ;; (setq pyim-page-length 5)
 ;; (setq pyim-page-tooltip 'posframe)
 

@@ -52,6 +52,17 @@
 				   (call-interactively 'global-unset-key)
 				 (call-interactively 'global-set-key))))
 
+(global-set-key (kbd "C-x u") #'transient-undo)
+(defun transient-undo ()
+  (interactive)
+  (let ((echo-keystrokes nil))
+    (undo)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (define-key map "u" #'undo)
+       map)
+     t)))
+
 (defun open-my-init-file()
   "打开我的 init.el 文件"
   (interactive)

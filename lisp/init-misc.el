@@ -31,6 +31,15 @@
 ;;; redirect the backup file path
 (setq backup-directory-alist (quote (("."."~/.emacs.d/.backup"))))
 
+(save-place-mode t)
+;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (find-file "~/.emacs.d/@scratch@")
+	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+	    (kill-buffer "*scratch*")
+	    ))
+
 ;;; personal configs
 (if *is-windows*
     ;; 启动 emacs 后的默认文件夹是桌面文件夹
@@ -43,14 +52,34 @@
 				   (call-interactively 'global-unset-key)
 				 (call-interactively 'global-set-key))))
 
+(global-set-key (kbd "C-x u") #'transient-undo)
+(defun transient-undo ()
+  (interactive)
+  (let ((echo-keystrokes nil))
+    (undo)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (define-key map "u" #'undo)
+       map)
+     t)))
+
 (defun open-my-init-file()
   "打开我的 init.el 文件"
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-;;; 一些常用键位优化
-(define-key global-map (kbd "M-z") 'switch-to-buffer)
-(global-set-key (kbd "C-c b") 'list-bookmarks)
+(define-key global-map (kbd "M-0") 'user/google-search)
+
+;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
+(defun user/google-search ()
+  "Googles a query or region if any."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google: ")))))
 
 ;;; 避免自己手贱动不动就关闭 emacs
 ;; (emacs-lock-mode)

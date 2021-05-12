@@ -1,0 +1,3 @@
+[submodule "site-lisp/move-text"]
+	path = site-lisp/move-text
+	url = https://github.com/manateelazycat/move-text.git

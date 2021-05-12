@@ -8,7 +8,10 @@
   ;; 交换这两个命令的默认绑定
   (define-key dired-mode-map (kbd "w") 'browse-url-of-dired-file)
   (define-key dired-mode-map (kbd "W") 'dired-copy-filename-as-kill)
-  (define-key dired-mode-map (kbd "b") 'dired-up-directory))
+
+  (define-key dired-mode-map (kbd "b") 'dired-up-directory)
+  (define-key dired-mode-map (kbd "C-d") #'bookmark-set)
+  )
 
 ;; 这个快捷键绑定似乎已经写在了 diredx.el 文件中，使用 `dired-jump' 之
 ;; 后命令会被重新绑定快捷键

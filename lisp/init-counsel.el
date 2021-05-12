@@ -7,33 +7,22 @@
 (add-to-list 'user/package-ensure-installed 'counsel)
 (add-to-list 'user/package-ensure-installed 'ivy)
 (add-to-list 'user/package-ensure-installed 'ctrlf)
+(add-to-list 'user/package-ensure-installed 'anzu)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)
 
 ;;; counsel-search
-(define-key global-map (kbd "M-p") 'user/google-search)
+;; (define-key global-map (kbd "M-p") 'counsel-search)
 (setq counsel-search-engine 'google)
-
-;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
-(defun user/google-search ()
-  "Googles a query or region if any."
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if mark-active
-        (buffer-substring (region-beginning) (region-end))
-      (read-string "Google: ")))))
 
 ;;; counsel-bookmark
 (global-set-key (kbd "C-c B") 'counsel-bookmark)
+(global-set-key (kbd "C-c b") 'list-bookmarks)
 
 ;;; ivy-views
 (global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-pop-view)
-
-(global-set-key (kbd "C-x C-b") 'ivy-switch-buffer)
+(global-set-key (kbd "C-c V") 'ivy-switch-view)
 
 ;;; config for swiper, including counsel and ivy
 ;; 现在好像直接写这么一句话就可以了，下面这些键绑定都不需要了
@@ -42,22 +31,23 @@
 ;; 这个配置似乎可以自动调用 recentf-mode 
 (setq ivy-use-virtual-buffers nil)
 ;; 按键
-(define-key global-map (kbd "C-r") #'counsel-recentf)
+(define-key global-map (kbd "C-c C-r") #'counsel-recentf)
 
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 
-(ctrlf-mode 1)
+;; (ctrlf-mode 1)
+(global-anzu-mode t)
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
   (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
 )
 
 ;; (global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "C-c M-x") 'counsel-M-x)
+;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 (global-set-key (kbd "C-c g") 'counsel-git)
@@ -69,18 +59,7 @@
 
 ;;; some tweaks about ivy
 (with-eval-after-load 'counsel
-  (setq-default ivy-initial-inputs-alist
-		'((counsel-minor . "^+")
-		  (counsel-package . "^+")
-		  (counsel-org-capture . "^")
-		  (counsel-M-x . ignore)
-		  (counsel-describe-function . "^")
-		  (counsel-describe-variable . "^")
-		  (org-refile . "^")
-		  (org-agenda-refile . "^")
-		  (org-capture-refile . "^")
-		  (Man-completion-table . "^")
-		  (woman . "^"))))
+  (setq-default ivy-initial-inputs-alist nil))
 
 ;; 让 ivy 的显示移到中间来，使用中发现一个问题，输入法光标不跟随
 ;; (ivy-posframe-mode 1)

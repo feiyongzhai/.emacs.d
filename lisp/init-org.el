@@ -2,7 +2,7 @@
 
 ;;; Code(Myself):
 
-;;; 使得 org 中的时间格式变成英文来规避这个问题
+;;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 
 ;; relocate the org default notes file, which make it easily control

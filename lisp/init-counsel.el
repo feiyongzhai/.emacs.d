@@ -39,6 +39,8 @@
 
 ;; (ctrlf-mode 1)
 (global-anzu-mode t)
+(define-key isearch-mode-map (kbd "C-n") #'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-p") #'isearch-repeat-backward)
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
   (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))

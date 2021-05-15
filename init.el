@@ -42,6 +42,7 @@
 (require 'init-evil)
 (require 'init-ime)
 (require 'init-packages)
+(require 'init-latex)
 
 ;;;; site-lisp
 (require 'init-eshell)

@@ -36,3 +36,5 @@ lisp/init-local.el
 image-dired/.image-dired_db
 @scratch@
 places
+.alarm-clock.cache
+adafruit-wisdom.cache

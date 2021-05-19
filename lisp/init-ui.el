@@ -6,6 +6,7 @@
 ;; 避免光标闪烁
 (blink-cursor-mode -1)
 
+(setq display-time-24hr-format t)
 (setq display-time-default-load-average nil)	;不显示time后面跟着的不明数字（load-average）
 (display-time-mode 1)
 

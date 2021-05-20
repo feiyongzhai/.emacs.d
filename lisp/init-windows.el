@@ -7,7 +7,7 @@
 ;; 2. 可以尝试写一个宏，优化一下代码，因为这些transient类的函数都差不多
 
 ;;; Burly: bookmark windows and frame.
-(add-to-list 'user/package-ensure-installed 'burly)
+(add-to-list 'fei-package-ensure-installed 'burly)
 
 ;;; winner-mode
 (winner-mode 1)
@@ -19,9 +19,9 @@
 (global-set-key (kbd "C-x w K") #'windmove-swap-states-up)
 (global-set-key (kbd "C-x w L") #'windmove-swap-states-right)
 (global-set-key (kbd "C-x w M") #'maximize-window)
-(global-set-key (kbd "C-x w m") #'user/minimize-window)
+(global-set-key (kbd "C-x w m") #'fei-minimize-window)
 
-(defun user/minimize-window ()
+(defun fei-minimize-window ()
   (interactive)
   (minimize-window)
   (call-interactively #'other-window))
@@ -105,7 +105,7 @@
 (global-set-key (kbd "C-x {") #'transient-shrink-window)
 
 ;;; 关闭 buffer 自定义函数
-(defun user/kill-current-buffer()
+(defun fei-kill-current-buffer()
 "智能关闭 windows 和 buffer"
   (interactive)
   (if (not (one-window-p))
@@ -115,7 +115,7 @@
     ;; (kill-buffer)
     ))
 ;; 按键
-(global-set-key (kbd "M-k") 'user/kill-current-buffer)
+(global-set-key (kbd "M-k") 'fei-kill-current-buffer)
 
 (provide 'init-windows)
 ;;; init-windows.el ends here.

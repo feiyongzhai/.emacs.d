@@ -2,9 +2,9 @@
 
 ;;; Code:
 
-;;; Add to list `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'pyim)
-(add-to-list 'user/package-ensure-installed 'rime)
+;;; Add to list `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'pyim)
+(add-to-list 'fei-package-ensure-installed 'rime)
 
 ;;; configs for pyim
 

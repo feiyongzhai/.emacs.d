@@ -2,12 +2,12 @@
 
 ;;; Code:
 
-;;; Add to `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'swiper)
-(add-to-list 'user/package-ensure-installed 'counsel)
-(add-to-list 'user/package-ensure-installed 'ivy)
-(add-to-list 'user/package-ensure-installed 'ctrlf)
-(add-to-list 'user/package-ensure-installed 'anzu)
+;;; Add to `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'swiper)
+(add-to-list 'fei-package-ensure-installed 'counsel)
+(add-to-list 'fei-package-ensure-installed 'ivy)
+(add-to-list 'fei-package-ensure-installed 'ctrlf)
+(add-to-list 'fei-package-ensure-installed 'anzu)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)

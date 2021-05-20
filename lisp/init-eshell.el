@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;; eshell 定制
-(defun user/eshell ()
+(defun fei-eshell ()
   "如果 *eshell* buffer 存在就跳转到这个 buffer，没有就新建一个，
 如果处于 *eshell* 就跳转到上一个 buffer"
   (interactive)
@@ -15,7 +15,7 @@
 	  (t
 	   (eshell)))))
 ;; 按键
-(define-key global-map (kbd "C-t") 'user/eshell)
+(define-key global-map (kbd "C-t") 'fei-eshell)
 
 ;; (require 'aweshell)
 

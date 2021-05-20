@@ -68,10 +68,10 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(define-key global-map (kbd "M-0") 'user/google-search)
+(define-key global-map (kbd "M-0") 'fei-google-search)
 
 ;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
-(defun user/google-search ()
+(defun fei-google-search ()
   "Googles a query or region if any."
   (interactive)
   (browse-url
@@ -85,7 +85,7 @@
 ;; (emacs-lock-mode)
 
 ;;; 快速切换上一个 buffer --- code copied from meow-mode
-(defun user/meow-last-buffer (arg)
+(defun fei-meow-last-buffer (arg)
   "Switch to last buffer.
 Argument ARG if not nil, switching in a new window."
   (interactive "P")
@@ -98,7 +98,7 @@ Argument ARG if not nil, switching in a new window."
     (split-window)
     (mode-line-other-buffer))))
 ;; 按键
-(define-key global-map (kbd "C--") #'user/meow-last-buffer)
+(define-key global-map (kbd "C--") #'fei-meow-last-buffer)
 
 (provide 'init-misc)
 ;;; init-misc.el ends here.

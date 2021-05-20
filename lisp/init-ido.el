@@ -2,8 +2,8 @@
 
 ;;; Code:
 
-;;; Add to `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'smex)
+;;; Add to `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'smex)
 
 (ido-mode 1)
 (setq ido-enable-flex-matching t)

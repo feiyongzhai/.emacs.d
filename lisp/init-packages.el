@@ -2,10 +2,10 @@
 
 ;;; Code:
 
-;;; Add to list `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'paredit)
-(add-to-list 'user/package-ensure-installed 'treemacs-all-the-icons)
-(add-to-list 'user/package-ensure-installed 'helm-chrome)
+;;; Add to list `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'paredit)
+(add-to-list 'fei-package-ensure-installed 'treemacs-all-the-icons)
+(add-to-list 'fei-package-ensure-installed 'helm-chrome)
 
 ;;; treemacs 按键
 (global-set-key (kbd "C-c SPC") 'treemacs)
@@ -14,7 +14,7 @@
 
 (global-set-key (kbd "C-c y y") #'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-c y i") #'youdao-dictionary-search-from-input)
-(defun user/youdao-dictionary-search-from-input (_arg)
+(defun fei-youdao-dictionary-search-from-input (_arg)
   (interactive "P")
   (message "施工中")
   (when _arg

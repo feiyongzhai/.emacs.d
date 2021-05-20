@@ -23,6 +23,9 @@
     ))
 
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "M-s") nil)
+  (define-key paredit-mode-map (kbd "M-r") #'paredit-splice-sexp))
 
 ;;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)

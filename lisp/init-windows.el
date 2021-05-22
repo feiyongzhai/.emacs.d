@@ -63,8 +63,20 @@
        (define-key map "O" #'other-window-backward)
        map)
      t)))
+
+(defun transient-other-window-backward ()
+  (interactive)
+  (let ((echo-keystrokes nil))
+    (other-window-backward)
+    (set-transient-map
+     (let ((map (make-sparse-keymap)))
+       (define-key map "o" #'other-window)
+       (define-key map "O" #'other-window-backward)
+       map)
+     t)))
 ;; 按键
 (global-set-key (kbd "C-x o") #'transient-other-window)
+(global-set-key (kbd "C-x O") #'transient-other-window-backward)
 
 ;;; transient版本的扩大窗口
 (defun transient-enlage-window ()

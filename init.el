@@ -41,6 +41,7 @@
 ;; (require 'init-projectile)
 (require 'init-evil)
 (require 'init-ime)
+(require 'init-dict)
 (require 'init-packages)
 (require 'init-latex)
 

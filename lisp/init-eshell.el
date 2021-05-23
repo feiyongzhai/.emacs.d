@@ -4,7 +4,9 @@
 
 ;;; eshell 定制
 (defun fei-eshell ()
-  "如果 *eshell* buffer 存在就跳转到这个 buffer，没有就新建一个，
+  "这个函数已经过时
+
+如果 *eshell* buffer 存在就跳转到这个 buffer，没有就新建一个，
 如果处于 *eshell* 就跳转到上一个 buffer"
   (interactive)
   (let ((buf (buffer-name)))
@@ -15,7 +17,7 @@
 	  (t
 	   (eshell)))))
 ;; 按键
-(define-key global-map (kbd "C-t") 'fei-eshell)
+(define-key global-map (kbd "<C-return>") 'eshell)
 
 ;; (require 'aweshell)
 

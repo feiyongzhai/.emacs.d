@@ -6,8 +6,6 @@
 (add-to-list 'fei-package-ensure-installed 'swiper)
 (add-to-list 'fei-package-ensure-installed 'counsel)
 (add-to-list 'fei-package-ensure-installed 'ivy)
-(add-to-list 'fei-package-ensure-installed 'ctrlf)
-(add-to-list 'fei-package-ensure-installed 'anzu)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)
@@ -36,18 +34,6 @@
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
-
-;; (ctrlf-mode 1)
-(global-anzu-mode t)
-(define-key isearch-mode-map (kbd "C-n") #'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "C-p") #'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "M->") #'isearch-end-of-buffer)
-(define-key isearch-mode-map (kbd "M-<") #'isearch-beginning-of-buffer)
-(with-eval-after-load 'ctrlf
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
-)
-
 ;; (global-set-key "\C-s" 'swiper)
 ;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c M-x") 'counsel-M-x)

@@ -98,7 +98,7 @@ Argument ARG if not nil, switching in a new window."
     (split-window)
     (mode-line-other-buffer))))
 ;; 按键
-(define-key global-map (kbd "C--") #'fei-meow-last-buffer)
+(define-key global-map (kbd "M--") #'fei-meow-last-buffer)
 
 (provide 'init-misc)
 ;;; init-misc.el ends here.

@@ -2,6 +2,14 @@
 
 ;;; Code:
 
+;;; *e?shell* buffer display rule
+(add-to-list 'display-buffer-alist
+	     '("\\*e?shell\\*"
+	       (display-buffer-in-side-window)
+	       (window-height . 0.25)
+	       (side . bottom)
+	       (slot . 0)))
+
 ;;; eshell 定制
 (defun fei-eshell ()
   "这个函数已经过时

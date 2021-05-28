@@ -64,3 +64,4 @@
 ;;   (load-file custom-file))
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)

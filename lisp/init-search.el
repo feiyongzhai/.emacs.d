@@ -21,5 +21,6 @@
 (define-key isearch-mode-map (kbd "C-p") #'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "M->") #'isearch-end-of-buffer)
 (define-key isearch-mode-map (kbd "M-<") #'isearch-beginning-of-buffer)
+(define-key isearch-mode-map (kbd "C-'") #'avy-isearch)
 
 (provide 'init-search)

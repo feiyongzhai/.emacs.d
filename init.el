@@ -28,6 +28,7 @@
 (require 'init-misc)
 (require 'init-ibuffer)
 (require 'init-windows)
+(require 'init-tab)
 (require 'init-dired)
 (require 'init-proxy)
 (require 'init-vc)

@@ -2,9 +2,9 @@
 
 ;;; Code:
 
-;;; Add to list `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'pyim)
-(add-to-list 'user/package-ensure-installed 'rime)
+;;; Add to list `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'pyim)
+(add-to-list 'fei-package-ensure-installed 'rime)
 
 ;;; configs for pyim
 
@@ -42,7 +42,7 @@
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.config/fcitx/rime"))
       (*is-windows*
-       (setq rime-user-data-dir "~/Rime/"))
+       (setq rime-user-data-dir "~/.emacs.d/rime"))
       (t (message "无法设置RIME的数据文件夹，请自行设置！")))
 
 (setq rime-posframe-properties

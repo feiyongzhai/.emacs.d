@@ -2,12 +2,10 @@
 
 ;;; Code:
 
-;;; Add to `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'swiper)
-(add-to-list 'user/package-ensure-installed 'counsel)
-(add-to-list 'user/package-ensure-installed 'ivy)
-(add-to-list 'user/package-ensure-installed 'ctrlf)
-(add-to-list 'user/package-ensure-installed 'anzu)
+;;; Add to `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'swiper)
+(add-to-list 'fei-package-ensure-installed 'counsel)
+(add-to-list 'fei-package-ensure-installed 'ivy)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)
@@ -36,14 +34,6 @@
 (setq enable-recursive-minibuffers t)
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
-
-;; (ctrlf-mode 1)
-(global-anzu-mode t)
-(with-eval-after-load 'ctrlf
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
-)
-
 ;; (global-set-key "\C-s" 'swiper)
 ;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "C-c M-x") 'counsel-M-x)
@@ -52,7 +42,7 @@
 (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-c k") 'counsel-rg)
 (global-set-key (kbd "C-c l") 'counsel-locate)
 ;; 这个配置会使得 M-* 类别的键失效
 ;; (define-key ivy-minibuffer-map (kbd "<ESC>") 'minibuffer-keyboard-quit)

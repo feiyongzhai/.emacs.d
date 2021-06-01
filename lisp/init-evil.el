@@ -2,8 +2,8 @@
 
 ;;; Code:
 
-;;; Add to list `user/package-ensure-installed'
-(add-to-list 'user/package-ensure-installed 'evil)
+;;; Add to list `fei-package-ensure-installed'
+(add-to-list 'fei-package-ensure-installed 'evil)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

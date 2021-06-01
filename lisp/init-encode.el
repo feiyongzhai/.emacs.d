@@ -13,7 +13,7 @@
 ;; 这个命令会导致 emacsclient 出现编码问题：server 打开时候，
 ;; 终端命令 ec file.name 会出现文件名乱码
 ;; (prefer-coding-system        'utf-8)    ; with sugar on top
-(setq default-process-coding-system '(utf-8 . utf-8))
+;; (setq default-process-coding-system '(utf-8 . utf-8))
 
 ;; (setq-default
 ;;  initial-scratch-message

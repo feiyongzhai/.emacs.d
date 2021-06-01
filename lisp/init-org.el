@@ -34,10 +34,10 @@
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))
 ;; 按键
-(global-set-key (kbd "C-c c") 'user/org-capture)
-(define-key global-map (kbd "<f5>") 'user/org-capture)
+(global-set-key (kbd "C-c c") 'fei-org-capture)
+(define-key global-map (kbd "<f5>") 'fei-org-capture)
 
-(defun user/org-capture ()
+(defun fei-org-capture ()
   (interactive)
   (org-capture)
   (activate-input-method 'rime)

@@ -28,6 +28,7 @@
 (require 'init-misc)
 (require 'init-ibuffer)
 (require 'init-windows)
+(require 'init-tab)
 (require 'init-dired)
 (require 'init-proxy)
 (require 'init-vc)
@@ -38,10 +39,13 @@
 (require 'init-company)
 (require 'init-counsel)
 (require 'init-ido)
+(require 'init-search)
 ;; (require 'init-projectile)
 (require 'init-evil)
 (require 'init-ime)
+(require 'init-dict)
 (require 'init-packages)
+(require 'init-latex)
 
 ;;;; site-lisp
 (require 'init-eshell)
@@ -61,3 +65,4 @@
 ;;   (load-file custom-file))
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)

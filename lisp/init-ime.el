@@ -42,7 +42,7 @@
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.config/fcitx/rime"))
       (*is-windows*
-       (setq rime-user-data-dir "~/Rime/"))
+       (setq rime-user-data-dir "~/.emacs.d/rime"))
       (t (message "无法设置RIME的数据文件夹，请自行设置！")))
 
 (setq rime-posframe-properties

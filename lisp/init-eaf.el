@@ -1,5 +1,3 @@
-(global-set-key (kbd "M-s M-w") 'eaf-search-it)
-
 (defun fei-eaf-start ()
   (interactive)
   (use-package eaf
@@ -22,7 +20,8 @@
 	  eaf-proxy-port "1089")
     (setq eaf-browser-default-search-engine "duckduckgo"))
   (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
-				      ("." . browse-url-default-browser))))
+				      ("." . browse-url-default-browser)))
+  (global-set-key (kbd "M-s M-w") 'eaf-search-it))
 
 
 

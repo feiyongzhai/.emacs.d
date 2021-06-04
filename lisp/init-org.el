@@ -18,7 +18,7 @@
   (setq org-capture-templates
 	'(("t" "Task" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
-	   "* TODO %?\n  CREATE: %T\n  %a"
+	   "* TODO %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("i" "Idea" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Ideas")

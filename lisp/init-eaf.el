@@ -21,7 +21,8 @@
     (setq eaf-browser-default-search-engine "duckduckgo"))
   (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
 				      ("." . browse-url-default-browser)))
-  (global-set-key (kbd "M-s M-w") 'eaf-search-it))
+  (global-set-key (kbd "M-s M-w") 'eaf-search-it)
+  (global-set-key (kbd "C-c e") 'eaf-open-this-buffer))
 
 
 

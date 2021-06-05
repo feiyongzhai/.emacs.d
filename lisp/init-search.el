@@ -5,8 +5,6 @@
 ;; 2. isearch + anzu
 ;; 3. isearch
 ;; 4. swiper
-(add-to-list 'fei-package-ensure-installed 'ctrlf)
-(add-to-list 'fei-package-ensure-installed 'anzu)
 
 ;; (ctrlf-mode 1)
 (with-eval-after-load 'ctrlf

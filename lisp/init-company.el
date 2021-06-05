@@ -2,8 +2,6 @@
 
 ;;; Code:
 
-;;; Add to `fei-package-ensure-installed'
-(add-to-list 'fei-package-ensure-installed 'company)
 
 ;;; Keys tweaks
 (with-eval-after-load 'company

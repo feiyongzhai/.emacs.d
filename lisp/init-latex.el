@@ -1,6 +1,4 @@
 
-(add-to-list 'fei-package-ensure-installed 'auctex)
-(add-to-list 'fei-package-ensure-installed 'cdlatex)
 
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (cdlatex-mode t)))

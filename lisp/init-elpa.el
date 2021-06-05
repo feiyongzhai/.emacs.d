@@ -17,5 +17,20 @@
 	  fei-package-ensure-installed)
   (message "ensured package installed successfully!"))
 
+;;; 需要安装的 packages
+(setq fei-package-ensure-installed
+      '(evil
+	company
+	paredit
+	smex
+	burly
+	counsel ivy swiper ctrlf anzu
+	pyim rime
+	youdao-dictionary
+	auctex cdlatex
+	treemacs-all-the-icons
+	helm-chrome
+	projectile))
+
 (provide 'init-elpa)
 ;;; init-elpa.el ends here.

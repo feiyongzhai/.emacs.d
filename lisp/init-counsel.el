@@ -2,10 +2,6 @@
 
 ;;; Code:
 
-;;; Add to `fei-package-ensure-installed'
-(add-to-list 'fei-package-ensure-installed 'swiper)
-(add-to-list 'fei-package-ensure-installed 'counsel)
-(add-to-list 'fei-package-ensure-installed 'ivy)
 
 ;; (global-set-key (kbd "M-y") 'counsel-yank-pop)
 ;; (define-key ivy-minibuffer-map (kbd "M-y") #'next-line)

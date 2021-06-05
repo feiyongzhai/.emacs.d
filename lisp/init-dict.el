@@ -1,4 +1,4 @@
-(add-to-list 'fei-package-ensure-installed 'youdao-dictionary)
+
 
 (global-set-key (kbd "C-c y y") #'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-c y i") #'youdao-dictionary-search-from-input)

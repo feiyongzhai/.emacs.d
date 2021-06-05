@@ -2,10 +2,6 @@
 
 ;;; Code:
 
-;;; Add to list `fei-package-ensure-installed'
-(add-to-list 'fei-package-ensure-installed 'paredit)
-(add-to-list 'fei-package-ensure-installed 'treemacs-all-the-icons)
-(add-to-list 'fei-package-ensure-installed 'helm-chrome)
 
 ;;; treemacs 按键
 (global-set-key (kbd "C-c SPC") 'neotree-toggle)

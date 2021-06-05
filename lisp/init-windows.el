@@ -6,8 +6,6 @@
 ;; [ ] 1. 给transient类函数添加message提示
 ;; [x] 2. 可以尝试写一个宏，优化一下代码，因为这些transient类的函数都差不多
 
-;;; Burly: bookmark windows and frame.
-(add-to-list 'fei-package-ensure-installed 'burly)
 
 ;;; winner-mode
 (winner-mode 1)

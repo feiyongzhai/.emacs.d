@@ -8,7 +8,7 @@
 (add-to-list 'fei-package-ensure-installed 'helm-chrome)
 
 ;;; treemacs 按键
-(global-set-key (kbd "C-c SPC") 'treemacs)
+(global-set-key (kbd "C-c SPC") 'neotree-toggle)
 
 (global-set-key (kbd "C-M-0") #'helm-chrome-bookmarks)
 

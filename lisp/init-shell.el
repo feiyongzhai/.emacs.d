@@ -1,4 +1,4 @@
-;;; init-eshell.el  --- configs for eshell
+;;; init-eshell.el  --- configs for eshell, shell terminal
 
 ;;; Code:
 
@@ -27,7 +27,19 @@
 ;; 按键
 (define-key global-map (kbd "<C-return>") 'eshell)
 
-;; (require 'aweshell)
+;;; quick open terminal in current dir
+(cond (*is-linux*
+       (global-set-key (kbd "C-c <C-return>")
+		       (lambda ()
+			 (interactive)
+			 (shell-command "gnome-terminal"))))
+      (t
+       (global-set-key (kbd "C-c <C-return>")
+		       (lambda ()
+			 (interactive)
+			 (if (fboundp 'terminal-here)
+			     (terminal-here))))))
 
-(provide 'init-eshell)
-;;; init-eshell.el ends here.
+
+(provide 'init-shell)
+;;; init-shell.el ends here.

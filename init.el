@@ -46,9 +46,9 @@
 (require 'init-dict)
 (require 'init-packages)
 (require 'init-latex)
+(require 'init-shell)
 
 ;;;; site-lisp
-(require 'init-eshell)
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-move-text)

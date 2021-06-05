@@ -49,6 +49,7 @@
 (require 'init-shell)
 
 ;;;; site-lisp
+(require 'init-eaf)
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-move-text)

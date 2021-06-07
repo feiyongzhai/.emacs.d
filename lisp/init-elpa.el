@@ -23,14 +23,12 @@
 	company
 	paredit
 	smex
-	burly
-	counsel ivy swiper ctrlf anzu
+	counsel ivy swiper ctrlf anzu avy
 	pyim rime
 	youdao-dictionary
 	auctex cdlatex
-	treemacs-all-the-icons
-	helm-chrome
-	projectile))
+	neotree
+	helm-chrome))
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here.

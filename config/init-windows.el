@@ -21,6 +21,7 @@
 
 (defmacro transient-command (fun-name command &rest keymaps)
   "一个方便定义瞬时命令的宏"
+  (declare (indent 1))
   `(defun ,fun-name ()
      (interactive)
      (let ((echo-keystrokes nil))
@@ -39,14 +40,14 @@
   (call-interactively #'other-window))
 
 (transient-command transient-winner-undo
-		   (winner-undo)
-		   '(("u" . winner-undo)
-		     ("U" . winner-redo)))
+  (winner-undo)
+  '(("u" . winner-undo)
+    ("U" . winner-redo)))
 
 (transient-command transient-winner-redo
-		   (winner-redo)
-		   '(("u" . winner-undo)
-		     ("U" . winner-redo)))
+  (winner-redo)
+  '(("u" . winner-undo)
+    ("U" . winner-redo)))
 
 ;;; Alternative windows switch scheme
 (defun other-window-backward ()
@@ -54,47 +55,47 @@
   (other-window -1))
 
 (transient-command transient-other-window
-		   (other-window 1)
-		   '(("o" . other-window)
-		     ("O" . other-window-backward)))
+  (other-window 1)
+  '(("o" . other-window)
+    ("O" . other-window-backward)))
 
 (transient-command transient-other-window-backward
-		   (other-window-backward)
-		   '(("o" . other-window)
-		     ("O" . other-window-backward)))
+  (other-window-backward)
+  '(("o" . other-window)
+    ("O" . other-window-backward)))
 ;; 按键
 (global-set-key (kbd "C-x o") #'transient-other-window)
 (global-set-key (kbd "C-x O") #'transient-other-window-backward)
 
 ;;; transient版本的扩大窗口
 (transient-command transient-enlage-window
-		   (call-interactively 'enlarge-window-horizontally)
-		   '(("}" . enlarge-window-horizontally)
-		     ("{" . shrink-window-horizontally)
-		     ("]" . enlarge-window-horizontally)
-		     ("[" . shrink-window-horizontally)
-		     ("=" . balance-windows)
-		     ("|" . maximize-window)
-		     ("\\" . minimize-window)))
+  (call-interactively 'enlarge-window-horizontally)
+  '(("}" . enlarge-window-horizontally)
+    ("{" . shrink-window-horizontally)
+    ("]" . enlarge-window-horizontally)
+    ("[" . shrink-window-horizontally)
+    ("=" . balance-windows)
+    ("|" . maximize-window)
+    ("\\" . minimize-window)))
 ;; 按键
 (global-set-key (kbd "C-x }") #'transient-enlage-window)
 
 ;;; transient版本的缩小窗口
 (transient-command transient-shrink-window
-		   (call-interactively 'shrink-window-horizontally)
-		   '(("}" . enlarge-window-horizontally)
-		     ("{" . shrink-window-horizontally)
-		     ("]" . enlarge-window-horizontally)
-		     ("[" . shrink-window-horizontally)
-		     ("=" . balance-windows)
-		     ("|" . maximize-window)
-		     ("\\" . minimize-window)))
+  (call-interactively 'shrink-window-horizontally)
+  '(("}" . enlarge-window-horizontally)
+    ("{" . shrink-window-horizontally)
+    ("]" . enlarge-window-horizontally)
+    ("[" . shrink-window-horizontally)
+    ("=" . balance-windows)
+    ("|" . maximize-window)
+    ("\\" . minimize-window)))
 ;; 按键
 (global-set-key (kbd "C-x {") #'transient-shrink-window)
 
 ;;; 关闭 buffer 自定义函数
 (defun fei-kill-current-buffer()
-"智能关闭 windows 和 buffer"
+  "智能关闭 windows 和 buffer"
   (interactive)
   (cond
    ((minibufferp)

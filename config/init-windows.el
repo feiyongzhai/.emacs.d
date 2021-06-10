@@ -98,12 +98,9 @@
   "智能关闭 windows 和 buffer"
   (interactive)
   (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((one-window-p)
-    (kill-buffer))
-   (t
-    (kill-buffer-and-window))))
+   ((minibufferp)  (keyboard-escape-quit))
+   ((one-window-p) (kill-buffer))
+   (t              (kill-buffer-and-window))))
 
 ;; 按键
 (global-set-key (kbd "M-k") 'fei-kill-current-buffer)

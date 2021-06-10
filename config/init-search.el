@@ -18,5 +18,11 @@
 (define-key isearch-mode-map (kbd "M->") #'isearch-end-of-buffer)
 (define-key isearch-mode-map (kbd "M-<") #'isearch-beginning-of-buffer)
 (define-key isearch-mode-map (kbd "C-'") #'avy-isearch)
+(define-key isearch-mode-map (kbd "M-w")
+  (lambda ()
+    (interactive)
+    (isearch-exit)
+    (call-interactively 'copy-region-as-kill)))
+
 
 (provide 'init-search)

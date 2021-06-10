@@ -6,6 +6,12 @@
 ;; 3. isearch
 ;; 4. swiper
 
+(defmacro fei-define-key-with-map (map &rest keymaps)
+  (declare (indent 1))
+  `(mapcar (lambda (x)
+	     (define-key ,map (kbd (car x)) (cdr x)))
+	   ,@keymaps))
+
 ;; (ctrlf-mode 1)
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
@@ -13,16 +19,15 @@
 )
 
 ;; (global-anzu-mode t)
-(define-key isearch-mode-map (kbd "C-n") #'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "C-p") #'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "M->") #'isearch-end-of-buffer)
-(define-key isearch-mode-map (kbd "M-<") #'isearch-beginning-of-buffer)
-(define-key isearch-mode-map (kbd "C-'") #'avy-isearch)
-(define-key isearch-mode-map (kbd "M-w")
-  (lambda ()
-    (interactive)
-    (isearch-exit)
-    (call-interactively 'copy-region-as-kill)))
-
+(fei-define-key-with-map isearch-mode-map
+  '(("C-n" . isearch-repeat-forward)
+    ("C-p" . isearch-repeat-backward)
+    ("M-<" . isearch-end-of-buffer)
+    ("M->" . isearch-beginning-of-buffer)
+    ("C-'" . avy-isearch)
+    ("M-w" . (lambda ()
+	       (interactive)
+	       (isearch-exit)
+	       (call-interactively 'copy-region-as-kill)))))
 
 (provide 'init-search)

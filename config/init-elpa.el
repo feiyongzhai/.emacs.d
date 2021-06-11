@@ -28,7 +28,7 @@
 	youdao-dictionary
 	auctex cdlatex
 	neotree
-	helm-chrome))
+	))
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here.

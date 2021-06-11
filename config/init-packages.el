@@ -6,8 +6,6 @@
 ;;; treemacs 按键
 (global-set-key (kbd "C-c SPC") 'neotree-toggle)
 
-(global-set-key (kbd "C-M-0") #'helm-chrome-bookmarks)
-
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (with-eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "M-s") nil)

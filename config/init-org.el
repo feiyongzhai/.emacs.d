@@ -43,8 +43,6 @@
   (activate-input-method 'rime)
   (message "RIME输入法已经激活！"))
 
-;;; config for org-bullets
-(add-hook 'org-mode-hook #'org-bullets-mode)
 
 ;;; Code(Copy):
 

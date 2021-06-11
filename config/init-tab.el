@@ -1,13 +1,13 @@
 
 (transient-command transient-tab-next
-		   (tab-next)
-		   '(("o" . tab-next)
-		     ("O" . tab-previous)))
+  (tab-next)
+  '(("o" . tab-next)
+    ("O" . tab-previous)))
 
 (transient-command transient-tab-previous
-		   (tab-previous)
-		   '(("o" . tab-next)
-		     ("O" . tab-previous)))
+  (tab-previous)
+  '(("o" . tab-next)
+    ("O" . tab-previous)))
 
 (global-set-key (kbd "C-x t O") #'transient-tab-previous)
 (global-set-key (kbd "C-x t o") #'transient-tab-next)

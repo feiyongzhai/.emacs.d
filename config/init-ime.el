@@ -6,8 +6,8 @@
 ;;; configs for pyim
 
 (with-eval-after-load 'pyim
-  (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
-  (pyim-basedict-enable)	 ; 拼音词库，五笔用户 *不需要* 此行设置
+  (require 'pyim-basedict)
+  (pyim-basedict-enable)
   (setq pyim-default-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
   ;; (pyim-isearch-mode 1)
@@ -28,13 +28,7 @@
 
 ;;; configs for rime
 
-;; works on mint 
-;; details:
-;; emacs-version output:
-;; GNU Emacs 27.1 (build 1, x86_64-pc-linux-gnu, GTK+ Version 3.24.20, cairo version 1.16.0) of 2020-09-20
-;; linux version :
-;; linux mint 20
-;; windows 现在可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
+;; windows 可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
 
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.config/fcitx/rime"))

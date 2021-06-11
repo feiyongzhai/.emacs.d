@@ -29,7 +29,7 @@
 ;; no backup-file
 ;; (setq make-backup-files nil)
 ;;; redirect the backup file path
-(setq backup-directory-alist (quote (("."."~/.emacs.d/.backup"))))
+(setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 
 (save-place-mode t)
 ;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
@@ -46,11 +46,12 @@
     (cd "D:/桌面"))
 
 ;;; quick set key and unset key
-(global-set-key (kbd "<f9>") (defun global-set-or-unset-key (arg)
-			       (interactive "P")
-			       (if arg
-				   (call-interactively 'global-unset-key)
-				 (call-interactively 'global-set-key))))
+(global-set-key (kbd "<f9>")
+		(defun global-set-or-unset-key (arg)
+		  (interactive "P")
+		  (if arg
+		      (call-interactively 'global-unset-key)
+		    (call-interactively 'global-set-key))))
 
 (global-set-key (kbd "C-x u") #'transient-undo)
 (defun transient-undo ()
@@ -81,8 +82,6 @@
         (buffer-substring (region-beginning) (region-end))
       (read-string "Google: ")))))
 
-;;; 避免自己手贱动不动就关闭 emacs
-;; (emacs-lock-mode)
 
 ;;; 快速切换上一个 buffer --- code copied from meow-mode
 (defun fei-meow-last-buffer (arg)

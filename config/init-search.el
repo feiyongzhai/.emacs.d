@@ -6,11 +6,7 @@
 ;; 3. isearch
 ;; 4. swiper
 
-(defmacro fei-define-key-with-map (map &rest keymaps)
-  (declare (indent 1))
-  `(mapcar (lambda (x)
-	     (define-key ,map (kbd (car x)) (cdr x)))
-	   ,@keymaps))
+(require 'init-func)
 
 ;; (ctrlf-mode 1)
 (with-eval-after-load 'ctrlf

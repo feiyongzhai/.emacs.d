@@ -1,3 +1,4 @@
+(require 'init-func)
 
 (transient-command transient-tab-next
   (tab-next)
@@ -9,14 +10,15 @@
   '(("o" . tab-next)
     ("O" . tab-previous)))
 
-(global-set-key (kbd "C-x t O") #'transient-tab-previous)
-(global-set-key (kbd "C-x t o") #'transient-tab-next)
-
-(global-set-key (kbd "C-x t l") #'tab-list)
-(global-set-key (kbd "C-x t t") #'tab-bar-select-tab-by-name)
-(global-set-key (kbd "C-x t r") #'tab-recent)
-(global-set-key (kbd "C-x t n") #'tab-new)
-(global-set-key (kbd "C-x t R") #'tab-rename)
-(global-set-key (kbd "C-x t u") #'tab-undo)
+(fei-define-key-with-map global-map
+  '(("C-x t O" . transient-tab-previous)
+    ("C-x t o" . transient-tab-next)
+    ("C-x t l" . tab-list)
+    ("C-x t t" . tab-bar-select-tab-by-name)
+    ("C-x t r" . tab-recent)
+    ("C-x t n" . tab-new)
+    ("C-x t R" . tab-rename)
+    ("C-x t u" . tab-undo)
+    ))
 
 (provide 'init-tab)

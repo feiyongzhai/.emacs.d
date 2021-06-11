@@ -19,20 +19,7 @@
 (global-set-key (kbd "C-x w M") #'maximize-window)
 (global-set-key (kbd "C-x w m") #'fei-minimize-window)
 
-(defmacro transient-command (fun-name command &rest keymaps)
-  "一个方便定义瞬时命令的宏"
-  (declare (indent 1))
-  `(defun ,fun-name ()
-     (interactive)
-     (let ((echo-keystrokes nil))
-       ,command
-       (set-transient-map
-	(let ((map (make-sparse-keymap)))
-	  (mapcar (lambda (x)
-		    (define-key map (kbd (car x)) (cdr x)))
-		  ,@keymaps)
-	  map)
-	t))))
+
 
 (defun fei-minimize-window ()
   (interactive)

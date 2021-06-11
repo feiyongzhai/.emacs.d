@@ -1,5 +1,7 @@
 ;;; init-misc.el --- misc configs
 
+(require 'init-func)
+
 ;;; Code:
 
 ;;; recentf-mode
@@ -54,15 +56,10 @@
 		    (call-interactively 'global-set-key))))
 
 (global-set-key (kbd "C-x u") #'transient-undo)
-(defun transient-undo ()
-  (interactive)
-  (let ((echo-keystrokes nil))
-    (undo)
-    (set-transient-map
-     (let ((map (make-sparse-keymap)))
-       (define-key map "u" #'undo)
-       map)
-     t)))
+(transient-command transient-undo
+  (undo)
+  '(("u" . undo)))
+
 
 (defun open-my-init-file()
   "打开我的 init.el 文件"

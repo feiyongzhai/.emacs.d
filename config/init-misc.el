@@ -55,12 +55,13 @@
 		      (call-interactively 'global-unset-key)
 		    (call-interactively 'global-set-key))))
 
+(global-set-key (kbd "C-z") #'undo)
 (global-set-key (kbd "C-x u") #'transient-undo)
 (transient-command transient-undo
   (undo)
   '(("u" . undo)))
 
-
+(global-set-key (kbd "ESC ESC c") #'open-my-init-file)
 (defun open-my-init-file()
   "打开我的 init.el 文件"
   (interactive)

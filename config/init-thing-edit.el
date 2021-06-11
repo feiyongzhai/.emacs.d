@@ -53,7 +53,7 @@
     ("P" . thing-replace-parentheses)
     ("L" . thing-replace-line)
     ))
-(global-set-key (kbd "C-z") user-thing-edit-map)
+(global-set-key (kbd "M-o") user-thing-edit-map)
 
 (provide 'init-thing-edit)
 ;;; init-thing-edit.el ends here

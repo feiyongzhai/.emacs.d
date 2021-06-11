@@ -1,25 +1,33 @@
 ;;; init-windows.el  --- configs for windows
 
+(require 'init-func)
+
 ;;; Code:
 
 ;;;TODO
 ;; [ ] 1. 给transient类函数添加message提示
 ;; [x] 2. 可以尝试写一个宏，优化一下代码，因为这些transient类的函数都差不多
 
+;;; shortkeys
+(fei-define-key-with-map global-map
+  '(("C-x w u" . transient-winner-undo)
+    ("C-x w U" . transient-winner-redo)
+    ("C-x w e" . balance-windows)
+    ("C-x w H" . windmove-swap-states-left)
+    ("C-x w J" . windmove-swap-states-down)
+    ("C-x w K" . windmove-swap-states-up)
+    ("C-x w L" . windmove-swap-states-right)
+    ("C-x w M" . maximize-window)
+    ("C-x w m" . fei-minimize-window)
+    ("C-x o" . transient-other-window)
+    ("C-x O" . transient-other-window-backward)
+    ("C-x {" . transient-shrink-window)
+    ("C-x }" . transient-enlage-window)
+    ("M-k" . fei-kill-current-buffer)
+    ))
 
 ;;; winner-mode
 (winner-mode 1)
-(global-set-key (kbd "C-x w u") #'transient-winner-undo)
-(global-set-key (kbd "C-x w U") #'transient-winner-redo)
-(global-set-key (kbd "C-x w e") #'balance-windows)
-(global-set-key (kbd "C-x w H") #'windmove-swap-states-left)
-(global-set-key (kbd "C-x w J") #'windmove-swap-states-down)
-(global-set-key (kbd "C-x w K") #'windmove-swap-states-up)
-(global-set-key (kbd "C-x w L") #'windmove-swap-states-right)
-(global-set-key (kbd "C-x w M") #'maximize-window)
-(global-set-key (kbd "C-x w m") #'fei-minimize-window)
-
-
 
 (defun fei-minimize-window ()
   (interactive)
@@ -50,9 +58,6 @@
   (other-window-backward)
   '(("o" . other-window)
     ("O" . other-window-backward)))
-;; 按键
-(global-set-key (kbd "C-x o") #'transient-other-window)
-(global-set-key (kbd "C-x O") #'transient-other-window-backward)
 
 ;;; transient版本的扩大窗口
 (transient-command transient-enlage-window
@@ -64,8 +69,7 @@
     ("=" . balance-windows)
     ("|" . maximize-window)
     ("\\" . minimize-window)))
-;; 按键
-(global-set-key (kbd "C-x }") #'transient-enlage-window)
+
 
 ;;; transient版本的缩小窗口
 (transient-command transient-shrink-window
@@ -77,8 +81,7 @@
     ("=" . balance-windows)
     ("|" . maximize-window)
     ("\\" . minimize-window)))
-;; 按键
-(global-set-key (kbd "C-x {") #'transient-shrink-window)
+
 
 ;;; 关闭 buffer 自定义函数
 (defun fei-kill-current-buffer()
@@ -89,8 +92,7 @@
    ((one-window-p) (kill-buffer))
    (t              (kill-buffer-and-window))))
 
-;; 按键
-(global-set-key (kbd "M-k") 'fei-kill-current-buffer)
+
 
 (provide 'init-windows)
 ;;; init-windows.el ends here.

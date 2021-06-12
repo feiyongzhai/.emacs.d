@@ -1,4 +1,7 @@
 (require 'move-text)
+
+;;; Keys
+
 (with-eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "<M-down>") nil)
   (define-key paredit-mode-map (kbd "<M-up>") nil))

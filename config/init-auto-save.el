@@ -1,4 +1,5 @@
 (require 'auto-save)
+
 (auto-save-enable)
 
 (setq auto-save-silent t)   ; quietly save

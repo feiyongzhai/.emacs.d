@@ -2,17 +2,14 @@
 
 ;;; Commentary:
 
-;; emacs-china: https://emacs-china.org/t/emacs/7980/20
-;; 这个是我看到这个 package 的地方（源头）
+;; 源头       ：emacs-china: https://emacs-china.org/t/emacs/7980/20
 ;; thing-edit : https://github.com/manateelazycat/thing-edit
-;; 上面是源码的 git 主页
 ;; 配置参考   : https://pengpengxp.github.io/emacs/emacs_thing_edit_replace.html
-;; 根据上面的配置参考，我采用了新的快捷键定义方式
+
+(require 'thing-edit)
 
 ;;; Code:
 
-
-(require 'thing-edit)
 (defvar user-thing-edit-map (make-sparse-keymap)
   "Keybinding for `thing-edit'")
 

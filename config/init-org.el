@@ -2,15 +2,21 @@
 
 ;;; Code(Myself):
 
+;;; Keys
+
+(global-set-key (kbd "C-c c") 'fei-org-capture)
+(global-set-key (kbd "<f5>") 'fei-org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;;; Vars
+
 ;;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 
-;; relocate the org default notes file, which make it easily control
+;; relocate the org default notes file
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 
 (setq org-agenda-files '("~/Nutstore Files/org"))
-;; 按键
-(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture
@@ -33,9 +39,8 @@
 	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Others")
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))
-;; 按键
-(global-set-key (kbd "C-c c") 'fei-org-capture)
-(define-key global-map (kbd "<f5>") 'fei-org-capture)
+
+;;; Funcs
 
 (defun fei-org-capture ()
   (interactive)

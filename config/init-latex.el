@@ -1,7 +1,6 @@
+;;; Vars
 
-
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (cdlatex-mode t)))
+(add-hook 'LaTeX-mode-hook #'cdlatex-mode)
 
 (setq TeX-view-program-selection
       '(((output-dvi has-no-display-manager)

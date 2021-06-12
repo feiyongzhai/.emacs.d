@@ -1,4 +1,4 @@
-;;; early-init.el --- 
+;;; early-init.el
 
 ;;; Commentary:
 ;; 这部分代码在 windows 平台下的 emacsclient 的 frame 生效

@@ -2,8 +2,7 @@
 
 ;;; Code:
 
-
-;;; configs for pyim
+;;; Pyim
 
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)
@@ -26,9 +25,9 @@
 ;; (setq pyim-page-length 5)
 ;; (setq pyim-page-tooltip 'posframe)
 
-;;; configs for rime
+;;; Rime
 
-;; windows 可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
+;; windows可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
 
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.config/fcitx/rime"))

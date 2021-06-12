@@ -6,9 +6,12 @@
 
 ;;;TODO
 ;; [ ] 1. 给transient类函数添加message提示
-;; [x] 2. 可以尝试写一个宏，优化一下代码，因为这些transient类的函数都差不多
 
-;;; shortkeys
+;;; mode
+(winner-mode 1)
+
+;;; Keys
+
 (fei-define-key-with-map global-map
   '(("C-x w u" . transient-winner-undo)
     ("C-x w U" . transient-winner-redo)
@@ -26,8 +29,7 @@
     ("M-k" . fei-kill-current-buffer)
     ))
 
-;;; winner-mode
-(winner-mode 1)
+;;; Funcs
 
 (defun fei-minimize-window ()
   (interactive)
@@ -44,7 +46,6 @@
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-;;; Alternative windows switch scheme
 (defun other-window-backward ()
   (interactive)
   (other-window -1))
@@ -70,7 +71,6 @@
     ("|" . maximize-window)
     ("\\" . minimize-window)))
 
-
 ;;; transient版本的缩小窗口
 (transient-command transient-shrink-window
   (call-interactively 'shrink-window-horizontally)
@@ -83,7 +83,6 @@
     ("\\" . minimize-window)))
 
 
-;;; 关闭 buffer 自定义函数
 (defun fei-kill-current-buffer()
   "智能关闭 windows 和 buffer"
   (interactive)
@@ -91,7 +90,6 @@
    ((minibufferp)  (keyboard-escape-quit))
    ((one-window-p) (kill-buffer))
    (t              (kill-buffer-and-window))))
-
 
 
 (provide 'init-windows)

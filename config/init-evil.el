@@ -2,7 +2,6 @@
 
 ;;; Code:
 
-
 (autoload 'evil-local-mode "evil" nil t)
 
 (provide 'init-evil)

@@ -13,6 +13,16 @@
     ("C-x t u" . tab-undo)
     ))
 
+(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
+
+;;; ivy-view replacement
+(global-set-key (kbd "C-c v") 'tab-rename)
+(global-set-key (kbd "C-c V") 'tab-bar-select-tab-by-name)
+
+;;; Vars
+
+(setq tab-bar-show nil)
+
 ;;; Funcs
 
 (transient-command transient-tab-next

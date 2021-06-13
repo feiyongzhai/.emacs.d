@@ -11,10 +11,6 @@
 (global-set-key (kbd "C-c B") 'counsel-bookmark)
 (global-set-key (kbd "C-c b") 'list-bookmarks)
 
-;;; ivy-views
-(global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-switch-view)
-
 (global-set-key (kbd "C-c C-r") #'counsel-recentf)
 
 (global-set-key (kbd "C-c M-x") 'counsel-M-x)

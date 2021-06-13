@@ -9,10 +9,8 @@
 
 (defun fei-vc-dired-jump (arg)
   (interactive "P")
-  (let ((target-dir (vc-root-dir)))
-    (if target-dir
-	(vc-dir target-dir)
-      (message "no git repo"))))
-
+  (if-let ((target-dir (vc-root-dir)))
+      (vc-dir target-dir)
+    (message "no git repo")))
 
 (provide 'init-vc)

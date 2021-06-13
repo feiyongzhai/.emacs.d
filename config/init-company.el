@@ -13,8 +13,6 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . nil)
       ("M-p" . nil)
-      ("C-n" . #'company-select-next)
-      ("C-p" . #'company-select-previous)
       ("M-/" . #'company-other-backend)))
   
   (setq company-idle-delay .1

@@ -14,7 +14,6 @@
 (global-set-key (kbd "C-z") #'undo)
 (global-set-key (kbd "C-x u") #'transient-undo)
 (global-set-key (kbd "<f9>") #'global-set-or-unset-key)
-(global-set-key (kbd "ESC ESC c") #'open-my-init-file)
 (global-set-key (kbd "M-0") #'fei-google-search)
 (global-set-key (kbd "M--") #'fei-meow-last-buffer)
 
@@ -24,6 +23,28 @@
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
+
+;;; quick open dir or file
+(fei-define-key-with-map global-map
+  '(("ESC ESC h" . (lambda () (interactive) (dired "~")))
+    ("ESC ESC d" . (lambda () (interactive) (dired "~/Downloads")))
+    ("ESC ESC D" . (lambda () (interactive) (dired "~/Desktop")))
+    ("ESC ESC m" . (lambda () (interactive) (dired "~/Music")))
+    ("ESC ESC s" . (lambda () (interactive) (dired "~/Sandbox")))
+    ("ESC ESC p" . (lambda () (interactive) (dired "~/Picture")))
+    ("ESC ESC n" . (lambda () (interactive) (dired "~/Nutstore Files")))
+    ("ESC ESC e" . (lambda () (interactive) (dired "~/.emacs.d")))
+    ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
+    ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
+    ("ESC ESC v" . (lambda () (interactive) (dired "~/.vim")))
+
+    ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
+    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
+    ("ESC ESC b" . list-bookmarks)
+    ("ESC ESC l" . list-packages)
+    ("ESC ESC L" . list-processes)
+    ))
 
 ;;; Vars
 
@@ -56,11 +77,6 @@
 (transient-command transient-undo
   (undo)
   '(("u" . undo)))
-
-(defun open-my-init-file()
-  "打开我的 init.el 文件"
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
 
 ;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
 (defun fei-google-search ()

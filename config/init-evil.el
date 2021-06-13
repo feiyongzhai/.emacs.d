@@ -2,6 +2,8 @@
 
 ;;; Code:
 
+(global-set-key (kbd "ESC ESC <M-escape>") #'evil-local-mode)
+
 (autoload 'evil-local-mode "evil" nil t)
 
 (provide 'init-evil)

@@ -83,13 +83,15 @@
     ("\\" . minimize-window)))
 
 
-(defun fei-kill-current-buffer()
+(defun fei-kill-current-buffer (arg)
   "智能关闭 windows 和 buffer"
-  (interactive)
+  (interactive "P")
   (cond
-   ((minibufferp)  (keyboard-escape-quit))
-   ((one-window-p) (kill-buffer))
-   (t              (kill-buffer-and-window))))
+   ((minibufferp)
+    (keyboard-escape-quit))
+   ((or arg (one-window-p))
+    (kill-buffer))
+   (t (kill-buffer-and-window))))
 
 
 (provide 'init-windows)

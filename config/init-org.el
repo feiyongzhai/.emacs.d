@@ -26,8 +26,8 @@
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
 	   "* TODO %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
-	  ("i" "Idea" entry
-	   (file+headline "~/Nutstore Files/org/notes.org" "Ideas")
+	  ("i" "Inbox" entry
+	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
 	   "* %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("s" "Code Snippets")

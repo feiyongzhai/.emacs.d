@@ -103,5 +103,12 @@ Argument ARG if not nil, switching in a new window."
     (split-window)
     (mode-line-other-buffer))))
 
+(defun sudo-find-this-file ()
+  (interactive)
+  (if (buffer-file-name)
+      ;; 不清楚 sudo:root@localhost: 表示的含义，但是现在这个命令能用
+      (find-file (concat "/sudo:root@localhost:" buffer-file-name))
+    (message "buffer without file can't deal with sudo")))
+
 (provide 'init-misc)
 ;;; init-misc.el ends here.

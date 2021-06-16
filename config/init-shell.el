@@ -4,8 +4,6 @@
 
 ;;; Keys
 (define-key global-map (kbd "<C-return>") 'eshell)
-(add-hook 'eshell-mode-hook
-	  (lambda () (local-set-key (kbd "M-k") #'delete-window)))
 
 ;;; quick open terminal in current dir
 (cond (*is-linux*

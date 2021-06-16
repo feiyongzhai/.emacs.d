@@ -16,6 +16,7 @@
 (global-set-key (kbd "<f9>") #'global-set-or-unset-key)
 (global-set-key (kbd "M-0") #'fei-google-search)
 (global-set-key (kbd "M--") #'fei-meow-last-buffer)
+(global-set-key (kbd "<s-tab>") #'fei-meow-last-buffer)
 
 ;;; replace y-or-n frome yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)

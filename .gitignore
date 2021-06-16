@@ -32,7 +32,7 @@ snippets/
 eww-bookmarks
 ido.last
 dmenu-items
-config/init-local.el
+init-local.el
 image-dired/.image-dired_db
 @scratch@
 places

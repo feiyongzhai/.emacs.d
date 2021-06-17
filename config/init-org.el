@@ -13,7 +13,6 @@
 ;;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 
-;; relocate the org default notes file
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 
 (setq org-agenda-files '("~/Nutstore Files/org"))
@@ -51,30 +50,6 @@
   (message "RIME输入法已经激活！"))
 
 
-;;; Code(Copy):
-
-;;; 参考链接：https://guidao.github.io/emacs_blog.html#org38eccd7
-(setq org-publish-project-alist
-        '(
-          ;; ... add all the components here (see below)...
-          ("org-notes"
-           :base-directory "~/feiyongzhai.github.io/org/" ;org文件的目录
-           :base-extension "org" ;扩展名
-           :publishing-directory "~/feiyongzhai.github.io/" ;导出目录
-           :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"./css/org-css.css\"/>";自定义样式
-           :recursive t
-           :publishing-function org-html-publish-to-html
-           :headline-levels 4             ; Just the default for this project.
-           :auto-preamble t
-           :timestamp nil
-           :author nil
-           )
-          ("org" :components ("org-notes"))
-          ))
-
-(setq org-html-validation-link nil) ; 去掉validation显示
-(setq org-html-link-home "index.html"); 设置home超链接
-(setq org-html-link-up "index.html")
 
 (provide 'init-org)
 ;;; init-org.el ends here.

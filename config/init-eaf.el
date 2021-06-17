@@ -22,8 +22,11 @@
   (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
 				      ("." . browse-url-default-browser)))
   (global-set-key (kbd "M-s M-w") 'eaf-search-it)
-  (global-set-key (kbd "C-c e") 'eaf-open-this-buffer))
+  (global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
+  (global-set-key (kbd "M-[") 'fei-eaf-file-share-current-dir))
 
-
+(defun fei-eaf-file-share-current-dir ()
+  (interactive)
+  (eaf-file-browser-qrcode (substring (pwd) 10)))
 
 (provide 'init-eaf)

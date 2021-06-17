@@ -30,10 +30,8 @@
 ;; windows可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
 
 (cond (*is-linux*
-       (setq rime-user-data-dir "~/.config/fcitx/rime"))
-      (*is-windows*
-       (setq rime-user-data-dir "~/.emacs.d/rime"))
-      (t (message "无法设置RIME的数据文件夹，请自行设置！")))
+       (setq rime-user-data-dir "~/.emacs.d/rime/xhup"))
+      (t (message "使用默认值：~/.emacs.d/rime/")))
 
 (setq rime-posframe-properties
       (list :background-color "#333333"
@@ -42,12 +40,10 @@
             :internal-border-width 10))
 
 (setq default-input-method "rime"
-      rime-show-candidate 'minibuffer)
+      rime-show-candidate 'posframe)
 
 (setq rime-disable-predicates
-      '(rime-predicate-after-alphabet-char-p
-	;; rime-predicate-evil-mode-p
-        rime-predicate-prog-in-code-p))
+      '(rime-predicate-prog-in-code-p))
 
 (provide 'init-ime)
 ;;; init-ime.el ends here.

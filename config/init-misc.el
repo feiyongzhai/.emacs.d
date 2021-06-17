@@ -37,10 +37,11 @@
     ("ESC ESC e" . (lambda () (interactive) (dired "~/.emacs.d")))
     ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
     ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
-    ("ESC ESC v" . (lambda () (interactive) (dired "~/.vim")))
+    ("ESC ESC v" . (lambda () (interactive) (dired "~/Videos")))
+    ("ESC ESC V" . (lambda () (interactive) (dired "~/.vim")))
 
     ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
-    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
 
     ("ESC ESC b" . list-bookmarks)
     ("ESC ESC l" . list-packages)
@@ -64,7 +65,6 @@
 	    (find-file "~/.emacs.d/@scratch@")
 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
 	    (kill-buffer "*scratch*")))
-
 
 ;;; Funcs
 

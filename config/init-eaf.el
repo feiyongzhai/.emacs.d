@@ -21,7 +21,9 @@
     (setq eaf-browser-default-search-engine "duckduckgo"))
   (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
 				      ("." . browse-url-default-browser)))
-  (global-set-key (kbd "M-s M-w") 'eaf-search-it)
+  ;; `eaf-open-browser-with-history' 需要配合ivy-mode补全框架比较好用
+  (global-set-key (kbd "M-s M-w") 'eaf-open-browser-with-history)
+  (global-set-key (kbd "ESC ESC q") 'eaf-open-browser-with-history)
   (global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
   (global-set-key (kbd "M-[") 'fei-eaf-file-share-current-dir))
 

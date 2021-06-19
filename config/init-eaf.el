@@ -25,6 +25,8 @@
   (global-set-key (kbd "M-s M-w") 'eaf-open-browser-with-history)
   (global-set-key (kbd "ESC ESC q") 'eaf-open-browser-with-history)
   (global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
+  (eaf-setq eaf-terminal-font-family "Hack")
+  (eaf-setq eaf-terminal-font-size "16")
   (global-set-key (kbd "M-[") 'fei-eaf-file-share-current-dir))
 
 (defun fei-eaf-file-share-current-dir ()

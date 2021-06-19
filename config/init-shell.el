@@ -3,20 +3,8 @@
 ;;; Code:
 
 ;;; Keys
-(define-key global-map (kbd "<C-return>") 'eshell)
-
-;;; quick open terminal in current dir
-(cond (*is-linux*
-       (global-set-key (kbd "C-c <C-return>")
-		       (lambda ()
-			 (interactive)
-			 (shell-command "gnome-terminal"))))
-      (t
-       (global-set-key (kbd "C-c <C-return>")
-		       (lambda ()
-			 (interactive)
-			 (if (fboundp 'terminal-here)
-			     (terminal-here))))))
+(global-set-key (kbd "<C-return>") 'eshell)
+(global-set-key (kbd "C-c <C-return>") #'fei-terminal-here)
 
 ;;; Vars
 
@@ -29,6 +17,17 @@
 	       (slot . 0)))
 
 ;;; Funcs
+
+;; open terminal here
+(defun fei-terminal-here ()
+  (interactive)
+  (if *is-linux*
+      (if (fboundp 'eaf-open-terminal)
+	  (eaf-open-terminal)
+	(shell-command "gnome-terminal"))
+    (if (fboundp 'terminal-here)
+	(terminal-here)
+      (message "can't open terminal here"))))
 
 ;; Ref url: https://www.emacswiki.org/emacs/EshellAutojump
 (defun eshell/j (&rest args)

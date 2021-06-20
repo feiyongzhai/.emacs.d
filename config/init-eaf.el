@@ -1,4 +1,34 @@
+(autoload 'eaf-open-browser "eaf" nil t)
+(autoload 'eaf--bookmark-restore "eaf" nil t)
+
+;;; Keys
+
+(fei-define-key-with-map global-map
+  '(("M-s M-w" . eaf-open-browser-with-history)
+    ("C-c e" . eaf-open-this-buffer)
+    ("M-[" . fei-eaf-file-share-current-dir))
+  "eaf")
+
+;;; Vars
+
+(with-eval-after-load 'eaf
+  (eaf-setq eaf-browser-enable-adblocker "true")
+  (eaf-setq eaf-terminal-font-family "Hack")
+  (eaf-setq eaf-terminal-font-size "16")
+  (eaf-setq eaf-browser-enable-adblocker "true"))
+
+(setq eaf-browser-continue-where-left-off t)
+
+(setq eaf-proxy-type "socks5"
+      eaf-proxy-host "127.0.0.1"
+      eaf-proxy-port "1089")
+
+(setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
+				    ("." . browse-url-default-browser)))
+
 (setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
+
+;;; Funcs
 
 (defun fei-eaf-start ()
   (interactive)
@@ -8,31 +38,11 @@
     (use-package epc :defer t :ensure t)
     (use-package ctable :defer t :ensure t)
     (use-package deferred :defer t :ensure t)
-    (use-package s :defer t :ensure t)
-    :custom
-    (eaf-browser-continue-where-left-off t)
-    :config
-    (eaf-setq eaf-browser-enable-adblocker "true")
-    (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-    (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-    (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-    (eaf-bind-key nil "M-q" eaf-browser-keybinding)  ;; unbind, see more in the Wiki
-    (setq eaf-proxy-type "socks5"
-	  eaf-proxy-host "127.0.0.1"
-	  eaf-proxy-port "1089")
-    (setq eaf-browser-default-search-engine "duckduckgo"))
-  (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
-				      ("." . browse-url-default-browser)))
-  ;; `eaf-open-browser-with-history' 需要配合ivy-mode补全框架比较好用
-  (global-set-key (kbd "M-s M-w") 'eaf-open-browser-with-history)
-  (global-set-key (kbd "ESC ESC q") 'eaf-open-browser-with-history)
-  (global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
-  (eaf-setq eaf-terminal-font-family "Hack")
-  (eaf-setq eaf-terminal-font-size "16")
-  (global-set-key (kbd "M-[") 'fei-eaf-file-share-current-dir))
+    (use-package s :defer t :ensure t)))
 
 (defun fei-eaf-file-share-current-dir ()
   (interactive)
+  (require 'eaf)
   (eaf-file-browser-qrcode (substring (pwd) 10)))
 
 (provide 'init-eaf)

@@ -6,7 +6,7 @@
 ;; thing-edit : https://github.com/manateelazycat/thing-edit
 ;; 配置参考   : https://pengpengxp.github.io/emacs/emacs_thing_edit_replace.html
 
-(require 'thing-edit)
+;; (require 'thing-edit)
 
 ;;; Code:
 
@@ -30,8 +30,8 @@
     ("p" . thing-copy-parentheses)
     ("a" . thing-copy-to-line-beginning)
     ("e" . thing-copy-to-line-end)
-    ("l" . thing-copy-line)
-    ))
+    ("l" . thing-copy-line))
+  "thing-edit")
 
 ;; Replace
 (fei-define-key-with-map user-thing-edit-map
@@ -48,8 +48,9 @@
     ("C" . thing-replace-comment)
     ("H" . thing-replace-defun)
     ("P" . thing-replace-parentheses)
-    ("L" . thing-replace-line)
-    ))
+    ("L" . thing-replace-line))
+  "thing-edit")
+
 (global-set-key (kbd "M-o") user-thing-edit-map)
 
 (provide 'init-thing-edit)

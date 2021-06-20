@@ -10,13 +10,16 @@
 
   (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
 
-  (define-key dired-mode-map (kbd "w") 'browse-url-of-dired-file)
-  (define-key dired-mode-map (kbd "W") 'dired-copy-filename-as-kill)
+  (fei-define-key-with-map dired-mode-map
+    '(("w" . browse-url-of-dired-file)
+      ("W" . dired-copy-filename-as-kill)
+      ("b" . dired-up-directory)
+      ("N" . dired-next-dirline)
+      ("P" . dired-prev-dirline)
 
-  (define-key dired-mode-map (kbd "b") 'dired-up-directory)
-  (define-key dired-mode-map (kbd "C-d") #'bookmark-set)
-
-  (define-key dired-mode-map (kbd "M-h") #'dired-toggle-hidden))
+      ("C-d" . bookmark-set)
+      ("M-h" . dired-toggle-hidden)
+      )))
 
 ;;; Vars
 
@@ -31,12 +34,12 @@
   "t means on, nil means off")
 
 (defun dired-toggle-hidden ()
-    (interactive)
-    (if dired-toggle-hidden
-	(progn (dired-sort-other "-Bhl  --group-directories-first")
-	       (setq dired-toggle-hidden nil))
-      (dired-sort-other (concat dired-listing-switches " -a"))
-      (setq dired-toggle-hidden t)))
+  (interactive)
+  (if dired-toggle-hidden
+      (progn (dired-sort-other "-Bhl  --group-directories-first")
+	     (setq dired-toggle-hidden nil))
+    (dired-sort-other (concat dired-listing-switches " -a"))
+    (setq dired-toggle-hidden t)))
 
 
 (provide 'init-dired)

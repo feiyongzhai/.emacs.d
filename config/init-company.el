@@ -13,10 +13,11 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . nil)
       ("M-p" . nil)
-      ("M-/" . #'company-other-backend)))
+      ("M-i" . yas-expand)
+      ("M-/" . company-other-backend)))
   
-  (setq company-idle-delay .1
-	company-minimum-prefix-length 1))
+  (setq company-idle-delay 0.1
+	company-minimum-prefix-length 2))
 
 (provide 'init-company)
 ;;; init-company.el ends here.

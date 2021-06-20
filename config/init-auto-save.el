@@ -13,5 +13,4 @@
 	   "gpg"
 	   (file-name-extension (buffer-name)) t))))
 
-
 (provide 'init-auto-save)

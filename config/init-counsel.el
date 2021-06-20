@@ -8,10 +8,9 @@
 ;;; Keys
 
 ;;; counsel-bookmark
-(global-set-key (kbd "C-c B") 'counsel-bookmark)
-(global-set-key (kbd "C-c b") 'list-bookmarks)
+(global-set-key (kbd "C-c b") 'counsel-bookmark)
 
-(global-set-key (kbd "C-c C-r") #'counsel-recentf)
+(global-set-key (kbd "C-c r") #'counsel-recentf)
 
 (global-set-key (kbd "C-c M-x") 'counsel-M-x)
 (global-set-key (kbd "<f1> f") 'counsel-describe-function)

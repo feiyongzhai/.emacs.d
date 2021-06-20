@@ -16,5 +16,4 @@
     (message "施工中")
     ))
 
-
 (provide 'init-dict)

@@ -16,7 +16,7 @@
 ;; Copy.
 (fei-define-key-with-map user-thing-edit-map
   '(("w" . thing-copy-word)
-    ("s" . thing-copy-symbol)
+    ("." . thing-copy-symbol)
     ("m" . thing-copy-email)
     ("f" . thing-copy-filename)
     ("u" . thing-copy-url)
@@ -36,7 +36,7 @@
 ;; Replace
 (fei-define-key-with-map user-thing-edit-map
   '(("W" . thing-replace-word)
-    ("S" . thing-replace-symbol)
+    (">" . thing-replace-symbol)
     ("M" . thing-replace-email)
     ("F" . thing-replace-filename)
     ("U" . thing-replace-url)

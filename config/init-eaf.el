@@ -1,3 +1,5 @@
+(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
+
 (defun fei-eaf-start ()
   (interactive)
   (use-package eaf

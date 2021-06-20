@@ -21,7 +21,7 @@
 
 ;;; Vars
 
-(setq tab-bar-show nil)
+(setq tab-bar-show 1)
 
 ;;; Funcs
 

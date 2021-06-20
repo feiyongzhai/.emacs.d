@@ -1,10 +1,12 @@
 ;;; init-evil --- configs for evil
 
+;;; Module autoload
+
+(autoload 'evil-local-mode "evil" nil t)
+
 ;;; Code:
 
 (global-set-key (kbd "ESC ESC <M-escape>") #'evil-local-mode-with-cursor)
-
-(autoload 'evil-local-mode "evil" nil t)
 
 ;;; Vars
 

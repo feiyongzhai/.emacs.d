@@ -1,3 +1,6 @@
 [submodule "site-lisp/move-text"]
 	path = extensions/move-text
 	url = https://github.com/manateelazycat/move-text.git
+[submodule "extensions/insert-translated-name"]
+	path = extensions/insert-translated-name
+	url = https://github.com/manateelazycat/insert-translated-name.git

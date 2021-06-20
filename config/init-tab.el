@@ -25,12 +25,12 @@
 
 ;;; Funcs
 
-(transient-command transient-tab-next
+(transient-command tab-next
   (tab-next)
   '(("o" . tab-next)
     ("O" . tab-previous)))
 
-(transient-command transient-tab-previous
+(transient-command tab-previous
   (tab-previous)
   '(("o" . tab-next)
     ("O" . tab-previous)))

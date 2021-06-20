@@ -1,17 +1,18 @@
 (defmacro transient-command (fun-name command &rest keymaps)
   "一个方便定义瞬时命令的宏"
   (declare (indent 1))
-  `(defun ,fun-name ()
-     (interactive)
-     (let ((echo-keystrokes nil))
-       ,command
-       (set-transient-map
-	(let ((map (make-sparse-keymap)))
-	  (mapcar (lambda (x)
-		    (define-key map (kbd (car x)) (cdr x)))
-		  ,@keymaps)
-	  map)
-	t))))
+  (let ((command-name (intern (format "transient-%s" (symbol-name fun-name)))))
+    `(defun ,command-name ()
+       (interactive)
+       (let ((echo-keystrokes nil))
+	 ,command
+	 (set-transient-map
+	  (let ((map (make-sparse-keymap)))
+	    (mapcar (lambda (x)
+		      (define-key map (kbd (car x)) (cdr x)))
+		    ,@keymaps)
+	    map)
+	  t)))))
 
 (defmacro fei-define-key-with-map (map &rest keymaps)
   (declare (indent 1))

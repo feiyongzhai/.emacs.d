@@ -36,12 +36,12 @@
   (minimize-window)
   (call-interactively #'other-window))
 
-(transient-command transient-winner-undo
+(transient-command winner-undo
   (winner-undo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-(transient-command transient-winner-redo
+(transient-command winner-redo
   (winner-redo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
@@ -50,18 +50,18 @@
   (interactive)
   (other-window -1))
 
-(transient-command transient-other-window
+(transient-command other-window
   (other-window 1)
   '(("o" . other-window)
     ("O" . other-window-backward)))
 
-(transient-command transient-other-window-backward
+(transient-command other-window-backward
   (other-window-backward)
   '(("o" . other-window)
     ("O" . other-window-backward)))
 
 ;;; transient版本的扩大窗口
-(transient-command transient-enlage-window
+(transient-command enlage-window
   (call-interactively 'enlarge-window-horizontally)
   '(("}" . enlarge-window-horizontally)
     ("{" . shrink-window-horizontally)
@@ -72,7 +72,7 @@
     ("\\" . minimize-window)))
 
 ;;; transient版本的缩小窗口
-(transient-command transient-shrink-window
+(transient-command shrink-window
   (call-interactively 'shrink-window-horizontally)
   '(("}" . enlarge-window-horizontally)
     ("{" . shrink-window-horizontally)

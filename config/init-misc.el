@@ -75,7 +75,7 @@
       (call-interactively 'global-unset-key)
     (call-interactively 'global-set-key)))
 
-(transient-command transient-undo
+(transient-command undo
   (undo)
   '(("u" . undo)))
 

@@ -31,6 +31,17 @@
 
 ;;; Funcs
 
+(defun fei-store-window ()
+  "store window-configuration-to-register w"
+  (interactive)
+  (window-configuration-to-register ?w)
+  (message "window cnofiguration has be stored to \"w\" register!"))
+
+(defun fei-restore-window ()
+  "restore window-configuration-to-register from w"
+  (interactive)
+  (jump-to-register ?w))
+
 (defun fei-minimize-window ()
   (interactive)
   (minimize-window)

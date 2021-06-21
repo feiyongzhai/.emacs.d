@@ -25,6 +25,10 @@
     ;; M-s-* style
 
     ;; C-s-* style
+
+    ;; s-* style
+    ("s-[" . fei-store-window)
+    ("s-]" . fei-restore-window)
     ))
 
 

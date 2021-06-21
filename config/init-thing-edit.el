@@ -16,7 +16,7 @@
 ;; Copy.
 (fei-define-key-with-map user-thing-edit-map
   '(("w" . thing-copy-word)
-    ("." . thing-copy-symbol)
+    ("s" . thing-copy-symbol)
     ("m" . thing-copy-email)
     ("f" . thing-copy-filename)
     ("u" . thing-copy-url)
@@ -33,25 +33,28 @@
     ("l" . thing-copy-line))
   "thing-edit")
 
-;; Replace
+;; Cut
 (fei-define-key-with-map user-thing-edit-map
-  '(("W" . thing-replace-word)
-    (">" . thing-replace-symbol)
-    ("M" . thing-replace-email)
-    ("F" . thing-replace-filename)
-    ("U" . thing-replace-url)
-    ("X" . thing-replace-sexp)
-    ("T" . thing-replace-page)
-    ("G" . thing-replace-sentence)
-    ("O" . thing-replace-whitespace)
-    ("I" . thing-replace-list)
-    ("C" . thing-replace-comment)
-    ("H" . thing-replace-defun)
-    ("P" . thing-replace-parentheses)
-    ("L" . thing-replace-line))
+  '(("W" . thing-cut-word)
+    ("S" . thing-cut-symbol)
+    ("M" . thing-cut-email)
+    ("F" . thing-cut-filename)
+    ("U" . thing-cut-url)
+    ("X" . thing-cut-sexp)
+    ("T" . thing-cut-page)
+    ("G" . thing-cut-sentence)
+    ("O" . thing-cut-whitespace)
+    ("I" . thing-cut-list)
+    ("C" . thing-cut-comment)
+    ("H" . thing-cut-defun)
+    ("P" . thing-cut-parentheses)
+    ("L" . thing-cut-line))
   "thing-edit")
 
 (global-set-key (kbd "M-o") user-thing-edit-map)
+
+(with-eval-after-load 'diff
+  (define-key diff-mode-map (kbd "M-o") nil))
 
 (provide 'init-thing-edit)
 ;;; init-thing-edit.el ends here

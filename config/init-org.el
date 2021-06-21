@@ -44,8 +44,10 @@
 
 (defun fei-org-capture ()
   (interactive)
-  (org-capture)
+  ;; 这个写法可以传递prefix number，之前的不行
+  (call-interactively 'org-capture)
   (activate-input-method 'rime)
+  (auto-fill-mode)
   (message "RIME输入法已经激活！"))
 
 

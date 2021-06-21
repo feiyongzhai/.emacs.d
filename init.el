@@ -55,6 +55,9 @@
 (require 'init-auto-save)
 (require 'init-move-text)
 
+;;;; keys configs
+(require 'init-keys)
+
 ;;;; local configs
 (let ((local-config "~/.emacs.d/init-local.el"))
   (when (file-exists-p local-config)

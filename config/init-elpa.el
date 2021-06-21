@@ -21,6 +21,7 @@
 (setq fei-package-ensure-installed
       '(evil
 	elfeed
+	magit
 	company
 	paredit
 	smex

@@ -16,6 +16,7 @@
       ("M-i" . yas-expand)
       ("M-/" . company-other-backend)))
   
+  (setq company-show-numbers t)
   (setq company-idle-delay 0.1
 	company-minimum-prefix-length 2))
 

@@ -19,6 +19,7 @@
     ("C-p" . isearch-repeat-backward)
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
+    ("TAB" . isearch-complete)
     ("C-'" . avy-isearch)
     ("M-w" . (lambda ()
 	       (interactive)

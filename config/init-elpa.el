@@ -20,6 +20,7 @@
 ;;; 需要安装的 packages
 (setq fei-package-ensure-installed
       '(evil
+	elfeed
 	company
 	paredit
 	smex

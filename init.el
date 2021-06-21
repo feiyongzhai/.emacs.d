@@ -38,6 +38,7 @@
 ;;;; elpa
 (require 'init-company)
 (require 'init-counsel)
+(require 'init-elfeed)
 (require 'init-ido)
 (require 'init-search)
 ;; (require 'init-projectile)

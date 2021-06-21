@@ -45,5 +45,8 @@
 (setq rime-disable-predicates
       '(rime-predicate-prog-in-code-p))
 
+(with-eval-after-load 'rime
+  (define-key rime-active-mode-map (kbd "M-o") 'rime--backspace))
+
 (provide 'init-ime)
 ;;; init-ime.el ends here.

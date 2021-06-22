@@ -1,6 +1,7 @@
 ;;; init-misc.el --- misc configs
 
 (require 'init-func)
+(autoload 'insert-translated-name-insert "insert-translated-name" nil t)
 
 ;;; Code:
 
@@ -24,6 +25,9 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 
 ;;; Vars
+
+(add-hook 'find-file-hook #'evil-local-mode)
+(add-hook 'help-mode-hook #'evil-local-mode)
 
 ;;; no bell
 ;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642

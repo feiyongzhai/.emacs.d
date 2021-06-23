@@ -4,7 +4,6 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-c c") 'fei-org-capture)
 (global-set-key (kbd "<f5>") 'fei-org-capture)
 (global-set-key (kbd "C-c a") 'org-agenda)
 

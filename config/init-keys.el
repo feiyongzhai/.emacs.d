@@ -73,8 +73,14 @@
     ("C-M-z" . (lambda () (interactive)
 		 (org-capture nil "i")
 		 (activate-input-method 'rime)))
+    ;; Misc
+    ("<menu>" . counsel-M-x)
+    ("<s-escape>" . evil-local-mode-with-cursor)
 
     ))
 
+;;; ctl-z-map for personal use
+(define-prefix-command 'ctl-z-map)
+(global-set-key (kbd "C-z") 'ctl-z-map)
 
 (provide 'init-keys)

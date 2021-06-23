@@ -65,6 +65,8 @@
     ("C-x F" . set-fill-column)
     ("C-x f" . find-file)
     ("C-c r" . counsel-recentf)
+    ("C-c f" . find-name-current-dired)
+    ("C-c F" . find-name-dired)
 
     ("C-x C-d" . dired)
     ("M-z" . fei-org-capture)

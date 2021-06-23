@@ -42,6 +42,12 @@
     (dired-sort-other (concat dired-listing-switches " -a"))
     (setq dired-toggle-hidden t)))
 
+(defun find-name-current-dired (arg)
+  (interactive
+   (let ((string
+	  (read-string "Find-name(filename wildcard): " nil 'history)))
+     (list string)))
+  (find-name-dired "." arg))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

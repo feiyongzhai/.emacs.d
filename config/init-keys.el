@@ -32,9 +32,6 @@
 
     ;; M-s-* style
     ("M-s-b" . (lambda () (interactive) (browse-url "https://feiyongzhai.github.io")))
-    ("M-s-c" . (lambda () (interactive)
-		 (org-capture nil "i")
-		 (activate-input-method 'rime)))
     ("M-s-e" . elfeed)
     ("M-s-g" . magit-status)
     ("M-s-n" . (lambda () (interactive) (dired "~/Nutstore Files")))
@@ -47,6 +44,7 @@
     ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
 
     ;; C-s-* style
+    ("C-s-i" . fei-toggle-xhup-flypy)
 
     ;; s-* style usually Windows related
     ("s-[" . fei-store-window)
@@ -70,6 +68,9 @@
 
     ("C-x C-d" . dired)
     ("M-z" . fei-org-capture)
+    ("C-M-z" . (lambda () (interactive)
+		 (org-capture nil "i")
+		 (activate-input-method 'rime)))
 
     ))
 

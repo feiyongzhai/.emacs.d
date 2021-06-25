@@ -42,6 +42,12 @@
   (interactive)
   (jump-to-register ?w))
 
+(defun fei-restore-or-store-window (arg)
+  (interactive "P")
+  (if arg
+      (fei-store-window)
+    (fei-restore-window)))
+
 (defun fei-minimize-window ()
   (interactive)
   (minimize-window)

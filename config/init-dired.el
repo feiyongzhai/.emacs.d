@@ -17,6 +17,8 @@
 
       ("C-d" . bookmark-set)
       ("M-h" . dired-toggle-hidden)
+      ("M-p" . dired-prev-subdir)
+      ("M-n" . dired-next-subdir)
       )))
 
 ;;; Vars

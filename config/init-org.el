@@ -28,6 +28,10 @@
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
 	   "* %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
+	  ("d" "Diary" entry
+	   (file "~/Nutstore Files/org/diary.org")
+	   "* %t\n"
+	   :empty-lines-before 1)
 	  ("s" "Code Snippets")
 	  ("se" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Emacs")

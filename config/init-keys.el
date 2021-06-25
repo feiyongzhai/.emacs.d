@@ -29,6 +29,7 @@
     ("ESC ESC b" . list-bookmarks)
     ("ESC ESC l" . list-packages)
     ("ESC ESC L" . list-processes)
+    ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
 
     ;; M-s-* style
     ("M-s-b" . (lambda () (interactive) (browse-url "https://feiyongzhai.github.io")))

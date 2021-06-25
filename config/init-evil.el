@@ -6,8 +6,6 @@
 
 ;;; Code:
 
-(global-set-key (kbd "ESC ESC <M-escape>") #'evil-local-mode-with-cursor)
-
 ;;; Vars
 
 (setq evil-emacs-state-cursor 'bar)

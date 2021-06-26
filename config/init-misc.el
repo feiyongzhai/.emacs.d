@@ -47,6 +47,16 @@
 
 ;;; Funcs
 
+(defvar display-line-numbers-relative-p nil)
+
+(defun display-line-numbers-cycle ()
+  (interactive)
+  (if display-line-numbers-relative-p
+      (progn (menu-bar--display-line-numbers-mode-absolute)
+	     (setq display-line-numbers-relative-p nil))
+    (menu-bar--display-line-numbers-mode-relative)
+    (setq display-line-numbers-relative-p t)))
+
 ;;; quick set key and unset key
 (defun global-set-or-unset-key (arg)
   (interactive "P")

@@ -43,12 +43,14 @@
     ("M-s-t" . tab-bar-mode)
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
     ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
+    ("M-s-l" . display-line-numbers-mode)
 
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
+    ("C-s-l" . display-line-numbers-cycle)
 
     ;; s-* style usually Windows related
-    ("s-[" . fei-store-window)
+    ("s-[" . fei-restore-or-store-window)
     ("s-]" . fei-restore-window)
     ("s-0" . delete-window)
     ("s-1" . delete-other-windows)

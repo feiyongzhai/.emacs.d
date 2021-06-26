@@ -80,6 +80,21 @@
     ("<menu>" . counsel-M-x)
     ("<s-escape>" . evil-local-mode-with-cursor)
 
+    ;; Tab related
+    ("M-1" . (lambda () (interactive) (tab-bar-select-tab 1)))
+    ("M-2" . (lambda () (interactive) (tab-bar-select-tab 2)))
+    ("M-3" . (lambda () (interactive) (tab-bar-select-tab 3)))
+    ("M-4" . (lambda () (interactive) (tab-bar-select-tab 4)))
+    ("M-5" . (lambda () (interactive) (tab-bar-select-tab 5)))
+    ("M-6" . (lambda () (interactive) (tab-bar-select-tab 6)))
+    ("M-7" . (lambda () (interactive) (tab-bar-select-tab 7)))
+    ("M-8" . (lambda () (interactive) (tab-bar-select-tab 8)))
+    ("M-9" . (lambda () (interactive) (tab-bar-select-tab 9)))
+    ("M-0" . (lambda () (interactive) (tab-bar-select-tab 10)))
+    ("M-_" . tab-close)
+    ("M-+" . tab-new)
+    ("C-S-w" . tab-close)
+    ("C-S-t" . tab-new)
     ))
 
 ;;; ctl-z-map for personal use

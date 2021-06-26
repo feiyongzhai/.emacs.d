@@ -22,6 +22,7 @@
 ;;; Vars
 
 (setq tab-bar-show 1)
+(setq tab-bar-tab-hints t)		;show number in tab-bar
 
 ;;; Funcs
 

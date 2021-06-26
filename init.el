@@ -2,6 +2,12 @@
 
 ;;; Code:
 
+;;; 加速启动速度
+(setq pre-gc-cons-percentage gc-cons-percentage
+      gc-cons-percentage 0.6)
+(setq pre-gc-cons-threshold gc-cons-threshold
+      gc-cons-threshold most-positive-fixnum)
+
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;; (setq debug-on-error t)
 
@@ -72,3 +78,7 @@
 (put 'narrow-to-page 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+
+;;; 恢复原来的值
+(setq gc-cons-percentage pre-gc-cons-percentage)
+(setq gc-cons-threshold pre-gc-cons-threshold)

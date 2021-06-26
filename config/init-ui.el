@@ -37,5 +37,14 @@
 	  (set-frame-size frame w h)))
      (arrange-frame 84 30 170 20)))
 
+;;; Funcs
+
+;;; autoswitch theme by time
+(let ((hour (string-to-number
+	     (substring (current-time-string) 11 13))))
+  (if (member hour (number-sequence 6 17))
+      (load-theme 'modus-operandi t)
+    (load-theme 'modus-vivendi t)))
+
 (provide 'init-ui)
 ;;; init-ui.el ends here.

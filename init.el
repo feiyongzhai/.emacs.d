@@ -54,6 +54,7 @@
 (require 'init-packages)
 (require 'init-latex)
 (require 'init-shell)
+(require 'init-org-roam)
 
 ;;;; site-lisp
 (require 'init-eaf)

@@ -19,7 +19,7 @@
 
 ;;; 需要安装的 packages
 (setq fei-package-ensure-installed
-      '(evil
+      '(evil general
 	elfeed
 	magit
 	company

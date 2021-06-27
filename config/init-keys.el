@@ -108,4 +108,23 @@
 (define-prefix-command 'ctl-z-map)
 (global-set-key (kbd "C-z") 'ctl-z-map)
 
+;;; {{ need feature `general`
+;;; Evil related keys
+(general-create-definer fei-space-leader-def
+  :prefix "SPC"
+  :states '(normal visual))
+
+(fei-space-leader-def
+  "SPC" 'counsel-M-x
+  "tt" 'modus-themes-toggle
+  "ts" 'counsel-load-theme
+  ;; "gg" 'browse-stackoverflow-search
+  "g" 'engine-mode-prefixed-map
+  "ss" 'eshell
+  "se" 'shell
+  "jj" 'scroll-other-window
+  "kk" 'scroll-other-window-down
+  )
+;;; }}
+
 (provide 'init-keys)

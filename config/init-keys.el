@@ -33,6 +33,7 @@
 
     ;; M-s-* style
     ("M-s-b" . (lambda () (interactive) (browse-url "https://feiyongzhai.github.io")))
+    ("M-s-d" . (lambda () (interactive) (dired "~/Desktop/")))
     ("M-s-e" . elfeed)
     ("M-s-g" . magit-status)
     ("M-s-n" . (lambda () (interactive) (dired "~/Nutstore Files")))
@@ -40,14 +41,16 @@
     ("M-s-I" . insert-translated-name-insert)
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
-    ("M-s-t" . tab-bar-mode)
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
     ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
     ("M-s-l" . display-line-numbers-mode)
 
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
-    ("C-s-l" . display-line-numbers-cycle)
+    ("C-s-l" . toggle-truncate-lines)
+
+    ;; C-M-s-* style
+    ("C-M-s-l" . display-line-numbers-cycle)
 
     ;; s-* style usually Windows related
     ("s-[" . fei-restore-or-store-window)
@@ -78,7 +81,11 @@
 		 (activate-input-method 'rime)))
     ;; Misc
     ("<menu>" . counsel-M-x)
-    ("<s-escape>" . evil-local-mode-with-cursor)
+    ("M-s s" . isearch-forward-symbol-at-point)
+    ("M-s M-s" . swiper)
+
+    ;; <f1> -- <f12>
+    ("<f10>" . nil)
 
     ;; Tab related
     ("M-1" . (lambda () (interactive) (tab-bar-select-tab 1)))

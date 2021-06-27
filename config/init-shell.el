@@ -3,8 +3,8 @@
 ;;; Code:
 
 ;;; Keys
-(global-set-key (kbd "<C-return>") 'eshell)
-(global-set-key (kbd "C-c <C-return>") #'fei-terminal-here)
+(global-set-key (kbd "<M-s-return>") 'eshell)
+(global-set-key (kbd "<C-s-return>") #'fei-terminal-here)
 
 ;;; Vars
 

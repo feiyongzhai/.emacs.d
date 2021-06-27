@@ -5,6 +5,7 @@
 
 (fei-define-key-with-map global-map
   '(("M-s M-w" . eaf-open-browser-with-history)
+    ("s-b" . eaf-open-browser-with-history)
     ("C-c e" . eaf-open-this-buffer)
     ("M-[" . fei-eaf-file-share-current-dir))
   "eaf")

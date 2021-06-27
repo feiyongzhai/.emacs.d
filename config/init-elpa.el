@@ -30,6 +30,7 @@
 	youdao-dictionary
 	auctex cdlatex
 	neotree
+	engine-mode
 	))
 
 (provide 'init-elpa)

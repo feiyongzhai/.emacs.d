@@ -8,9 +8,28 @@
 
 ;;; Vars
 
+(add-hook 'post-command-hook #'fei-show-evil-state)
 (setq evil-emacs-state-cursor 'bar)
 
-;;; Func
+;;; Funcs
+
+(defvar fei-default-color (cons (face-background 'mode-line)
+				  (face-foreground 'mode-line)))
+(defun fei-show-evil-state ()
+  "Change mode line color to notify user evil current state."
+  (let* ((color (cond ((minibufferp) fei-default-color)
+		      ((evil-insert-state-p) '("#e80000" . "#ffffff"))
+		      ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+		      ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+		      ((or (eq this-command 'load-theme)
+			   (eq this-command 'counsel-load-theme)
+			   (eq this-command 'modus-themes-toggle))
+		       (setq fei-default-color
+			     (cons (face-background 'mode-line)
+				   (face-foreground 'mode-line))))
+		      (t fei-default-color))))
+    (set-face-background 'mode-line (car color))
+    (set-face-foreground 'mode-line (cdr color))))
 
 (defun evil-local-mode-with-cursor ()
   (interactive)

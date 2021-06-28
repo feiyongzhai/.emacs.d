@@ -1,6 +1,14 @@
 ;;; init-elpa.el --- configs for package
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+;;; emacs-china mirrors
+;; (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+;;; USTC mirrors
+;; (setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+;;                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+;;                          ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+;;                          ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
 
 (package-initialize)
 

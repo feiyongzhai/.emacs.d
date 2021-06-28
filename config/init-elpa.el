@@ -39,6 +39,7 @@
 	auctex cdlatex
 	neotree
 	engine-mode
+	org-roam org-roam-server
 	))
 
 (provide 'init-elpa)

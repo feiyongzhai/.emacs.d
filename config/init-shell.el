@@ -3,31 +3,24 @@
 ;;; Code:
 
 ;;; Keys
-(global-set-key (kbd "<M-s-return>") 'eshell)
-(global-set-key (kbd "<C-s-return>") #'fei-terminal-here)
+(global-set-key (kbd "<M-s-return>") 'fei-terminal-here) ; 这个按键保留是为了用户习惯的过渡
+(global-set-key (kbd "<s-return>") 'fei-terminal-here)
 
 ;;; Vars
 
-;;; *e?shell* buffer display rule
-(add-to-list 'display-buffer-alist
-	     '("\\*e?shell\\*"
-	       (display-buffer-in-side-window)
-	       (window-height . 0.25)
-	       (side . bottom)
-	       (slot . 0)))
 
 ;;; Funcs
 
 ;; open terminal here
-(defun fei-terminal-here ()
-  (interactive)
-  (if *is-linux*
-      (if (fboundp 'eaf-open-terminal)
-	  (eaf-open-terminal)
-	(shell-command "gnome-terminal"))
-    (if (fboundp 'terminal-here)
-	(terminal-here)
-      (message "can't open terminal here"))))
+(defun fei-terminal-here (arg)
+  (interactive "P")
+  (if arg
+      (if *is-linux*
+	  (shell-command "gnome-terminal")
+	(if (fboundp 'terminal-here)
+	    (terminal-here)
+	  (message "can't open terminal here")))
+    (eshell)))
 
 ;; Ref url: https://www.emacswiki.org/emacs/EshellAutojump
 (defun eshell/j (&rest args)

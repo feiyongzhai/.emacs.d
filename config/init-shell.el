@@ -13,13 +13,13 @@
 ;; Open terminal here
 (defun fei-terminal-here (arg)
   (interactive "P")
-  (if arg
+  (if (eq arg '-)
       (if *is-linux*
 	  (shell-command "gnome-terminal")
 	(if (fboundp 'terminal-here)
 	    (terminal-here)
 	  (message "can't open terminal here")))
-    (eshell)))
+    (call-interactively 'eshell)))
 
 ;;; Eshell commands and alias
 

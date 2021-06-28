@@ -8,10 +8,9 @@
 
 ;;; Vars
 
-
 ;;; Funcs
 
-;; open terminal here
+;; Open terminal here
 (defun fei-terminal-here (arg)
   (interactive "P")
   (if arg
@@ -22,7 +21,30 @@
 	  (message "can't open terminal here")))
     (eshell)))
 
-;; Ref url: https://www.emacswiki.org/emacs/EshellAutojump
+;;; Eshell commands and alias
+
+(defalias 'open 'find-file-other-window)
+(defalias 'eshell/e 'eshell/edit)
+
+(with-eval-after-load 'eshell
+  (require 'eshell-up)
+  (defalias 'eshell/up 'eshell-up))
+
+;;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
+;;; `aweshell-emacs' function
+(defun eshell/edit (&rest args)
+  "Open a file in Emacs with ARGS, Some habits die hard."
+  (cond
+   ((null args)
+    (dired "."))
+   ((eq (length args) 1)
+    (eval `(find-file ,@args)))
+   (t
+    (mapc (lambda (x) 
+	    (find-file-other-tab x))
+	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
+
+;; @ref https://www.emacswiki.org/emacs/EshellAutojump
 (defun eshell/j (&rest args)
   "Jump to a directory you often cd to.
 This compares the argument with the list of directories you usually jump to.

@@ -20,7 +20,6 @@
   (let* ((color (cond ((minibufferp) fei-default-color)
 		      ((evil-insert-state-p) '("#e80000" . "#ffffff"))
 		      ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
-		      ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
 		      ((or (eq this-command 'load-theme)
 			   (eq this-command 'counsel-load-theme)
 			   (eq this-command 'modus-themes-toggle))

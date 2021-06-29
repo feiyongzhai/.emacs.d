@@ -8,6 +8,8 @@
 
 ;;; Vars
 
+(add-hook 'find-file-hook #'evil-local-mode)
+(add-hook 'help-mode-hook #'evil-local-mode)
 (add-hook 'post-command-hook #'fei-show-evil-state)
 (setq evil-emacs-state-cursor 'bar)
 

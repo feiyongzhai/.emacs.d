@@ -25,9 +25,6 @@
 
 ;;; Vars
 
-(add-hook 'find-file-hook #'evil-local-mode)
-(add-hook 'help-mode-hook #'evil-local-mode)
-
 ;;; no bell
 ;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)

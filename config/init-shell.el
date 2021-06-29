@@ -10,6 +10,15 @@
 
 ;;; Funcs
 
+;;; Make eshell don't always scroll to bottom
+;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
+;; There are two solution
+;; (setq eshell-scroll-show-maximum-output nil)
+(add-hook 'eshell-mode-hook
+          (defun chunyang-eshell-mode-setup ()
+            (remove-hook 'eshell-output-filter-functions
+                         'eshell-postoutput-scroll-to-bottom)))
+
 ;; Open terminal here
 (defun fei-terminal-here (arg)
   (interactive "P")

@@ -18,6 +18,8 @@
           (defun chunyang-eshell-mode-setup ()
             (remove-hook 'eshell-output-filter-functions
                          'eshell-postoutput-scroll-to-bottom)))
+(add-hook 'eshell-mode-hook (lambda ()
+			      (toggle-truncate-lines 1)))
 
 ;; Open terminal here
 (defun fei-terminal-here (arg)

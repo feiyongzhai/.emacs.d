@@ -12,13 +12,30 @@
 ;;; Funcs
 
 ;;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
-(defun next-eshell-buffer ()
-  (interactive)
-  (catch 'done
-    (dolist (buf (cdr (buffer-list)))
-      (with-current-buffer buf
-	(when (eq major-mode 'eshell-mode)
-	  (throw 'done (switch-to-buffer buf)))))))
+(defvar num-of-eshell 0)
+(defun next-eshell-buffer (&optional want-to-create)
+  "dwim create or switch eshell buffer"
+  (interactive "P")
+  (cond (want-to-create
+	 (call-interactively 'eshell)
+	 (setq num-of-eshell (1+ num-of-eshell)))
+	((<= num-of-eshell 0)
+	 (call-interactively 'eshell)
+	 (setq num-of-eshell (1+ num-of-eshell)))
+	(t
+	 (catch 'done
+	   (dolist (buf (cdr (buffer-list)))
+	     (with-current-buffer buf
+	       (when (eq major-mode 'eshell-mode)
+		 (throw 'done (switch-to-buffer buf)))))))
+	))
+
+(add-hook 'kill-buffer-query-functions #'sync-num-of-eshell 90)	;90 保证 `sync-num-of-eshell' 在列表的最后面
+
+(defun sync-num-of-eshell ()
+  (if (eq major-mode 'eshell-mode)
+      (setq num-of-eshell (- num-of-eshell 1))
+    t))
 
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

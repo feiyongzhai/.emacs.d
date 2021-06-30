@@ -11,18 +11,14 @@
 
 ;;; Funcs
 
-;;; @ref https://emacs-china.org/t/productivity-scratch-major-mode-buffer/2918
+;;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
 (defun next-eshell-buffer ()
   (interactive)
-  (let ((same-major-mode 'eshell-mode)
-        (i 0))
-    (next-buffer)
-    (while (< i 50)
-      (let ((cur-major-mode major-mode))
-        (if (eq same-major-mode cur-major-mode)
-            (setq i 100)
-	  (next-buffer)
-          (setq i (1+ i)))))))
+  (catch 'done
+    (dolist (buf (cdr (buffer-list)))
+      (with-current-buffer buf
+	(when (eq major-mode 'eshell-mode)
+	  (throw 'done (switch-to-buffer buf)))))))
 
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

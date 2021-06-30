@@ -5,10 +5,24 @@
 ;;; Keys
 (global-set-key (kbd "<M-s-return>") 'fei-terminal-here) ; 这个按键保留是为了用户习惯的过渡
 (global-set-key (kbd "<s-return>") 'fei-terminal-here)
+(global-set-key (kbd "<f8>") 'next-eshell-buffer)
 
 ;;; Vars
 
 ;;; Funcs
+
+;;; @ref https://emacs-china.org/t/productivity-scratch-major-mode-buffer/2918
+(defun next-eshell-buffer ()
+  (interactive)
+  (let ((same-major-mode 'eshell-mode)
+        (i 0))
+    (next-buffer)
+    (while (< i 50)
+      (let ((cur-major-mode major-mode))
+        (if (eq same-major-mode cur-major-mode)
+            (setq i 100)
+	  (next-buffer)
+          (setq i (1+ i)))))))
 
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

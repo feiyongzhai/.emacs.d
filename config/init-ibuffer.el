@@ -22,6 +22,7 @@
 	 ("Matlab" (name . "^.*\\.m$"))
 	 ("Lisp" (or (name . "^.*\\.el$")
 		     (mode . emacs-lisp-mode)))
+	 ("EAF" (mode . eaf-mode))
 	 ("Org" (or (mode . org-mode)
 		    (mode . org-agenda-mode)))
 	 ("Dired" (mode . dired-mode))

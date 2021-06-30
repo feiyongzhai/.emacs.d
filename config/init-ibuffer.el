@@ -3,8 +3,8 @@
 ;;; Code:
 
 ;;; Keys
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x 4 C-b") 'ibuffer-other-window)
+(global-set-key (kbd "C-x C-b") (lambda () (interactive) (ibuffer-jump) (ibuffer-update nil t)))
+(global-set-key (kbd "C-x 4 C-b") (lambda () (interactive) (ibuffer-jump t) (ibuffer-update nil t)))
 
 ;;; Vars
 
@@ -12,7 +12,13 @@
 (setq ibuffer-movement-cycle nil)
 
 (add-hook 'ibuffer-mode-hook #'hl-line-mode)
-(add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode)
+;;; ibuffer-auto-mode 和 hl-line-mode 一起使用的时候有个烦人的小毛病使
+;;; 用快捷键进入 ibuffer 并不能高亮当前行，必须要移动一下光标才能高亮
+;;; 当前行，就目前的使用情况来看，我更需要hl-line-mode正常工作，而反观
+;;; ibuffer-auto-mode我用的很少，所以我现在把ibuffer-auto-mode关了，现
+;;; 在暂时鱼和熊掌不可兼得。我现在只是在进入ibuffer的时候自动更新一下
+;;; （见第6行的配置）
+;; (add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode) 
 
 ;;; ibuffer group
 (setq ibuffer-saved-filter-groups

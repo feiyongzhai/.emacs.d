@@ -73,7 +73,7 @@
   "Open a file in Emacs with ARGS, Some habits die hard."
   (cond
    ((null args)
-    (dired "."))
+    (dired-other-window "."))
    ((eq (length args) 1)
     (eval `(find-file ,@args)))
    (t

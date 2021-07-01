@@ -83,6 +83,8 @@
     ("<menu>" . counsel-M-x)
     ("M-s s" . isearch-forward-symbol-at-point)
     ("M-s M-s" . swiper)
+    ("M-G" . engine-mode-prefixed-map)
+    ("M-G M-G" . eaf-open-browser-with-history)
 
     ;; <f1> -- <f12>
     ("<f10>" . nil)

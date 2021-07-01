@@ -3,7 +3,6 @@
 ;;; Code:
 
 ;;; Keys
-(global-set-key (kbd "<M-s-return>") 'fei-terminal-here) ; 这个按键保留是为了用户习惯的过渡
 (global-set-key (kbd "<s-return>") 'fei-terminal-here)
 (global-set-key (kbd "<f8>") 'next-eshell-buffer)
 
@@ -16,7 +15,9 @@
 (defun next-eshell-buffer (&optional want-to-create)
   "dwim create or switch eshell buffer"
   (interactive "P")
-  (cond (want-to-create
+  (cond ((eq want-to-create '-)
+	 (fei-terminal-here))
+	(want-to-create
 	 (call-interactively 'eshell)
 	 (setq num-of-eshell (1+ num-of-eshell)))
 	((<= num-of-eshell 0)
@@ -49,15 +50,13 @@
 			      (toggle-truncate-lines 1)))
 
 ;; Open terminal here
-(defun fei-terminal-here (arg)
-  (interactive "P")
-  (if (eq arg '-)
-      (if *is-linux*
-	  (shell-command "gnome-terminal")
-	(if (fboundp 'terminal-here)
-	    (terminal-here)
-	  (message "can't open terminal here")))
-    (call-interactively 'eshell)))
+(defun fei-terminal-here ()
+  (interactive)
+  (if *is-linux*
+      (shell-command "gnome-terminal")
+    (if (fboundp 'terminal-here)
+	(terminal-here)
+      (message "can't open terminal here"))))
 
 ;;; Eshell commands and alias
 

@@ -84,3 +84,5 @@
 ;;; 恢复原来的值
 (setq gc-cons-percentage pre-gc-cons-percentage)
 (setq gc-cons-threshold pre-gc-cons-threshold)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

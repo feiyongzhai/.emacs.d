@@ -49,6 +49,11 @@
 (add-hook 'eshell-mode-hook (lambda ()
 			      (toggle-truncate-lines 1)))
 
+(with-eval-after-load 'shell
+  (setq comint-prompt-read-only t)
+  (remove-hook 'comint-output-filter-functions
+	       'comint-postoutput-scroll-to-bottom))
+
 ;; Open terminal here
 (defun fei-terminal-here ()
   (interactive)

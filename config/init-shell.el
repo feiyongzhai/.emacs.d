@@ -16,7 +16,7 @@
   "dwim create or switch eshell buffer"
   (interactive "P")
   (cond ((eq want-to-create '-)
-	 (fei-terminal-here))
+	 (fei-eshell-cd-here))
 	(want-to-create
 	 (call-interactively 'eshell)
 	 (setq num-of-eshell (1+ num-of-eshell)))
@@ -37,6 +37,14 @@
   (if (eq major-mode 'eshell-mode)
       (setq num-of-eshell (- num-of-eshell 1))
     t))
+
+(defun fei-eshell-cd-here ()
+  (interactive)
+  (let ((dir default-directory)
+	(buf (next-eshell-buffer)))
+    (set-buffer buf)
+    (eshell/cd dir)
+    (eshell-reset)))
 
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

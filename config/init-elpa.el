@@ -25,7 +25,7 @@
 	  fei-package-ensure-installed)
   (message "ensured package installed successfully!"))
 
-;;; 需要安装的 packages
+;;; needed packages
 (setq fei-package-ensure-installed
       '(evil general
 	elfeed

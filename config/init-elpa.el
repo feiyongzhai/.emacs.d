@@ -40,6 +40,7 @@
 	neotree
 	engine-mode
 	org-roam org-roam-server
+	markdown-mode
 	))
 
 (provide 'init-elpa)

@@ -25,7 +25,6 @@
 
 ;;; Require
 (require 'init-encode)
-(require 'init-var)
 
 (require 'init-elpa)
 

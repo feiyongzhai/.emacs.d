@@ -1,5 +1,9 @@
 ;;; init-ui.el  --- configs for UI
 
+;;; Require
+
+(require 'init-var)
+
 ;;; Mode
 (show-paren-mode 1)
 (blink-cursor-mode -1) ;; 避免光标闪烁

@@ -1,5 +1,9 @@
 ;;; init-ime.el  --- 中文输入法相关配置
 
+;;; Require
+
+(require 'init-var)
+
 ;;; Code:
 
 ;;; Pyim

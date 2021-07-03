@@ -1,5 +1,9 @@
 ;;; init-eshell.el  --- configs for eshell, shell terminal
 
+;;; Requires
+
+(require 'init-var)
+
 ;;; Code:
 
 ;;; Keys

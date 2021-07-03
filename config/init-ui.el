@@ -9,15 +9,16 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (show-paren-mode 1)
-(blink-cursor-mode -1) ;; 避免光标闪烁
+(blink-cursor-mode -1)
 
 ;;; Vars
-(setq inhibit-splash-screen t) ;; inhibit the startup screen
+(setq inhibit-splash-screen t)
+(setq frame-resize-pixelwise t)
 
 (setq-default cursor-type 'bar)
 
 (setq display-time-format " %H:%M  %Y-%m-%d")
-(setq display-time-default-load-average nil) ;不显示time后面跟着的不明数字（load-average）
+(setq display-time-default-load-average nil) ;不显示time后面的不明数字（load-average）
 (display-time-mode 1)
 
 ;;; Fonts

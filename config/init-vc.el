@@ -14,8 +14,7 @@
 	;; log-edit-insert-filenames-without-changelog
 	auto-fill-mode
 	display-fill-column-indicator-mode
-	(lambda () (goto-char (+ 9 (point-min))))))
-
+	))
 ;;; Funcs
 
 (defun fei-vc-dired-jump (arg)

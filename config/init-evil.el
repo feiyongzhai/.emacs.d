@@ -8,9 +8,9 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-z") 'evil-local-mode-with-cursor)
+(global-set-key (kbd "C-z") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
-    (define-key evil-normal-state-map (kbd "C-z") 'evil-local-mode-with-cursor))
+    (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor))
 
 ;;; Vars
 
@@ -28,7 +28,6 @@
     "Change mode line color to notify user evil current state."
     (let* ((color (cond ((minibufferp) fei-default-color)
 			((evil-insert-state-p) '("#e80000" . "#ffffff"))
-			((evil-emacs-state-p)  '("#444488" . "#ffffff"))
 			((or (eq this-command 'load-theme)
 			     (eq this-command 'counsel-load-theme)
 			     (eq this-command 'modus-themes-toggle))
@@ -37,7 +36,47 @@
 				     (face-foreground 'mode-line))))
 			(t fei-default-color))))
       (set-face-background 'mode-line (car color))
-      (set-face-foreground 'mode-line (cdr color)))))
+      (set-face-foreground 'mode-line (cdr color))))
+
+  (dolist (p '((minibuffer-inactive-mode . emacs)
+	       (calendar-mode . emacs)
+	       (special-mode . emacs)
+	       (grep-mode . emacs)
+	       (Info-mode . emacs)
+	       (term-mode . emacs)
+	       (sdcv-mode . emacs)
+	       (anaconda-nav-mode . emacs)
+	       (log-edit-mode . emacs)
+	       (vc-log-edit-mode . emacs)
+	       (magit-log-edit-mode . emacs)
+	       (git-commit-mode . emacs)
+	       (erc-mode . emacs)
+	       (neotree-mode . emacs)
+	       (w3m-mode . emacs)
+	       (gud-mode . emacs)
+	       (help-mode . emacs)
+	       (eshell-mode . emacs)
+	       (shell-mode . emacs)
+	       (xref--xref-buffer-mode . emacs)
+	       ;;(message-mode . emacs)
+	       (epa-key-list-mode . emacs)
+	       (fundamental-mode . emacs)
+	       (weibo-timeline-mode . emacs)
+	       (weibo-post-mode . emacs)
+	       (woman-mode . emacs)
+	       (sr-mode . emacs)
+	       (profiler-report-mode . emacs)
+	       (dired-mode . emacs)
+	       (compilation-mode . emacs)
+	       (speedbar-mode . emacs)
+	       (ivy-occur-mode . emacs)
+	       (ffip-file-mode . emacs)
+	       (ivy-occur-grep-mode . normal)
+	       (messages-buffer-mode . normal)
+	       (eaf-mode . emacs)
+	       (js2-error-buffer-mode . emacs)))
+    (evil-set-initial-state (car p) (cdr p)))
+  )
 
 (defun evil-local-mode-with-cursor ()
   (interactive)
@@ -47,6 +86,15 @@
       (progn (evil-local-mode -1)
 	     (setq cursor-type 'bar))
     (evil-local-mode 1)))
+
+(defun evil-mode-with-cursor ()
+  (interactive)
+  (unless (boundp 'evil-mode)
+    (evil-mode -1)) ;; unless part is for initialization
+  (if evil-mode
+      (progn (evil-mode -1)
+	     (setq cursor-type 'bar))
+    (evil-mode 1)))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

@@ -22,7 +22,17 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; `early-init.el' 可对 emacsclient 生效
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 (require 'init-elpa)
-(require 'init-ui)
+
+;;; autoswitch theme by time
+(let ((hour (string-to-number
+	     (substring (current-time-string) 11 13))))
+  (if (member hour (number-sequence 6 17))
+      (load-theme 'modus-operandi t)
+    (load-theme 'modus-vivendi t)))
+
 ;; (add-hook 'server-visit-hook (lambda ()
 ;; 			       (arrange-frame 84 30 170 20)))

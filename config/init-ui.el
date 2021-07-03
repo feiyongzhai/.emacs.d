@@ -5,9 +5,6 @@
 (require 'init-var)
 
 ;;; Mode
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 
@@ -47,12 +44,6 @@
 
 ;;; Funcs
 
-;;; autoswitch theme by time
-(let ((hour (string-to-number
-	     (substring (current-time-string) 11 13))))
-  (if (member hour (number-sequence 6 17))
-      (load-theme 'modus-operandi t)
-    (load-theme 'modus-vivendi t)))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here.

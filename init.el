@@ -15,6 +15,7 @@
 (require 'init-encode)
 
 ;;;; built-in
+(require 'init-ui)
 (require 'init-misc)
 (require 'init-ibuffer)
 (require 'init-windows)

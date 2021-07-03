@@ -78,6 +78,7 @@
     ("M-z" . fei-org-capture)
     ("C-M-z" . (lambda () (interactive)
 		 (org-capture nil "i")
+		 (auto-fill-mode)
 		 (activate-input-method 'rime)))
     ;; Misc
     ("<menu>" . counsel-M-x)

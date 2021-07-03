@@ -107,8 +107,8 @@
     ))
 
 ;;; ctl-z-map for personal use
-(define-prefix-command 'ctl-z-map)
-(global-set-key (kbd "C-z") 'ctl-z-map)
+;; (define-prefix-command 'ctl-z-map)
+;; (global-set-key (kbd "C-z") 'ctl-z-map)
 
 ;;; {{ need feature `general`
 ;;; Evil related keys

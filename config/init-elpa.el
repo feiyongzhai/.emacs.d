@@ -10,7 +10,7 @@
 ;;                          ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
 ;;                          ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
 
-(package-initialize)
+;; (package-initialize)
 
 (defvar fei-package-ensure-installed nil
   "List of package names to install ,if missing.")

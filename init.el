@@ -13,10 +13,8 @@
 
 ;;; Require
 (require 'init-encode)
-(require 'init-elpa)
 
 ;;;; built-in
-(require 'init-ui)
 (require 'init-misc)
 (require 'init-ibuffer)
 (require 'init-windows)

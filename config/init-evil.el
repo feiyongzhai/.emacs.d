@@ -10,7 +10,11 @@
 
 (global-set-key (kbd "C-z") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
-    (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor))
+  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  )
 
 ;;; Vars
 
@@ -54,7 +58,7 @@
 	       (neotree-mode . emacs)
 	       (w3m-mode . emacs)
 	       (gud-mode . emacs)
-	       (help-mode . emacs)
+	       ;; (help-mode . emacs)
 	       (eshell-mode . emacs)
 	       (shell-mode . emacs)
 	       (xref--xref-buffer-mode . emacs)

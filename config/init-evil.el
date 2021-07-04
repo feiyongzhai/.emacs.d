@@ -93,7 +93,9 @@
     (evil-mode -1)) ;; unless part is for initialization
   (if evil-mode
       (progn (evil-mode -1)
-	     (setq cursor-type 'bar))
+	     (dolist (buf (buffer-list))
+	       (set-buffer buf)
+	       (setq cursor-type 'bar)))
     (evil-mode 1)))
 
 (provide 'init-evil)

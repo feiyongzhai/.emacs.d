@@ -41,6 +41,7 @@
 	engine-mode
 	org-roam org-roam-server
 	markdown-mode
+	devdocs
 	))
 
 (provide 'init-elpa)

@@ -86,6 +86,7 @@
     ("M-s M-s" . swiper)
     ("M-G" . engine-mode-prefixed-map)
     ("M-G M-G" . eaf-open-browser-with-history)
+    ("M-G p" . devdocs-lookup)
 
     ;; <f1> -- <f12>
     ("<f10>" . nil)

@@ -13,6 +13,9 @@
   (define-key paredit-mode-map (kbd "M-s") nil)
   (define-key paredit-mode-map (kbd "M-r") #'paredit-splice-sexp))
 
+(with-eval-after-load 'devdocs
+  (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
+
 ;;; Vars
 
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)

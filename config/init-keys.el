@@ -110,6 +110,10 @@
     ;; C-c * style
     ("C-c s" . (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
 
+    ;; remap series
+
+    ("M-i" . company-yasnippet/yas-expand)
+
     ))
 
 ;;; ctl-z-map for personal use

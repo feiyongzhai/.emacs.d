@@ -20,5 +20,19 @@
   (setq company-idle-delay 0.1
 	company-minimum-prefix-length 1))
 
+
+;;; Func
+
+(with-eval-after-load 'yasnippet
+  (with-eval-after-load 'company
+    (defun company-yasnippet/yas-expand ()
+      (interactive)
+      (call-interactively 'company-yasnippet)
+      (when (eq 1 company-candidates-length)
+	(call-interactively 'yas-expand))
+      )
+    ))
+
+
 (provide 'init-company)
 ;;; init-company.el ends here.

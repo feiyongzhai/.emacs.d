@@ -18,7 +18,7 @@
   
   (setq company-show-numbers t)
   (setq company-idle-delay 0.1
-	company-minimum-prefix-length 2))
+	company-minimum-prefix-length 1))
 
 (provide 'init-company)
 ;;; init-company.el ends here.

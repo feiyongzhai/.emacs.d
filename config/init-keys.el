@@ -106,6 +106,10 @@
     ("M-+" . tab-new)
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
+
+    ;; C-c * style
+    ("C-c s" . (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
+
     ))
 
 ;;; ctl-z-map for personal use

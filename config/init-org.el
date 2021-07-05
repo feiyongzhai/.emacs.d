@@ -5,6 +5,8 @@
 ;;; Keys
 
 (global-set-key (kbd "C-c a") 'org-agenda)
+(with-eval-after-load 'org
+  (global-set-key (kbd "C-c s") 'org-store-link))
 
 ;;; Vars
 

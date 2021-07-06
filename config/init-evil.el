@@ -79,6 +79,7 @@
 	       (ivy-occur-grep-mode . normal)
 	       (messages-buffer-mode . normal)
 	       (eaf-mode . emacs)
+	       (diff-mode . emacs)
 	       (js2-error-buffer-mode . emacs)))
     (evil-set-initial-state (car p) (cdr p)))
   )

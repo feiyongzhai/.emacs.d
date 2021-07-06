@@ -14,6 +14,7 @@
   (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   )
 
 ;;; Vars

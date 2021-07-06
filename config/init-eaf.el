@@ -10,6 +10,18 @@
     ("M-[" . fei-eaf-file-share-current-dir))
   "eaf")
 
+(with-eval-after-load 'eaf
+  (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
+
+  (fei-define-key-with-map eaf-interleave-mode-map
+    '(("M-n" . eaf-interleave-sync-next-note)
+      ("M-p" . eaf-interleave-sync-previous-note)))
+  )
+
 ;;; Vars
 
 (with-eval-after-load 'eaf

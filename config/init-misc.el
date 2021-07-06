@@ -9,12 +9,15 @@
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (save-place-mode t)
+(global-set-key (kbd "<f5>") (lambda ()
+                               (interactive)
+                               (setq-local compilation-read-command nil)
+                               (call-interactively 'compile)))
 
 ;;; Keys
 
 (global-set-key (kbd "C-x u") #'transient-undo)
 (global-set-key (kbd "<f9>") #'global-set-or-unset-key)
-(global-set-key (kbd "M-G") #'fei-google-search)
 
 ;;; replace y-or-n frome yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)

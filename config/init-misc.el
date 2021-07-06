@@ -11,6 +11,7 @@
 (save-place-mode t)
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
+			       (save-buffer)
 			       (let (compilation-read-command)
 				 (call-interactively 'compile))))
 

@@ -11,8 +11,8 @@
 (save-place-mode t)
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
-                               (setq-local compilation-read-command nil)
-                               (call-interactively 'compile)))
+			       (let (compilation-read-command)
+				 (call-interactively 'compile))))
 
 ;;; Keys
 

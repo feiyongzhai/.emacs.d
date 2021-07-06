@@ -25,10 +25,10 @@
 
 ;;; Funcs
 
-(defvar fei-default-color (cons (face-background 'mode-line)
-				  (face-foreground 'mode-line)))
 (with-eval-after-load 'evil
   (add-hook 'post-command-hook #'fei-show-evil-state)
+  (defvar fei-default-color (cons (face-background 'mode-line)
+				  (face-foreground 'mode-line)))
   (defun fei-show-evil-state ()
     "Change mode line color to notify user evil current state."
     (let* ((color (cond ((minibufferp) fei-default-color)

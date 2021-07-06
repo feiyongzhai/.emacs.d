@@ -11,6 +11,8 @@
       '((lambda ()
 	  (string-suffix-p
 	   "gpg"
-	   (file-name-extension (buffer-name)) t))))
+	   (file-name-extension (buffer-name)) t))
+	(lambda ()
+	  (eq major-mode 'makefile-gmake-mode))))
 
 (provide 'init-auto-save)

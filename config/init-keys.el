@@ -22,6 +22,9 @@
     ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
     ("ESC ESC v" . (lambda () (interactive) (dired "~/Videos")))
     ("ESC ESC V" . (lambda () (interactive) (dired "~/.vim")))
+    ("ESC ESC g" . (lambda () (interactive) (dired "~/Sandbox/Git/testGit/")))
+    ("ESC ESC E" . (lambda () (interactive) (dired "~/Sandbox/Emacs/")))
+    ("ESC ESC C-b" . (lambda () (interactive) (dired "~/Sandbox/Emacs/MyBlog/")))
 
     ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
     ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
@@ -81,7 +84,8 @@
 		 (auto-fill-mode)
 		 (activate-input-method 'rime)))
     ;; Misc
-    ("<menu>" . counsel-M-x)
+    ("<menu>" . youdao-dictionary-search-at-point-tooltip)
+    ("<insert>" . nil)
     ("M-s s" . isearch-forward-symbol-at-point)
     ("M-s M-s" . swiper)
     ("M-G" . engine-mode-prefixed-map)

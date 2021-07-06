@@ -89,6 +89,7 @@
     ("M-s s" . isearch-forward-symbol-at-point)
     ("M-s M-s" . swiper)
     ("M-G" . engine-mode-prefixed-map)
+    ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)
     ("M-G p" . devdocs-lookup)
 

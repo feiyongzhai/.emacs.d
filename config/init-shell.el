@@ -85,6 +85,7 @@
 
 (with-eval-after-load 'eshell
   (require 'eshell-up)
+  (defalias 'eshell/u 'eshell-up)
   (defalias 'eshell/up 'eshell-up))
 
 ;;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el

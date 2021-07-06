@@ -140,20 +140,5 @@ Otherwise, call `eshell/cd' with the result."
 	  (setq candidates (cdr candidates))))
       (eshell/cd result))))
 
-;;; eshell 定制
-(defun fei-eshell ()
-  "这个函数已经过时
-
-如果 *eshell* buffer 存在就跳转到这个 buffer，没有就新建一个，
-如果处于 *eshell* 就跳转到上一个 buffer"
-  (interactive)
-  (let ((buf (buffer-name)))
-    (cond ((string-equal buf "*eshell*")
-	   (mode-line-other-buffer))
-	  ((get-buffer "*eshell*")
-	   (switch-to-buffer "*eshell*"))
-	  (t
-	   (eshell)))))
-
 (provide 'init-shell)
 ;;; init-shell.el ends here.

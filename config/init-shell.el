@@ -9,6 +9,7 @@
 ;;; Keys
 (global-set-key (kbd "<s-return>") 'fei-terminal-here)
 (global-set-key (kbd "<f8>") 'next-eshell-buffer)
+(global-set-key (kbd "<C-f8>") 'fei-eshell-cd-here)
 
 ;;; Vars
 
@@ -44,11 +45,13 @@
 
 (defun fei-eshell-cd-here ()
   (interactive)
-  (let ((dir default-directory)
-	(buf (next-eshell-buffer)))
-    (set-buffer buf)
-    (eshell/cd dir)
-    (eshell-reset)))
+  (if (eq major-mode 'eshell-mode)
+      (message "You are already in eshell buffer!")
+    (let ((dir default-directory)
+	  (buf (next-eshell-buffer)))
+      (set-buffer buf)
+      (eshell/cd dir)
+      (eshell-reset))))
 
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

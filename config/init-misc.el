@@ -8,6 +8,7 @@
 ;;; mode enable or disable
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
+(column-number-mode t)
 (save-place-mode t)
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
@@ -28,6 +29,12 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 
 ;;; Vars
+
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (company-mode t)
+	    (yas-minor-mode t)
+	    (menu-bar--display-line-numbers-mode-absolute)))
 
 ;;; no bell
 ;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642

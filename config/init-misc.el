@@ -3,8 +3,6 @@
 (require 'init-func)
 (autoload 'insert-translated-name-insert "insert-translated-name" nil t)
 
-;;; Code:
-
 ;;; mode enable or disable
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖

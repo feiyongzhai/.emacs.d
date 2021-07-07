@@ -2,8 +2,6 @@
 
 (require 'init-func)
 
-;;; Code:
-
 ;;; Keys
 
 (with-eval-after-load 'company

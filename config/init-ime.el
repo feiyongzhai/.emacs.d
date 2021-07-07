@@ -4,8 +4,6 @@
 
 (require 'init-var)
 
-;;; Code:
-
 ;;; Pyim
 
 (with-eval-after-load 'pyim

@@ -1,7 +1,5 @@
 ;;; init-ibuffer.el  --- configs for ibuffer
 
-;;; Code:
-
 ;;; Keys
 (global-set-key (kbd "C-x C-b") (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
 (global-set-key (kbd "C-x 4 C-b") (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))

@@ -2,12 +2,8 @@
 
 (require 'init-func)
 
-;;; Code:
+;;; Mode
 
-;;;TODO
-;; [ ] 1. 给transient类函数添加message提示
-
-;;; mode
 (winner-mode 1)
 
 ;;; Keys

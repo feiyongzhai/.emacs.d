@@ -1,7 +1,5 @@
 ;;; init-org.el
 
-;;; Code(Myself):
-
 ;;; Keys
 
 (global-set-key (kbd "C-c a") 'org-agenda)

@@ -1,8 +1,6 @@
 ;;; init-counsel.el  --- configs for counsel/swiper/ivy
 
-;;; Code:
-
-;;; mode
+;;; Mode
 (ivy-mode 1)
 
 ;;; Keys

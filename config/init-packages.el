@@ -1,8 +1,5 @@
 ;;; init-packages  --- misc packages configs
 
-;;; Code:
-
-
 ;;; Keys
 
 (global-set-key (kbd "C-c SPC") 'neotree-toggle)

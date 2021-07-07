@@ -1,8 +1,7 @@
 ;;; init-vc.el --- configs for vc
 
-;;; Code:
-
 ;;; Keys
+
 (define-key global-map (kbd "C-x v j") #'fei-vc-dired-jump)
 
 ;;; Vars

@@ -4,8 +4,6 @@
 
 (autoload 'evil-local-mode "evil" nil t)
 
-;;; Code:
-
 ;;; Keys
 
 (global-set-key (kbd "C-z") 'evil-mode-with-cursor)

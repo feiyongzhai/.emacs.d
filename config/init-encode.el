@@ -1,7 +1,5 @@
 ;;; init-encode.el  --- configs for encode
 
-;;; Code:
-
 ;; 任何地方都使用UTF-8
 (set-charset-priority 'unicode) 
 ;;; 这个命令会导致在菜单栏选字体的时候出现乱码

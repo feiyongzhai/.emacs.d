@@ -1,8 +1,7 @@
 ;;; init-ido --- configs for ido and smex
 
-;;; Code:
+;;; Mode
 
-;;; mode
 (ido-mode 1)
 
 ;;; Keys

@@ -2,8 +2,6 @@
 
 (require 'dired-x)
 
-;;; Code:
-
 ;;; Keys
 
 (with-eval-after-load 'dired

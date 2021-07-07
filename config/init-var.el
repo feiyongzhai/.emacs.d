@@ -1,7 +1,5 @@
 ;;; init-var.el --- variable for initial time
 
-;;; Code:
-
 ;;;;;;;;;;;;;;;;;;;;;;; 用于判断系统的变量 ;;;;;;;;;;;;;;;;;;;;
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))

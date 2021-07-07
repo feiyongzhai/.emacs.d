@@ -4,9 +4,8 @@
 
 (require 'init-var)
 
-;;; Code:
-
 ;;; Keys
+
 (global-set-key (kbd "<s-return>") 'fei-terminal-here)
 (global-set-key (kbd "<f8>") 'next-eshell-buffer)
 (global-set-key (kbd "<C-f8>") 'fei-eshell-cd-here)

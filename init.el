@@ -1,7 +1,5 @@
 ;;; init.el
 
-;;; Code:
-
 ;; Produce backtraces when errors occur: helpful to diagnose startup issues
 ;; (setq debug-on-error t)
 

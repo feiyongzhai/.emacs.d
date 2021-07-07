@@ -44,7 +44,7 @@
 (require 'init-eaf)
 (require 'init-thing-edit)
 (require 'init-auto-save)
-(require 'init-move-text)
+;; (require 'init-move-text)
 
 ;;;; keys configs
 (require 'init-keys)

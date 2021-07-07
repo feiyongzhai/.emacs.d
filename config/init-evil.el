@@ -35,6 +35,7 @@
 			((evil-insert-state-p) '("#e80000" . "#ffffff"))
 			((or (eq this-command 'load-theme)
 			     (eq this-command 'counsel-load-theme)
+			     (eq this-command 'disable-theme)
 			     (eq this-command 'modus-themes-toggle))
 			 (setq fei-default-color
 			       (cons (face-background 'mode-line)

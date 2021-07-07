@@ -63,6 +63,7 @@
     ("s-2" . split-window-below)
     ("s-3" . split-window-right)
     ("s-o" . other-window)
+    ("s-O" . (lambda () (interactive) (other-window -1)))
     ;; 下面这个fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑
     ;; 会有点奇怪，不管了，先用着吧
     ("<s-tab>" . fei-meow-last-buffer)

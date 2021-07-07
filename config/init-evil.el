@@ -26,24 +26,6 @@
 ;;; Funcs
 
 (with-eval-after-load 'evil
-  (add-hook 'post-command-hook #'fei-show-evil-state)
-  (defvar fei-default-color (cons (face-background 'mode-line)
-				  (face-foreground 'mode-line)))
-  (defun fei-show-evil-state ()
-    "Change mode line color to notify user evil current state."
-    (let* ((color (cond ((minibufferp) fei-default-color)
-			((evil-insert-state-p) '("#e80000" . "#ffffff"))
-			((or (eq this-command 'load-theme)
-			     (eq this-command 'counsel-load-theme)
-			     (eq this-command 'disable-theme)
-			     (eq this-command 'modus-themes-toggle))
-			 (setq fei-default-color
-			       (cons (face-background 'mode-line)
-				     (face-foreground 'mode-line))))
-			(t fei-default-color))))
-      (set-face-background 'mode-line (car color))
-      (set-face-foreground 'mode-line (cdr color))))
-
   (dolist (p '((minibuffer-inactive-mode . emacs)
 	       (calendar-mode . emacs)
 	       (special-mode . emacs)

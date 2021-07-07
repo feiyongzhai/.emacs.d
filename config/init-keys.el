@@ -122,6 +122,14 @@
 
     ))
 
+(with-eval-after-load 'citre
+  (global-set-key (kbd "C-c j") 'citre-jump)
+  (global-set-key (kbd "C-c J") 'citre-jump-back)
+  (global-set-key (kbd "C-c p") 'citre-ace-peek)
+  (global-set-key (kbd "M-.") 'citre-jump)
+  (global-set-key (kbd "M-,") 'citre-jump-back)
+  )
+
 ;;; ctl-z-map for personal use
 ;; (define-prefix-command 'ctl-z-map)
 ;; (global-set-key (kbd "C-z") 'ctl-z-map)

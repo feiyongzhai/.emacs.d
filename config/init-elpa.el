@@ -30,7 +30,7 @@
       '(evil general
 	elfeed
 	magit
-	company yasnippet
+	company yasnippet citre
 	paredit
 	smex
 	counsel ivy swiper ctrlf anzu avy

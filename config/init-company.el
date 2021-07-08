@@ -12,8 +12,6 @@
     '(("M-n" . nil)
       ("M-p" . nil)
       ("M-i" . yas-expand)
-      ;; C-i 键执行原来的功能
-      ("<tab>" . company-complete-selection)
       ("M-/" . company-other-backend)))
   
   (setq company-show-numbers t)

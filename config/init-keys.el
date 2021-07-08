@@ -42,6 +42,7 @@
     ("M-s-n" . (lambda () (interactive) (dired "~/Nutstore Files")))
     ("M-s-i" . toggle-input-method)
     ("M-s-I" . insert-translated-name-insert)
+    ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)

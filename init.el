@@ -39,6 +39,7 @@
 (require 'init-org-roam)
 (require 'init-engine)
 (require 'init-markdown)
+(require 'init-c)
 
 ;;;; site-lisp
 (require 'init-eaf)

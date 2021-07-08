@@ -122,7 +122,7 @@
 
     ))
 
-(with-eval-after-load 'citre
+(with-eval-after-load 'citre-core
   (global-set-key (kbd "C-c j") 'citre-jump)
   (global-set-key (kbd "C-c J") 'citre-jump-back)
   (global-set-key (kbd "C-c p") 'citre-ace-peek)

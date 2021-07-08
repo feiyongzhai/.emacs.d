@@ -12,11 +12,15 @@
     '(("M-n" . nil)
       ("M-p" . nil)
       ("M-i" . yas-expand)
+      ;; C-i 键执行原来的功能
+      ("<tab>" . company-complete-selection)
       ("M-/" . company-other-backend)))
   
   (setq company-show-numbers t)
   (setq company-idle-delay 0.1
-	company-minimum-prefix-length 1))
+	company-minimum-prefix-length 1
+	company-tooltip-limit 10
+	company-echo-delay (if (display-graphic-p) nil 0)))
 
 
 ;;; Func
@@ -34,22 +38,15 @@
 
 ;;; {{ company related config copied from centuar emacs
 
-(defconst emacs/>=26p
-  (>= emacs-major-version 26)
-  "Emacs is 26 or above.")
-
 (use-package company
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
   :bind (:map company-active-map
-	      ("<tab>" . company-complete-common-or-cycle)
 	      ("<backtab>" . my-company-yasnippet)
 	      )
   :init
   (setq company-tooltip-align-annotations t
-        company-tooltip-limit 12
-        company-echo-delay (if (display-graphic-p) nil 0)
         company-require-match nil
         company-dabbrev-ignore-case nil
         company-dabbrev-downcase nil

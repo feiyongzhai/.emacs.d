@@ -28,7 +28,6 @@ site-lisp/printed-theme.el
 site-lisp/storybook-theme.el
 site-lisp/emacs-application-framework-master.zip
 viper
-snippets/
 eww-bookmarks
 ido.last
 dmenu-items

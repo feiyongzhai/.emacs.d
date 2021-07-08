@@ -1,11 +1,5 @@
 ;;; init-org.el
 
-;;; Keys
-
-(global-set-key (kbd "C-c a") 'org-agenda)
-(with-eval-after-load 'org
-  (global-set-key (kbd "C-c s") 'org-store-link))
-
 ;;; Vars
 
 ;;; 使得 org 中的时间格式变成英文来规避乱码问题

@@ -4,10 +4,6 @@
 
 (ido-mode 1)
 
-;;; Keys
-
-(global-set-key (kbd "M-x") 'smex)
-
 ;;; Vars
 
 (setq ido-enable-flex-matching t)

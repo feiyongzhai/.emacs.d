@@ -1,4 +1,3 @@
-;;; quick open dir or file
 (fei-define-key-with-map global-map
   '(
     ;; ESC ESC Style 这类快捷键会导致有点慢 这种快捷键的方式，完成一
@@ -9,30 +8,29 @@
     ;; 可以用一个组合按键来配合使用如同下面列举的：`M-s-*'和`C-s-*'类
     ;; 型的一步到位的组合键模式，而不适合这种序列式的按键模式
 
-    ;; ESC ESC * style
+    ;; ESC ESC * style -- quick open dir or file
     ("ESC ESC h" . (lambda () (interactive) (dired "~")))
+    ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
     ("ESC ESC d" . (lambda () (interactive) (dired "~/Downloads")))
     ("ESC ESC D" . (lambda () (interactive) (dired "~/Desktop")))
-    ("ESC ESC m" . (lambda () (interactive) (dired "~/Music")))
-    ("ESC ESC s" . (lambda () (interactive) (dired "~/Sandbox")))
-    ("ESC ESC p" . (lambda () (interactive) (dired "~/Picture")))
-    ("ESC ESC n" . (lambda () (interactive) (dired "~/Nutstore Files")))
     ("ESC ESC e" . (lambda () (interactive) (dired "~/.emacs.d")))
-    ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
-    ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
+    ("ESC ESC E" . (lambda () (interactive) (dired "~/Sandbox/Emacs/")))
+    ("ESC ESC m" . (lambda () (interactive) (dired "~/Music")))
+    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
+    ("ESC ESC p" . (lambda () (interactive) (dired "~/Picture")))
+    ("ESC ESC s" . (lambda () (interactive) (dired "~/Sandbox")))
+    ("ESC ESC n" . (lambda () (interactive) (dired "~/Nutstore Files")))
     ("ESC ESC v" . (lambda () (interactive) (dired "~/Videos")))
     ("ESC ESC V" . (lambda () (interactive) (dired "~/.vim")))
     ("ESC ESC g" . (lambda () (interactive) (dired "~/Sandbox/Git/testGit/")))
-    ("ESC ESC E" . (lambda () (interactive) (dired "~/Sandbox/Emacs/")))
     ("ESC ESC C-b" . (lambda () (interactive) (dired "~/Sandbox/Emacs/MyBlog/")))
-
+    ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
     ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
-    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
 
     ("ESC ESC b" . list-bookmarks)
     ("ESC ESC l" . list-packages)
     ("ESC ESC L" . list-processes)
-    ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
+    ;; ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
 
     ;; M-s-* style
     ("M-s-b" . (lambda () (interactive) (browse-url "https://feiyongzhai.github.io")))
@@ -46,8 +44,8 @@
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
-    ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
     ("M-s-l" . display-line-numbers-mode)
+    ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
 
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
@@ -71,6 +69,7 @@
     ("s-u" . winner-undo)
     ("s-r" . winner-redo)
     ("s-\\" . fei-terminal-here)
+    ("<s-return>" . fei-terminal-here)
 
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
@@ -78,7 +77,8 @@
     ("C-c r" . counsel-recentf)
     ("C-c f" . find-name-current-dired)
     ("C-c F" . find-name-dired)
-
+    ("C-x u" . transient-undo)
+    
     ("C-x C-d" . dired)
     ("M-z" . fei-org-capture)
     ("C-M-z" . (lambda () (interactive)
@@ -97,8 +97,22 @@
 
     ;; <f1> -- <f12>
     ("<f10>" . nil)
+    ("<f8>" . next-eshell-buffer)
+    ("<C-f8>" . fei-eshell-cd-here)
+    ("<M-f8>" . shell)
+    ("<f1> f" . counsel-describe-function)
+    ("<f1> v" . counsel-describe-variable)
+    ("<f9>" . global-set-or-unset-key)
 
     ;; Tab related
+    ("C-x t O" . transient-tab-previous)
+    ("C-x t o" . transient-tab-next)
+    ("C-x t l" . tab-list)
+    ("C-x t t" . tab-bar-select-tab-by-name)
+    ("C-x t r" . tab-recent)
+    ("C-x t n" . tab-new)
+    ("C-x t R" . tab-rename)
+    ("C-x t u" . tab-undo)
     ("M-1" . (lambda () (interactive) (tab-bar-select-tab 1)))
     ("M-2" . (lambda () (interactive) (tab-bar-select-tab 2)))
     ("M-3" . (lambda () (interactive) (tab-bar-select-tab 3)))
@@ -113,27 +127,84 @@
     ("M-+" . tab-new)
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
+    ;; ivy-view replacement
+    ("C-c v" . tab-rename)
+    ("C-c V" . tab-bar-select-tab-by-name)
 
     ;; C-c * style
+    ("C-c a" . org-agenda)
+    ("C-c b" . counsel-bookmark)
+    ("C-c g" . counsel-git)
+    ("C-c k" . counsel-rg)
+    ("C-c l" . counsel-locate)
+    ("C-c r" . counsel-recentf)
     ("C-c s" . (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
+    ("C-c M-x" . counsel-M-x)
+    ("C-c SPC" . neotree-toggle)
+    ;; youdao-dictionary
+    ("C-c y y" . youdao-dictionary-search-at-point-tooltip)
+    ("C-c y i" . youdao-dictionary-search-from-input)
 
-    ;; remap series
+    ;; C-x *
+    ("C-x C-b" . (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
+    ("C-x 4 C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
 
+    ;; M-* style
+    ("M-x" . smex)
     ("M-i" . company-yasnippet/yas-expand)
+
+    ;; C-*
+    ("C-=" . er/expand-region)
+    ("C-z" . evil-mode-with-cursor)
 
     ))
 
-(with-eval-after-load 'citre-core
-  (global-set-key (kbd "C-c j") 'citre-jump)
-  (global-set-key (kbd "C-c J") 'citre-jump-back)
-  (global-set-key (kbd "C-c p") 'citre-ace-peek)
-  (global-set-key (kbd "M-.") 'citre-jump)
-  (global-set-key (kbd "M-,") 'citre-jump-back)
+(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
+
+(global-set-key (kbd "<f5>") (lambda ()
+                               (interactive)
+			       (save-buffer)
+			       (let (compilation-read-command)
+				 (call-interactively 'compile))))
+
+;; 回车代替输入y
+(define-key y-or-n-p-map [return] 'act)
+(define-key y-or-n-p-map (kbd "C-m") 'act)
+(define-key y-or-n-p-map (kbd "C-j") 'act)
+
+(with-eval-after-load 'diff
+  (define-key diff-mode-map (kbd "M-o") nil)
+  (define-key diff-mode-map (kbd "M-k") nil)
+  (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
+  (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
+
+(with-eval-after-load 'org
+  (global-set-key (kbd "C-c s") 'org-store-link))
+
+(with-eval-after-load 'youdao-dictionary
+  (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
+
+(global-set-key (kbd "C-c j") 'citre-jump)
+(global-set-key (kbd "C-c J") 'citre-jump-back)
+(global-set-key (kbd "C-c p") 'citre-ace-peek)
+(global-set-key (kbd "M-.") 'citre-jump)
+(global-set-key (kbd "M-,") 'citre-jump-back)
+
+
+(with-eval-after-load 'evil
+  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   )
 
-;;; ctl-z-map for personal use
-;; (define-prefix-command 'ctl-z-map)
-;; (global-set-key (kbd "C-z") 'ctl-z-map)
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "M-s") nil)
+  (define-key paredit-mode-map (kbd "M-r") #'paredit-splice-sexp))
+
+(with-eval-after-load 'devdocs
+  (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
 
 ;;; {{ need feature `general`
 ;;; Evil related keys

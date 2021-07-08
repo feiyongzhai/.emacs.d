@@ -3,20 +3,6 @@
 ;;; Mode
 (ivy-mode 1)
 
-;;; Keys
-
-;;; counsel-bookmark
-(global-set-key (kbd "C-c b") 'counsel-bookmark)
-
-(global-set-key (kbd "C-c r") #'counsel-recentf)
-
-(global-set-key (kbd "C-c M-x") 'counsel-M-x)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c k") 'counsel-rg)
-(global-set-key (kbd "C-c l") 'counsel-locate)
-
 ;;; Vars
 
 ;;; counsel-search

@@ -13,6 +13,8 @@
 (defvar user-thing-edit-map (make-sparse-keymap)
   "Keybinding for `thing-edit'")
 
+(global-set-key (kbd "M-o") user-thing-edit-map)
+
 ;; Copy.
 (fei-define-key-with-map user-thing-edit-map
   '(("w" . thing-copy-word)
@@ -50,11 +52,6 @@
     ("P" . thing-cut-parentheses)
     ("L" . thing-cut-line))
   "thing-edit")
-
-(global-set-key (kbd "M-o") user-thing-edit-map)
-
-(with-eval-after-load 'diff
-  (define-key diff-mode-map (kbd "M-o") nil))
 
 (provide 'init-thing-edit)
 ;;; init-thing-edit.el ends here

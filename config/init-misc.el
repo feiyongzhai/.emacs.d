@@ -8,23 +8,9 @@
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (column-number-mode t)
 (save-place-mode t)
-(global-set-key (kbd "<f5>") (lambda ()
-                               (interactive)
-			       (save-buffer)
-			       (let (compilation-read-command)
-				 (call-interactively 'compile))))
-
-;;; Keys
-
-(global-set-key (kbd "C-x u") #'transient-undo)
-(global-set-key (kbd "<f9>") #'global-set-or-unset-key)
 
 ;;; replace y-or-n frome yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
-;; 回车代替输入y
-(define-key y-or-n-p-map [return] 'act)
-(define-key y-or-n-p-map (kbd "C-m") 'act)
-(define-key y-or-n-p-map (kbd "C-j") 'act)
 
 ;;; Vars
 

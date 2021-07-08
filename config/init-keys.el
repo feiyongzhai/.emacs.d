@@ -41,6 +41,7 @@
     ("M-s-i" . toggle-input-method)
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
+    ("M-s-v" . vc-prefix-map)
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
@@ -187,8 +188,6 @@
 (global-set-key (kbd "C-c j") 'citre-jump)
 (global-set-key (kbd "C-c J") 'citre-jump-back)
 (global-set-key (kbd "C-c p") 'citre-ace-peek)
-(global-set-key (kbd "M-.") 'citre-jump)
-(global-set-key (kbd "M-,") 'citre-jump-back)
 
 
 (with-eval-after-load 'evil

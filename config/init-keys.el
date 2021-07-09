@@ -60,8 +60,8 @@
     ("s-]" . fei-restore-window)
     ("s-0" . delete-window)
     ("s-1" . delete-other-windows)
-    ("s-2" . split-window-below)
-    ("s-3" . split-window-right)
+    ("s-2" . (lambda () (interactive) (split-window-below) (other-window 1)))
+    ("s-3" . (lambda () (interactive) (split-window-right) (other-window 1)))
     ("s-o" . other-window)
     ("s-O" . (lambda () (interactive) (other-window -1)))
     ;; 下面这个fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑

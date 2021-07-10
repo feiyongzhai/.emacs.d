@@ -10,7 +10,7 @@
 
 ;;; Vars
 (setq inhibit-splash-screen t)
-;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题
+(setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
 
 (setq-default cursor-type 'bar)
 

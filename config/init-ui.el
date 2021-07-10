@@ -10,7 +10,7 @@
 
 ;;; Vars
 (setq inhibit-splash-screen t)
-(setq frame-resize-pixelwise t)
+;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题
 
 (setq-default cursor-type 'bar)
 

@@ -43,6 +43,7 @@
 	org-roam org-roam-server
 	markdown-mode
 	devdocs
+	telega
 	))
 
 (provide 'init-elpa)

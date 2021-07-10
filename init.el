@@ -40,6 +40,8 @@
 (require 'init-engine)
 (require 'init-markdown)
 (require 'init-c)
+(require 'init-telega)
+
 
 ;;;; site-lisp
 (require 'init-eaf)

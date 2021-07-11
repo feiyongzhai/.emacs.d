@@ -3,7 +3,7 @@
 ;;; Keys
 
 (with-eval-after-load 'yasnippet
-  (yas-load-directory "/home/yongfeizhai/.emacs.d/snippets" t))
+  (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
 
 ;;; Vars
 

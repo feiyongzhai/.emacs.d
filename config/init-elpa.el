@@ -30,6 +30,7 @@
 (setq fei-package-ensure-installed
       '(evil general
 	elfeed
+	eshell-up
 	magit
 	company yasnippet citre
 	paredit

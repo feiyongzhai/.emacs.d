@@ -30,6 +30,7 @@
 ;;      (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
 (custom-set-faces
  '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+(set-fontset-font t 'symbol "Symbola" nil 'append)
 
 (if *is-windows*
     ;; customize the size of frame way2 仅在 windows 下生效

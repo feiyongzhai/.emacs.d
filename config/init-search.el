@@ -8,7 +8,7 @@
 
 (require 'init-func)
 
-;; (ctrlf-mode 1)
+(ctrlf-mode 1)
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
   (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match)))

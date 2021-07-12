@@ -41,6 +41,7 @@
     ("M-s-i" . toggle-input-method)
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
+    ("M-s-t" . telega)
     ("M-s-v" . vc-prefix-map)
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
@@ -74,13 +75,16 @@
 
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
-    ("C-x f" . find-file)
+    ("C-x f" . counsel-find-file)
+    ("C-x C-f" . counsel-find-file)
+    
     ("C-c r" . counsel-recentf)
     ("C-c f" . find-name-current-dired)
     ("C-c F" . find-name-dired)
     ("C-x u" . transient-undo)
-    
-    ("C-x C-d" . dired)
+
+    ("C-x d" . counsel-dired)
+    ("C-x C-d" . counsel-dired)
     ("M-z" . fei-org-capture)
     ("C-M-z" . (lambda () (interactive)
 		 (org-capture nil "i")
@@ -133,8 +137,8 @@
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ;; ivy-view replacement
-    ("C-c v" . tab-rename)
-    ("C-c V" . tab-bar-select-tab-by-name)
+    ("C-c v" . ivy-push-view)
+    ("C-c V" . ivy-pop-view)
 
     ;; C-c * style
     ("C-c a" . org-agenda)
@@ -155,12 +159,13 @@
     ("C-x C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
 
     ;; M-* style
-    ("M-x" . smex)
+    ("M-x" . counsel-M-x)
     ("M-i" . company-yasnippet/yas-expand)
 
     ;; C-*
     ("C-=" . er/expand-region)
     ("C-z" . evil-mode-with-cursor)
+    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent)))
 
     ;; mouse
     ("<mouse-4>" . scroll-down-line)
@@ -168,8 +173,11 @@
 
     ("M-v" . scroll-down-line)
     ("C-v" . scroll-up-line)
-    
+
+    ("C-x b" . counsel-switch-buffer)
+
     ))
+
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
@@ -183,6 +191,28 @@
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
+
+(global-set-key (kbd "<C-return>") (lambda () (interactive)
+				     (end-of-line)
+				     (newline-and-indent)))
+
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
+
+(with-eval-after-load 'vc
+  (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
+  (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
+  (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
+
+(with-eval-after-load 'rime
+  (define-key rime-active-mode-map (kbd "M-h") 'rime--escape)
+  (define-key rime-active-mode-map (kbd "M-j") 'rime--return)
+  (define-key rime-active-mode-map (kbd "M-o") 'rime--backspace)
+  (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii))
+
+(with-eval-after-load 'eaf
+  (define-key eaf-mode-map* (kbd "<s-f1>") 'eaf-open-external))
 
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)

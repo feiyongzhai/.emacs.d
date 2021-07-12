@@ -35,7 +35,7 @@
 	company yasnippet citre
 	paredit
 	smex
-	counsel ivy swiper ctrlf anzu avy
+	counsel ivy swiper ivy-posframe ctrlf anzu avy
 	pyim rime
 	youdao-dictionary
 	auctex cdlatex

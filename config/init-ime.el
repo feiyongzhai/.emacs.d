@@ -31,12 +31,6 @@
 
 ;; windows可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
 
-;;; Keys
-
-(with-eval-after-load 'rime
-  (define-key rime-active-mode-map (kbd "M-o") 'rime--backspace)
-  (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii))
-
 ;;; Vars
 
 (with-eval-after-load 'rime

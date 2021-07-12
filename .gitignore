@@ -45,3 +45,5 @@ ncm-playlist
 /org-roam.db
 /devdocs/
 /.lsp-session-v1
+/eclipse.jdt.ls/
+/workspace/

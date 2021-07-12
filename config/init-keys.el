@@ -100,10 +100,14 @@
     ("<f10>" . nil)
     ("<f8>" . next-eshell-buffer)
     ("<C-f8>" . fei-eshell-cd-here)
+    ("<s-f8>" . (lambda () (interactive)
+		  (split-window-below)
+		  (other-window 1)
+		  (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . shell)
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
-    ("<f9>" . global-set-or-unset-key)
+    ("<f9>" . neotree-toggle)
 
     ;; Tab related
     ("C-x t O" . transient-tab-previous)
@@ -147,8 +151,8 @@
     ("C-c y i" . youdao-dictionary-search-from-input)
 
     ;; C-x *
-    ("C-x C-b" . (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
-    ("C-x 4 C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
+    ("C-x 4 C-b" . (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
+    ("C-x C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
 
     ;; M-* style
     ("M-x" . smex)

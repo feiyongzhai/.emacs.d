@@ -162,6 +162,13 @@
     ("C-=" . er/expand-region)
     ("C-z" . evil-mode-with-cursor)
 
+    ;; mouse
+    ("<mouse-4>" . scroll-down-line)
+    ("<mouse-5>" . scroll-up-line)
+
+    ("M-v" . scroll-down-line)
+    ("C-v" . scroll-up-line)
+    
     ))
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)

@@ -99,6 +99,7 @@
     ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)
     ("M-G p" . devdocs-lookup)
+    ("M-L" . duplicate-current-line)
 
     ;; <f1> -- <f12>
     ("<f10>" . nil)

@@ -64,6 +64,7 @@
     ("s-2" . (lambda () (interactive) (split-window-below) (other-window 1)))
     ("s-3" . (lambda () (interactive) (split-window-right) (other-window 1)))
     ("s-o" . other-window)
+    ("s-s" . occur)
     ("s-O" . (lambda () (interactive) (other-window -1)))
     ;; 下面这个fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑
     ;; 会有点奇怪，不管了，先用着吧
@@ -138,8 +139,8 @@
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ;; ivy-view replacement
-    ("C-c v" . ivy-push-view)
-    ("C-c V" . ivy-pop-view)
+    ("C-c V" . ivy-push-view)
+    ("C-c v" . ivy-switch-view)
 
     ;; C-c * style
     ("C-c a" . org-agenda)
@@ -172,8 +173,8 @@
     ("<mouse-4>" . scroll-down-line)
     ("<mouse-5>" . scroll-up-line)
 
-    ("M-v" . scroll-down-line)
-    ("C-v" . scroll-up-line)
+    ;; ("M-v" . scroll-down-line)
+    ;; ("C-v" . scroll-up-line)
 
     ("C-x b" . counsel-switch-buffer)
 

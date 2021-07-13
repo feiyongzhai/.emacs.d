@@ -202,7 +202,7 @@
 	  (lambda ()
 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
 
-(with-eval-after-load 'vc
+(with-eval-after-load 'vc-git
   (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
   (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
   (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
@@ -237,6 +237,7 @@
   (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   )

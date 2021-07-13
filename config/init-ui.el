@@ -30,6 +30,9 @@
 ;;      (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
 (custom-set-faces
  '(default ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+;; @ref https://emacs-china.org/t/windows-emacs/7907/39
+;; 下面这个配置当我需要更换其他的字体的时候，加上下面这一行，也可以保证中英文的对齐
+;; (set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
 (set-fontset-font t 'symbol "Symbola" nil 'append)
 
 (if *is-windows*

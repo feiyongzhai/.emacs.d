@@ -17,7 +17,7 @@
 ;;       (ivy-switch-buffer . ivy-posframe-display-at-frame-center)))
 
 (setq counsel-search-engine 'google)
-(setq ivy-use-virtual-buffers nil)
+(setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 
 ;; (setq search-default-mode #'char-fold-to-regexp)

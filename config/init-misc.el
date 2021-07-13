@@ -8,11 +8,15 @@
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (column-number-mode t)
 (save-place-mode t)
+(desktop-save-mode t)
+(savehist-mode t)
 
 ;;; replace y-or-n frome yes-or-no
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;;; Vars
+
+(setq desktop-restore-frames nil)    ; don't restore any frame
 
 (add-hook 'prog-mode-hook
 	  (lambda ()

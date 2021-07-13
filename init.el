@@ -44,7 +44,8 @@
 
 
 ;;;; site-lisp
-(require 'init-eaf)
+(when (display-graphic-p)
+(require 'init-eaf))
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-edit)

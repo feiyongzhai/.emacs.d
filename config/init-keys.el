@@ -52,6 +52,7 @@
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
     ("C-s-l" . toggle-truncate-lines)
+    ("C-s-k" . (lambda () (interactive) (find-file "~/.emacs.d/config/init-keys.el")))
 
     ;; C-M-s-* style
     ("C-M-s-l" . display-line-numbers-cycle)
@@ -114,6 +115,9 @@
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
     ("<f9>" . neotree-toggle)
+    ;; gnome-terminal 不接受 s-* style的快捷键
+    ("<s-f1>" . (lambda () (interactive)
+		  (eaf-open-this-buffer)))
 
     ;; Tab related
     ("C-x t O" . transient-tab-previous)

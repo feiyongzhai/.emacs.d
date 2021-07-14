@@ -48,3 +48,5 @@ ncm-playlist
 /eclipse.jdt.ls/
 /workspace/
 /.emacs.desktop.lock
+/eln-cache/
+/projects

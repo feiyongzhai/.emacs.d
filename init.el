@@ -44,12 +44,16 @@
 
 
 ;;;; site-lisp
-(when (display-graphic-p)
-(require 'init-eaf))
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-edit)
 ;; (require 'init-move-text)
+
+;;;; eaf is special
+(when (display-graphic-p)
+  (require 'init-eaf))
+(add-hook 'server-after-make-frame-hook
+	  (lambda () (when window-system (require 'init-eaf))))
 
 ;;;; keys configs
 (require 'init-keys)

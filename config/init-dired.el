@@ -10,13 +10,13 @@
     '(("w" . browse-url-of-dired-file)
       ("W" . dired-copy-filename-as-kill)
       ("b" . dired-up-directory)
-      ("N" . dired-next-dirline)
-      ("P" . dired-prev-dirline)
+      ("N" . dired-next-subdir)
+      ("P" . dired-prev-subdir)
 
       ("C-d" . bookmark-set)
       ("M-h" . dired-toggle-hidden)
-      ("M-p" . dired-prev-subdir)
-      ("M-n" . dired-next-subdir)
+      ("M-p" . dired-prev-dirline)
+      ("M-n" . dired-next-dirline)
       ("M-G" . nil)
       )))
 

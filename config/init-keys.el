@@ -272,4 +272,13 @@
   )
 ;;; }}
 
+;;; {{ win10 related
+(setq w32-lwindow-modifier 'super)
+(w32-register-hot-key [s-])
+(w32-register-hot-key [M-escape])
+(setq w32-apps-modifier 'super)
+(when *is-windows*
+  (global-set-key (kbd "s-m") 'toggle-frame-maximized))
+;;; }}
+
 (provide 'init-keys)

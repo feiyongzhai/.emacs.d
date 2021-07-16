@@ -17,6 +17,10 @@
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
 	   "* TODO %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
+	  ("s" "SAR" entry
+	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
+	   "* TODO %?\n  CREATE: %T\n"
+	   :empty-lines-before 1)
 	  ("w" "Want" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
 	   "* WANT %?\n  CREATE: %T\n"
@@ -29,12 +33,12 @@
 	   (file "~/Nutstore Files/org/diary.org")
 	   "* %t\n"
 	   :empty-lines-before 1)
-	  ("s" "Code Snippets")
-	  ("se" "Code Snippets for Emacs" entry
+	  ("c" "Code Snippets")
+	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Emacs")
 	   "* %?\n  CREATE: %T\n  #+begin_src emacs-lisp\n%c\n  #+end_src"
 	   :empty-lines-after 1)
-	  ("so" "Code Snippets for Others" entry
+	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Others")
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))

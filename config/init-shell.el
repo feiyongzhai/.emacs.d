@@ -4,8 +4,6 @@
 
 (require 'init-var)
 
-;;; Vars
-
 ;;; Funcs
 
 ;;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492

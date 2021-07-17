@@ -9,7 +9,7 @@
 (setq pre-gc-cons-threshold gc-cons-threshold
       gc-cons-threshold most-positive-fixnum)
 
-;;; Require
+;;; encode
 (require 'init-encode)
 
 ;;;; built-in
@@ -23,31 +23,35 @@
 (require 'init-vc)
 (require 'init-org)
 
+;;; autoload
+(require 'init-autoload)
+
+;;; site-elisp
+(require 'init-thing-edit)
+(require 'init-auto-save)
+(require 'init-edit)
+;; (require 'init-move-text)
+
 ;;;; elpa
+(require 'init-packages)
 (require 'init-company)
 (require 'init-counsel)
 (require 'init-elfeed)
 (require 'init-ido)
 (require 'init-search)
-;; (require 'init-projectile)
 (require 'init-evil)
 (require 'init-ime)
-(require 'init-dict)
-(require 'init-packages)
 (require 'init-latex)
 (require 'init-shell)
 (require 'init-org-roam)
 (require 'init-engine)
-(require 'init-markdown)
 (require 'init-c)
+;; (require 'init-markdown)
+;; (require 'init-projectile)
+;; (require 'init-dict)
+
+;;; 只在Linux下面测试通过的配置
 (require 'init-telega)
-
-
-;;;; site-lisp
-(require 'init-thing-edit)
-(require 'init-auto-save)
-(require 'init-edit)
-;; (require 'init-move-text)
 
 ;;;; eaf is special
 (when (display-graphic-p)
@@ -70,11 +74,3 @@
 ;;; restore it's origin value
 (setq gc-cons-percentage pre-gc-cons-percentage)
 (setq gc-cons-threshold pre-gc-cons-threshold)
-
-;;; enable disabled command
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'set-goal-column 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)

@@ -6,25 +6,6 @@
 
 (winner-mode 1)
 
-;;; Keys
-
-(fei-define-key-with-map global-map
-  '(("C-x w u" . transient-winner-undo)
-    ("C-x w U" . transient-winner-redo)
-    ("C-x w e" . balance-windows)
-    ("C-x w H" . windmove-swap-states-left)
-    ("C-x w J" . windmove-swap-states-down)
-    ("C-x w K" . windmove-swap-states-up)
-    ("C-x w L" . windmove-swap-states-right)
-    ("C-x w M" . maximize-window)
-    ("C-x w m" . fei-minimize-window)
-    ("C-x o" . transient-other-window)
-    ("C-x O" . transient-other-window-backward)
-    ("C-x {" . transient-shrink-window)
-    ("C-x }" . transient-enlage-window)
-    ("M-k" . fei-kill-current-buffer)
-    ))
-
 ;;; Funcs
 
 (defun fei-store-window ()

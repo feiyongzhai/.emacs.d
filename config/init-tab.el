@@ -1,8 +1,5 @@
 (require 'init-func)
 
-;;; Keys
-
-
 ;;; Vars
 
 (setq tab-bar-show 1)

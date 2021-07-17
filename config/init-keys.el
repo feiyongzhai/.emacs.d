@@ -182,6 +182,22 @@
 
     ("C-x b" . counsel-switch-buffer)
 
+    ;; windows related
+    ("C-x w u" . transient-winner-undo)
+    ("C-x w U" . transient-winner-redo)
+    ("C-x w e" . balance-windows)
+    ("C-x w H" . windmove-swap-states-left)
+    ("C-x w J" . windmove-swap-states-down)
+    ("C-x w K" . windmove-swap-states-up)
+    ("C-x w L" . windmove-swap-states-right)
+    ("C-x w M" . maximize-window)
+    ("C-x w m" . fei-minimize-window)
+    ("C-x o" . transient-other-window)
+    ("C-x O" . transient-other-window-backward)
+    ("C-x {" . transient-shrink-window)
+    ("C-x }" . transient-enlage-window)
+    ("M-k" . fei-kill-current-buffer)
+
     ))
 
 
@@ -252,6 +268,42 @@
 
 (with-eval-after-load 'devdocs
   (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
+
+(with-eval-after-load 'markdown-mode
+  (fei-define-key-with-map markdown-mode-map
+    '(
+      ("C-c !" . markdown-insert-header-setext-1)
+      ("C-c 1" . markdown-insert-header-atx-1)
+      ("C-c 2" . markdown-insert-header-atx-2)
+      ("C-c 3" . markdown-insert-header-atx-3)
+      ("C-c 4" . markdown-insert-header-atx-4)
+      ("C-c 5" . markdown-insert-header-atx-5)
+      ("C-c 6" . markdown-insert-header-atx-6)
+      ("C-c @" . markdown-insert-header-setext-2)
+      ("C-c H" . markdown-insert-header-setext-dwim)
+      ("C-c h" . markdown-insert-header-dwim)
+      ("C-c s" . markdown-insert-header-setext-2)
+      ("C-c t" . markdown-insert-header-setext-1)
+      ("<M-up>" . markdown-move-up)
+      ("<M-down>" . markdown-move-down)
+      )))
+
+(fei-define-key-with-map global-map
+  '(("C-c n l" . org-roam)
+    ("C-c n f" . org-roam-find-file)
+    ("C-c n g" . (lambda () (interactive) (browse-url "http://127.0.0.1:8080")))
+    ("C-c n G" . org-roam-graph)))
+
+(with-eval-after-load 'org
+  (fei-define-key-with-map org-mode-map
+    '(
+      ("C-c n i" . org-roam-insert)
+      ("C-c n I" . org-roam-insert-immediate)
+      )))
+
+(fei-define-key-with-map global-map
+  '(
+    ))
 
 ;;; {{ need feature `general`
 ;;; Evil related keys

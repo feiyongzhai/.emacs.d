@@ -1,6 +1,3 @@
-(autoload 'eaf-open-browser "eaf" nil t)
-(autoload 'eaf--bookmark-restore "eaf" nil t)
-
 ;;; Keys
 
 (fei-define-key-with-map global-map
@@ -19,8 +16,8 @@
 
   (fei-define-key-with-map eaf-interleave-mode-map
     '(("M-n" . eaf-interleave-sync-next-note)
-      ("M-p" . eaf-interleave-sync-previous-note)))
-  )
+      ("M-p" . eaf-interleave-sync-previous-note))
+    ))
 
 ;;; Vars
 

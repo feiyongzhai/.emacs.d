@@ -1,7 +1,6 @@
 ;;; init-misc.el --- misc configs
 
 (require 'init-func)
-(autoload 'insert-translated-name-insert "insert-translated-name" nil t)
 
 ;;; mode enable or disable
 (global-auto-revert-mode t) ;; autoload the file changes on disk
@@ -40,6 +39,14 @@
 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
 	    (kill-buffer "*scratch*")))
 
+;;; enable disabled command
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 ;;; Funcs
 
 (defvar display-line-numbers-relative-p nil)
@@ -51,13 +58,6 @@
 	     (setq display-line-numbers-relative-p nil))
     (menu-bar--display-line-numbers-mode-relative)
     (setq display-line-numbers-relative-p t)))
-
-;;; quick set key and unset key
-(defun global-set-or-unset-key (arg)
-  (interactive "P")
-  (if arg
-      (call-interactively 'global-unset-key)
-    (call-interactively 'global-set-key)))
 
 (transient-command undo
   (undo)

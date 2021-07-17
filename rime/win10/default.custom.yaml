@@ -9,3 +9,5 @@ patch:
     - schema: flypy
     - schema: double_pinyin_flypy
     - schema: luna_pinyin_simp
+    - schema: xhup_express
+    - schema: xhup_fluency

@@ -26,7 +26,6 @@ build
 sync
 trash
 luna_pinyin.custom.dict.yaml
-*.schema.yaml
 stroke.dict.yaml
 opencc
 emoji_suggestion.yaml

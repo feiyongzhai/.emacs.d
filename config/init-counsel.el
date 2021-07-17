@@ -2,7 +2,7 @@
 
 ;;; Mode
 (ivy-mode 1)
-(ivy-posframe-mode 1)
+;; (ivy-posframe-mode 1)
 
 ;;; Vars
 (setq ivy-posframe-display-functions-alist

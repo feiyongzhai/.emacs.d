@@ -31,7 +31,6 @@
 ;;   (if (member hour (number-sequence 6 17))
 ;;       (load-theme 'modus-operandi t)
 ;;     (load-theme 'modus-vivendi t)))
-(load-theme 'manoj-dark t)
 
 ;; (add-hook 'server-visit-hook (lambda ()
 ;; 			       (arrange-frame 84 30 170 20)))

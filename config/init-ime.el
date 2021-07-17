@@ -57,6 +57,8 @@
 
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.emacs.d/rime/linux/xhup"))
+      (*is-windows*
+       (setq rime-user-data-dir "~/.emacs.d/rime/win10"))
       (t (message "使用默认值：~/.emacs.d/rime/")))
 
 (setq rime-posframe-properties

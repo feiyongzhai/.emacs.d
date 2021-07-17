@@ -29,7 +29,16 @@
 
 ;;; Rime
 
-;; windows可以使用了，参考链接：https://github.com/DogLooksGood/emacs-rime/issues/64
+;;; 输入方案相关链接
+;; 小鹤双拼方案地址：https://github.com/cnfeat/Rime
+;; 小鹤音形方案地址：http://flypy.ys168.com/ 这个链接中的“小鹤音形挂接第三方平台”文件夹 linux对应的是macos，win10对应的就是win10
+;; 小鹤音形连写方案地址：https://github.com/brglng/rime-xhup
+
+;;; 动态链接相关地址
+;;;; Linux平台折腾这两个动态链接 librime 和 librime-emacs 
+
+;;;; win10
+;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
 
 ;;; Vars
 
@@ -47,7 +56,7 @@
   )
 
 (cond (*is-linux*
-       (setq rime-user-data-dir "~/.emacs.d/rime/xhup"))
+       (setq rime-user-data-dir "~/.emacs.d/rime/linux/xhup"))
       (t (message "使用默认值：~/.emacs.d/rime/")))
 
 (setq rime-posframe-properties

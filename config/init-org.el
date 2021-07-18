@@ -49,6 +49,7 @@
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
+  (require 'rime)
   (activate-input-method 'rime)
   (auto-fill-mode)
   (message "RIME输入法已经激活！"))

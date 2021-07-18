@@ -4,3 +4,6 @@
 [submodule "extensions/insert-translated-name"]
 	path = extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
+[submodule "extensions/emacs-rime"]
+	path = extensions/emacs-rime
+	url = https://github.com/DogLooksGood/emacs-rime.git

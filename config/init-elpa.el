@@ -36,7 +36,7 @@
 	paredit
 	smex
 	counsel ivy swiper ivy-posframe ctrlf anzu avy
-	pyim rime
+	pyim
 	youdao-dictionary
 	auctex cdlatex
 	neotree

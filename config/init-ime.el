@@ -40,6 +40,14 @@
 ;;;; win10
 ;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
 
+;;; 一些说明，最近更新的rime需要重新编译 librime-emacs.dll，但我的
+;;; windows编译环境没有配好，之前是用的上面连接编译好的。目前发现一个
+;;; workaround，就是修改rime源码相应部分，不让它重新编译。所以就采用了
+;;; submodule的方法
+
+;;; 需要说明的一点就是windows平台暂时还没有自己编译成功过，所以下次出问题，这是一个可以尝试的途径
+;;; 另外一个可以尝试的途径是使用pyim提供的librime作为替代品
+
 ;;; Vars
 
 (with-eval-after-load 'rime

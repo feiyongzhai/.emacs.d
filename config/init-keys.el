@@ -38,7 +38,7 @@
     ("M-s-e" . elfeed)
     ("M-s-g" . magit-status)
     ("M-s-n" . (lambda () (interactive) (dired "~/Nutstore Files")))
-    ("M-s-i" . toggle-input-method)
+    ("M-s-i" . (lambda () (interactive) (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
     ("M-s-t" . telega)

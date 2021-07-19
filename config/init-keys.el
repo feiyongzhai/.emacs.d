@@ -198,6 +198,10 @@
     ("C-x }" . transient-enlage-window)
     ("M-k" . fei-kill-current-buffer)
 
+    ("C-h y" . youdao-dictionary-search-from-input)
+    ("C-h q" . devdocs-lookup)
+    ("C-h Q" . devdocs-search)
+    ("M-g i" . imenu)
     ))
 
 

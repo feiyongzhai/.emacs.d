@@ -202,6 +202,7 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
     ("M-g i" . imenu)
+    ("<f10>" . next-same-major-mode-buffer)
     ))
 
 

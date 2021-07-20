@@ -95,5 +95,30 @@ Argument ARG if not nil, switching in a new window."
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
 
+;; (transient-command next-same-major-mode-buffer
+;;   (next-same-major-mode-buffer)
+;;   '(("m" . next-same-major-mode-buffer)))
+
+(defun next-same-major-mode-buffer ()
+  "Go to next buffer which has same major-mode of current buffer
+
+this command is useful only when current buffer's major mode is
+`eshell-mode', `eaf-mode', `term-mode', `shell-mode' or other
+special major mode"
+  (interactive)
+  (let ((current major-mode))
+    (catch 'done
+      ;; `buffer-list' is changeable variable, the recently visited
+      ;; buffer always next to the current buffer, if I do not use
+      ;; `reverse', and if there is one buffer having same major mode
+      ;; with current buffer, it will back and forth these two buffer,
+      ;; despite there potentially are other buffers having the same
+      ;; major mode with current buffer.
+      (dolist (buf (reverse (cdr (buffer-list))) (message "only one `%s' buffer" current))
+	(with-current-buffer buf
+	  (when (eq current major-mode)
+	    (throw 'done (progn (switch-to-buffer buf)
+				(message "next `%s' buffer" current)))))))))
+
 (provide 'init-misc)
 ;;; init-misc.el ends here.

@@ -143,8 +143,8 @@
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ;; ivy-view replacement
-    ("C-c V" . ivy-push-view)
-    ("C-c v" . ivy-switch-view)
+    ("C-c v" . ivy-push-view)
+    ("C-c V" . ivy-pop-view)
 
     ;; C-c * style
     ("C-c a" . org-agenda)

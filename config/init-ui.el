@@ -10,7 +10,11 @@
 
 ;;; Vars
 (setq inhibit-splash-screen t)
-(setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
+;;; 这个设置会导致一个小问题：blink一下当前行之后高亮不清除。主要体现
+;;; 是在使用thing-edit和citre插件的时候会出现这个问题，这两个插件都提
+;;; 供了blink一下相应的region来做提示，都会出现高亮之后高亮区域不消失
+;;; 的情况
+;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
 
 (setq-default cursor-type 'bar)
 

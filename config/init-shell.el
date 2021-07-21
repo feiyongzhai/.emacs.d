@@ -6,6 +6,22 @@
 
 ;;; Funcs
 
+;;; {{ ansi-term related
+
+(defun fei-ansi-term ()
+  (interactive)
+  (unless (goto-term)
+      (ansi-term (getenv "SHELL"))))
+
+(defun goto-term ()
+  (interactive)
+  (catch 'done
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+	(when (eq major-mode 'term-mode)
+	  (throw 'done (switch-to-buffer buf)))))))
+;;; }}
+
 ;;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
 (defvar num-of-eshell 0)
 (defun next-eshell-buffer (&optional want-to-create)

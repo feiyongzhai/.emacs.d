@@ -43,6 +43,7 @@
     ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
     ("M-s-t" . telega)
     ("M-s-v" . vc-prefix-map)
+    ("M-s-m" . (lambda () (interactive) (dired "~/Nutstore Files/我的坚果云/研究生")))
 
     ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
@@ -104,7 +105,9 @@
     ("M-L" . duplicate-current-line)
 
     ;; <f1> -- <f12>
-    ("<f10>" . nil)
+    ;; ("<f10>" . nil)
+    ("<f10>" . next-same-major-mode-buffer)
+    ("<f12>" . fei-ansi-term)
     ("<f8>" . next-eshell-buffer)
     ("<C-f8>" . fei-eshell-cd-here)
     ("<s-f8>" . (lambda () (interactive)
@@ -112,6 +115,7 @@
 		  (other-window 1)
 		  (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . shell)
+    
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
     ("<f9>" . neotree-toggle)
@@ -202,7 +206,6 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
     ("M-g i" . imenu)
-    ("<f10>" . next-same-major-mode-buffer)
     ))
 
 

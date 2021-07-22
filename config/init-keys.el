@@ -92,6 +92,7 @@
     ("C-M-z" . (lambda () (interactive)
 		 (org-capture nil "i")
 		 (auto-fill-mode)
+		 (require 'rime)
 		 (activate-input-method 'rime)))
     ;; Misc
     ("<menu>" . youdao-dictionary-search-at-point-tooltip)

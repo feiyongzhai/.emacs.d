@@ -75,6 +75,8 @@
     ("s-r" . winner-redo)
     ("s-\\" . fei-terminal-here)
     ("<s-return>" . fei-terminal-here)
+    ("s-y" . youdao-dictionary-search-at-point-tooltip)
+    ("s-v" . vc-prefix-map)
 
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)

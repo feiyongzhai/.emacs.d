@@ -7,7 +7,7 @@
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (column-number-mode t)
 (save-place-mode t)
-(desktop-save-mode t)
+;; (desktop-save-mode t)
 (savehist-mode t)
 
 ;;; replace y-or-n frome yes-or-no
@@ -33,11 +33,13 @@
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 
 ;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
-(add-hook 'after-init-hook
-	  (lambda ()
-	    (find-file "~/.emacs.d/@scratch@")
-	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
-	    (kill-buffer "*scratch*")))
+;; (add-hook 'after-init-hook
+;; 	  (lambda ()
+;; 	    (find-file "~/.emacs.d/@scratch@")
+;; 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+;; 	    (kill-buffer "*scratch*")))
+(setq initial-scratch-message "")
+
 
 ;;; enable disabled command
 (put 'narrow-to-region 'disabled nil)

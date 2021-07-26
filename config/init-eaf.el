@@ -13,6 +13,7 @@
   (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key eaf-open-external "w" eaf-pdf-viewer-keybinding)
 
   (fei-define-key-with-map eaf-interleave-mode-map
     '(("M-n" . eaf-interleave-sync-next-note)

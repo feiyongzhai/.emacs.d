@@ -78,7 +78,8 @@
       rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates
-      '(rime-predicate-prog-in-code-p))
+      '(rime-predicate-prog-in-code-p
+	rime-predicate-tex-math-or-command-p))
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v"

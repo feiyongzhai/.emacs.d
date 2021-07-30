@@ -15,6 +15,10 @@
   (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match)))
 
 ;; (global-anzu-mode t)
+(setq-default
+ isearch-regexp-lax-whitespace t
+ search-whitespace-regexp ".*?")
+
 (fei-define-key-with-map isearch-mode-map
   '(("C-n" . isearch-repeat-forward)
     ("C-p" . isearch-repeat-backward)

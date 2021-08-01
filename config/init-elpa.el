@@ -46,6 +46,7 @@
 	devdocs
 	telega
 	use-package
+	matlab-mode
 	))
 
 (provide 'init-elpa)

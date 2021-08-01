@@ -7,7 +7,7 @@
     ("M-[" . fei-eaf-file-share-current-dir))
   "eaf")
 
-(with-eval-after-load 'eaf
+(with-eval-after-load 'eaf-interleave
   (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
@@ -34,8 +34,9 @@
       eaf-proxy-host "127.0.0.1"
       eaf-proxy-port "1089")
 
-(setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
-				    ("." . browse-url-default-browser)))
+(unless *is-windows*
+  (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
+				      ("." . browse-url-default-browser))))
 
 (setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
 

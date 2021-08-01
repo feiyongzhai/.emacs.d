@@ -239,6 +239,9 @@
 	  (lambda ()
 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
 
+(with-eval-after-load 'matlab
+  (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
+
 (with-eval-after-load 'vc-git
   (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
   (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
@@ -260,7 +263,12 @@
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 
 (with-eval-after-load 'org
-  (global-set-key (kbd "C-c s") 'org-store-link))
+  (fei-define-key-with-map org-mode-map
+    '(("C-c s" . org-store-link)
+      ("C-c n i" . org-roam-insert)
+      ("C-c n I" . org-roam-insert-immediate)
+      ))
+  )
 
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
@@ -305,12 +313,6 @@
       ("<M-down>" . markdown-move-down)
       )))
 
-(with-eval-after-load 'org
-  (fei-define-key-with-map org-mode-map
-    '(
-      ("C-c n i" . org-roam-insert)
-      ("C-c n I" . org-roam-insert-immediate)
-      )))
 
 ;;; {{ need feature `general`
 ;;; Evil related keys

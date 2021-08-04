@@ -1,20 +1,16 @@
+;;; {{ almost all global-map shortkeys
 (fei-define-key-with-map global-map
   '(
-    ;; ESC ESC Style 这类快捷键会导致有点慢 这种快捷键的方式，完成一
-    ;; 个命令需要按两下，如果命令本身就是一个动作的话，我在使用的过程
-    ;; 中经常是按了前面的按键之后就不知道刚刚要干什么了，很打断思路，
-    ;; 根据我的使用经验，这种分段的按键方式不适合那种很`直接的命令'，
-    ;; 而是需要很具有`分段特性的命令'结合使用才不会打断思路直接的命令
-    ;; 可以用一个组合按键来配合使用如同下面列举的：`M-s-*'和`C-s-*'类
-    ;; 型的一步到位的组合键模式，而不适合这种序列式的按键模式
-
     ;; ESC ESC * style -- quick open dir or file
-    ("ESC ESC h" . (lambda () (interactive) (dired "~")))
+    ("ESC ESC b" . list-bookmarks)
     ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
     ("ESC ESC d" . (lambda () (interactive) (dired "~/Downloads")))
     ("ESC ESC D" . (lambda () (interactive) (dired "~/Desktop")))
     ("ESC ESC e" . (lambda () (interactive) (dired "~/.emacs.d")))
     ("ESC ESC E" . (lambda () (interactive) (dired "~/Sandbox/Emacs/")))
+    ("ESC ESC h" . (lambda () (interactive) (dired "~")))
+    ("ESC ESC l" . list-packages)
+    ("ESC ESC L" . list-processes)
     ("ESC ESC m" . (lambda () (interactive) (dired "~/Music")))
     ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
     ("ESC ESC p" . (lambda () (interactive) (dired "~/Picture")))
@@ -26,10 +22,6 @@
     ("ESC ESC C-b" . (lambda () (interactive) (dired "~/Sandbox/Emacs/MyBlog/")))
     ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
     ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
-
-    ("ESC ESC b" . list-bookmarks)
-    ("ESC ESC l" . list-packages)
-    ("ESC ESC L" . list-processes)
     ;; ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
 
     ;; M-s-* style
@@ -68,8 +60,8 @@
     ("s-o" . other-window)
     ("s-s" . occur)
     ("s-O" . (lambda () (interactive) (other-window -1)))
-    ;; 下面这个fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑
-    ;; 会有点奇怪，不管了，先用着吧
+    ;; fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑会有点奇
+    ;; 怪，不管了，先用着吧
     ("<s-tab>" . fei-meow-last-buffer)
     ("s-u" . winner-undo)
     ("s-r" . winner-redo)
@@ -105,26 +97,24 @@
     ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)
     ("M-G p" . devdocs-lookup)
+    ("M-g i" . imenu)
     ("M-L" . duplicate-current-line)
 
     ;; <f1> -- <f12>
+    ("<f5>" . (lambda () (interactive) (save-buffer) (let (compilation-read-command) (call-interactively 'compile))))
+    ("<f8>" . next-eshell-buffer)
+    ("<C-f8>" . fei-eshell-cd-here)
+    ("<s-f8>" . (lambda () (interactive) (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
+    ("<M-f8>" . shell)
     ;; ("<f10>" . nil)
     ("<f10>" . next-same-major-mode-buffer)
     ("<f12>" . fei-ansi-term)
-    ("<f8>" . next-eshell-buffer)
-    ("<C-f8>" . fei-eshell-cd-here)
-    ("<s-f8>" . (lambda () (interactive)
-		  (split-window-below)
-		  (other-window 1)
-		  (call-interactively 'fei-eshell-cd-here)))
-    ("<M-f8>" . shell)
     
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
     ("<f9>" . neotree-toggle)
     ;; gnome-terminal 不接受 s-* style的快捷键
-    ("<s-f1>" . (lambda () (interactive)
-		  (eaf-open-this-buffer)))
+    ("<s-f1>" . (lambda () (interactive) (eaf-open-this-buffer)))
 
     ;; Tab related
     ("C-x t O" . transient-tab-previous)
@@ -166,10 +156,34 @@
     ;; youdao-dictionary
     ("C-c y y" . youdao-dictionary-search-at-point-tooltip)
     ("C-c y i" . youdao-dictionary-search-from-input)
+    ;; citre related
+    ("C-c j" . citre-jump)
+    ("C-c J" . citre-jump-back)
+    ("C-c p" . citre-ace-peek)
+    ;; org-roam related
+    ("C-c n l" . org-roam)
+    ("C-c n f" . org-roam-find-file)
+    ("C-c n g" . (lambda () (interactive) (browse-url "http://127.0.0.1:8080")))
+    ("C-c n G" . org-roam-graph)
 
     ;; C-x *
     ("C-x 4 C-b" . (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
     ("C-x C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
+    ("C-x b" . counsel-switch-buffer)
+    ;; windows related
+    ("C-x w u" . transient-winner-undo)
+    ("C-x w U" . transient-winner-redo)
+    ("C-x w e" . balance-windows)
+    ("C-x w H" . windmove-swap-states-left)
+    ("C-x w J" . windmove-swap-states-down)
+    ("C-x w K" . windmove-swap-states-up)
+    ("C-x w L" . windmove-swap-states-right)
+    ("C-x w M" . maximize-window)
+    ("C-x w m" . fei-minimize-window)
+    ("C-x o" . transient-other-window)
+    ("C-x O" . transient-other-window-backward)
+    ("C-x {" . transient-shrink-window)
+    ("C-x }" . transient-enlage-window)
 
     ;; M-* style
     ("M-x" . counsel-M-x)
@@ -187,53 +201,22 @@
     ;; ("M-v" . scroll-down-line)
     ;; ("C-v" . scroll-up-line)
 
-    ("C-x b" . counsel-switch-buffer)
-
-    ;; windows related
-    ("C-x w u" . transient-winner-undo)
-    ("C-x w U" . transient-winner-redo)
-    ("C-x w e" . balance-windows)
-    ("C-x w H" . windmove-swap-states-left)
-    ("C-x w J" . windmove-swap-states-down)
-    ("C-x w K" . windmove-swap-states-up)
-    ("C-x w L" . windmove-swap-states-right)
-    ("C-x w M" . maximize-window)
-    ("C-x w m" . fei-minimize-window)
-    ("C-x o" . transient-other-window)
-    ("C-x O" . transient-other-window-backward)
-    ("C-x {" . transient-shrink-window)
-    ("C-x }" . transient-enlage-window)
     ("M-k" . fei-kill-current-buffer)
 
     ("C-h y" . youdao-dictionary-search-from-input)
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
-    ("M-g i" . imenu)
 
-    ;; org-roam related
-    ("C-c n l" . org-roam)
-    ("C-c n f" . org-roam-find-file)
-    ("C-c n g" . (lambda () (interactive) (browse-url "http://127.0.0.1:8080")))
-    ("C-c n G" . org-roam-graph)
+    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent))) 
     ))
-
+;;; }} almost all global-map shortkeys
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
-
-(global-set-key (kbd "<f5>") (lambda ()
-                               (interactive)
-			       (save-buffer)
-			       (let (compilation-read-command)
-				 (call-interactively 'compile))))
 
 ;; 回车代替输入y
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
-
-(global-set-key (kbd "<C-return>") (lambda () (interactive)
-				     (end-of-line)
-				     (newline-and-indent)))
 
 (add-hook 'eshell-mode-hook
 	  (lambda ()
@@ -273,11 +256,6 @@
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
 
-(global-set-key (kbd "C-c j") 'citre-jump)
-(global-set-key (kbd "C-c J") 'citre-jump-back)
-(global-set-key (kbd "C-c p") 'citre-ace-peek)
-
-
 (with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
@@ -312,7 +290,6 @@
       ("<M-up>" . markdown-move-up)
       ("<M-down>" . markdown-move-down)
       )))
-
 
 ;;; {{ need feature `general`
 ;;; Evil related keys

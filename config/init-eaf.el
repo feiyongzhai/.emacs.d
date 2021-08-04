@@ -1,12 +1,5 @@
 ;;; Keys
 
-(fei-define-key-with-map global-map
-  '(("M-s M-w" . eaf-open-browser-with-history)
-    ("s-/" . eaf-open-browser-with-history)
-    ("C-c e" . eaf-open-this-buffer)
-    ("M-[" . fei-eaf-file-share-current-dir))
-  "eaf")
-
 (with-eval-after-load 'eaf-interleave
   (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)

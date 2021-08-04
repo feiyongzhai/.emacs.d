@@ -207,7 +207,13 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
 
-    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent))) 
+    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent)))
+
+    ;; eaf related
+    ("M-s M-w" . eaf-open-browser-with-history)
+    ("s-/" . eaf-open-browser-with-history)
+    ("C-c e" . eaf-open-this-buffer)
+    ("M-[" . fei-eaf-file-share-current-dir)
     ))
 ;;; }} almost all global-map shortkeys
 

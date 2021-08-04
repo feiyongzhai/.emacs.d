@@ -14,10 +14,12 @@
 	    map)
 	  t)))))
 
-(defmacro fei-define-key-with-map (map keymaps)
+(defmacro fei-define-key-with-map (map keymaps &optional filename)
   (declare (indent 1))
   `(mapcar (lambda (x)
-	     (define-key ,map (kbd (car x)) (cdr x)))
+	     (define-key ,map (kbd (car x)) (cdr x))
+	     (when ,filename
+	       (autoload (cdr x) ,filename nil t)))
 	   ,keymaps))
 
 (provide 'init-func)

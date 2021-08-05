@@ -1,51 +1,51 @@
 ;;; {{ almost all global-map shortkeys
 (fei-define-key-with-map global-map
-  '(
+  `(
     ;; ESC ESC * style -- quick open dir or file
     ("ESC ESC b" . list-bookmarks)
-    ("ESC ESC c" . (lambda () (interactive) (dired "~/.config")))
-    ("ESC ESC d" . (lambda () (interactive) (dired "~/Downloads")))
-    ("ESC ESC D" . (lambda () (interactive) (dired "~/Desktop")))
-    ("ESC ESC e" . (lambda () (interactive) (dired "~/.emacs.d")))
-    ("ESC ESC E" . (lambda () (interactive) (dired "~/Sandbox/Emacs/")))
-    ("ESC ESC h" . (lambda () (interactive) (dired "~")))
+    ("ESC ESC c" . ,(li (dired "~/.config")))
+    ("ESC ESC d" . ,(li (dired "~/Downloads")))
+    ("ESC ESC D" . ,(li (dired "~/Desktop")))
+    ("ESC ESC e" . ,(li (dired "~/.emacs.d")))
+    ("ESC ESC E" . ,(li (dired "~/Sandbox/Emacs/")))
+    ("ESC ESC h" . ,(li (dired "~")))
     ("ESC ESC l" . list-packages)
     ("ESC ESC L" . list-processes)
-    ("ESC ESC m" . (lambda () (interactive) (dired "~/Music")))
-    ("ESC ESC o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
-    ("ESC ESC p" . (lambda () (interactive) (dired "~/Picture")))
-    ("ESC ESC s" . (lambda () (interactive) (dired "~/Sandbox")))
-    ("ESC ESC n" . (lambda () (interactive) (dired "~/Nutstore Files")))
-    ("ESC ESC v" . (lambda () (interactive) (dired "~/Videos")))
-    ("ESC ESC V" . (lambda () (interactive) (dired "~/.vim")))
-    ("ESC ESC g" . (lambda () (interactive) (dired "~/Sandbox/Git/testGit/")))
-    ("ESC ESC C-b" . (lambda () (interactive) (dired "~/Sandbox/Emacs/MyBlog/")))
-    ("ESC ESC ." . (lambda () (interactive) (dired "~/dotfiles-fei")))
-    ("ESC ESC ;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
+    ("ESC ESC m" . ,(li (dired "~/Music")))
+    ("ESC ESC o" . ,(li (find-file "~/.emacs.d/init-local.el")))
+    ("ESC ESC p" . ,(li (dired "~/Picture")))
+    ("ESC ESC s" . ,(li (dired "~/Sandbox")))
+    ("ESC ESC n" . ,(li (dired "~/Nutstore Files")))
+    ("ESC ESC v" . ,(li (dired "~/Videos")))
+    ("ESC ESC V" . ,(li (dired "~/.vim")))
+    ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))
+    ("ESC ESC C-b" . ,(li (dired "~/Sandbox/Emacs/MyBlog/")))
+    ("ESC ESC ." . ,(li (dired "~/dotfiles-fei")))
+    ("ESC ESC ;" . ,(li (find-file "~/.emacs.d/@scratch@")))
     ;; ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
 
     ;; M-s-* style
-    ("M-s-b" . (lambda () (interactive) (browse-url "https://feiyongzhai.github.io")))
-    ("M-s-d" . (lambda () (interactive) (dired "~/Desktop/")))
+    ("M-s-b" . ,(li (browse-url "https://feiyongzhai.github.io")))
+    ("M-s-d" . ,(li (dired "~/Desktop/")))
     ("M-s-e" . elfeed)
     ("M-s-g" . magit-status)
-    ("M-s-n" . (lambda () (interactive) (dired "~/Nutstore Files")))
-    ("M-s-i" . (lambda () (interactive) (require 'rime) (toggle-input-method)))
+    ("M-s-n" . ,(li (dired "~/Nutstore Files")))
+    ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
-    ("M-s-s" . (lambda () (interactive) (dired "~/Sandbox/")))
+    ("M-s-s" . ,(li (dired "~/Sandbox/")))
     ("M-s-t" . telega)
     ("M-s-v" . vc-prefix-map)
-    ("M-s-m" . (lambda () (interactive) (dired "~/Nutstore Files/我的坚果云/研究生")))
+    ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
 
-    ("M-s-o" . (lambda () (interactive) (find-file "~/.emacs.d/init-local.el")))
+    ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
     ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
     ("M-s-l" . display-line-numbers-mode)
-    ("M-s-;" . (lambda () (interactive) (find-file "~/.emacs.d/@scratch@")))
+    ("M-s-;" . ,(li (find-file "~/.emacs.d/@scratch@")))
 
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
     ("C-s-l" . toggle-truncate-lines)
-    ("C-s-k" . (lambda () (interactive) (find-file "~/.emacs.d/config/init-keys.el")))
+    ("C-s-k" . ,(li (find-file "~/.emacs.d/config/init-keys.el")))
 
     ;; C-M-s-* style
     ("C-M-s-l" . display-line-numbers-cycle)
@@ -55,11 +55,11 @@
     ("s-]" . fei-restore-window)
     ("s-0" . delete-window)
     ("s-1" . delete-other-windows)
-    ("s-2" . (lambda () (interactive) (split-window-below) (other-window 1)))
-    ("s-3" . (lambda () (interactive) (split-window-right) (other-window 1)))
+    ("s-2" . ,(li (split-window-below) (other-window 1)))
+    ("s-3" . ,(li (split-window-right) (other-window 1)))
     ("s-o" . other-window)
     ("s-s" . occur)
-    ("s-O" . (lambda () (interactive) (other-window -1)))
+    ("s-O" . ,(li (other-window -1)))
     ;; fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑会有点奇
     ;; 怪，不管了，先用着吧
     ("<s-tab>" . fei-meow-last-buffer)
@@ -83,7 +83,7 @@
     ("C-x d" . counsel-dired)
     ("C-x C-d" . counsel-dired)
     ("M-z" . fei-org-capture)
-    ("C-M-z" . (lambda () (interactive)
+    ("C-M-z" . ,(li
 		 (org-capture nil "i")
 		 (auto-fill-mode)
 		 (require 'rime)
@@ -101,10 +101,10 @@
     ("M-L" . duplicate-current-line)
 
     ;; <f1> -- <f12>
-    ("<f5>" . (lambda () (interactive) (save-buffer) (let (compilation-read-command) (call-interactively 'compile))))
+    ("<f5>" . ,(li (save-buffer) (let (compilation-read-command) (call-interactively 'compile))))
     ("<f8>" . next-eshell-buffer)
     ("<C-f8>" . fei-eshell-cd-here)
-    ("<s-f8>" . (lambda () (interactive) (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
+    ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . shell)
     ;; ("<f10>" . nil)
     ("<f10>" . next-same-major-mode-buffer)
@@ -114,7 +114,7 @@
     ("<f1> v" . counsel-describe-variable)
     ("<f9>" . neotree-toggle)
     ;; gnome-terminal 不接受 s-* style的快捷键
-    ("<s-f1>" . (lambda () (interactive) (eaf-open-this-buffer)))
+    ("<s-f1>" . ,(li (eaf-open-this-buffer)))
 
     ;; Tab related
     ("C-x t O" . transient-tab-previous)
@@ -125,16 +125,16 @@
     ("C-x t n" . tab-new)
     ("C-x t R" . tab-rename)
     ("C-x t u" . tab-undo)
-    ("M-1" . (lambda () (interactive) (tab-bar-select-tab 1)))
-    ("M-2" . (lambda () (interactive) (tab-bar-select-tab 2)))
-    ("M-3" . (lambda () (interactive) (tab-bar-select-tab 3)))
-    ("M-4" . (lambda () (interactive) (tab-bar-select-tab 4)))
-    ("M-5" . (lambda () (interactive) (tab-bar-select-tab 5)))
-    ("M-6" . (lambda () (interactive) (tab-bar-select-tab 6)))
-    ("M-7" . (lambda () (interactive) (tab-bar-select-tab 7)))
-    ("M-8" . (lambda () (interactive) (tab-bar-select-tab 8)))
-    ("M-9" . (lambda () (interactive) (tab-bar-select-tab 9)))
-    ("M-0" . (lambda () (interactive) (tab-bar-select-tab 10)))
+    ("M-1" . ,(li (tab-bar-select-tab 1)))
+    ("M-2" . ,(li (tab-bar-select-tab 2)))
+    ("M-3" . ,(li (tab-bar-select-tab 3)))
+    ("M-4" . ,(li (tab-bar-select-tab 4)))
+    ("M-5" . ,(li (tab-bar-select-tab 5)))
+    ("M-6" . ,(li (tab-bar-select-tab 6)))
+    ("M-7" . ,(li (tab-bar-select-tab 7)))
+    ("M-8" . ,(li (tab-bar-select-tab 8)))
+    ("M-9" . ,(li (tab-bar-select-tab 9)))
+    ("M-0" . ,(li (tab-bar-select-tab 10)))
     ("M-_" . tab-close)
     ("M-+" . tab-new)
     ("C-S-w" . tab-close)
@@ -150,7 +150,7 @@
     ("C-c k" . counsel-rg)
     ("C-c l" . counsel-locate)
     ("C-c r" . counsel-recentf)
-    ("C-c s" . (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
+    ("C-c s" . ,(li (require 'org) (call-interactively 'org-store-link)))
     ("C-c M-x" . counsel-M-x)
     ("C-c SPC" . neotree-toggle)
     ;; youdao-dictionary
@@ -163,12 +163,12 @@
     ;; org-roam related
     ("C-c n l" . org-roam)
     ("C-c n f" . org-roam-find-file)
-    ("C-c n g" . (lambda () (interactive) (browse-url "http://127.0.0.1:8080")))
+    ("C-c n g" . ,(li (browse-url "http://127.0.0.1:8080")))
     ("C-c n G" . org-roam-graph)
 
     ;; C-x *
-    ("C-x 4 C-b" . (lambda () (interactive) (ibuffer-jump) (ibuffer-auto-mode 1)))
-    ("C-x C-b" . (lambda () (interactive) (ibuffer-jump t) (ibuffer-auto-mode 1)))
+    ("C-x 4 C-b" . ,(li (ibuffer-jump) (ibuffer-auto-mode 1)))
+    ("C-x C-b" . ,(li (ibuffer-jump t) (ibuffer-auto-mode 1)))
     ("C-x b" . counsel-switch-buffer)
     ;; windows related
     ("C-x w u" . transient-winner-undo)
@@ -192,7 +192,7 @@
     ;; C-*
     ("C-=" . er/expand-region)
     ("C-z" . evil-mode-with-cursor)
-    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent)))
+    ("<C-return>" . ,(li (end-of-line) (newline-and-indent)))
 
     ;; mouse
     ("<mouse-4>" . scroll-down-line)
@@ -207,7 +207,7 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
 
-    ("<C-return>" . (lambda () (interactive) (end-of-line) (newline-and-indent)))
+    ("<C-return>" . ,(li (end-of-line) (newline-and-indent)))
 
     ;; eaf related
     ("M-s M-w" . eaf-open-browser-with-history)

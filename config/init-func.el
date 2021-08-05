@@ -22,4 +22,7 @@
 	       (autoload (cdr x) ,filename nil t)))
 	   ,keymaps))
 
+(defmacro li (&rest body)
+  `(lambda () (interactive) ,@body))
+
 (provide 'init-func)

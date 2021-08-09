@@ -7,3 +7,6 @@
 [submodule "extensions/emacs-rime"]
 	path = extensions/emacs-rime
 	url = https://github.com/DogLooksGood/emacs-rime.git
+[submodule "extensions/emacs-application-framework"]
+	path = extensions/emacs-application-framework
+	url = https://github.com/manateelazycat/emacs-application-framework.git

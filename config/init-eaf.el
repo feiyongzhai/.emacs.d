@@ -38,7 +38,7 @@
 (defun fei-eaf-start ()
   (interactive)
   (use-package eaf
-    :load-path "~/Sandbox/Emacs/emacs-application-framework"
+    :load-path "~/.emacs.d/extensions/emacs-application-framework"
     :init
     (use-package epc :defer t :ensure t)
     (use-package ctable :defer t :ensure t)

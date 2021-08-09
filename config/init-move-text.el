@@ -1,3 +1,5 @@
+(load-path-add "~/.emacs.d/extensions/move-text/")
+
 (require 'move-text)
 
 ;;; Keys

@@ -11,11 +11,6 @@
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
-;;; site-lisp
-(let ((default-directory "~/.emacs.d/extensions"))
-  (normal-top-level-add-subdirs-to-load-path)
-  (add-to-list 'load-path "~/.emacs.d/extensions/"))
-
 ;;; redirect custom config
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 

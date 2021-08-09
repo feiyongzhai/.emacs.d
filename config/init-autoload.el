@@ -1,3 +1,5 @@
+(load-path-add "~/.emacs.d/extensions/insert-translated-name")
+
 (autoload 'insert-translated-name-insert "insert-translated-name" nil t)
 (autoload 'evil-local-mode "evil" nil t)
 (autoload 'eaf-open-browser "eaf" nil t)

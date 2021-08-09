@@ -25,4 +25,7 @@
 (defmacro li (&rest body)
   `(lambda () (interactive) ,@body))
 
+(defun load-path-add (dir)
+  (add-to-list 'load-path dir))
+
 (provide 'init-func)

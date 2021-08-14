@@ -59,6 +59,8 @@
 (add-hook 'server-after-make-frame-hook
 	  (lambda () (when window-system (require 'init-eaf))))
 
+(require 'init-win10)
+
 ;;;; keys configs
 (require 'init-keys)
 

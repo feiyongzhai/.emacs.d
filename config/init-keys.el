@@ -322,7 +322,8 @@
   (w32-register-hot-key [s-])
   (w32-register-hot-key [M-escape])
   (setq w32-apps-modifier 'super)
-  (global-set-key (kbd "s-m") 'toggle-frame-maximized))
+  (global-set-key (kbd "s-m") 'toggle-frame-maximized)
+  (global-set-key (kbd "s-e") 'file-manager-here))
 ;;; }}
 
 (provide 'init-keys)

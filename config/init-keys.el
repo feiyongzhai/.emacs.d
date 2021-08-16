@@ -323,7 +323,8 @@
   (w32-register-hot-key [M-escape])
   (setq w32-apps-modifier 'super)
   (global-set-key (kbd "s-m") 'toggle-frame-maximized)
-  (global-set-key (kbd "s-e") 'file-manager-here))
+  (global-set-key (kbd "s-e") 'file-manager-here)
+  (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name)))))
 ;;; }}
 
 (provide 'init-keys)

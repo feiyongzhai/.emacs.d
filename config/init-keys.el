@@ -31,6 +31,7 @@
     ("M-s-g" . magit-status)
     ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
+    ("s-`" . ,(li (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-s" . ,(li (dired "~/Sandbox/")))
     ("M-s-t" . telega)
@@ -58,17 +59,17 @@
     ("s-2" . ,(li (split-window-below) (other-window 1)))
     ("s-3" . ,(li (split-window-right) (other-window 1)))
     ("s-o" . other-window)
-    ("s-s" . occur)
+    ("s-s" . isearch-forward-symbol-at-point)
     ("s-O" . ,(li (other-window -1)))
     ;; fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑会有点奇
     ;; 怪，不管了，先用着吧
     ("<s-tab>" . fei-meow-last-buffer)
     ("s-u" . winner-undo)
-    ("s-r" . winner-redo)
-    ("s-\\" . fei-terminal-here)
     ("<s-return>" . fei-terminal-here)
     ("s-y" . youdao-dictionary-search-at-point-tooltip)
+    ("s-Y" . youdao-dictionary-search-from-input)
     ("s-v" . vc-prefix-map)
+    ("s-v s-v" . vc-next-action)
 
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
@@ -152,7 +153,7 @@
     ("C-c r" . counsel-recentf)
     ("C-c s" . ,(li (require 'org) (call-interactively 'org-store-link)))
     ("C-c M-x" . counsel-M-x)
-    ("C-c SPC" . neotree-toggle)
+    ("C-c SPC" . set-mark-command)
     ;; youdao-dictionary
     ("C-c y y" . youdao-dictionary-search-at-point-tooltip)
     ("C-c y i" . youdao-dictionary-search-from-input)
@@ -216,6 +217,26 @@
     ("M-[" . fei-eaf-file-share-current-dir)
     ))
 ;;; }} almost all global-map shortkeys
+
+(fei-define-key-with-map isearch-mode-map
+  '(("C-n" . isearch-repeat-forward)
+    ("C-p" . isearch-repeat-backward)
+    ("s-s" . isearch-repeat-forward)
+    ("s-r" . isearch-repeat-backward)
+    ("M-<" . isearch-beginning-of-buffer)
+    ("M->" . isearch-end-of-buffer)
+    ("TAB" . isearch-complete)
+    ("C-'" . avy-isearch)
+    ("M-w" . (lambda ()
+	       (interactive)
+	       (isearch-exit)
+	       (call-interactively 'copy-region-as-kill)))))
+
+(with-eval-after-load 'ctrlf
+  (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
+  (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
+  (add-to-list 'ctrlf-minibuffer-bindings '("s-s" . ctrlf-next-match))
+  (add-to-list 'ctrlf-minibuffer-bindings '("s-r" . ctrlf-previous-match)))
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 

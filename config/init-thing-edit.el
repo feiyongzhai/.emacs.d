@@ -53,5 +53,8 @@
     ("L" . thing-cut-line))
   "thing-edit")
 
+;; Other keys
+(global-set-key (kbd "M-D") 'thing-cut-symbol)
+
 (provide 'init-thing-edit)
 ;;; init-thing-edit.el ends here

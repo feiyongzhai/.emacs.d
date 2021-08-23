@@ -2,15 +2,12 @@
 (fei-define-key-with-map global-map
   `(
     ;; ESC ESC * style -- quick open dir or file
-    ("ESC ESC b" . list-bookmarks)
     ("ESC ESC c" . ,(li (dired "~/.config")))
     ("ESC ESC d" . ,(li (dired "~/Downloads")))
     ("ESC ESC D" . ,(li (dired "~/Desktop")))
     ("ESC ESC e" . ,(li (dired "~/.emacs.d")))
     ("ESC ESC E" . ,(li (dired "~/Sandbox/Emacs/")))
     ("ESC ESC h" . ,(li (dired "~")))
-    ("ESC ESC l" . list-packages)
-    ("ESC ESC L" . list-processes)
     ("ESC ESC m" . ,(li (dired "~/Music")))
     ("ESC ESC o" . ,(li (find-file "~/.emacs.d/init-local.el")))
     ("ESC ESC p" . ,(li (dired "~/Picture")))
@@ -52,8 +49,8 @@
     ("C-M-s-l" . display-line-numbers-cycle)
 
     ;; s-* style usually Windows related
-    ("s-[" . fei-restore-or-store-window)
-    ("s-]" . fei-restore-window)
+    ;; ("s-[" . fei-restore-or-store-window)
+    ;; ("s-]" . fei-restore-window)
     ("s-0" . delete-window)
     ("s-1" . delete-other-windows)
     ("s-2" . ,(li (split-window-below) (other-window 1)))
@@ -215,6 +212,10 @@
     ("s-/" . eaf-open-browser-with-history)
     ("C-c e" . eaf-open-this-buffer)
     ("M-[" . fei-eaf-file-share-current-dir)
+
+    ;; experimental
+    ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
+
     ))
 ;;; }} almost all global-map shortkeys
 

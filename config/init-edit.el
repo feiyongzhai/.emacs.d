@@ -15,4 +15,16 @@
     	(insert current-line)
     	(decf n)))))
 
+(defun fei-search-symbol-at-point ()
+  (interactive)
+  (cond
+   ((bounds-of-thing-at-point 'symbol)
+    (if ctrlf-local-mode
+	(call-interactively 'ctrlf-forward-symbol-at-point)
+      (call-interactively 'isearch-forward-symbol-at-point)))
+   (t
+    (if ctrlf-local-mode
+	(ctrlf-forward-default)
+      (isearch-forward)))))
+
 (provide 'init-edit)

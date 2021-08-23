@@ -56,7 +56,7 @@
     ("s-2" . ,(li (split-window-below) (other-window 1)))
     ("s-3" . ,(li (split-window-right) (other-window 1)))
     ("s-o" . other-window)
-    ("s-s" . isearch-forward-symbol-at-point)
+    ("s-s" . fei-search-symbol-at-point)
     ("s-O" . ,(li (other-window -1)))
     ;; fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑会有点奇
     ;; 怪，不管了，先用着吧

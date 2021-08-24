@@ -23,9 +23,6 @@
 (require 'init-vc)
 (require 'init-org)
 
-;;; autoload
-(require 'init-autoload)
-
 ;;; site-elisp
 (require 'init-thing-edit)
 (require 'init-auto-save)

@@ -1,5 +1,8 @@
 ;;; init-evil --- configs for evil
 
+;;; autoload
+(autoload 'evil-local-mode "evil" nil t)
+
 ;;; Vars
 
 ;; (add-hook 'find-file-hook #'evil-local-mode)

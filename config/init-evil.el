@@ -3,6 +3,36 @@
 ;;; autoload
 (autoload 'evil-local-mode "evil" nil t)
 
+;;; Keys
+(with-eval-after-load 'evil
+  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
+  )
+
+;;; Leader Key
+;;; {{ need feature `general`
+;;; Evil related keys
+(general-create-definer fei-space-leader-def
+  :prefix "SPC"
+  :states '(normal visual))
+
+(fei-space-leader-def
+  "SPC" 'counsel-M-x
+  "tt" 'modus-themes-toggle
+  "ts" 'counsel-load-theme
+  ;; "gg" 'browse-stackoverflow-search
+  "g" 'engine-mode-prefixed-map
+  "ss" 'eshell
+  "se" 'shell
+  "jj" 'scroll-other-window
+  "kk" 'scroll-other-window-down
+  )
+;;; }}
+
 ;;; Vars
 
 ;; (add-hook 'find-file-hook #'evil-local-mode)

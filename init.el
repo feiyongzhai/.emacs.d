@@ -43,7 +43,7 @@
 (require 'init-org-roam)
 (require 'init-engine)
 (require 'init-c)
-;; (require 'init-markdown)
+(require 'init-markdown)
 
 ;;; 只在Linux下面测试通过的配置
 (require 'init-telega)

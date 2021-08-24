@@ -5,6 +5,8 @@
 (autoload 'eaf-open-this-buffer "eaf" nil t)
 
 ;;; Keys
+(with-eval-after-load 'eaf
+  (define-key eaf-mode-map* (kbd "<s-f1>") 'eaf-open-external))
 
 (with-eval-after-load 'eaf
   (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)

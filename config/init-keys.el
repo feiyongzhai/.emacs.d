@@ -201,27 +201,7 @@
 
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
-;;; }} almost all global-map shortkeys
-
-(fei-define-key-with-map isearch-mode-map
-  '(("C-n" . isearch-repeat-forward)
-    ("C-p" . isearch-repeat-backward)
-    ("s-s" . isearch-repeat-forward)
-    ("s-r" . isearch-repeat-backward)
-    ("M-<" . isearch-beginning-of-buffer)
-    ("M->" . isearch-end-of-buffer)
-    ("TAB" . isearch-complete)
-    ("C-'" . avy-isearch)
-    ("M-w" . (lambda ()
-	       (interactive)
-	       (isearch-exit)
-	       (call-interactively 'copy-region-as-kill)))))
-
-(with-eval-after-load 'ctrlf
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("s-s" . ctrlf-next-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("s-r" . ctrlf-previous-match)))
+;;; }} almost all global-map keybindings
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
@@ -234,47 +214,14 @@
 	  (lambda ()
 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
 
-(with-eval-after-load 'matlab
-  (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
-
-(with-eval-after-load 'vc-git
-  (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
-  (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
-  (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
-
-(with-eval-after-load 'rime
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--escape)
-  (define-key rime-active-mode-map (kbd "M-j") 'rime--return)
-  (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii))
-
-(with-eval-after-load 'eaf
-  (define-key eaf-mode-map* (kbd "<s-f1>") 'eaf-open-external))
-
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 
-(with-eval-after-load 'org
-  (fei-define-key-with-map org-mode-map
-    '(("C-c s" . org-store-link)
-      ("C-c n i" . org-roam-insert)
-      ("C-c n I" . org-roam-insert-immediate)
-      ))
-  )
-
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
-
-(with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
-  )
 
 (with-eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "M-s") nil)
@@ -282,44 +229,6 @@
 
 (with-eval-after-load 'devdocs
   (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
-
-(with-eval-after-load 'markdown-mode
-  (fei-define-key-with-map markdown-mode-map
-    '(
-      ("C-c !" . markdown-insert-header-setext-1)
-      ("C-c 1" . markdown-insert-header-atx-1)
-      ("C-c 2" . markdown-insert-header-atx-2)
-      ("C-c 3" . markdown-insert-header-atx-3)
-      ("C-c 4" . markdown-insert-header-atx-4)
-      ("C-c 5" . markdown-insert-header-atx-5)
-      ("C-c 6" . markdown-insert-header-atx-6)
-      ("C-c @" . markdown-insert-header-setext-2)
-      ("C-c H" . markdown-insert-header-setext-dwim)
-      ("C-c h" . markdown-insert-header-dwim)
-      ("C-c s" . markdown-insert-header-setext-2)
-      ("C-c t" . markdown-insert-header-setext-1)
-      ("<M-up>" . markdown-move-up)
-      ("<M-down>" . markdown-move-down)
-      )))
-
-;;; {{ need feature `general`
-;;; Evil related keys
-(general-create-definer fei-space-leader-def
-  :prefix "SPC"
-  :states '(normal visual))
-
-(fei-space-leader-def
-  "SPC" 'counsel-M-x
-  "tt" 'modus-themes-toggle
-  "ts" 'counsel-load-theme
-  ;; "gg" 'browse-stackoverflow-search
-  "g" 'engine-mode-prefixed-map
-  "ss" 'eshell
-  "se" 'shell
-  "jj" 'scroll-other-window
-  "kk" 'scroll-other-window-down
-  )
-;;; }}
 
 ;;; {{ win10 related
 (when *is-windows*

@@ -44,8 +44,6 @@
     ("C-M-s-l" . display-line-numbers-cycle)
 
     ;; s-* style usually Windows related
-    ;; ("s-[" . fei-restore-or-store-window)
-    ;; ("s-]" . fei-restore-window)
     ("s-0" . delete-window)
     ("s-1" . delete-other-windows)
     ("s-2" . ,(li (split-window-below) (other-window 1)))
@@ -161,14 +159,12 @@
     ("C-x b" . counsel-switch-buffer)
     ;; windows related
     ("C-x w u" . transient-winner-undo)
-    ("C-x w U" . transient-winner-redo)
     ("C-x w e" . balance-windows)
     ("C-x w M" . maximize-window)
     ("C-x w m" . fei-minimize-window)
     ("C-x o" . transient-other-window)
     ("C-x O" . transient-other-window-backward)
-    ("C-x {" . transient-shrink-window)
-    ("C-x }" . transient-enlage-window)
+
 
     ;; M-* style
     ("M-x" . counsel-M-x)

@@ -8,35 +8,8 @@
 
 ;;; Funcs
 
-(defun fei-store-window ()
-  "store window-configuration-to-register w"
-  (interactive)
-  (window-configuration-to-register ?w)
-  (message "window cnofiguration has be stored to \"w\" register!"))
-
-(defun fei-restore-window ()
-  "restore window-configuration-to-register from w"
-  (interactive)
-  (jump-to-register ?w))
-
-(defun fei-restore-or-store-window (arg)
-  (interactive "P")
-  (if arg
-      (fei-store-window)
-    (fei-restore-window)))
-
-(defun fei-minimize-window ()
-  (interactive)
-  (minimize-window)
-  (call-interactively #'other-window))
-
 (transient-command winner-undo
   (winner-undo)
-  '(("u" . winner-undo)
-    ("U" . winner-redo)))
-
-(transient-command winner-redo
-  (winner-redo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
@@ -53,29 +26,6 @@
   (other-window-backward)
   '(("o" . other-window)
     ("O" . other-window-backward)))
-
-;;; transient版本的扩大窗口
-(transient-command enlage-window
-  (call-interactively 'enlarge-window-horizontally)
-  '(("}" . enlarge-window-horizontally)
-    ("{" . shrink-window-horizontally)
-    ("]" . enlarge-window-horizontally)
-    ("[" . shrink-window-horizontally)
-    ("=" . balance-windows)
-    ("|" . maximize-window)
-    ("\\" . minimize-window)))
-
-;;; transient版本的缩小窗口
-(transient-command shrink-window
-  (call-interactively 'shrink-window-horizontally)
-  '(("}" . enlarge-window-horizontally)
-    ("{" . shrink-window-horizontally)
-    ("]" . enlarge-window-horizontally)
-    ("[" . shrink-window-horizontally)
-    ("=" . balance-windows)
-    ("|" . maximize-window)
-    ("\\" . minimize-window)))
-
 
 (defun fei-kill-current-buffer (arg)
   "智能关闭 windows 和 buffer"

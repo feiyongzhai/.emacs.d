@@ -85,8 +85,6 @@
     ("M-s s" . isearch-forward-symbol-at-point)
     ("M-s M-s" . swiper)
     ("M-G" . engine-mode-prefixed-map)
-    ("M-G M-g" . eaf-open-browser)
-    ("M-G M-G" . eaf-open-browser-with-history)
     ("M-G p" . devdocs-lookup)
     ("M-g i" . imenu)
     ("M-L" . duplicate-current-line)
@@ -104,8 +102,6 @@
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
     ("<f9>" . neotree-toggle)
-    ;; gnome-terminal 不接受 s-* style的快捷键
-    ("<s-f1>" . ,(li (eaf-open-this-buffer)))
 
     ;; Tab related
     ("C-x t O" . transient-tab-previous)
@@ -188,13 +184,7 @@
     ("C-h Q" . devdocs-search)
 
     ("M-RET" . ,(li (end-of-line) (newline-and-indent)))
-
-    ;; eaf related
-    ("M-s M-w" . eaf-open-browser-with-history)
-    ("s-/" . eaf-open-browser-with-history)
-    ("C-c e" . eaf-open-this-buffer)
-    ("M-[" . fei-eaf-file-share-current-dir)
-
+    
     ;; experimental
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("C-c o" . occur)

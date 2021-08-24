@@ -5,6 +5,19 @@
 (autoload 'eaf-open-this-buffer "eaf" nil t)
 
 ;;; Keys
+(fei-define-key-with-map global-map
+  '(
+    ;; eaf related
+    ("M-s M-w" . eaf-open-browser-with-history)
+    ("s-/" . eaf-open-browser-with-history)
+    ("C-c e" . eaf-open-this-buffer)
+    ("M-[" . fei-eaf-file-share-current-dir)
+    ("M-G M-g" . eaf-open-browser)
+    ("M-G M-G" . eaf-open-browser-with-history)
+    ;; gnome-terminal 不接受 s-* style的快捷键
+    ("<s-f1>" . ,(li (eaf-open-this-buffer)))
+    ))
+
 (with-eval-after-load 'eaf
   (define-key eaf-mode-map* (kbd "<s-f1>") 'eaf-open-external))
 

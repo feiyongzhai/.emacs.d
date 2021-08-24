@@ -125,7 +125,6 @@
     ("M-7" . ,(li (tab-bar-select-tab 7)))
     ("M-8" . ,(li (tab-bar-select-tab 8)))
     ("M-9" . ,(li (tab-bar-select-tab 9)))
-    ("M-0" . ,(li (tab-bar-select-tab 10)))
     ("M-_" . tab-close)
     ("M-+" . tab-new)
     ("C-S-w" . tab-close)
@@ -201,6 +200,7 @@
     ("C-c o" . occur)
 
     ))
+(define-key key-translation-map (kbd "M-0") (kbd "DEL"))
 ;;; }} almost all global-map shortkeys
 
 (fei-define-key-with-map isearch-mode-map
@@ -245,7 +245,6 @@
 (with-eval-after-load 'rime
   (define-key rime-active-mode-map (kbd "M-h") 'rime--escape)
   (define-key rime-active-mode-map (kbd "M-j") 'rime--return)
-  (define-key rime-active-mode-map (kbd "M-o") 'rime--backspace)
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii))
 
 (with-eval-after-load 'eaf

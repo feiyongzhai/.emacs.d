@@ -13,8 +13,8 @@
       ("N" . dired-next-subdir)
       ("P" . dired-prev-subdir)
 
+      ("z" . dired-toggle-hidden)
       ("C-d" . bookmark-set)
-      ("M-h" . dired-toggle-hidden)
       ("M-p" . dired-prev-dirline)
       ("M-n" . dired-next-dirline)
       ("M-G" . nil)

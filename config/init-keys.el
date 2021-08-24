@@ -23,16 +23,12 @@
 
     ;; M-s-* style
     ("M-s-b" . ,(li (browse-url "https://feiyongzhai.github.io")))
-    ("M-s-d" . ,(li (dired "~/Desktop/")))
-    ("M-s-e" . elfeed)
-    ("M-s-g" . magit-status)
     ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
     ("s-`" . ,(li (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
-    ("M-s-s" . ,(li (dired "~/Sandbox/")))
+    ("M-s-e" . elfeed)
     ("M-s-t" . telega)
-    ("M-s-v" . vc-prefix-map)
     ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
 
     ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
@@ -43,7 +39,6 @@
     ;; C-s-* style
     ("C-s-i" . fei-toggle-xhup-flypy)
     ("C-s-l" . toggle-truncate-lines)
-    ("C-s-k" . ,(li (find-file "~/.emacs.d/config/init-keys.el")))
 
     ;; C-M-s-* style
     ("C-M-s-l" . display-line-numbers-cycle)
@@ -149,11 +144,7 @@
     ("C-c l" . counsel-locate)
     ("C-c r" . counsel-recentf)
     ("C-c s" . ,(li (require 'org) (call-interactively 'org-store-link)))
-    ("C-c M-x" . counsel-M-x)
     ("C-c SPC" . set-mark-command)
-    ;; youdao-dictionary
-    ("C-c y y" . youdao-dictionary-search-at-point-tooltip)
-    ("C-c y i" . youdao-dictionary-search-from-input)
     ;; citre related
     ("C-c j" . citre-jump)
     ("C-c J" . citre-jump-back)
@@ -172,10 +163,6 @@
     ("C-x w u" . transient-winner-undo)
     ("C-x w U" . transient-winner-redo)
     ("C-x w e" . balance-windows)
-    ("C-x w H" . windmove-swap-states-left)
-    ("C-x w J" . windmove-swap-states-down)
-    ("C-x w K" . windmove-swap-states-up)
-    ("C-x w L" . windmove-swap-states-right)
     ("C-x w M" . maximize-window)
     ("C-x w m" . fei-minimize-window)
     ("C-x o" . transient-other-window)

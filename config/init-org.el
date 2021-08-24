@@ -55,6 +55,5 @@
   (message "RIME输入法已经激活！"))
 
 
-
 (provide 'init-org)
 ;;; init-org.el ends here.

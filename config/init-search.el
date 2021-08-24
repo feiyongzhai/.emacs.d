@@ -1,11 +1,5 @@
 ;;; config for search
 
-;; There are several solution
-;; 1. ctrlf-mode
-;; 2. isearch + anzu
-;; 3. isearch
-;; 4. swiper
-
 (require 'init-func)
 
 (ctrlf-mode 1)

@@ -81,7 +81,7 @@
       (list :internal-border-width 4))
 
 (setq default-input-method "rime"
-      rime-show-candidate 'posframe
+      rime-show-candidate 'minibuffer
       rime-show-preedit t
       rime-posframe-fixed-position t)
 

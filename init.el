@@ -47,8 +47,6 @@
 (require 'init-engine)
 (require 'init-c)
 ;; (require 'init-markdown)
-;; (require 'init-projectile)
-;; (require 'init-dict)
 
 ;;; 只在Linux下面测试通过的配置
 (require 'init-telega)

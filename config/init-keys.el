@@ -205,7 +205,7 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
 
-    ("<C-return>" . ,(li (end-of-line) (newline-and-indent)))
+    ("M-RET" . ,(li (end-of-line) (newline-and-indent)))
 
     ;; eaf related
     ("M-s M-w" . eaf-open-browser-with-history)
@@ -215,6 +215,7 @@
 
     ;; experimental
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
+    ("C-c o" . occur)
 
     ))
 ;;; }} almost all global-map shortkeys

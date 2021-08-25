@@ -139,7 +139,7 @@
 	  (progn (rime-lib-select-schema "double_pinyin_flypy")
 		 (setq rime-show-candidate 'posframe)
 		 (setq rime--flypy-p nil))
-	(rime-lib-select-schema "xhup_express")
+	(rime-lib-select-schema "flypy")
 	(setq rime-show-candidate 'minibuffer)
 	(setq rime--flypy-p t))
     (message "Rime has not been required")))

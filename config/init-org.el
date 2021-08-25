@@ -54,6 +54,14 @@
   (auto-fill-mode)
   (message "RIME输入法已经激活！"))
 
+(when (display-graphic-p)
+  (org-agenda nil "a")
+  (delete-other-windows))
+(add-hook 'server-after-make-frame-hook
+	  (lambda () (when window-system
+		       (org-agenda nil "a")
+		       (delete-other-windows))))
+
 
 (provide 'init-org)
 ;;; init-org.el ends here.

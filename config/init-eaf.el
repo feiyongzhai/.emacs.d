@@ -1,3 +1,40 @@
+(load-path-add "~/.emacs.d/extensions/emacs-application-framework")
+
+;;; Copied from lazycat
+
+;;; Require
+(require 'eaf)
+(require 'eaf-browser)
+(require 'eaf-pdf-viewer)
+(require 'eaf-markdown-previewer)
+(require 'eaf-video-player)
+(require 'eaf-image-viewer)
+(require 'eaf-org-previewer)
+(require 'eaf-mindmap)
+(require 'eaf-mail)
+(require 'eaf-terminal)
+(require 'eaf-camera)
+(require 'eaf-jupyter)
+;; (require 'eaf-netease-cloud-music)
+(require 'eaf-music-player)
+(require 'eaf-system-monitor)
+(require 'eaf-file-manager)
+(require 'eaf-file-browser)
+(require 'eaf-demo)
+(require 'eaf-vue-demo)
+(require 'eaf-interleave)
+
+;;; Code:
+
+(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
+(setq eaf-browser-enable-adblocker t)
+(setq eaf-browser-enable-autofill t)
+(setq eaf-music-play-order "random")
+(setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
+(setq eaf-file-manager-show-hidden-file nil)
+
+;;; Myself
+
 ;;; autoload
 (autoload 'eaf-open-browser "eaf" nil t)
 (autoload 'eaf--bookmark-restore "eaf" nil t)
@@ -59,7 +96,6 @@
 (defun fei-eaf-start ()
   (interactive)
   (use-package eaf
-    :load-path "~/.emacs.d/extensions/emacs-application-framework"
     :init
     (use-package epc :defer t :ensure t)
     (use-package ctable :defer t :ensure t)

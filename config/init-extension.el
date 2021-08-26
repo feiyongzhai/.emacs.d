@@ -21,10 +21,12 @@
 ;; (require 'init-move-text)
 
 ;;;; eaf is special
-(when (display-graphic-p)
-  (require 'init-eaf))
-(add-hook 'server-after-make-frame-hook
-	  (lambda () (when window-system (require 'init-eaf))))
+(when *is-linux*
+  (when (display-graphic-p)
+    (require 'init-eaf))
+  (add-hook 'server-after-make-frame-hook
+	    (lambda () (when window-system (require 'init-eaf))))
+  )
 
 
 (provide 'init-extension)

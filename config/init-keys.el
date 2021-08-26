@@ -97,6 +97,7 @@
     ("<M-f8>" . shell)
     ;; ("<f10>" . nil)
     ("<f10>" . next-same-major-mode-buffer)
+    ("<f7>" . scratch)
     ("<f12>" . fei-ansi-term)
     
     ("<f1> f" . counsel-describe-function)

@@ -9,7 +9,6 @@
 (require 'init-ime)
 (require 'init-latex)
 (require 'init-shell)
-(require 'init-org-roam)
 (require 'init-engine)
 (require 'init-markdown)
 

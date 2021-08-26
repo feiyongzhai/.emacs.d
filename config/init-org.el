@@ -1,5 +1,10 @@
 ;;; init-org.el
 
+;; Keys
+(with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
+  (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
+
 ;;; Vars
 
 ;;; 使得 org 中的时间格式变成英文来规避乱码问题

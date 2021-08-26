@@ -67,6 +67,11 @@
 		       (org-agenda nil "a")
 		       (delete-other-windows))))
 
+;;; org-download
+(setq org-download-display-inline-images nil)
+(setq-default org-download-image-dir "./images")
+(org-download-enable)
+
 
 (provide 'init-org)
 ;;; init-org.el ends here.

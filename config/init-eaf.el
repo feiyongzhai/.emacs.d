@@ -42,6 +42,7 @@
 (autoload 'eaf-open-this-buffer "eaf" nil t)
 
 ;;; Keys
+(global-set-key (kbd "M-]") 'eaf-open-file-manager)
 (fei-define-key-with-map global-map
   '(
     ;; eaf related

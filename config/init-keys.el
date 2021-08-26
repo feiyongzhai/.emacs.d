@@ -191,6 +191,7 @@
 
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
 ;;; }} almost all global-map keybindings
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)

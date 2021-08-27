@@ -49,3 +49,5 @@ ncm-playlist
 /.emacs.desktop.lock
 /eln-cache/
 /projects
+*.userdb
+*.userdb.old

@@ -12,7 +12,6 @@
 ;; Disable auto merge work directories behavior, But you can merge
 ;; manually by M-s undo merge by C-z manually
 (setq ido-auto-merge-work-directories-length -1)
-;; (setq smex-prompt-string "^_^ ")
 
 
 (provide 'init-ido)

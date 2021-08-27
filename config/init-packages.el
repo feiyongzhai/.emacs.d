@@ -12,6 +12,10 @@
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; }}
 
+;;; {{ smex
+;; (setq smex-prompt-string "^_^ ")
+;;; }}
+
 (defun yasnippet-snippets--fixed-indent ()
   "Set `yas-indent-line' to `fixed'."
   (set (make-local-variable 'yas-indent-line) 'fixed))

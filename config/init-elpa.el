@@ -1,3 +1,5 @@
+(require 'init-var)
+
 ;;; init-elpa.el --- configs for package
 
 ;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -26,13 +28,18 @@
 	  fei-package-ensure-installed)
   (message "ensured package installed successfully!"))
 
-;;; needed packages
+;;; linux 专属
+(setq fei-package-ensure-installed-linux
+      '(telega
+	magit
+	citre))
+
+;;; general needed packages
 (setq fei-package-ensure-installed
       '(evil general
 	elfeed
 	eshell-up
-	magit
-	company yasnippet citre
+	company yasnippet
 	paredit
 	smex
 	counsel ivy swiper ivy-posframe ctrlf anzu avy
@@ -44,10 +51,13 @@
 	org-roam org-roam-server org-download
 	markdown-mode
 	devdocs
-	telega
 	use-package
 	matlab-mode
 	))
+
+(when *is-linux*
+  (setq fei-package-ensure-installed
+	(append fei-package-ensure-installed fei-package-ensure-installed-linux)))
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here.

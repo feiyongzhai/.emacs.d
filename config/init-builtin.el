@@ -12,5 +12,6 @@
 (require 'init-vc)
 (require 'init-org)
 (require 'init-c)
+(require 'init-ido)
 
 (provide 'init-builtin)

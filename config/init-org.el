@@ -24,7 +24,7 @@
 	   :empty-lines-before 1)
 	  ("s" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
-	   "* TODO %?\n  CREATE: %T\n"
+	   "* TODO %?\n  CREATE: %T\n  LOCATION: %a\n"
 	   :empty-lines-before 1)
 	  ("w" "Want" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 

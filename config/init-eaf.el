@@ -52,6 +52,7 @@
     ("M-[" . fei-eaf-file-share-current-dir)
     ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)
+    ("M-s M-s" . eaf-open-browser-with-history)
     ;; gnome-terminal 不接受 s-* style的快捷键
     ("<s-f1>" . ,(li (eaf-open-this-buffer)))
     ))

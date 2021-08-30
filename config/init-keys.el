@@ -83,7 +83,6 @@
     ("<menu>" . youdao-dictionary-search-at-point-tooltip)
     ("<insert>" . nil)
     ("M-s s" . isearch-forward-symbol-at-point)
-    ("M-s M-s" . swiper)
     ("M-G" . engine-mode-prefixed-map)
     ("M-G p" . devdocs-lookup)
     ("M-g i" . imenu)

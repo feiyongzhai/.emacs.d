@@ -14,6 +14,16 @@
 
 (setq org-agenda-files '("~/Nutstore Files/org"))
 
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning)
+	("PLAN" . "brown")
+	("WANT" . "grey")
+	("WIP" . "orange")
+	("FEELING" . "blue")
+	("LOG" . "blue")
+	("NOTE" . "blue")
+        ("CANCELED" . (:foreground "grey" :weight bold))))
+
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行

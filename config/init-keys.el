@@ -149,8 +149,8 @@
     ("C-c n G" . org-roam-graph)
 
     ;; C-x *
-    ("C-x 4 C-b" . ,(li (ibuffer-jump) (ibuffer-auto-mode 1)))
-    ("C-x C-b" . ,(li (ibuffer-jump t) (ibuffer-auto-mode 1)))
+    ("C-x 4 C-b" . ,(li (ibuffer-jump t) (ibuffer-auto-mode 1)))
+    ("C-x C-b" . ,(li (ibuffer-jump) (ibuffer-auto-mode 1)))
     ("C-x b" . counsel-switch-buffer)
     ;; windows related
     ("C-x w u" . transient-winner-undo)

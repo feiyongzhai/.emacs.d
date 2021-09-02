@@ -12,6 +12,8 @@
       ("b" . dired-up-directory)
       ("N" . dired-next-subdir)
       ("P" . dired-prev-subdir)
+      ("/" . isearch-forward)
+      ("j" . isearch-forward)
 
       ("z" . dired-toggle-hidden)
       ("C-d" . bookmark-set)

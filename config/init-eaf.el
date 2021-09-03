@@ -42,7 +42,6 @@
 (autoload 'eaf-open-this-buffer "eaf" nil t)
 
 ;;; Keys
-(global-set-key (kbd "M-]") 'eaf-open-file-manager)
 (fei-define-key-with-map global-map
   '(
     ;; eaf related
@@ -50,6 +49,8 @@
     ("s-/" . eaf-open-browser-with-history)
     ("C-c e" . eaf-open-this-buffer)
     ("M-[" . fei-eaf-file-share-current-dir)
+    ("M-]" . eaf-open-file-manager)
+    ("C-x j" . eaf-open-in-file-manager)
     ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)
     ("M-s M-s" . eaf-open-browser-with-history)

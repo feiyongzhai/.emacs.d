@@ -2,6 +2,8 @@
 
 (require 'dired-x)
 
+(dired-omit-mode t)
+
 ;;; Keys
 
 (with-eval-after-load 'dired
@@ -28,7 +30,8 @@
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 
 (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
-(setq dired-listing-switches "-Bhl --group-directories-first")
+(when *is-linux*
+  (setq dired-listing-switches "-Bhl --group-directories-first"))
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 

@@ -1,8 +1,7 @@
 ;;; init-dired.el --- configs for dired
 
 (require 'dired-x)
-
-(dired-omit-mode t)
+(add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 
 ;;; Keys
 
@@ -16,6 +15,7 @@
       ("P" . dired-prev-subdir)
       ("/" . isearch-forward)
       ("j" . isearch-forward)
+      ("<f2>" . wdired-change-to-wdired-mode)
 
       ("z" . dired-toggle-hidden)
       ("C-d" . bookmark-set)

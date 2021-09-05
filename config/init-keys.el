@@ -28,7 +28,6 @@
     ("s-`" . ,(li (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-e" . elfeed)
-    ("M-s-t" . telega)
     ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
 
     ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))

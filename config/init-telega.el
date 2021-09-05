@@ -1,3 +1,5 @@
+(global-set-key (kbd "M-s-t") 'telega)
+
 (setq telega-chat-fill-column 50
       telega-use-images t
       telega-open-file-function 'org-open-file

@@ -11,6 +11,9 @@
   (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
+
+  ;; inspired by emacs-china post
+  (define-key evil-normal-state-map (kbd "RET") 'fei-meow-last-buffer)
   )
 
 ;;; Leader Key

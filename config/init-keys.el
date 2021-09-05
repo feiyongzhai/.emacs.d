@@ -183,6 +183,7 @@
   (define-key keymap key def))
 
 ;; s-* style usually Windows related
+(setq w32-lwindow-modifier 'super)
 (define-key-with-w32-register global-map (kbd "s-0") 'delete-window [s-0])
 (define-key-with-w32-register global-map (kbd "s-1") 'delete-other-windows [s-1])
 (define-key-with-w32-register global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)) [s-2])
@@ -230,14 +231,12 @@
 
 ;;; {{ win10 related
 (when *is-windows*
-  (setq w32-lwindow-modifier 'super)
-  (w32-register-hot-key [s-])
   (w32-register-hot-key [M-escape])
   (setq w32-apps-modifier 'super)
-  (global-set-key (kbd "s-m") 'toggle-frame-maximized)
-  (global-set-key (kbd "s-h") 'suspend-frame)
-  (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
-  (global-set-key (kbd "s-e") 'file-manager-here)
+  (global-set-key (kbd "s-m") 'toggle-frame-maximized) (w32-register-hot-key [s-m])
+  (global-set-key (kbd "s-h") 'suspend-frame) (w32-register-hot-key [s-h])
+  (global-set-key (kbd "s-q") 'save-buffers-kill-terminal) (w32-register-hot-key [s-q])
+  (global-set-key (kbd "s-e") 'file-manager-here) (w32-register-hot-key [s-e])
   (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name)))))
 ;;; }}
 

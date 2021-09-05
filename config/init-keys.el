@@ -42,23 +42,7 @@
     ;; C-M-s-* style
     ("C-M-s-l" . display-line-numbers-cycle)
 
-    ;; s-* style usually Windows related
-    ("s-0" . delete-window)
-    ("s-1" . delete-other-windows)
-    ("s-2" . ,(li (split-window-below) (other-window 1)))
-    ("s-3" . ,(li (split-window-right) (other-window 1)))
-    ("s-o" . other-window)
-    ("s-s" . fei-search-symbol-at-point)
-    ("s-O" . ,(li (other-window -1)))
-    ;; fei-meow-last-buffer有一个Bug，就是在分屏之后，工作逻辑会有点奇
-    ;; 怪，不管了，先用着吧
-    ("<s-tab>" . fei-meow-last-buffer)
-    ("s-u" . winner-undo)
-    ("<s-return>" . fei-terminal-here)
-    ("s-y" . youdao-dictionary-search-at-point-tooltip)
-    ("s-Y" . youdao-dictionary-search-from-input)
-    ("s-v" . vc-prefix-map)
-    ("s-v s-v" . vc-next-action)
+    
 
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
@@ -193,6 +177,28 @@
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
+
+(defun define-key-with-w32-register (keymap key def register-key)
+  (w32-register-hot-key register-key)
+  (define-key keymap key def))
+
+;; s-* style usually Windows related
+(define-key-with-w32-register global-map (kbd "s-0") 'delete-window [s-0])
+(define-key-with-w32-register global-map (kbd "s-1") 'delete-other-windows [s-1])
+(define-key-with-w32-register global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)) [s-2])
+(define-key-with-w32-register global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)) [s-3])
+(define-key-with-w32-register global-map (kbd "s-o") 'other-window [s-o])
+(define-key-with-w32-register global-map (kbd "s-s") 'fei-search-symbol-at-point [s-s])
+(define-key-with-w32-register global-map (kbd "s-O") (lambda () (interactive) (other-window -1)) [s-O])
+(define-key-with-w32-register global-map (kbd "<s-tab>") 'fei-meow-last-buffer [s-tab])
+(define-key-with-w32-register global-map (kbd "s-u") 'winner-undo [s-u])
+(define-key-with-w32-register global-map (kbd "<s-return>") 'fei-terminal-here [s-return])
+(define-key-with-w32-register global-map (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip [s-y])
+(define-key-with-w32-register global-map (kbd "s-Y") 'youdao-dictionary-search-from-input [s-Y])
+(define-key-with-w32-register global-map (kbd "s-v") 'vc-prefix-map [s-v])
+(define-key-with-w32-register global-map (kbd "s-v s-v") 'vc-next-action [s-v s-v])
+
+
 ;;; }} almost all global-map keybindings
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)

@@ -231,6 +231,17 @@
 
 ;;; {{ win10 related
 (when *is-windows*
+  (setq w32-pass-lwindow-to-system nil)
+  ;; 这个配置可以解决windows平台下用快捷键打开emacs之后super按键被一直按
+  ;; 下的情况。
+  ;; 
+  ;; bug的具体描述：
+  ;; 
+  ;; 使用快捷键windows+数字按键或者由autohotkey设置的其他快捷键，打开
+  ;; emacs之后，无论按那个按键都会被读取为多加一个windows修饰键的组合键，
+  ;; 例如：单独按下i键之后，会被响应为s-i按键，单独按下k键之后，会被响应
+  ;; 为s-k按键，按下C-i按键，会被响应成C-s-i按键
+
   (w32-register-hot-key [M-escape])
   (setq w32-apps-modifier 'super)
   (global-set-key (kbd "s-m") 'toggle-frame-maximized) (w32-register-hot-key [s-m])

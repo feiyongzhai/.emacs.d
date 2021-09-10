@@ -231,6 +231,11 @@
 
 ;;; {{ win10 related
 (when *is-windows*
+  (with-eval-after-load 'python
+    ;; simple complie for python
+    (define-key python-mode-map (kbd "<f5>")
+      (lambda () (interactive)
+	(start-process "python" "*fei-python*" "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name)))))
   (setq w32-pass-lwindow-to-system nil)
   ;; 这个配置可以解决windows平台下用快捷键打开emacs之后super按键被一直按
   ;; 下的情况。
@@ -249,10 +254,7 @@
   (global-set-key (kbd "s-q") 'save-buffers-kill-terminal) (w32-register-hot-key [s-q])
   (global-set-key (kbd "s-e") 'file-manager-here) (w32-register-hot-key [s-e])
   (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
-  ;; simple
-  (define-key python-mode-map (kbd "<f5>")
-    (lambda () (interactive)
-      (start-process "python" "*fei-python*" "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
+  
   )
 ;;; }}
 

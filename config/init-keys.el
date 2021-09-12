@@ -254,7 +254,7 @@
   (global-set-key (kbd "s-q") 'save-buffers-kill-terminal) (w32-register-hot-key [s-q])
   (global-set-key (kbd "s-e") 'file-manager-here) (w32-register-hot-key [s-e])
   (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
-  
+  (global-set-key (kbd "M-s M-s") 'fei-google-search)
   )
 ;;; }}
 

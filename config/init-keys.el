@@ -178,27 +178,27 @@
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
-(defun define-key-with-w32-register (keymap key def register-key)
-  (w32-register-hot-key register-key)
-  (define-key keymap key def))
-
 ;; s-* style usually Windows related
 (setq w32-lwindow-modifier 'super)
-(define-key-with-w32-register global-map (kbd "s-0") 'delete-window [s-0])
-(define-key-with-w32-register global-map (kbd "s-1") 'delete-other-windows [s-1])
-(define-key-with-w32-register global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)) [s-2])
-(define-key-with-w32-register global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)) [s-3])
-(define-key-with-w32-register global-map (kbd "s-o") 'other-window [s-o])
-(define-key-with-w32-register global-map (kbd "s-s") 'fei-search-symbol-at-point [s-s])
-(define-key-with-w32-register global-map (kbd "s-O") (lambda () (interactive) (other-window -1)) [s-O])
-(define-key-with-w32-register global-map (kbd "<s-tab>") 'fei-meow-last-buffer [s-tab])
-(define-key-with-w32-register global-map (kbd "s-u") 'winner-undo [s-u])
-(define-key-with-w32-register global-map (kbd "<s-return>") 'fei-terminal-here [s-return])
-(define-key-with-w32-register global-map (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip [s-y])
-(define-key-with-w32-register global-map (kbd "s-Y") 'youdao-dictionary-search-from-input [s-Y])
-(define-key-with-w32-register global-map (kbd "s-v") 'vc-prefix-map [s-v])
-(define-key-with-w32-register global-map (kbd "s-v s-v") 'vc-next-action [s-v s-v])
-
+(define-key global-map (kbd "s-0") 'delete-window)
+(define-key global-map (kbd "s-1") 'delete-other-windows)
+(define-key global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
+(define-key global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
+(define-key global-map (kbd "s-o") 'other-window)
+(define-key global-map (kbd "s-s") 'fei-search-symbol-at-point)
+(define-key global-map (kbd "s-O") (lambda () (interactive) (other-window -1)))
+(define-key global-map (kbd "<s-tab>") 'fei-meow-last-buffer)
+(define-key global-map (kbd "s-u") 'winner-undo)
+(define-key global-map (kbd "<s-return>") 'fei-terminal-here)
+(define-key global-map (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
+(define-key global-map (kbd "s-Y") 'youdao-dictionary-search-from-input)
+(define-key global-map (kbd "s-v") 'vc-prefix-map)
+(define-key global-map (kbd "s-v s-v") 'vc-next-action)
+(when *is-windows*
+  (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
+		  [s-O] [s-s] [s-u] [s-y] [s-Y]
+		  [s-v] [s-tab] [s-return]))
+    (w32-register-hot-key keys)))
 
 ;;; }} almost all global-map keybindings
 

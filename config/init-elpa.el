@@ -43,6 +43,7 @@
 	paredit
 	smex
 	counsel ivy swiper ivy-posframe ctrlf anzu avy
+	ace-window
 	pyim
 	youdao-dictionary
 	auctex cdlatex

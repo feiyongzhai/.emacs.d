@@ -16,6 +16,12 @@
 ;; (setq smex-prompt-string "^_^ ")
 ;;; }}
 
+;;; {{ ace-window config
+(global-set-key (kbd "s-o") 'ace-window)
+(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
+(custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
+;;; }}
+
 (defun yasnippet-snippets--fixed-indent ()
   "Set `yas-indent-line' to `fixed'."
   (set (make-local-variable 'yas-indent-line) 'fixed))

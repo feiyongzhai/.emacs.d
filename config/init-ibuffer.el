@@ -2,6 +2,9 @@
 
 ;;; Vars
 
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "j") 'isearch-forward))
+
 (setq ibuffer-show-empty-filter-groups nil) ;; 不显示空组
 (setq ibuffer-movement-cycle nil)
 

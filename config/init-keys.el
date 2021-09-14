@@ -184,7 +184,6 @@
 (define-key global-map (kbd "s-1") 'delete-other-windows)
 (define-key global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
 (define-key global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
-(define-key global-map (kbd "s-o") 'other-window)
 (define-key global-map (kbd "C-S-s") 'fei-search-symbol-at-point)
 (global-set-key (kbd "s-s") 'fei-google-search)
 (define-key global-map (kbd "s-O") (lambda () (interactive) (other-window -1)))

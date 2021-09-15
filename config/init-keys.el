@@ -159,6 +159,8 @@
     ;; ("C-v" . scroll-up-line)
 
     ("M-k" . fei-kill-current-buffer)
+    ("C-x k" . kill-current-buffer)
+    ("C-x K" . fei-kill-current-buffer)	; inspired by protesilaos
 
     ("C-h y" . youdao-dictionary-search-from-input)
     ("C-h q" . devdocs-lookup)
@@ -174,7 +176,6 @@
 
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; s-* style usually Windows related
 (define-key global-map (kbd "s-0") 'delete-window)

@@ -51,3 +51,5 @@ ncm-playlist
 /projects
 *.userdb
 *.userdb.old
+completions
+racket-mode/Racket-REPL

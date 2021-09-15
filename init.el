@@ -12,7 +12,8 @@
 (require 'init-builtin)
 (require 'init-extension)
 
-(require 'init-win10)
+(when *is-windows*
+  (require 'init-win10))
 
 ;;;; keys configs
 (require 'init-keys)

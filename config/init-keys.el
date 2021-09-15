@@ -42,8 +42,6 @@
     ;; C-M-s-* style
     ("C-M-s-l" . display-line-numbers-cycle)
 
-    
-
     ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
     ("C-x f" . counsel-find-file)
@@ -135,6 +133,7 @@
     ("C-x 4 C-b" . ,(li (ibuffer-jump t) (ibuffer-auto-mode 1)))
     ("C-x C-b" . ,(li (ibuffer-jump) (ibuffer-auto-mode 1)))
     ("C-x b" . counsel-switch-buffer)
+
     ;; windows related
     ("C-x w u" . transient-winner-undo)
     ("C-x w e" . balance-windows)
@@ -142,7 +141,6 @@
     ("C-x w m" . fei-minimize-window)
     ("C-x o" . transient-other-window)
     ("C-x O" . transient-other-window-backward)
-
 
     ;; M-* style
     ("M-x" . counsel-M-x)
@@ -179,7 +177,6 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 ;; s-* style usually Windows related
-(setq w32-lwindow-modifier 'super)
 (define-key global-map (kbd "s-0") 'delete-window)
 (define-key global-map (kbd "s-1") 'delete-other-windows)
 (define-key global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
@@ -194,11 +191,6 @@
 (define-key global-map (kbd "s-Y") 'youdao-dictionary-search-from-input)
 (define-key global-map (kbd "s-v") 'vc-prefix-map)
 (define-key global-map (kbd "s-v s-v") 'vc-next-action)
-(when *is-windows*
-  (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
-		  [s-O] [s-s] [s-u] [s-y] [s-Y]
-		  [s-v] [s-tab] [s-return]))
-    (w32-register-hot-key keys)))
 
 ;;; }} almost all global-map keybindings
 
@@ -228,34 +220,5 @@
 
 (with-eval-after-load 'devdocs
   (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
-
-;;; {{ win10 related
-(when *is-windows*
-  (with-eval-after-load 'python
-    ;; simple complie for python
-    (define-key python-mode-map (kbd "<f5>")
-      (lambda () (interactive)
-	(start-process "python" "*fei-python*" "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name)))))
-  (setq w32-pass-lwindow-to-system nil)
-  ;; 这个配置可以解决windows平台下用快捷键打开emacs之后super按键被一直按
-  ;; 下的情况。
-  ;; 
-  ;; bug的具体描述：
-  ;; 
-  ;; 使用快捷键windows+数字按键或者由autohotkey设置的其他快捷键，打开
-  ;; emacs之后，无论按那个按键都会被读取为多加一个windows修饰键的组合键，
-  ;; 例如：单独按下i键之后，会被响应为s-i按键，单独按下k键之后，会被响应
-  ;; 为s-k按键，按下C-i按键，会被响应成C-s-i按键
-
-  (w32-register-hot-key [M-escape])
-  (setq w32-apps-modifier 'super)
-  (global-set-key (kbd "s-m") 'toggle-frame-maximized) (w32-register-hot-key [s-m])
-  (global-set-key (kbd "s-h") 'suspend-frame) (w32-register-hot-key [s-h])
-  (global-set-key (kbd "s-q") 'save-buffers-kill-terminal) (w32-register-hot-key [s-q])
-  (global-set-key (kbd "s-e") 'file-manager-here) (w32-register-hot-key [s-e])
-  (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
-  (global-set-key (kbd "M-s M-s") 'fei-google-search)
-  )
-;;; }}
 
 (provide 'init-keys)

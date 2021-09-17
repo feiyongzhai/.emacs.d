@@ -15,6 +15,7 @@
       ("P" . dired-prev-subdir)
       ("/" . isearch-forward)
       ("j" . isearch-forward)
+      ("J" . isearch-backward)
       ("<f2>" . wdired-change-to-wdired-mode)
 
       ("z" . dired-toggle-hidden)

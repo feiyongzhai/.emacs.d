@@ -5,6 +5,10 @@
 (load-path-add "~/.emacs.d/extensions/insert-translated-name")
 (autoload 'insert-translated-name-insert "insert-translated-name" nil t)
 
+;; {{ iedit
+(global-set-key (kbd "C-;") 'iedit-mode)
+;; }} iedit
+
 ;;; {{ matlab
 (autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
 (with-eval-after-load 'matlab

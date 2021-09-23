@@ -147,7 +147,7 @@
     ("M-i" . company-yasnippet/yas-expand)
 
     ;; C-*
-    ("C-=" . eval-expression)		;inspired by  abo-abo's own config
+    ("C-=" . align-regexp)
     ("C-z" . evil-mode-with-cursor)
     ("<C-return>" . ,(li (end-of-line) (newline-and-indent)))
 

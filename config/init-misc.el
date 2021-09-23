@@ -51,6 +51,14 @@
 
 ;;; Funcs
 
+(defun fei-org-time ()
+  (interactive)
+  (if (not (boundp 'org-timer-start-time))
+      (org-timer-start)
+    (if (not org-timer-start-time)
+	(org-timer-start)
+      (call-interactively 'org-timer-pause-or-continue))))
+
 (defvar display-line-numbers-relative-p nil)
 
 (defun display-line-numbers-cycle ()

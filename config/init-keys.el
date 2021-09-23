@@ -172,7 +172,7 @@
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("C-c o" . occur)
     ("M-H" . counsel-recentf)
-    ("<pause>" . org-timer-pause-or-continue)
+    ("<pause>" . fei-org-time)
 
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))

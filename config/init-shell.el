@@ -69,7 +69,7 @@
             (remove-hook 'eshell-output-filter-functions
                          'eshell-postoutput-scroll-to-bottom)))
 (add-hook 'eshell-mode-hook (lambda ()
-			      (toggle-truncate-lines 1)))
+			      (toggle-truncate-lines 0)))
 
 (with-eval-after-load 'shell
   ;; 实际使用中发现下面这个设置会和 matlab-shell 的补全冲突

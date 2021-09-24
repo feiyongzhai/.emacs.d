@@ -11,10 +11,22 @@
 
 ;;; {{ matlab
 (autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
+(setq matlab-indent-level 2)
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; }}
+
+;; {{ octave alternative for matlab-mode
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+(add-hook 'octave-mode-hook
+    (lambda () (progn (setq octave-comment-char ?%)
+                      (setq comment-start "% ")
+                      (setq comment-add 0)
+		      (setq comment-column 0)
+		      )))
+;; }} octave
 
 ;;; {{ smex
 ;; (setq smex-prompt-string "^_^ ")

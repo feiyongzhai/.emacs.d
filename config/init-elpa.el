@@ -53,7 +53,7 @@
 	markdown-mode
 	devdocs
 	use-package
-	matlab-mode
+	;; matlab-mode
 	iedit
 	))
 

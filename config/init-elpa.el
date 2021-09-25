@@ -54,6 +54,7 @@
 	devdocs
 	use-package
 	;; matlab-mode
+	smartscan
 	iedit
 	))
 

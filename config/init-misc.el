@@ -21,6 +21,7 @@
 	  (lambda ()
 	    (company-mode t)
 	    (yas-minor-mode t)
+	    (smartscan-mode t)
 	    (menu-bar--display-line-numbers-mode-absolute)))
 
 ;;; no bell

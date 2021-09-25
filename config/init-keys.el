@@ -177,6 +177,10 @@
     ))
 (define-key key-translation-map (kbd "M-0") (kbd "DEL"))
 
+(global-set-key (kbd "M-N") 'scroll-up-line)
+(global-set-key (kbd "M-P") 'scroll-down-line)
+
+
 ;; s-* style usually Windows related
 (define-key global-map (kbd "s-0") 'delete-window)
 (define-key global-map (kbd "s-1") 'delete-other-windows)

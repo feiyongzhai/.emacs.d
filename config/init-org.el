@@ -1,6 +1,7 @@
 ;;; init-org.el
 
 ;; Keys
+(global-set-key (kbd "C-c a") 'org-agenda)
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))

@@ -17,6 +17,15 @@
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; }}
 
+;; {{ neotree
+(global-set-key (kbd "C-c SPC") 'neotree)
+(global-set-key (kbd "C-c n") 'neotree)
+(with-eval-after-load 'neotree
+  (define-key neotree-mode-map (kbd "j") 'isearch-forward)
+  (define-key neotree-mode-map (kbd "f") 'neotree-enter)
+  )
+;; }} neotree
+
 ;; {{ octave alternative for matlab-mode
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 

@@ -67,37 +67,11 @@
     
     ("<f1> f" . counsel-describe-function)
     ("<f1> v" . counsel-describe-variable)
-    ("<f9>" . neotree-toggle)
+    ("<f9>" . neotree)
 
-    ;; Tab related
-    ("C-x t O" . transient-tab-previous)
-    ("C-x t o" . transient-tab-next)
-    ("C-x t l" . tab-list)
-    ("C-x t t" . tab-bar-select-tab-by-name)
-    ("C-x t r" . tab-recent)
-    ("C-x t n" . tab-new)
-    ("C-x t R" . tab-rename)
-    ("C-x t u" . tab-undo)
-    ("M-1" . ,(li (tab-bar-select-tab 1)))
-    ("M-2" . ,(li (tab-bar-select-tab 2)))
-    ("M-3" . ,(li (tab-bar-select-tab 3)))
-    ("M-4" . ,(li (tab-bar-select-tab 4)))
-    ("M-5" . ,(li (tab-bar-select-tab 5)))
-    ("M-6" . ,(li (tab-bar-select-tab 6)))
-    ("M-7" . ,(li (tab-bar-select-tab 7)))
-    ("M-8" . ,(li (tab-bar-select-tab 8)))
-    ("M-9" . ,(li (tab-bar-select-tab 9)))
-    ("M-0" . tab-list)
-    ("M--" . tab-close)
-    ("M-_" . tab-bar-rename-tab)
-    ("M-=" . tab-new)
-    ("M-+" . tab-bar-switch-to-tab)
-    ("C-t" . tab-new)
-    ;; ivy-view replacement
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
 
-    ("M-t" . tab-undo)
     ;; C-c * style
     ("C-c a" . org-agenda)
     ("C-c b" . counsel-bookmark)
@@ -154,6 +128,9 @@
 
     ))
 
+;;; edit related
+(global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
+
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
 
@@ -182,8 +159,6 @@
 (global-set-key (kbd "s-v s-v") 'vc-next-action)
 
 ;;; }} almost all global-map keybindings
-
-(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
 ;; 回车代替输入y
 (define-key y-or-n-p-map [return] 'act)

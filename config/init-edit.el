@@ -16,7 +16,7 @@
 (global-set-key (kbd "M-P") 'scroll-down-line)
 
 ;;; Misc
-(global-set-key (kbd "C-x u") . transient-undo)
+(global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
 (global-set-key (kbd "<f7>") 'scratch)
 (global-set-key (kbd "C-,") 'set-mark-command)

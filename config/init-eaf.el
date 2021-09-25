@@ -69,6 +69,8 @@
   (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-open-external "w" eaf-pdf-viewer-keybinding)
 
+  (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
+
   (fei-define-key-with-map eaf-interleave-mode-map
     '(("M-n" . eaf-interleave-sync-next-note)
       ("M-p" . eaf-interleave-sync-previous-note))

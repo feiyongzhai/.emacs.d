@@ -16,6 +16,7 @@
       ("/" . isearch-forward)
       ("j" . isearch-forward)
       ("J" . isearch-backward)
+      ("F" . find-name-current-dired)
       ("<f2>" . wdired-change-to-wdired-mode)
 
       ("z" . dired-toggle-hidden)

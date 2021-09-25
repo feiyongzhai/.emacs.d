@@ -52,8 +52,6 @@
 ;;; Vars
 
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-(add-hook 'prog-mode-hook 'diff-hl-mode)
-
 
 (provide 'init-packages)
 ;;; init-packages.el ends here.

@@ -12,7 +12,8 @@
     ("ESC ESC o" . ,(li (find-file "~/.emacs.d/init-local.el")))
     ("ESC ESC p" . ,(li (dired "~/Picture")))
     ("ESC ESC s" . ,(li (dired "~/Sandbox")))
-    ("ESC ESC n" . ,(li (dired "~/Nutstore Files")))
+    ("ESC ESC N" . ,(li (dired "~/Nutstore Files")))
+    ("ESC ESC n" . ,(li (dired "/home/yongfeizhai/Nutstore Files/我的坚果云/研究生/SAR/")))
     ("ESC ESC v" . ,(li (dired "~/Videos")))
     ("ESC ESC V" . ,(li (dired "~/.vim")))
     ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))
@@ -21,37 +22,22 @@
     ("ESC ESC ;" . ,(li (find-file "~/.emacs.d/@scratch@")))
     ;; ("ESC ESC <M-escape>" . evil-local-mode-with-cursor)
 
-    ;; M-s-* style
     ("M-s-b" . ,(li (browse-url "https://feiyongzhai.github.io")))
     ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
+    ("C-s-i" . fei-toggle-xhup-flypy)
     ("s-`" . ,(li (require 'rime) (toggle-input-method)))
     ("M-s-I" . insert-translated-name-insert)
     ("M-s-e" . elfeed)
     ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
 
     ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
-    ("M-s-y" . youdao-dictionary-search-at-point-tooltip)
-    ("M-s-l" . display-line-numbers-mode)
     ("M-s-;" . ,(li (find-file "~/.emacs.d/@scratch@")))
+    ("C-x u" . transient-undo)
 
-    ;; C-s-* style
-    ("C-s-i" . fei-toggle-xhup-flypy)
-    ("C-s-l" . toggle-truncate-lines)
-
-    ;; C-M-s-* style
-    ("C-M-s-l" . display-line-numbers-cycle)
-
-    ;; Key Tweaks(less Ctrl style)
     ("C-x F" . set-fill-column)
     ("C-x f" . counsel-find-file)
     ("C-x C-f" . counsel-find-file)
-    
-    ("C-c r" . counsel-recentf)
-    ("C-c f" . find-name-current-dired)
-    ("C-c F" . find-name-dired)
-    ("C-x u" . transient-undo)
-
     ("C-x d" . counsel-dired)
     ("C-x C-d" . counsel-dired)
     ("M-z" . fei-org-capture)
@@ -76,7 +62,6 @@
     ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . shell)
     ;; ("<f10>" . nil)
-    ("<f10>" . next-same-major-mode-buffer)
     ("<f7>" . scratch)
     ("<f12>" . fei-ansi-term)
     
@@ -102,32 +87,24 @@
     ("M-7" . ,(li (tab-bar-select-tab 7)))
     ("M-8" . ,(li (tab-bar-select-tab 8)))
     ("M-9" . ,(li (tab-bar-select-tab 9)))
-    ("M-_" . tab-close)
-    ("M-+" . tab-new)
-    ("C-S-w" . tab-close)
-    ("C-S-t" . tab-new)
+    ("M-0" . tab-list)
+    ("M--" . tab-close)
+    ("M-_" . tab-bar-rename-tab)
+    ("M-=" . tab-new)
+    ("M-+" . tab-bar-switch-to-tab)
+    ("C-t" . tab-new)
     ;; ivy-view replacement
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
 
+    ("M-t" . tab-undo)
     ;; C-c * style
     ("C-c a" . org-agenda)
     ("C-c b" . counsel-bookmark)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
-    ("C-c l" . counsel-locate)
-    ("C-c r" . counsel-recentf)
     ("C-c s" . ,(li (require 'org) (call-interactively 'org-store-link)))
-    ("C-c SPC" . set-mark-command)
-    ;; citre related
-    ("C-c j" . citre-jump)
-    ("C-c J" . citre-jump-back)
-    ("C-c p" . citre-ace-peek)
-    ;; org-roam related
-    ("C-c n l" . org-roam)
-    ("C-c n f" . org-roam-find-file)
-    ("C-c n g" . ,(li (browse-url "http://127.0.0.1:8080")))
-    ("C-c n G" . org-roam-graph)
+    ("C-," . set-mark-command)
 
     ;; C-x *
     ("C-x 4 C-b" . ,(li (ibuffer-jump t) (ibuffer-auto-mode 1)))
@@ -136,9 +113,9 @@
 
     ;; windows related
     ("C-x w u" . transient-winner-undo)
-    ("C-x w e" . balance-windows)
     ("C-x w M" . maximize-window)
-    ("C-x w m" . fei-minimize-window)
+    ("C-S-m" . maximize-window)		; matlab like keybinding
+    ("C-x w m" . minimize-window)
     ("C-x o" . transient-other-window)
     ("C-x O" . transient-other-window-backward)
 
@@ -150,13 +127,11 @@
     ("C-=" . align-regexp)
     ("C-z" . evil-mode-with-cursor)
     ("<C-return>" . ,(li (end-of-line) (newline-and-indent)))
+    ("M-RET" . ,(li (end-of-line) (newline-and-indent)))
 
     ;; mouse
     ("<mouse-4>" . scroll-down-line)
     ("<mouse-5>" . scroll-up-line)
-
-    ;; ("M-v" . scroll-down-line)
-    ;; ("C-v" . scroll-up-line)
 
     ("M-k" . fei-kill-current-buffer)
     ("C-x k" . kill-current-buffer)
@@ -166,16 +141,18 @@
     ("C-h q" . devdocs-lookup)
     ("C-h Q" . devdocs-search)
 
-    ("M-RET" . ,(li (end-of-line) (newline-and-indent)))
-    
-    ;; experimental
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("C-c o" . occur)
     ("M-H" . counsel-recentf)
+    ("M-j" . switch-to-buffer)
     ("<pause>" . fei-org-time)
 
+    ;; citre related
+    ("C-c j" . citre-jump)
+    ("C-c J" . citre-jump-back)
+    ("C-c p" . citre-ace-peek)
+
     ))
-(define-key key-translation-map (kbd "M-0") (kbd "DEL"))
 
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
@@ -191,19 +168,18 @@
   )
 
 ;; s-* style usually Windows related
-(define-key global-map (kbd "s-0") 'delete-window)
-(define-key global-map (kbd "s-1") 'delete-other-windows)
-(define-key global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
-(define-key global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
+(global-set-key (kbd "s-0") 'delete-window)
+(global-set-key (kbd "s-1") 'delete-other-windows)
+(global-set-key (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
+(global-set-key (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
 (global-set-key (kbd "s-s") 'fei-google-search)
-(define-key global-map (kbd "s-O") (lambda () (interactive) (other-window -1)))
-(define-key global-map (kbd "<s-tab>") 'fei-meow-last-buffer)
-(define-key global-map (kbd "s-u") 'winner-undo)
-(define-key global-map (kbd "<s-return>") 'fei-terminal-here)
-(define-key global-map (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
-(define-key global-map (kbd "s-Y") 'youdao-dictionary-search-from-input)
-(define-key global-map (kbd "s-v") 'vc-prefix-map)
-(define-key global-map (kbd "s-v s-v") 'vc-next-action)
+(global-set-key (kbd "<s-tab>") 'fei-meow-last-buffer)
+(global-set-key (kbd "s-u") 'winner-undo)
+(global-set-key (kbd "<s-return>") 'fei-terminal-here)
+(global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "s-Y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "s-v") 'vc-prefix-map)
+(global-set-key (kbd "s-v s-v") 'vc-next-action)
 
 ;;; }} almost all global-map keybindings
 

@@ -180,13 +180,21 @@
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
 
+(global-set-key (kbd "M-a") 'beginning-of-defun)
+(global-set-key (kbd "M-e") 'end-of-defun)
+
+(when *is-linux*
+  (global-set-key (kbd "C-c w") 'counsel-wmctrl)
+  (global-set-key (kbd "C-c m") 'counsel-linux-app)
+  (global-set-key (kbd "C-'") 'avy-goto-line)
+  (global-set-key (kbd "C-x p") 'proced)
+  )
 
 ;; s-* style usually Windows related
 (define-key global-map (kbd "s-0") 'delete-window)
 (define-key global-map (kbd "s-1") 'delete-other-windows)
 (define-key global-map (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
 (define-key global-map (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
-(define-key global-map (kbd "C-S-s") 'fei-search-symbol-at-point)
 (global-set-key (kbd "s-s") 'fei-google-search)
 (define-key global-map (kbd "s-O") (lambda () (interactive) (other-window -1)))
 (define-key global-map (kbd "<s-tab>") 'fei-meow-last-buffer)

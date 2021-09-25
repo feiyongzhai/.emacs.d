@@ -49,7 +49,8 @@
 	auctex cdlatex
 	neotree
 	engine-mode
-	org-roam org-roam-server org-download
+	;; org-roam org-roam-server
+	org-download
 	markdown-mode
 	devdocs
 	use-package

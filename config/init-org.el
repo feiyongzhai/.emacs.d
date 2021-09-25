@@ -1,10 +1,17 @@
 ;;; init-org.el
 
-;; Keys
+;; {{ Keys
+(global-set-key (kbd "<pause>") 'fei-org-time)
+(global-set-key (kbd "C-c s") (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
+
+(global-set-key (kbd "M-z") 'fei-org-capture)
+(global-set-key (kbd "C-M-z") #'fei-org-capture-note)
+
 (global-set-key (kbd "C-c a") 'org-agenda)
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
+;; }} Keys
 
 ;;; Vars
 
@@ -59,7 +66,22 @@
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))
 
-;;; Funcs
+;;; {{ Funcs
+
+(defun fei-org-capture-note ()
+  (interactive)
+  (org-capture nil "i")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
+(defun fei-org-time ()
+  (interactive)
+  (if (not (boundp 'org-timer-start-time))
+      (org-timer-start)
+    (if (not org-timer-start-time)
+	(org-timer-start)
+      (call-interactively 'org-timer-pause-or-continue))))
 
 (defun fei-org-capture ()
   (interactive)
@@ -82,19 +104,6 @@
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
 (org-download-enable)
-;;; }}
-
-;;; {{ org-roam
-;;; Keys
-(with-eval-after-load 'org
-  (fei-define-key-with-map org-mode-map
-    '(("C-c s" . org-store-link)
-      ("C-c n i" . org-roam-insert)
-      ("C-c n I" . org-roam-insert-immediate)
-      )
-    ))
-
-(setq org-roam-directory (file-truename "~/Nutstore Files/org/roam/"))
 ;;; }}
 
 (provide 'init-org)

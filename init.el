@@ -16,7 +16,7 @@
   (require 'init-win10))
 
 ;;;; keys configs
-(require 'init-keys)
+(require 'init-quick-open)
 
 ;;;; local configs
 (let ((local-config "~/.emacs.d/init-local.el"))

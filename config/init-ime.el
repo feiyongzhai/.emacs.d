@@ -4,6 +4,15 @@
 
 (require 'init-var)
 
+;;; Keys
+
+(fei-define-key-with-map global-map
+  `(
+    ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
+    ("C-s-i" . fei-toggle-xhup-flypy)
+    ("s-`" . ,(li (require 'rime) (toggle-input-method)))
+    ))
+
 ;;; Pyim
 
 (with-eval-after-load 'pyim

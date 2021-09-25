@@ -5,6 +5,7 @@
 (require 'init-ui)
 (require 'init-misc)
 (require 'init-ibuffer)
+(require 'init-buffer)
 (require 'init-windows)
 (require 'init-tab)
 (require 'init-dired)

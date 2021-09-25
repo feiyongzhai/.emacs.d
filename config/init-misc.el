@@ -2,6 +2,21 @@
 
 (require 'init-func)
 
+;;; Keys
+(fei-define-key-with-map global-map
+  `(
+    ("<insert>" . nil)
+    ("M-g i" . imenu)
+    ("C-x F" . set-fill-column)
+    ("<f5>" . ,(li (save-buffer) (let (compilation-read-command) (call-interactively 'compile))))
+    ("<f10>" . nil)
+    ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
+    ("M-H" . counsel-recentf)
+    ("C-c o" . occur)
+    ("M-j" . switch-to-buffer)
+    ))
+
+
 ;;; mode enable or disable
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
@@ -51,14 +66,6 @@
 (put 'downcase-region 'disabled nil)
 
 ;;; Funcs
-
-(defun fei-org-time ()
-  (interactive)
-  (if (not (boundp 'org-timer-start-time))
-      (org-timer-start)
-    (if (not org-timer-start-time)
-	(org-timer-start)
-      (call-interactively 'org-timer-pause-or-continue))))
 
 (defvar display-line-numbers-relative-p nil)
 

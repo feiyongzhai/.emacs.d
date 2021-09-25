@@ -17,6 +17,65 @@
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; }}
 
+
+;; {{ youdao-dictionary
+(with-eval-after-load 'youdao-dictionary
+  (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
+(global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "s-Y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
+;; }} youdao-dictionary
+
+;; {{ insert-translated-name
+(global-set-key (kbd "M-s-I") 'insert-translated-name-insert)
+;; }} insert-translated-name
+
+;; {{ elfeed
+(global-set-key (kbd "M-s-e") 'elfeed)
+;; }} elfeed
+
+;; {{ citre
+(global-set-key (kbd "C-c j") 'citre-jump)
+(global-set-key (kbd "C-c J") 'citre-jump-back)
+(global-set-key (kdb "C-c p") 'citre-ace-peek)
+;; }} citre
+
+;; {{ diff
+(with-eval-after-load 'diff
+  (define-key diff-mode-map (kbd "M-o") nil)
+  (define-key diff-mode-map (kbd "M-k") nil)
+  (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
+  (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
+;; }} diff
+
+;; {{ devdocs
+(with-eval-after-load 'devdocs
+  (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
+(global-set-key (kbd "C-h q") 'devdocs-lookup)
+(global-set-key (kbd "C-h Q") 'devdocs-search)
+(global-set-key (kbd "M-G p") 'devdocs-lookup)
+
+;; }} devdocs
+
+;; {{ engine-mode
+(global-set-key (kbd "M-G") 'engine-mode-prefixed-map)
+;; }} engine-mode
+
+
+;; {{ y-or-n
+;; 回车代替输入y
+(define-key y-or-n-p-map [return] 'act)
+(define-key y-or-n-p-map (kbd "C-m") 'act)
+(define-key y-or-n-p-map (kbd "C-j") 'act)
+;; }} y-or-n
+
+;; {{ paredit
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "M-s") nil)
+  (define-key paredit-mode-map (kbd "M-r") #'paredit-splice-sexp))
+;; }} paredit
+
 ;; {{ neotree
 (global-set-key (kbd "C-c SPC") 'neotree)
 (global-set-key (kbd "C-c n") 'neotree)

@@ -4,6 +4,8 @@
 
 ;;; Keys
 
+(global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
+
 (with-eval-after-load 'company
 
   (define-key company-mode-map (kbd "M-/") #'company-complete)

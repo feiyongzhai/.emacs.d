@@ -1,5 +1,10 @@
 ;;; init-ibuffer.el  --- configs for ibuffer
 
+;;; Keys
+
+(global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
+(global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))
+
 ;;; Vars
 
 (with-eval-after-load 'ibuffer

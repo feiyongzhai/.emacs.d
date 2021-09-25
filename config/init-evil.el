@@ -4,6 +4,8 @@
 (autoload 'evil-local-mode "evil" nil t)
 
 ;;; Keys
+
+(global-set-key (kbd "C-z") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
   (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)

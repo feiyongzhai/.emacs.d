@@ -1,8 +1,24 @@
-;;; init-eshell.el  --- configs for eshell, shell terminal
+;;; init-shell.el  --- configs for eshell/shell/terminal
 
 ;;; Requires
 
 (require 'init-var)
+
+;;; Keys
+
+(fei-define-key-with-map global-map
+  `(
+    ("<s-return>" . fei-terminal-here)
+    ("<f12>" . fei-ansi-term)
+    ("<f8>" . next-eshell-buffer)
+    ("<C-f8>" . fei-eshell-cd-here)
+    ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
+    ("<M-f8>" . shell)
+    ))
+
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
 
 ;;; Funcs
 

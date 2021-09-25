@@ -4,6 +4,8 @@
 (ctrlf-mode 1)
 
 ;;; Keys
+
+(global-set-key (kbd "s-s") 'fei-google-search)
 (fei-define-key-with-map isearch-mode-map
   '(("C-n" . isearch-repeat-forward)
     ("C-p" . isearch-repeat-backward)

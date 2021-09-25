@@ -7,7 +7,7 @@
     (let ((nb (or n 1))
     	  (current-line (thing-at-point 'line)))
       ;; when on last line, insert a newline first
-      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+      (when (= 1 (forward-line 1))
     	(insert "\n"))
       
       ;; now insert as many time as requested

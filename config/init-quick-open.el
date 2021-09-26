@@ -13,7 +13,7 @@
     ("ESC ESC p" . ,(li (dired "~/Picture")))
     ("ESC ESC s" . ,(li (dired "~/Sandbox")))
     ("ESC ESC N" . ,(li (dired "~/Nutstore Files")))
-    ("ESC ESC n" . ,(li (dired "/home/yongfeizhai/Nutstore Files/我的坚果云/研究生/SAR/")))
+    ("ESC ESC n" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生/SAR/")))
     ("ESC ESC v" . ,(li (dired "~/Videos")))
     ("ESC ESC V" . ,(li (dired "~/.vim")))
     ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))

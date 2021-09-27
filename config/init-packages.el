@@ -77,6 +77,7 @@
 ;; }} paredit
 
 ;; {{ neotree
+(setq neo-theme 'ascii)
 (global-set-key (kbd "C-c SPC") 'neotree)
 (global-set-key (kbd "C-c n") 'neotree)
 (with-eval-after-load 'neotree

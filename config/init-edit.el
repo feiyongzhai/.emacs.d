@@ -13,7 +13,9 @@
 (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
 (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
 (global-set-key (kbd "M-N") 'scroll-up-line)
+(global-set-key (kbd "M-n") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
+(global-set-key (kbd "M-p") 'scroll-down-line)
 
 ;;; Misc
 (global-set-key (kbd "C-x u") 'transient-undo)

@@ -14,5 +14,6 @@
 (require 'init-org)
 (require 'init-c)
 (require 'init-ido)
+(require 'init-mail)
 
 (provide 'init-builtin)

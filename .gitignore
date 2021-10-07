@@ -57,3 +57,4 @@ racket-mode/Racket-REPL
 /rime/installation.yaml
 /rime/user.yaml
 /.mc-lists.el
+.authinfo

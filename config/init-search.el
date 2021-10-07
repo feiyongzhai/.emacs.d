@@ -25,6 +25,7 @@
 
 (setq ctrlf-default-search-style 'fuzzy)
 (setq ctrlf-show-match-count-at-eol nil)
+(setq ctrlf-highlight-current-line nil)
 
 ;; (global-anzu-mode t)
 (setq-default

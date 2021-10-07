@@ -8,6 +8,8 @@
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "C-'") 'avy-goto-line)
+;;; Cursor Movement (experimental config)
+(setq recenter-positions '(top middle bottom))
 
 ;;; Scroll
 (global-set-key (kbd "<mouse-4>") 'scroll-down-line)

@@ -73,7 +73,9 @@
 ;; {{ paredit
 (with-eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "M-s") nil)
-  (define-key paredit-mode-map (kbd "M-r") #'paredit-splice-sexp))
+  (define-key paredit-mode-map (kbd "M-r") nil)
+  (define-key paredit-mode-map (kbd "M-R") #'paredit-splice-sexp)
+  )
 ;; }} paredit
 
 ;; {{ neotree

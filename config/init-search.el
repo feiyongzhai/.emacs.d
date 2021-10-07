@@ -1,9 +1,17 @@
 ;;; config for search
 (require 'init-func)
 
-(ctrlf-mode 1)
+;; (ctrlf-mode 1)
 
 ;;; Keys
+;;; isearch experimental config
+(setq isearch-lazy-count t)
+(setq lazy-count-suffix-format " [%s/%s]")
+(setq lazy-count-prefix-format nil)
+(with-eval-after-load 'isearch
+  (define-key isearch-mode-map (kbd "M-g") 'isearch-cancel)
+  (define-key isearch-mode-map (kbd "DEL") 'isearch-del-char)
+  )
 
 (global-set-key (kbd "s-s") 'fei-google-search)
 (fei-define-key-with-map isearch-mode-map

@@ -15,7 +15,7 @@
 ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
 (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
 		[s-O] [s-s] [s-u] [s-y] [s-Y]
-		[s-m] [s-h] [s-q] [s-e] [s-v]
+		[s-m] [s-h] [s-e] [s-v]
 		[s-tab] [s-return] [M-escape]))
   (w32-register-hot-key keys))
 
@@ -27,7 +27,7 @@
 
 (global-set-key (kbd "s-m") 'toggle-frame-maximized)
 (global-set-key (kbd "s-h") 'suspend-frame)
-(global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
+(global-set-key (kbd "s-n") 'save-buffers-kill-terminal)
 (global-set-key (kbd "s-e") 'file-manager-here)
 (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
 (global-set-key (kbd "M-s M-s") 'fei-google-search)

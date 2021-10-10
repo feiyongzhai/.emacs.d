@@ -70,6 +70,10 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 ;; }} y-or-n
 
+;; {{ ahk-mode
+(setq ahk-indentation 4)
+;; }} ahk-mode
+
 ;; {{ paredit
 (with-eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "M-s") nil)
@@ -89,6 +93,7 @@
 ;; }} neotree
 
 ;; {{ octave alternative for matlab-mode
+(add-hook 'octave-mode-hook 'electric-pair-local-mode)
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 (add-hook 'octave-mode-hook

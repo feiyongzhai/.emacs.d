@@ -4,10 +4,7 @@
 
 ;;; Keys
 
-(global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
-
 (with-eval-after-load 'company
-
   (define-key company-mode-map (kbd "C-M-i") #'company-complete)
   (fei-define-key-with-map company-active-map
     '(("M-n" . nil)
@@ -29,12 +26,12 @@
 
 (with-eval-after-load 'yasnippet
   (with-eval-after-load 'company
+    (global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
     (defun company-yasnippet/yas-expand ()
       (interactive)
       (call-interactively 'company-yasnippet)
       (when (eq 1 company-candidates-length)
-	(call-interactively 'yas-expand))
-      )
+	(call-interactively 'yas-expand)))
     ))
 
 

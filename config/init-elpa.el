@@ -58,6 +58,7 @@
 	;; matlab-mode
 	smartscan
 	iedit
+	minimap
 	))
 
 (when *is-linux*

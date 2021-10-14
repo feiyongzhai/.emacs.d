@@ -92,6 +92,10 @@
   )
 ;; }} neotree
 
+;; {{ minimap
+(setq minimap-window-location 'right)
+;; }} minimap
+
 ;; {{ octave alternative for matlab-mode
 (add-hook 'octave-mode-hook 'electric-pair-local-mode)
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))

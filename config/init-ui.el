@@ -20,7 +20,7 @@
 
 (setq display-time-format " %H:%M  %Y-%m-%d")
 (setq display-time-default-load-average nil) ;不显示time后面的不明数字（load-average）
-(display-time-mode 1)
+(display-time-mode -1)
 
 ;;; Fonts
 ;; (if *is-windows*

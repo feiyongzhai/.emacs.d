@@ -27,6 +27,7 @@
     ("C-x C-d" . counsel-dired)
     ("M-x" . counsel-M-x)
     ))
+(global-set-key (kbd "C-c l") 'counsel-locate)
 
 ;;; Vars
 (setq ivy-posframe-display-functions-alist

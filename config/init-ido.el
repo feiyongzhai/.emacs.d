@@ -4,6 +4,10 @@
 
 ;; (ido-mode 1)
 
+;;; Keys
+(define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
+(define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
+
 ;;; Vars
 
 (setq ido-enable-flex-matching t)

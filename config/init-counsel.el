@@ -28,6 +28,8 @@
     ("M-x" . counsel-M-x)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
+(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
+(define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
 
 ;;; Vars
 (setq ivy-posframe-display-functions-alist

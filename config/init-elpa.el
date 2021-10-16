@@ -59,6 +59,7 @@
 	smartscan
 	iedit
 	minimap
+	ialign
 	))
 
 (when *is-linux*

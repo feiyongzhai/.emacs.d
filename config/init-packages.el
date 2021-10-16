@@ -88,9 +88,14 @@
 (global-set-key (kbd "C-c n") 'neotree)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'isearch-forward)
+  (define-key neotree-mode-map (kbd "J") 'isearch-backward)
   (define-key neotree-mode-map (kbd "f") 'neotree-enter)
   )
 ;; }} neotree
+
+;; {{ ialign
+(global-set-key (kbd "C-x l") 'ialign)
+;; }} ialign
 
 ;; {{ minimap
 (setq minimap-window-location 'right)

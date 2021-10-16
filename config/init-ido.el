@@ -7,8 +7,9 @@
 ;;; Keys
 (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
 (define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
-(define-key ido-completion-map (kbd "M-v") 'ido-switch-to-completions)
-(define-key ido-buffer-completion-map (kbd "M-v") 'ido-switch-to-completions)
+(with-eval-after-load 'ido-mode
+  (define-key ido-completion-map (kbd "M-v") 'ido-switch-to-completions)
+  (define-key ido-buffer-completion-map (kbd "M-v") 'ido-switch-to-completions))
 
 ;;; Vars
 

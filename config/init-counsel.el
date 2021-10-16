@@ -32,6 +32,10 @@
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
 
 ;;; Vars
+(with-eval-after-load 'counsel
+  ;; For my laptop: Linux Mint 20
+  (add-to-list 'counsel-wmctrl-ignore "桌面"))
+
 (setq ivy-posframe-display-functions-alist
     '((t . ivy-posframe-display-at-frame-top-center)
       ))

@@ -55,7 +55,7 @@
     ;; 定到命令上
     ;; 
     ;; ("M-[" . fei-eaf-file-share-current-dir)
-    ("M-]" . eaf-open-file-manager)
+    ("M-]" . fei-eaf-file-share-current-dir)
     ("C-x j" . eaf-open-in-file-manager)
     ("M-G M-g" . eaf-open-browser)
     ("M-G M-G" . eaf-open-browser-with-history)

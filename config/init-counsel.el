@@ -2,7 +2,8 @@
 
 ;;; Mode
 
-(ivy-mode 1)
+;;; 默认不启用 `ivy-mode'
+;; (ivy-mode 1)
 ;; (ivy-posframe-mode 1)
 
 ;;; Keys
@@ -28,9 +29,10 @@
     ("M-x" . counsel-M-x)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
-(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
-(define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-
+(with-eval-after-load 'ivy-mode
+  (define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
+  (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
+  )
 ;;; Vars
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20

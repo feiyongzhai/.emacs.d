@@ -2,7 +2,7 @@
 
 ;;; Mode
 
-(ido-mode 1)
+;; (ido-mode 1)
 
 ;;; Keys
 (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))

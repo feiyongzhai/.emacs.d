@@ -7,6 +7,7 @@
 ;;; Keys
 (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
 (define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
+(define-key minibuffer-local-map (kbd "M-i") 'minibuffer-complete)
 (with-eval-after-load 'ido-mode
   (define-key ido-completion-map (kbd "M-v") 'ido-switch-to-completions)
   (define-key ido-file-completion-map (kbd "M-v") 'ido-switch-to-completions)
@@ -18,7 +19,7 @@
 ;; (setq ido-max-window-height 1)
 (setq ido-use-virtual-buffers nil)
 ;; Disable auto merge work directories behavior, But you can merge
-;; manually by M-s undo merge by C-z manually
+;; manually by M-s, undo merge by C-z manually
 (setq ido-auto-merge-work-directories-length -1)
 
 

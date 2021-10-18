@@ -16,10 +16,6 @@
     ("<M-f8>" . shell)
     ))
 
-(add-hook 'eshell-mode-hook
-	  (lambda ()
-	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
-
 ;;; Funcs
 
 ;;; {{ ansi-term related
@@ -170,6 +166,12 @@ Otherwise, call `eshell/cd' with the result."
 	    (setq result (car candidates))
 	  (setq candidates (cdr candidates))))
       (eshell/cd result))))
+
+;;; Misc
+;;; 保留这个配置，主要是为了备忘
+;; (add-hook 'eshell-mode-hook
+;; 	  (lambda ()
+;; 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

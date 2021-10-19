@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-M-z") #'fei-org-capture-note)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "M-h") nil))
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))

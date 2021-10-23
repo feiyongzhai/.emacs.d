@@ -15,7 +15,7 @@
     ("C-c o" . occur)
     ("M-j" . switch-to-buffer)
     ))
-
+(define-key ibuffer-mode-map (kbd "M-j") nil)
 
 ;;; mode enable or disable
 (global-auto-revert-mode t) ;; autoload the file changes on disk

@@ -21,7 +21,6 @@
     ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
     ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ))
-(global-set-key (kbd "<s-tab>") 'fei-meow-last-buffer)
 ;;; }} quick open
 
 (provide 'init-quick-open)

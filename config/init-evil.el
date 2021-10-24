@@ -5,13 +5,13 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-z") 'evil-mode-with-cursor)
+(global-set-key (kbd "C-x C-g") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-normal-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
+  (define-key evil-motion-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
 
   ;; inspired by emacs-china post
@@ -98,15 +98,20 @@
     (evil-local-mode 1)))
 
 (defun evil-mode-with-cursor ()
+  "设置 message 就是为了终端下面有一个提示"
   (interactive)
   (unless (boundp 'evil-mode)
-    (evil-mode -1)) ;; unless part is for initialization
+    (evil-mode -1)
+    (message "Now is EMACS")) ;; unless part is for initialization
   (if evil-mode
       (progn (evil-mode -1)
 	     (dolist (buf (buffer-list))
 	       (set-buffer buf)
-	       (setq cursor-type 'bar)))
-    (evil-mode 1)))
+	       (setq cursor-type 'hbar))
+	     (message "Now is EMACS")
+	     )
+    (evil-mode 1)
+    (message "Now is EVIL")))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

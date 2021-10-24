@@ -16,7 +16,7 @@
 ;;; 的情况
 ;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
 
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'hbar)
 
 (setq display-time-format " %H:%M  %Y-%m-%d")
 (setq display-time-default-load-average nil) ;不显示time后面的不明数字（load-average）

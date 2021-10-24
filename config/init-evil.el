@@ -38,6 +38,9 @@
   "se" 'shell
   "jj" 'scroll-other-window
   "kk" 'scroll-other-window-down
+  "z" 'suspend-frame
+  "q" 'save-buffers-kill-terminal
+  "m" 'global-hide-mode-line-mode
   )
 ;;; }}
 

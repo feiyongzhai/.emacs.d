@@ -9,7 +9,7 @@
     ("M-g i" . imenu)
     ("C-x F" . set-fill-column)
     ("<f5>" . ,(li (save-buffer) (let (compilation-read-command) (call-interactively 'compile))))
-    ("<f10>" . nil)
+    ("<f10>" . global-hide-mode-line-mode)
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("M-H" . counsel-recentf)
     ("C-c o" . occur)

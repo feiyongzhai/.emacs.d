@@ -60,6 +60,7 @@
 	iedit
 	minimap
 	ialign
+        hide-mode-line
 	))
 
 (when *is-linux*

@@ -30,6 +30,14 @@
 (global-set-key (kbd "<C-return>") 'fei-newline)
 (global-set-key (kbd "M-RET") 'fei-newline)
 
+;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
+(global-set-key (kbd "M-c") 'capitalize-dwim)
+(global-set-key (kbd "M-l") 'downcase-dwim)
+(global-set-key (kbd "M-u") 'upcase-dwim)
+(global-set-key (kbd "C-x C-l") nil)
+(global-set-key (kbd "C-x C-u") nil)
+
+
 ;;; {{ Func
 
 (defun fei-newline ()

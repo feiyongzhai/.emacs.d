@@ -19,11 +19,14 @@
 (global-set-key (kbd "M-P") 'scroll-down-line)
 (global-set-key (kbd "M-p") 'scroll-down-line)
 
+;;; Mark
+(global-set-key (kbd "C-x C-p") 'mark-paragraph)
+(global-set-key (kbd "C-,") 'set-mark-command)
+
 ;;; Misc
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
 (global-set-key (kbd "<f7>") 'scratch)
-(global-set-key (kbd "C-,") 'set-mark-command)
 (global-set-key (kbd "<C-return>") 'fei-newline)
 (global-set-key (kbd "M-RET") 'fei-newline)
 

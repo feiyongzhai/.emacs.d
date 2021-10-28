@@ -28,8 +28,6 @@
     ("M-_" . tab-bar-rename-tab)
     ("M-=" . tab-new)
     ("M-+" . tab-bar-switch-to-tab)
-    ("C-t" . tab-new)
-    ("M-t" . tab-undo)
 
     ))
 

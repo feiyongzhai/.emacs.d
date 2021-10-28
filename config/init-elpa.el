@@ -61,6 +61,7 @@
 	minimap
 	ialign
         hide-mode-line
+	embark consult
 	))
 
 (when *is-linux*

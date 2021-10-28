@@ -14,6 +14,9 @@
     ("M-H" . counsel-recentf)
     ("C-c o" . occur)
     ("M-j" . switch-to-buffer)
+    ("M-t" . embark-act)
+    ("M-." . embark-dwim)
+    ("C-x B" . consult-buffer)
     ))
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-j") nil))

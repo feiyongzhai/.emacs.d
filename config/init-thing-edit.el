@@ -53,6 +53,25 @@
     ("L" . thing-cut-line))
   "thing-edit")
 
+;; Replace
+(fei-define-key-with-map user-thing-edit-map
+  '(("M-w" . thing-replace-word)
+    ("M-s" . thing-replace-symbol)
+    ("M-m" . thing-replace-email)
+    ("M-f" . thing-replace-filename)
+    ("M-u" . thing-replace-url)
+    ("M-x" . thing-replace-sexp)
+    ("M-t" . thing-replace-page)
+    ("M-g" . thing-replace-sentence)
+    ("M-o" . thing-replace-whitespace)
+    ("M-i" . thing-replace-list)
+    ("M-c" . thing-replace-comment)
+    ("M-h" . thing-replace-defun)
+    ("M-p" . thing-replace-parentheses)
+    ("M-l" . thing-replace-line))
+  "thing-edit")
+
+
 ;; Other keys
 (global-set-key (kbd "M-D") 'thing-cut-symbol)
 

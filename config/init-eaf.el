@@ -97,12 +97,19 @@
       eaf-proxy-port "1089")
 
 (unless *is-windows*
-  (setq browse-url-browser-function '(("^http.*" . eaf-open-browser)
+  (setq browse-url-browser-function '(("^http.*" . fei-eaf-open-browser)
 				      ("." . browse-url-default-browser))))
 
 (setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
 
 ;;; Funcs
+(defun fei-eaf-open-browser (url &optional _new-window)
+  "根据 `browse-url-chromium' 这个函数改的，现在可以使用，哈哈"
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (browse-url-encode-url url))
+  (if (display-graphic-p)
+      (eaf-open-browser url _new-window)
+    (browse-url-chrome url _new-window)))
 
 (defun fei-eaf-start ()
   (interactive)

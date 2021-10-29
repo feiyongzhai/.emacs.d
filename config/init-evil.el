@@ -5,16 +5,16 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-x C-g") 'evil-mode-with-cursor)
+(global-set-key (kbd "C-x M-v") 'evil-mode-with-cursor)
 ;;; 下面这个 keybinding 的原因是为了让 C-z 在不同的状态下有一致的表现，
 ;;; 更加容易使用
 (global-set-key (kbd "C-z") 'fei-evil-emacs-state)
 (with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
-  (define-key evil-insert-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
-  (define-key evil-visual-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
-  (define-key evil-motion-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
-  (define-key evil-emacs-state-map (kbd "C-x C-g") 'evil-mode-with-cursor)
+  (define-key evil-normal-state-map (kbd "C-x M-v") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-x M-v") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-x M-v") 'evil-mode-with-cursor)
+  (define-key evil-motion-state-map (kbd "C-x M-v") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-x M-v") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
 
   ;; inspired by emacs-china post

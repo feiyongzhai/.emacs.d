@@ -14,7 +14,7 @@
     ("M-H" . counsel-recentf)
     ("C-c o" . occur)
     ("M-j" . switch-to-buffer)
-    ("M-t" . embark-act)
+    ("C-t" . embark-act)
     ("M-." . embark-dwim)
     ("C-x B" . consult-buffer)
     ))

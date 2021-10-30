@@ -12,7 +12,6 @@
     ("<f10>" . global-hide-mode-line-mode)
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("M-H" . counsel-recentf)
-    ("C-c o" . occur)
     ("M-j" . switch-to-buffer)
     ("C-t" . embark-act)
     ("M-." . embark-dwim)

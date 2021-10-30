@@ -51,6 +51,7 @@
 (setq counsel-search-engine 'google)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode 1)
 
 ;; (setq search-default-mode #'char-fold-to-regexp)
 

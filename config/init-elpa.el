@@ -62,6 +62,7 @@
 	ialign
         hide-mode-line
 	embark consult
+	goto-line-preview
 	))
 
 (when *is-linux*

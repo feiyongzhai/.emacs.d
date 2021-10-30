@@ -2,6 +2,10 @@
 
 (require 'init-func)
 
+;;; Mode
+
+(winner-mode 1)
+
 ;;; Keys
 (global-set-key (kbd "s-u") 'winner-undo)
 (global-set-key (kbd "s-0") 'delete-window)
@@ -17,10 +21,6 @@
     ("C-x o" . transient-other-window)
     ("C-x O" . transient-other-window-backward)
     ))
-
-;;; Mode
-
-(winner-mode 1)
 
 ;;; Funcs
 

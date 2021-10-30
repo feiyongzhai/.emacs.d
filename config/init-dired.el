@@ -21,7 +21,6 @@
       ("<tab>" . dired-hide-subdir)
 
       ("z" . dired-toggle-hidden)
-      ("M-G" . nil)
       )))
 
 ;;; Vars

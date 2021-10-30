@@ -27,8 +27,7 @@
 
 (defengine youtube
   "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
-  :keybinding "y"
-  :browser 'browse-url-default-browser)
+  :keybinding "y")
 
 (defengine zhihu
   "https://www.zhihu.com/search?type=content&q=%s"

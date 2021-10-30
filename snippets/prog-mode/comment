@@ -3,6 +3,4 @@
 # name: comment
 # key: co
 # --
-`(yas-trimmed-comment-start)``(when (eq major-mode 'emacs-lisp-mode)(yas-trimmed-comment-start))` {{ ${1:comment}`(unless (eq (length comment-end) 0) (concat " " (yas-trimmed-comment-end)))`
-$0
-`(yas-trimmed-comment-start)``(when (eq major-mode 'emacs-lisp-mode)(yas-trimmed-comment-start))` }} $1`(unless (eq (length comment-end) 0) (concat " " (yas-trimmed-comment-end)))`
+`(yas-trimmed-comment-start)` ${1:comment}`(unless (eq (length comment-end) 0) (concat " " (yas-trimmed-comment-end)))`$0

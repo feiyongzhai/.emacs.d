@@ -2,14 +2,7 @@
 
 ;;; Keys
 
-;; (global-set-key (kbd "s-v") 'vc-prefix-map)
-;; (global-set-key (kbd "s-v s-v") 'vc-next-action)
-
 (global-set-key (kbd "C-x v j") #'fei-vc-dired-jump)
-;; (with-eval-after-load 'vc-git
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
 
 ;;; Vars
 

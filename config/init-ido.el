@@ -7,13 +7,6 @@
 ;;; Keys
 (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
 (define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
-;;;TODO：ido-mode 下的 minibuffer-complete 对应的是 ido-complete，所以下面的命令需要重新写一下
-(define-key minibuffer-local-map (kbd "M-i") 'minibuffer-complete)
-;;;TODO：下面的 with-eval-after-load 不奏效，目前还没有找到具体的原因
-(with-eval-after-load 'ido-mode
-  (define-key ido-completion-map (kbd "M-v") 'ido-switch-to-completions)
-  (define-key ido-file-completion-map (kbd "M-v") 'ido-switch-to-completions)
-  (define-key ido-buffer-completion-map (kbd "M-v") 'ido-switch-to-completions))
 
 ;;; Vars
 

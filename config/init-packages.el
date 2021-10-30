@@ -1,20 +1,12 @@
 ;;; init-packages  --- misc packages configs
 
-;;; autoload
-
-(load-path-add "~/.emacs.d/extensions/insert-translated-name")
-(autoload 'insert-translated-name-insert "insert-translated-name" nil t)
-
 ;; {{ iedit
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 ;; }} iedit
 
 ;;; {{ matlab
-(autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
 (setq matlab-indent-level 2)
-(with-eval-after-load 'matlab
-  (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; }}
 
@@ -24,17 +16,8 @@
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
 (global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "s-Y") 'youdao-dictionary-search-from-input)
 (global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
 ;; }} youdao-dictionary
-
-;; {{ insert-translated-name
-(global-set-key (kbd "M-s-I") 'insert-translated-name-insert)
-;; }} insert-translated-name
-
-;; {{ elfeed
-(global-set-key (kbd "M-s-e") 'elfeed)
-;; }} elfeed
 
 ;; {{ citre
 (global-set-key (kbd "C-c j") 'citre-jump)
@@ -55,14 +38,12 @@
   (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
 (global-set-key (kbd "C-h q") 'devdocs-lookup)
 (global-set-key (kbd "C-h Q") 'devdocs-search)
-(global-set-key (kbd "M-G p") 'devdocs-lookup)
 
 ;; }} devdocs
 
 ;; {{ engine-mode
-(global-set-key (kbd "M-G") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
 ;; }} engine-mode
-
 
 ;; {{ y-or-n
 ;; 回车代替输入y
@@ -85,8 +66,7 @@
 
 ;; {{ neotree
 (setq neo-theme 'ascii)
-(global-set-key (kbd "C-c SPC") 'neotree)
-(global-set-key (kbd "C-c n") 'neotree)
+(global-set-key (kbd "C-c n") 'neotree-toggle)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'isearch-forward)
   (define-key neotree-mode-map (kbd "J") 'isearch-backward)

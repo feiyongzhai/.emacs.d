@@ -8,6 +8,7 @@
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "C-'") 'avy-goto-line)
+(global-set-key (kbd "M-g M-g") 'goto-line-preview)
 ;;; Cursor Movement (experimental config)
 (setq recenter-positions '(top middle bottom))
 
@@ -62,18 +63,6 @@
       (while (> n 0)
     	(insert current-line)
     	(decf n)))))
-
-(defun fei-search-symbol-at-point ()
-  (interactive)
-  (cond
-   ((bounds-of-thing-at-point 'symbol)
-    (if ctrlf-local-mode
-	(call-interactively 'ctrlf-forward-symbol-at-point)
-      (call-interactively 'isearch-forward-symbol-at-point)))
-   (t
-    (if ctrlf-local-mode
-	(ctrlf-forward-default)
-      (isearch-forward)))))
 
 ;;; }} Func
 

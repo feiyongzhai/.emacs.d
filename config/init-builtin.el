@@ -12,7 +12,7 @@
 (require 'init-proxy)
 (require 'init-vc)
 (require 'init-org)
-(require 'init-c)
+(require 'init-prog)
 (require 'init-ido)
 (require 'init-mail)
 

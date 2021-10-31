@@ -13,9 +13,5 @@
 ;; (prefer-coding-system        'utf-8)    ; with sugar on top
 ;; (setq default-process-coding-system '(utf-8 . utf-8))
 
-;; (setq-default
-;;  initial-scratch-message
-;;  (concat initial-scratch-message "(prefer-coding-system (quote utf-8))"))
-
 (provide 'init-encode)
-;;; init-encode.el ends here.
+

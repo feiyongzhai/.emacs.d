@@ -35,12 +35,6 @@
 
 (setq desktop-restore-frames nil)    ; don't restore any frame
 
-(add-hook 'prog-mode-hook
-	  (lambda ()
-	    (company-mode t)
-	    (yas-minor-mode t)
-	    (menu-bar--display-line-numbers-mode-absolute)))
-
 ;;; no bell
 ;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)
@@ -49,23 +43,7 @@
 ;; (setq make-backup-files nil)
 ;;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
-
-;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
-;; (add-hook 'after-init-hook
-;; 	  (lambda ()
-;; 	    (find-file "~/.emacs.d/@scratch@")
-;; 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
-;; 	    (kill-buffer "*scratch*")))
 (setq initial-scratch-message "")
-
-
-;;; enable disabled command
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'set-goal-column 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 
 ;;; Funcs
 
@@ -104,6 +82,14 @@ Argument ARG if not nil, switching in a new window."
       ;; 不清楚 sudo:root@localhost: 表示的含义，但是现在这个命令能用
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
+
+;;; Enable disabled command
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 (provide 'init-misc)
 ;;; init-misc.el ends here.

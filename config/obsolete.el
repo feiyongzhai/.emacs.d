@@ -152,3 +152,11 @@ special major mode"
     ("O" . tab-previous)))
 
 ;;; }}
+
+
+;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
+;; (add-hook 'after-init-hook
+;; 	  (lambda ()
+;; 	    (find-file "~/.emacs.d/@scratch@")
+;; 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+;; 	    (kill-buffer "*scratch*")))

@@ -5,35 +5,21 @@
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 ;; }} iedit
 
-;;; {{ matlab
-(setq matlab-indent-level 2)
-(add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
-;;; }}
-
-
 ;; {{ youdao-dictionary
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
 (global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "<menu>") 'embark-act)
 (global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
 ;; }} youdao-dictionary
 
 ;; {{ diff
-(with-eval-after-load 'diff
+  (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 ;; }} diff
-
-;; {{ devdocs
-(with-eval-after-load 'devdocs
-  (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
-(global-set-key (kbd "C-h q") 'devdocs-lookup)
-(global-set-key (kbd "C-h Q") 'devdocs-search)
-
-;; }} devdocs
 
 ;; {{ engine-mode
 (global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
@@ -75,18 +61,6 @@
 ;; {{ minimap
 (setq minimap-window-location 'right)
 ;; }} minimap
-
-;; {{ octave alternative for matlab-mode
-(add-hook 'octave-mode-hook 'electric-pair-local-mode)
-(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
-
-(add-hook 'octave-mode-hook
-    (lambda () (progn (setq octave-comment-char ?%)
-                      (setq comment-start "% ")
-                      (setq comment-add 0)
-		      (setq comment-column 0)
-		      )))
-;; }} octave
 
 ;;; {{ smex
 ;; (setq smex-prompt-string "^_^ ")

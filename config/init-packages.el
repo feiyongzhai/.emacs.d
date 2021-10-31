@@ -19,12 +19,6 @@
 (global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
 ;; }} youdao-dictionary
 
-;; {{ citre
-(global-set-key (kbd "C-c j") 'citre-jump)
-(global-set-key (kbd "C-c J") 'citre-jump-back)
-(global-set-key (kbd "C-c p") 'citre-ace-peek)
-;; }} citre
-
 ;; {{ diff
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)

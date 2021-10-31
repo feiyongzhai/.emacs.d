@@ -11,7 +11,7 @@
 (require 'init-engine)
 (require 'init-markdown)
 (when *is-linux*
-  (require 'init-telega))
+  (require 'init-linux))
 
 ;;; site-elisp
 (require 'init-thing-edit)

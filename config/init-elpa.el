@@ -30,9 +30,7 @@
 
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
-      '(telega
-	magit
-	citre))
+      '(telega magit citre))
 
 ;;; general needed packages
 (setq fei-package-ensure-installed

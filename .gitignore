@@ -58,3 +58,4 @@ racket-mode/Racket-REPL
 /rime/user.yaml
 /.mc-lists.el
 .authinfo
+/savehist

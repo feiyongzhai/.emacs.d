@@ -93,3 +93,62 @@ special major mode"
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
 ;;; }}
+
+
+;;; {{ company & yasnippet
+(with-eval-after-load 'yasnippet
+  (with-eval-after-load 'company
+    (global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
+    (defun company-yasnippet/yas-expand ()
+      (interactive)
+      (call-interactively 'company-yasnippet)
+      (when (eq 1 company-candidates-length)
+	(call-interactively 'yas-expand)))
+    ))
+
+(defun my-lsp-fix-company-capf ()
+  "Remove redundant `comapny-capf'."
+  (setq company-backends
+        (remove 'company-backends (remq 'company-capf company-backends))))
+(advice-add #'lsp-completion--enable :after #'my-lsp-fix-company-capf)
+
+(defun my-company-yasnippet-disable-inline (fn cmd &optional arg &rest _ignore)
+  "Enable yasnippet but disable it inline."
+  (if (eq cmd  'prefix)
+      (when-let ((prefix (funcall fn 'prefix)))
+        (unless (memq (char-before (- (point) (length prefix)))
+                      '(?. ?< ?> ?\( ?\) ?\[ ?{ ?} ?\" ?' ?`))
+          prefix))
+    (progn
+      (when (and (bound-and-true-p lsp-mode)
+                 arg (not (get-text-property 0 'yas-annotation-patch arg)))
+        (let* ((name (get-text-property 0 'yas-annotation arg))
+               (snip (format "%s (Snippet)" name))
+               (len (length arg)))
+          (put-text-property 0 len 'yas-annotation snip arg)
+          (put-text-property 0 len 'yas-annotation-patch t arg)))
+      (funcall fn cmd  arg))))
+(advice-add #'company-yasnippet :around #'my-company-yasnippet-disable-inline)
+
+(defun my-company-yasnippet ()
+  "Hide the current completeions and show snippets."
+  (interactive)
+  (company-cancel)
+  (call-interactively 'company-yasnippet))
+
+;;; }}
+
+
+;;; {{ tab related
+
+(transient-command tab-next
+  (tab-next)
+  '(("o" . tab-next)
+    ("O" . tab-previous)))
+
+(transient-command tab-previous
+  (tab-previous)
+  '(("o" . tab-next)
+    ("O" . tab-previous)))
+
+;;; }}

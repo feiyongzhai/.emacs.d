@@ -6,8 +6,6 @@
 
 (fei-define-key-with-map global-map
   `(
-    ("C-x t O" . transient-tab-previous)
-    ("C-x t o" . transient-tab-next)
     ("C-x t l" . tab-list)
     ("C-x t t" . tab-bar-select-tab-by-name)
     ("C-x t r" . tab-recent)
@@ -25,7 +23,6 @@
     ("M-9" . ,(li (tab-bar-select-tab 9)))
     ("M-0" . tab-list)
     ("M--" . tab-close)
-    ("M-_" . tab-bar-rename-tab)
     ("M-=" . tab-new)
     ("M-+" . tab-bar-switch-to-tab)
 
@@ -33,23 +30,11 @@
 
 ;;; Vars
 
-(setq tab-bar-show 1)
+(setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice nil)	;duplicate
 (setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
 ;; (setq tab-bar-new-tab-choice 'eshell)
-
-;;; Funcs
-
-(transient-command tab-next
-  (tab-next)
-  '(("o" . tab-next)
-    ("O" . tab-previous)))
-
-(transient-command tab-previous
-  (tab-previous)
-  '(("o" . tab-next)
-    ("O" . tab-previous)))
 
 
 (provide 'init-tab)

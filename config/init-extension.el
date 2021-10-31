@@ -1,15 +1,12 @@
 ;;;; [m]elpa
-(require 'init-packages)
 (require 'init-company)
-(require 'init-counsel)
+(require 'init-completion)
 (require 'init-elfeed)
 (require 'init-search)
 (require 'init-evil)
 (require 'init-ime)
-(require 'init-latex)
 (require 'init-shell)
 (require 'init-engine)
-(require 'init-markdown)
 (when *is-linux*
   (require 'init-linux))
 

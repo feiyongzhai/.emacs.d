@@ -160,3 +160,102 @@ special major mode"
 ;; 	    (find-file "~/.emacs.d/@scratch@")
 ;; 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
 ;; 	    (kill-buffer "*scratch*")))
+
+
+;;; Font config
+
+;; (if *is-windows*
+;;     ;; Setting English Font 仅在 windows 生效
+;;     (progn
+;;       (set-face-attribute
+;;        'default nil
+;;        :font "DejaVu Sans Mono for Powerline"
+;;        :height 140)
+;;      ;; Setting Chinese Font
+;;      (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
+
+;; @ref https://emacs-china.org/t/windows-emacs/7907/39
+;; 下面这个配置当我需要更换其他的字体的时候，加上下面这一行，也可以保证中英文的对齐
+;; (set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
+
+
+;;; Misc
+
+;;; 这个设置会导致一个小问题：blink一下当前行之后高亮不清除。主要体现
+;;; 是在使用thing-edit和citre插件的时候会出现这个问题，这两个插件都提
+;;; 供了blink一下相应的region来做提示，都会出现高亮之后高亮区域不消失
+;;; 的情况
+;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
+
+;; no backup-file
+;; (setq make-backup-files nil)
+
+
+;;; Eshell
+
+;;; Misc
+;;; 保留这个配置，主要是为了备忘
+;; (add-hook 'eshell-mode-hook
+;; 	  (lambda ()
+;; 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
+
+
+;;; Windows
+
+(defun other-window-backward ()
+  (interactive)
+  (other-window -1))
+
+(transient-command other-window-backward
+  (other-window-backward)
+  '(("o" . other-window)
+    ("O" . other-window-backward)))
+
+
+;;; Theme
+
+;;; autoswitch theme by time
+;; (let ((hour (string-to-number
+;; 	     (substring (current-time-string) 11 13))))
+;;   (if (member hour (number-sequence 6 17))
+;;       (load-theme 'modus-operandi t)
+;;     (load-theme 'modus-vivendi t)))
+
+
+;;; package: move-text
+(load-path-add "~/.emacs.d/extensions/move-text/")
+
+(require 'move-text)
+
+;;; Keys
+
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "<M-down>") nil)
+  (define-key paredit-mode-map (kbd "<M-up>") nil))
+
+(define-key global-map (kbd "<M-up>") #'move-text-up)
+(define-key global-map (kbd "<M-down>") #'move-text-down)
+
+(provide 'init-move-text)
+
+
+;;; LaTeX
+
+;; (setq TeX-view-program-selection
+;;       '(((output-dvi has-no-display-manager)
+;; 	 "dvi2tty")
+;; 	((output-dvi style-pstricks)
+;; 	 "dvips and gv")
+;; 	(output-dvi "xdvi")
+;; 	(output-pdf "Zathura")
+;; 	(output-html "xdg-open")))
+
+
+;;; Dired
+
+(defun find-name-current-dired (arg)
+  (interactive
+   (let ((string
+	  (read-string "Find-name(filename wildcard): " nil 'history)))
+     (list string)))
+  (find-name-dired "." arg))

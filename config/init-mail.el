@@ -15,7 +15,6 @@
 (setq smtpmail-debug-info t)
 (setq smtpmail-debug-verb t)
 
-
 (setq gnus-select-method
       '(nnimap "qq.com"
 	       (nnimap-address "imap.qq.com")

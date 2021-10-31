@@ -22,12 +22,10 @@
   )
 
 ;;; {{ company related config copied from centuar emacs
-
 (use-package company
   :diminish
   :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
   :commands company-cancel
-
   :init
   (setq company-tooltip-align-annotations t
         company-require-match nil

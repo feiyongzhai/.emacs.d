@@ -1,19 +1,13 @@
-;;; encode
-(require 'init-encode)
+;;; init-builtin.el: emacs自带的package
 
-;;;; built-in
-(require 'init-ui)
 (require 'init-misc)
 (require 'init-ibuffer)
-(require 'init-buffer)
-(require 'init-windows)
-(require 'init-tab)
+(require 'init-window-buffer-tab)
 (require 'init-dired)
 (require 'init-proxy)
 (require 'init-vc)
-(require 'init-org)
+(require 'init-org-markdown)
 (require 'init-prog)
-(require 'init-ido)
 (require 'init-mail)
 
 (provide 'init-builtin)

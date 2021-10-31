@@ -4,17 +4,16 @@
 
 (global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
 (global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))
-
-;;; Vars
-
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "j") 'isearch-forward)
   (define-key ibuffer-mode-map (kbd "J") 'isearch-backward)
+  (define-key ibuffer-mode-map (kbd "M-j") nil)
   )
+
+;;; Vars
 
 (setq ibuffer-show-empty-filter-groups nil) ;; 不显示空组
 (setq ibuffer-movement-cycle nil)
-
 (add-hook 'ibuffer-mode-hook #'hl-line-mode)
 ;;; 2021-07-02: 小毛病终于解决了，见第6行的配置
 ;; (add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode) 

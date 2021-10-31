@@ -53,4 +53,13 @@
                default-directory))))
     (call-process-shell-command "start wt"))
 
+(defun arrange-frame (w h x y)
+  "Set the width, height, and x/y position of the current frame"
+  (let ((frame (selected-frame)))
+    ;; (delete-other-windows)
+    (set-frame-position frame x y)
+    (set-frame-size frame w h)))
+(arrange-frame 84 30 170 20)
+
+
 (provide 'init-win10)

@@ -1,4 +1,3 @@
-
 (defengine github
   "https://github.com/search?ref=simplesearch&q=%s"
   :keybinding "h")
@@ -19,7 +18,7 @@
 
 (defengine duckduckgo
   "https://duckduckgo.com/?q=%s"
-  :keybinding "D")
+  :keybinding "d")
 
 (defengine google-scholar
   "https://scholar.google.com/scholar?hl=zh-CN&q=%s"
@@ -42,7 +41,7 @@
 (defengine bing-dict
   "https://www.bing.com/dict/search?q=%s"
   :docstring "bing dictionary"
-  :keybinding "d")
+  :keybinding "D")
 
 (defengine google
   "https://www.google.com/search?ie=utf-8&q=%s"

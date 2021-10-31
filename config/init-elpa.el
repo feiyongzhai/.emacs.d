@@ -1,5 +1,3 @@
-(require 'init-var)
-
 ;;; init-elpa.el --- configs for package
 
 ;; (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -41,12 +39,12 @@
 	paredit
 	smex
 	counsel ivy swiper ivy-posframe ctrlf anzu avy
-	pinyin-search
 	ace-window
+	pinyin-search
 	pyim
 	youdao-dictionary
 	auctex cdlatex
-	neotree
+	neotree minimap
 	engine-mode
 	;; org-roam org-roam-server
 	org-download
@@ -54,10 +52,7 @@
 	devdocs
 	use-package
 	;; matlab-mode
-	smartscan
-	iedit
-	minimap
-	ialign
+	iedit ialign
         hide-mode-line
 	embark consult
 	goto-line-preview
@@ -65,7 +60,8 @@
 
 (when *is-linux*
   (setq fei-package-ensure-installed
-	(append fei-package-ensure-installed fei-package-ensure-installed-linux)))
+	(append fei-package-ensure-installed
+		fei-package-ensure-installed-linux)))
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here.

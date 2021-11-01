@@ -56,6 +56,7 @@
         hide-mode-line
 	embark consult
 	goto-line-preview
+        openwith
 	))
 
 (when *is-linux*

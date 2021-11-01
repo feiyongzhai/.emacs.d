@@ -1,11 +1,9 @@
 ;;; windows 平台专属
 
-;; Known issue
-;; 
-;; 使用快捷键windows+数字按键或者由autohotkey设置的其他快捷键，打开
-;; emacs之后，无论按那个按键都会被读取为多加一个windows修饰键的组合键，
-;; 例如：单独按下i键之后，会被响应为s-i按键，单独按下k键之后，会被响应
-;; 为s-k按键，按下C-i按键，会被响应成C-s-i按键
+(openwith-mode t)
+(setq openwith-associations '(("\\.pdf\\'" "start" (file))
+                              ("\\.doc\\'" "start" (file))
+                              ("\\.docx\\'" "start" (file))))
 
 ;;; {{ Keys
 (setq w32-lwindow-modifier 'super)
@@ -15,8 +13,8 @@
 ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
 (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
 		[s-O] [s-s] [s-u] [s-y] [s-Y]
-		[s-m] [s-h] [s-e] [s-v]
-		[s-return] [M-escape]))
+		[s-m] [s-h] [s-e] [s-return]
+                [M-escape]))
   (w32-register-hot-key keys))
 
 (with-eval-after-load 'python

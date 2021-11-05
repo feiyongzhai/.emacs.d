@@ -19,9 +19,14 @@
 
 (with-eval-after-load 'python
   ;; simple complie for python
-  (define-key python-mode-map (kbd "<f5>")
-    (lambda () (interactive)
-      (start-process "python" "*fei-python*" "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name)))))
+  (define-key python-mode-map (kbd "<f5>") 'fei-python-run)
+
+  (defun fei-python-run ()
+    (interactive)
+    ((save-buffer (current-buffer)))
+    (start-process "python"
+                   "*fei-python*"
+                   "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
 (global-set-key (kbd "s-m") 'toggle-frame-maximized)
 (global-set-key (kbd "s-h") 'suspend-frame)

@@ -259,3 +259,21 @@ special major mode"
 	  (read-string "Find-name(filename wildcard): " nil 'history)))
      (list string)))
   (find-name-dired "." arg))
+
+
+;;; Company
+
+;; `yasnippet' integration
+(with-no-warnings
+  (with-eval-after-load 'yasnippet
+    (defun company-backend-with-yas (backend)
+      "Add `yasnippet' to company backend."
+      (if (and (listp backend) (member 'company-yasnippet backend))
+          backend
+        (append (if (consp backend) backend (list backend))
+                '(:with company-yasnippet))))
+
+    (defun my-company-enbale-yas (&rest _)
+      "Enable `yasnippet' in `company'."
+      (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
+    ))

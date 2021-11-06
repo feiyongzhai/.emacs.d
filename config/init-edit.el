@@ -46,7 +46,7 @@
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
 (global-set-key (kbd "C-x C-l") 'consult-focus-lines)
-(global-set-key (kbd "C-x C-u") 'undo)
+(global-set-key (kbd "C-x C-u") 'transient-undo)
 
 
 ;;; {{ Func

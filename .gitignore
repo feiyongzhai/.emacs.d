@@ -59,3 +59,5 @@ racket-mode/Racket-REPL
 /.mc-lists.el
 .authinfo
 /savehist
+/rime/win10/sync
+ede-projects.el

@@ -23,7 +23,7 @@
 
   (defun fei-python-run ()
     (interactive)
-    ((save-buffer (current-buffer)))
+    (save-buffer (current-buffer))
     (start-process "python"
                    "*fei-python*"
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))

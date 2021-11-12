@@ -46,6 +46,7 @@
 	("WANT" . "grey")
 	("WIP" . "orange")
 	("FEELING" . "blue")
+        ("REFLECT" . "purple")
 	("LOG" . "blue")
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
@@ -76,11 +77,11 @@
 	   :empty-lines-before 1)
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
-	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Emacs")
+	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
 	   "* %?\n  CREATE: %T\n  #+begin_src emacs-lisp\n%c\n  #+end_src"
 	   :empty-lines-after 1)
 	  ("co" "Code Snippets for Others" entry
-	   (file+headline "~/Nutstore Files/org/code-snippets.org" "Others")
+	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))
 

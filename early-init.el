@@ -37,16 +37,8 @@
 ;;; UI
 
 ;; `early-init.el' 可对 emacsclient 生效
-(tool-bar-mode -1)
-(menu-bar-mode -1)
 (custom-set-faces
- '(default
-    ((t (:family #("等距更纱黑体 SC" 0 9 (charset chinese-gbk))
-		 :foundry "outline"
-		 :slant normal
-		 :weight normal
-		 :height 120
-		 :width normal)))))
+ '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
 (set-fontset-font t 'symbol "Symbola" nil 'append)
 
 (require 'init-elpa)

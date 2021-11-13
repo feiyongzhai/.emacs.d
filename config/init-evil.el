@@ -16,6 +16,7 @@
 
   ;; inspired by emacs-china post
   (define-key evil-normal-state-map (kbd "RET") 'fei-meow-last-buffer)
+  (define-key evil-normal-state-map (kbd "<tab>") 'ace-window)
   )
 
 ;;; Leader Key

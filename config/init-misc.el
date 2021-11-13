@@ -26,8 +26,11 @@
     ("C-t" . embark-act)
     ("M-." . embark-dwim)
     ("C-x B" . consult-buffer)
+    ("M-s j" . eshell)
     ))
 (global-set-key (kbd "<menu>") 'embark-act)
+(global-set-key (kbd "<f6>") 'display-line-numbers-mode)
+(global-set-key (kbd "M-s M-w") 'fei-google-search)
 
 ;; {{ y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -37,6 +40,10 @@
 ;; }} y-or-n
 
 ;;; Vars
+
+(setq show-paren-style 'parenthesis)
+(setq-default cursor-in-non-selected-windows nil)
+(setq comment-empty-lines t)
 
 (setq inhibit-splash-screen t)
 (setq-default cursor-type 'hbar)
@@ -64,15 +71,17 @@
   '(("u" . undo)))
 
 ;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
-(defun fei-google-search ()
+(defun fei-google-search (&rest search-string)
   "Googles a query or region if any."
   (interactive)
   (browse-url
    (concat
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if mark-active
-        (buffer-substring (region-beginning) (region-end))
-      (read-string "Google: ")))))
+    (if search-string
+	(eshell-flatten-and-stringify search-string)	
+      (if mark-active
+          (buffer-substring (region-beginning) (region-end))
+	(read-string "Google: "))))))
 
 ;;; 快速切换上一个 buffer --- code copied from meow-mode
 (defun fei-meow-last-buffer (arg)
@@ -127,6 +136,17 @@ Argument ARG if not nil, switching in a new window."
 
 (with-eval-after-load 'yasnippet
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
+
+(global-set-key (kbd "C-h o") 'helpful-symbol)
+(global-set-key (kbd "C-h k") 'helpful-key)
+
+;;; `matlab-mode'
+(add-hook 'matlab-mode-hook 'electric-pair-local-mode)
+(with-eval-after-load 'matlab-mode
+  (define-key matlab-mode-map (kbd "M-j") 'ivy-switch-buffer))
+
+(tool-bar-add-item "spell" 'global-tab-line-mode
+		    'global-tab-line-mode)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

@@ -51,12 +51,14 @@
 	markdown-mode
 	devdocs
 	use-package
-	;; matlab-mode
+	matlab-mode
 	iedit ialign
         hide-mode-line
 	embark consult
 	goto-line-preview
         openwith
+	dired-subtree
+	helpful
 	))
 
 (when *is-linux*

@@ -45,8 +45,6 @@
 (fei-define-key-with-map global-map
   '(
     ;; eaf related
-    ("M-s M-w" . eaf-open-browser-with-history)
-    ("s-/" . eaf-open-browser-with-history)
     ("C-c e" . eaf-open-this-buffer)
     ;; 终端用命令 `emacsclient -t file-name` 的时候，总是会响应快捷键
     ;; `ESC [ I` 这一组按键序列（这个可以通过 C-h l 来查看），这就导致

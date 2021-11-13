@@ -113,7 +113,7 @@
   "Open a file in Emacs with ARGS, Some habits die hard."
   (cond
    ((null args)
-    (dired-other-window "."))
+    (dired "."))
    ((eq (length args) 1)
     (eval `(find-file ,@args)))
    (t
@@ -163,6 +163,12 @@ Otherwise, call `eshell/cd' with the result."
 	  (setq candidates (cdr candidates))))
       (eshell/cd result))))
 
+(defalias 'eshell/s 'eshell/eaf-search)
+(defun eshell/eaf-search (&rest strings)
+  (interactive)
+  (if (null strings)
+      (call-interactively 'eaf-search-it))
+  (fei-google-search strings))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

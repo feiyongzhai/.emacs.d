@@ -18,15 +18,16 @@
     ("<f1> v" . counsel-describe-variable)
     ("C-c b" . counsel-bookmark)
     ("C-c g" . counsel-git)
-    ("C-c k" . counsel-rg)
+    ("C-c r" . counsel-rg)
+    ("M-s r" . counsel-rg)
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
     ("C-x b" . counsel-switch-buffer)
     ("C-x f" . counsel-find-file)
     ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)
-    ("C-x C-d" . counsel-dired)
     ("M-x" . counsel-M-x)
+    ("M-s O" . swiper)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
 (define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
@@ -48,7 +49,11 @@
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
-  (setq-default ivy-initial-inputs-alist nil))
+  (setq-default ivy-initial-inputs-alist nil)
+
+  (global-set-key (kbd "M-j") 'ivy-switch-buffer)
+  (global-set-key (kbd "M-h") 'counsel-find-file)
+  )
 
 (setq ivy-posframe-display-functions-alist
     '((t . ivy-posframe-display-at-frame-top-center)

@@ -130,6 +130,16 @@
 
 (with-eval-after-load 'eaf
   (defun eaf-translate-text (text)
-    (popweb-dict-youdao text)))
+    (popweb-dict-youdao text))
+
+  (defun eaf-goto-left-tab ()
+    (interactive)
+    (call-interactively 'tab-bar-switch-to-prev-tab))
+
+  (defun eaf-goto-right-tab ()
+    (interactive)
+    (call-interactively 'tab-bar-switch-to-next-tab))
+
+  )
 
 (provide 'init-eaf)

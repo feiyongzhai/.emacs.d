@@ -15,10 +15,10 @@
 (when *is-windows*
   (require 'init-win10))
 
-;;;; keys configs
+;;; keys configs
 (require 'init-quick-open)
 
-;;;; local configs
+;;; local configs
 (let ((local-config "~/.emacs.d/init-local.el"))
   (when (file-exists-p local-config)
     (load-file local-config)))

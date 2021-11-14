@@ -167,8 +167,8 @@ Otherwise, call `eshell/cd' with the result."
 (defun eshell/eaf-search (&rest strings)
   (interactive)
   (if (null strings)
-      (call-interactively 'eaf-search-it))
-  (fei-google-search strings))
+      (call-interactively 'eaf-search-it)
+    (fei-google-search strings)))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

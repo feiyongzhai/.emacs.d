@@ -24,6 +24,10 @@
 (require 'eaf-vue-demo)
 (require 'eaf-interleave)
 
+(load-path-add "~/.emacs.d/extensions/popweb/")
+(require 'popweb-dict-bing)
+(require 'popweb-dict-youdao)
+
 ;;; Code:
 
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
@@ -120,5 +124,9 @@
   (interactive)
   (require 'eaf)
   (eaf-file-browser-qrcode (substring (pwd) 10)))
+
+(with-eval-after-load 'eaf
+  (defun eaf-translate-text (text)
+    (popweb-dict-youdao text)))
 
 (provide 'init-eaf)

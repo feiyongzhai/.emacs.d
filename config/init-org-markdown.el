@@ -87,9 +87,18 @@
 
 ;;; {{ Funcs
 
+(defalias 'eshell/k 'fei-org-capture-note)
 (defun fei-org-capture-note ()
   (interactive)
   (org-capture nil "i")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
+(defalias 'eshell/ks 'fei-org-capture-SAR)
+(defun fei-org-capture-SAR ()
+  (interactive)
+  (org-capture nil "s")
   (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))

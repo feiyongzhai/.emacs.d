@@ -9,8 +9,43 @@
 (setq pre-gc-cons-threshold gc-cons-threshold
       gc-cons-threshold most-positive-fixnum)
 
-(require 'init-builtin)
-(require 'init-extension)
+;;; Builtins
+(require 'init-misc)
+(require 'init-ibuffer)
+(require 'init-window-buffer-tab)
+(require 'init-dired)
+(require 'init-proxy)
+(require 'init-vc)
+(require 'init-org-markdown)
+(require 'init-prog)
+(require 'init-mail)
+
+;;; Extensions
+
+;;; [m]elpa
+(require 'init-company)
+(require 'init-completion)
+(require 'init-elfeed)
+(require 'init-search)
+(require 'init-evil)
+(require 'init-ime)
+(require 'init-shell)
+(require 'init-engine)
+(when *is-linux*
+  (require 'init-linux))
+
+;;; site-elisp
+(require 'init-thing-edit)
+(require 'init-auto-save)
+(require 'init-edit)
+;; (require 'init-move-text)
+
+;;;; eaf is special
+(when *is-linux*
+  (when (display-graphic-p)
+    (require 'init-eaf))
+  (add-hook 'server-after-make-frame-hook
+	    (lambda () (when window-system (require 'init-eaf)))))
 
 (when *is-windows*
   (require 'init-win10))

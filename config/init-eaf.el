@@ -28,6 +28,9 @@
 (require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
 
+(global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
+(global-set-key (kbd "C-h y") 'popweb-dict-bing-input)
+
 ;;; Code:
 
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))

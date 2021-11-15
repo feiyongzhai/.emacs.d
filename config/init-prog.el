@@ -1,5 +1,7 @@
 (add-hook 'c-mode-hook 'electric-pair-local-mode)
 (add-hook 'c++-mode-hook 'electric-pair-local-mode)
+(add-hook 'python-mode-hook 'electric-pair-local-mode)
+
 
 (add-hook 'prog-mode-hook
 	  (lambda ()

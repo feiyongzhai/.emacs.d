@@ -18,9 +18,6 @@
   (w32-register-hot-key keys))
 
 (with-eval-after-load 'python
-  (define-key matlab-mode-map (kbd "M-s") nil)
-  (define-key matlab-mode-map (kbd "M-j") nil)
-  (define-key matlab-mode-map (kbd "<C-return>") nil)
   ;; simple complie for python
   (define-key python-mode-map (kbd "<f5>") 'fei-python-run)
 
@@ -32,7 +29,6 @@
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
 (global-set-key (kbd "s-m") 'toggle-frame-maximized)
-(global-set-key (kbd "s-n") 'suspend-frame)
 (global-set-key (kbd "s-e") 'file-manager-here)
 (global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
 (global-set-key (kbd "M-s M-s") 'fei-google-search)
@@ -53,10 +49,10 @@
   "Open an external Windows cmd in the current directory"
   (interactive)
   (let ((default-directory
-      (if (buffer-file-name)
-               (file-name-directory (buffer-file-name))
-               default-directory))))
-    (call-process-shell-command "start wt"))
+          (if (buffer-file-name)
+              (file-name-directory (buffer-file-name))
+            default-directory))))
+  (call-process-shell-command "start wt"))
 
 (defun arrange-frame (w h x y)
   "Set the width, height, and x/y position of the current frame"

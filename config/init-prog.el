@@ -23,6 +23,11 @@
 
 ;;; matlab {{
 (setq matlab-indent-level 2)
+(with-eval-after-load 'matlab
+  (define-key matlab-mode-map (kbd "M-s") nil)
+  (define-key matlab-mode-map (kbd "M-j") nil)
+  (define-key matlab-mode-map (kbd "<C-return>") nil)
+  )
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 ;;; matlab }}
 

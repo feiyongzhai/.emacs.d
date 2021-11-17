@@ -19,6 +19,7 @@
     ("C-c b" . counsel-bookmark)
     ("C-c g" . counsel-git)
     ("C-c r" . counsel-rg)
+    ("C-c k" . counsel-rg)
     ("M-s r" . counsel-rg)
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)

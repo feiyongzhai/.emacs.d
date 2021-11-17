@@ -89,6 +89,8 @@
 
 (setq rime-disable-predicates
       '(rime-predicate-prog-in-code-p
+        rime-predicate-space-after-cc-p
+        rime-predicate-after-alphabet-char-p
 	rime-predicate-tex-math-or-command-p))
 
 (setq rime-translate-keybindings

@@ -95,6 +95,14 @@
   (require 'rime)
   (activate-input-method 'rime))
 
+(defalias 'eshell/kw 'fei-org-capture-WANT)
+(defun fei-org-capture-WANT ()
+  (interactive)
+  (org-capture nil "w")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
 (defalias 'eshell/ks 'fei-org-capture-SAR)
 (defun fei-org-capture-SAR ()
   (interactive)

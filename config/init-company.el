@@ -7,9 +7,14 @@
 (with-eval-after-load 'company
   (define-key company-mode-map (kbd "C-M-i") #'company-complete)
   (fei-define-key-with-map company-active-map
-    '(("M-n" . nil)
-      ("M-p" . nil)
+    '(("M-n" . company-select-next)
+      ("M-p" . company-select-previous)
       ("M-i" . yas-expand)
+      ("TAB" . company-complete-selection)
+      ("M-h" . company-complete-selection)
+      ("M-H" . company-complete-common)
+      ("M-w" . company-show-location)
+      ("M-s" . company-filter-candidates)
       ))
   
   (setq company-show-numbers t)
@@ -22,21 +27,13 @@
   )
 
 ;;; {{ company related config copied from centuar emacs
-(use-package company
-  :diminish
-  :defines (company-dabbrev-ignore-case company-dabbrev-downcase)
-  :commands company-cancel
-  :init
-  (setq company-tooltip-align-annotations t
-        company-require-match nil
-        company-dabbrev-ignore-case nil
-        company-dabbrev-downcase nil
-        company-global-modes '(not erc-mode message-mode help-mode
-                                   gud-mode eshell-mode shell-mode)
-        company-backends '((company-capf :with company-yasnippet)
-                           (company-dabbrev-code company-keywords company-files)
-                           company-dabbrev company-yasnippet))
-  )
+(setq company-tooltip-align-annotations t
+      company-require-match nil
+      company-dabbrev-ignore-case nil
+      company-dabbrev-downcase nil
+      company-global-modes '(not erc-mode message-mode help-mode
+                                 gud-mode eshell-mode shell-mode)
+      company-backends '(company-keywords company-files (company-capf :with company-yasnippet) company-dabbrev))
 ;;; }}
 
 

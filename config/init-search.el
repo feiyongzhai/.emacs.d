@@ -21,6 +21,7 @@
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
     ("C-'" . avy-isearch)
+    ("M-h" . isearch-exit)
     ("M-s j" . avy-isearch)
     ("M-w" . (lambda ()
 	       (interactive)

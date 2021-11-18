@@ -13,8 +13,7 @@
 ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
 (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
 		[s-O] [s-s] [s-u] [s-y] [s-Y]
-		[s-m] [s-e] [s-return]
-                [M-escape]))
+		[s-e] [s-return] [M-escape]))
   (w32-register-hot-key keys))
 
 (with-eval-after-load 'python
@@ -28,10 +27,15 @@
                    "*fei-python*"
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
-(global-set-key (kbd "s-m") 'toggle-frame-maximized)
 (global-set-key (kbd "s-e") 'file-manager-here)
-(global-set-key (kbd "<f12>") (li (start-process "gvim" nil "gvim" (buffer-file-name))))
 (global-set-key (kbd "M-s M-s") 'fei-google-search)
+(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
+(global-set-key (kbd "<f12>") 'open-current-file-with-vscode)
+(global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
+(tool-bar-add-item "show" 'speedbar 'speedbar :help "speedbar")
+
+;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
+(setq locate-command "es.exe")
 
 ;;; }}
 
@@ -53,6 +57,16 @@
               (file-name-directory (buffer-file-name))
             default-directory))))
   (call-process-shell-command "start wt"))
+
+(defun open-current-file-with-vscode ()
+  (interactive)
+  (start-process "vscode" nil
+		 "code" (buffer-file-name)))
+
+(defun open-current-file-with-gvim ()
+  (interactive)
+  (start-process "gvim" nil
+		 "gvim" (buffer-file-name)))
 
 (defun arrange-frame (w h x y)
   "Set the width, height, and x/y position of the current frame"

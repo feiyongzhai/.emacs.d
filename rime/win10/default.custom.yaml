@@ -6,8 +6,8 @@ customization:
   rime_version: 1.5.3
 patch:
   schema_list:
-    - schema: flypy
     - schema: double_pinyin_flypy
+    - schema: flypy
     - schema: luna_pinyin_simp
     - schema: xhup_express
     - schema: xhup_fluency

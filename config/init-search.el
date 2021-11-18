@@ -23,10 +23,13 @@
     ("C-'" . avy-isearch)
     ("M-h" . isearch-exit)
     ("M-s j" . avy-isearch)
-    ("M-w" . (lambda ()
-	       (interactive)
-	       (isearch-exit)
-	       (call-interactively 'copy-region-as-kill)))))
+    ("M-w" . fei-isearch-copy-region)
+    ))
+
+(defun fei-isearch-copy-region ()
+  (interactive)
+  (isearch-exit)
+  (call-interactively 'copy-region-as-kill))
 
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))

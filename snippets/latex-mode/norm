@@ -1,0 +1,5 @@
+# key: norm
+# name: norm
+# condition: (and (texmathp) 'auto)
+# --
+\\| $0 \\|

@@ -24,9 +24,10 @@
 (global-set-key (kbd "C-c s") (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
 
 (global-set-key (kbd "M-z") 'fei-org-capture)
-(global-set-key (kbd "C-M-z") #'fei-org-capture-note)
+(global-set-key (kbd "C-M-z") 'fei-org-capture-note)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'fei-org-capture)
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "M-h") nil))
 (with-eval-after-load 'org-agenda

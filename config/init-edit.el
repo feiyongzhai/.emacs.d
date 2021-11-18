@@ -1,8 +1,10 @@
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'duplicate-current-line)
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
+(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
+(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 (global-set-key (kbd "M-s s") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
@@ -14,8 +16,9 @@
 (setq neo-theme 'ascii)
 (global-set-key (kbd "C-c n") 'neotree-toggle)
 (with-eval-after-load 'neotree
-  (define-key neotree-mode-map (kbd "j") 'isearch-forward)
-  (define-key neotree-mode-map (kbd "J") 'isearch-backward)
+  (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
+  (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)
+  (define-key neotree-mode-map (kbd "l") 'neotree-enter)
   (define-key neotree-mode-map (kbd "f") 'neotree-enter)
   )
 
@@ -48,8 +51,20 @@
 (global-set-key (kbd "C-x C-l") 'consult-focus-lines)
 (global-set-key (kbd "C-x C-u") nil)
 
-
 ;;; {{ Func
+
+(defun back-to-indentation-or-beginning () (interactive)
+       (if (= (point) (progn (back-to-indentation) (point)))
+	   (beginning-of-line)))
+
+(defun backward-kill-word-or-region (&optional arg)
+  "Kill word backwards unless region is active,
+kill region instead"
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning)
+		   (region-end))
+    (backward-kill-word (or arg 1))))
 
 (defun fei-newline ()
   (interactive)

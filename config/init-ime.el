@@ -57,6 +57,7 @@
 ;;; Keys
 (with-eval-after-load 'rime
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
+  (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-mode-map (kbd "C-c M-j") 'rime-force-enable)
   )

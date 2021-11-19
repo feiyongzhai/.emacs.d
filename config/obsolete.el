@@ -277,3 +277,11 @@ special major mode"
       "Enable `yasnippet' in `company'."
       (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
     ))
+
+
+
+;; {{ citre
+(global-set-key (kbd "C-c j") 'citre-jump)
+(global-set-key (kbd "C-c J") 'citre-jump-back)
+(global-set-key (kbd "C-c p") 'citre-ace-peek)
+;; }} citre

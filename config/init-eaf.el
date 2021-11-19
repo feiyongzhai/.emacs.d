@@ -137,11 +137,11 @@
 
   (defun eaf-goto-left-tab ()
     (interactive)
-    (call-interactively 'tab-bar-switch-to-prev-tab))
+    (call-interactively 'tab-line-switch-to-prev-tab))
 
   (defun eaf-goto-right-tab ()
     (interactive)
-    (call-interactively 'tab-bar-switch-to-next-tab))
+    (call-interactively 'tab-line-switch-to-next-tab))
 
   )
 

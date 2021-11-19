@@ -40,6 +40,7 @@
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-file-manager-show-hidden-file nil)
+(setq eaf-rss-reader-web-page-other-window nil)
 
 ;;; Myself
 
@@ -80,6 +81,7 @@
   (eaf-bind-key eaf-open-external "w" eaf-pdf-viewer-keybinding)
 
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
+  (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
 
   (fei-define-key-with-map eaf-interleave-mode-map
     '(("M-n" . eaf-interleave-sync-next-note)

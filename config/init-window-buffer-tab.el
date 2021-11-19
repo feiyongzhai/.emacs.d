@@ -56,7 +56,7 @@
     ("M-+" . tab-bar-switch-to-tab)
     ))
 
-(setq tab-bar-show t)
+(setq tab-bar-show 1)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice nil)	;duplicate
 (setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
@@ -84,6 +84,42 @@
     (kill-buffer))
    (t (kill-buffer-and-window))))
 
+;;; {{ tab-line
+(require 'tab-line)
+(global-set-key (kbd "C-c ,") 'transient-tab-line-prev)
+(global-set-key (kbd "C-c .") 'transient-tab-line-next)
+
+;;; 添加这一行，主要是因为 org 中占用了 C-c , 和 C-c .
+;;; 主要还是用上面那个快捷键（因为更好按）
+(global-set-key (kbd "C-c H") 'transient-tab-line-prev)
+(global-set-key (kbd "C-c L") 'transient-tab-line-next)
+
+
+(transient-command tab-line-next
+  (call-interactively 'tab-line-switch-to-next-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ("h" . tab-line-switch-to-prev-tab)
+    ("l" . tab-line-switch-to-next-tab)
+    (";" . bury-buffer)
+    ))
+
+(transient-command tab-line-prev
+  (call-interactively 'tab-line-switch-to-prev-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ("h" . tab-line-switch-to-prev-tab)
+    ("l" . tab-line-switch-to-next-tab)
+    (";" . bury-buffer)
+    ))
+
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
+	    (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
+;;; tab-line }}
 
 (provide 'init-window-buffer-tab)
 ;;; init-windows.el ends here.

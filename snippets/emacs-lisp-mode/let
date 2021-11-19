@@ -4,5 +4,5 @@
 # key: let
 # key: l
 # --
-(let${1:*} (${2:args})
+(let ($1)
   $0)

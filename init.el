@@ -40,13 +40,6 @@
 (require 'init-edit)
 ;; (require 'init-move-text)
 
-;;;; eaf is special
-(when *is-linux*
-  (when (display-graphic-p)
-    (require 'init-eaf))
-  (add-hook 'server-after-make-frame-hook
-	    (lambda () (when window-system (require 'init-eaf)))))
-
 (when *is-windows*
   (require 'init-win10))
 

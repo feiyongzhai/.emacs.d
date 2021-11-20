@@ -85,6 +85,11 @@
 
 ;;; {{ tab-line
 (require 'tab-line)
+
+(custom-set-faces
+ '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
+(global-tab-line-mode t)
+
 (global-set-key (kbd "C-c ,") 'transient-tab-line-prev)
 (global-set-key (kbd "C-c .") 'transient-tab-line-next)
 

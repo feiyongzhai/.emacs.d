@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: load-path-add
+# key: lpa
+# --
+(load-path-add "~/.emacs.d/extensions/$1")

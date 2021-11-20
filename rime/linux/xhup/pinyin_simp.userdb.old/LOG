@@ -1,9 +1,0 @@
-2021/06/23-22:04:23.736570 139991751395072 Log #350: 30 ops saved to Table #351 OK
-2021/06/23-22:04:23.736679 139991751395072 Archiving /home/yongfeizhai/.emacs.d/rime/xhup/pinyin_simp.userdb/000350.log: OK
-2021/06/23-22:04:23.736707 139991751395072 Table #343: 2 entries OK
-2021/06/23-22:04:23.736758 139991751395072 Table #349: 12 entries OK
-2021/06/23-22:04:23.736787 139991751395072 Table #346: 6 entries OK
-2021/06/23-22:04:23.736940 139991751395072 Table #339: 1372 entries OK
-2021/06/23-22:04:23.736953 139991751395072 Table #351: 30 entries OK
-2021/06/23-22:04:23.737007 139991751395072 Archiving /home/yongfeizhai/.emacs.d/rime/xhup/pinyin_simp.userdb/MANIFEST-000348: OK
-2021/06/23-22:04:23.738043 139991751395072 **** Repaired leveldb /home/yongfeizhai/.emacs.d/rime/xhup/pinyin_simp.userdb; recovered 5 files; 37494 bytes. Some data may have been lost. ****

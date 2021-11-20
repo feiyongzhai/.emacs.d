@@ -1,8 +1,0 @@
-2021/06/24-19:51:16.848000 4 Log #164: 64 ops saved to Table #165 OK
-2021/06/24-19:51:16.850000 4 Archiving f:/Users/22754/.emacs.d/rime/pinyin_simp.userdb/000164.log: OK
-2021/06/24-19:51:16.850000 4 Table #155: 752 entries OK
-2021/06/24-19:51:16.851000 4 Table #157: 2 entries OK
-2021/06/24-19:51:16.851000 4 Table #163: 8 entries OK
-2021/06/24-19:51:16.851000 4 Table #165: 64 entries OK
-2021/06/24-19:51:16.853000 4 Archiving f:/Users/22754/.emacs.d/rime/pinyin_simp.userdb/MANIFEST-000162: OK
-2021/06/24-19:51:16.858000 4 **** Repaired leveldb f:/Users/22754/.emacs.d/rime/pinyin_simp.userdb; recovered 4 files; 30645 bytes. Some data may have been lost. ****

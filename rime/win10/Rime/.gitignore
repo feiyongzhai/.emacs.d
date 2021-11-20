@@ -1,6 +1,3 @@
 *.userdb
 user.yaml
-build
-sync
-*.userdb.old
 opencc

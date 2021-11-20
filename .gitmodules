@@ -13,3 +13,6 @@
 [submodule "extensions/popweb"]
 	path = extensions/popweb
 	url = https://github.com/manateelazycat/popweb.git
+[submodule "extensions/duplicate-line"]
+	path = extensions/duplicate-line
+	url = https://github.com/manateelazycat/duplicate-line.git

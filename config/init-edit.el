@@ -1,5 +1,5 @@
 ;;; Kill/Yank
-(global-set-key (kbd "M-L") 'duplicate-current-line)
+(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
@@ -71,22 +71,13 @@ kill region instead"
   (end-of-line)
   (newline-and-indent))
 
-;; @see https://www.emacswiki.org/emacs/CopyingWholeLines
-;; duplicate current line
-(defun duplicate-current-line (&optional n)
-  "duplicate current line, make more than 1 copy given a numeric argument"
-  (interactive "p")
-  (save-excursion
-    (let ((nb (or n 1))
-    	  (current-line (thing-at-point 'line)))
-      ;; when on last line, insert a newline first
-      (when (= 1 (forward-line 1))
-    	(insert "\n"))
-      
-      ;; now insert as many time as requested
-      (while (> n 0)
-    	(insert current-line)
-    	(decf n)))))
+(load-path-add "~/.emacs.d/extensions/duplicate-line/")
+(require 'duplicate-line)
+(defun fei-duplicate-line-or-region (&optional arg)
+  (interactive "P")
+  (if arg
+      (call-interactively 'duplicate-line-below-comment)
+    (call-interactively 'duplicate-line-or-region-below)))
 
 ;;; }} Func
 

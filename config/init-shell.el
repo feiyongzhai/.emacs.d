@@ -12,9 +12,47 @@
     ("<M-f8>" . shell)
     ))
 
+(global-set-key (kbd "M-s J") 'fei-ansi-term)
+(global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
+(global-set-key (kbd "C-c M-j") 'fei-term-cd-here)
+
 ;;; Funcs
 
 ;;; {{ ansi-term related
+
+(define-key dired-mode-map (kbd "'") 'fei-eshell-cd-here)
+(define-key dired-mode-map (kbd "`") 'dired-open-term)
+
+;;; @REF: https://oremacs.com/page32/
+(defun dired-open-term ()
+  "Open an `ansi-term' that corresponds to current directory."
+  (interactive)
+  (let ((current-dir (dired-current-directory)))
+    (if (get-buffer "*ansi-term*")
+	(switch-to-buffer "*ansi-term*")
+      (ansi-term "/bin/bash"))
+    (term-send-string
+     (get-buffer-process "*ansi-term*")
+     (if (file-remote-p current-dir)
+         (let ((v (tramp-dissect-file-name current-dir t)))
+           (format "ssh %s@%s\n"
+                   (aref v 1) (aref v 2)))
+       (format "cd '%s'\n" current-dir)))))
+
+(defun fei-term-cd-here ()
+  "Open an `ansi-term' that corresponds to current directory."
+  (interactive)
+  (let ((current-dir default-directory))
+    (if (get-buffer "*ansi-term*")
+	(switch-to-buffer "*ansi-term*")
+      (ansi-term "/bin/bash"))
+    (term-send-string
+     (get-buffer-process "*ansi-term*")
+     (if (file-remote-p current-dir)
+         (let ((v (tramp-dissect-file-name current-dir t)))
+           (format "ssh %s@%s\n"
+                   (aref v 1) (aref v 2)))
+       (format "cd '%s'\n" current-dir)))))
 
 (defun fei-ansi-term ()
   (interactive)

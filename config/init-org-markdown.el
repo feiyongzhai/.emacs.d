@@ -88,6 +88,9 @@
 
 ;;; {{ Funcs
 
+(defun eshell/a ()
+  (org-agenda nil "a"))
+
 (defalias 'eshell/k 'fei-org-capture-note)
 (defun fei-org-capture-note ()
   (interactive)

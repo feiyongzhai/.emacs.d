@@ -93,9 +93,37 @@
 ;;  '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
 (global-tab-line-mode t)
 
-(global-set-key (kbd "<C-next>") 'tab-line-switch-to-next-tab)
-(global-set-key (kbd "<C-prior>") 'tab-line-switch-to-prev-tab)
-(global-set-key (kbd "<C-delete>") 'bury-buffer)
+(global-set-key (kbd "C-c ,") 'transient-tab-line-prev)
+(global-set-key (kbd "C-c .") 'transient-tab-line-next)
+
+;;; 添加这一行，主要是因为 org 中占用了 C-c , 和 C-c .
+(with-eval-after-load 'org
+  (fei-define-key-with-map org-mode-map
+    '(
+      ("C-c ," . nil)
+      ("C-c ." . nil)
+      ("C-c M-," . org-priority)
+      ("C-c M-." . org-time-stamp)
+      )))
+
+(transient-command tab-line-next
+  (call-interactively 'tab-line-switch-to-next-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ))
+
+(transient-command tab-line-prev
+  (call-interactively 'tab-line-switch-to-prev-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ))
+
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
+	    (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
 
 ;;; tab-line }}
 

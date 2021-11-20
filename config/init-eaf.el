@@ -25,9 +25,12 @@
 (require 'eaf-interleave)
 (require 'eaf-rss-reader)
 
+(load-path-add "~/.emacs.d/extensions/popweb/extension/dict/")
+(load-path-add "~/.emacs.d/extensions/popweb/extension/latex/")
 (load-path-add "~/.emacs.d/extensions/popweb/")
 (require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
+(require 'popweb-latex)
 
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "C-h y") 'popweb-dict-bing-input)

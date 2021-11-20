@@ -86,8 +86,11 @@
 ;;; {{ tab-line
 (require 'tab-line)
 
-(custom-set-faces
- '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
+;;; `face-spec-set' 和 `custom-set-faces' 还是有点区别的
+(face-spec-set 'tab-line
+	       '((t (:inherit nil :height 0.95))))
+;; (custom-set-faces
+;;  '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
 (global-tab-line-mode t)
 
 (global-set-key (kbd "C-c ,") 'transient-tab-line-prev)

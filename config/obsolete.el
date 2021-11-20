@@ -285,3 +285,39 @@ special major mode"
 (global-set-key (kbd "C-c J") 'citre-jump-back)
 (global-set-key (kbd "C-c p") 'citre-ace-peek)
 ;; }} citre
+
+
+
+;;; {{ tab-line
+
+(global-set-key (kbd "C-c ,") 'transient-tab-line-prev)
+(global-set-key (kbd "C-c .") 'transient-tab-line-next)
+
+;;; 添加这一行，主要是因为 org 中占用了 C-c , 和 C-c .
+;;; 主要还是用上面那个快捷键（因为更好按）
+(global-set-key (kbd "<home>") 'tab-line-switch-to-prev-tab)
+(global-set-key (kbd "<end>") 'tab-line-switch-to-next-tab)
+(global-set-key (kbd "<delete>") 'bury-buffer)
+
+(transient-command tab-line-next
+  (call-interactively 'tab-line-switch-to-next-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ))
+
+(transient-command tab-line-prev
+  (call-interactively 'tab-line-switch-to-prev-tab)
+  '(("," . tab-line-switch-to-prev-tab)
+    ("." . tab-line-switch-to-next-tab)
+    ("/" . bury-buffer)
+    ))
+
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
+	    (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
+
+;;; tab-line }}
+
+

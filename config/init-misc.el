@@ -23,8 +23,6 @@
     ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
     ("M-H" . counsel-recentf)
     ("M-j" . switch-to-buffer)
-    ("C-t" . embark-act)
-    ("M-." . embark-dwim)
     ("C-x B" . consult-buffer)
     ("M-s j" . eshell)
     ))

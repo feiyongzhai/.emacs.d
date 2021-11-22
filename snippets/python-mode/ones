@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ones
+# key: ones
+# group : pytorch
+# --
+torch.ones($0)

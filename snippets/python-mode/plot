@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: plot
+# key: plot
+# group : pytorch
+# --
+plt.plot($1)
+$0

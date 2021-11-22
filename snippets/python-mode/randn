@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: randn
+# key: randn
+# group : pytorch
+# --
+torch.randn($0)

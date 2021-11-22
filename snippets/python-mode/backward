@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: backward
+# key: lb
+# group : pytorch
+# --
+loss.backward()

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: requires_grad_True
+# key: rt
+# group : pytorch
+# --
+requires_grad=True

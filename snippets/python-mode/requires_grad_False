@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: requires_grad_True
+# key: rf
+# --
+requires_grad=False

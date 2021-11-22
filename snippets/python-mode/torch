@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: torch
+# key: torch,
+# group : pytorch
+# --
+# -*- coding: utf-8 -*-
+import torch
+import torch.nn as nn
+import scipy.io as scio
+import numpy as np
+import torch.utils.data as Data
+import matplotlib.pyplot as plt
+
+$0

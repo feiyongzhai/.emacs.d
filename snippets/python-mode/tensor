@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: tensor
+# key: tensor
+# group : pytorch
+# --
+torch.tensor($0)

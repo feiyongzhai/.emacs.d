@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sign
+# key: sign
+# group : pytorch
+# --
+torch.sign($1)$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: figure
+# key: figure
+# group : pytorch
+# --
+plt.figure($1)
+$0

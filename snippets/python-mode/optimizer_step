@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: optimizer
+# key: ops
+# group : pytorch
+# --
+optimizer.step()

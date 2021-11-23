@@ -107,7 +107,7 @@ Argument ARG if not nil, switching in a new window."
 
 ;;; Misc
 
-(global-set-key (kbd "M-s g") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
 (setq ahk-indentation 4)
 (setq minimap-window-location 'right)
 (global-set-key (kbd "s-o") 'ace-window)

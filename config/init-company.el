@@ -9,7 +9,7 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)
-      ("M-i" . yas-expand)
+      ("M-i" . yas-next-field-or-maybe-expand)
       ("TAB" . company-complete-selection)
       ("M-h" . company-complete-selection)
       ("M-H" . company-complete-common)

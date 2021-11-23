@@ -58,6 +58,7 @@
 (with-eval-after-load 'rime
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
+  (define-key rime-active-mode-map (kbd "M-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-mode-map (kbd "C-c M-j") 'rime-force-enable)
   )
@@ -104,6 +105,9 @@
 ;;; {{ rime mode line indicator
 
 (setq rime-title " ")
+(autoload 'rime-lighter "rime" nil nil nil)
+(autoload 'rime-activate "rime" nil nil nil)
+(register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 (with-eval-after-load 'rime
   ;; 下面是默认的设置，我不想替代默认的信息，只是想添加一个这个指示信

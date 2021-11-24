@@ -15,6 +15,7 @@
       ("M-H" . company-complete-common)
       ("M-w" . company-show-location)
       ("M-s" . company-filter-candidates)
+      ("M-/" . company-other-backend)
       ))
   
   (setq company-show-numbers t)
@@ -33,9 +34,27 @@
       company-dabbrev-downcase nil
       company-global-modes '(not erc-mode message-mode help-mode
                                  gud-mode eshell-mode shell-mode)
-      company-backends '(company-keywords company-files (company-capf :with company-yasnippet) company-dabbrev))
+      ;; company-backends '(company-keywords company-files (company-capf :with company-yasnippet) company-dabbrev)
+      )
 ;;; }}
 
+;; Add yasnippet support for all company backends.
+;; @REF: lazycat init-company-mode.el
+(with-eval-after-load 'company
+
+  (add-to-list 'company-transformers 'delete-dups)
+
+  (defvar company-mode/enable-yas t
+    "Enable yasnippet for all backends.")
+
+  (defun company-mode/backend-with-yas (backend)
+    (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+
+  (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+  )
 
 (provide 'init-company)
 ;;; init-company.el ends here.

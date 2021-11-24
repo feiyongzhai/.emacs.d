@@ -5,13 +5,13 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-z") 'evil-mode-with-cursor)
+(global-set-key (kbd "C-S-z") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-insert-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-visual-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-motion-state-map (kbd "C-z") 'evil-mode-with-cursor)
-  (define-key evil-emacs-state-map (kbd "C-z") 'evil-mode-with-cursor)
+  (define-key evil-normal-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+  (define-key evil-insert-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+  (define-key evil-visual-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+  (define-key evil-motion-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+  (define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
 
   ;; inspired by emacs-china post

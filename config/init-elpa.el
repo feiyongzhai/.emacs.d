@@ -37,11 +37,9 @@
 	eshell-up
 	company yasnippet
 	paredit
-	smex
-	counsel ivy swiper ivy-posframe ctrlf anzu avy
+	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
 	ace-window
-	pinyin-search
-	pyim
+	pinyin-search pyim
 	youdao-dictionary
 	auctex cdlatex
 	neotree minimap
@@ -54,7 +52,7 @@
 	matlab-mode
 	iedit ialign
         hide-mode-line
-	embark consult
+	;; embark consult
 	goto-line-preview
         openwith
 	dired-subtree

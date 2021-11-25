@@ -3,5 +3,5 @@
 # key: imp
 # group : general
 # --
-import ${1:lib}${2: as ${3:alias}}
+import ${1}
 $0

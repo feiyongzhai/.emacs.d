@@ -28,13 +28,8 @@
     ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)
     ("M-x" . counsel-M-x)
-    ("M-s O" . swiper)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
-(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
-(define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-(define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
-(define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
 
 ;;; Vars
 
@@ -51,9 +46,6 @@
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
   (setq-default ivy-initial-inputs-alist nil)
-
-  (global-set-key (kbd "M-j") 'ivy-switch-buffer)
-  (global-set-key (kbd "M-h") 'counsel-find-file)
   )
 
 (setq ivy-posframe-display-functions-alist
@@ -68,7 +60,7 @@
 ;;       (ivy-switch-buffer . ivy-posframe-display-at-frame-center)))
 
 (setq counsel-search-engine 'google)
-(setq ivy-use-virtual-buffers t)
+(setq ivy-use-virtual-buffers nil)
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
 

@@ -317,3 +317,29 @@ special major mode"
     	(decf n)))))
 
 
+;;; 一些快捷键
+
+;; 这些快捷键按得很顺手，但是都只是顺手，表意不明，很容易上瘾，导致我
+;; 不知道干什么的什么就按一下这些按键，搞得自己不知道干什么的时候就按
+;; 这个按键，搞得自己更加不知道自己在干嘛，我觉得还是很有必要设置一个
+;; 科学的快捷键，让自己知道这个快捷键在干什么，也好让我自己知道我在干
+;; 什么，通过这个事情，我总结了一个经验，不是什么东西快就好，顺手就好，
+;; 要讲究一个合理，科学。
+;;
+;; 我之所以会出现这个问题是因为看一些使用 emacs 的大佬，都设置了一些和
+;; 命令不怎么相关的快捷键，我就邯郸学步，只学了个皮毛，不知道他们的快
+;; 捷键设置有他们自己的原因，有他们自己的原则，而我并没有理解和了解这
+;; 个原则，很自然的就变成了邯郸学步
+;;
+;; 所以现在我也慢慢意识这个问题，我希望我慢一点，慢一点，按照自己的节
+;; 奏去思考问题，而不是说一开始就想着要一个答案，一个最优解。我现在越
+;; 来越觉得，关于生活，所有别人的答案都终究是别人，只有自己按照自己的
+;; 节奏去思考，去理解所得到的，那些才是属于我自己的答案。别人的答案终
+;; 究只是一个借鉴，不会是我的东西。
+(global-set-key (kbd "M-k") 'fei-kill-current-buffer)
+(global-set-key (kbd "M-j") 'ivy-switch-buffer)
+(global-set-key (kbd "M-h") 'counsel-find-file)
+(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
+(define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
+(define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
+(define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))

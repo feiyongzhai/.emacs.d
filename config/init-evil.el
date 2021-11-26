@@ -5,15 +5,8 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-S-z") 'evil-mode-with-cursor)
 (with-eval-after-load 'evil
-  (define-key evil-normal-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
-  (define-key evil-insert-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
-  (define-key evil-visual-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
-  (define-key evil-motion-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
-  (define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
-
   ;; inspired by emacs-china post
   (define-key evil-normal-state-map (kbd "RET") 'fei-meow-last-buffer)
   (define-key evil-normal-state-map (kbd "<tab>") 'ace-window)
@@ -27,18 +20,11 @@
   :states '(normal visual))
 
 (fei-space-leader-def
-  "SPC" 'counsel-M-x
-  "tt" 'modus-themes-toggle
-  "ts" 'counsel-load-theme
   ;; "gg" 'browse-stackoverflow-search
   "g" 'engine-mode-prefixed-map
-  "ss" 'eshell
-  "se" 'shell
-  "jj" 'scroll-other-window
-  "kk" 'scroll-other-window-down
-  "z" 'suspend-frame
   "q" 'save-buffers-kill-terminal
-  "m" 'global-hide-mode-line-mode
+  "ff" 'ido-find-file
+  "fo" 'ido-find-file-other-window
   )
 ;;; }}
 
@@ -46,7 +32,6 @@
 
 ;; (add-hook 'find-file-hook #'evil-local-mode)
 ;; (add-hook 'help-mode-hook #'evil-local-mode)
-(setq evil-emacs-state-cursor 'bar)
 
 ;;; Funcs
 
@@ -108,12 +93,12 @@
     (evil-mode -1)
     (message "Now is EMACS")) ;; unless part is for initialization
   (if evil-mode
-      (progn (evil-mode -1)
-	     (dolist (buf (buffer-list))
-	       (set-buffer buf)
-	       (setq cursor-type 'hbar))
-	     (message "Now is EMACS")
-	     )
+      (progn
+	(evil-mode -1)
+	(dolist (buf (buffer-list))
+	  (set-buffer buf)
+	  (setq cursor-type 'hbar))
+	(message "Now is EMACS"))
     (evil-mode 1)
     (message "Now is EVIL")))
 

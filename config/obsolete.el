@@ -317,3 +317,22 @@ special major mode"
     	(decf n)))))
 
 
+;;; evil
+
+;;; evil-mode 偶尔才会用一下，没有必要搞一个快捷键
+
+;; 而且我发现自己的笔记本（Linux）用 emacs 的体验比实验室（windows）的
+;; 体验好多了，完全是两种体验。不得不说，实验室的电脑实在是有点卡，还
+;; 不如我自己的电脑，所以我为什么不带自己电脑去实验室，值得深思的问题？
+;; 我为什么要让自己遭罪呢？怎么感觉又是自我设限（汗），真是处处自我设限
+
+(global-set-key (kbd "C-S-z") 'evil-mode-with-cursor)
+(define-key evil-normal-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+(define-key evil-insert-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+(define-key evil-visual-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+(define-key evil-motion-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+(define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
+(setq evil-emacs-state-cursor 'bar)
+
+
+

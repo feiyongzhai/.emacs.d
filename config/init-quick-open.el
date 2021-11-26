@@ -16,6 +16,10 @@
     ("ESC ESC V" . ,(li (dired "~/.vim")))
     ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))
     ("ESC ESC ." . ,(li (dired "~/dotfiles-fei")))
+    ("ESC ESC ;" . ,(li (find-file "~/.emacs.d/@scratch@")))
+    ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
+    ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
+    ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ))
 ;;; }} quick open
 

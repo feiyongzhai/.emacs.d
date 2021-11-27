@@ -16,3 +16,6 @@
 [submodule "extensions/duplicate-line"]
 	path = extensions/duplicate-line
 	url = https://github.com/manateelazycat/duplicate-line.git
+[submodule "extensions/awesome-pair"]
+	path = extensions/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git

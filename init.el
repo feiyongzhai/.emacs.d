@@ -18,6 +18,9 @@
 (require 'init-vc)
 (require 'init-org-markdown)
 (require 'init-prog)
+(require 'init-pair)
+(require 'init-latex)
+(require 'init-matlab-octave)
 (require 'init-mail)
 
 ;;; Extensions

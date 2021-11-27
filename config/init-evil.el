@@ -97,7 +97,7 @@
 	(evil-mode -1)
 	(dolist (buf (buffer-list))
 	  (set-buffer buf)
-	  (setq cursor-type 'hbar))
+	  (setq cursor-type 'bar))
 	(message "Now is EMACS"))
     (evil-mode 1)
     (message "Now is EVIL")))

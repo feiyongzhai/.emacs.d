@@ -194,11 +194,13 @@ special major mode"
 ;;; Eshell
 
 ;;; Misc
-;;; 保留这个配置，主要是为了备忘
-;; (add-hook 'eshell-mode-hook
-;; 	  (lambda ()
-;; 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
-
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
+;; another workaround
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (setq-local recenter-positions '(top middle bottom))))
 
 ;;; Windows
 
@@ -297,7 +299,7 @@ special major mode"
 ;;; tab-line }}
 
 
-;;; edit related
+;;; Edit related
 
 ;; @see https://www.emacswiki.org/emacs/CopyingWholeLines
 ;; duplicate current line
@@ -315,6 +317,10 @@ special major mode"
       (while (> n 0)
     	(insert current-line)
     	(decf n)))))
+
+(defun back-to-indentation-or-beginning () (interactive)
+       (if (= (point) (progn (back-to-indentation) (point)))
+	   (beginning-of-line)))
 
 
 ;;; evil
@@ -346,3 +352,24 @@ special major mode"
 
 
 
+;; 输入法相关
+
+;; 目前还不知道是什么原因，下面这个这行设置不能生效，把这行保留是为
+;; 了下次想追究这个原因的方便回忆
+
+;; (set-face-attribute 'rime-default-face nil :slant 'italic)
+
+
+
+;; eaf
+
+(defun fei-eaf-start ()
+  (interactive)
+  (use-package eaf
+    :init
+    (use-package epc :defer t :ensure t)
+    (use-package ctable :defer t :ensure t)
+    (use-package deferred :defer t :ensure t)
+    (use-package s :defer t :ensure t)))
+
+

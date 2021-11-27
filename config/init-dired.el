@@ -1,6 +1,7 @@
 ;;; init-dired.el --- configs for dired
-
+(require 'fei-funcs)
 (require 'dired-x)
+
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
@@ -21,9 +22,9 @@
       ("c" . dired-do-copy)
       ("C" . dired-do-compress-to)
       ("r" . dired-do-rename)
-      ("<f2>" . wdired-change-to-wdired-mode)
+      ("e" . wdired-change-to-wdired-mode)
+      ("." . fei-dired-toggle-hidden)
       ("<tab>" . dired-subtree-toggle)
-      ("z" . fei-dired-toggle-hidden)
       )))
 
 ;;; Vars
@@ -33,20 +34,6 @@
 (setq dired-recursive-deletes 'always)
 (when *is-linux*
   (setq dired-listing-switches "-Bhl --group-directories-first"))
-
-;;; Func
-
-(defvar fei-dired-toggle-hidden nil
-  "t means on, nil means off")
-
-(defun fei-dired-toggle-hidden ()
-  (interactive)
-  (if fei-dired-toggle-hidden
-      (progn (dired-sort-other "-Bhl  --group-directories-first")
-	     (setq fei-dired-toggle-hidden nil))
-    (dired-sort-other (concat dired-listing-switches " -a"))
-    (setq fei-dired-toggle-hidden t)))
-
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

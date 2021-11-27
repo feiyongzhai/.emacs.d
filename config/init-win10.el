@@ -1,4 +1,5 @@
 ;;; windows 平台专属
+(require 'fei-funcs)
 
 (openwith-mode t)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
@@ -31,7 +32,7 @@
 (global-set-key (kbd "M-s M-s") 'fei-google-search)
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "<f12>") 'open-current-file-with-vscode)
-(global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
+
 (tool-bar-add-item "show" 'speedbar 'speedbar :help "speedbar")
 
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
@@ -57,16 +58,6 @@
               (file-name-directory (buffer-file-name))
             default-directory))))
   (call-process-shell-command "start wt"))
-
-(defun open-current-file-with-vscode ()
-  (interactive)
-  (start-process "vscode" nil
-		 "code" (buffer-file-name)))
-
-(defun open-current-file-with-gvim ()
-  (interactive)
-  (start-process "gvim" nil
-		 "gvim" (buffer-file-name)))
 
 (defun arrange-frame (w h x y)
   "Set the width, height, and x/y position of the current frame"

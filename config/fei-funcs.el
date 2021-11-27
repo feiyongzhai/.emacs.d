@@ -44,4 +44,286 @@ Argument ARG if not nil, switching in a new window."
     (kill-buffer))
    (t (kill-buffer-and-window))))
 
+(defun backward-kill-word-or-region (&optional arg)
+  "Kill word backwards unless region is active,
+kill region instead"
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning)
+		   (region-end))
+    (backward-kill-word (or arg 1))))
+
+(defun fei-newline ()
+  (interactive)
+  (end-of-line)
+  (newline-and-indent))
+
+;;; @REF: https://oremacs.com/page32/
+(defun dired-open-term ()
+  "Open an `ansi-term' that corresponds to current directory."
+  (interactive)
+  (let ((current-dir (dired-current-directory)))
+    (if (get-buffer "*ansi-term*")
+	(switch-to-buffer "*ansi-term*")
+      (ansi-term "/bin/bash"))
+    (term-send-string
+     (get-buffer-process "*ansi-term*")
+     (if (file-remote-p current-dir)
+         (let ((v (tramp-dissect-file-name current-dir t)))
+           (format "ssh %s@%s\n"
+                   (aref v 1) (aref v 2)))
+       (format "cd '%s'\n" current-dir)))))
+
+(defun fei-term-cd-here ()
+  "Open an `ansi-term' that corresponds to current directory."
+  (interactive)
+  (let ((current-dir default-directory))
+    (if (get-buffer "*ansi-term*")
+	(switch-to-buffer "*ansi-term*")
+      (ansi-term "/bin/bash"))
+    (term-send-string
+     (get-buffer-process "*ansi-term*")
+     (if (file-remote-p current-dir)
+         (let ((v (tramp-dissect-file-name current-dir t)))
+           (format "ssh %s@%s\n"
+                   (aref v 1) (aref v 2)))
+       (format "cd '%s'\n" current-dir)))))
+
+(defun fei-ansi-term ()
+  (interactive)
+  (unless (goto-term)
+      (ansi-term (getenv "SHELL"))))
+
+(defun goto-term ()
+  (interactive)
+  (catch 'done
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+	(when (eq major-mode 'term-mode)
+	  (throw 'done (switch-to-buffer buf)))))))
+
+;; {{
+
+;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
+(defvar num-of-eshell 0)
+(defun next-eshell-buffer (&optional want-to-create)
+  "dwim create or switch eshell buffer"
+  (interactive "P")
+  (cond ((eq want-to-create '-)
+	 (fei-eshell-cd-here))
+	(want-to-create
+	 (call-interactively 'eshell)
+	 (setq num-of-eshell (1+ num-of-eshell)))
+	((<= num-of-eshell 0)
+	 (call-interactively 'eshell)
+	 (setq num-of-eshell (1+ num-of-eshell)))
+	(t
+	 (catch 'done
+	   (dolist (buf (cdr (buffer-list)))
+	     (with-current-buffer buf
+	       (when (eq major-mode 'eshell-mode)
+		 (throw 'done (switch-to-buffer buf)))))))
+	))
+
+(add-hook 'kill-buffer-query-functions #'sync-num-of-eshell 90)	;90 保证 `sync-num-of-eshell' 在列表的最后面
+
+(defun sync-num-of-eshell ()
+  (if (eq major-mode 'eshell-mode)
+      (setq num-of-eshell (- num-of-eshell 1))
+    t))
+
+(defun fei-eshell-cd-here ()
+  (interactive)
+  (if (eq major-mode 'eshell-mode)
+      (message "You are already in eshell buffer!")
+    (let ((dir default-directory)
+	  (buf (next-eshell-buffer)))
+      (set-buffer buf)
+      (eshell/cd dir)
+      (eshell-reset))))
+
+;; }}
+
+(defun fei-terminal-here ()
+  (interactive)
+  (if *is-linux*
+      (shell-command "gnome-terminal")
+    (if (fboundp 'terminal-here)
+	(terminal-here)
+      (message "can't open terminal here"))))
+
+;;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
+;;; `aweshell-emacs' function
+(defun eshell/edit (&rest args)
+  "Open a file in Emacs with ARGS, Some habits die hard."
+  (cond
+   ((null args)
+    (dired "."))
+   ((eq (length args) 1)
+    (eval `(find-file ,@args)))
+   (t
+    (mapc (lambda (x) 
+	    (find-file-other-tab x))
+	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
+
+;; @ref https://www.emacswiki.org/emacs/EshellAutojump
+(defun eshell/j (&rest args)
+  "Jump to a directory you often cd to.
+This compares the argument with the list of directories you usually jump to.
+Without an argument, list the ten most common directories.
+With a positive integer argument, list the n most common directories.
+Otherwise, call `eshell/cd' with the result."
+  (setq args (eshell-flatten-list args))
+  (let ((arg (or (car args) 10))
+	(map (make-hash-table :test 'equal))
+	(case-fold-search (eshell-under-windows-p))
+	candidates
+	result)
+    ;; count paths in the ring and produce a map
+    (dolist (dir (ring-elements eshell-last-dir-ring))
+      (if (gethash dir map)
+	  (puthash dir (1+ (gethash dir map)) map)
+	(puthash dir 1 map)))
+    ;; use the map to build a sorted list of candidates
+    (maphash (lambda (key value)
+	       (setq candidates (cons key candidates)))
+	     map)
+    (setq candidates (sort candidates
+			   (lambda (a b)
+			     (> (gethash a map)
+				(gethash b map)))))
+    ;; list n candidates or jump to most popular candidate
+    (if (and (integerp arg) (> arg 0))
+	(progn
+	  (let ((n (nthcdr (1- arg) candidates)))
+	    (when n
+	      (setcdr n nil)))
+	  (eshell-lisp-command
+	   (mapconcat (lambda (s)
+			(format "%4d %s" (gethash s map) s))
+		      candidates "\n")))
+      (while (and candidates (not result))
+	(if (string-match arg (car candidates))
+	    (setq result (car candidates))
+	  (setq candidates (cdr candidates))))
+      (eshell/cd result))))
+
+(defun eshell/eaf-search (&rest strings)
+  (interactive)
+  (if (null strings)
+      (call-interactively 'eaf-search-it)
+    (fei-google-search strings)))
+
+;;; {{ a switch between xhup & flypy
+
+(defvar rime--flypy-p nil
+  "输入法默认的状态是小鹤双拼+posframe的显示格式")
+
+(defun fei-toggle-xhup-flypy ()
+  (interactive)
+  (if (fboundp 'rime-lib-select-schema)
+      (if rime--flypy-p
+	  (progn (rime-lib-select-schema "double_pinyin_flypy")
+		 (setq rime-show-candidate 'posframe)
+		 (setq rime--flypy-p nil))
+	(rime-lib-select-schema "flypy")
+	(setq rime-show-candidate 'minibuffer)
+	(setq rime--flypy-p t))
+    (message "Rime has not been required")))
+
+;;; }}
+
+;; org related
+
+(defun fei-org-capture ()
+  (interactive)
+  ;; 这个写法可以传递prefix number，之前的不行
+  (call-interactively 'org-capture)
+  (require 'rime)
+  (activate-input-method 'rime)
+  (auto-fill-mode)
+  (message "RIME输入法已经激活！"))
+
+(defun fei-org-time ()
+  (interactive)
+  (if (not (boundp 'org-timer-start-time))
+      (org-timer-start)
+    (if (not org-timer-start-time)
+	(org-timer-start)
+      (call-interactively 'org-timer-pause-or-continue))))
+
+(defalias 'eshell/ks 'fei-org-capture-SAR)
+(defun fei-org-capture-SAR ()
+  (interactive)
+  (org-capture nil "s")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
+(defalias 'eshell/kw 'fei-org-capture-WANT)
+(defun fei-org-capture-WANT ()
+  (interactive)
+  (org-capture nil "w")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
+(defalias 'eshell/k 'fei-org-capture-note)
+(defun fei-org-capture-note ()
+  (interactive)
+  (org-capture nil "i")
+  (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
+(defun eshell/a ()
+  (org-agenda nil "a"))
+
+(defun fei-org-store-link ()
+  (interactive)
+  (require 'org)
+  (call-interactively 'org-store-link))
+
+(defun fei-simple-compile ()
+  (interactive)
+  (save-buffer)
+  (let (compilation-read-command)
+    (call-interactively 'compile)))
+
+(defvar fei-dired-toggle-hidden nil
+  "t means on, nil means off")
+
+(defun fei-dired-toggle-hidden ()
+  (interactive)
+  (if fei-dired-toggle-hidden
+      (progn (dired-sort-other "-Bhl  --group-directories-first")
+	     (setq fei-dired-toggle-hidden nil))
+    (dired-sort-other (concat dired-listing-switches " -a"))
+    (setq fei-dired-toggle-hidden t)))
+
+(defun open-current-file-with-vscode ()
+  (interactive)
+  (start-process "vscode" nil
+		 "code" (buffer-file-name)))
+
+(defun open-current-file-with-gvim ()
+  (interactive)
+  (start-process "gvim" nil
+		 "gvim" (buffer-file-name)))
+
+;; EAF related
+
+(defun fei-eaf-open-browser (url &optional _new-window)
+  "根据 `browse-url-chromium' 这个函数改的，现在可以使用，哈哈"
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (browse-url-encode-url url))
+  (if (display-graphic-p)
+      (eaf-open-browser url _new-window)
+    (browse-url-chrome url _new-window)))
+
+(defun fei-eaf-file-share-current-dir ()
+  (interactive)
+  (require 'eaf)
+  (eaf-file-browser-qrcode (substring (pwd) 10)))
+
 (provide 'fei-funcs)

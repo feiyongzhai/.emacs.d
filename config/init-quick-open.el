@@ -1,7 +1,5 @@
-;;; {{ quick open
 (fei-define-key-with-map global-map
   `(
-    ;; ESC ESC * style -- quick open dir or file
     ("ESC ESC d" . ,(li (dired "~/Downloads")))
     ("ESC ESC D" . ,(li (dired "~/Desktop")))
     ("ESC ESC e" . ,(li (dired "~/.emacs.d")))
@@ -17,10 +15,7 @@
     ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))
     ("ESC ESC ." . ,(li (dired "~/dotfiles-fei")))
     ("ESC ESC ;" . ,(li (find-file "~/.emacs.d/@scratch@")))
-    ("M-s-m" . ,(li (dired "~/Nutstore Files/我的坚果云/研究生")))
-    ("M-s-o" . ,(li (find-file "~/.emacs.d/init-local.el")))
     ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ))
-;;; }} quick open
 
 (provide 'init-quick-open)

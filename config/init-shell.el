@@ -1,5 +1,7 @@
 ;;; init-shell.el  --- configs for eshell/shell/terminal
 
+(require 'fei-funcs)
+
 ;;; Keys
 
 (fei-define-key-with-map global-map
@@ -9,103 +11,21 @@
     ("<f8>" . next-eshell-buffer)
     ("<C-f8>" . fei-eshell-cd-here)
     ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
-    ("<M-f8>" . shell)
+    ("<M-f8>" . fei-ansi-term)
     ))
 
+(global-set-key (kbd "s-\\") 'fei-ansi-term)
 (global-set-key (kbd "M-s J") 'fei-ansi-term)
 (global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-c M-j") 'fei-term-cd-here)
 
-;;; Funcs
-
-;;; {{ ansi-term related
-
 (define-key dired-mode-map (kbd "'") 'fei-eshell-cd-here)
 (define-key dired-mode-map (kbd "`") 'dired-open-term)
 
-;;; @REF: https://oremacs.com/page32/
-(defun dired-open-term ()
-  "Open an `ansi-term' that corresponds to current directory."
-  (interactive)
-  (let ((current-dir (dired-current-directory)))
-    (if (get-buffer "*ansi-term*")
-	(switch-to-buffer "*ansi-term*")
-      (ansi-term "/bin/bash"))
-    (term-send-string
-     (get-buffer-process "*ansi-term*")
-     (if (file-remote-p current-dir)
-         (let ((v (tramp-dissect-file-name current-dir t)))
-           (format "ssh %s@%s\n"
-                   (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))))
-
-(defun fei-term-cd-here ()
-  "Open an `ansi-term' that corresponds to current directory."
-  (interactive)
-  (let ((current-dir default-directory))
-    (if (get-buffer "*ansi-term*")
-	(switch-to-buffer "*ansi-term*")
-      (ansi-term "/bin/bash"))
-    (term-send-string
-     (get-buffer-process "*ansi-term*")
-     (if (file-remote-p current-dir)
-         (let ((v (tramp-dissect-file-name current-dir t)))
-           (format "ssh %s@%s\n"
-                   (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))))
-
-(defun fei-ansi-term ()
-  (interactive)
-  (unless (goto-term)
-      (ansi-term (getenv "SHELL"))))
-
-(defun goto-term ()
-  (interactive)
-  (catch 'done
-    (dolist (buf (buffer-list))
-      (with-current-buffer buf
-	(when (eq major-mode 'term-mode)
-	  (throw 'done (switch-to-buffer buf)))))))
-;;; }}
-
-;;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
-(defvar num-of-eshell 0)
-(defun next-eshell-buffer (&optional want-to-create)
-  "dwim create or switch eshell buffer"
-  (interactive "P")
-  (cond ((eq want-to-create '-)
-	 (fei-eshell-cd-here))
-	(want-to-create
-	 (call-interactively 'eshell)
-	 (setq num-of-eshell (1+ num-of-eshell)))
-	((<= num-of-eshell 0)
-	 (call-interactively 'eshell)
-	 (setq num-of-eshell (1+ num-of-eshell)))
-	(t
-	 (catch 'done
-	   (dolist (buf (cdr (buffer-list)))
-	     (with-current-buffer buf
-	       (when (eq major-mode 'eshell-mode)
-		 (throw 'done (switch-to-buffer buf)))))))
-	))
-
-(add-hook 'kill-buffer-query-functions #'sync-num-of-eshell 90)	;90 保证 `sync-num-of-eshell' 在列表的最后面
-
-(defun sync-num-of-eshell ()
-  (if (eq major-mode 'eshell-mode)
-      (setq num-of-eshell (- num-of-eshell 1))
-    t))
-
-(defun fei-eshell-cd-here ()
-  (interactive)
-  (if (eq major-mode 'eshell-mode)
-      (message "You are already in eshell buffer!")
-    (let ((dir default-directory)
-	  (buf (next-eshell-buffer)))
-      (set-buffer buf)
-      (eshell/cd dir)
-      (eshell-reset))))
-
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (define-key eshell-mode-map (kbd "C-l")
+	      (lambda () (interactive) (recenter 0)))))
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
 ;; There are two solution
@@ -126,15 +46,6 @@
   (remove-hook 'comint-output-filter-functions
 	       'comint-postoutput-scroll-to-bottom))
 
-;; Open terminal here
-(defun fei-terminal-here ()
-  (interactive)
-  (if *is-linux*
-      (shell-command "gnome-terminal")
-    (if (fboundp 'terminal-here)
-	(terminal-here)
-      (message "can't open terminal here"))))
-
 ;;; Eshell commands and alias
 
 (defalias 'open 'find-file-other-window)
@@ -145,68 +56,7 @@
   (defalias 'eshell/u 'eshell-up)
   (defalias 'eshell/up 'eshell-up))
 
-;;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
-;;; `aweshell-emacs' function
-(defun eshell/edit (&rest args)
-  "Open a file in Emacs with ARGS, Some habits die hard."
-  (cond
-   ((null args)
-    (dired "."))
-   ((eq (length args) 1)
-    (eval `(find-file ,@args)))
-   (t
-    (mapc (lambda (x) 
-	    (find-file-other-tab x))
-	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
-
-;; @ref https://www.emacswiki.org/emacs/EshellAutojump
-(defun eshell/j (&rest args)
-  "Jump to a directory you often cd to.
-This compares the argument with the list of directories you usually jump to.
-Without an argument, list the ten most common directories.
-With a positive integer argument, list the n most common directories.
-Otherwise, call `eshell/cd' with the result."
-  (setq args (eshell-flatten-list args))
-  (let ((arg (or (car args) 10))
-	(map (make-hash-table :test 'equal))
-	(case-fold-search (eshell-under-windows-p))
-	candidates
-	result)
-    ;; count paths in the ring and produce a map
-    (dolist (dir (ring-elements eshell-last-dir-ring))
-      (if (gethash dir map)
-	  (puthash dir (1+ (gethash dir map)) map)
-	(puthash dir 1 map)))
-    ;; use the map to build a sorted list of candidates
-    (maphash (lambda (key value)
-	       (setq candidates (cons key candidates)))
-	     map)
-    (setq candidates (sort candidates
-			   (lambda (a b)
-			     (> (gethash a map)
-				(gethash b map)))))
-    ;; list n candidates or jump to most popular candidate
-    (if (and (integerp arg) (> arg 0))
-	(progn
-	  (let ((n (nthcdr (1- arg) candidates)))
-	    (when n
-	      (setcdr n nil)))
-	  (eshell-lisp-command
-	   (mapconcat (lambda (s)
-			(format "%4d %s" (gethash s map) s))
-		      candidates "\n")))
-      (while (and candidates (not result))
-	(if (string-match arg (car candidates))
-	    (setq result (car candidates))
-	  (setq candidates (cdr candidates))))
-      (eshell/cd result))))
-
 (defalias 'eshell/s 'eshell/eaf-search)
-(defun eshell/eaf-search (&rest strings)
-  (interactive)
-  (if (null strings)
-      (call-interactively 'eaf-search-it)
-    (fei-google-search strings)))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

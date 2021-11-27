@@ -16,8 +16,7 @@
 (global-set-key (kbd "s-s") 'fei-google-search)
 (global-set-key (kbd "M-s p") 'pinyin-search)
 (fei-define-key-with-map isearch-mode-map
-  '(("C-n" . isearch-repeat-forward)
-    ("C-p" . isearch-repeat-backward)
+  '(
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
     ("C-'" . avy-isearch)

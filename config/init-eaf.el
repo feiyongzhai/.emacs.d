@@ -1,8 +1,7 @@
 (load-path-add "~/.emacs.d/extensions/emacs-application-framework")
 
-;;; Copied from lazycat
+(require 'fei-funcs)
 
-;;; Require
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
@@ -34,6 +33,7 @@
 
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "C-h y") 'popweb-dict-bing-input)
+(global-set-key (kbd "s-/") 'eaf-open-rss-reader)
 
 ;;; Code:
 
@@ -44,6 +44,7 @@
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-file-manager-show-hidden-file nil)
 (setq eaf-rss-reader-web-page-other-window nil)
+(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
 
 ;;; Myself
 
@@ -109,30 +110,7 @@
   (setq browse-url-browser-function '(("^http.*" . fei-eaf-open-browser)
 				      ("." . browse-url-default-browser))))
 
-(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
-
 ;;; Funcs
-(defun fei-eaf-open-browser (url &optional _new-window)
-  "根据 `browse-url-chromium' 这个函数改的，现在可以使用，哈哈"
-  (interactive (browse-url-interactive-arg "URL: "))
-  (setq url (browse-url-encode-url url))
-  (if (display-graphic-p)
-      (eaf-open-browser url _new-window)
-    (browse-url-chrome url _new-window)))
-
-(defun fei-eaf-start ()
-  (interactive)
-  (use-package eaf
-    :init
-    (use-package epc :defer t :ensure t)
-    (use-package ctable :defer t :ensure t)
-    (use-package deferred :defer t :ensure t)
-    (use-package s :defer t :ensure t)))
-
-(defun fei-eaf-file-share-current-dir ()
-  (interactive)
-  (require 'eaf)
-  (eaf-file-browser-qrcode (substring (pwd) 10)))
 
 (with-eval-after-load 'eaf
   (defun eaf-translate-text (text)
@@ -145,7 +123,6 @@
   (defun eaf-goto-right-tab ()
     (interactive)
     (call-interactively 'tab-line-switch-to-next-tab))
-
   )
 
 (provide 'init-eaf)

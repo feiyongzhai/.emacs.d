@@ -1,5 +1,7 @@
 ;;; init-org-markdown.el == config for Org/Markdown
 
+(require 'fei-funcs)
+
 ;; {{ Keys
 (with-eval-after-load 'markdown-mode
   (fei-define-key-with-map markdown-mode-map
@@ -21,23 +23,26 @@
       )))
 
 (global-set-key (kbd "<pause>") 'fei-org-time)
-(global-set-key (kbd "C-c s") (lambda () (interactive) (require 'org) (call-interactively 'org-store-link)))
+(global-set-key (kbd "C-c s") 'fei-org-store-link)
 
 (global-set-key (kbd "M-z") 'fei-org-capture)
-(global-set-key (kbd "C-M-z") 'fei-org-capture-note)
+(global-set-key (kbd "<f1>") 'fei-org-capture-note)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture)
+(global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
+(global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
+(global-set-key (kbd "<f9>") 'fei-org-capture-WANT)
+
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "M-h") nil))
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
-;; }} Keys
 
 ;;; Vars
 
-;;; 使得 org 中的时间格式变成英文来规避乱码问题
+;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 (setq org-agenda-files '("~/Nutstore Files/org"))
@@ -62,7 +67,7 @@
 	   :empty-lines-before 1)
 	  ("s" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
-	   "* TODO %?\n  CREATE: %T\n  LOCATION: %a\n"
+	   "* TODO %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("w" "Want" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
@@ -86,57 +91,10 @@
 	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
 	   :empty-lines-after 1))))
 
-;;; {{ Funcs
-
-(defun eshell/a ()
-  (org-agenda nil "a"))
-
-(defalias 'eshell/k 'fei-org-capture-note)
-(defun fei-org-capture-note ()
-  (interactive)
-  (org-capture nil "i")
-  (auto-fill-mode)
-  (require 'rime)
-  (activate-input-method 'rime))
-
-(defalias 'eshell/kw 'fei-org-capture-WANT)
-(defun fei-org-capture-WANT ()
-  (interactive)
-  (org-capture nil "w")
-  (auto-fill-mode)
-  (require 'rime)
-  (activate-input-method 'rime))
-
-(defalias 'eshell/ks 'fei-org-capture-SAR)
-(defun fei-org-capture-SAR ()
-  (interactive)
-  (org-capture nil "s")
-  (auto-fill-mode)
-  (require 'rime)
-  (activate-input-method 'rime))
-
-(defun fei-org-time ()
-  (interactive)
-  (if (not (boundp 'org-timer-start-time))
-      (org-timer-start)
-    (if (not org-timer-start-time)
-	(org-timer-start)
-      (call-interactively 'org-timer-pause-or-continue))))
-
-(defun fei-org-capture ()
-  (interactive)
-  ;; 这个写法可以传递prefix number，之前的不行
-  (call-interactively 'org-capture)
-  (require 'rime)
-  (activate-input-method 'rime)
-  (auto-fill-mode)
-  (message "RIME输入法已经激活！"))
-
 ;;; {{ org-download
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
 (org-download-enable)
-;;; }}
 
 (provide 'init-org-markdown)
 ;;; init-org-markdown.el ends here.

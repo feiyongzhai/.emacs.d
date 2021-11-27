@@ -14,8 +14,8 @@
   )
 (fei-define-key-with-map global-map
   '(
-    ("<f1> f" . counsel-describe-function)
-    ("<f1> v" . counsel-describe-variable)
+    ("C-h f" . counsel-describe-function)
+    ("C-h v" . counsel-describe-variable)
     ("C-c b" . counsel-bookmark)
     ("C-c g" . counsel-git)
     ("C-c r" . counsel-rg)
@@ -28,7 +28,7 @@
     ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)
     ("M-x" . counsel-M-x)
-    ("M-s O" . swiper)
+    ("C-S-s" . swiper)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
 (define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))

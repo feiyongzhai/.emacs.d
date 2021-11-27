@@ -42,4 +42,3 @@
 (set-fontset-font t 'symbol "Symbola" nil 'append)
 
 (require 'init-elpa)
-

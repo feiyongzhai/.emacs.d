@@ -1,15 +1,11 @@
 ;;; init.el
 
-;; Produce backtraces when errors occur: helpful to diagnose startup issues
-;; (setq debug-on-error t)
-
 ;;; enlarge gc to speed up startup
 (setq pre-gc-cons-percentage gc-cons-percentage
       gc-cons-percentage 0.6)
 (setq pre-gc-cons-threshold gc-cons-threshold
       gc-cons-threshold most-positive-fixnum)
 
-;;; Builtins
 (require 'init-misc)
 (require 'init-ibuffer)
 (require 'init-window-buffer-tab)
@@ -22,10 +18,6 @@
 (require 'init-latex)
 (require 'init-matlab-octave)
 (require 'init-mail)
-
-;;; Extensions
-
-;;; [m]elpa
 (require 'init-company)
 (require 'init-completion)
 (require 'init-elfeed)
@@ -34,20 +26,14 @@
 (require 'init-ime)
 (require 'init-shell)
 (require 'init-engine)
-(when *is-linux*
-  (require 'init-linux))
-
-;;; site-elisp
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-edit)
-;; (require 'init-move-text)
-
+(require 'init-quick-open)
+(when *is-linux*
+  (require 'init-linux))
 (when *is-windows*
   (require 'init-win10))
-
-;;; keys configs
-(require 'init-quick-open)
 
 ;;; local configs
 (let ((local-config "~/.emacs.d/init-local.el"))

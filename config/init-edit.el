@@ -1,3 +1,4 @@
+(require 'fei-funcs)
 (load-path-add "~/.emacs.d/extensions/move-text")
 (require 'move-text)
 
@@ -7,14 +8,12 @@
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
-(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
-(global-set-key (kbd "M-s s") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-a") 'beginning-of-defun)
 (global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (global-set-key (kbd "M-g M-g") 'goto-line-preview)
 ;;; Cursor Movement (experimental config)
-(setq recenter-positions '(top middle bottom))
+;; (setq recenter-positions '(top middle bottom))
 
 (setq neo-theme 'ascii)
 (global-set-key (kbd "C-c n") 'neotree-toggle)
@@ -29,9 +28,7 @@
 (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
 (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
 (global-set-key (kbd "M-N") 'scroll-up-line)
-(global-set-key (kbd "M-n") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
-(global-set-key (kbd "M-p") 'scroll-down-line)
 
 ;;; Mark
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)
@@ -48,33 +45,14 @@
 (global-set-key (kbd "C-x l") 'ialign)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
+(global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
 
 ;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
 (global-set-key (kbd "M-c") 'capitalize-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
-(global-set-key (kbd "C-x C-l") 'consult-focus-lines)
+(global-set-key (kbd "C-x C-l") nil)
 (global-set-key (kbd "C-x C-u") nil)
-
-;;; {{ Func
-
-(defun back-to-indentation-or-beginning () (interactive)
-       (if (= (point) (progn (back-to-indentation) (point)))
-	   (beginning-of-line)))
-
-(defun backward-kill-word-or-region (&optional arg)
-  "Kill word backwards unless region is active,
-kill region instead"
-  (interactive)
-  (if (region-active-p)
-      (kill-region (region-beginning)
-		   (region-end))
-    (backward-kill-word (or arg 1))))
-
-(defun fei-newline ()
-  (interactive)
-  (end-of-line)
-  (newline-and-indent))
 
 (load-path-add "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
@@ -83,7 +61,5 @@ kill region instead"
   (if arg
       (call-interactively 'duplicate-line-below-comment)
     (call-interactively 'duplicate-line-or-region-below)))
-
-;;; }} Func
 
 (provide 'init-edit)

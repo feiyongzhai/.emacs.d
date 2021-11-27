@@ -1,12 +1,4 @@
-;;; init-ime.el  --- 中文输入法相关配置
-
-;;; Keys
-
-(fei-define-key-with-map global-map
-  `(
-    ("M-s-i" . ,(li (require 'rime) (toggle-input-method)))
-    ("C-s-i" . fei-toggle-xhup-flypy)
-    ))
+;;; init-ime.el  --- 中文输入法相关配置 rime & pyim
 
 ;;; Pyim
 
@@ -35,24 +27,25 @@
 
 ;;; 输入方案相关链接
 ;; 小鹤双拼方案地址：https://github.com/cnfeat/Rime
-;; 小鹤音形方案地址：http://flypy.ys168.com/ 这个链接中的“小鹤音形挂接第三方平台”文件夹 linux对应的是macos，win10对应的就是win10
+
+;; 小鹤音形方案地址：http://flypy.ys168.com/ 这个链接中的“小鹤音形挂
+;; 接第三方平台”文件夹linux对应的是macos，win10对应的就是win10
+
 ;; 小鹤音形连写方案地址：https://github.com/brglng/rime-xhup
 
 ;;; 动态链接相关地址
-;;;; Linux平台折腾这两个动态链接 librime 和 librime-emacs 
+;; Linux平台折腾这两个动态链接 librime 和 librime-emacs 
 
-;;;; win10
+;;; win10
 ;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
 
-;;; 一些说明，最近更新的rime需要重新编译 librime-emacs.dll，但我的
-;;; windows编译环境没有配好，之前是用的上面连接编译好的。目前发现一个
-;;; workaround，就是修改rime源码相应部分，不让它重新编译。所以就采用了
-;;; submodule的方法
-
-;;; 需要说明的一点就是windows平台暂时还没有自己编译成功过，所以下次出问题，这是一个可以尝试的途径
-;;; 另外一个可以尝试的途径是使用pyim提供的librime作为替代品
+;; 一些说明，最近更新的rime需要重新编译 librime-emacs.dll，但我的
+;; windows编译环境没有配好，之前是用的上面连接编译好的。目前发现一个
+;; workaround，就是修改rime源码相应部分，不让它重新编译。所以就采用了
+;; submodule的方法
 
 (load-path-add "~/.emacs.d/extensions/emacs-rime/")
+(global-set-key (kbd "C-|") 'fei-toggle-xhup-flypy)
 
 ;;; Keys
 (with-eval-after-load 'rime
@@ -70,13 +63,7 @@
 		 '((((class color) (background dark))
 		    (:background "#333333" :foreground "#dcdccc" :slant italic))
 		   (((class color) (background light))
-		    (:background "#dcdccc" :foreground "#333333" :slant italic))))
-
-  ;; 目前还不知道是什么原因，下面这个这行设置不能生效，把这行保留是为
-  ;; 了下次想追究这个原因的方便回忆
-
-  ;; (set-face-attribute 'rime-default-face nil :slant 'italic)
-  )
+		    (:background "#dcdccc" :foreground "#333333" :slant italic)))))
 
 (cond (*is-linux*
        (setq rime-user-data-dir "~/.emacs.d/rime/linux/xhup"))
@@ -103,8 +90,8 @@
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 ;;; {{ rime mode line indicator
-
 (setq rime-title " ")
+
 (autoload 'rime-lighter "rime" nil nil nil)
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
@@ -114,7 +101,7 @@
   ;; 息，所以就有了下面的 `fei-rime-lighter'，
 
   ;; (setq mode-line-mule-info '((:eval (rime-lighter))))
-
+  
   (add-to-list 'mode-line-mule-info '((:eval (fei-rime-lighter))))
   (setq-default mode-line-mule-info mode-line-mule-info)
 
@@ -134,25 +121,6 @@
            'rime-indicator-dim-face))
       ""))
   )
-
-;;; }}
-
-;;; {{ a switch between xhup & flypy
-
-(defvar rime--flypy-p nil
-  "输入法默认的状态是小鹤双拼+posframe的显示格式")
-
-(defun fei-toggle-xhup-flypy ()
-  (interactive)
-  (if (fboundp 'rime-lib-select-schema)
-      (if rime--flypy-p
-	  (progn (rime-lib-select-schema "double_pinyin_flypy")
-		 (setq rime-show-candidate 'posframe)
-		 (setq rime--flypy-p nil))
-	(rime-lib-select-schema "flypy")
-	(setq rime-show-candidate 'minibuffer)
-	(setq rime--flypy-p t))
-    (message "Rime has not been required")))
 
 ;;; }}
 

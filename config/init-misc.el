@@ -14,8 +14,8 @@
 (blink-cursor-mode -1)
 
 (setq minimap-window-location 'right)
-(setq split-width-threshold 0)        ;分屏的时候使用左右分屏
-;; (setq split-height-threshold nil)        ;分屏的时候使用左右分屏
+;; (setq split-width-threshold 0)        ;分屏的时候使用左右分屏
+(setq split-height-threshold nil)
 (setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default cursor-type 'bar)
@@ -30,30 +30,30 @@
 
 ;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)
-;;; redirect the backup file path
+;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 
 ;;; Keys
 (fei-define-key-with-map global-map
   `(("<insert>" . nil)
-    ("M-g i" . imenu)
-    ("C-x F" . set-fill-column)
-    ("<f5>" . fei-simple-compile)
-    ("<f10>" . global-hide-mode-line-mode)
-    ("M-h" . find-file)		      ; inspired by emacstalk 嘉宾领峰
-    ("M-H" . counsel-recentf)
-    ("M-j" . switch-to-buffer)
-    ("C-x B" . consult-buffer)
-    ("M-s j" . eshell)
-    ("M-s b" . fei-meow-last-buffer)
-    ("M-s y" . counsel-yank-pop)
-    ("M-g s" . scratch)
-    ("<menu>" . youdao-dictionary-search-at-point)
-    ("M-s M-w" . fei-google-search)
-    ("C-x /" . engine-mode-prefixed-map)
-    ("s-y" . youdao-dictionary-search-at-point-tooltip)
-    ("C-h y" . youdao-dictionary-search-from-input)
+    ("M-g i"    . imenu)
+    ("C-x F"    . set-fill-column)
+    ("<f5>"     . fei-simple-compile)
+    ("M-h"      . find-file) ; inspired by emacstalk 嘉宾领峰
+    ("M-H"      . counsel-recentf)
+    ("M-j"      . switch-to-buffer)
+    ("M-s j"    . eshell)
+    ("M-s b"    . fei-meow-last-buffer)
+    ("M-s y"    . counsel-yank-pop)
+    ("M-g s"    . scratch)
+    ("M-s M-w"  . fei-google-search)
+    ("C-x /"    . engine-mode-prefixed-map)
+    ("M-s-g"    . engine-mode-prefixed-map)
+    ("s-y"      . youdao-dictionary-search-at-point-tooltip)
+    ("<menu>"   . youdao-dictionary-search-at-point-tooltip)
+    ("C-h y"    . youdao-dictionary-search-from-input)
     ))
+(global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
@@ -64,13 +64,6 @@
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 ;; }} y-or-n
-
-;;; Funcs
-(defun fei-simple-compile ()
-  (interactive)
-  (save-buffer)
-  (let (compilation-read-command)
-    (call-interactively 'compile)))
 
 (transient-command undo (undo)
   '(("u" . undo)))

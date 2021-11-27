@@ -15,6 +15,7 @@
 (global-set-key (kbd "<f9>") 'fei-meow-last-buffer)
 
 ;;; Window
+(global-set-key (kbd "s-o") 'ace-window)
 (global-set-key (kbd "s-u") 'winner-undo)
 (global-set-key (kbd "s-0") 'delete-window)
 (global-set-key (kbd "s-1") 'delete-other-windows)
@@ -29,6 +30,9 @@
     ("C-x o" . transient-other-window)
     ))
 
+(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
+(custom-set-faces '(aw-leading-char-face
+		    ((t (:foreground "red" :height 1.5)))))
 ;;; Tab
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
@@ -63,25 +67,13 @@
 
 ;;; Funcs
 
-(transient-command winner-undo
-  (winner-undo)
+(transient-command winner-undo (winner-undo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-(transient-command other-window
-  (other-window 1)
+(transient-command other-window (other-window 1)
   '(("o" . other-window)
     ("O" . other-window-backward)))
-
-(defun fei-kill-current-buffer (arg)
-  "智能关闭 windows 和 buffer"
-  (interactive "P")
-  (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((or arg (one-window-p))
-    (kill-buffer))
-   (t (kill-buffer-and-window))))
 
 ;;; {{ tab-line
 (require 'tab-line)

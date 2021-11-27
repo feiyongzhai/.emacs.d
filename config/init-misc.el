@@ -1,8 +1,9 @@
 ;;; init-misc.el --- misc configs
 
 (require 'init-func)
+(require 'fei-funcs)
 
-;;; Modes
+;;; Modes & Vars
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (column-number-mode t)
@@ -12,8 +13,27 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 
-;;; Keys
+(setq minimap-window-location 'right)
+(setq split-width-threshold 0)        ;分屏的时候使用左右分屏
+;; (setq split-height-threshold nil)        ;分屏的时候使用左右分屏
+(setq show-paren-style 'parenthesis)
+(setq-default cursor-in-non-selected-windows nil)
+(setq-default cursor-type 'bar)
+(setq-default display-line-numbers-width 3)
+(setq comment-empty-lines t)
 
+(setq inhibit-splash-screen t)
+(setq initial-scratch-message "")
+(setq display-time-format " %H:%M  %Y-%m-%d")
+(setq display-time-default-load-average nil) ; 不显示time后面的不明数字
+(setq desktop-restore-frames nil)	     ; don't restore any frame
+
+;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
+(setq ring-bell-function 'ignore)
+;;; redirect the backup file path
+(setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
+
+;;; Keys
 (fei-define-key-with-map global-map
   `(("<insert>" . nil)
     ("M-g i" . imenu)
@@ -28,10 +48,15 @@
     ("M-s b" . fei-meow-last-buffer)
     ("M-s y" . counsel-yank-pop)
     ("M-g s" . scratch)
+    ("<menu>" . youdao-dictionary-search-at-point)
+    ("M-s M-w" . fei-google-search)
+    ("C-x /" . engine-mode-prefixed-map)
+    ("s-y" . youdao-dictionary-search-at-point-tooltip)
+    ("C-h y" . youdao-dictionary-search-from-input)
     ))
-(global-set-key (kbd "<menu>") 'embark-act)
-(global-set-key (kbd "<f6>") 'display-line-numbers-mode)
-(global-set-key (kbd "M-s M-w") 'fei-google-search)
+(global-set-key (kbd "C-h o") 'helpful-symbol)
+(global-set-key (kbd "C-h k") 'helpful-key)
+(tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
 ;; {{ y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -40,114 +65,26 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 ;; }} y-or-n
 
-;;; Vars
-
-(setq show-paren-style 'parenthesis)
-(setq-default cursor-in-non-selected-windows nil)
-(setq comment-empty-lines t)
-
-(setq inhibit-splash-screen t)
-(setq-default cursor-type 'bar)
-(setq-default display-line-numbers-width 3)
-(setq display-time-format " %H:%M  %Y-%m-%d")
-(setq display-time-default-load-average nil) ;不显示time后面的不明数字（loa
-(setq desktop-restore-frames nil)    ; don't restore any frame
-
-;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
-(setq ring-bell-function 'ignore)
-;;; redirect the backup file path
-(setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
-(setq initial-scratch-message "")
-
 ;;; Funcs
-
 (defun fei-simple-compile ()
   (interactive)
   (save-buffer)
   (let (compilation-read-command)
     (call-interactively 'compile)))
 
-(transient-command undo
-  (undo)
+(transient-command undo (undo)
   '(("u" . undo)))
-
-;;; 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/
-(defun fei-google-search (&rest search-string)
-  "Googles a query or region if any."
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if search-string
-	(eshell-flatten-and-stringify search-string)	
-      (if mark-active
-          (buffer-substring (region-beginning) (region-end))
-	(read-string "Google: "))))))
-
-;;; 快速切换上一个 buffer --- code copied from meow-mode
-(defun fei-meow-last-buffer (arg)
-  "Switch to last buffer.
-Argument ARG if not nil, switching in a new window."
-  (interactive "P")
-  (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((not arg)
-    (mode-line-other-buffer))
-   (t
-    (split-window)
-    (mode-line-other-buffer))))
-
-(defun sudo-find-this-file ()
-  (interactive)
-  (if (buffer-file-name)
-      ;; 不清楚 sudo:root@localhost: 表示的含义，但是现在这个命令能用
-      (find-file (concat "/sudo:root@localhost:" buffer-file-name))
-    (message "buffer without file can't deal with sudo")))
 
 ;;; Misc
 
-(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
-(setq ahk-indentation 4)
-(setq minimap-window-location 'right)
-(global-set-key (kbd "s-o") 'ace-window)
-(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
-(custom-set-faces '(aw-leading-char-face
-		    ((t (:foreground "red" :height 1.5)))))
-
 (with-eval-after-load 'youdao-dictionary
-  (define-key youdao-dictionary-mode-map "i"
-    #'youdao-dictionary-search-from-input))
-(global-set-key (kbd "s-y") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
+  (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
 
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
-
-(defun yasnippet-snippets--fixed-indent ()
-  "Set `yas-indent-line' to `fixed'."
-  (set (make-local-variable 'yas-indent-line) 'fixed))
-
-(defun yasnippet-snippets--no-indent ()
-  "Set `yas-indent-line' to nil."
-  (set (make-local-variable 'yas-indent-line) nil))
-
-(with-eval-after-load 'yasnippet
-  (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
-
-(global-set-key (kbd "C-h o") 'helpful-symbol)
-(global-set-key (kbd "C-h k") 'helpful-key)
-
-;;; `matlab-mode'
-(add-hook 'matlab-mode-hook 'electric-pair-local-mode)
-(with-eval-after-load 'matlab-mode
-  (define-key matlab-mode-map (kbd "M-j") 'ivy-switch-buffer))
-
-(tool-bar-add-item "spell" 'global-tab-line-mode
-		    'global-tab-line-mode)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

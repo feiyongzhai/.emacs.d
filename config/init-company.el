@@ -2,6 +2,12 @@
 
 (require 'init-func)
 
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (company-mode t)
+	    (yas-minor-mode t)
+	    (menu-bar--display-line-numbers-mode-absolute)))
+
 ;;; Keys
 
 (with-eval-after-load 'company
@@ -55,6 +61,18 @@
 
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   )
+
+(defun yasnippet-snippets--fixed-indent ()
+  "Set `yas-indent-line' to `fixed'."
+  (set (make-local-variable 'yas-indent-line) 'fixed))
+
+(defun yasnippet-snippets--no-indent ()
+  "Set `yas-indent-line' to nil."
+  (set (make-local-variable 'yas-indent-line) nil))
+
+(with-eval-after-load 'yasnippet
+  (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
+
 
 (provide 'init-company)
 ;;; init-company.el ends here.

@@ -1,3 +1,6 @@
+(load-path-add "~/.emacs.d/extensions/move-text")
+(require 'move-text)
+
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
@@ -43,6 +46,8 @@
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 (global-set-key (kbd "C-x l") 'ialign)
+(global-set-key (kbd "<M-up>") 'move-text-up)
+(global-set-key (kbd "<M-down>") 'move-text-down)
 
 ;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
 (global-set-key (kbd "M-c") 'capitalize-dwim)

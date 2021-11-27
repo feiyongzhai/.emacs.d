@@ -48,6 +48,7 @@
 
 (setq inhibit-splash-screen t)
 (setq-default cursor-type 'bar)
+(setq-default display-line-numbers-width 3)
 (setq display-time-format " %H:%M  %Y-%m-%d")
 (setq display-time-default-load-average nil) ;不显示time后面的不明数字（loa
 (setq desktop-restore-frames nil)    ; don't restore any frame

@@ -336,3 +336,13 @@ special major mode"
 
 
 
+
+;; devdocs {{
+(with-eval-after-load 'devdocs
+  (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
+(global-set-key (kbd "C-h q") 'devdocs-lookup)
+(global-set-key (kbd "C-h Q") 'devdocs-search)
+;; devdocs }}
+
+
+

@@ -54,6 +54,7 @@
     ("C-h y"    . youdao-dictionary-search-from-input)
     ))
 (global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
+(global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)

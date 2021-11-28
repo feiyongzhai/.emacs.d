@@ -23,6 +23,7 @@
 (require 'eaf-vue-demo)
 (require 'eaf-interleave)
 (require 'eaf-rss-reader)
+(require 'eaf-fei)
 
 (load-path-add "~/.emacs.d/extensions/popweb/extension/dict/")
 (load-path-add "~/.emacs.d/extensions/popweb/extension/latex/")

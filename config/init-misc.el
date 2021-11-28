@@ -47,8 +47,6 @@
     ("M-s y"    . counsel-yank-pop)
     ("M-g s"    . scratch)
     ("M-s M-w"  . fei-google-search)
-    ("C-x /"    . engine-mode-prefixed-map)
-    ("M-s-g"    . engine-mode-prefixed-map)
     ("s-y"      . youdao-dictionary-search-at-point-tooltip)
     ("<menu>"   . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"    . youdao-dictionary-search-from-input)

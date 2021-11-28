@@ -1,3 +1,24 @@
+(load-path-add "~/.emacs.d/extensions/one-key")
+(require 'one-key)
+
+(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
+(global-set-key (kbd "M-s-g") 'one-key-menu-engine)
+
+(one-key-create-menu
+ "ENGINE"
+ '(
+   (("g" . "谷歌") . engine/search-google)
+   (("z" . "知乎") . engine/search-zhihu)
+   (("h" . "Github") . engine/search-github)
+   (("b" . "哔哩哔哩") . engine/search-bilibili)
+   (("y" . "YouTube") . engine/search-youtube)
+   (("s" . "谷歌学术") . engine/search-google-scholar)
+   (("i" . "谷歌图片") . engine/search-google-images)
+   (("D" . "必应词典") . engine/search-bing-dict)
+   (("q" . "Qwant") . engine/search-qwant)
+   )
+ t)
+
 (defengine github
   "https://github.com/search?ref=simplesearch&q=%s"
   :keybinding "h")

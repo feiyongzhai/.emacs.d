@@ -31,7 +31,7 @@ Argument ARG if not nil, switching in a new window."
     (if search-string
 	(eshell-flatten-and-stringify search-string)	
       (if mark-active
-          (buffer-substring (region-beginning) (region-end))
+          (buffer-substring-no-properties (region-beginning) (region-end))
 	(read-string "Google: "))))))
 
 (defun fei-kill-current-buffer (arg)

@@ -33,7 +33,7 @@
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "<f12>") 'open-current-file-with-vscode)
 
-(tool-bar-add-item "show" 'speedbar 'speedbar :help "speedbar")
+(tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
 
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
 (setq locate-command "es.exe")

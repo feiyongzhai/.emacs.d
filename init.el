@@ -36,7 +36,7 @@
   (require 'init-win10))
 
 ;;; local configs
-(let ((local-config "~/.emacs.d/init-local.el"))
+(let ((local-config "~/.emacs.d/config/init-local.el"))
   (when (file-exists-p local-config)
     (load-file local-config)))
 

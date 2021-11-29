@@ -5,7 +5,7 @@
     ("ESC ESC e" . ,(li (dired "~/.emacs.d")))
     ("ESC ESC h" . ,(li (dired "~")))
     ("ESC ESC m" . ,(li (dired "~/Music")))
-    ("ESC ESC o" . ,(li (find-file "~/.emacs.d/init-local.el")))
+    ("ESC ESC o" . ,(li (find-file "~/.emacs.d/extensions/init-local.el")))
     ("ESC ESC p" . ,(li (dired "~/Picture")))
     ("ESC ESC s" . ,(li (dired "~/Sandbox")))
     ("ESC ESC N" . ,(li (dired "~/Nutstore Files")))

@@ -213,6 +213,16 @@ Otherwise, call `eshell/cd' with the result."
   (if (null strings)
       (call-interactively 'eaf-search-it)
     (fei-google-search strings)))
+
+
+;; IME related
+
+(defun fei-rime-force-enable ()
+  (interactive)
+  (if current-input-method
+      (call-interactively 'rime-force-enable)
+    (call-interactively 'toggle-input-method)
+    (call-interactively 'rime-force-enable)))
 
 ;;; {{ a switch between xhup & flypy
 
@@ -232,6 +242,8 @@ Otherwise, call `eshell/cd' with the result."
     (message "Rime has not been required")))
 
 ;;; }}
+
+
 
 ;; org related
 
@@ -310,6 +322,8 @@ Otherwise, call `eshell/cd' with the result."
   (interactive)
   (start-process "gvim" nil
 		 "gvim" (buffer-file-name)))
+
+
 
 ;; EAF related
 

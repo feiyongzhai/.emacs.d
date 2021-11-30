@@ -1,5 +1,7 @@
 ;;; init-ime.el  --- 中文输入法相关配置 rime & pyim
 
+(require 'fei-funcs)
+
 ;;; Pyim
 
 (with-eval-after-load 'pyim
@@ -46,6 +48,7 @@
 
 (load-path-add "~/.emacs.d/extensions/emacs-rime/")
 (global-set-key (kbd "C-|") 'fei-toggle-xhup-flypy)
+(global-set-key (kbd "C-c i") 'fei-rime-force-enable)
 
 ;;; Keys
 (with-eval-after-load 'rime
@@ -53,7 +56,7 @@
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
-  (define-key rime-mode-map (kbd "C-c M-j") 'rime-force-enable)
+  ;; (define-key rime-mode-map (kbd "C-c M-j") 'rime-force-enable)
   )
 
 ;;; Vars

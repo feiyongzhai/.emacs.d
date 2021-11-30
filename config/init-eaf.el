@@ -115,7 +115,7 @@
 
 (with-eval-after-load 'eaf
   (defun eaf-translate-text (text)
-    (popweb-dict-youdao text))
+    (popweb-dict-bing-input text))
 
   (defun eaf-goto-left-tab ()
     (interactive)

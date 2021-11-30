@@ -1,5 +1,6 @@
 ;;; init-shell.el  --- configs for eshell/shell/terminal
 
+(require 'init-func)
 (require 'fei-funcs)
 
 ;;; Keys
@@ -12,6 +13,7 @@
     ("<C-f8>" . fei-eshell-cd-here)
     ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . fei-ansi-term)
+    ("M-s j"    . eshell)
     ))
 
 (global-set-key (kbd "s-\\") 'fei-ansi-term)

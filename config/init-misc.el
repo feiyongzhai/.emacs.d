@@ -18,7 +18,6 @@
 (setq split-height-threshold nil)
 (setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
-(setq-default cursor-type 'bar)
 (setq-default display-line-numbers-width 3)
 (setq comment-empty-lines t)
 

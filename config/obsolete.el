@@ -373,3 +373,11 @@ special major mode"
     (use-package s :defer t :ensure t)))
 
 
+
+;; change-cursor-mode inspired manual solution
+
+(add-hook 'post-command-hook
+	  (lambda () (if buffer-read-only
+			 (setq cursor-type 'box)
+		       (setq cursor-type 'bar))))
+

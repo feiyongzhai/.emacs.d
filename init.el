@@ -31,6 +31,7 @@
 (require 'init-edit)
 (require 'init-awesome-pair)
 (require 'init-quick-open)
+(require 'init-cursor)
 (when *is-linux*
   (require 'init-linux))
 (when *is-windows*

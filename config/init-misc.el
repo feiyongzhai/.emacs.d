@@ -42,7 +42,6 @@
     ("M-H"      . counsel-recentf)
     ("M-j"      . switch-to-buffer)
     ("M-s j"    . eshell)
-    ("M-s b"    . fei-meow-last-buffer)
     ("M-s y"    . counsel-yank-pop)
     ("M-g s"    . scratch)
     ("M-s M-w"  . fei-google-search)
@@ -50,6 +49,13 @@
     ("<menu>"   . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"    . youdao-dictionary-search-from-input)
     ))
+
+(global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
+(with-eval-after-load 'eaf
+  (eaf-bind-key nil "M-s" eaf-browser-keybinding)
+  (eaf-bind-key nil "M-S" eaf-browser-keybinding)
+  )
+
 (global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 (global-set-key (kbd "C-h o") 'helpful-symbol)

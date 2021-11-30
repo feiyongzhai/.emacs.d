@@ -29,6 +29,7 @@
 (require 'init-thing-edit)
 (require 'init-auto-save)
 (require 'init-edit)
+(require 'init-awesome-pair)
 (require 'init-quick-open)
 (when *is-linux*
   (require 'init-linux))

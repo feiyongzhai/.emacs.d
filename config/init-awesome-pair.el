@@ -6,9 +6,9 @@
                'c++-mode-hook
                'java-mode-hook
                'haskell-mode-hook
-               'emacs-lisp-mode-hook
-               'lisp-interaction-mode-hook
-               'lisp-mode-hook
+               ;; 'emacs-lisp-mode-hook
+               ;; 'lisp-interaction-mode-hook
+               ;; 'lisp-mode-hook
                'maxima-mode-hook
                'ielm-mode-hook
                'sh-mode-hook

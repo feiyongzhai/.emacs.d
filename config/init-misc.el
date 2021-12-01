@@ -50,7 +50,7 @@
     ))
 
 (global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
-(with-eval-after-load 'eaf
+(with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )

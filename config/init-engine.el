@@ -11,6 +11,10 @@
    (("z" . "知乎") . engine/search-zhihu)
    (("h" . "Github") . engine/search-github)
    (("b" . "哔哩哔哩") . engine/search-bilibili)
+   (("d" . "DuckDuckGo") . engine/search-duckduckgo)
+   (("D" . "百度") . engine/search-baidu)
+   (("B" . "百度") . engine/search-bing)
+   (("S" . "搜狗") . engine/search-sogou)
    (("y" . "YouTube") . engine/search-youtube)
    (("s" . "谷歌学术") . engine/search-google-scholar)
    (("i" . "谷歌图片") . engine/search-google-images)
@@ -59,6 +63,10 @@
   :keybinding "b"
   :docstring "哔哩哔哩")
 
+(defengine bing
+  "https://www.bing.com/search?q=%s"
+  :keybinding "B")
+
 (defengine bing-dict
   "https://www.bing.com/dict/search?q=%s"
   :docstring "bing dictionary"
@@ -67,5 +75,13 @@
 (defengine google
   "https://www.google.com/search?ie=utf-8&q=%s"
   :keybinding "g")
+
+(defengine baidu
+  "https://www.baidu.com/s?wd=%s"
+  :keybinding "D")
+
+(defengine sogou
+  "https://www.sogou.com/web?query=%s"
+  :keybinding "S")
 
 (provide 'init-engine)

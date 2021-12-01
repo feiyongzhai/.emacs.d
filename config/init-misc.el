@@ -71,6 +71,10 @@
 (transient-command undo (undo)
   '(("u" . undo)))
 
+;; apt-utils
+(load-path-add "~/.emacs.d/extensions/")
+(require 'apt-utils)
+
 ;;; Misc
 
 (with-eval-after-load 'youdao-dictionary

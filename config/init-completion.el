@@ -23,7 +23,6 @@
     ("M-s r" . counsel-rg)
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
-    ("C-x b" . counsel-switch-buffer)
     ("C-x f" . counsel-find-file)
     ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)

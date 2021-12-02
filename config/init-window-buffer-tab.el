@@ -77,6 +77,7 @@
 ;;; {{ tab-line
 (require 'tab-line)
 
+(setq tab-line-tab-name-function 'tab-line-tab-name-truncated-buffer)
 ;;; `face-spec-set' 和 `custom-set-faces' 还是有点区别的
 (face-spec-set 'tab-line
 	       '((t (:inherit nil :height 0.95))))

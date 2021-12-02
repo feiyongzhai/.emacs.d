@@ -32,6 +32,7 @@
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq initial-major-mode 'fundamental-mode)
 
 
 ;;; UI

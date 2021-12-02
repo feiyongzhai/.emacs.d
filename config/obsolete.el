@@ -301,6 +301,19 @@ special major mode"
 
 ;;; Edit related
 
+(global-set-key (kbd "M-N") 'transient-scroll-up-line)
+(global-set-key (kbd "M-P") 'transient-scroll-down-line)
+
+(transient-command scroll-up-line
+  (call-interactively 'scroll-up-line)
+  '(("n" . scroll-up-line)
+    ("p" . scroll-down-line)))
+
+(transient-command scroll-down-line
+  (call-interactively 'scroll-down-line)
+  '(("n" . scroll-up-line)
+    ("p" . scroll-down-line)))
+
 ;; @see https://www.emacswiki.org/emacs/CopyingWholeLines
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)

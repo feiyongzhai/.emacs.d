@@ -38,8 +38,6 @@
 ;;; UI
 
 ;; `early-init.el' 可对 emacsclient 生效
-(custom-set-faces
- '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
-(set-fontset-font t 'symbol "Symbola" nil 'append)
+(require 'init-font)
 
 (require 'init-elpa)

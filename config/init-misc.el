@@ -14,8 +14,8 @@
 (blink-cursor-mode -1)
 
 (setq minimap-window-location 'right)
-;; (setq split-width-threshold 0)        ;分屏的时候使用左右分屏
-(setq split-height-threshold nil)
+(setq split-width-threshold nil)        ;分屏的时候使用左右分屏
+;; (setq split-height-threshold nil)
 (setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default display-line-numbers-width 3)
@@ -50,6 +50,7 @@
     ))
 
 (global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
+(global-set-key (kbd "M-S") 'fei-meow-last-buffer)
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
@@ -57,8 +58,12 @@
 
 (global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
+
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
+(global-set-key (kbd "C-h O") 'helpful-at-point)
+(global-set-key (kbd "<menu>") 'helpful-at-point)
+
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
 ;; {{ y-or-n
@@ -68,8 +73,7 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 ;; }} y-or-n
 
-(transient-command undo (undo)
-  '(("u" . undo)))
+(transient-command undo (undo) '(("u" . undo)))
 
 ;; apt-utils
 (load-path-add "~/.emacs.d/extensions/")

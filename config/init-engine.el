@@ -2,6 +2,7 @@
 (require 'one-key)
 
 (global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-x C-/") 'engine-mode-prefixed-map)
 (global-set-key (kbd "M-s-g") 'one-key-menu-engine)
 
 (one-key-create-menu

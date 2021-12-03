@@ -41,6 +41,7 @@
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
 (setq eaf-browser-enable-adblocker t)
 (setq eaf-browser-enable-autofill t)
+(setq eaf-browser-enable-scrollbar t)
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
 (setq eaf-file-manager-show-hidden-file nil)

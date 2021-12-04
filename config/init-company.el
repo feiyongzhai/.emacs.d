@@ -22,7 +22,11 @@
       ("M-w" . company-show-location)
       ("M-s" . company-filter-candidates)
       ("M-/" . company-other-backend)
+      ("C-w" . nil)
       ))
+  (fei-define-key-with-map company-search-map
+    '(("M-n" . company-select-next)
+      ("M-p" . company-select-previous)))
   
   (setq company-show-numbers t)
   (setq company-idle-delay 0.1

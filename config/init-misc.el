@@ -56,6 +56,7 @@
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
 
+
 (global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
@@ -87,6 +88,10 @@
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
+  (define-key diff-mode-map (kbd "M-n") 'diff-file-next)
+  (define-key diff-mode-map (kbd "M-p") 'diff-file-prev)
+  (define-key diff-mode-map (kbd "M-N") nil)
+  (define-key diff-mode-map (kbd "M-P") nil)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 

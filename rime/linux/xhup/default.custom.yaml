@@ -19,9 +19,11 @@ patch:
       Eisu_toggle: clear
   key_binder/bindings:
     - {accept: "Control+p", send: Up, when: composing}
-    - {accept: "Alt+b", send: Up, when: composing}
     - {accept: "Control+n", send: Down, when: composing}
+    - {accept: "Alt+b", send: Up, when: composing}
     - {accept: "Alt+f", send: Down, when: composing}
+    - {accept: "Alt+p", send: Up, when: composing}
+    - {accept: "Alt+n", send: Down, when: composing}
     - {accept: "Control+b", send: Left, when: composing}
     - {accept: "Control+f", send: Right, when: composing}
     - {accept: "Control+a", send: Home, when: composing}

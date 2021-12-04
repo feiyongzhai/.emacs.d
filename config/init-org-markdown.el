@@ -51,6 +51,7 @@
 	("PLAN" . "brown")
 	("WANT" . "grey")
 	("WIP" . "orange")
+	("SOMEDAY" . "dark red")
 	("FEELING" . "blue")
         ("REFLECT" . "purple")
 	("LOG" . "blue")
@@ -65,13 +66,13 @@
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
 	   "* TODO %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
-	  ("s" "SAR" entry
+	  ("s" "SomeDay" entry
+	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
+	   "* SOMEDAY %?\n  CREATE: %T\n"
+	   :empty-lines-before 1)
+	  ("S" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
 	   "* TODO %?\n  CREATE: %T\n"
-	   :empty-lines-before 1)
-	  ("w" "Want" entry
-	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
-	   "* WANT %?\n  CREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
@@ -79,7 +80,7 @@
 	   :empty-lines-before 1)
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/diary.org")
-	   "* %t\n"
+	   "* %t\n%?"
 	   :empty-lines-before 1)
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry

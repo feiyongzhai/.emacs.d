@@ -90,6 +90,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
+	"M-n" "M-p"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 ;;; {{ rime mode line indicator

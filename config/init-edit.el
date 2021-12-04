@@ -27,8 +27,13 @@
 ;;; Scroll
 (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
 (global-set-key (kbd "<mouse-5>") 'scroll-up-line)
+(global-set-key (kbd "<prior>") 'scroll-down-line)
+(global-set-key (kbd "<next>") 'scroll-up-line)
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
+
+(global-set-key (kbd "<home>") 'beginning-of-buffer)
+(global-set-key (kbd "<end>") 'end-of-buffer)
 
 ;;; Mark
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)

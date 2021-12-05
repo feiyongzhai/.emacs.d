@@ -1,10 +1,9 @@
 ;;; config for search
 (require 'init-func)
-
-;; (ctrlf-mode 1)
+(require 'fei-funcs)
 
 ;;; Keys
-;;; isearch experimental config
+;; isearch experimental config
 (setq isearch-lazy-count t)
 (setq lazy-count-suffix-format " [%s/%s]")
 (setq lazy-count-prefix-format nil)
@@ -23,12 +22,17 @@
     ("M-h" . isearch-exit)
     ("M-s j" . avy-isearch)
     ("M-w" . fei-isearch-copy-region)
+    ("<C-return>" . prot-search-isearch-other-end)
     ))
 
-(defun fei-isearch-copy-region ()
-  (interactive)
-  (isearch-exit)
-  (call-interactively 'copy-region-as-kill))
+;; (global-anzu-mode t)
+(setq-default
+ isearch-regexp-lax-whitespace t
+ search-whitespace-regexp ".*?")
+
+;; ctrlf-mode
+
+;; (ctrlf-mode 1)
 
 (with-eval-after-load 'ctrlf
   (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
@@ -38,10 +42,5 @@
 (setq ctrlf-default-search-style 'fuzzy)
 (setq ctrlf-show-match-count-at-eol nil)
 (setq ctrlf-highlight-current-line nil)
-
-;; (global-anzu-mode t)
-(setq-default
- isearch-regexp-lax-whitespace t
- search-whitespace-regexp ".*?")
 
 (provide 'init-search)

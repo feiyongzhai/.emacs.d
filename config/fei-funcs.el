@@ -348,4 +348,22 @@ Otherwise, call `eshell/cd' with the result."
   (require 'eaf)
   (eaf-file-browser-qrcode (substring (pwd) 10)))
 
+
+
+;; isearch related
+
+(defun prot-search-isearch-other-end ()
+  "End current search in the opposite side of the match.
+Particularly useful when the match does not fall within the
+confines of word boundaries (e.g. multiple words)."
+  (interactive)
+  (isearch-done)
+  (when isearch-other-end
+    (goto-char isearch-other-end)))
+
+(defun fei-isearch-copy-region ()
+  (interactive)
+  (isearch-exit)
+  (call-interactively 'copy-region-as-kill))
+
 (provide 'fei-funcs)

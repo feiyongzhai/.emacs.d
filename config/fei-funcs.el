@@ -92,7 +92,7 @@ kill region instead"
 (defun fei-ansi-term ()
   (interactive)
   (unless (goto-term)
-      (ansi-term (getenv "SHELL"))))
+    (ansi-term (getenv "SHELL"))))
 
 (defun goto-term ()
   (interactive)

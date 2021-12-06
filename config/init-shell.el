@@ -27,7 +27,8 @@
 (add-hook 'eshell-mode-hook
 	  (lambda ()
 	    (define-key eshell-mode-map (kbd "C-l")
-	      (lambda () (interactive) (recenter 0)))))
+	      (lambda () (interactive) (recenter 0)))
+	    (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)))
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
 ;; There are two solution

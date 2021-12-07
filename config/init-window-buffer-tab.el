@@ -15,6 +15,7 @@
 
 ;;; Window
 (global-set-key (kbd "s-o") 'ace-window)
+(global-set-key (kbd "s-O") 'other-frame)
 (global-set-key (kbd "s-u") 'winner-undo)
 (global-set-key (kbd "s-0") 'delete-window)
 (global-set-key (kbd "s-1") 'delete-other-windows)
@@ -29,6 +30,7 @@
     ("C-x o" . transient-other-window)
     ))
 
+(setq aw-scope 'frame)
 (setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
 (custom-set-faces '(aw-leading-char-face
 		    ((t (:foreground "red" :height 1.5)))))

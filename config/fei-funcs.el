@@ -235,9 +235,11 @@ Otherwise, call `eshell/cd' with the result."
       (if rime--flypy-p
 	  (progn (rime-lib-select-schema "double_pinyin_flypy")
 		 (setq rime-show-candidate 'posframe)
+		 (setq rime-show-preedit t)
 		 (setq rime--flypy-p nil))
 	(rime-lib-select-schema "flypy")
 	(setq rime-show-candidate 'minibuffer)
+	(setq rime-show-preedit 'inline)
 	(setq rime--flypy-p t))
     (message "Rime has not been required")))
 

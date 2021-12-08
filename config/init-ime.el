@@ -86,7 +86,8 @@
       '(rime-predicate-prog-in-code-p
         rime-predicate-space-after-cc-p
         rime-predicate-after-alphabet-char-p
-	rime-predicate-tex-math-or-command-p))
+	rime-predicate-tex-math-or-command-p
+	rime-predicate-org-in-src-block-p))
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"

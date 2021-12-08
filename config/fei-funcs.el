@@ -323,22 +323,29 @@ Otherwise, call `eshell/cd' with the result."
     (dired-sort-other (concat dired-listing-switches " -a"))
     (setq fei-dired-toggle-hidden t)))
 
+;; @REF: https://emacs-china.org/t/leader-vscode/19166/29?u=yongfeizhai
 (defun open-current-file-with-vscode ()
   (interactive)
-  (start-process "vscode" nil
-		 "code" (buffer-file-name)))
+  (let ((line (number-to-string (line-number-at-pos)))
+	(column (number-to-string (current-column))))
+    (start-process "vscode" nil "code" "--goto"
+		   (concat (buffer-file-name)
+			   ":" line ":" column))))
 
 (defun open-current-file-with-gvim ()
   (interactive)
-  (start-process "gvim" nil
-		 "gvim" (buffer-file-name)))
+  (let ((line (number-to-string (line-number-at-pos)))
+	(column (number-to-string (current-column))))
+    (start-process "gvim" nil "gvim" (buffer-file-name)
+		   (concat "+call cursor("
+			   line "," column ")"))))
 
 
 
 ;; EAF related
 
 (defun fei-eaf-open-browser (url &optional _new-window)
-  "根据 `browse-url-chromium' 这个函数改的，现在可以使用，哈哈"
+  "根据 `browse-url-chromium' 这个函数改的"
   (interactive (browse-url-interactive-arg "URL: "))
   (setq url (browse-url-encode-url url))
   (if (display-graphic-p)

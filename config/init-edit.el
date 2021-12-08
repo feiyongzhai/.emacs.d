@@ -51,6 +51,7 @@
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 (global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
+(global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
 
 ;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
 (global-set-key (kbd "M-c") 'capitalize-dwim)

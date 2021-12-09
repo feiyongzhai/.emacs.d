@@ -13,9 +13,8 @@
     ("ESC ESC v" . ,(li (dired "~/Videos")))
     ("ESC ESC V" . ,(li (dired "~/.vim")))
     ("ESC ESC g" . ,(li (dired "~/Sandbox/Git/testGit/")))
-    ("ESC ESC ." . ,(li (dired "~/dotfiles-fei")))
+    ("ESC ESC ." . ,(li (dired "~/dotfiles")))
     ("ESC ESC ;" . ,(li (find-file "~/.emacs.d/@scratch@")))
-    ("M-s-n" . ,(li (dired "~/Nutstore Files")))
     ))
 
 (provide 'init-quick-open)

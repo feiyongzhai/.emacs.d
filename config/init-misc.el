@@ -13,6 +13,8 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 
+(setq recentf-max-saved-items 50)
+
 (setq minimap-window-location 'right)
 (setq split-width-threshold nil)        ;分屏的时候使用左右分屏
 ;; (setq split-height-threshold nil)

@@ -348,7 +348,10 @@ Otherwise, call `eshell/cd' with the result."
   "根据 `browse-url-chromium' 这个函数改的"
   (interactive (browse-url-interactive-arg "URL: "))
   (setq url (browse-url-encode-url url))
-  (if (display-graphic-p)
+  (if (and (display-graphic-p)
+	   (not (or (eq major-mode 'eshell-mode)
+		    (eq major-mode 'shell-mode)
+		    (getenv "TERM"))))
       (eaf-open-browser url _new-window)
     (browse-url-chrome url _new-window)))
 

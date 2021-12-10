@@ -17,10 +17,6 @@
 (global-set-key (kbd "s-o") 'ace-window)
 (global-set-key (kbd "s-O") 'other-frame)
 (global-set-key (kbd "s-u") 'winner-undo)
-(global-set-key (kbd "s-0") 'delete-window)
-(global-set-key (kbd "s-1") 'delete-other-windows)
-(global-set-key (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
-(global-set-key (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
 (fei-define-key-with-map global-map
   '(
     ("C-x w u" . transient-winner-undo)

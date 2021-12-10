@@ -190,6 +190,11 @@ special major mode"
 ;; no backup-file
 ;; (setq make-backup-files nil)
 
+(global-set-key (kbd "s-0") 'delete-window)
+(global-set-key (kbd "s-1") 'delete-other-windows)
+(global-set-key (kbd "s-2") (lambda () (interactive) (split-window-below) (other-window 1)))
+(global-set-key (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
+
 
 ;;; Eshell
 

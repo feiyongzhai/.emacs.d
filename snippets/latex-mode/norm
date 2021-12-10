@@ -1,5 +1,6 @@
-# key: norm
+# -*- mode: snippet -*-
 # name: norm
+# key: norm
 # condition: (and (texmathp) 'auto)
 # --
 \\| $0 \\|

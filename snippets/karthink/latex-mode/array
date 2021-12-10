@@ -2,7 +2,7 @@
 # contributor : Peter Urbak <peter@dragonwasrobot.com>
 # key : arr
 # group: environments
-# name : \begin{array} ... \end{array}
+# name : array
 # --
 \begin{array}{$1}
   $0

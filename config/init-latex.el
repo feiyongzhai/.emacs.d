@@ -1,12 +1,15 @@
-
-;;; LaTeX {{
 (add-hook 'LaTeX-mode-hook #'cdlatex-mode)
 (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
-(add-hook 'LaTeX-mode-hook #'laas-mode)
+(add-hook 'LaTeX-mode-hook #'reftex-mode)
+(add-hook 'LaTeX-mode-hook #'company-mode)
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (setq-local company-backends '(company-yasnippet))))
+
+;; (add-hook 'LaTeX-mode-hook #'laas-mode)
 (with-eval-after-load 'latex
   ;; @ref https://github.com/yangsheng6810/dotfiles/blob/master/.spacemacs.d/init.org
-  (add-to-list 'TeX-command-list '
-	       ("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t)))
+  (add-to-list 'TeX-command-list
+	       '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t)))
 
 ;;; @REF: https://github.com/karthink/.emacs.d/blob/0d56c66c2e2d53ba05366493f433e523cc36cd87/init.el#L2943
 (defun my/yas-try-expanding-auto-snippets ()

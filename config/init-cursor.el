@@ -10,7 +10,7 @@
 	  (lambda ()
 	    (setq curchg-default-cursor-color (face-attribute 'cursor :background))
 	    (setq curchg-input-method-cursor-color (face-attribute 'cursor :background))))
-(curchg-change-cursor-when-idle-interval 5)
+(curchg-change-cursor-when-idle-interval 15)
 (toggle-cursor-type-when-idle 1)	; On when idle
 
 (provide 'init-cursor)

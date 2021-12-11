@@ -33,7 +33,6 @@
 (require 'popweb-latex)
 
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
-(global-set-key (kbd "C-h y") 'popweb-dict-bing-input)
 (global-set-key (kbd "s-/") 'eaf-open-rss-reader)
 
 ;;; Code:

@@ -5,6 +5,9 @@
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (setq-local company-backends '(company-yasnippet))))
 
+(with-eval-after-load 'cdlatex
+  (define-key cdlatex-mode-map (kbd "<") nil))
+
 ;; (add-hook 'LaTeX-mode-hook #'laas-mode)
 (with-eval-after-load 'latex
   ;; @ref https://github.com/yangsheng6810/dotfiles/blob/master/.spacemacs.d/init.org

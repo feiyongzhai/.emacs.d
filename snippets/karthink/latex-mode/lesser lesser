@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: lesser lesser
-# key: ll
+# key: <<
 # condition: (and (texmathp) 'auto)
 # group: math
 # --

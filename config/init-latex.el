@@ -5,6 +5,34 @@
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (setq-local company-backends '(company-yasnippet))))
 
+;; ==== Org Export ====
+
+;; @REF: https://emacs-china.org/t/org-mode-pdf/16746/2
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+               '("ctexart" "\\documentclass[11pt]{ctexart}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (setq org-latex-default-class "ctexart")
+  (setq org-latex-compiler "xelatex"))
+
+(require 'ox-beamer)
+(with-eval-after-load 'ox-beamer
+  (add-to-list 'org-latex-classes
+               '("ctexbeamer" "\\documentclass[presentation]{ctexbeamer}"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+;; @REF: https://emacs.stackexchange.com/questions/17988/variable-to-set-org-export-pdf-viewer
+(add-to-list 'org-file-apps '("\\.pdf" . "evince %s")) ; 指定 org-export 后打开 pdf 的软件
+
+
+;; ==== Quick Input ====
+
 (with-eval-after-load 'cdlatex
   (define-key cdlatex-mode-map (kbd "<") nil))
 
@@ -20,12 +48,12 @@
       (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
         (yas-expand))))
 (add-hook 'post-self-insert-hook #'my/yas-try-expanding-auto-snippets)
+
 (with-eval-after-load 'yasnippet
   (yas-load-directory "~/.emacs.d/snippets/karthink"))
 
 (use-package warnings
   :config
-  (push '(yasnippet backquote-change) warning-suppress-types)
-  )
+  (push '(yasnippet backquote-change) warning-suppress-types))
 
 (provide 'init-latex)

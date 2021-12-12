@@ -229,23 +229,6 @@ special major mode"
 ;;     (load-theme 'modus-vivendi t)))
 
 
-;;; package: move-text
-(load-path-add "~/.emacs.d/extensions/move-text/")
-
-(require 'move-text)
-
-;;; Keys
-
-(with-eval-after-load 'paredit
-  (define-key paredit-mode-map (kbd "<M-down>") nil)
-  (define-key paredit-mode-map (kbd "<M-up>") nil))
-
-(define-key global-map (kbd "<M-up>") #'move-text-up)
-(define-key global-map (kbd "<M-down>") #'move-text-down)
-
-(provide 'init-move-text)
-
-
 ;;; LaTeX
 
 ;; (setq TeX-view-program-selection
@@ -377,9 +360,39 @@ special major mode"
 
 ;; (set-face-attribute 'rime-default-face nil :slant 'italic)
 
+;; {{ rime mode line indicator
+
+(with-eval-after-load 'rime
+  ;; 下面是默认的设置，我不想替代默认的信息，只是想添加一个这个指示信
+  ;; 息，所以就有了下面的 `fei-rime-lighter'，
+
+  ;; (setq mode-line-mule-info '((:eval (rime-lighter))))
+  
+  (add-to-list 'mode-line-mule-info '((:eval (fei-rime-lighter))))
+  (setq-default mode-line-mule-info mode-line-mule-info)
+
+  (defun fei-rime-lighter ()
+    "rewrite `rime-lighter' "
+    (if (and (equal current-input-method "rime")
+             (bound-and-true-p rime-mode))
+	(if (and (rime--should-enable-p)
+		 (not (rime--should-inline-ascii-p)))
+            (propertize
+             (char-to-string 12563)
+             'face
+             'rime-indicator-face)
+          (propertize
+	   (char-to-string 12563)
+           'face
+           'rime-indicator-dim-face))
+      ""))
+  )
+
+;; }}
+
 
 
-;; eaf
+;; EAF
 
 (defun fei-eaf-start ()
   (interactive)
@@ -399,3 +412,23 @@ special major mode"
 			 (setq cursor-type 'box)
 		       (setq cursor-type 'bar))))
 
+
+
+;; Personal Keybindings
+
+(with-eval-after-load 'matlab-mode
+  (define-key matlab-mode-map (kbd "M-j") 'ivy-switch-buffer))
+
+(global-set-key (kbd "M-j") 'ivy-switch-buffer)
+
+(define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
+(define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
+
+(global-set-key (kbd "C-|") 'fei-toggle-xhup-flypy)
+
+
+
+;; ibuffer
+
+(global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
+(global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))

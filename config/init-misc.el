@@ -42,7 +42,6 @@
     ("<f5>"     . fei-simple-compile)
     ("M-h"      . find-file) ; inspired by emacstalk 嘉宾领峰
     ("M-H"      . counsel-recentf)
-    ("M-j"      . switch-to-buffer)
     ("M-s y"    . counsel-yank-pop)
     ("M-g s"    . scratch)
     ("M-s M-w"  . fei-google-search)

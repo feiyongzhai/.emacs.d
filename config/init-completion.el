@@ -1,17 +1,15 @@
 ;;; init-completion.el  --- configs for counsel/swiper/ivy/ido
 
-;;; Mode
-
-;;; 默认不启用 `ivy-mode'
 (ivy-mode 1)
 ;; (ivy-posframe-mode 1)
 
-;;; Keys
+;; Keys
 (when *is-linux*
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-x p") 'proced)
   )
+
 (fei-define-key-with-map global-map
   '(
     ("C-h f" . counsel-describe-function)
@@ -27,31 +25,17 @@
     ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)
     ("M-x" . counsel-M-x)
-    ("C-S-s" . swiper)
+    ("C-S-s" . swiper)    
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
-(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-(define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
-(define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
-
-;;; Vars
-
-;;; ido {{
-(setq ido-enable-flex-matching t)
-;; (setq ido-max-window-height 1)
-(setq ido-use-virtual-buffers nil)
-;; Disable auto merge work directories behavior, But you can merge
-;; manually by M-s, undo merge by C-z manually
-(setq ido-auto-merge-work-directories-length -1)
-;;; ido }}
+(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
 
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
   (setq-default ivy-initial-inputs-alist nil)
 
-  (global-set-key (kbd "M-j") 'ivy-switch-buffer)
   (global-set-key (kbd "M-h") 'counsel-find-file)
   )
 
@@ -73,7 +57,13 @@
 
 ;; (setq search-default-mode #'char-fold-to-regexp)
 
+;; ido
+(setq ido-enable-flex-matching t)
+;; (setq ido-max-window-height 1)
+(setq ido-use-virtual-buffers nil)
+;; Disable auto merge work directories behavior, But you can merge
+;; manually by M-s, undo merge by C-z manually
+(setq ido-auto-merge-work-directories-length -1)
 
 (provide 'init-completion)
 ;;; init-completion.el ends here.
-

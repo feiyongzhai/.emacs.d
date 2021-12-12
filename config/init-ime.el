@@ -47,20 +47,21 @@
 ;; submodule的方法
 
 (load-path-add "~/.emacs.d/extensions/emacs-rime/")
-(global-set-key (kbd "C-|") 'fei-toggle-xhup-flypy)
-(global-set-key (kbd "C-c i") 'fei-rime-force-enable)
 
-;;; Keys
+(setq rime-title "ㄓ ")
+(autoload 'rime-activate "rime" nil nil nil)
+(register-input-method "rime" "euc-cn" 'rime-activate rime-title)
+
+;; Keys
+(global-set-key (kbd "C-c i") 'fei-toggle-xhup-flypy)
+(global-set-key (kbd "M-j") 'fei-rime-force-enable)
 (with-eval-after-load 'rime
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
-  ;; (define-key rime-mode-map (kbd "C-c M-j") 'rime-force-enable)
+  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)  
   )
 
-;;; Vars
-
+;; Vars
 (with-eval-after-load 'rime
   (face-spec-set 'rime-default-face
 		 '((((class color) (background dark))
@@ -93,41 +94,6 @@
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
 	"M-n" "M-p"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
-
-;;; {{ rime mode line indicator
-(setq rime-title " ")
-
-(autoload 'rime-lighter "rime" nil nil nil)
-(autoload 'rime-activate "rime" nil nil nil)
-(register-input-method "rime" "euc-cn" 'rime-activate rime-title)
-
-(with-eval-after-load 'rime
-  ;; 下面是默认的设置，我不想替代默认的信息，只是想添加一个这个指示信
-  ;; 息，所以就有了下面的 `fei-rime-lighter'，
-
-  ;; (setq mode-line-mule-info '((:eval (rime-lighter))))
-  
-  (add-to-list 'mode-line-mule-info '((:eval (fei-rime-lighter))))
-  (setq-default mode-line-mule-info mode-line-mule-info)
-
-  (defun fei-rime-lighter ()
-    "rewrite `rime-lighter' "
-    (if (and (equal current-input-method "rime")
-             (bound-and-true-p rime-mode))
-	(if (and (rime--should-enable-p)
-		 (not (rime--should-inline-ascii-p)))
-            (propertize
-             (char-to-string 12563)
-             'face
-             'rime-indicator-face)
-          (propertize
-	   (char-to-string 12563)
-           'face
-           'rime-indicator-dim-face))
-      ""))
-  )
-
-;;; }}
 
 (provide 'init-ime)
 ;;; init-ime.el ends here.

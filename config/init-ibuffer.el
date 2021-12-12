@@ -2,8 +2,6 @@
 
 ;;; Keys
 
-(global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
-(global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line)
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line)

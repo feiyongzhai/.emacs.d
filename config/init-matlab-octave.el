@@ -23,7 +23,6 @@
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 
 (add-hook 'matlab-mode-hook 'electric-pair-local-mode)
-(with-eval-after-load 'matlab-mode
-  (define-key matlab-mode-map (kbd "M-j") 'ivy-switch-buffer))
+
 
 (provide 'init-matlab-octave)

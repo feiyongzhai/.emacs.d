@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: point-min
-# key: point-min
+# group : p
 # key: pm
 # --
 (point-min)

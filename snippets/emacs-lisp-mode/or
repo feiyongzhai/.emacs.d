@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: or
-# key: or
+# group : o
 # key: o
 # --
 (or $0)

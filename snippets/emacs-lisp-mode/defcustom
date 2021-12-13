@@ -2,5 +2,6 @@
 # contributor: Xah Lee (XahLee.org)
 # name: defcustom
 # key: defcustom
+# group : d
 # --
 (defcustom ${1:symbol} ${2:standard} "${3:docstring}"${4: args})

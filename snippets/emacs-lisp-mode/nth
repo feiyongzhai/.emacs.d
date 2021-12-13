@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: nth
+# group : n
 # key: nth
 # --
 (nth ${1:index} ${2:list})

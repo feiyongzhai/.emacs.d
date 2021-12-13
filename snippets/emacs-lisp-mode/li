@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: li
+# group : l
 # key: li
 # --
 (lambda () (interactive) $0)

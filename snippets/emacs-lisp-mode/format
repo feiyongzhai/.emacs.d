@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: format
+# group : f
 # key: f
 # --
 (format "${1:message}" ${2:format-args})

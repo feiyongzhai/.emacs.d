@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: match-end
-# key: match-end
+# group : m
 # key: me
 # --
 (match-end $0)

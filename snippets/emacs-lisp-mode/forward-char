@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: forward-char
-# key: forward-char
+# group : f
 # key: fc
 # --
 (forward-char $0)

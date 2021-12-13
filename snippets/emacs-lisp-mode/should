@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Raghav Kumar Gautam
 # name: should
+# group : s
 # key: sh
 # --
 (should $0)

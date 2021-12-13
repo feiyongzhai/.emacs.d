@@ -2,5 +2,6 @@
 # contributor: Xah Lee (XahLee.org)
 # name: aref
 # key: aref
+# group : a
 # --
 (aref ${1:array} ${2:index})

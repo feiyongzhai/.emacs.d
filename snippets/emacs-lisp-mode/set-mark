@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: set-mark
-# key: set-mark
+# group : s
 # key: sm
 # --
 (set-mark $0)

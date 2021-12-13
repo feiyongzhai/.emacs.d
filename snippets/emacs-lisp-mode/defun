@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: defun
 # key: def
+# group : d
 # --
 (defun ${1:fun-name} (${2:args})
   $0)

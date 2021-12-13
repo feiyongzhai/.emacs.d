@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: when
+# group : w
 # key: w
 # --
 (when $0)

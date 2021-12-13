@@ -49,9 +49,6 @@
         (yas-expand))))
 (add-hook 'post-self-insert-hook #'my/yas-try-expanding-auto-snippets)
 
-(with-eval-after-load 'yasnippet
-  (yas-load-directory "~/.emacs.d/snippets/karthink"))
-
 (use-package warnings
   :config
   (push '(yasnippet backquote-change) warning-suppress-types))

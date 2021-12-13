@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: Xah Lee (XahLee.org)
 # name: region-beginning
-# key: region-beginning
+# group : r
 # key: rb
 # --
 (region-beginning)

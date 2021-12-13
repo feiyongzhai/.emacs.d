@@ -2,6 +2,7 @@
 # contributor: Raghav Kumar Gautam
 # name: ert-deftest
 # key: edt
+# group : e
 # --
 (ert-deftest ${1:test-name} ()
   $0)

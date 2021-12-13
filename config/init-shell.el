@@ -13,7 +13,7 @@
     ("<C-f8>" . fei-eshell-cd-here)
     ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("<M-f8>" . fei-ansi-term)
-    ("M-s j"    . eshell)
+    ("M-s j"  . eshell)
     ))
 
 (global-set-key (kbd "s-\\") 'fei-ansi-term)
@@ -21,14 +21,11 @@
 (global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-c M-j") 'fei-term-cd-here)
 
-(define-key dired-mode-map (kbd "'") 'fei-eshell-cd-here)
-(define-key dired-mode-map (kbd "`") 'dired-open-term)
-
 (add-hook 'eshell-mode-hook
 	  (lambda ()
-	    (define-key eshell-mode-map (kbd "C-l")
-	      (lambda () (interactive) (recenter 0)))
-	    (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)))
+	    (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
+	    (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
+	    (define-key eshell-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)))
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
 ;; There are two solution

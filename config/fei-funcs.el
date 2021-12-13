@@ -213,6 +213,22 @@ Otherwise, call `eshell/cd' with the result."
   (if (null strings)
       (call-interactively 'eaf-search-it)
     (fei-google-search strings)))
+
+;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
+(defun fei-my/ivy-eshell-history ()
+  (interactive)
+  (require 'em-hist)
+  (let* ((start-pos (save-excursion (eshell-bol) (point)))
+         (end-pos (point))
+         (input (buffer-substring-no-properties start-pos end-pos))
+         (command (ivy-read "Command: "
+                            (delete-dups
+                             (when (> (ring-size eshell-history-ring) 0)
+                               (ring-elements eshell-history-ring)))
+                            :initial-input input)))
+    (setf (buffer-substring start-pos end-pos) command)
+    (end-of-line)))
+
 
 
 ;; IME related

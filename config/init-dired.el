@@ -24,6 +24,8 @@
       ("r" . dired-do-rename)
       ("e" . wdired-change-to-wdired-mode)
       ("." . fei-dired-toggle-hidden)
+      ("'" . fei-eshell-cd-here)
+      ("`" . dired-open-term)
       ("<tab>" . dired-subtree-toggle)
       )))
 

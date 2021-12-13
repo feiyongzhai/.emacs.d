@@ -59,6 +59,7 @@
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)  
+  (define-key rime-active-mode-map (kbd "C-j") 'rime--return)
   )
 
 ;; Vars

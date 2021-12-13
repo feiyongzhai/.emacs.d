@@ -43,8 +43,8 @@
 ;; (ctrlf-mode 1)
 
 (with-eval-after-load 'ctrlf
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-p" . ctrlf-previous-match))
-  (add-to-list 'ctrlf-minibuffer-bindings '("C-n" . ctrlf-next-match))
+  (define-key (kbd "C-p") 'ctrlf-previous-match)
+  (define-key (kbd "C-n") 'ctrlf-next-match)
   )
 
 (setq ctrlf-default-search-style 'fuzzy)

@@ -15,9 +15,9 @@
 
 ;; {{ `next-same-major-mode-buffer'
 
-;; (transient-command next-same-major-mode-buffer
-;;   (next-same-major-mode-buffer)
-;;   '(("m" . next-same-major-mode-buffer)))
+(transient-command next-same-major-mode-buffer
+  (next-same-major-mode-buffer)
+  '(("m" . next-same-major-mode-buffer)))
 
 (defun next-same-major-mode-buffer ()
   "Go to next buffer which has same major-mode of current buffer
@@ -42,10 +42,9 @@ special major mode"
 ;; }} 
 
 
-;; {{ ido related config
-;;;TODO：ido-mode 下的 minibuffer-complete 对应的是 ido-complete，所以下面的命令需要重新写一下
+;; Ido Related
+;;TODO：ido-mode 下的 minibuffer-complete 对应的是 ido-complete，所以下面的命令需要重新写一下
 (define-key minibuffer-local-map (kbd "M-i") 'minibuffer-complete)
-;; }} 
 
 
 ;; Isearch Related
@@ -93,35 +92,33 @@ special major mode"
 
 ;; Org-agenda related
 
-;; (when (display-graphic-p)
-;;   (org-agenda nil "a")
-;;   (delete-other-windows))
-;; (add-hook 'server-after-make-frame-hook
-;; 	  (lambda () (when window-system
-;; 		       (org-agenda nil "a")
-;; 		       (delete-other-windows))))
+(when (display-graphic-p)
+  (org-agenda nil "a")
+  (delete-other-windows))
+(add-hook 'server-after-make-frame-hook
+	  (lambda () (when window-system
+		       (org-agenda nil "a")
+		       (delete-other-windows))))
 
 
 ;; VC Related config
 
-;; (global-set-key (kbd "s-v") 'vc-prefix-map)
-;; (global-set-key (kbd "s-v s-v") 'vc-next-action)
+(global-set-key (kbd "s-v") 'vc-prefix-map)
+(global-set-key (kbd "s-v s-v") 'vc-next-action)
 
-;; (with-eval-after-load 'vc-git
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
-;;   (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
+(with-eval-after-load 'vc-git
+  (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
+  (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
+  (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
 
 
-
 ;; Matlab Related
 (autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
 
 
-
-;; company & yasnippet
+;; Company & Yasnippet
 (with-eval-after-load 'yasnippet
   (with-eval-after-load 'company
     (global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
@@ -176,38 +173,42 @@ special major mode"
     ("O" . tab-previous)))
 
 
-;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
-;; (add-hook 'after-init-hook
-;; 	  (lambda ()
-;; 	    (find-file "~/.emacs.d/@scratch@")
-;; 	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
-;; 	    (kill-buffer "*scratch*")))
+;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (find-file "~/.emacs.d/@scratch@")
+	    ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
+	    (kill-buffer "*scratch*")))
 
 
 ;;; Font config
 
-;; (if *is-windows*
-;;     ;; Setting English Font 仅在 windows 生效
-;;     (progn
-;;       (set-face-attribute
-;;        'default nil
-;;        :font "DejaVu Sans Mono for Powerline"
-;;        :height 140)
-;;      ;; Setting Chinese Font
-;;      (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
+(if *is-windows*
+    ;; Setting English Font 仅在 windows 生效
+    (progn
+      (set-face-attribute
+       'default nil
+       :font "DejaVu Sans Mono for Powerline"
+       :height 140)
+     ;; Setting Chinese Font
+     (set-fontset-font t '(#x4e00 . #x9fff) "Microsoft Yahei")))
 
 ;; @ref https://emacs-china.org/t/windows-emacs/7907/39
 ;; 下面这个配置当我需要更换其他的字体的时候，加上下面这一行，也可以保证中英文的对齐
-;; (set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
+(set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
 
 
 ;;; Misc
 
-;;; 这个设置会导致一个小问题：blink一下当前行之后高亮不清除。主要体现
-;;; 是在使用thing-edit和citre插件的时候会出现这个问题，这两个插件都提
-;;; 供了blink一下相应的region来做提示，都会出现高亮之后高亮区域不消失
-;;; 的情况
-;; (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出现画面透明的问题，找到问题了，是桌面特效的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
+;; 这个设置会导致一个小问题：blink一下当前行之后高亮不清除。主要体现
+;; 是在使用thing-edit和citre插件的时候会出现这个问题，这两个插件都提
+;; 供了blink一下相应的region来做提示，都会出现高亮之后高亮区域不消失
+;; 的情况
+(setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出
+					;现画面透明的问题，找到问题了，
+					;是桌面特效的bug，不过是启动
+					;Emacs的时候有问题，别的应用也
+					;会出现消失不见的问题
 
 ;; no backup-file
 ;; (setq make-backup-files nil)
@@ -220,7 +221,6 @@ special major mode"
 
 ;;; Eshell
 
-;;; Misc
 (add-hook 'eshell-mode-hook
 	  (lambda ()
 	    (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
@@ -244,23 +244,23 @@ special major mode"
 ;;; Theme
 
 ;;; autoswitch theme by time
-;; (let ((hour (string-to-number
-;; 	     (substring (current-time-string) 11 13))))
-;;   (if (member hour (number-sequence 6 17))
-;;       (load-theme 'modus-operandi t)
-;;     (load-theme 'modus-vivendi t)))
+(let ((hour (string-to-number
+	     (substring (current-time-string) 11 13))))
+  (if (member hour (number-sequence 6 17))
+      (load-theme 'modus-operandi t)
+    (load-theme 'modus-vivendi t)))
 
 
 ;;; LaTeX
 
-;; (setq TeX-view-program-selection
-;;       '(((output-dvi has-no-display-manager)
-;; 	 "dvi2tty")
-;; 	((output-dvi style-pstricks)
-;; 	 "dvips and gv")
-;; 	(output-dvi "xdvi")
-;; 	(output-pdf "Zathura")
-;; 	(output-html "xdg-open")))
+(setq TeX-view-program-selection
+      '(((output-dvi has-no-display-manager)
+	 "dvi2tty")
+	((output-dvi style-pstricks)
+	 "dvips and gv")
+	(output-dvi "xdvi")
+	(output-pdf "Zathura")
+	(output-html "xdg-open")))
 
 
 ;;; Dired
@@ -291,22 +291,17 @@ special major mode"
     ))
 
 
-
-;; {{ citre
+;;; citre
 (global-set-key (kbd "C-c j") 'citre-jump)
 (global-set-key (kbd "C-c J") 'citre-jump-back)
 (global-set-key (kbd "C-c p") 'citre-ace-peek)
-;; }} citre
 
 
-
-;;; {{ tab-line
+;;; tab-line
 
 (global-set-key (kbd "<C-next>") 'tab-line-switch-to-next-tab)
 (global-set-key (kbd "<C-prior>") 'tab-line-switch-to-prev-tab)
 (global-set-key (kbd "<C-delete>") 'bury-buffer)
-
-;;; tab-line }}
 
 
 ;;; Edit related
@@ -363,24 +358,20 @@ special major mode"
 (define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
 (setq evil-emacs-state-cursor 'bar)
 
-
 
-
-;; devdocs {{
+;; devdocs
 (with-eval-after-load 'devdocs
   (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
 (global-set-key (kbd "C-h q") 'devdocs-lookup)
 (global-set-key (kbd "C-h Q") 'devdocs-search)
-;; devdocs }}
 
 
-
 ;; 输入法相关
 
 ;; 目前还不知道是什么原因，下面这个这行设置不能生效，把这行保留是为
 ;; 了下次想追究这个原因的方便回忆
 
-;; (set-face-attribute 'rime-default-face nil :slant 'italic)
+(set-face-attribute 'rime-default-face nil :slant 'italic)
 
 ;; {{ rime mode line indicator
 
@@ -413,7 +404,6 @@ special major mode"
 ;; }}
 
 
-
 ;; EAF
 
 (defun fei-eaf-start ()
@@ -426,7 +416,6 @@ special major mode"
     (use-package s :defer t :ensure t)))
 
 
-
 ;; change-cursor-mode inspired manual solution
 
 (add-hook 'post-command-hook
@@ -435,7 +424,6 @@ special major mode"
 		       (setq cursor-type 'bar))))
 
 
-
 ;; Personal Keybindings
 
 (with-eval-after-load 'matlab-mode
@@ -449,7 +437,6 @@ special major mode"
 (global-set-key (kbd "C-|") 'fei-toggle-xhup-flypy)
 
 
-
 ;; ibuffer
 
 (global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))

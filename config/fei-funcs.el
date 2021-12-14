@@ -229,6 +229,12 @@ Otherwise, call `eshell/cd' with the result."
     (setf (buffer-substring start-pos end-pos) command)
     (end-of-line)))
 
+(defun +eshell/quit-or-delete-char (arg)
+  (interactive "p")
+  (if (and (eolp) (looking-back eshell-prompt-regexp nil))
+      (eshell-life-is-too-much)
+    (delete-char arg)))
+
 
 
 ;; IME related

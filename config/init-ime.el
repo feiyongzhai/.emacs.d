@@ -26,6 +26,8 @@
 ;; (setq pyim-page-length 5)
 ;; (setq pyim-page-tooltip 'posframe)
 
+
+
 ;;; Rime
 
 ;;; 输入方案相关链接
@@ -42,7 +44,7 @@
 ;;; win10
 ;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
 
-;; 一些说明，最近更新的rime需要重新编译 librime-emacs.dll，但我的
+;; 一些说明: 最近更新的rime需要重新编译 librime-emacs.dll，但我的
 ;; windows编译环境没有配好，之前是用的上面连接编译好的。目前发现一个
 ;; workaround，就是修改rime源码相应部分，不让它重新编译。所以就采用了
 ;; submodule的方法
@@ -56,6 +58,7 @@
 ;; Keys
 (global-set-key (kbd "C-c i") 'fei-toggle-xhup-flypy)
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)

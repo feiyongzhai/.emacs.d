@@ -10,10 +10,9 @@
 (with-eval-after-load 'isearch
   (define-key isearch-mode-map (kbd "M-g") 'isearch-cancel)
   (define-key isearch-mode-map (kbd "DEL") 'isearch-del-char)
-  ;; M-j 曲线救国的方案，因为通过这样的快捷键设置后，我可以通过连续按
-  ;; 两次 M-j 来完成 force enable 输入法的功能，如果能力够的化，我希望
-  ;; 可以直接一个 M-j 就可以进入 isearch-edit-string 的 minibuffer 中，
-  ;; 并启用输入法
+  ;; M-j 配合 `isearch-mode-hook' 和 `isearch-mode-end-hook' 可以完成
+  ;; 在 isearch 的情况下也是 "输入中文" 这个功能，这样 M-j 按键的功能
+  ;; 就有一致性的表现了
   (define-key isearch-mode-map (kbd "M-j") 'isearch-edit-string)
   )
 
@@ -32,7 +31,6 @@
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
     ("C-'" . avy-isearch)
-    ("M-h" . isearch-exit)
     ("M-s j" . avy-isearch)
     ("M-w" . fei-isearch-copy-region)
     ("<C-return>" . prot-search-isearch-other-end)

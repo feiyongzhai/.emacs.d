@@ -10,7 +10,7 @@
 	     (setq display-line-numbers-relative-p nil))
     (menu-bar--display-line-numbers-mode-relative)
     (setq display-line-numbers-relative-p t)))
-;; }} 
+;; }}
 
 
 ;; {{ `next-same-major-mode-buffer'

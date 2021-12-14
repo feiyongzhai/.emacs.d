@@ -29,7 +29,7 @@ Argument ARG if not nil, switching in a new window."
    (concat
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
     (if search-string
-	(eshell-flatten-and-stringify search-string)	
+	(eshell-flatten-and-stringify search-string)
       (if mark-active
           (buffer-substring-no-properties (region-beginning) (region-end))
 	(read-string "Google: "))))))
@@ -102,7 +102,9 @@ kill region instead"
 	(when (eq major-mode 'term-mode)
 	  (throw 'done (switch-to-buffer buf)))))))
 
-;; {{
+
+;; Eshell Related
+;; {{ `next-eshell-buffer'
 
 ;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
 (defvar num-of-eshell 0)
@@ -235,8 +237,15 @@ Otherwise, call `eshell/cd' with the result."
       (eshell-life-is-too-much)
     (delete-char arg)))
 
-
+(defun eshell/bash ()
+  (ansi-term (executable-find "bash")))
 
+(defun eshell/fish ()
+  (ansi-term (executable-find "fish"))
+  (toggle-truncate-lines))
+
+;; Eshell Related End
+
 ;; IME related
 
 (defun fei-rime-force-enable ()

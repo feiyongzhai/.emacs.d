@@ -1,6 +1,8 @@
 ;;; init-ime.el  --- 中文输入法相关配置 rime & pyim
 
 (require 'fei-funcs)
+(require 'pyim)
+(pyim-isearch-mode t)
 
 ;;; Pyim
 
@@ -9,7 +11,6 @@
   (pyim-basedict-enable)
   (setq pyim-default-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
-  ;; (pyim-isearch-mode 1)
   )
 ;; (setq default-input-method "pyim")
 ;; (setq-default pyim-english-input-switch-functions

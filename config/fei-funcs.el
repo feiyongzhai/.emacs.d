@@ -399,32 +399,4 @@ confines of word boundaries (e.g. multiple words)."
   (isearch-exit)
   (call-interactively 'copy-region-as-kill))
 
-(defun fei-search-forward ()
-  "这个函数的出现是为了解决 isearch 和 rime 输入冲突的情况"
-  (interactive)
-  (if (not (string= current-input-method "rime"))
-      (call-interactively 'isearch-forward)
-    (deactivate-input-method)		; 之所以这里是禁用输入法，是基
-					; 于这么一个判断：我用 isearch
-					; 更多的时候是用来搜字符，如果
-					; 是搜索中文，我有预期要启用输
-					; 入法，这也是我的使用习惯导致
-					; 的，但是这个思路有引入了另外
-					; 一个问题：当中英文字体不是等
-					; 高的时候，mode line 就会因为
-					; 输入法指示 "ㄓ" 的出现和消失
-					; 跳来跳去，当然这个也可以通过
-					; 设置 "等距更纱黑体" 字体来解
-					; 决。不过我也意识到了：我也不
-					; 会很频繁地有这样的操作
-    (call-interactively 'isearch-forward)))
-
-(defun fei-search-backward ()
-  "这个函数的出现是为了解决 isearch 和 rime 输入冲突的情况"
-  (interactive)
-  (if (not (string= current-input-method "rime"))
-      (call-interactively 'isearch-backward)
-    (deactivate-input-method)
-    (call-interactively 'isearch-backward)))
-
 (provide 'fei-funcs)

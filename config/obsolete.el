@@ -48,7 +48,8 @@ special major mode"
 ;; }} 
 
 
-;; {{ `fei-search-symbol-at-point'
+;; Isearch Related
+
 (defun fei-search-symbol-at-point ()
   (interactive)
   (cond
@@ -60,10 +61,37 @@ special major mode"
     (if ctrlf-local-mode
 	(ctrlf-forward-default)
       (isearch-forward)))))
-;; }}
+
+(defun fei-search-forward ()
+  "这个函数的出现是为了解决 isearch 和 rime 输入冲突的情况"
+  (interactive)
+  (if (not (string= current-input-method "rime"))
+      (call-interactively 'isearch-forward)
+    (deactivate-input-method)		; 之所以这里是禁用输入法，是基
+					; 于这么一个判断：我用 isearch
+					; 更多的时候是用来搜字符，如果
+					; 是搜索中文，我有预期要启用输
+					; 入法，这也是我的使用习惯导致
+					; 的，但是这个思路有引入了另外
+					; 一个问题：当中英文字体不是等
+					; 高的时候，mode line 就会因为
+					; 输入法指示 "ㄓ" 的出现和消失
+					; 跳来跳去，当然这个也可以通过
+					; 设置 "等距更纱黑体" 字体来解
+					; 决。不过我也意识到了：我也不
+					; 会很频繁地有这样的操作
+    (call-interactively 'isearch-forward)))
+
+(defun fei-search-backward ()
+  "这个函数的出现是为了解决 isearch 和 rime 输入冲突的情况"
+  (interactive)
+  (if (not (string= current-input-method "rime"))
+      (call-interactively 'isearch-backward)
+    (deactivate-input-method)
+    (call-interactively 'isearch-backward)))
 
 
-;; {{ org-agenda related
+;; Org-agenda related
 
 ;; (when (display-graphic-p)
 ;;   (org-agenda nil "a")
@@ -73,9 +101,8 @@ special major mode"
 ;; 		       (org-agenda nil "a")
 ;; 		       (delete-other-windows))))
 
-;; }}
 
-;;; {{ vc related config
+;; VC Related config
 
 ;; (global-set-key (kbd "s-v") 'vc-prefix-map)
 ;; (global-set-key (kbd "s-v s-v") 'vc-next-action)
@@ -85,17 +112,16 @@ special major mode"
 ;;   (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
 ;;   (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
 
-;;; }}
 
 
-;;; {{ matlab related
+;; Matlab Related
 (autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
-;;; }}
+
 
 
-;;; {{ company & yasnippet
+;; company & yasnippet
 (with-eval-after-load 'yasnippet
   (with-eval-after-load 'company
     (global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
@@ -136,10 +162,8 @@ special major mode"
   (company-cancel)
   (call-interactively 'company-yasnippet))
 
-;;; }}
-
 
-;;; {{ tab related
+;; Tab related
 
 (transient-command tab-next
   (tab-next)
@@ -150,8 +174,6 @@ special major mode"
   (tab-previous)
   '(("o" . tab-next)
     ("O" . tab-previous)))
-
-;;; }}
 
 
 ;;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失

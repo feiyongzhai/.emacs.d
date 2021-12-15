@@ -3,6 +3,8 @@
 (require 'init-func)
 (require 'fei-funcs)
 
+(setq eshell-history-size 500)
+
 ;;; Keys
 
 (fei-define-key-with-map global-map

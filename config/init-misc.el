@@ -60,6 +60,7 @@
 (global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
+;; helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (global-set-key (kbd "C-h O") 'helpful-at-point)
@@ -67,18 +68,11 @@
 
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
-;; {{ y-or-n
+;; y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
-;; }} y-or-n
-
-(transient-command undo (undo) '(("u" . undo)))
-
-;; apt-utils
-(load-path-add "~/.emacs.d/extensions/")
-(require 'apt-utils)
 
 ;;; Misc
 
@@ -95,6 +89,17 @@
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 
+;; apt-utils
+(load-path-add "~/.emacs.d/extensions/")
+(require 'apt-utils)
+
+;; fasd
+(with-eval-after-load 'ivy
+  ;; 因为 fasd 的原因，需要在 ivy 之后加载
+  (global-fasd-mode t)
+  (setq fasd-enable-initial-prompt nil)
+  (global-set-key (kbd "C-x M-h") 'fasd-find-file))
+
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
@@ -104,4 +109,3 @@
 (put 'downcase-region 'disabled nil)
 
 (provide 'init-misc)
-;;; init-misc.el ends here.

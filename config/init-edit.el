@@ -60,6 +60,8 @@
 (global-set-key (kbd "C-x C-l") nil)
 (global-set-key (kbd "C-x C-u") nil)
 
+(transient-command undo (undo) '(("u" . undo)))
+
 (load-path-add "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
 (defun fei-duplicate-line-or-region (&optional arg)

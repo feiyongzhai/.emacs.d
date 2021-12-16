@@ -8,12 +8,14 @@
 
 (with-eval-after-load 'ivy
   ;; ivy 支持拼音搜索
-  ;; @COPY: https://emacs-china.org/t/ivy-read/2432/6?u=yongfeizhai
+  ;; @REF: https://emacs-china.org/t/ivy-read/2432/6?u=yongfeizhai
   (defun eh-ivy-cregexp (str)
-    (concat
-     (ivy--regex-plus str)
-     "\\|"
-     (pyim-cregexp-build str)))
+    (if (eq 0 (length str))
+	(ivy--regex-plus str)
+      (concat
+       (ivy--regex-plus str)
+       "\\|"
+       (pyim-cregexp-build str))))
 
   (setq ivy-re-builders-alist
 	'((t . eh-ivy-cregexp))))

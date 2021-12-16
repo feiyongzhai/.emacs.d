@@ -89,6 +89,9 @@ special major mode"
     (deactivate-input-method)
     (call-interactively 'isearch-backward)))
 
+;; 一个基于 ivy 的很有意思的解决方案，记录备忘一下
+(global-set-key (kbd "C-s") (li (let ((ivy-height 1))
+				  (swiper-isearch))))
 
 ;; Org-agenda related
 

@@ -4,6 +4,7 @@
 (require 'fei-funcs)
 
 (setq eshell-history-size 500)
+(setq eshell-cmpl-ignore-case t)
 
 ;;; Keys
 

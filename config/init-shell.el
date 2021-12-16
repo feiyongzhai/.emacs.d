@@ -5,6 +5,9 @@
 
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)
+;; 这个命令总是会引入一些问题：暂时把这个关了，避免自己在日常使用中不
+;; 小心启用这个里面的功能
+(setq eshell-visual-commands nil)
 
 ;;; Keys
 

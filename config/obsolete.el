@@ -302,6 +302,16 @@ special major mode"
 
 ;;; tab-line
 
+;; 这个配置有 bug
+;;
+;; 复现步骤：
+;; 1. 打开 eshell 运行 tmux
+;; 2. 然后在打开 ansi-term 之后 term-raw-map 中就没有 C-c 开头的快捷键了，此时 C-c => term-send-raw
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
+	    (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
+
 (global-set-key (kbd "<C-next>") 'tab-line-switch-to-next-tab)
 (global-set-key (kbd "<C-prior>") 'tab-line-switch-to-prev-tab)
 (global-set-key (kbd "<C-delete>") 'bury-buffer)

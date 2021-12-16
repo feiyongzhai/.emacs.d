@@ -109,11 +109,6 @@
     ("/" . bury-buffer)
     ))
 
-(add-hook 'term-mode-hook
-	  (lambda ()
-	    (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
-	    (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
-
 ;;; tab-line }}
 
 (provide 'init-window-buffer-tab)

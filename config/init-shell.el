@@ -55,17 +55,5 @@
   (remove-hook 'comint-output-filter-functions
 	       'comint-postoutput-scroll-to-bottom))
 
-;;; Eshell commands and alias
-
-(defalias 'open 'find-file-other-window)
-(defalias 'eshell/e 'eshell/edit)
-
-(with-eval-after-load 'eshell
-  (require 'eshell-up)
-  (defalias 'eshell/u 'eshell-up)
-  (defalias 'eshell/up 'eshell-up))
-
-(defalias 'eshell/s 'eshell/eaf-search)
-
 (provide 'init-shell)
 ;;; init-shell.el ends here.

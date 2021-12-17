@@ -321,7 +321,6 @@ Otherwise, call `eshell/cd' with the result."
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
-(defalias 'eshell/ks 'fei-org-capture-SAR)
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
@@ -329,7 +328,6 @@ Otherwise, call `eshell/cd' with the result."
   (require 'rime)
   (activate-input-method 'rime))
 
-(defalias 'eshell/kw 'fei-org-capture-WANT)
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
@@ -337,7 +335,6 @@ Otherwise, call `eshell/cd' with the result."
   (require 'rime)
   (activate-input-method 'rime))
 
-(defalias 'eshell/k 'fei-org-capture-note)
 (defun fei-org-capture-note ()
   (interactive)
   (org-capture nil "i")
@@ -345,7 +342,6 @@ Otherwise, call `eshell/cd' with the result."
   (require 'rime)
   (activate-input-method 'rime))
 
-(defalias 'eshell/kd 'fei-org-capture-diary)
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")

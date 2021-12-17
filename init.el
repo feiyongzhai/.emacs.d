@@ -30,7 +30,7 @@
 (require 'init-auto-save)
 (require 'init-edit)
 (require 'init-awesome-pair)
-(require 'init-quick-open)
+(require 'init-alias)
 (require 'init-cursor)
 (when *is-linux*
   (require 'init-linux))

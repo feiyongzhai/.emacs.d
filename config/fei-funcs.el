@@ -238,9 +238,11 @@ Otherwise, call `eshell/cd' with the result."
     (delete-char arg)))
 
 (defun eshell/bash ()
+  (interactive)
   (ansi-term (executable-find "bash")))
 
 (defun eshell/fish ()
+  (interactive)
   (ansi-term (executable-find "fish"))
   (toggle-truncate-lines))
 

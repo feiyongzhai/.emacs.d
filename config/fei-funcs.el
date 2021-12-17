@@ -231,6 +231,7 @@ Otherwise, call `eshell/cd' with the result."
     (setf (buffer-substring start-pos end-pos) command)
     (end-of-line)))
 
+;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
 (defun +eshell/quit-or-delete-char (arg)
   (interactive "p")
   (if (and (eolp) (looking-back eshell-prompt-regexp nil))
@@ -279,7 +280,7 @@ Otherwise, call `eshell/cd' with the result."
   (call-interactively 'rime-force-enable)
   )
 
-;;; {{ a switch between xhup & flypy
+;;; {{ switch between xhup & flypy
 
 (defvar rime--flypy-p nil
   "输入法默认的状态是小鹤双拼+posframe的显示格式")
@@ -301,8 +302,7 @@ Otherwise, call `eshell/cd' with the result."
 ;;; }}
 
 
-
-;; org related
+;; Org related
 
 (defun fei-org-capture ()
   (interactive)
@@ -392,7 +392,6 @@ Otherwise, call `eshell/cd' with the result."
 			   line "," column ")"))))
 
 
-
 ;; EAF related
 
 (defun fei-eaf-open-browser (url &optional _new-window)
@@ -412,7 +411,6 @@ Otherwise, call `eshell/cd' with the result."
   (eaf-file-browser-qrcode (substring (pwd) 10)))
 
 
-
 ;; isearch related
 
 (defun prot-search-isearch-other-end ()
@@ -428,5 +426,14 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (isearch-exit)
   (call-interactively 'copy-region-as-kill))
+
+
+;; VC
+(defun fei-vc-dired-jump (arg)
+  (interactive "P")
+  (let ((target-dir (or (vc-root-dir)
+                        default-directory)))
+    (vc-dir target-dir))
+  )
 
 (provide 'fei-funcs)

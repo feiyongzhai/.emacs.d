@@ -222,7 +222,7 @@ special major mode"
 (global-set-key (kbd "s-3") (lambda () (interactive) (split-window-right) (other-window 1)))
 
 
-;;; Eshell
+;;; Eshell Related
 
 (add-hook 'eshell-mode-hook
 	  (lambda ()
@@ -231,6 +231,51 @@ special major mode"
 (add-hook 'eshell-mode-hook
 	  (lambda ()
 	    (setq-local recenter-positions '(top middle bottom))))
+
+;; @REF https://www.emacswiki.org/emacs/EshellAutojump
+(defun eshell/j (&rest args)
+  "Jump to a directory you often cd to.
+This compares the argument with the list of directories you usually jump to.
+Without an argument, list the ten most common directories.
+With a positive integer argument, list the n most common directories.
+Otherwise, call `eshell/cd' with the result."
+  (setq args (eshell-flatten-list args))
+  (let ((arg (or (car args) 10))
+	(map (make-hash-table :test 'equal))
+	(case-fold-search (eshell-under-windows-p))
+	candidates
+	result)
+    ;; count paths in the ring and produce a map
+    (dolist (dir (ring-elements eshell-last-dir-ring))
+      (if (gethash dir map)
+	  (puthash dir (1+ (gethash dir map)) map)
+	(puthash dir 1 map)))
+    ;; use the map to build a sorted list of candidates
+    (maphash (lambda (key value)
+	       (setq candidates (cons key candidates)))
+	     map)
+    (setq candidates (sort candidates
+			   (lambda (a b)
+			     (> (gethash a map)
+				(gethash b map)))))
+    ;; list n candidates or jump to most popular candidate
+    (if (and (integerp arg) (> arg 0))
+	(progn
+	  (let ((n (nthcdr (1- arg) candidates)))
+	    (when n
+	      (setcdr n nil)))
+	  (eshell-lisp-command
+	   (mapconcat (lambda (s)
+			(format "%4d %s" (gethash s map) s))
+		      candidates "\n")))
+      (while (and candidates (not result))
+	(if (string-match arg (car candidates))
+	    (setq result (car candidates))
+	  (setq candidates (cdr candidates))))
+      (eshell/cd result))))
+
+;; Eshell Related End
+
 
 ;;; Windows
 

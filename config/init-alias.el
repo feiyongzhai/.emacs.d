@@ -25,5 +25,6 @@
 (defalias 'eshell/kw 'fei-org-capture-WANT)
 (defalias 'eshell/k 'fei-org-capture-note)
 (defalias 'eshell/kd 'fei-org-capture-diary)
+(defalias 'eshell/j 'samray/eshell-fasd-z)
 
 (provide 'init-alias)

@@ -168,48 +168,6 @@ kill region instead"
 	    (find-file-other-tab x))
 	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
 
-;; @ref https://www.emacswiki.org/emacs/EshellAutojump
-(defun eshell/j (&rest args)
-  "Jump to a directory you often cd to.
-This compares the argument with the list of directories you usually jump to.
-Without an argument, list the ten most common directories.
-With a positive integer argument, list the n most common directories.
-Otherwise, call `eshell/cd' with the result."
-  (setq args (eshell-flatten-list args))
-  (let ((arg (or (car args) 10))
-	(map (make-hash-table :test 'equal))
-	(case-fold-search (eshell-under-windows-p))
-	candidates
-	result)
-    ;; count paths in the ring and produce a map
-    (dolist (dir (ring-elements eshell-last-dir-ring))
-      (if (gethash dir map)
-	  (puthash dir (1+ (gethash dir map)) map)
-	(puthash dir 1 map)))
-    ;; use the map to build a sorted list of candidates
-    (maphash (lambda (key value)
-	       (setq candidates (cons key candidates)))
-	     map)
-    (setq candidates (sort candidates
-			   (lambda (a b)
-			     (> (gethash a map)
-				(gethash b map)))))
-    ;; list n candidates or jump to most popular candidate
-    (if (and (integerp arg) (> arg 0))
-	(progn
-	  (let ((n (nthcdr (1- arg) candidates)))
-	    (when n
-	      (setcdr n nil)))
-	  (eshell-lisp-command
-	   (mapconcat (lambda (s)
-			(format "%4d %s" (gethash s map) s))
-		      candidates "\n")))
-      (while (and candidates (not result))
-	(if (string-match arg (car candidates))
-	    (setq result (car candidates))
-	  (setq candidates (cdr candidates))))
-      (eshell/cd result))))
-
 (defun eshell/eaf-search (&rest strings)
   (interactive)
   (if (null strings)
@@ -267,6 +225,21 @@ Otherwise, call `eshell/cd' with the result."
     (let ((unpack-command (concat command " " file " " (mapconcat 'identity args " "))))
       (eshell/printnl "Unpack command: " unpack-command)
       (eshell-command-result unpack-command))
+    ))
+
+;; @REF https://0x709394.me/Fasd%E4%B8%8E-Eshell%E7%9A%84%E4%B8%8D%E6%9C%9F%E8%80%8C%E9%81%87
+(defun samray/eshell-fasd-z (&rest args)
+  "Use fasd to change directory more effectively by passing ARGS."
+  (setq args (eshell-flatten-and-stringify args))
+  (let* ((fasd (concat "fasd -d" args))
+	 (fasd-result (shell-command-to-string fasd))
+	 (path (replace-regexp-in-string "\n$" "" fasd-result))
+	 )
+    (if (eq 0 (length args))
+	(call-interactively 'fasd-find-file)
+      (eshell/cd path)
+      ;; (eshell/echo path)
+      )
     ))
 
 ;; Eshell Related End

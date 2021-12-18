@@ -436,4 +436,10 @@ confines of word boundaries (e.g. multiple words)."
     (vc-dir target-dir))
   )
 
+
+;; Misc
+(defun fei-emacs ()
+  (interactive)
+  (start-process "emacs" nil "emacs"))
+
 (provide 'fei-funcs)

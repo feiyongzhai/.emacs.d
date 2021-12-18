@@ -57,7 +57,7 @@
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
 
-(global-set-key (kbd "<M-f12>") (li (start-process "emacs" nil "emacs")))
+(global-set-key (kbd "<M-f12>") 'fei-emacs)
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
 ;; helpful

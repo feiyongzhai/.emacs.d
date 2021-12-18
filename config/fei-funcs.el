@@ -231,15 +231,17 @@ kill region instead"
 (defun samray/eshell-fasd-z (&rest args)
   "Use fasd to change directory more effectively by passing ARGS."
   (setq args (eshell-flatten-and-stringify args))
-  (let* ((fasd (concat "fasd -d" args))
+  (let* ((fasd (concat "fasd " args))
 	 (fasd-result (shell-command-to-string fasd))
 	 (path (replace-regexp-in-string "\n$" "" fasd-result))
 	 )
     (if (eq 0 (length args))
 	(call-interactively 'fasd-find-file)
-      (eshell/cd path)
-      ;; (eshell/echo path)
-      )
+      (if (file-regular-p path)
+	  (eshell/e path)
+	(eshell/cd path)
+	;; (eshell/echo path)
+	))
     ))
 
 ;; Eshell Related End

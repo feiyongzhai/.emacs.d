@@ -244,6 +244,9 @@ kill region instead"
 	))
     ))
 
+(defun fei-fasd-delete-file-from-db (file)
+  (start-process "*fasd*" nil "fasd" "-D" file))
+
 ;; Eshell Related End
 
 

@@ -22,3 +22,6 @@
 [submodule "extensions/one-key"]
 	path = extensions/one-key
 	url = https://github.com/manateelazycat/one-key.git
+[submodule "extensions/fasd"]
+	path = extensions/fasd
+	url = https://github.com/feiyongzhai/fasd.git

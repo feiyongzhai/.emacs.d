@@ -94,13 +94,11 @@
 (require 'apt-utils)
 
 ;; fasd
+(load-path-add "~/.emacs.d/extensions/fasd")
 (with-eval-after-load 'ivy
   ;; 因为 fasd 的原因，需要在 ivy 之后加载
-  (with-eval-after-load 'fasd
-    (ivy-set-actions
-     'fasd-find-file
-     '(("o" fasd-find-file-action "find-file")
-       ("d" fei-fasd-delete-file-from-db "delete-file-from-db"))))
+  (require 'fasd)
+  (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
   (setq fasd-enable-initial-prompt nil)
   (global-set-key (kbd "C-x M-h") 'fasd-find-file))

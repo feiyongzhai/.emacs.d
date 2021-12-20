@@ -13,6 +13,7 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 
+(setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 
 (setq minimap-window-location 'right)

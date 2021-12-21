@@ -369,6 +369,14 @@ kill region instead"
 		   (concat "+call cursor("
 			   line "," column ")"))))
 
+(defun open-current-file-with-emacsq ()
+  (interactive)
+  (let ((line (number-to-string (line-number-at-pos)))
+	;; emacs 中的 column 是从 0 开始计数的
+	(column (number-to-string (1+ (current-column)))))
+    (start-process "emacsq" nil "emacs" "-Q"
+		   (concat "+" line ":" column)
+		   (buffer-file-name))))
 
 ;; EAF related
 
@@ -419,5 +427,10 @@ confines of word boundaries (e.g. multiple words)."
 (defun fei-emacs ()
   (interactive)
   (start-process "emacs" nil "emacs"))
+
+(defun fei-occur-at-point ()
+  (interactive)
+  (let (case-fold-search)
+    (occur (concat "\\_<" (thing-at-point 'symbol) "\\_>"))))
 
 (provide 'fei-funcs)

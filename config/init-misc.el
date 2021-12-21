@@ -37,7 +37,7 @@
 
 ;;; Keys
 (fei-define-key-with-map global-map
-  `(("<insert>" . nil)
+  `(("<insert>" . fei-occur-at-point)
     ("M-g i"    . imenu)
     ("C-x F"    . set-fill-column)
     ("<f5>"     . fei-simple-compile)

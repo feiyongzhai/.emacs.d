@@ -50,6 +50,8 @@
     ("C" . thing-cut-comment)
     ("H" . thing-cut-defun)
     ("P" . thing-cut-parentheses)
+    ("A" . thing-cut-to-line-beginning)
+    ("E" . thing-cut-to-line-end)
     ("L" . thing-cut-line))
   "thing-edit")
 

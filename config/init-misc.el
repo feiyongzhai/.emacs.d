@@ -38,6 +38,7 @@
 ;;; Keys
 (fei-define-key-with-map global-map
   `(("<insert>" . fei-occur-at-point)
+    ("<insertchar>" . fei-occur-at-point)
     ("M-g i"    . imenu)
     ("C-x F"    . set-fill-column)
     ("<f5>"     . fei-simple-compile)
@@ -66,6 +67,10 @@
 (global-set-key (kbd "C-h k") 'helpful-key)
 (global-set-key (kbd "C-h O") 'helpful-at-point)
 (global-set-key (kbd "<menu>") 'helpful-at-point)
+
+(define-key 'help-command (kbd "C-l") 'find-library)
+(define-key 'help-command (kbd "C-k") 'find-function-on-key)
+(define-key 'help-command (kbd "C-l") 'find-library)
 
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 

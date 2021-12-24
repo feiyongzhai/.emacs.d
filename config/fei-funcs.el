@@ -422,6 +422,13 @@ confines of word boundaries (e.g. multiple words)."
 
 
 ;; Misc
+
+(defun fei-toggle-ui ()
+  (interactive)
+  (if menu-bar-mode (menu-bar-mode -1) (menu-bar-mode t))
+  (if tool-bar-mode (tool-bar-mode -1) (tool-bar-mode t))
+  (if scroll-bar-mode (scroll-bar-mode -1) (scroll-bar-mode t)))
+
 (defun fei-emacs ()
   (interactive)
   (start-process "emacs" nil "emacs"))

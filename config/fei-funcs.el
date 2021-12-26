@@ -455,4 +455,16 @@ confines of word boundaries (e.g. multiple words)."
   (let (case-fold-search)
     (occur (concat "\\_<" (thing-at-point 'symbol) "\\_>"))))
 
+
+;; Dired
+
+(load-path-add "~/.emacs.d/extensions/dired-hacks")
+(require 'dired-ranger)
+
+(defun fei-dired-paste/move (arg)
+  (interactive "P")
+  (if arg
+      (call-interactively 'dired-ranger-move)
+    (call-interactively 'dired-ranger-paste)))
+
 (provide 'fei-funcs)

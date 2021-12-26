@@ -25,3 +25,6 @@
 [submodule "extensions/fasd"]
 	path = extensions/fasd
 	url = https://github.com/feiyongzhai/fasd.git
+[submodule "extensions/dired-hacks"]
+	path = extensions/dired-hacks
+	url = https://github.com/feiyongzhai/dired-hacks.git

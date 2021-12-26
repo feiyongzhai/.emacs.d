@@ -1,4 +1,6 @@
 ;;; init-dired.el --- configs for dired
+(load-path-add "~/.emacs.d/extensions/dired-hacks")
+(require 'dired-ranger)
 (require 'fei-funcs)
 (require 'dired-x)
 
@@ -19,14 +21,15 @@
       ("j" . dired-next-line)
       ("k" . dired-previous-line)
       ("l" . dired-find-file)
-      ("c" . dired-do-copy)
-      ("C" . dired-do-compress-to)
-      ("r" . dired-do-rename)
       ("e" . wdired-change-to-wdired-mode)
       ("." . fei-dired-toggle-hidden)
       ("'" . fei-eshell-cd-here)
       ("`" . dired-open-term)
-      ("<tab>" . dired-subtree-toggle)
+      ("V" . dired-view-file)
+      ("M-w" . dired-ranger-copy)
+      ("C-y" . fei-dired-paste/move)
+      ("c" . dired-do-copy)
+      ("r" . dired-do-rename)
       )))
 
 ;;; Vars

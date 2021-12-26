@@ -16,13 +16,8 @@
   (define-key isearch-mode-map (kbd "M-j") 'isearch-edit-string)
   )
 
-(defvar isearch-end-activate-input-method-predicate nil)
-(add-hook 'isearch-mode-hook (lambda () (when (string= current-input-method "rime")
-					  (deactivate-input-method)
-					  (setq isearch-end-activate-input-method-predicate t))))
-(add-hook 'isearch-mode-end-hook (lambda () (when isearch-end-activate-input-method-predicate
-					      (activate-input-method "rime")
-					      (setq isearch-end-activate-input-method-predicate nil))))
+(add-hook 'isearch-mode-hook '+fei-isearch-deacivate-input-method)
+(add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
 
 (global-set-key (kbd "s-s") 'fei-google-search)
 (global-set-key (kbd "M-s p") 'pinyin-search)

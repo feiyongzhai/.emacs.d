@@ -70,7 +70,9 @@
 
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
-(define-key 'help-command (kbd "C-l") 'find-library)
+(define-key 'help-command (kbd "C-v") 'find-variable)
+(define-key 'help-command (kbd "C-f") 'find-function)
+(define-key 'help-command (kbd "C-i") 'info-display-manual)
 
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 

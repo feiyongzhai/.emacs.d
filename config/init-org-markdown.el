@@ -1,8 +1,11 @@
-;;; init-org-markdown.el == config for Org/Markdown
+;;; init-org-markdown.el == configs for Org/Markdown
 
 (require 'fei-funcs)
 
-;; {{ Keys
+;; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
+(add-hook 'org-mode-hook 'org-indent-mode)
+
+;; Keys
 (with-eval-after-load 'markdown-mode
   (fei-define-key-with-map markdown-mode-map
     '(
@@ -64,19 +67,19 @@
   (setq org-capture-templates
 	'(("t" "Task" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
-	   "* TODO %?\n  CREATE: %T\n"
+	   "* TODO %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("s" "SomeDay" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
-	   "* SOMEDAY %?\n  CREATE: %T\n"
+	   "* SOMEDAY %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("S" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
-	   "* TODO %?\n  CREATE: %T\n"
+	   "* TODO %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
-	   "* %?\n  CREATE: %T\n"
+	   "* %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/diary.org")
@@ -85,14 +88,14 @@
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
-	   "* %?\n  CREATE: %T\n  #+begin_src emacs-lisp\n%c\n  #+end_src"
+	   "* %?\nCREATE: %T\n#+begin_src emacs-lisp\n%c\n#+end_src"
 	   :empty-lines-after 1)
 	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
-	   "* %?\n  CREATE: %T\n  #+begin_src shell\n%c\n  #+end_src"
+	   "* %?\nCREATE: %T\n#+begin_src shell\n%c\n#+end_src"
 	   :empty-lines-after 1))))
 
-;;; {{ org-download
+;;; Org-download
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
 (org-download-enable)

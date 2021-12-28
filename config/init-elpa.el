@@ -57,6 +57,7 @@
         openwith
 	dired-subtree
 	helpful
+	electric-spacing-mode
 	))
 
 (when *is-linux*

@@ -23,6 +23,7 @@
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 
 (add-hook 'matlab-mode-hook 'electric-pair-local-mode)
+(add-hook 'matlab-mode-hook 'electric-spacing-mode)
 
 
 (provide 'init-matlab-octave)

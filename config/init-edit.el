@@ -16,7 +16,7 @@
 ;; (setq recenter-positions '(top middle bottom))
 
 (setq neo-theme 'ascii)
-(global-set-key (kbd "C-c n") 'neotree-toggle)
+(global-set-key (kbd "C-c n") 'neotree-show)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
   (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)

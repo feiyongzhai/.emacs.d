@@ -300,6 +300,7 @@ kill region instead"
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
+  (delete-other-windows)
   (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))
@@ -314,6 +315,7 @@ kill region instead"
 (defun fei-org-capture-note ()
   (interactive)
   (org-capture nil "i")
+  (delete-other-windows)
   (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))
@@ -325,8 +327,14 @@ kill region instead"
   (require 'rime)
   (activate-input-method 'rime))
 
+(defun fei-org-agenda ()
+  (interactive)
+  (org-agenda nil "a")
+  (delete-other-windows))
+
 (defun eshell/a ()
-  (org-agenda nil "a"))
+  (org-agenda nil "a")
+  (delete-other-windows))
 
 (defun fei-org-store-link ()
   (interactive)

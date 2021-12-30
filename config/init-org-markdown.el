@@ -33,6 +33,7 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture)
+(global-set-key (kbd "<f6>") 'fei-org-agenda)
 (global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f9>") 'fei-org-capture-WANT)

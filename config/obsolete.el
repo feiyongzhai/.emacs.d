@@ -281,6 +281,17 @@ Otherwise, call `eshell/cd' with the result."
 ;; Eshell Related End
 
 
+;; Term related
+
+(defun goto-term ()
+  (interactive)
+  (catch 'done
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+	(when (eq major-mode 'term-mode)
+	  (throw 'done (switch-to-buffer buf)))))))
+
+
 ;;; Windows
 
 (defun other-window-backward ()

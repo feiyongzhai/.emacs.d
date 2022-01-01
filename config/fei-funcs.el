@@ -91,16 +91,13 @@ kill region instead"
 
 (defun fei-ansi-term ()
   (interactive)
-  (unless (goto-term)
-    (ansi-term (getenv "SHELL"))))
-
-(defun goto-term ()
-  (interactive)
-  (catch 'done
-    (dolist (buf (buffer-list))
-      (with-current-buffer buf
-	(when (eq major-mode 'term-mode)
-	  (throw 'done (switch-to-buffer buf)))))))
+  (if (get-buffer "*ansi-term*")
+      (switch-to-buffer "*ansi-term*")
+    (ansi-term (getenv "SHELL")))
+  ;; Workaround: 避免在 term 中用 back 之后，再在 eshell 中用
+  ;; bash(fei-term-cd-here) 会出现光标位置出现在不期望的地方的情况
+  (term-send-end)
+  nil)
 
 
 ;; Eshell Related

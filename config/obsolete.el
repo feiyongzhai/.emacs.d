@@ -274,6 +274,10 @@ Otherwise, call `eshell/cd' with the result."
 	  (setq candidates (cdr candidates))))
       (eshell/cd result))))
 
+(defun eshell/bash ()
+  (interactive)
+  (ansi-term (executable-find "bash")))
+
 ;; Eshell Related End
 
 

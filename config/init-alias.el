@@ -15,6 +15,7 @@
 (defalias 'open 'find-file-other-window)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/s 'eshell/eaf-search)
+(defalias 'eshell/bash 'fei-ansi-term)
 
 (with-eval-after-load 'eshell
   (require 'eshell-up)

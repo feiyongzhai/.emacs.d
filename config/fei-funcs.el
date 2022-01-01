@@ -196,10 +196,6 @@ kill region instead"
       (eshell-life-is-too-much)
     (delete-char arg)))
 
-(defun eshell/bash ()
-  (interactive)
-  (ansi-term (executable-find "bash")))
-
 (defun eshell/fish ()
   (interactive)
   (ansi-term (executable-find "fish"))

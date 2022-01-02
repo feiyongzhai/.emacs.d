@@ -16,6 +16,7 @@
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/s 'eshell/eaf-search)
 (defalias 'eshell/bash 'fei-ansi-term)
+(defalias 'eshell/bashj 'fei-term-cd-here)
 
 (with-eval-after-load 'eshell
   (require 'eshell-up)

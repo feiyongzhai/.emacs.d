@@ -87,7 +87,9 @@ kill region instead"
          (let ((v (tramp-dissect-file-name current-dir t)))
            (format "ssh %s@%s\n"
                    (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))))
+       (format "cd '%s'\n" current-dir)))
+    (term-send-left)
+    (term-send-right)))
 
 (defun fei-ansi-term ()
   (interactive)
@@ -96,7 +98,8 @@ kill region instead"
     (ansi-term (getenv "SHELL")))
   ;; Workaround: 避免在 term 中用 back 之后，再在 eshell 中用
   ;; bash(fei-term-cd-here) 会出现光标位置出现在不期望的地方的情况
-  (term-send-end)
+  (term-send-left)
+  (term-send-right)
   nil)
 
 

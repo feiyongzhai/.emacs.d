@@ -13,8 +13,8 @@
   )
 
 ;;; Leader Key
-;;; {{ need feature `general`
-;;; Evil related keys
+;; {{ need feature `general`
+;; Evil related keys
 (general-create-definer fei-space-leader-def
   :prefix "SPC"
   :states '(normal visual))
@@ -26,7 +26,6 @@
   "ff" 'ido-find-file
   "fo" 'ido-find-file-other-window
   )
-;;; }}
 
 ;;; Vars
 

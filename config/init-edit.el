@@ -4,7 +4,6 @@
 
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
-(global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
@@ -32,9 +31,6 @@
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
 
-(global-set-key (kbd "<home>") 'beginning-of-buffer)
-(global-set-key (kbd "<end>") 'end-of-buffer)
-
 ;;; Mark
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)
 (global-set-key (kbd "C-,") 'set-mark-command)
@@ -42,7 +38,6 @@
 ;;; Misc
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
-(global-set-key (kbd "<f7>") 'scratch)
 (global-set-key (kbd "<C-return>") 'fei-newline)
 (global-set-key (kbd "M-RET") 'fei-newline)
 (global-set-key (kbd "C-;") 'iedit-mode)

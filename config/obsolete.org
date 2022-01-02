@@ -360,6 +360,10 @@ change-cursor-mode inspired manual solution
     (find-name-dired "." arg))
 #+end_src
 
+#+begin_src emacs-lisp
+  (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
+#+end_src
+
 * Tab-line
 #+begin_src emacs-lisp
   ;; 这个配置有 bug
@@ -417,6 +421,12 @@ change-cursor-mode inspired manual solution
          (if (= (point) (progn (back-to-indentation) (point)))
              (beginning-of-line)))
 #+end_src
+
+<C-M-backspace> 这个按键在系统层面是绑定的 kill xorg 这个命令
+#+begin_src emacs-lisp
+  (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
+#+end_src
+
 * Evil
 evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
 
@@ -534,5 +544,19 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
     (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
     (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
 
+#+end_src
+
+* Octave
+#+begin_src emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+  (add-hook 'octave-mode-hook
+            (lambda ()
+              (progn
+                (setq octave-comment-char ?%)
+                (setq comment-start "% ")
+                (setq comment-add 0)
+                (setq comment-column 0)
+                )))
 #+end_src
 

@@ -12,6 +12,7 @@
 (global-set-key (kbd "M-k") 'fei-kill-current-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
+(global-set-key (kbd "M-s b") 'transient-last-buffer)
 
 ;;; Window
 (global-set-key (kbd "s-o") 'ace-window)
@@ -110,6 +111,10 @@
     ))
 
 ;;; tab-line }}
+
+(transient-command last-buffer
+  (call-interactively 'fei-meow-last-buffer)
+  '(("B" . switch-to-buffer)))
 
 (provide 'init-window-buffer-tab)
 ;;; init-windows.el ends here.

@@ -52,8 +52,6 @@
     ("C-h y"    . youdao-dictionary-search-from-input)
     ))
 
-(global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
-(global-set-key (kbd "M-S") 'fei-meow-last-buffer)
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)

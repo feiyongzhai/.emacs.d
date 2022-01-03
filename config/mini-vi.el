@@ -1,0 +1,6 @@
+;; (package-initialize)
+;; (evil-mode)
+(setq viper-mode t)
+(require 'viper)
+(ido-mode t)
+(setq ido-everywhere t)

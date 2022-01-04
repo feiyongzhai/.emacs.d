@@ -52,7 +52,6 @@
     ("C-7" . ,(li (tab-bar-select-tab 7)))
     ("C-8" . ,(li (tab-bar-select-tab 8)))
     ("C-9" . ,(li (tab-bar-select-tab 9)))
-    ("C-0" . tab-list)
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ))
@@ -114,7 +113,7 @@
 
 (transient-command last-buffer
   (call-interactively 'fei-meow-last-buffer)
-  '(("B" . switch-to-buffer)))
+  '(("b" . switch-to-buffer)))
 
 (provide 'init-window-buffer-tab)
 ;;; init-windows.el ends here.

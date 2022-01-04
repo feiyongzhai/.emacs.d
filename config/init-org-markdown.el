@@ -4,6 +4,7 @@
 
 ;; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
 (add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'yas-minor-mode)
 
 ;; Keys
 (with-eval-after-load 'markdown-mode

@@ -82,31 +82,21 @@
 ;; (custom-set-faces
 ;;  '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
 
-(global-set-key (kbd "C-c ,") 'transient-tab-line-prev)
-(global-set-key (kbd "C-c .") 'transient-tab-line-next)
-
-;;; 添加这一行，主要是因为 org 中占用了 C-c , 和 C-c .
-(with-eval-after-load 'org
-  (fei-define-key-with-map org-mode-map
-    '(
-      ("C-c ," . nil)
-      ("C-c ." . nil)
-      ("C-c M-," . org-priority)
-      ("C-c M-." . org-time-stamp)
-      )))
+(global-set-key (kbd "C-x <left>") 'transient-tab-line-prev)
+(global-set-key (kbd "C-x <right>") 'transient-tab-line-next)
 
 (transient-command tab-line-next
   (call-interactively 'tab-line-switch-to-next-tab)
-  '(("," . tab-line-switch-to-prev-tab)
-    ("." . tab-line-switch-to-next-tab)
-    ("/" . bury-buffer)
+  '(("<left>" . tab-line-switch-to-prev-tab)
+    ("<right>" . tab-line-switch-to-next-tab)
+    ("<down>" . bury-buffer)
     ))
 
 (transient-command tab-line-prev
   (call-interactively 'tab-line-switch-to-prev-tab)
-  '(("," . tab-line-switch-to-prev-tab)
-    ("." . tab-line-switch-to-next-tab)
-    ("/" . bury-buffer)
+  '(("<left>" . tab-line-switch-to-prev-tab)
+    ("<right>" . tab-line-switch-to-next-tab)
+    ("<down>" . bury-buffer)
     ))
 
 ;;; tab-line }}

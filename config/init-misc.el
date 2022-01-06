@@ -42,8 +42,6 @@
     ("M-g i"    . imenu)
     ("C-x F"    . set-fill-column)
     ("<f5>"     . fei-simple-compile)
-    ("M-h"      . find-file) ; inspired by emacstalk 嘉宾领峰
-    ("M-H"      . counsel-recentf)
     ("M-s y"    . counsel-yank-pop)
     ("M-g s"    . scratch)
     ("M-s M-w"  . fei-google-search)
@@ -107,7 +105,7 @@
   (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
   (setq fasd-enable-initial-prompt nil)
-  (global-set-key (kbd "C-x M-h") 'fasd-find-file))
+  (global-set-key (kbd "C-x M-f") 'fasd-find-file))
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

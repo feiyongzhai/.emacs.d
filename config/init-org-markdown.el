@@ -39,8 +39,6 @@
 (global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f9>") 'fei-org-capture-WANT)
 
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "M-h") nil))
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))

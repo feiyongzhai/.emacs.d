@@ -35,8 +35,6 @@
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
   (setq-default ivy-initial-inputs-alist nil)
-
-  (global-set-key (kbd "M-h") 'counsel-find-file)
   )
 
 (setq ivy-posframe-display-functions-alist

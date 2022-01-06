@@ -522,10 +522,6 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
 
 * Windows
 #+begin_src emacs-lisp
-  (defun other-window-backward ()
-    (interactive)
-    (other-window -1))
-
   (transient-command other-window-backward
     (other-window-backward)
     '(("o" . other-window)

@@ -453,6 +453,10 @@ confines of word boundaries (e.g. multiple words)."
 
 ;; Misc
 
+(defun other-window-backward ()
+  (interactive)
+  (other-window -1))
+
 (defun fei-toggle-ui ()
   (interactive)
   (if menu-bar-mode (menu-bar-mode -1) (menu-bar-mode t))

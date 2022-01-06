@@ -12,7 +12,7 @@
 ;;; Encode config {{
 
 ;; 任何地方都使用UTF-8
-(set-charset-priority 'unicode) 
+(set-charset-priority 'unicode)
 ;;; 此配置会导致在菜单栏选字体的时候出现乱码
 ;; (setq locale-coding-system   'utf-8)    ; pretty
 (set-terminal-coding-system  'utf-8)    ; pretty

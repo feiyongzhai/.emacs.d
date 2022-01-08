@@ -5,8 +5,20 @@
 ;;; Mode
 
 (winner-mode 1)
+(window-numbering-mode 1)
 
 ;;; Keys
+
+(global-set-key (kbd "C-0") 'delete-window)
+(global-set-key (kbd "C-1") 'delete-other-windows)
+(global-set-key (kbd "C-2") 'split-window-below)
+(global-set-key (kbd "C-3") 'split-window-right)
+(global-set-key (kbd "C-4") 'tab-new)
+(global-set-key (kbd "C-5") 'make-frame)
+(global-set-key (kbd "C-6") 'nil)
+(global-set-key (kbd "C-7") 'delete-frame)
+(global-set-key (kbd "C-8") 'tab-close)
+(global-set-key (kbd "C-9") 'global-tab-line-mode) ;这个感觉不太合理
 
 ;;; Buffer
 (global-set-key (kbd "M-k") 'fei-kill-current-buffer)
@@ -43,15 +55,15 @@
     ("C-x t n" . tab-new)
     ("C-x t R" . tab-rename)
     ("C-x t u" . tab-undo)
-    ("C-1" . ,(li (tab-bar-select-tab 1)))
-    ("C-2" . ,(li (tab-bar-select-tab 2)))
-    ("C-3" . ,(li (tab-bar-select-tab 3)))
-    ("C-4" . ,(li (tab-bar-select-tab 4)))
-    ("C-5" . ,(li (tab-bar-select-tab 5)))
-    ("C-6" . ,(li (tab-bar-select-tab 6)))
-    ("C-7" . ,(li (tab-bar-select-tab 7)))
-    ("C-8" . ,(li (tab-bar-select-tab 8)))
-    ("C-9" . ,(li (tab-bar-select-tab 9)))
+    ;; ("C-1" . ,(li (tab-bar-select-tab 1)))
+    ;; ("C-2" . ,(li (tab-bar-select-tab 2)))
+    ;; ("C-3" . ,(li (tab-bar-select-tab 3)))
+    ;; ("C-4" . ,(li (tab-bar-select-tab 4)))
+    ;; ("C-5" . ,(li (tab-bar-select-tab 5)))
+    ;; ("C-6" . ,(li (tab-bar-select-tab 6)))
+    ;; ("C-7" . ,(li (tab-bar-select-tab 7)))
+    ;; ("C-8" . ,(li (tab-bar-select-tab 8)))
+    ;; ("C-9" . ,(li (tab-bar-select-tab 9)))
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ))

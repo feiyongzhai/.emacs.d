@@ -58,7 +58,6 @@
 	dired-subtree
 	helpful
 	electric-spacing-mode
-	window-numbering-mode
 	))
 
 (when *is-linux*

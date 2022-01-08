@@ -5,7 +5,6 @@
 ;;; Mode
 
 (winner-mode 1)
-(window-numbering-mode 1)
 
 ;;; Keys
 
@@ -55,15 +54,15 @@
     ("C-x t n" . tab-new)
     ("C-x t R" . tab-rename)
     ("C-x t u" . tab-undo)
-    ;; ("C-1" . ,(li (tab-bar-select-tab 1)))
-    ;; ("C-2" . ,(li (tab-bar-select-tab 2)))
-    ;; ("C-3" . ,(li (tab-bar-select-tab 3)))
-    ;; ("C-4" . ,(li (tab-bar-select-tab 4)))
-    ;; ("C-5" . ,(li (tab-bar-select-tab 5)))
-    ;; ("C-6" . ,(li (tab-bar-select-tab 6)))
-    ;; ("C-7" . ,(li (tab-bar-select-tab 7)))
-    ;; ("C-8" . ,(li (tab-bar-select-tab 8)))
-    ;; ("C-9" . ,(li (tab-bar-select-tab 9)))
+    ("M-1" . ,(li (tab-bar-select-tab 1)))
+    ("M-2" . ,(li (tab-bar-select-tab 2)))
+    ("M-3" . ,(li (tab-bar-select-tab 3)))
+    ("M-4" . ,(li (tab-bar-select-tab 4)))
+    ("M-5" . ,(li (tab-bar-select-tab 5)))
+    ("M-6" . ,(li (tab-bar-select-tab 6)))
+    ("M-7" . ,(li (tab-bar-select-tab 7)))
+    ("M-8" . ,(li (tab-bar-select-tab 8)))
+    ("M-9" . ,(li (tab-bar-select-tab 9)))
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ))

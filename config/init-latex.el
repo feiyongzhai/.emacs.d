@@ -22,7 +22,7 @@
 (require 'ox-beamer)
 (with-eval-after-load 'ox-beamer
   (add-to-list 'org-latex-classes
-               '("ctexbeamer" "\\documentclass[presentation]{ctexbeamer}"
+               '("beamer" "\\documentclass[presentation]{ctexbeamer}"
 		 ("\\section{%s}" . "\\section*{%s}")
 		 ("\\subsection{%s}" . "\\subsection*{%s}")
 		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))

@@ -16,8 +16,8 @@
     ("<s-return>" . fei-terminal-here)
     ("<f12>" . open-current-file-with-emacsv)
     ("<f8>" . next-eshell-buffer)
-    ("<C-f8>" . fei-eshell-cd-here)
     ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
+    ("M-s M-j" . fei-eshell-cd-here)
     ("M-s j"  . eshell)
     ))
 

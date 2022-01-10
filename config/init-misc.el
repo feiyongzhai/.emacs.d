@@ -37,17 +37,19 @@
 
 ;;; Keys
 (fei-define-key-with-map global-map
-  `(("<insert>" . fei-occur-at-point)
+  `(("<insert>"     . fei-occur-at-point)
     ("<insertchar>" . fei-occur-at-point)
-    ("M-g i"    . imenu)
-    ("C-x F"    . set-fill-column)
-    ("<f5>"     . fei-simple-compile)
-    ("M-s y"    . counsel-yank-pop)
-    ("M-g s"    . scratch)
-    ("M-s M-w"  . fei-google-search)
-    ("s-y"      . youdao-dictionary-search-at-point-tooltip)
-    ("<menu>"   . youdao-dictionary-search-at-point-tooltip)
-    ("C-h y"    . youdao-dictionary-search-from-input)
+    ("M-g i"        . imenu)
+    ("C-x F"        . set-fill-column)
+    ("<f5>"         . fei-simple-compile)
+    ("M-s y"        . counsel-yank-pop)
+    ("M-g s"        . scratch)
+    ("M-s g"        . rgrep)
+    ("M-s M-w"      . fei-google-search)
+    ("s-y"          . youdao-dictionary-search-at-point-tooltip)
+    ("C-c y"        . youdao-dictionary-search-at-point-tooltip)
+    ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
+    ("C-h y"        . youdao-dictionary-search-from-input)
     ))
 
 (with-eval-after-load 'eaf-browser
@@ -62,7 +64,6 @@
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (global-set-key (kbd "C-h O") 'helpful-at-point)
-(global-set-key (kbd "<menu>") 'helpful-at-point)
 
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
@@ -114,5 +115,6 @@
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
 
 (provide 'init-misc)

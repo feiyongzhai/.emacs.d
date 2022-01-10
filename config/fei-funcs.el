@@ -112,8 +112,8 @@ kill region instead"
 	 (call-interactively 'eshell)
 	 (setq num-of-eshell (1+ num-of-eshell)))
 	((<= num-of-eshell 0)
-	 (call-interactively 'eshell)
-	 (setq num-of-eshell (1+ num-of-eshell)))
+	 (setq num-of-eshell (1+ num-of-eshell))
+	 (call-interactively 'eshell))
 	(t
 	 (catch 'done
 	   (dolist (buf (cdr (buffer-list)))

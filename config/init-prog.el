@@ -10,9 +10,6 @@
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "M-s") nil)
   (define-key matlab-mode-map (kbd "M-j") nil)
-  (define-key matlab-mode-map (kbd "<C-return>") nil)
-  (define-key matlab-mode-map (kbd "C-c .") nil)
-  (define-key matlab-mode-map (kbd "C-c M-.") 'matlab-shell-locate-fcn)
   )
 (add-hook 'matlab-mode-hook (lambda () (display-line-numbers-mode t)))
 

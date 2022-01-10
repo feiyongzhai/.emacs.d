@@ -38,8 +38,6 @@
 ;;; Misc
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
-(global-set-key (kbd "<C-return>") 'fei-newline)
-(global-set-key (kbd "M-RET") 'fei-newline)
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 (global-set-key (kbd "C-x l") 'ialign)

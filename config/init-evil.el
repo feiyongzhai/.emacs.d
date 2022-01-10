@@ -13,7 +13,7 @@
   )
 
 ;;; Leader Key
-;; {{ need feature `general`
+;; need feature `general`
 ;; Evil related keys
 (general-create-definer fei-space-leader-def
   :prefix "SPC"

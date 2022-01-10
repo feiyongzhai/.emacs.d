@@ -53,11 +53,6 @@ kill region instead"
 		   (region-end))
     (backward-kill-word (or arg 1))))
 
-(defun fei-newline ()
-  (interactive)
-  (end-of-line)
-  (newline-and-indent))
-
 ;;; @REF: https://oremacs.com/page32/
 (defun dired-open-term ()
   "Open an `ansi-term' that corresponds to current directory."

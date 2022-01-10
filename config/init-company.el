@@ -37,7 +37,7 @@
   (setq company-dabbrev-char-regexp "[-_a-zA-Z0-9]")
   )
 
-;;; {{ company related config copied from centuar emacs
+;;; {{ config copied from centuar emacs
 (setq company-tooltip-align-annotations t
       company-require-match nil
       company-dabbrev-ignore-case nil

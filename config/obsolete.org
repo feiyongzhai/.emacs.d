@@ -383,6 +383,17 @@ change-cursor-mode inspired manual solution
 
 * Edit
 #+begin_src emacs-lisp
+  (define-key matlab-mode-map (kbd "<C-return>") nil)
+  (global-set-key (kbd "M-RET") 'fei-newline)
+  (global-set-key (kbd "<C-return>") 'fei-newline)
+
+  (defun fei-newline ()
+    (interactive)
+    (end-of-line)
+    (newline-and-indent))
+#+end_src
+
+#+begin_src emacs-lisp
   (global-set-key (kbd "M-N") 'transient-scroll-up-line)
   (global-set-key (kbd "M-P") 'transient-scroll-down-line)
 

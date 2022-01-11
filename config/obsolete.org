@@ -392,6 +392,12 @@ next-eshell-buffer
 
 * Tab-line
 #+begin_src emacs-lisp
+  (transient-command last-buffer
+    (call-interactively 'fei-meow-last-buffer)
+    '(("b" . switch-to-buffer)))
+#+end_src
+
+#+begin_src emacs-lisp
   ;; 此配置有 bug
   ;;
   ;; 复现步骤：

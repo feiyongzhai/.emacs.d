@@ -3,7 +3,7 @@
 (require 'init-func)
 (require 'fei-funcs)
 
-;;; Modes & Vars
+;;; Modes 
 (global-auto-revert-mode t) ;; autoload the file changes on disk
 (delete-selection-mode t)   ;; 选中文本后输入会覆盖
 (column-number-mode t)
@@ -13,6 +13,7 @@
 (show-paren-mode 1)
 (blink-cursor-mode -1)
 
+;;; Vars
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 

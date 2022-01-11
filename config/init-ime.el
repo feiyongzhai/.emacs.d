@@ -52,16 +52,14 @@
 
 ;; 小鹤音形连写方案地址：https://github.com/brglng/rime-xhup
 
-;;; 动态链接相关地址
-;; Linux平台折腾这两个动态链接 librime 和 librime-emacs 
+;;; 动态链接相关地址（Win10），Linux 不需要折腾，开箱即用
 
-;;; win10
 ;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
 
-;; 一些说明: 最近更新的rime需要重新编译 librime-emacs.dll，但我的
-;; windows编译环境没有配好，之前是用的上面连接编译好的。目前发现一个
-;; workaround，就是修改rime源码相应部分，不让它重新编译。所以就采用了
-;; submodule的方法
+;; 一些说明: 最近更新的 rime 需要重新编译 librime-emacs.dll，但我的
+;; windows 编译环境没有配好，一直用的是上面链接提供的。目前发现一个
+;; workaround: 修改 rime 源码相应部分，不让它重新编译。便采用了
+;; submodule 的方法
 
 (load-path-add "~/.emacs.d/extensions/emacs-rime/")
 

@@ -1,13 +1,12 @@
 ;;; init-completion.el  --- configs for counsel/swiper/ivy/ido
 
 (ivy-mode 1)
-;; (ivy-posframe-mode 1)
 
 ;; Keys
 (when *is-linux*
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
-  (global-set-key (kbd "C-x p") 'proced)
+  (global-set-key (kbd "C-c p") 'proced)
   )
 
 (fei-define-key-with-map global-map
@@ -22,31 +21,19 @@
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
     ("C-x f" . counsel-find-file)
-    ("C-x C-f" . counsel-find-file)
     ("C-x d" . counsel-dired)
-    ("M-x" . counsel-M-x)
     ("C-S-s" . swiper)    
+    ("M-x" . counsel-M-x)
+    ("C-x C-f" . counsel-find-file)
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-(define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
 
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
   (setq-default ivy-initial-inputs-alist nil)
   )
-
-(setq ivy-posframe-display-functions-alist
-    '((t . ivy-posframe-display-at-frame-top-center)
-      ))
-
-;; (setq ivy-posframe-display-functions-alist
-;;     '((swiper . ivy-posframe-display-at-frame-bottom-window-center)
-;;       (complete-symbol . ivy-posframe-display-at-point)
-;;       (counsel-M-x . ivy-posframe-display-at-frame-center)
-;;       (counsel-find-file . ivy-posframe-display-at-frame-center)
-;;       (ivy-switch-buffer . ivy-posframe-display-at-frame-center)))
 
 (setq counsel-search-engine 'google)
 (setq ivy-use-virtual-buffers t)

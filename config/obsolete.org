@@ -136,8 +136,7 @@ change-cursor-mode inspired manual solution
 #+begin_src emacs-lisp
 
   ;; 一个基于 ivy 的很有意思的解决方案，记录备忘一下
-  (global-set-key (kbd "C-s") (li (let ((ivy-height 1))
-                                    (swiper-isearch))))
+  (global-set-key (kbd "C-s") (li (let ((ivy-height 1)) (swiper-isearch))))
 #+end_src
 
 * Org-agenda
@@ -251,20 +250,18 @@ change-cursor-mode inspired manual solution
 这里的归因是当时写的，不一定正确。
 #+begin_src emacs-lisp
 
-  ;; 这个设置会导致一个小问题：blink一下当前行之后高亮不清除。主要体现
-  ;; 是在使用thing-edit和citre插件的时候会出现这个问题，这两个插件都提
-  ;; 供了blink一下相应的region来做提示，都会出现高亮之后高亮区域不消失
-  ;; 的情况
-  (setq frame-resize-pixelwise t)		;这个设置在笔记本电脑上面会出
-                                          ;现画面透明的问题，找到问题了，
-                                          ;是桌面特效的bug，不过是启动
-                                          ;Emacs的时候有问题，别的应用也
-                                          ;会出现消失不见的问题
+  ;; 此设置会导致一个小问题：blink 一下当前行之后高亮不清除。主要表现在
+  ;; thing-edit 和 citre 这两个插件上，都会出现高亮后高亮区域不消失的情况
+
+  ;; 此设置在笔记本电脑上面会出现画面透明的问题，找到问题了：是桌面特效
+  ;; 的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
+
+  (setq frame-resize-pixelwise t)
 #+end_src
 
+关闭 backup 功能，即不生成 =~= 后缀文件
 #+begin_src emacs-lisp
-  ;; no backup-file
-  ;; (setq make-backup-files nil)
+  (setq make-backup-files nil)
 #+end_src
 
 * Eshell
@@ -327,7 +324,9 @@ change-cursor-mode inspired manual solution
     (interactive)
     (ansi-term (executable-find "bash")))
 #+end_src
+
 * Term
+“遍历--中断” 示例代码
 #+begin_src emacs-lisp
   (defun goto-term ()
     (interactive)
@@ -360,13 +359,9 @@ change-cursor-mode inspired manual solution
     (find-name-dired "." arg))
 #+end_src
 
-#+begin_src emacs-lisp
-  (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
-#+end_src
-
 * Tab-line
 #+begin_src emacs-lisp
-  ;; 这个配置有 bug
+  ;; 此配置有 bug
   ;;
   ;; 复现步骤：
   ;; 1. 打开 eshell 运行 tmux
@@ -375,18 +370,10 @@ change-cursor-mode inspired manual solution
             (lambda ()
               (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
               (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
-
-  (global-set-key (kbd "<C-next>") 'tab-line-switch-to-next-tab)
-  (global-set-key (kbd "<C-prior>") 'tab-line-switch-to-prev-tab)
-  (global-set-key (kbd "<C-delete>") 'bury-buffer)
 #+end_src
 
 * Edit
 #+begin_src emacs-lisp
-  (define-key matlab-mode-map (kbd "<C-return>") nil)
-  (global-set-key (kbd "M-RET") 'fei-newline)
-  (global-set-key (kbd "<C-return>") 'fei-newline)
-
   (defun fei-newline ()
     (interactive)
     (end-of-line)
@@ -433,18 +420,13 @@ change-cursor-mode inspired manual solution
              (beginning-of-line)))
 #+end_src
 
-<C-M-backspace> 这个按键在系统层面是绑定的 kill xorg 这个命令
+<C-M-backspace> 在系统层面绑定了 kill xorg 命令
 #+begin_src emacs-lisp
   (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
 #+end_src
 
 * Evil
 evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
-
-而且我发现自己的笔记本（Linux）用 emacs 的体验比实验室（windows）的体
-验好多了，完全是两种体验。不得不说，实验室的电脑实在是有点卡，还不如我
-自己的电脑，所以我为什么不带自己电脑去实验室，值得深思的问题？我为什么
-要让自己遭罪呢？怎么感觉又是自我设限（汗），真是处处自我设限
 
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-S-z") 'evil-mode-with-cursor)
@@ -457,21 +439,21 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
 #+end_src
 
 * Rime
-目前还不知道是什么原因，下面这个这行设置不能生效，把这行保留是为了下次
-想追究这个原因的方便回忆
+还不知道是什么原因，下面的设置不能生效，保留是为了下次想追究方便回忆
 
-这段代码主要是想要配置选中的项的高亮配色
+这段代码是想要配置选中的项的高亮配色
 #+begin_src emacs-lisp
   (set-face-attribute 'rime-default-face nil :slant 'italic)
 #+end_src
+
 ** rime mode line indicator 自己魔改的版本
 #+begin_src emacs-lisp
   (with-eval-after-load 'rime
-    ;; 下面是默认的设置，我不想替代默认的信息，只是想添加一个这个指示信
-    ;; 息，所以就有了下面的 `fei-rime-lighter'，
+    ;; 下面的设置会覆盖默认信息，但我只是想添加这个指示信息，便有了
+    ;; `fei-rime-lighter'，
 
     ;; (setq mode-line-mule-info '((:eval (rime-lighter))))
-  
+
     (add-to-list 'mode-line-mule-info '((:eval (fei-rime-lighter))))
     (setq-default mode-line-mule-info mode-line-mule-info)
 
@@ -512,23 +494,16 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
 
   (global-set-key (kbd "M-j") 'ivy-switch-buffer)
 
+  (define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
   (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
   (define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
 #+end_src
 
 * Ibuffer
+后来发现 ibuffer 一点也不常用
 #+begin_src emacs-lisp
   (global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
   (global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))
-#+end_src
-
-* Devdocs
-又是只有快捷键的配置，没有参考价值，后续考虑删除掉。
-#+begin_src emacs-lisp
-  (with-eval-after-load 'devdocs
-    (define-key devdocs-mode-map (kbd "s") 'devdocs-search))
-  (global-set-key (kbd "C-h q") 'devdocs-lookup)
-  (global-set-key (kbd "C-h Q") 'devdocs-search)
 #+end_src
 
 * Windows
@@ -537,20 +512,6 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
     (other-window-backward)
     '(("o" . other-window)
       ("O" . other-window-backward)))
-#+end_src
-
-* VC
-快捷键的配置其实没有什么参考价值，等我心理建设一波再把它删除掉
-#+begin_src emacs-lisp
-
-  (global-set-key (kbd "s-v") 'vc-prefix-map)
-  (global-set-key (kbd "s-v s-v") 'vc-next-action)
-
-  (with-eval-after-load 'vc-git
-    (define-key vc-git-log-edit-mode-map (kbd "M-A") 'vc-git-log-edit-toggle-amend)
-    (define-key vc-git-log-edit-mode-map (kbd "M-C") 'log-edit-done)
-    (define-key vc-git-log-edit-mode-map (kbd "M-D") 'log-edit-show-diff))
-
 #+end_src
 
 * Octave
@@ -565,5 +526,22 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
                 (setq comment-add 0)
                 (setq comment-column 0)
                 )))
+#+end_src
+
+* Ivy-posframe
+设置 ivy 相关的窗口显示的位置
+#+begin_src emacs-lisp
+  (ivy-posframe-mode 1)
+
+  (setq ivy-posframe-display-functions-alist
+      '((t . ivy-posframe-display-at-frame-top-center)
+        ))
+
+  ;; (setq ivy-posframe-display-functions-alist
+  ;;     '((swiper . ivy-posframe-display-at-frame-bottom-window-center)
+  ;;       (complete-symbol . ivy-posframe-display-at-point)
+  ;;       (counsel-M-x . ivy-posframe-display-at-frame-center)
+  ;;       (counsel-find-file . ivy-posframe-display-at-frame-center)
+  ;;       (ivy-switch-buffer . ivy-posframe-display-at-frame-center)))
 #+end_src
 

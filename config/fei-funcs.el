@@ -99,47 +99,16 @@ kill region instead"
 
 
 ;; Eshell Related
-;; {{ `next-eshell-buffer'
-
-;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
-(defvar num-of-eshell 0)
-(defun next-eshell-buffer (&optional want-to-create)
-  "dwim create or switch eshell buffer"
-  (interactive "P")
-  (cond ((eq want-to-create '-)
-	 (fei-eshell-cd-here))
-	(want-to-create
-	 (call-interactively 'eshell)
-	 (setq num-of-eshell (1+ num-of-eshell)))
-	((<= num-of-eshell 0)
-	 (setq num-of-eshell (1+ num-of-eshell))
-	 (call-interactively 'eshell))
-	(t
-	 (catch 'done
-	   (dolist (buf (cdr (buffer-list)))
-	     (with-current-buffer buf
-	       (when (eq major-mode 'eshell-mode)
-		 (throw 'done (switch-to-buffer buf)))))))
-	))
-
-(add-hook 'kill-buffer-query-functions #'sync-num-of-eshell 90)	;90 保证 `sync-num-of-eshell' 在列表的最后面
-
-(defun sync-num-of-eshell ()
-  (if (eq major-mode 'eshell-mode)
-      (setq num-of-eshell (- num-of-eshell 1))
-    t))
 
 (defun fei-eshell-cd-here ()
   (interactive)
   (if (eq major-mode 'eshell-mode)
       (message "You are already in eshell buffer!")
     (let ((dir default-directory)
-	  (buf (next-eshell-buffer)))
+	  (buf (eshell)))
       (set-buffer buf)
       (eshell/cd dir)
       (eshell-reset))))
-
-;; }}
 
 (defun fei-terminal-here ()
   (interactive)

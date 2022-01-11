@@ -265,6 +265,37 @@ change-cursor-mode inspired manual solution
 #+end_src
 
 * Eshell
+next-eshell-buffer
+#+begin_src emacs-lisp
+  ;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
+  (defvar num-of-eshell 0)
+  (defun next-eshell-buffer (&optional want-to-create)
+    "dwim create or switch eshell buffer"
+    (interactive "P")
+    (cond ((eq want-to-create '-)
+           (fei-eshell-cd-here))
+          (want-to-create
+           (call-interactively 'eshell)
+           (setq num-of-eshell (1+ num-of-eshell)))
+          ((<= num-of-eshell 0)
+           (setq num-of-eshell (1+ num-of-eshell))
+           (call-interactively 'eshell))
+          (t
+           (catch 'done
+             (dolist (buf (cdr (buffer-list)))
+               (with-current-buffer buf
+                 (when (eq major-mode 'eshell-mode)
+                   (throw 'done (switch-to-buffer buf)))))))
+          ))
+
+  (add-hook 'kill-buffer-query-functions #'sync-num-of-eshell 90)	;90 保证 `sync-num-of-eshell' 在列表的最后面
+
+  (defun sync-num-of-eshell ()
+    (if (eq major-mode 'eshell-mode)
+        (setq num-of-eshell (- num-of-eshell 1))
+      t))
+#+end_src
+
 #+begin_src emacs-lisp
   (add-hook 'eshell-mode-hook
             (lambda ()

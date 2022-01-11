@@ -15,13 +15,11 @@
   `(
     ("<s-return>" . fei-terminal-here)
     ("<f12>" . open-current-file-with-emacsv)
-    ("<f8>" . next-eshell-buffer)
-    ("<s-f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
+    ("<f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("M-s M-j" . fei-eshell-cd-here)
     ("M-s j"  . eshell)
     ))
 
-(global-set-key (kbd "s-\\") 'fei-ansi-term)
 (global-set-key (kbd "M-s J") 'fei-ansi-term)
 (global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-c M-j") 'fei-term-cd-here)

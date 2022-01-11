@@ -373,7 +373,8 @@ kill region instead"
 	(column (number-to-string (1+ (current-column)))))
     (start-process "emacsq" nil "emacs" "-Q"
 		   (concat "+" line ":" column)
-		   (buffer-file-name))))
+		   (or (buffer-file-name)
+		       default-directory))))
 
 (defun open-current-file-with-emacsv ()
   (interactive)
@@ -382,7 +383,8 @@ kill region instead"
 	(column (number-to-string (1+ (current-column)))))
     (start-process "emacsq" nil "emacs" "-Q" "-l" "~/.emacs.d/config/mini-vi.el"
 		   (concat "+" line ":" column)
-		   (buffer-file-name))))
+		   (or (buffer-file-name)
+		       default-directory))))
 
 ;; EAF related
 

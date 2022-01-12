@@ -9,7 +9,7 @@
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 
 
-;;; Encode config {{
+;;; ==== Encode config begin ====
 
 ;; 任何地方都使用UTF-8
 (set-charset-priority 'unicode)
@@ -19,12 +19,12 @@
 (set-keyboard-coding-system  'utf-8)    ; pretty
 ;; (set-selection-coding-system 'utf-8)    ; please
 ;; 问题：
-;; 这个命令会导致 emacsclient 出现编码问题：server 打开时候，
+;; 这个命令会导致 emacsclient 出现编码问题(win10)：
 ;; 终端命令 ec file.name 会出现文件名乱码
 ;; (prefer-coding-system        'utf-8)    ; with sugar on top
 ;; (setq default-process-coding-system '(utf-8 . utf-8))
 
-;;; Encode config }}
+;;; ==== Encode config end ====
 
 
 ;; 把这行代码放到这里，启动速度会快一点，
@@ -35,9 +35,6 @@
 (setq initial-major-mode 'fundamental-mode)
 
 
-;;; UI
-
 ;; `early-init.el' 可对 emacsclient 生效
 (require 'init-font)
-
 (require 'init-elpa)

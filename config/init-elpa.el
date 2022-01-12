@@ -58,6 +58,7 @@
 	dired-subtree
 	helpful
 	electric-spacing-mode
+	cal-china-x
 	))
 
 (when *is-linux*

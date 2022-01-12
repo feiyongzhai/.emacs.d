@@ -1,8 +1,8 @@
 ;; (setq-default cursor-type 'bar)
 
 (add-to-list 'load-path "~/.emacs.d/extensions")
-
 (require 'cursor-chg)	       ; Load this library
+
 (change-cursor-mode 1)	       ; On for overwrite/read-only/input mode
 (add-hook 'post-command-hook
 	  ;; 让 `change-cursor-mode' 的默认光标颜色根据主题背景更新，

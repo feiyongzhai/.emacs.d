@@ -14,6 +14,9 @@
 (blink-cursor-mode -1)
 
 ;;; Vars
+(require 'cal-china-x)
+(setq calendar-week-start-day 1)
+
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 

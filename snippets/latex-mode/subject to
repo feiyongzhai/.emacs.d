@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: subject to
+# condition: (and (texmathp) 'auto)
+# key: st
+# --
+\\text{s.t.}

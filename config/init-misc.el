@@ -28,13 +28,11 @@
 (setq-default display-line-numbers-width 3)
 (setq comment-empty-lines t)
 
-(setq inhibit-splash-screen t)
-(setq initial-scratch-message "")
 (setq display-time-format " %H:%M  %Y-%m-%d")
 (setq display-time-default-load-average nil) ; 不显示time后面的不明数字
 (setq desktop-restore-frames nil)	     ; don't restore any frame
 
-;; 参考链接：https://www.newsmth.net/nForum/#!article/Emacs/97642
+;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
@@ -50,7 +48,6 @@
     ("M-g s"        . scratch)
     ("M-s g"        . rgrep)
     ("M-s M-w"      . fei-google-search)
-    ("s-y"          . youdao-dictionary-search-at-point-tooltip)
     ("C-c y"        . youdao-dictionary-search-at-point-tooltip)
     ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"        . youdao-dictionary-search-from-input)
@@ -64,7 +61,7 @@
 (global-set-key (kbd "<M-f12>") 'fei-emacs)
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
-;; helpful
+;; Helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 (global-set-key (kbd "C-h O") 'helpful-at-point)

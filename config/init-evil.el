@@ -7,14 +7,10 @@
 
 (with-eval-after-load 'evil
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
-  ;; inspired by emacs-china post
-  (define-key evil-normal-state-map (kbd "RET") 'fei-meow-last-buffer)
   (define-key evil-normal-state-map (kbd "<tab>") 'ace-window)
   )
 
 ;;; Leader Key
-;; need feature `general`
-;; Evil related keys
 (general-create-definer fei-space-leader-def
   :prefix "SPC"
   :states '(normal visual))
@@ -22,7 +18,6 @@
 (fei-space-leader-def
   ;; "gg" 'browse-stackoverflow-search
   "g" 'engine-mode-prefixed-map
-  "q" 'save-buffers-kill-terminal
   "ff" 'ido-find-file
   "fo" 'ido-find-file-other-window
   )

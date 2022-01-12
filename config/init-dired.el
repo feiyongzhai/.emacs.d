@@ -24,11 +24,8 @@
       ("." . fei-dired-toggle-hidden)
       ("'" . fei-eshell-cd-here)
       ("`" . dired-open-term)
-      ("V" . dired-view-file)
       ("M-w" . dired-ranger-copy)
       ("C-y" . fei-dired-paste/move)
-      ("c" . dired-do-copy)
-      ("r" . dired-do-rename)
       )))
 
 ;;; Vars

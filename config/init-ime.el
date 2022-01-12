@@ -2,9 +2,8 @@
 
 (require 'fei-funcs)
 (require 'pyim)
-(pyim-isearch-mode t)
 
-;;; Pyim
+;; Pyim
 
 (with-eval-after-load 'ivy
   ;; ivy 支持拼音搜索
@@ -41,25 +40,7 @@
 ;; (setq pyim-page-tooltip 'posframe)
 
 
-
-;;; Rime
-
-;;; 输入方案相关链接
-;; 小鹤双拼方案地址：https://github.com/cnfeat/Rime
-
-;; 小鹤音形方案地址：http://flypy.ys168.com/ 这个链接中的“小鹤音形挂
-;; 接第三方平台”文件夹linux对应的是macos，win10对应的就是win10
-
-;; 小鹤音形连写方案地址：https://github.com/brglng/rime-xhup
-
-;;; 动态链接相关地址（Win10），Linux 不需要折腾，开箱即用
-
-;; librime 动态链接下载地址：https://github.com/DogLooksGood/emacs-rime/issues/64#issuecomment-605436317
-
-;; 一些说明: 最近更新的 rime 需要重新编译 librime-emacs.dll，但我的
-;; windows 编译环境没有配好，一直用的是上面链接提供的。目前发现一个
-;; workaround: 修改 rime 源码相应部分，不让它重新编译。便采用了
-;; submodule 的方法
+;; Rime
 
 (load-path-add "~/.emacs.d/extensions/emacs-rime/")
 

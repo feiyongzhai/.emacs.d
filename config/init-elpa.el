@@ -55,8 +55,7 @@
 	;; embark consult
 	goto-line-preview
         openwith
-	dired-subtree
-	helpful
+        helpful
 	electric-spacing-mode
 	cal-china-x
 	))

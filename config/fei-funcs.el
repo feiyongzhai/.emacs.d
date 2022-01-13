@@ -450,4 +450,46 @@ confines of word boundaries (e.g. multiple words)."
       (call-interactively 'dired-ranger-move)
     (call-interactively 'dired-ranger-paste)))
 
+
+;; Evil
+
+(autoload 'evil-local-mode "evil" nil t)
+
+(defun evil-local-mode-with-cursor ()
+  (interactive)
+  (unless (boundp 'evil-local-mode)
+    (evil-local-mode -1)) ;; unless part is for initialization
+  (if evil-local-mode
+      (progn (evil-local-mode -1)
+	     (setq cursor-type 'bar))
+    (evil-local-mode 1)))
+
+(defun evil-mode-with-cursor ()
+  "设置 message 就是为了终端下面有一个提示"
+  (interactive)
+  (unless (boundp 'evil-mode)
+    (evil-mode -1)
+    (message "Now is EMACS")) ;; unless part is for initialization
+  (if evil-mode
+      (progn
+	(evil-mode -1)
+	(dolist (buf (buffer-list))
+	  (set-buffer buf)
+	  (setq cursor-type 'bar))
+	(message "Now is EMACS"))
+    (evil-mode 1)
+    (message "Now is EVIL")))
+
+
+;; Edit
+
+(load-path-add "~/.emacs.d/extensions/duplicate-line/")
+(require 'duplicate-line)
+(defun fei-duplicate-line-or-region (&optional arg)
+  (interactive "P")
+  (if arg
+      (call-interactively 'duplicate-line-below-comment)
+    (call-interactively 'duplicate-line-or-region-below)))
+
+
 (provide 'fei-funcs)

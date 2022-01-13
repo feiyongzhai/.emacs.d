@@ -51,12 +51,4 @@
 
 (transient-command undo (undo) '(("u" . undo)))
 
-(load-path-add "~/.emacs.d/extensions/duplicate-line/")
-(require 'duplicate-line)
-(defun fei-duplicate-line-or-region (&optional arg)
-  (interactive "P")
-  (if arg
-      (call-interactively 'duplicate-line-below-comment)
-    (call-interactively 'duplicate-line-or-region-below)))
-
 (provide 'init-edit)

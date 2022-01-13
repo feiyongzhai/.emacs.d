@@ -1,8 +1,5 @@
 ;;; init-evil --- configs for evil
 
-;;; autoload
-(autoload 'evil-local-mode "evil" nil t)
-
 ;;; Keys
 
 (with-eval-after-load 'evil
@@ -71,30 +68,6 @@
     (evil-set-initial-state (car p) (cdr p)))
   )
 
-(defun evil-local-mode-with-cursor ()
-  (interactive)
-  (unless (boundp 'evil-local-mode)
-    (evil-local-mode -1)) ;; unless part is for initialization
-  (if evil-local-mode
-      (progn (evil-local-mode -1)
-	     (setq cursor-type 'bar))
-    (evil-local-mode 1)))
-
-(defun evil-mode-with-cursor ()
-  "设置 message 就是为了终端下面有一个提示"
-  (interactive)
-  (unless (boundp 'evil-mode)
-    (evil-mode -1)
-    (message "Now is EMACS")) ;; unless part is for initialization
-  (if evil-mode
-      (progn
-	(evil-mode -1)
-	(dolist (buf (buffer-list))
-	  (set-buffer buf)
-	  (setq cursor-type 'bar))
-	(message "Now is EMACS"))
-    (evil-mode 1)
-    (message "Now is EVIL")))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

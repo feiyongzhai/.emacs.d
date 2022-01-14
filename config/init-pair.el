@@ -10,13 +10,5 @@
 (define-key smartparens-mode-map (kbd "M-U") 'sp-splice-sexp)
 (define-key smartparens-mode-map (kbd "M-q") 'sp-indent-defun)
 
-;; paredit
-;; (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-(with-eval-after-load 'paredit
-  (define-key paredit-mode-map (kbd "M-s") nil)
-  (define-key paredit-mode-map (kbd "M-r") nil)
-  (define-key paredit-mode-map (kbd "M-R") #'paredit-splice-sexp)
-  )
-
 
 (provide 'init-pair)

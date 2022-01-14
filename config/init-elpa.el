@@ -36,7 +36,6 @@
 	elfeed
 	eshell-up
 	company yasnippet
-	paredit
 	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
 	ace-window
 	pinyin-search pyim

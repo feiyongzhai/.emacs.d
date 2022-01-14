@@ -35,8 +35,6 @@
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "s-/") 'eaf-open-rss-reader)
 
-;;; Code:
-
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
 (setq eaf-browser-enable-adblocker t)
 (setq eaf-browser-enable-autofill t)
@@ -47,18 +45,9 @@
 (setq eaf-rss-reader-web-page-other-window nil)
 (setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
 
-;;; Myself
-
-;;; autoload
-(autoload 'eaf-open-browser "eaf" nil t)
-(autoload 'eaf--bookmark-restore "eaf" nil t)
-(autoload 'eaf-open-browser-with-history "eaf" nil t)
-(autoload 'eaf-open-this-buffer "eaf" nil t)
-
 ;;; Keys
 (fei-define-key-with-map global-map
   '(
-    ;; eaf related
     ("C-c e" . eaf-open-this-buffer)
     ;; 终端用命令 `emacsclient -t file-name` 的时候，总是会响应快捷键
     ;; `ESC [ I` 这一组按键序列（这个可以通过 C-h l 来查看），这就导致
@@ -71,9 +60,6 @@
     ("C-x j" . eaf-open-in-file-manager)
     ("M-s M-s" . eaf-open-browser-with-history)
     ))
-
-(with-eval-after-load 'eaf
-  (define-key eaf-mode-map* (kbd "<s-f1>") 'eaf-open-external))
 
 (with-eval-after-load 'eaf
   (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)

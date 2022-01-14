@@ -17,7 +17,6 @@
     ("C-c g" . counsel-git)
     ("C-c r" . counsel-rg)
     ("C-c k" . counsel-rg)
-    ("M-s r" . counsel-rg)
     ("C-c v" . ivy-push-view)
     ("C-c V" . ivy-pop-view)
     ("C-x f" . counsel-find-file)
@@ -28,6 +27,7 @@
     ))
 (global-set-key (kbd "C-c l") 'counsel-locate)
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
+(define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
 
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20

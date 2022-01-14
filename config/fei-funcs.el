@@ -231,7 +231,7 @@ kill region instead"
 		 (setq rime--flypy-p nil))
 	(rime-lib-select-schema "flypy")
 	(setq rime-show-candidate 'minibuffer)
-	(setq rime-show-preedit 'inline)
+	(setq rime-show-preedit 't)
 	(setq rime--flypy-p t))
     (message "Rime has not been required")))
 

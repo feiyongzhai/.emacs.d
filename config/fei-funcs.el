@@ -374,7 +374,7 @@ kill region instead"
   (eaf-file-browser-qrcode (substring (pwd) 10)))
 
 
-;; isearch related
+;; Isearch related
 
 (defun prot-search-isearch-other-end ()
   "End current search in the opposite side of the match.

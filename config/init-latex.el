@@ -2,8 +2,7 @@
 (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
 (add-hook 'LaTeX-mode-hook #'reftex-mode)
 (add-hook 'LaTeX-mode-hook #'company-mode)
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (setq-local company-backends '(company-yasnippet))))
+(add-hook 'LaTeX-mode-hook (lambda () (setq-local company-backends '(company-yasnippet))))
 
 ;; ==== Org Export ====
 
@@ -29,8 +28,8 @@
 
 ;; @REF: https://emacs.stackexchange.com/questions/17988/variable-to-set-org-export-pdf-viewer
 (add-to-list 'org-file-apps '("\\.pdf" . "evince %s")) ; 指定 org-export 后打开 pdf 的软件
-
 
+
 ;; ==== Quick Input ====
 
 (with-eval-after-load 'cdlatex

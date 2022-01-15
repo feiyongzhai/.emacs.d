@@ -21,8 +21,6 @@
 (setq recentf-max-saved-items 50)
 
 (setq minimap-window-location 'right)
-(setq split-width-threshold nil)        ;分屏的时候使用左右分屏
-;; (setq split-height-threshold nil)
 (setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default display-line-numbers-width 3)

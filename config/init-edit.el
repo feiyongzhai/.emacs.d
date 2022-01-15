@@ -15,6 +15,7 @@
 ;; (setq recenter-positions '(top middle bottom))
 
 (setq neo-theme 'ascii)
+(setq neo-window-position 'right)
 (global-set-key (kbd "C-c n") 'neotree-show)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)

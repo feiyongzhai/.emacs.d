@@ -238,6 +238,12 @@ change-cursor-mode inspired manual solution
 #+end_src
 
 * Misc
+从其他人配置中抄过来的，不知道有什么用
+#+begin_src emacs-lisp
+  (setq split-width-threshold nil)        ;分屏的时候使用左右分屏
+  (setq split-height-threshold nil)
+#+end_src
+
 #+begin_src emacs-lisp
   ;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
   (add-hook 'after-init-hook

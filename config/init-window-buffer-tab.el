@@ -24,6 +24,7 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
 (global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
 
 ;;; ==== Window ====
 (global-set-key (kbd "s-o") 'ace-window)

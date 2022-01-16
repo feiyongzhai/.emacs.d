@@ -13,6 +13,7 @@
 (require 'init-proxy)
 (require 'init-vc)
 (require 'init-org-markdown)
+(require 'init-publish)
 (require 'init-prog)
 (require 'init-pair)
 (require 'init-latex)

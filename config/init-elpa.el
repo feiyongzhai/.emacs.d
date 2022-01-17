@@ -46,7 +46,7 @@
 	;; org-roam org-roam-server
 	org-download
 	markdown-mode
-	devdocs
+	;; devdocs
 	use-package
 	matlab-mode
 	iedit ialign

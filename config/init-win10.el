@@ -29,7 +29,7 @@
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
 (global-set-key (kbd "s-e") 'file-manager-here)
-(global-set-key (kbd "M-s M-s") 'fei-google-search)
+(global-set-key (kbd "M-s s") 'fei-google-search)
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "<f12>") 'open-current-file-with-vscode)
 

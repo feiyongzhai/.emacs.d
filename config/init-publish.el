@@ -27,7 +27,7 @@
          :headline-levels 5
          :auto-preamble t
 	 :html-preamble ,(read-html-template "preamble.html")
-	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/style.css\" />"
+	 :html-head ,(read-html-template "head.html")
          :auto-sitemap t
          ;; :sitemap-filename "sitemap.org"
          ;; :sitemap-title "Sitemap"

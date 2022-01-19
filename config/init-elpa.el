@@ -58,6 +58,7 @@
 	electric-spacing-mode
 	cal-china-x
 	eyebrowse
+	;; frames-only-mode
 	))
 
 (when *is-linux*

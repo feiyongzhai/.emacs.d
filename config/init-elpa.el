@@ -57,6 +57,7 @@
         helpful
 	electric-spacing-mode
 	cal-china-x
+	eyebrowse
 	))
 
 (when *is-linux*

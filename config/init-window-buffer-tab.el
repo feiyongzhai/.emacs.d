@@ -41,6 +41,11 @@
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
+;; Eyebrowse
+(eyebrowse-mode 1)
+(setq eyebrowse-new-workspace t)
+(setq eyebrowse-mode-line-style t)
+
 (fei-define-key-with-map global-map
   `(
     ("C-x t l" . tab-list)
@@ -49,15 +54,16 @@
     ("C-x t n" . tab-new)
     ("C-x t R" . tab-rename)
     ("C-x t u" . tab-undo)
-    ("M-s 1" . ,(li (tab-bar-select-tab 1)))
-    ("M-s 2" . ,(li (tab-bar-select-tab 2)))
-    ("M-s 3" . ,(li (tab-bar-select-tab 3)))
-    ("M-s 4" . ,(li (tab-bar-select-tab 4)))
-    ("M-s 5" . ,(li (tab-bar-select-tab 5)))
-    ("M-s 6" . ,(li (tab-bar-select-tab 6)))
-    ("M-s 7" . ,(li (tab-bar-select-tab 7)))
-    ("M-s 8" . ,(li (tab-bar-select-tab 8)))
-    ("M-s 9" . ,(li (tab-bar-select-tab 9)))
+    ("M-0" . eyebrowse-switch-to-window-config-0)
+    ("M-1" . eyebrowse-switch-to-window-config-1)
+    ("M-2" . eyebrowse-switch-to-window-config-2)
+    ("M-3" . eyebrowse-switch-to-window-config-3)
+    ("M-4" . eyebrowse-switch-to-window-config-4)
+    ("M-5" . eyebrowse-switch-to-window-config-5)
+    ("M-6" . eyebrowse-switch-to-window-config-6)
+    ("M-7" . eyebrowse-switch-to-window-config-7)
+    ("M-8" . eyebrowse-switch-to-window-config-8)
+    ("M-9" . eyebrowse-switch-to-window-config-9)
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ))

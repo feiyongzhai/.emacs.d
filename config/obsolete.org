@@ -4,7 +4,6 @@
 * UI
 ** Font
 #+begin_src emacs-lisp
-
   (if *is-windows*
       ;; Setting English Font 仅在 windows 生效
       (progn
@@ -56,9 +55,6 @@ change-cursor-mode inspired manual solution
 
 ** next-same-major-mode-buffer
 #+begin_src emacs-lisp
-  (transient-command next-same-major-mode-buffer
-    (next-same-major-mode-buffer)
-    '(("m" . next-same-major-mode-buffer)))
 
   (defun next-same-major-mode-buffer ()
     "Go to next buffer which has same major-mode of current buffer

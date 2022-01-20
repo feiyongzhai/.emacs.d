@@ -6,13 +6,6 @@
 
 (winner-mode 1)
 
-;;; Keys
-
-(global-set-key (kbd "M-0") 'delete-window)
-(global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
-
 ;;; Buffer
 (global-set-key (kbd "M-k") 'fei-kill-current-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
@@ -113,6 +106,28 @@
 
 ;;; ==== Tab-line end ====
 
+;;; ==== Bs ====
+;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
+(global-set-key (kbd "C-x C-b") (li (setq bs-cur-major-mode major-mode) (call-interactively 'bs-show)))
+(setq bs-configurations
+      '(("all" nil nil nil nil nil)
+	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
+	("eshell" nil nil nil fei-bs-not-eshell bs-sort-buffer-interns-are-last)
+	("same-major" nil nil nil fei-bs-not-cur-major-mode bs-sort-buffer-interns-are-last)
+	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
+	("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last))
+      )
+
+(defun fei-bs-not-eshell (buf)
+  (with-current-buffer buf (not (eq major-mode 'eshell-mode))))
+
+(defun fei-bs-not-cur-major-mode (buf)
+  (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
+
+(define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
+(define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
+(define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
+(define-key bs-mode-map (kbd "j") 'bs-select)
 
 (provide 'init-window-buffer-tab)
 ;;; init-windows.el ends here.

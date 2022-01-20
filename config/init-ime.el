@@ -49,10 +49,10 @@
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 ;; Keys
-(global-set-key (kbd "C-c i") 'fei-toggle-xhup-flypy)
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
+  (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)  

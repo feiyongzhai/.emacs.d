@@ -216,27 +216,6 @@ kill region instead"
   (call-interactively 'rime-force-enable)
   )
 
-;;; {{ switch between xhup & flypy
-
-(defvar rime--flypy-p nil
-  "输入法默认的状态是小鹤双拼+posframe的显示格式")
-
-(defun fei-toggle-xhup-flypy ()
-  (interactive)
-  (if (fboundp 'rime-lib-select-schema)
-      (if rime--flypy-p
-	  (progn (rime-lib-select-schema "double_pinyin_flypy")
-		 (setq rime-show-candidate 'posframe)
-		 (setq rime-show-preedit t)
-		 (setq rime--flypy-p nil))
-	(rime-lib-select-schema "flypy")
-	(setq rime-show-candidate 'minibuffer)
-	(setq rime-show-preedit 't)
-	(setq rime--flypy-p t))
-    (message "Rime has not been required")))
-
-;;; }}
-
 
 ;; Org related
 

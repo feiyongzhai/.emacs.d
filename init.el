@@ -32,6 +32,7 @@
 (require 'init-awesome-pair)
 (require 'init-alias)
 (require 'init-cursor)
+(require 'init-mouse)
 (when *is-linux*
   (require 'init-linux))
 (when *is-windows*

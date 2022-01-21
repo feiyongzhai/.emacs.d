@@ -109,6 +109,7 @@
 ;;; ==== Bs ====
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
 (global-set-key (kbd "C-x C-b") (li (setq bs-cur-major-mode major-mode) (call-interactively 'bs-show)))
+(add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
@@ -124,10 +125,12 @@
 (defun fei-bs-not-cur-major-mode (buf)
   (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
 
-(define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
-(define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
-(define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
-(define-key bs-mode-map (kbd "j") 'bs-select)
+(with-eval-after-load 'bs
+  (define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
+  (define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
+  (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
+  (define-key bs-mode-map (kbd "j") 'bs-select)
+  )
 
 (provide 'init-window-buffer-tab)
 ;;; init-windows.el ends here.

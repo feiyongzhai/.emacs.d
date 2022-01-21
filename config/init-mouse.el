@@ -20,7 +20,10 @@
        ;; 快速查找定义 / 快速浏览文件
        (global-set-key (kbd "<mouse-9>") 'neotree-toggle)
        (global-set-key (kbd "<mouse-8>") 'fei-occur-at-point)
-       (global-set-key (kbd "C-M-s-~") 'ibuffer)
+       (global-set-key (kbd "C-M-s-~") 'speedbar)
+       (with-eval-after-load 'speedbar
+	 (define-key speedbar-mode-map (kbd "<mouse-8>") (kbd "b"))
+	 (define-key speedbar-mode-map (kbd "<mouse-9>") (kbd "f")))
        )
       (*is-windows*
        ;; 切换 Buffer
@@ -34,7 +37,10 @@
        ;; 快速查找定义 / 快速浏览文件
        (global-set-key (kbd "<mouse-5>") 'neotree-toggle)
        (global-set-key (kbd "<mouse-4>") 'fei-occur-at-point)
-       (global-set-key (kbd "C-M-s-~") 'ibuffer)
+       (global-set-key (kbd "C-M-s-~") 'speedbar)
+       (with-eval-after-load 'speedbar
+	 (define-key speedbar-mode-map (kbd "<mouse-8>") (kbd "b"))
+	 (define-key speedbar-mode-map (kbd "<mouse-9>") (kbd "f")))
        ))
 
 ;; ==== Mode Line ====

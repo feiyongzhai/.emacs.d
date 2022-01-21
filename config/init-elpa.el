@@ -55,7 +55,7 @@
 	goto-line-preview
         openwith
         helpful
-	electric-spacing-mode
+	electric-spacing
 	cal-china-x
 	eyebrowse
 	;; frames-only-mode

@@ -1,6 +1,8 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+(global-fasd-mode -1)
+(global-set-key (kbd "C-x M-f") nil)
 (openwith-mode t)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
                               ("\\.doc\\'" "start" (file))

@@ -81,6 +81,10 @@
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
 	   "* %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
+	  ("I" "Inbox" entry
+	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
+	   "* %i%?\nCREATE: %T\n"
+	   :empty-lines-before 1 :immediate-finish t)
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/diary.org")
 	   "* %t\n%?"

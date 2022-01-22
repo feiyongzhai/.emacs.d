@@ -251,13 +251,18 @@ kill region instead"
   (require 'rime)
   (activate-input-method 'rime))
 
-(defun fei-org-capture-note ()
+(defun fei-org-capture-note (&rest strings)
   (interactive)
-  (org-capture nil "i")
-  (delete-other-windows)
-  (auto-fill-mode)
-  (require 'rime)
-  (activate-input-method 'rime))
+  ;; (setq strings (eshell-flatten-and-stringify strings)) ;FIXME: 如果语句在这，strings 将总是会为 t
+  (if strings
+      (progn
+	(setq strings (eshell-flatten-and-stringify strings))
+        (org-capture-string strings "I") nil)
+    (org-capture nil "i")
+    (delete-other-windows)
+    (auto-fill-mode)
+    (require 'rime)
+    (activate-input-method 'rime)))
 
 (defun fei-org-capture-diary ()
   (interactive)

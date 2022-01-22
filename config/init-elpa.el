@@ -37,6 +37,7 @@
 	eshell-up
 	company yasnippet
 	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
+	embark orderless marginalia consult
 	ace-window
 	pinyin-search pyim
 	youdao-dictionary
@@ -51,7 +52,6 @@
 	matlab-mode
 	iedit ialign
         hide-mode-line
-	;; embark consult
 	goto-line-preview
         openwith
         helpful

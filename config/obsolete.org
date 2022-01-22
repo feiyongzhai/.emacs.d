@@ -1,6 +1,16 @@
 #+TITLE: 过时的配置和函数
 #+DESCRIPTION: 留着给以后做参考
 
+* Mouse
+#+begin_src emacs-lisp
+  ;; 切换 Buffer
+  (global-set-key (kbd "<mouse-9>") 'next-buffer)
+  (global-set-key (kbd "<mouse-8>") 'previous-buffer)
+
+  ;; copy / replace
+  (global-set-key (kbd "<mouse-9>") 'thing-copy-symbol)
+  (global-set-key (kbd "<mouse-8>") 'thing-replace-symbol)
+#+end_src
 * UI
 ** Font
 #+begin_src emacs-lisp

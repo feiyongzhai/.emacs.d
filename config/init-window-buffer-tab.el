@@ -125,12 +125,21 @@
 (defun fei-bs-not-cur-major-mode (buf)
   (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
 
+(defun fei-bs-get-current-buffer-list ()
+  (mapcar (lambda (buf) (buffer-name buf)) bs-current-list))
+
+(defun fei-switch-to-buffer-from-bs ()
+  (interactive)
+  (let ((buf (completing-read "Switch to buffer: " (fei-bs-get-current-buffer-list))))
+    (bs-kill)
+    (switch-to-buffer buf)))
+
 (with-eval-after-load 'bs
   (define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
   (define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))
-  (define-key bs-mode-map (kbd "j") 'bs-select)
+  (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)
   )
 
 (provide 'init-window-buffer-tab)

@@ -135,7 +135,10 @@
     (switch-to-buffer buf)))
 
 (with-eval-after-load 'bs
+  (define-key bs-mode-map (kbd "a") (li (bs-set-configuration "all") (bs-refresh)))
+  (define-key bs-mode-map (kbd "A") 'bs-toggle-show-all)
   (define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
+  (define-key bs-mode-map (kbd "w") (li (bs-set-configuration "files-and-scratch") (bs-refresh)))
   (define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))

@@ -34,6 +34,7 @@
 
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "s-/") 'eaf-open-rss-reader)
+(global-set-key (kbd "M-ESC s") 'eaf-open-browser-with-history)
 
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
 (setq eaf-browser-enable-adblocker t)

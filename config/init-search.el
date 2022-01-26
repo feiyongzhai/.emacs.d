@@ -27,6 +27,7 @@
     ("M->" . isearch-end-of-buffer)
     ("C-'" . avy-isearch)
     ("M-s j" . avy-isearch)
+    ("M-s r" . rg-isearch-project)
     ("M-w" . fei-isearch-copy-region)
     ("<C-return>" . prot-search-isearch-other-end)
     ))

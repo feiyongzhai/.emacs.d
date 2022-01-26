@@ -105,7 +105,12 @@
   (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
   (setq fasd-enable-initial-prompt nil)
-  (global-set-key (kbd "C-x M-f") 'fasd-find-file))
+  (global-set-key (kbd "M-s M-f") 'fasd-find-file))
+
+;; builtin `project'
+(global-set-key (kbd "C-x p p") 'project-find-file)
+(global-set-key (kbd "C-x p f") 'project-find-regexp)
+(global-set-key (kbd "C-x p r") 'project-query-replace-regexp)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

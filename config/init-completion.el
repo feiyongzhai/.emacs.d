@@ -22,7 +22,7 @@
     ("C-c V" . ivy-pop-view)
     ("C-x f" . counsel-find-file)
     ("C-x d" . counsel-dired)
-    ("C-S-s" . swiper)    
+    ("C-S-s" . swiper)
     ("M-x" . counsel-M-x)
     ("C-x C-f" . counsel-find-file)
     ))

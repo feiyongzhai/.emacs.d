@@ -129,6 +129,7 @@
       '(("all" nil nil nil nil nil)
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("eshell" nil nil nil fei-bs-not-eshell bs-sort-buffer-interns-are-last)
+	("Org" nil nil nil fei-bs-not-org bs-sort-buffer-interns-are-last)
 	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("same-major" nil nil nil fei-bs-not-cur-major-mode bs-sort-buffer-interns-are-last)
 	("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last))
@@ -136,6 +137,9 @@
 
 (defun fei-bs-not-eshell (buf)
   (with-current-buffer buf (not (eq major-mode 'eshell-mode))))
+
+(defun fei-bs-not-org (buf)
+  (with-current-buffer buf (not (eq major-mode 'org-mode))))
 
 (defun fei-bs-not-cur-major-mode (buf)
   (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
@@ -155,6 +159,7 @@
   (define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
   (define-key bs-mode-map (kbd "w") (li (bs-set-configuration "files-and-scratch") (bs-refresh)))
   (define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
+  (define-key bs-mode-map (kbd "O") (li (bs-set-configuration "Org") (bs-refresh)))
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))
   (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)

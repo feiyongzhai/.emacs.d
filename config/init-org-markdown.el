@@ -45,6 +45,7 @@
 
 ;;; Vars
 
+(setq org-adapt-indentation nil)
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")

@@ -350,7 +350,7 @@ kill region instead"
 		    (eq major-mode 'shell-mode)
 		    (getenv "TERM"))))
       (eaf-open-browser url _new-window)
-    (browse-url-chrome url _new-window)))
+    (browse-url-default-browser url _new-window)))
 
 (defun fei-eaf-file-share-current-dir ()
   (interactive)

@@ -47,7 +47,7 @@
     ("C-x t n" . tab-new)
     ("C-x t R" . tab-rename)
     ("C-x t u" . tab-undo)
-    ("M-0" . eyebrowse-switch-to-window-config-0)
+    ("M-`" . eyebrowse-last-window-config)
     ("M-1" . eyebrowse-switch-to-window-config-1)
     ("M-2" . eyebrowse-switch-to-window-config-2)
     ("M-3" . eyebrowse-switch-to-window-config-3)
@@ -57,6 +57,7 @@
     ("M-7" . eyebrowse-switch-to-window-config-7)
     ("M-8" . eyebrowse-switch-to-window-config-8)
     ("M-9" . eyebrowse-switch-to-window-config-9)
+    ("M-0" . eyebrowse-switch-to-window-config-0)
     ("C-S-w" . tab-close)
     ("C-S-t" . tab-new)
     ))
@@ -64,6 +65,7 @@
 (add-hook 'term-mode-hook
             (lambda ()
 	      ;; 占用了终端 native 的 M-num 的按键：不过这个按键也不常用，所以没什么问题
+	      (define-key term-raw-map (kbd "M-`") 'eyebrowse-last-window-config)
 	      (define-key term-raw-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
 	      (define-key term-raw-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
 	      (define-key term-raw-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)

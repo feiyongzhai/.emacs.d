@@ -14,7 +14,6 @@
 (global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
 
 ;;; ==== Window ====
-(global-set-key (kbd "s-o") 'ace-window)
 (global-set-key (kbd "s-O") 'other-frame)
 (global-set-key (kbd "s-u") 'winner-undo)
 (fei-define-key-with-map global-map
@@ -23,7 +22,7 @@
     ("C-S-m" . maximize-window)		; matlab like keybinding
     ("C-x w M" . maximize-window)
     ("C-x w m" . minimize-window)
-    ("C-x o" . transient-other-window)
+    ("C-x o" . ace-window)
     ("C-x O" . other-frame)
     ))
 
@@ -89,10 +88,6 @@
 (transient-command winner-undo (winner-undo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
-
-(transient-command other-window (other-window 1)
-  '(("o" . other-window)
-    ("O" . other-window-backward)))
 
 ;;; ==== Tab-line begin ====
 (require 'tab-line)

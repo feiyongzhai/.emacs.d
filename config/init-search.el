@@ -2,8 +2,6 @@
 (require 'init-func)
 (require 'fei-funcs)
 
-;;; Keys
-;; isearch experimental config
 (setq isearch-lazy-count t)
 (setq lazy-count-suffix-format " [%s/%s]")
 (setq lazy-count-prefix-format nil)
@@ -42,8 +40,8 @@
 ;; (ctrlf-mode 1)
 
 (with-eval-after-load 'ctrlf
-  (define-key (kbd "C-p") 'ctrlf-previous-match)
-  (define-key (kbd "C-n") 'ctrlf-next-match)
+  (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
+  (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
   )
 
 (setq ctrlf-default-search-style 'fuzzy)

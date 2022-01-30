@@ -642,6 +642,14 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
 
 * Windows
 #+begin_src emacs-lisp
+  (defun other-window-backward ()
+    (interactive)
+    (other-window -1))
+
+  (transient-command other-window (other-window 1)
+    '(("o" . other-window)
+      ("O" . other-window-backward)))
+
   (transient-command other-window-backward
     (other-window-backward)
     '(("o" . other-window)

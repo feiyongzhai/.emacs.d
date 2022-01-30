@@ -15,7 +15,6 @@
   (setq pyim-default-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
   )
-;; (setq default-input-method "pyim")
 ;; (setq-default pyim-english-input-switch-functions
 ;; 	      '(pyim-probe-dynamic-english
 ;; 		pyim-probe-isearch-mode

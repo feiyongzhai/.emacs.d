@@ -403,9 +403,14 @@ confines of word boundaries (e.g. multiple words)."
 
 ;; Misc
 
-(defun other-window-backward ()
+(defun file-manager-here()
+  "Open an external Windows cmd in the current directory"
   (interactive)
-  (other-window -1))
+  (cond (*is-windows*
+	 (call-process-shell-command "start explorer ."))
+	(*is-linux*
+	 (call-process-shell-command "xdg-open .")))
+  )
 
 (defun fei-toggle-ui ()
   (interactive)

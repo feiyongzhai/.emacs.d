@@ -8,7 +8,6 @@
                               ("\\.doc\\'" "start" (file))
                               ("\\.docx\\'" "start" (file))))
 
-;;; {{ Keys
 (setq w32-lwindow-modifier 'super)
 (setq w32-pass-lwindow-to-system nil)
 (setq w32-apps-modifier 'super)
@@ -40,25 +39,9 @@
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
 (setq locate-command "es.exe")
 
-;;; }}
-
-;;; @REF https://emacs.stackexchange.com/questions/63733/launch-an-external-command-prompt-cmd-exe-in-a-specific-folder
-(defun file-manager-here()
-  "Open an external Windows cmd in the current directory"
-  (interactive)
-  (let ((default-directory
-	  (if (buffer-file-name)
-              (file-name-directory (buffer-file-name))
-            default-directory))))
-  (call-process-shell-command "start explorer ."))
-
 (defun wt()
   "Open an external Windows cmd in the current directory"
   (interactive)
-  (let ((default-directory
-          (if (buffer-file-name)
-              (file-name-directory (buffer-file-name))
-            default-directory))))
   (call-process-shell-command "start wt"))
 
 (defun arrange-frame (w h x y)

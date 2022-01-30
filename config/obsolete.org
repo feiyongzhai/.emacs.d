@@ -487,6 +487,18 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
   (setq evil-emacs-state-cursor 'bar)
 #+end_src
 
+* Pyim
+ivy 支持拼音搜索
+#+begin_src emacs-lisp
+  ;; @REF: https://emacs-china.org/t/ivy-read/2432/6?u=yongfeizhai
+  (defun eh-ivy-cregexp (str)
+    (if (eq 0 (length str))
+        (ivy--regex-plus str)
+      (concat
+       (ivy--regex-plus str)
+       "\\|"
+       (pyim-cregexp-build str))))
+#+end_src
 * Rime
 ** switch between xhup & flypy
 #+begin_src emacs-lisp

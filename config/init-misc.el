@@ -50,14 +50,21 @@
     ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"        . youdao-dictionary-search-from-input)
     ))
+(global-set-key (kbd "C-c o f") 'file-manager-here)
+(global-set-key (kbd "C-c o t") 'fei-terminal-here)
+(global-set-key (kbd "C-c o v") 'open-current-file-with-gvim)
+(global-set-key (kbd "C-c o V") 'open-current-file-with-vscode)
+(global-set-key (kbd "C-c o e") 'open-current-file-with-emacsq)
+(global-set-key (kbd "C-c o E") 'open-current-file-with-emacsv)
+
+(global-set-key (kbd "<M-f12>") 'fei-emacs)
+(global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
+
 
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
-
-(global-set-key (kbd "<M-f12>") 'fei-emacs)
-(global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
 ;; Helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)

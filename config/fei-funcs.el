@@ -480,5 +480,19 @@ confines of word boundaries (e.g. multiple words)."
       (call-interactively 'duplicate-line-below-comment)
     (call-interactively 'duplicate-line-or-region-below)))
 
+
+;; Neotree
+
+(defun fei-neotree-move-to-left ()
+  (interactive)
+  (neotree-hide)
+  (setq neo-window-position 'left)
+  (neotree-show))
+
+(defun fei-neotree-move-to-right ()
+  (interactive)
+  (neotree-hide)
+  (setq neo-window-position 'right)
+  (neotree-show))
 
 (provide 'fei-funcs)

@@ -20,6 +20,8 @@
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
   (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)
+  (define-key neotree-mode-map (kbd "J") 'fei-neotree-move-to-left)
+  (define-key neotree-mode-map (kbd "K") 'fei-neotree-move-to-right)
   (define-key neotree-mode-map (kbd "l") 'neotree-enter)
   (define-key neotree-mode-map (kbd "f") 'neotree-enter)
   )

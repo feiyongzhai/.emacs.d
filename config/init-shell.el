@@ -24,14 +24,16 @@
 (global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-c M-j") 'fei-term-cd-here)
 
-(add-hook 'eshell-mode-hook
-	  (lambda ()
-	    (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
-	    (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
-	    (define-key eshell-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
-	    (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
-	    (define-key eshell-mode-map (kbd "M-s") nil)))
-	  
+(add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
+
+(defun +fei-eshell-mode-hook ()
+  (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
+  (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
+  (define-key eshell-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
+  (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
+  (define-key eshell-mode-map (kbd "M-s") nil)
+  (toggle-truncate-lines 0))
+
 ;;; Make eshell don't always scroll to bottom
 ;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
 ;; There are two solution
@@ -40,8 +42,6 @@
           (defun chunyang-eshell-mode-setup ()
             (remove-hook 'eshell-output-filter-functions
                          'eshell-postoutput-scroll-to-bottom)))
-(add-hook 'eshell-mode-hook (lambda ()
-			      (toggle-truncate-lines 0)))
 
 (with-eval-after-load 'shell
   ;; 实际使用中发现下面这个设置会和 matlab-shell 的补全冲突

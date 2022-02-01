@@ -1,4 +1,4 @@
-;;; 一些单独工作的小函数
+;;; fei-funcs.el === 一些单独工作的小函数
 
 (defun fei-meow-last-buffer (arg)
   "Switch to last buffer.

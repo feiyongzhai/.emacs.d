@@ -160,6 +160,8 @@
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))
   (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)
+  (define-key bs-mode-map (kbd "k") 'nil) ;default is `bs-delete', 但是最近总是误触
+  (define-key bs-mode-map (kbd "f") (li (bs-set-configuration "files") (bs-refresh)))
   )
 
 (provide 'init-window-buffer-tab)

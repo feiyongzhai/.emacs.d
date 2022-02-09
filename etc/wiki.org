@@ -1,0 +1,11 @@
+#+TITLE: 记录一些 Emacs Wiki
+
+* 有用的变量
+- mouse-wheel-scroll-amount :: 滚轮和修饰键的组合行为
+- mouse-wheel-progressive-speed :: 滚轮速度的行为
+
+* Snippets
+[[https://emacs-china.org/t/word/19878][来源（Emacs-China）]]
+#+begin_src emacs-lisp
+  (setq sentence-end "\\([。！？]\\)[ \t\n]*")
+#+end_src

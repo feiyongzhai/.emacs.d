@@ -423,6 +423,11 @@ next-eshell-buffer
 
 * Edit
 #+begin_src emacs-lisp
+  (global-set-key (kbd "M-a") 'beginning-of-defun)
+  (global-set-key (kbd "M-e") 'end-of-defun)
+#+end_src
+
+#+begin_src emacs-lisp
   (defun fei-newline ()
     (interactive)
     (end-of-line)

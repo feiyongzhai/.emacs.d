@@ -7,8 +7,6 @@
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
-(global-set-key (kbd "M-a") 'beginning-of-defun)
-(global-set-key (kbd "M-e") 'end-of-defun)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (global-set-key (kbd "M-g M-g") 'goto-line-preview)
 ;;; Cursor Movement (experimental config)
@@ -37,6 +35,13 @@
 ;;; Misc
 (global-set-key (kbd "C-c q") 'query-replace)
 (global-set-key (kbd "C-c Q") 'query-replace-regexp)
+
+(global-set-key (kbd "C-c J") 'consult-register-store)
+(global-set-key (kbd "C-c j") 'consult-register-load)
+(global-set-key (kbd "C-c f") 'consult-focus-lines)
+(global-set-key (kbd "C-c o o") 'consult-outline)
+(global-set-key (kbd "M-X") 'consult-mode-command)
+(global-set-key (kbd "C-c i") 'counsel-imenu)
 
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)

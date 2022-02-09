@@ -1,6 +1,6 @@
-(load-path-add "~/.emacs.d/extensions/emacs-application-framework")
-
 (require 'fei-funcs)
+
+(load-path-add "~/.emacs.d/extensions/emacs-application-framework")
 
 (require 'eaf)
 (require 'eaf-browser)
@@ -58,7 +58,7 @@
     ;; 
     ;; ("M-[" . fei-eaf-file-share-current-dir)
     ("M-]" . fei-eaf-file-share-current-dir)
-    ("C-x j" . eaf-open-in-file-manager)
+    ;; ("C-x j" . eaf-open-in-file-manager)
     ("M-s s" . eaf-open-browser-with-history)
     ))
 

@@ -17,6 +17,7 @@
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
 
+(recentf-mode t)
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 
@@ -86,6 +87,11 @@
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 
 ;;; Misc
+
+;; 让 `speedbar' 显示隐藏文件
+;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565
+;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html
+(setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
 
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))

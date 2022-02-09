@@ -32,8 +32,11 @@
 (global-set-key (kbd "M-z") 'fei-org-capture)
 (global-set-key (kbd "<f1>") 'fei-org-capture-note)
 
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'fei-org-capture)
+(global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
+(global-set-key (kbd "C-c A") 'org-agenda)
+
+(global-set-key (kbd "C-c c") 'fei-org-capture-note)
+(global-set-key (kbd "C-c C") 'fei-org-capture)
 (global-set-key (kbd "<f6>") 'fei-org-agenda)
 (global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f10>") 'fei-org-capture-SAR)

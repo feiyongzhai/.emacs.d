@@ -12,6 +12,7 @@
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
 (global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
+(global-set-key (kbd "M-s RET") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====

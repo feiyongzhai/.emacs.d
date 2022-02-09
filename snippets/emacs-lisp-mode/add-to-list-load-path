@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: add-to-list-load-path
+# key: alp
+# --
+(add-to-list 'load-path "~/.emacs.d/extensions/$1")

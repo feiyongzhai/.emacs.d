@@ -121,9 +121,16 @@
   (global-set-key (kbd "M-s M-f") 'fasd-find-file))
 
 ;; builtin `project'
-(global-set-key (kbd "C-x p p") 'project-find-file)
-(global-set-key (kbd "C-x p f") 'project-find-regexp)
+(global-set-key (kbd "C-x p p") 'project-switch-project)
+(global-set-key (kbd "C-x p f") 'project-find-file)
 (global-set-key (kbd "C-x p r") 'project-query-replace-regexp)
+
+;; consult
+(setq register-preview-delay 0
+      register-preview-function #'consult-register-format)
+
+(global-set-key (kbd "C-c J") 'consult-register-store)
+(global-set-key (kbd "C-c j") 'consult-register-load)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

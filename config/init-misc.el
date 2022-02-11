@@ -88,6 +88,11 @@
 
 ;;; Misc
 
+(global-set-key (kbd "C-x C-a") 'fei-test)
+(defun fei-test ()
+  (interactive)
+  (message "请添加你的测试代码！"))
+
 ;; 让 `speedbar' 显示隐藏文件
 ;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565
 ;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html

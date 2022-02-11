@@ -16,9 +16,6 @@
 [submodule "extensions/duplicate-line"]
 	path = extensions/duplicate-line
 	url = https://github.com/manateelazycat/duplicate-line.git
-[submodule "extensions/awesome-pair"]
-	path = extensions/awesome-pair
-	url = https://github.com/manateelazycat/awesome-pair.git
 [submodule "extensions/one-key"]
 	path = extensions/one-key
 	url = https://github.com/manateelazycat/one-key.git
@@ -28,3 +25,6 @@
 [submodule "extensions/dired-hacks"]
 	path = extensions/dired-hacks
 	url = https://github.com/feiyongzhai/dired-hacks.git
+[submodule "extensions/awesome-pair"]
+	path = extensions/awesome-pair
+	url = https://github.com/feiyongzhai/awesome-pair.git

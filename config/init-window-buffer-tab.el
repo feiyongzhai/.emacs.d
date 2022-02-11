@@ -10,9 +10,8 @@
 (global-set-key (kbd "M-k") 'fei-kill-current-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
-(global-set-key (kbd "M-s b") 'fei-meow-last-buffer)
-(global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
 (global-set-key (kbd "M-s RET") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
@@ -63,21 +62,21 @@
     ("C-S-t" . tab-new)
     ))
 
-(add-hook 'term-mode-hook
-            (lambda ()
-	      ;; 占用了终端 native 的 M-num 的按键：不过这个按键也不常用，所以没什么问题
-	      (define-key term-raw-map (kbd "M-`") 'eyebrowse-last-window-config)
-	      (define-key term-raw-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
-	      (define-key term-raw-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
-	      (define-key term-raw-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
-	      (define-key term-raw-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
-	      (define-key term-raw-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
-	      (define-key term-raw-map (kbd "M-6") 'eyebrowse-switch-to-window-config-6)
-	      (define-key term-raw-map (kbd "M-7") 'eyebrowse-switch-to-window-config-7)
-	      (define-key term-raw-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
-	      (define-key term-raw-map (kbd "M-9") 'eyebrowse-switch-to-window-config-9)
-	      (define-key term-raw-map (kbd "M-0") 'eyebrowse-switch-to-window-config-0)
-	      ))
+(add-hook 'term-mode-hook '+fei-term-mode-hook)
+
+(defun +fei-term-mode-hook ()
+  ;; 占用了终端 native 的 M-num 的按键：不过这个按键也不常用，所以没什么问题
+  (define-key term-raw-map (kbd "M-`") 'eyebrowse-last-window-config)
+  (define-key term-raw-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
+  (define-key term-raw-map (kbd "M-2") 'eyebrowse-switch-to-window-config-2)
+  (define-key term-raw-map (kbd "M-3") 'eyebrowse-switch-to-window-config-3)
+  (define-key term-raw-map (kbd "M-4") 'eyebrowse-switch-to-window-config-4)
+  (define-key term-raw-map (kbd "M-5") 'eyebrowse-switch-to-window-config-5)
+  (define-key term-raw-map (kbd "M-6") 'eyebrowse-switch-to-window-config-6)
+  (define-key term-raw-map (kbd "M-7") 'eyebrowse-switch-to-window-config-7)
+  (define-key term-raw-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
+  (define-key term-raw-map (kbd "M-9") 'eyebrowse-switch-to-window-config-9)
+  (define-key term-raw-map (kbd "M-0") 'eyebrowse-switch-to-window-config-0))
 
 (setq tab-bar-show 1)
 (setq tab-bar-tab-hints t)		;show number in tab-bar

@@ -1,7 +1,6 @@
 (require 'fei-funcs)
 
 (load-path-add "~/.emacs.d/extensions/emacs-application-framework")
-
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
@@ -12,41 +11,24 @@
 (require 'eaf-mindmap)
 (require 'eaf-mail)
 (require 'eaf-terminal)
-(require 'eaf-camera)
-(require 'eaf-jupyter)
+;; (require 'eaf-camera)
+;; (require 'eaf-jupyter)
 ;; (require 'eaf-netease-cloud-music)
 (require 'eaf-music-player)
 (require 'eaf-system-monitor)
 (require 'eaf-file-manager)
 (require 'eaf-file-browser)
-(require 'eaf-demo)
-(require 'eaf-vue-demo)
 (require 'eaf-interleave)
 (require 'eaf-rss-reader)
+(require 'eaf-demo)
+(require 'eaf-vue-demo)
 (require 'eaf-fei)
 
-(load-path-add "~/.emacs.d/extensions/popweb/extension/dict/")
-(load-path-add "~/.emacs.d/extensions/popweb/extension/latex/")
-(load-path-add "~/.emacs.d/extensions/popweb/")
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
-(require 'popweb-latex)
-
+;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "s-/") 'eaf-open-rss-reader)
 (global-set-key (kbd "M-ESC s") 'eaf-open-browser-with-history)
 
-(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
-(setq eaf-browser-enable-adblocker t)
-(setq eaf-browser-enable-autofill t)
-(setq eaf-browser-enable-scrollbar t)
-(setq eaf-music-play-order "random")
-(setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
-(setq eaf-file-manager-show-hidden-file nil)
-(setq eaf-rss-reader-web-page-other-window nil)
-(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
-
-;;; Keys
 (fei-define-key-with-map global-map
   '(
     ("C-c e" . eaf-open-this-buffer)
@@ -80,13 +62,22 @@
 
 ;;; Vars
 
+(setq eaf-browser-continue-where-left-off t)
+(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
+(setq eaf-browser-enable-adblocker t)
+(setq eaf-browser-enable-autofill t)
+(setq eaf-browser-enable-scrollbar t)
+(setq eaf-music-play-order "random")
+(setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
+(setq eaf-file-manager-show-hidden-file nil)
+(setq eaf-rss-reader-web-page-other-window nil)
+(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
+
 (with-eval-after-load 'eaf
   (eaf-setq eaf-browser-enable-adblocker "true")
   (eaf-setq eaf-terminal-font-family "Hack")
-  (eaf-setq eaf-terminal-font-size "16")
+  (eaf-setq eaf-terminal-font-size "20")
   (eaf-setq eaf-browser-enable-adblocker "true"))
-
-(setq eaf-browser-continue-where-left-off t)
 
 (setq eaf-proxy-type "socks5"
       eaf-proxy-host "127.0.0.1"
@@ -110,5 +101,15 @@
     (interactive)
     (call-interactively 'tab-line-switch-to-next-tab))
   )
+
+;; ==== Popweb ====
+
+(load-path-add "~/.emacs.d/extensions/popweb/extension/dict/")
+(load-path-add "~/.emacs.d/extensions/popweb/extension/latex/")
+(load-path-add "~/.emacs.d/extensions/popweb/")
+(require 'popweb-dict-bing)
+(require 'popweb-dict-youdao)
+(require 'popweb-latex)
+
 
 (provide 'init-eaf)

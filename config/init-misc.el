@@ -16,6 +16,7 @@
 ;;; Vars
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
+(global-set-key (kbd "C-c 0") 'calendar)
 
 (recentf-mode t)
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
@@ -46,7 +47,6 @@
     ("<f7>"         . scratch)
     ("M-s y"        . counsel-yank-pop)
     ("M-s g"        . rgrep)
-    ("M-s M-w"      . fei-google-search)
     ("C-c y"        . youdao-dictionary-search-at-point-tooltip)
     ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"        . youdao-dictionary-search-from-input)
@@ -60,7 +60,6 @@
 
 (global-set-key (kbd "<M-f12>") 'fei-emacs)
 (global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
-
 
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
@@ -130,12 +129,15 @@
 (global-set-key (kbd "C-x p f") 'project-find-file)
 (global-set-key (kbd "C-x p r") 'project-query-replace-regexp)
 
-;; consult
+;; Consult
 (setq register-preview-delay 0
       register-preview-function #'consult-register-format)
 
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
+
+;; Beacon
+(global-set-key (kbd "C-c u") 'beacon-blink)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

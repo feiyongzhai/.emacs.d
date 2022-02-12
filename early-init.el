@@ -12,8 +12,8 @@
 ;;; ==== Encode config ====
 
 (set-charset-priority 'unicode)
-(set-terminal-coding-system  'utf-8)    ; pretty
-(set-keyboard-coding-system  'utf-8)    ; pretty
+(set-terminal-coding-system  'utf-8)
+(set-keyboard-coding-system  'utf-8)
 
 
 ;; 这行代码放在这里，启动速度会快一点，

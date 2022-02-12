@@ -1,5 +1,6 @@
 (load-path-add "~/.emacs.d/extensions/awesome-pair")
 (require 'awesome-pair)
+
 (dolist (hook (list
                'c-mode-common-hook
                'c-mode-hook

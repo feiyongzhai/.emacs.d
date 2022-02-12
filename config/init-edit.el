@@ -15,6 +15,7 @@
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)
 (global-set-key (kbd "C-c n") 'neotree-show)
+(global-set-key (kbd "C-c C-n") 'neotree-show)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
   (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)

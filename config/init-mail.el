@@ -1,4 +1,4 @@
-(require 'auth-source);; probably not necessary
+(require 'auth-source) ;; probably not necessary
 (setq auth-sources '("~/.emacs.d/.authinfo"))
 
 (setq message-send-mail-function 'smtpmail-send-it)

@@ -103,20 +103,6 @@
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 
-;; apt-utils
-(load-path-add "~/.emacs.d/extensions/")
-(require 'apt-utils)
-
-;; fasd
-(load-path-add "~/.emacs.d/extensions/fasd")
-(with-eval-after-load 'ivy
-  ;; 因为 fasd 的原因，需要在 ivy 之后加载
-  (require 'fasd)
-  (setq fasd-add-file-to-db-when-eshell t)
-  (global-fasd-mode t)
-  (setq fasd-enable-initial-prompt nil)
-  (global-set-key (kbd "M-s M-f") 'fasd-find-file))
-
 ;; builtin `project'
 (global-set-key (kbd "C-x p p") 'project-switch-project)
 (global-set-key (kbd "C-x p f") 'project-find-file)

@@ -495,4 +495,10 @@ confines of word boundaries (e.g. multiple words)."
   (setq neo-window-position 'right)
   (neotree-show))
 
+
+;; require `pulse' library
+(defun fei-pulse-current-line ()
+  (interactive)
+  (pulse-momentary-highlight-one-line (point)))
+
 (provide 'fei-funcs)

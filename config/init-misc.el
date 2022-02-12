@@ -136,8 +136,8 @@
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
 
-;; Beacon
-(global-set-key (kbd "C-c u") 'beacon-blink)
+;; Pulse
+(global-set-key (kbd "C-c u") 'fei-pulse-current-line)
 
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)

@@ -41,7 +41,6 @@
 (fei-define-key-with-map global-map
   `(("<insert>"     . fei-occur-at-point)
     ("<insertchar>" . fei-occur-at-point)
-    ("M-g i"        . imenu)
     ("C-x F"        . set-fill-column)
     ("<f5>"         . fei-simple-compile)
     ("<f7>"         . scratch)
@@ -51,6 +50,7 @@
     ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"        . youdao-dictionary-search-from-input)
     ))
+
 (global-set-key (kbd "C-c o f") 'file-manager-here)
 (global-set-key (kbd "C-c o t") 'fei-terminal-here)
 (global-set-key (kbd "C-c o v") 'open-current-file-with-gvim)
@@ -59,7 +59,6 @@
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacsv)
 
 (global-set-key (kbd "<M-f12>") 'fei-emacs)
-(global-set-key (kbd "ESC <f12>") 'open-current-file-with-gvim)
 
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
@@ -69,7 +68,6 @@
 ;; Helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
-(global-set-key (kbd "C-h O") 'helpful-at-point)
 
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
@@ -85,7 +83,7 @@
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
 
-;;; Misc
+;;; ==== Misc ====
 
 ;; 让 `speedbar' 显示隐藏文件
 ;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565

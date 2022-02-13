@@ -118,6 +118,9 @@
 ;; Pulse
 (global-set-key (kbd "C-c u") 'fei-pulse-current-line)
 
+;; Symbol-overlay
+(global-set-key (kbd "M-I") 'symbol-overlay-put)
+
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)

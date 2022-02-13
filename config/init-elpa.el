@@ -58,6 +58,7 @@
 	electric-spacing
 	cal-china-x
 	eyebrowse
+	symbol-overlay
 	;; frames-only-mode
 	))
 

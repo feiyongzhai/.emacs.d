@@ -10,24 +10,20 @@
 (with-eval-after-load 'markdown-mode
   (fei-define-key-with-map markdown-mode-map
     '(
-      ("C-c !" . markdown-insert-header-setext-1)
-      ("C-c 1" . markdown-insert-header-atx-1)
-      ("C-c 2" . markdown-insert-header-atx-2)
-      ("C-c 3" . markdown-insert-header-atx-3)
-      ("C-c 4" . markdown-insert-header-atx-4)
-      ("C-c 5" . markdown-insert-header-atx-5)
-      ("C-c 6" . markdown-insert-header-atx-6)
-      ("C-c @" . markdown-insert-header-setext-2)
-      ("C-c H" . markdown-insert-header-setext-dwim)
-      ("C-c h" . markdown-insert-header-dwim)
-      ("C-c s" . markdown-insert-header-setext-2)
-      ("C-c t" . markdown-insert-header-setext-1)
+      ("M-s !" . markdown-insert-header-setext-1)
+      ("M-s 1" . markdown-insert-header-atx-1)
+      ("M-s 2" . markdown-insert-header-atx-2)
+      ("M-s 3" . markdown-insert-header-atx-3)
+      ("M-s 4" . markdown-insert-header-atx-4)
+      ("M-s 5" . markdown-insert-header-atx-5)
+      ("M-s 6" . markdown-insert-header-atx-6)
+      ("M-s @" . markdown-insert-header-setext-2)
       ("<M-up>" . markdown-move-up)
       ("<M-down>" . markdown-move-down)
       )))
 
 (global-set-key (kbd "<pause>") 'fei-org-time)
-(global-set-key (kbd "C-c s") 'fei-org-store-link)
+(global-set-key (kbd "C-c S") 'fei-org-store-link)
 
 (global-set-key (kbd "M-z") 'fei-org-capture)
 (global-set-key (kbd "<f1>") 'fei-org-capture-note)
@@ -39,8 +35,8 @@
 (global-set-key (kbd "C-c C") 'fei-org-capture)
 (global-set-key (kbd "<f6>") 'fei-org-agenda)
 (global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
-(global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f9>") 'fei-org-capture-WANT)
+(global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)

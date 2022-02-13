@@ -16,7 +16,7 @@
 ;;; Vars
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
-(global-set-key (kbd "C-c t") 'calendar)
+(global-set-key (kbd "C-c M-c") 'calendar)
 
 (recentf-mode t)
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
@@ -43,7 +43,7 @@
     ("<insertchar>" . fei-occur-at-point)
     ("C-x F"        . set-fill-column)
     ("<f5>"         . fei-simple-compile)
-    ("<f7>"         . scratch)
+    ("C-c s"         . scratch)
     ("M-s y"        . counsel-yank-pop)
     ("M-s g"        . rgrep)
     ("C-c y"        . youdao-dictionary-search-at-point-tooltip)

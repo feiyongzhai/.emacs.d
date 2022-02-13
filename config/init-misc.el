@@ -54,11 +54,11 @@
 (global-set-key (kbd "C-c o f") 'file-manager-here)
 (global-set-key (kbd "C-c o t") 'fei-terminal-here)
 (global-set-key (kbd "C-c o v") 'open-current-file-with-gvim)
-(global-set-key (kbd "C-c o V") 'open-current-file-with-vscode)
-(global-set-key (kbd "C-c o e") 'open-current-file-with-emacsq)
-(global-set-key (kbd "C-c o E") 'open-current-file-with-emacsv)
-
-(global-set-key (kbd "<M-f12>") 'fei-emacs)
+(global-set-key (kbd "C-c o C-v") 'open-current-file-with-vscode)
+(global-set-key (kbd "C-c o C-e") 'open-current-file-with-emacsq)
+(global-set-key (kbd "C-c o e") 'open-current-file-with-emacsv)
+(global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
+(global-set-key (kbd "C-c o M-e") 'fei-emacs)
 
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)

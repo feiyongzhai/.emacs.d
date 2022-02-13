@@ -329,6 +329,16 @@ kill region instead"
 		   (or (buffer-file-name)
 		       default-directory))))
 
+(defun open-current-file-with-emacs ()
+  (interactive)
+  (let ((line (number-to-string (line-number-at-pos)))
+	;; emacs 中的 column 是从 0 开始计数的
+	(column (number-to-string (1+ (current-column)))))
+    (start-process "emacs" nil "emacs"
+		   (concat "+" line ":" column)
+		   (or (buffer-file-name)
+		       default-directory))))
+
 (defun open-current-file-with-emacsv ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))

@@ -16,7 +16,7 @@
 ;;; Vars
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
-(global-set-key (kbd "C-c 0") 'calendar)
+(global-set-key (kbd "C-c t") 'calendar)
 
 (recentf-mode t)
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
@@ -116,7 +116,7 @@
 (global-set-key (kbd "C-c j") 'consult-register-load)
 
 ;; Pulse
-(global-set-key (kbd "C-c u") 'fei-pulse-current-line)
+(global-set-key (kbd "C-c h") 'fei-pulse-current-line)
 
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)

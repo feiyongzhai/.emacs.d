@@ -91,6 +91,7 @@
     ("U" . winner-redo)))
 
 ;;; ==== Tab-line begin ====
+
 (require 'tab-line)
 
 (setq tab-line-tab-name-function 'tab-line-tab-name-truncated-buffer)
@@ -120,15 +121,16 @@
 ;;; ==== Tab-line end ====
 
 ;;; ==== Bs ====
+
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
 (global-set-key (kbd "C-x C-b") (li (setq bs-cur-major-mode major-mode) (call-interactively 'bs-show)))
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
+	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("eshell" nil nil nil fei-bs-not-eshell bs-sort-buffer-interns-are-last)
 	("Org" nil nil nil fei-bs-not-org bs-sort-buffer-interns-are-last)
-	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("same-major" nil nil nil fei-bs-not-cur-major-mode bs-sort-buffer-interns-are-last)
 	("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last))
       )
@@ -151,18 +153,22 @@
     (bs-kill)
     (switch-to-buffer buf)))
 
+(defun fei-bs-set-configuration-default (conf)
+  (bs-set-configuration conf)
+  (setq bs-default-configuration bs-current-configuration)
+  (bs-refresh))
+
 (with-eval-after-load 'bs
-  (define-key bs-mode-map (kbd "a") (li (bs-set-configuration "all") (bs-refresh)))
+  (define-key bs-mode-map (kbd "a") (li (fei-bs-set-configuration-default "all")))
   (define-key bs-mode-map (kbd "A") 'bs-toggle-show-all)
-  (define-key bs-mode-map (kbd "e") (li (bs-set-configuration "eshell") (bs-refresh)))
-  (define-key bs-mode-map (kbd "w") (li (bs-set-configuration "files-and-scratch") (bs-refresh)))
-  (define-key bs-mode-map (kbd "h") (li (bs-set-configuration "same-major") (bs-refresh)))
-  (define-key bs-mode-map (kbd "O") (li (bs-set-configuration "Org") (bs-refresh)))
+  (define-key bs-mode-map (kbd "e") (li (fei-bs-set-configuration-default "eshell")))
+  (define-key bs-mode-map (kbd "h") (li (fei-bs-set-configuration-default "same-major")))
+  (define-key bs-mode-map (kbd "O") (li (fei-bs-set-configuration-default "Org")))
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))
   (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)
   (define-key bs-mode-map (kbd "k") 'nil) ;default is `bs-delete', 但是最近总是误触
-  (define-key bs-mode-map (kbd "f") (li (bs-set-configuration "files") (bs-refresh)))
+  (define-key bs-mode-map (kbd "f") (li (fei-bs-set-configuration-default "files")))
   )
 
 (provide 'init-window-buffer-tab)

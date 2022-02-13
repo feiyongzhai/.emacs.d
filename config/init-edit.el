@@ -12,8 +12,10 @@
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
+;; Neotree
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)
+(global-set-key (kbd "C-c N") 'speedbar)
 (global-set-key (kbd "C-c n") 'neotree-show)
 (global-set-key (kbd "C-c C-n") 'neotree-show)
 (with-eval-after-load 'neotree
@@ -30,6 +32,7 @@
 (global-set-key (kbd "M-P") 'scroll-down-line)
 
 ;;; Mark
+(global-set-key (kbd "M-H") 'mark-defun)
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)
 (global-set-key (kbd "C-,") 'set-mark-command)
 
@@ -44,13 +47,15 @@
 
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
-(global-set-key (kbd "C-;") 'iedit-mode)
-(global-set-key (kbd "M-s ;") 'iedit-mode)
 (global-set-key (kbd "C-x l") 'ialign)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 (global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
 (global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
+
+;; Iedit
+(global-set-key (kbd "C-;") 'iedit-mode)
+(global-set-key (kbd "M-s ;") 'iedit-mode)
 
 ;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
 (global-set-key (kbd "M-c") 'capitalize-dwim)

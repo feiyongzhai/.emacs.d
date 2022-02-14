@@ -3,6 +3,16 @@
 ;;; Commentary:
 ;; 注意：emacs 26.3 不支持 early-init.el
 
+;;; Enable disabled command
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)
+
+
 ;; ==== 用于判断系统的变量 ====
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))

@@ -59,6 +59,7 @@
 	cal-china-x
 	eyebrowse
 	symbol-overlay
+	tldr
 	;; frames-only-mode
 	))
 

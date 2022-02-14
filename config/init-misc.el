@@ -121,13 +121,8 @@
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 
-;;; Enable disabled command
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'set-goal-column 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'scroll-left 'disabled nil)
+;; tldr
+(global-set-key (kbd "C-c M") 'man)
+(global-set-key (kbd "C-c M-m") 'tldr)
 
 (provide 'init-misc)

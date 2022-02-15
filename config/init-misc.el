@@ -58,7 +58,7 @@
 (global-set-key (kbd "C-c o C-e") 'open-current-file-with-emacsq)
 (global-set-key (kbd "C-c o e") 'open-current-file-with-emacsv)
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
-(global-set-key (kbd "C-c o M-e") 'fei-emacs)
+(global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)

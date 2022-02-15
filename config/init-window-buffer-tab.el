@@ -16,6 +16,7 @@
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
+(global-set-key (kbd "C-x 1") ' zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "s-u") 'winner-undo)
 (fei-define-key-with-map global-map
   '(

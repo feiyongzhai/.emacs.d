@@ -57,7 +57,7 @@
         helpful
 	electric-spacing
 	cal-china-x
-	eyebrowse
+	eyebrowse zygospore
 	symbol-overlay
 	tldr
 	;; frames-only-mode

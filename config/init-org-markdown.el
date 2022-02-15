@@ -25,7 +25,6 @@
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
 
-(global-set-key (kbd "M-z") 'fei-org-capture)
 (global-set-key (kbd "<f1>") 'fei-org-capture-note)
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))

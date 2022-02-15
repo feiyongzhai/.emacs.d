@@ -30,6 +30,8 @@
     ("C-x C-f" . counsel-find-file)
     ))
 
+(global-set-key (kbd "C-c r") 'counsel-register)
+(global-set-key (kbd "C-c K") 'counsel-kmacro)
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
 (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
 

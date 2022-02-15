@@ -125,4 +125,8 @@
 (global-set-key (kbd "C-c M") 'man)
 (global-set-key (kbd "C-c M-m") 'tldr)
 
+;; feebleline
+(load-path-add "~/.emacs.d/extensions/feebleline/")
+(require 'feebleline)
+
 (provide 'init-misc)

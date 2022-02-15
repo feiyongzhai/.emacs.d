@@ -28,3 +28,6 @@
 [submodule "extensions/awesome-pair"]
 	path = extensions/awesome-pair
 	url = https://github.com/feiyongzhai/awesome-pair.git
+[submodule "extensions/feebleline"]
+	path = extensions/feebleline
+	url = https://github.com/feiyongzhai/feebleline.git

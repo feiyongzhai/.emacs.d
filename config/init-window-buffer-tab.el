@@ -130,14 +130,15 @@
       '(("all" nil nil nil nil nil)
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
-	("eshell" nil nil nil fei-bs-not-eshell bs-sort-buffer-interns-are-last)
+	("eshell-and-term" nil nil nil fei-bs-not-eshell/term bs-sort-buffer-interns-are-last)
 	("Org" nil nil nil fei-bs-not-org bs-sort-buffer-interns-are-last)
 	("same-major" nil nil nil fei-bs-not-cur-major-mode bs-sort-buffer-interns-are-last)
 	("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last))
       )
 
-(defun fei-bs-not-eshell (buf)
-  (with-current-buffer buf (not (eq major-mode 'eshell-mode))))
+(defun fei-bs-not-eshell/term (buf)
+  (with-current-buffer buf (not (or (eq major-mode 'eshell-mode)
+				    (eq major-mode 'term-mode)))))
 
 (defun fei-bs-not-org (buf)
   (with-current-buffer buf (not (eq major-mode 'org-mode))))

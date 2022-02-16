@@ -14,7 +14,6 @@
 (fei-define-key-with-map global-map
   `(
     ("<s-return>" . fei-terminal-here)
-    ("<f12>" . open-current-file-with-emacsv)
     ("<f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("M-s M-j" . fei-eshell-cd-here)
     ("M-s j"  . eshell)

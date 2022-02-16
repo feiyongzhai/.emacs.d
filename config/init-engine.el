@@ -1,11 +1,6 @@
 (load-path-add "~/.emacs.d/extensions/one-key")
 (require 'one-key)
 
-(global-set-key (kbd "C-c /") 'webjump)
-(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
-(global-set-key (kbd "C-x C-/") 'engine-mode-prefixed-map)
-(global-set-key (kbd "M-s-g") 'one-key-menu-engine)
-
 (one-key-create-menu
  "ENGINE"
  '(
@@ -15,15 +10,21 @@
    (("b" . "哔哩哔哩") . engine/search-bilibili)
    (("d" . "DuckDuckGo") . engine/search-duckduckgo)
    (("D" . "百度") . engine/search-baidu)
-   (("B" . "百度") . engine/search-bing)
+   (("B" . "必应") . engine/search-bing)
    (("S" . "搜狗") . engine/search-sogou)
    (("y" . "YouTube") . engine/search-youtube)
    (("s" . "谷歌学术") . engine/search-google-scholar)
    (("i" . "谷歌图片") . engine/search-google-images)
-   (("D" . "必应词典") . engine/search-bing-dict)
+   (("c" . "必应词典") . engine/search-bing-dict)
    (("q" . "Qwant") . engine/search-qwant)
    )
  t)
+
+(global-set-key (kbd "M-s-g") 'one-key-menu-engine)
+
+(global-set-key (kbd "C-c /") 'webjump)
+(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-x C-/") 'engine-mode-prefixed-map)
 
 (defengine github
   "https://github.com/search?ref=simplesearch&q=%s"
@@ -72,7 +73,7 @@
 (defengine bing-dict
   "https://www.bing.com/dict/search?q=%s"
   :docstring "bing dictionary"
-  :keybinding "D")
+  :keybinding "c")
 
 (defengine google
   "https://www.google.com/search?ie=utf-8&q=%s"

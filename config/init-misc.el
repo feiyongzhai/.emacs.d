@@ -143,4 +143,7 @@
 (load-path-add "~/.emacs.d/extensions/feebleline/")
 (require 'feebleline)
 
+;; trashed
+(global-set-key (kbd "C-c T") 'trashed)
+
 (provide 'init-misc)

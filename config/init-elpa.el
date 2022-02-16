@@ -59,7 +59,7 @@
 	cal-china-x
 	eyebrowse zygospore
 	symbol-overlay
-	tldr
+	tldr trashed w3m
 	;; frames-only-mode
 	))
 

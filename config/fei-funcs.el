@@ -34,6 +34,16 @@ Argument ARG if not nil, switching in a new window."
           (buffer-substring-no-properties (region-beginning) (region-end))
 	(read-string "Google: "))))))
 
+(defun fei-search (&optional arg)
+  "A wrapper for `fei-google-search', powered by `engine-mode'"
+  (interactive "P")
+  (if arg
+      (progn
+	(message (concat "[b/B] B站/Bing [h] Github [c] 词典 [y] YouTube "
+			 "[s/S] 学术/搜狗 [d/D] DuckDuckGo/百度 [g/i] 谷歌/图片"))
+	(set-transient-map 'engine-mode-prefixed-map))
+    (call-interactively 'fei-google-search)))
+
 (defun fei-kill-current-buffer (arg)
   "智能关闭 windows 和 buffer"
   (interactive "P")

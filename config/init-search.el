@@ -17,7 +17,7 @@
 (add-hook 'isearch-mode-hook '+fei-isearch-deacivate-input-method)
 (add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
 
-(global-set-key (kbd "s-s") 'fei-google-search)
+(global-set-key (kbd "s-s") 'fei-search)
 (global-set-key (kbd "M-s p") 'pinyin-search)
 (fei-define-key-with-map isearch-mode-map
   '(

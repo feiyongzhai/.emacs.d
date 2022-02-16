@@ -21,6 +21,7 @@
 (fei-define-key-with-map global-map
   '(
     ("C-x w u" . transient-winner-undo)
+    ("C-x w s" . window-swap-states)
     ("C-S-m" . maximize-window)		; matlab like keybinding
     ("C-x w M" . maximize-window)
     ("C-x w m" . minimize-window)

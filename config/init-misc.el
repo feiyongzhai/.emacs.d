@@ -60,6 +60,20 @@
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
+;; C-c t * == toggle style mode
+(fei-define-key-with-map global-map
+  '(
+    ;; `display-line-numbers'
+    ("C-c t l" . display-line-numbers-mode)
+    ("C-c t M-l" . menu-bar--display-line-numbers-mode-relative)
+    ("C-c t L" . menu-bar--display-line-numbers-mode-absolute)
+
+    ;; `whitespace'
+    ("C-c t w" . whitespace-mode)
+    ("C-c t W" . whitespace-newline-mode)
+
+    ))
+
 (with-eval-after-load 'eaf-browser
   (eaf-bind-key nil "M-s" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)

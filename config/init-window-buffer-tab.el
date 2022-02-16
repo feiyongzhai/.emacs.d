@@ -39,7 +39,7 @@
 ;; Eyebrowse
 (eyebrowse-mode 1)
 (setq eyebrowse-new-workspace t)
-;; (setq eyebrowse-mode-line-style 'smart)
+(setq eyebrowse-mode-line-style 'current)
 
 (fei-define-key-with-map global-map
   `(

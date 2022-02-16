@@ -30,6 +30,7 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message "")

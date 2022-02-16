@@ -2,6 +2,7 @@
 
 (require 'init-func)
 (require 'fei-funcs)
+(require 'eshell-hacks)
 
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)

@@ -1,7 +1,6 @@
 ;;; Linux 专用配置
 
 ;; apt-utils
-(load-path-add "~/.emacs.d/extensions/")
 (require 'apt-utils)
 
 ;; Fasd

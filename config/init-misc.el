@@ -65,14 +65,16 @@
 ;; ESC ESC * == toggle style mode
 (fei-define-key-with-map global-map
   '(
+    ("M-ESC b" . display-battery-mode)
     ("M-ESC f" . display-fill-column-indicator-mode)
     ("M-ESC l" . display-line-numbers-mode)
     ("M-ESC L" . fei-display-line-numbers-cycle)
     ("M-ESC m" . feebleline-mode)
     ("M-ESC M" . menu-bar-mode)
     ("M-ESC o" . olivetti-mode)
-    ("M-ESC t" . tab-bar-mode)
+    ("M-ESC t" . display-time-mode)
     ("M-ESC T" . tool-bar-mode)
+    ("M-ESC C-t" . tab-bar-mode)
     ("M-ESC r" . ruler-mode)
     ("M-ESC w" . whitespace-mode)
     ("M-ESC W" . whitespace-newline-mode)
@@ -85,6 +87,7 @@
 
 ;; Helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)
+(global-set-key (kbd "C-h O") 'describe-symbol)
 (global-set-key (kbd "C-h k") 'helpful-key)
 
 (define-key 'help-command (kbd "C-l") 'find-library)
@@ -149,5 +152,8 @@
 
 ;; trashed
 (global-set-key (kbd "C-c T") 'trashed)
+
+;; hl-line
+;; (setq hl-line-sticky-flag t)
 
 (provide 'init-misc)

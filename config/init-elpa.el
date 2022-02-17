@@ -60,7 +60,17 @@
 	eyebrowse zygospore
 	symbol-overlay
 	tldr trashed w3m
+	alarm-clock
+	separedit
 	;; frames-only-mode
+
+	;; == 有趣/有用的 packages 备忘 ==
+	academic-phrases
+	;; calfw / calfw-org
+	;; zone zone-rainbow zone-nyan zone-sl totd
+	;; zoom zlc web-search google-this
+	;; web-search bing-dict
+
 	))
 
 (when *is-linux*

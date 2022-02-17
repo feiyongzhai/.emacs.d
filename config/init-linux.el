@@ -11,7 +11,7 @@
   (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
   (setq fasd-enable-initial-prompt nil)
-  (global-set-key (kbd "M-s f") 'fasd-find-file))
+  (global-set-key (kbd "C-c f") 'fasd-find-file))
 
 ;; Telega
 (setq telega-chat-fill-column 50

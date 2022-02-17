@@ -60,18 +60,22 @@
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
-;; C-c t * == toggle style mode
+(global-set-key (kbd "M-s L") (li (find-file "~/.emacs.d/config/init-local.el")))
+
+;; ESC ESC * == toggle style mode
 (fei-define-key-with-map global-map
   '(
-    ;; `display-line-numbers'
-    ("C-c t l" . display-line-numbers-mode)
-    ("C-c t M-l" . menu-bar--display-line-numbers-mode-relative)
-    ("C-c t L" . menu-bar--display-line-numbers-mode-absolute)
-
-    ;; `whitespace'
-    ("C-c t w" . whitespace-mode)
-    ("C-c t W" . whitespace-newline-mode)
-
+    ("M-ESC f" . display-fill-column-indicator-mode)
+    ("M-ESC l" . display-line-numbers-mode)
+    ("M-ESC L" . menu-bar--display-line-numbers-mode-relative)
+    ("M-ESC m" . feebleline-mode)
+    ("M-ESC M" . menu-bar-mode)
+    ("M-ESC o" . olivetti-mode)
+    ("M-ESC t" . tab-bar-mode)
+    ("M-ESC T" . tool-bar-mode)
+    ("M-ESC r" . ruler-mode)
+    ("M-ESC w" . whitespace-mode)
+    ("M-ESC W" . whitespace-newline-mode)
     ))
 
 (with-eval-after-load 'eaf-browser
@@ -140,7 +144,7 @@
 (global-set-key (kbd "C-c M-m") 'tldr)
 
 ;; feebleline
-(load-path-add "~/.emacs.d/extensions/feebleline/")
+(add-to-list 'load-path "~/.emacs.d/extensions/feebleline")
 (require 'feebleline)
 
 ;; trashed

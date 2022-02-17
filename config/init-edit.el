@@ -40,7 +40,7 @@
 (global-set-key (kbd "C-c q") 'query-replace)
 (global-set-key (kbd "C-c Q") 'query-replace-regexp)
 
-(global-set-key (kbd "C-c f") 'consult-focus-lines)
+(global-set-key (kbd "C-x M-f") 'sudo-find-this-file)
 (global-set-key (kbd "C-c o o") 'consult-outline)
 (global-set-key (kbd "M-X") 'consult-mode-command)
 (global-set-key (kbd "C-c i") 'counsel-imenu)

@@ -318,14 +318,16 @@ kill region instead"
   (let ((line (number-to-string (line-number-at-pos)))
 	(column (number-to-string (current-column))))
     (start-process "vscode" nil "code" "--goto"
-		   (concat (buffer-file-name)
+		   (concat (or (buffer-file-name)
+			       default-directory)
 			   ":" line ":" column))))
 
 (defun open-current-file-with-gvim ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))
 	(column (number-to-string (current-column))))
-    (start-process "gvim" nil "gvim" (buffer-file-name)
+    (start-process "gvim" nil "gvim" (or (buffer-file-name)
+					 default-directory)
 		   (concat "+call cursor("
 			   line "," column ")"))))
 

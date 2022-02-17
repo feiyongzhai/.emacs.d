@@ -16,6 +16,7 @@
      (let ((map (make-sparse-keymap)))
        (define-key map (kbd "RET")      'ted-eshell-ls-find-file-at-point)
        (define-key map (kbd "<return>") 'ted-eshell-ls-find-file-at-point)
+       (define-key map (kbd "<mouse-1>") 'pat-eshell-ls-find-file-at-mouse-click)
        (define-key map (kbd "<mouse-2>") 'pat-eshell-ls-find-file-at-mouse-click)
        (defvar ted-eshell-ls-keymap map))
 

@@ -492,6 +492,14 @@ confines of word boundaries (e.g. multiple words)."
 
 ;; Edit
 
+(defun fei-display-line-numbers-cycle ()
+  (interactive)
+  (if (eq display-line-numbers-type 'visual)
+      (menu-bar--display-line-numbers-mode-absolute)
+    ;; I find visual style is more useful than relative
+    (menu-bar--display-line-numbers-mode-visual)
+    ))
+
 (load-path-add "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
 (defun fei-duplicate-line-or-region (&optional arg)

@@ -67,7 +67,7 @@
   '(
     ("M-ESC f" . display-fill-column-indicator-mode)
     ("M-ESC l" . display-line-numbers-mode)
-    ("M-ESC L" . menu-bar--display-line-numbers-mode-relative)
+    ("M-ESC L" . fei-display-line-numbers-cycle)
     ("M-ESC m" . feebleline-mode)
     ("M-ESC M" . menu-bar-mode)
     ("M-ESC o" . olivetti-mode)

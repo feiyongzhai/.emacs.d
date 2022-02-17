@@ -32,6 +32,7 @@
                     (json-null        nil))
                 (json-read-file chrome-bookmarks-file)))
         level)
+    ;; 下面的代码的意思就是二叉树的深度搜索匹配处理，是用递归函数实现的
     (cl-labels ((fn
                  (al)
                  (pcase (alist-get 'type al)

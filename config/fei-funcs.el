@@ -363,7 +363,7 @@ kill region instead"
 
 ;; EAF related
 
-(defun fei-eaf-open-browser (url &optional _new-window)
+(defun fei-eaf-browse-url (url &optional _new-window)
   "根据 `browse-url-chromium' 这个函数改的"
   (interactive (browse-url-interactive-arg "URL: "))
   (setq url (browse-url-encode-url url))
@@ -376,8 +376,17 @@ kill region instead"
 
 (defun fei-eaf-file-share-current-dir ()
   (interactive)
-  (require 'eaf)
-  (eaf-file-browser-qrcode (substring (pwd) 10)))
+  (if (display-graphic-p)
+      (progn
+	(require 'eaf)
+	(eaf-file-browser-qrcode (substring (pwd) 10)))
+    (message "EAF doesn't support in terminal")))
+
+(defun fei-eaf-play-music ()
+  (interactive)
+  (if (display-graphic-p)
+      (eaf-open "/media/yongfeizhai/文档/音乐/" "music-player")
+    (message "EAF doesn't support in terminal")))
 
 
 ;; Isearch related

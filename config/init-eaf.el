@@ -40,7 +40,6 @@
     ;; 
     ;; ("M-[" . fei-eaf-file-share-current-dir)
     ("M-]" . fei-eaf-file-share-current-dir)
-    ;; ("C-x j" . eaf-open-in-file-manager)
     ("M-s s" . eaf-open-browser-with-history)
     ))
 
@@ -84,7 +83,7 @@
       eaf-proxy-port "1089")
 
 (unless *is-windows*
-  (setq browse-url-browser-function '(("^http.*" . fei-eaf-open-browser)
+  (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
 				      ("." . browse-url-default-browser))))
 
 ;;; Funcs
@@ -101,6 +100,30 @@
     (interactive)
     (call-interactively 'tab-line-switch-to-next-tab))
   )
+
+(global-set-key (kbd "M-s e b") 'fei-eaf-open-browser-with-history)
+(global-set-key (kbd "M-s e B") 'fei-eaf-open-browser)
+(global-set-key (kbd "M-s e r") 'fei-eaf-open-rss-reader)
+(global-set-key (kbd "M-s e f") 'fei-eaf-open-in-file-manager)
+(global-set-key (kbd "M-s e s") 'fei-eaf-file-share-current-dir)
+(global-set-key (kbd "M-s e t") 'fei-eaf-open-terminal)
+(global-set-key (kbd "M-s e u") 'fei-eaf-open-url-at-point)
+(global-set-key (kbd "M-s e m") 'fei-eaf-play-music)
+
+(defmacro fei-eaf-wrapper (sym)
+  "给 EAF 相关的命令添加一个 wrapper ，避免在终端下不小心调用到出现问题"
+  `(defun ,(intern (format "fei-%s" (symbol-name sym))) ()
+       (interactive)
+     (if (display-graphic-p)
+	 (call-interactively ',(intern (symbol-name sym)))
+       (message "EAF doesn't support in terminal"))))
+
+(fei-eaf-wrapper eaf-open-in-file-manager)
+(fei-eaf-wrapper eaf-open-browser)
+(fei-eaf-wrapper eaf-open-browser-with-history)
+(fei-eaf-wrapper eaf-open-rss-reader)
+(fei-eaf-wrapper eaf-open-terminal)
+(fei-eaf-wrapper eaf-open-url-at-point)
 
 ;; ==== Popweb ====
 

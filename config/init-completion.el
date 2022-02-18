@@ -17,7 +17,6 @@
   '(
     ("C-h f" . counsel-describe-function)
     ("C-h v" . counsel-describe-variable)
-    ("C-c b" . counsel-bookmark)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
     ("C-c v p" . ivy-push-view)

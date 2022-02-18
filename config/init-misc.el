@@ -85,6 +85,12 @@
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
 
+;; Bookmark
+(global-set-key (kbd "C-c B") 'counsel-bookmark)
+(global-set-key (kbd "C-c b") 'list-bookmarks)
+(with-eval-after-load 'bookmark
+  (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
+
 ;; Helpful
 (global-set-key (kbd "C-h o") 'helpful-symbol)
 (global-set-key (kbd "C-h O") 'describe-symbol)

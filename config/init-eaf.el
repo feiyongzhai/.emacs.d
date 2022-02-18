@@ -26,8 +26,6 @@
 
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
-(global-set-key (kbd "s-/") 'eaf-open-rss-reader)
-(global-set-key (kbd "M-ESC s") 'eaf-open-browser-with-history)
 
 (fei-define-key-with-map global-map
   '(
@@ -49,15 +47,18 @@
   (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key eaf-open-external "w" eaf-pdf-viewer-keybinding)
-
+  
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
   (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
 
   (fei-define-key-with-map eaf-interleave-mode-map
     '(("M-n" . eaf-interleave-sync-next-note)
       ("M-p" . eaf-interleave-sync-previous-note))
-    ))
+    )
+
+  (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
+  (define-key eaf-mode-map* (kbd "C-c b") #'list-bookmarks)
+  )
 
 ;;; Vars
 

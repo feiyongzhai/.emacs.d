@@ -47,7 +47,7 @@
   (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
-  
+
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
   (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
 

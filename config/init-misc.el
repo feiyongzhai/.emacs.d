@@ -76,6 +76,7 @@
     ("M-ESC T" . tool-bar-mode)
     ("M-ESC C-t" . tab-bar-mode)
     ("M-ESC r" . ruler-mode)
+    ("M-ESC u" . fei-toggle-ui)
     ("M-ESC w" . whitespace-mode)
     ("M-ESC W" . whitespace-newline-mode)
     ))

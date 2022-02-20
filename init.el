@@ -33,6 +33,7 @@
 (require 'init-alias)
 (require 'init-cursor)
 (require 'init-mouse)
+(require 'init-eww)
 (when *is-linux*
   (require 'init-linux))
 (when *is-windows*

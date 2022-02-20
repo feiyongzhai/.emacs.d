@@ -63,6 +63,7 @@
 	alarm-clock
 	separedit
 	;; frames-only-mode
+	mb-url
 
 	;; == 有趣/有用的 packages 备忘 ==
 	academic-phrases

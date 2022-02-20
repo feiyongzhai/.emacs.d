@@ -1,5 +1,9 @@
 ;;; init-completion.el  --- configs for counsel/swiper/ivy/ido
 
+;; built-in mechanism
+;; `substring' style is very useful for eshell completion
+(setq completion-styles '(basic substring partial-completion emacs22))
+
 (ivy-mode 1)
 ;; (vertico-mode 1)
 
@@ -61,6 +65,7 @@
 ;; Vertico + Orderless
 (defun +vertico-init-minibuffer ()
   (setq-local completion-styles '(basic orderless)))
+
 (with-eval-after-load 'vertico
   (require 'orderless)
   (add-hook 'minibuffer-setup-hook '+vertico-init-minibuffer))

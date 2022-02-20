@@ -163,4 +163,12 @@
 ;; hl-line
 ;; (setq hl-line-sticky-flag t)
 
+;; alarm-clock
+(global-set-key (kbd "M-s a s") 'alarm-clock-set)
+(global-set-key (kbd "M-s a l") 'alarm-clock-list-view)
+
+;; separedit
+(define-key prog-mode-map        (kbd "C-c '") #'separedit)
+(define-key minibuffer-local-map (kbd "C-c '") #'separedit)
+
 (provide 'init-misc)

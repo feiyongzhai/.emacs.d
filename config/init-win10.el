@@ -11,9 +11,9 @@
 (setq w32-apps-modifier 'super)
 
 ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
-(dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-o]
-		[s-O] [s-s] [s-u] [s-y] [s-Y]
-		[s-e] [s-return] [M-escape]))
+(dolist (keys '([s-0] [s-1] [s-2] [s-3]
+		[s-s] [s-u] [s-e]
+		[s-return] [M-escape]))
   (w32-register-hot-key keys))
 
 (with-eval-after-load 'python

@@ -39,7 +39,7 @@ Argument ARG if not nil, switching in a new window."
   (interactive "P")
   (if arg
       (progn
-	(message (concat "[b/B] B站/Bing [h] Github [c] 词典 [y] YouTube "
+	(message (concat "[b/B] B站/Bing [w/h] Wikipedia/Github [c] 词典 [y] YouTube "
 			 "[s/S] 学术/搜狗 [d/D] DuckDuckGo/百度 [g/i] 谷歌/图片"))
 	(set-transient-map 'engine-mode-prefixed-map))
     (call-interactively 'fei-google-search)))

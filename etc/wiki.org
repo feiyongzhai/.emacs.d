@@ -13,3 +13,8 @@
 #+begin_src emacs-lisp
   (convert-standard-filename FILENAME)
 #+end_src
+
+一个好厉害的命令
+#+begin_src emacs-lisp
+  quail-show-keyboard-layout
+#+end_src

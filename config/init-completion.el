@@ -27,7 +27,7 @@
     ("C-c v P" . ivy-pop-view)
     ("C-c v s" . ivy-switch-view)
     ("C-x f" . counsel-find-file)
-    ("C-S-s" . swiper)
+    ("C-S-s" . swiper-isearch)
     ("M-x" . counsel-M-x)
     ("C-c l" . counsel-locate)
     ("C-x C-f" . counsel-find-file)

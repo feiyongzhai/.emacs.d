@@ -95,11 +95,11 @@
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
-	   "* %?\nCREATE: %T\n#+begin_src emacs-lisp\n%c\n#+end_src"
+	   "* %?\nCREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src"
 	   :empty-lines-after 1)
 	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
-	   "* %?\nCREATE: %T\n#+begin_src shell\n%c\n#+end_src"
+	   "* %?\nCREATE: %T\n#+begin_src shell\n%^C\n#+end_src"
 	   :empty-lines-after 1))))
 
 ;;; Org-download

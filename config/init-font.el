@@ -1,5 +1,7 @@
 (custom-set-faces
- '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal)))))
+ ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 158 :width normal))))
+ '(default ((t (:family "等距更纱黑体 SC" :foundry "????" :slant normal :weight normal :height 158 :width normal))))
+ )
 (set-fontset-font t 'symbol "Symbola" nil 'append)
 
 (when *is-linux*

@@ -47,6 +47,11 @@
 (setq counsel-search-engine 'google)
 (setq ivy-use-virtual-buffers t)
 
+(setq ivy-height-alist
+      '(
+	(swiper-isearch . 1)		; 让 swiper-isearch 更像 isearch
+	))
+
 ;; (setq search-default-mode #'char-fold-to-regexp)
 
 ;; Ido

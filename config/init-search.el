@@ -19,7 +19,13 @@
 
 (global-set-key (kbd "M-s M-s") 'browse-url)
 (global-set-key (kbd "s-s") 'fei-search)
-(global-set-key (kbd "M-s p") 'pinyin-search)
+(global-set-key (kbd "M-s p") 'swiper-isearch)
+(global-set-key (kbd "M-s M-p") 'swiper-isearch)
+
+(with-eval-after-load 'swiper
+  (define-key swiper-map (kbd "M-s p") 'swiper-isearch-toggle)
+  (define-key swiper-map (kbd "M-s M-p") 'swiper-isearch-toggle))
+
 (fei-define-key-with-map isearch-mode-map
   '(
     ("M-<" . isearch-beginning-of-buffer)
@@ -29,6 +35,8 @@
     ("M-s r" . rg-isearch-project)
     ("M-w" . fei-isearch-copy-region)
     ("<C-return>" . prot-search-isearch-other-end)
+    ("M-s p" . swiper-isearch-toggle)
+    ("M-s M-p" . swiper-isearch-toggle)
     ))
 
 ;; (global-anzu-mode t)

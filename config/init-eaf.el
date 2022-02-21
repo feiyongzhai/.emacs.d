@@ -38,7 +38,6 @@
     ;; 
     ;; ("M-[" . fei-eaf-file-share-current-dir)
     ("M-]" . fei-eaf-file-share-current-dir)
-    ("M-s s" . eaf-open-browser-with-history)
     ))
 
 (with-eval-after-load 'eaf

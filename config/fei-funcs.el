@@ -115,8 +115,13 @@ kill region instead"
   (if (eq major-mode 'eshell-mode)
       (message "You are already in eshell buffer!")
     (let ((dir default-directory)
-	  (buf (eshell)))
+	  (buf (eshell))
+	  eshell-list-files-after-cd)
       (set-buffer buf)
+      ;; bind `eshell-list-files-after-cd' with `t' will cause error
+      ;; when run `eshell/cd' in lisp code. as shown below. but it
+      ;; won't cause any problem when use `cd' in eshell buffer. so I
+      ;; use let-bind `eshell-list-files-after-cd' with nil
       (eshell/cd dir)
       (eshell-reset))))
 

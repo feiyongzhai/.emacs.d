@@ -6,7 +6,7 @@
 	url = https://github.com/manateelazycat/insert-translated-name.git
 [submodule "extensions/emacs-rime"]
 	path = extensions/emacs-rime
-	url = https://github.com/DogLooksGood/emacs-rime.git
+	url = https://github.com/feiyongzhai/emacs-rime.git
 [submodule "extensions/emacs-application-framework"]
 	path = extensions/emacs-application-framework
 	url = https://github.com/manateelazycat/emacs-application-framework.git

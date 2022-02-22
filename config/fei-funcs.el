@@ -20,6 +20,16 @@ Argument ARG if not nil, switching in a new window."
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
 
+(defun fei-golden-dict (&rest search-string)
+  (interactive)
+  (call-process "goldendict" nil nil nil
+   (concat
+    (if search-string
+	(eshell-flatten-and-stringify search-string)
+      (if mark-active
+          (buffer-substring-no-properties (region-beginning) (region-end))
+	(read-string "GoldenDict: "))))))
+
 (defun fei-google-search (&rest search-string)
   "Googles a query or region if any.
 

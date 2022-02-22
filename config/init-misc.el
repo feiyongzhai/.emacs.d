@@ -171,4 +171,8 @@
 (define-key prog-mode-map        (kbd "C-c '") #'separedit)
 (define-key minibuffer-local-map (kbd "C-c '") #'separedit)
 
+;; goldendict
+(global-set-key (kbd "C-c C-d") 'fei-golden-dict)
+(global-set-key (kbd "C-c d") 'fei-golden-dict)
+
 (provide 'init-misc)

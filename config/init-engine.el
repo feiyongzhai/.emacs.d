@@ -72,7 +72,12 @@
 
 (defengine bing-dict
   "https://www.bing.com/dict/search?q=%s"
-  :docstring "bing dictionary"
+  :docstring "bing dictionary 不知道什么原因，和浏览器有关，默认如果是 firefox 不行，是 chrome 行"
+  :keybinding "C")
+
+(defengine quword
+  "https://www.quword.com/w/%s"
+  :docstring "趣词词典"
   :keybinding "c")
 
 (defengine google

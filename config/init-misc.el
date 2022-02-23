@@ -46,7 +46,7 @@
     ("C-c s"         . scratch)
     ("M-s y"        . counsel-yank-pop)
     ("M-s g"        . rgrep)
-    ("C-c y"        . youdao-dictionary-search-at-point-tooltip)
+    ("C-c y"        . fei-youdao-at-point)
     ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
     ("C-h y"        . youdao-dictionary-search-from-input)
     ))

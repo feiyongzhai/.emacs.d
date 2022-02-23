@@ -555,4 +555,11 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (pulse-momentary-highlight-one-line (point)))
 
+;; youdao-dictionary
+(defun fei-youdao-at-point ()
+  (interactive)
+  (if (display-graphic-p)
+      (call-interactively 'youdao-dictionary-search-at-point-tooltip)
+    (call-interactively 'youdao-dictionary-search-at-point+)))
+
 (provide 'fei-funcs)

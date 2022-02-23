@@ -32,6 +32,8 @@
   (define-key eshell-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-mode-map (kbd "M-s") nil)
+  ;; `substring' style is very useful for eshell completion
+  (setq-local completion-styles '(basic partial-completion substring emacs22))
   (toggle-truncate-lines 0))
 
 ;;; Make eshell don't always scroll to bottom

@@ -1,9 +1,5 @@
 ;;; init-completion.el  --- configs for counsel/swiper/ivy/ido
 
-;; built-in mechanism
-;; `substring' style is very useful for eshell completion
-(setq completion-styles '(basic partial-completion substring emacs22))
-
 (ivy-mode 1)
 ;; (vertico-mode 1)
 

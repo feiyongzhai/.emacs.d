@@ -4,7 +4,7 @@
 (require 'apt-utils)
 
 ;; Fasd
-(load-path-add "~/.emacs.d/extensions/fasd")
+(add-to-list 'load-path "~/.emacs.d/extensions/fasd")
 (with-eval-after-load 'ivy
   ;; 因为 fasd 的原因，需要在 ivy 之后加载
   (require 'fasd)

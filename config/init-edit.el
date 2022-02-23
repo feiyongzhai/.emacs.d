@@ -1,5 +1,5 @@
 (require 'fei-funcs)
-(load-path-add "~/.emacs.d/extensions/move-text")
+(add-to-list 'load-path "~/.emacs.d/extensions/move-text")
 (require 'move-text)
 
 ;;; Kill/Yank

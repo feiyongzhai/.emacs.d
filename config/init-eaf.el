@@ -1,6 +1,6 @@
 (require 'fei-funcs)
 
-(load-path-add "~/.emacs.d/extensions/emacs-application-framework")
+(add-to-list 'load-path "~/.emacs.d/extensions/emacs-application-framework")
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
@@ -127,9 +127,9 @@
 
 ;; ==== Popweb ====
 
-(load-path-add "~/.emacs.d/extensions/popweb/extension/dict/")
-(load-path-add "~/.emacs.d/extensions/popweb/extension/latex/")
-(load-path-add "~/.emacs.d/extensions/popweb/")
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/")
 (require 'popweb-dict-bing)
 (require 'popweb-dict-youdao)
 (require 'popweb-latex)

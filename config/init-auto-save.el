@@ -1,4 +1,4 @@
-(load-path-add "~/.emacs.d/extensions/")
+(add-to-list 'load-path "~/.emacs.d/extensions/")
 (require 'auto-save)
 
 (auto-save-enable)

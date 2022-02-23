@@ -476,7 +476,7 @@ confines of word boundaries (e.g. multiple words)."
 
 ;; Dired
 
-(load-path-add "~/.emacs.d/extensions/dired-hacks")
+(add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
 
 (defun fei-dired-paste/move (arg)
@@ -526,7 +526,7 @@ confines of word boundaries (e.g. multiple words)."
     (menu-bar--display-line-numbers-mode-visual)
     ))
 
-(load-path-add "~/.emacs.d/extensions/duplicate-line/")
+(add-to-list 'load-path "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
 (defun fei-duplicate-line-or-region (&optional arg)
   (interactive "P")

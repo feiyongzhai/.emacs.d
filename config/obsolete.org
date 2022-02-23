@@ -245,6 +245,11 @@ change-cursor-mode inspired manual solution
 
 * Misc
 #+begin_src emacs-lisp
+  (defun load-path-add (dir)
+    (add-to-list 'load-path dir))
+#+end_src
+
+#+begin_src emacs-lisp
   ;; @REF: https://christiantietze.de/posts/2021/06/emacs-center-window-single-function/
   (defun my/frame-recenter (&optional frame)
     "Center FRAME on the screen.

@@ -1,5 +1,5 @@
 ;;; init-dired.el --- configs for dired
-(load-path-add "~/.emacs.d/extensions/dired-hacks")
+(add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
 (require 'fei-funcs)
 (require 'dired-x)

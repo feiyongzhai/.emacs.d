@@ -1,4 +1,4 @@
-(load-path-add "~/.emacs.d/extensions/awesome-pair")
+(add-to-list 'load-path "~/.emacs.d/extensions/awesome-pair")
 (require 'awesome-pair)
 
 (dolist (hook (list

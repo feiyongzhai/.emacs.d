@@ -1,4 +1,4 @@
-(load-path-add "~/.emacs.d/extensions/one-key")
+(add-to-list 'load-path "~/.emacs.d/extensions/one-key")
 (require 'one-key)
 
 (one-key-create-menu

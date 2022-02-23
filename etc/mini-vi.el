@@ -11,3 +11,6 @@
 (with-eval-after-load 'speedbar
   (define-key speedbar-mode-map (kbd "<mouse-8>") (kbd "b"))
   (define-key speedbar-mode-map (kbd "<mouse-9>") (kbd "f")))
+
+(setq tab-always-indent 'complete)
+(global-set-key (kbd "M-i") 'switch-to-completions)

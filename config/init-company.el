@@ -2,12 +2,6 @@
 
 (require 'init-func)
 
-(add-hook 'prog-mode-hook
-	  (lambda ()
-	    (company-mode t)
-	    (yas-minor-mode t)
-	    (menu-bar--display-line-numbers-mode-absolute)))
-
 ;;; Keys
 
 (with-eval-after-load 'company
@@ -52,7 +46,6 @@
 ;; Add yasnippet support for all company backends.
 ;; @REF: lazycat init-company-mode.el
 (with-eval-after-load 'company
-
   (add-to-list 'company-transformers 'delete-dups)
 
   (defvar company-mode/enable-yas t

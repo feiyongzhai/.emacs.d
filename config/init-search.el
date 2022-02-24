@@ -33,7 +33,6 @@
     ("C-'" . avy-isearch)
     ("M-'" . avy-isearch)		;gnome-terminal 读不到 C-',用这个代替
     ("M-s r" . rg-isearch-project)
-    ("M-w" . fei-isearch-copy-region)
     ("<C-return>" . prot-search-isearch-other-end)
     ("M-s p" . swiper-isearch-toggle)
     ("M-s M-p" . swiper-isearch-toggle)

@@ -33,8 +33,7 @@
 (add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq inhibit-splash-screen t)
-(setq initial-scratch-message "")
-(setq initial-major-mode 'fundamental-mode)
+;; (setq initial-scratch-message "")
 
 
 ;; `early-init.el' 可对 emacsclient 生效

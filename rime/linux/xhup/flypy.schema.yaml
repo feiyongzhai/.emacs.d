@@ -122,6 +122,7 @@ reverse_lookup:
 key_binder:
   import_preset: default #方案切换相关
   bindings:
+    - {accept: "Control+g", send: Escape, when: composing}
     - {accept: bracketleft, send: Page_Up, when: paging} # [上翻页
     - {accept: bracketright, send: Page_Down, when: has_menu} # ]下翻页
     - {accept: comma, send: comma, when: paging} #注销逗号翻页

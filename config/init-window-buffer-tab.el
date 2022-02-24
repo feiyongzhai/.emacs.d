@@ -78,7 +78,9 @@
   (define-key term-raw-map (kbd "M-7") 'eyebrowse-switch-to-window-config-7)
   (define-key term-raw-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
   (define-key term-raw-map (kbd "M-9") 'eyebrowse-switch-to-window-config-9)
-  (define-key term-raw-map (kbd "M-0") 'eyebrowse-switch-to-window-config-0))
+  (define-key term-raw-map (kbd "M-0") 'eyebrowse-switch-to-window-config-0)
+  (define-key term-raw-map (kbd "M-s") 'nil)
+  )
 
 (setq tab-bar-show 1)
 (setq tab-bar-tab-hints t)		;show number in tab-bar

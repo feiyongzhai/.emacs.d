@@ -175,4 +175,7 @@
 (global-set-key (kbd "C-c C-d") 'fei-golden-dict)
 (global-set-key (kbd "C-c d") 'fei-golden-dict)
 
+;; imenu-list
+(setq imenu-list-focus-after-activation t)
+
 (provide 'init-misc)

@@ -7,6 +7,7 @@
       gc-cons-threshold most-positive-fixnum)
 
 (require 'init-misc)
+(require 'init-packages)
 (require 'init-ibuffer)
 (require 'init-window-buffer-tab)
 (require 'init-dired)

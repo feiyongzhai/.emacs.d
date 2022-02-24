@@ -22,7 +22,6 @@
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 
-(setq minimap-window-location 'right)
 (setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default display-line-numbers-width 3)
@@ -43,12 +42,7 @@
     ("<insertchar>" . fei-occur-at-point)
     ("C-x F"        . set-fill-column)
     ("<f5>"         . fei-simple-compile)
-    ("C-c s"         . scratch)
-    ("M-s y"        . counsel-yank-pop)
     ("M-s g"        . rgrep)
-    ("C-c y"        . fei-youdao-at-point)
-    ("<menu>"       . youdao-dictionary-search-at-point-tooltip)
-    ("C-h y"        . youdao-dictionary-search-from-input)
     ))
 
 (global-set-key (kbd "C-c o f") 'file-manager-here)
@@ -81,21 +75,11 @@
     ("M-ESC W" . whitespace-newline-mode)
     ))
 
-(with-eval-after-load 'eaf-browser
-  (eaf-bind-key nil "M-s" eaf-browser-keybinding)
-  (eaf-bind-key nil "M-S" eaf-browser-keybinding)
-  )
-
 ;; Bookmark
-(global-set-key (kbd "C-c B") 'counsel-bookmark)
 (global-set-key (kbd "C-c b") 'list-bookmarks)
+(global-set-key (kbd "C-c B") 'counsel-bookmark)
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
-
-;; Helpful
-(global-set-key (kbd "C-h o") 'helpful-symbol)
-(global-set-key (kbd "C-h O") 'describe-symbol)
-(global-set-key (kbd "C-h k") 'helpful-key)
 
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
@@ -118,9 +102,6 @@
 ;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html
 (setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
 
-(with-eval-after-load 'youdao-dictionary
-  (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input))
-
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
@@ -136,46 +117,14 @@
 (global-set-key (kbd "C-x p f") 'project-find-file)
 (global-set-key (kbd "C-x p r") 'project-query-replace-regexp)
 
-;; Consult
-(setq register-preview-delay 0
-      register-preview-function #'consult-register-format)
-
-(global-set-key (kbd "C-c J") 'consult-register-store)
-(global-set-key (kbd "C-c j") 'consult-register-load)
-
 ;; Pulse
 (global-set-key (kbd "C-c h") 'fei-pulse-current-line)
-
-;; Symbol-overlay
-(global-set-key (kbd "M-I") 'symbol-overlay-put)
-
-;; tldr
-(global-set-key (kbd "C-c M") 'man)
-(global-set-key (kbd "C-c M-m") 'tldr)
-
-;; feebleline
-(add-to-list 'load-path "~/.emacs.d/extensions/feebleline")
-(require 'feebleline)
-
-;; trashed
-(global-set-key (kbd "C-c T") 'trashed)
 
 ;; hl-line
 ;; (setq hl-line-sticky-flag t)
 
-;; alarm-clock
-(global-set-key (kbd "M-s a s") 'alarm-clock-set)
-(global-set-key (kbd "M-s a l") 'alarm-clock-list-view)
-
-;; separedit
-(define-key prog-mode-map        (kbd "C-c '") #'separedit)
-(define-key minibuffer-local-map (kbd "C-c '") #'separedit)
-
 ;; goldendict
 (global-set-key (kbd "C-c C-d") 'fei-golden-dict)
 (global-set-key (kbd "C-c d") 'fei-golden-dict)
-
-;; imenu-list
-(setq imenu-list-focus-after-activation t)
 
 (provide 'init-misc)

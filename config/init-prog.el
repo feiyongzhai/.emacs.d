@@ -20,10 +20,4 @@
 (add-hook 'matlab-mode-hook 'electric-pair-local-mode)
 (add-hook 'matlab-mode-hook 'electric-spacing-mode)
 
-;; Python
-(add-hook 'python-mode-hook 'electric-pair-local-mode)
-(with-eval-after-load 'python
-  (define-key python-mode-map (kbd "<f5>")
-    (li (compile (concat "python3 " (buffer-file-name))))))
-
 (provide 'init-prog)

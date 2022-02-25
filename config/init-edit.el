@@ -1,14 +1,13 @@
 (require 'fei-funcs)
-(add-to-list 'load-path "~/.emacs.d/extensions/move-text")
-(require 'move-text)
 
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
+(global-set-key (kbd "M-s O") 'fei-occur-at-point)
 (global-set-key (kbd "C-'") 'avy-goto-line)
-(global-set-key (kbd "M-g M-g") 'goto-line-preview)
+(global-set-key (kbd "M-g M-g") 'consult-goto-line)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
@@ -30,6 +29,10 @@
 ;;; Scroll
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
+(setq scroll-step 1
+      scroll-conservatively 10000
+      scroll-margin 0 ;这个变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
+      )
 
 ;;; Mark
 (global-set-key (kbd "M-H") 'mark-defun)
@@ -48,10 +51,14 @@
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
 (global-set-key (kbd "C-x l") 'ialign)
-(global-set-key (kbd "<M-up>") 'move-text-up)
-(global-set-key (kbd "<M-down>") 'move-text-down)
 (global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
 (global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
+
+(add-to-list 'load-path "~/.emacs.d/extensions/move-text")
+(require 'move-text)
+
+(global-set-key (kbd "<M-up>") 'move-text-up)
+(global-set-key (kbd "<M-down>") 'move-text-down)
 
 ;; Iedit
 (global-set-key (kbd "C-;") 'iedit-mode)

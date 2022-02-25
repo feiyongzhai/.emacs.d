@@ -4,14 +4,19 @@
 (require 'fei-funcs)
 
 ;;; Modes 
-(global-auto-revert-mode t) ;; autoload the file changes on disk
-(delete-selection-mode t)   ;; 选中文本后输入会覆盖
+(global-auto-revert-mode t)	    ;autoload the file changes on disk
+(delete-selection-mode t)	    ;选中文本后输入会覆盖
 (column-number-mode t)
 (save-place-mode t)
-;; (desktop-save-mode t)
 (savehist-mode t)
 (show-paren-mode 1)
 (blink-cursor-mode -1)
+;; (global-subword-mode 1)
+;; (desktop-save-mode t)
+
+(setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
+(setq-default line-spacing 3)
+(setq tab-always-indent 'complete)
 
 ;;; Vars
 (require 'cal-china-x)

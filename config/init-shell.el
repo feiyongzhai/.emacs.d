@@ -4,6 +4,7 @@
 (require 'fei-funcs)
 (require 'eshell-hacks)
 
+(setq eshell-list-files-after-cd t)
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)
 ;; 这个命令总是会引入一些问题：暂时把这个关了，避免自己在日常使用中不
@@ -37,8 +38,8 @@
   (toggle-truncate-lines 0))
 
 ;;; Make eshell don't always scroll to bottom
-;; @ref https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
-;; There are two solution
+;; @REF: https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
+;; There are two solutions
 ;; (setq eshell-scroll-show-maximum-output nil)
 (add-hook 'eshell-mode-hook
           (defun chunyang-eshell-mode-setup ()

@@ -1,6 +1,33 @@
 #+TITLE: 过时的配置和函数
 #+DESCRIPTION: 留着给以后做参考
 
+* Engine
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/extensions/one-key")
+  (require 'one-key)
+
+  (one-key-create-menu
+   "ENGINE"
+   '(
+     (("g" . "谷歌") . engine/search-google)
+     (("z" . "知乎") . engine/search-zhihu)
+     (("h" . "Github") . engine/search-github)
+     (("b" . "哔哩哔哩") . engine/search-bilibili)
+     (("d" . "DuckDuckGo") . engine/search-duckduckgo)
+     (("D" . "百度") . engine/search-baidu)
+     (("B" . "必应") . engine/search-bing)
+     (("S" . "搜狗") . engine/search-sogou)
+     (("y" . "YouTube") . engine/search-youtube)
+     (("s" . "谷歌学术") . engine/search-google-scholar)
+     (("i" . "谷歌图片") . engine/search-google-images)
+     (("c" . "必应词典") . engine/search-bing-dict)
+     (("q" . "Qwant") . engine/search-qwant)
+     )
+   t)
+
+  (global-set-key (kbd "M-s-g") 'one-key-menu-engine)
+#+end_src
+
 * Mouse
 #+begin_src emacs-lisp
   ;; 切换 Buffer

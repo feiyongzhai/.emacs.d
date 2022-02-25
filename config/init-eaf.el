@@ -125,6 +125,9 @@
 (fei-eaf-wrapper eaf-open-terminal)
 (fei-eaf-wrapper eaf-open-url-at-point)
 
+;; eaf-music-player
+(setq eaf-music-extension-list '("mp3" "m4a"))
+
 ;; ==== Popweb ====
 
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")

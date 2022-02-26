@@ -1,3 +1,5 @@
+(setq-default line-spacing 3)		;控制每行之间的间距
+
 (custom-set-faces
  '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 181 :width normal))))

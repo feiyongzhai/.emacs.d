@@ -8,15 +8,11 @@
 (delete-selection-mode t)	    ;选中文本后输入会覆盖
 (column-number-mode t)
 (save-place-mode t)
-(savehist-mode t)
 (show-paren-mode 1)
 (blink-cursor-mode -1)
+;; (savehist-mode t)		    ;保存 minibuffer 历史
 ;; (global-subword-mode 1)
 ;; (desktop-save-mode t)
-
-(setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
-(setq-default line-spacing 3)
-(setq tab-always-indent 'complete)
 
 ;;; Vars
 (require 'cal-china-x)
@@ -27,9 +23,9 @@
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (setq recentf-max-saved-items 50)
 
-(setq show-paren-style 'parenthesis)
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default display-line-numbers-width 3)
+(setq show-paren-style 'parenthesis)
 (setq comment-empty-lines t)
 
 (setq display-time-format " %H:%M  %Y-%m-%d")

@@ -1,5 +1,7 @@
 (require 'fei-funcs)
 
+(setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
+
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
@@ -43,7 +45,6 @@
 (global-set-key (kbd "C-c q") 'query-replace)
 (global-set-key (kbd "C-c Q") 'query-replace-regexp)
 
-(global-set-key (kbd "C-x M-f") 'sudo-find-this-file)
 (global-set-key (kbd "C-c o o") 'consult-outline)
 (global-set-key (kbd "M-X") 'consult-mode-command)
 (global-set-key (kbd "C-c i") 'counsel-imenu)

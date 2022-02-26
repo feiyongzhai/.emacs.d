@@ -4,6 +4,18 @@
 - mouse-wheel-scroll-amount :: 滚轮和修饰键的组合行为
 - mouse-wheel-progressive-speed :: 滚轮速度的行为
 
+* compile emacs
+
+** with native json
+#+begin_src sh
+  apt install libjansson-dev
+#+end_src
+
+** with svg
+#+begin_src sh
+  sudo apt install librsvg2-dev
+#+end_src
+
 * Snippets
 [[https://emacs-china.org/t/word/19878][来源（Emacs-China）]]
 #+begin_src emacs-lisp
@@ -18,3 +30,7 @@
 #+begin_src emacs-lisp
   quail-show-keyboard-layout
 #+end_src
+
+
+
+

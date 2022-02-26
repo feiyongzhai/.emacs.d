@@ -33,6 +33,7 @@
 (add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq inhibit-splash-screen t)
+(setq frame-inhibit-implied-resize t)	; 不要缩放frame.
 ;; (setq initial-scratch-message "")
 
 

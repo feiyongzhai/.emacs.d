@@ -1,8 +1,9 @@
 #+TITLE: 过时的配置和函数
+#+STARTUP: overview
 #+DESCRIPTION: 留着给以后做参考
 
 * Engine
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "~/.emacs.d/extensions/one-key")
   (require 'one-key)
 
@@ -26,10 +27,10 @@
    t)
 
   (global-set-key (kbd "M-s-g") 'one-key-menu-engine)
-#+end_src
+#+END_SRC
 
 * Mouse
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; 切换 Buffer
   (global-set-key (kbd "<mouse-9>") 'next-buffer)
   (global-set-key (kbd "<mouse-8>") 'previous-buffer)
@@ -37,10 +38,11 @@
   ;; copy / replace
   (global-set-key (kbd "<mouse-9>") 'thing-copy-symbol)
   (global-set-key (kbd "<mouse-8>") 'thing-replace-symbol)
-#+end_src
+#+END_SRC
+
 * UI
 ** Font
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (if *is-windows*
       ;; Setting English Font 仅在 windows 生效
       (progn
@@ -54,31 +56,31 @@
   ;; @ref https://emacs-china.org/t/windows-emacs/7907/39
   ;; 下面这个配置当我需要更换其他的字体的时候，加上下面这一行，也可以保证中英文的对齐
   (set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
-#+end_src
+#+END_SRC
 
 ** 光标(cursor)
 change-cursor-mode inspired manual solution
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (add-hook 'post-command-hook
             (lambda () (if buffer-read-only
                            (setq cursor-type 'box)
                          (setq cursor-type 'bar))))
-#+end_src
+#+END_SRC
 
 ** Theme
 根据时间自动切换主题
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; autoswitch theme by time
   (let ((hour (string-to-number
                (substring (current-time-string) 11 13))))
     (if (member hour (number-sequence 6 17))
         (load-theme 'modus-operandi t)
       (load-theme 'modus-vivendi t)))
-#+end_src
+#+END_SRC
 
 * 函数
 ** display-line-numbers-cycle
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defvar display-line-numbers-relative-p nil)
 
   (defun display-line-numbers-cycle ()
@@ -88,10 +90,10 @@ change-cursor-mode inspired manual solution
                (setq display-line-numbers-relative-p nil))
       (menu-bar--display-line-numbers-mode-relative)
       (setq display-line-numbers-relative-p t)))
-#+end_src
+#+END_SRC
 
 ** next-same-major-mode-buffer
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 
   (defun next-same-major-mode-buffer ()
     "Go to next buffer which has same major-mode of current buffer
@@ -113,16 +115,16 @@ change-cursor-mode inspired manual solution
             (when (eq current major-mode)
               (throw 'done (progn (switch-to-buffer buf)
                                   (message "next `%s' buffer" current)))))))))
-#+end_src
+#+END_SRC
 
 * Ido
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;;TODO：ido-mode 下的 minibuffer-complete 对应的是 ido-complete，所以下面的命令需要重新写一下
   (define-key minibuffer-local-map (kbd "M-i") 'minibuffer-complete)
-#+end_src
+#+END_SRC
 
 * Isearch
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun fei-search-symbol-at-point ()
     (interactive)
     (cond
@@ -134,9 +136,9 @@ change-cursor-mode inspired manual solution
       (if ctrlf-local-mode
           (ctrlf-forward-default)
         (isearch-forward)))))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun fei-search-forward ()
     "这个函数的出现是为了解决 isearch 和 rime 输入冲突的情况"
     (interactive)
@@ -164,16 +166,16 @@ change-cursor-mode inspired manual solution
         (call-interactively 'isearch-backward)
       (deactivate-input-method)
       (call-interactively 'isearch-backward)))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 
   ;; 一个基于 ivy 的很有意思的解决方案，记录备忘一下
   (global-set-key (kbd "C-s") (li (let ((ivy-height 1)) (swiper-isearch))))
-#+end_src
+#+END_SRC
 
 * Org-agenda
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (when (display-graphic-p)
     (org-agenda nil "a")
     (delete-other-windows))
@@ -181,18 +183,18 @@ change-cursor-mode inspired manual solution
             (lambda () (when window-system
                          (org-agenda nil "a")
                          (delete-other-windows))))
-#+end_src
+#+END_SRC
 
 * Matlab
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (autoload 'org-ctrl-c-ctrl-c "org" nil t) ; hack for matlab-mode
   (with-eval-after-load 'matlab
     (define-key matlab-mode-map (kbd "C-c C-c") 'org-ctrl-c-ctrl-c))
-#+end_src
+#+END_SRC
 
 * Company & Yasnippet
 这部分的配置都是抄的 =Centuar Emacs= 的配置，但是当时抄的时候没有怎么弄懂
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'yasnippet
     (with-eval-after-load 'company
       (global-set-key (kbd "M-i") 'company-yasnippet/yas-expand)
@@ -202,17 +204,17 @@ change-cursor-mode inspired manual solution
         (when (eq 1 company-candidates-length)
           (call-interactively 'yas-expand)))
       ))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun my-lsp-fix-company-capf ()
     "Remove redundant `comapny-capf'."
     (setq company-backends
           (remove 'company-backends (remq 'company-capf company-backends))))
   (advice-add #'lsp-completion--enable :after #'my-lsp-fix-company-capf)
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun my-company-yasnippet-disable-inline (fn cmd &optional arg &rest _ignore)
     "Enable yasnippet but disable it inline."
     (if (eq cmd  'prefix)
@@ -230,18 +232,18 @@ change-cursor-mode inspired manual solution
             (put-text-property 0 len 'yas-annotation-patch t arg)))
         (funcall fn cmd  arg))))
   (advice-add #'company-yasnippet :around #'my-company-yasnippet-disable-inline)
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun my-company-yasnippet ()
     "Hide the current completeions and show snippets."
     (interactive)
     (company-cancel)
     (call-interactively 'company-yasnippet))
-#+end_src
+#+END_SRC
 
 这一段代码是抄的 lazycat-emacs 的配置
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; `yasnippet' integration
   (with-no-warnings
     (with-eval-after-load 'yasnippet
@@ -256,9 +258,9 @@ change-cursor-mode inspired manual solution
         "Enable `yasnippet' in `company'."
         (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
       ))
-#+end_src
+#+END_SRC
 * Tab Bar
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (transient-command tab-next
     (tab-next)
     '(("o" . tab-next)
@@ -268,15 +270,15 @@ change-cursor-mode inspired manual solution
     (tab-previous)
     '(("o" . tab-next)
       ("O" . tab-previous)))
-#+end_src
+#+END_SRC
 
 * Misc
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun load-path-add (dir)
     (add-to-list 'load-path dir))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; @REF: https://christiantietze.de/posts/2021/06/emacs-center-window-single-function/
   (defun my/frame-recenter (&optional frame)
     "Center FRAME on the screen.
@@ -296,25 +298,25 @@ change-cursor-mode inspired manual solution
                            (/ (- monitor-h frame-h) 2))))
         (apply 'set-frame-position (flatten-list (list frame center))))))
   (add-hook 'after-make-frame-functions #'my/frame-recenter)
-#+end_src
+#+END_SRC
 
 从其他人配置中抄过来的，不知道有什么用
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (setq split-width-threshold nil)        ;分屏的时候使用左右分屏
   (setq split-height-threshold nil)
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; 此配置配合`auto-save'避免写在*scratch*中的内容未保存导致的数据丢失
   (add-hook 'after-init-hook
             (lambda ()
               (find-file "~/.emacs.d/@scratch@")
               ;; (setq initial-buffer-choice "~/.emacs.d/@scratch@")
               (kill-buffer "*scratch*")))
-#+end_src
+#+END_SRC
 
 这里的归因是当时写的，不一定正确。
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 
   ;; 此设置会导致一个小问题：blink 一下当前行之后高亮不清除。主要表现在
   ;; thing-edit 和 citre 这两个插件上，都会出现高亮后高亮区域不消失的情况
@@ -323,16 +325,16 @@ change-cursor-mode inspired manual solution
   ;; 的bug，不过是启动Emacs的时候有问题，别的应用也会出现消失不见的问题
 
   (setq frame-resize-pixelwise t)
-#+end_src
+#+END_SRC
 
 关闭 backup 功能，即不生成 =~= 后缀文件
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (setq make-backup-files nil)
-#+end_src
+#+END_SRC
 
 * Eshell
 next-eshell-buffer
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
   (defvar num-of-eshell 0)
   (defun next-eshell-buffer (&optional want-to-create)
@@ -360,9 +362,9 @@ next-eshell-buffer
     (if (eq major-mode 'eshell-mode)
         (setq num-of-eshell (- num-of-eshell 1))
       t))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (add-hook 'eshell-mode-hook
             (lambda ()
               (define-key eshell-mode-map (kbd "C-l") (lambda () (interactive) (recenter 0)))))
@@ -370,9 +372,9 @@ next-eshell-buffer
   (add-hook 'eshell-mode-hook
             (lambda ()
               (setq-local recenter-positions '(top middle bottom))))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; @REF https://www.emacswiki.org/emacs/EshellAutojump
   (defun eshell/j (&rest args)
     "Jump to a directory you often cd to.
@@ -414,17 +416,17 @@ next-eshell-buffer
               (setq result (car candidates))
             (setq candidates (cdr candidates))))
         (eshell/cd result))))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun eshell/bash ()
     (interactive)
     (ansi-term (executable-find "bash")))
-#+end_src
+#+END_SRC
 
 * Term
 “遍历--中断” 示例代码
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun goto-term ()
     (interactive)
     (catch 'done
@@ -432,10 +434,10 @@ next-eshell-buffer
         (with-current-buffer buf
           (when (eq major-mode 'term-mode)
             (throw 'done (switch-to-buffer buf)))))))
-#+end_src
+#+END_SRC
 
 * LaTeX
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (setq TeX-view-program-selection
         '(((output-dvi has-no-display-manager)
            "dvi2tty")
@@ -444,26 +446,26 @@ next-eshell-buffer
           (output-dvi "xdvi")
           (output-pdf "Zathura")
           (output-html "xdg-open")))
-#+end_src
+#+END_SRC
 
 * Dired
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun find-name-current-dired (arg)
     (interactive
      (let ((string
             (read-string "Find-name(filename wildcard): " nil 'history)))
        (list string)))
     (find-name-dired "." arg))
-#+end_src
+#+END_SRC
 
 * Tab-line
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (transient-command last-buffer
     (call-interactively 'fei-meow-last-buffer)
     '(("b" . switch-to-buffer)))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; 此配置有 bug
   ;;
   ;; 复现步骤：
@@ -473,22 +475,29 @@ next-eshell-buffer
             (lambda ()
               (define-key term-raw-map (kbd "C-c ,") 'transient-tab-line-prev)
               (define-key term-raw-map (kbd "C-c .") 'transient-tab-line-next)))
-#+end_src
+#+END_SRC
 
 * Edit
-#+begin_src emacs-lisp
+这个选项在大多数情况下很带来比较好的结果：可以用 tab 键做更多的事情，而且操作符合 bash 中习惯。但最近发现了一些问题：在 org 中使用 yasnippet ，如 <sh 这个 snippets 。按 tab 键的时候，它总是给我提供一个补全选项，调用的是 ivy overlay 的补全窗口。而且此时按 C-g 取消后，就看不到光标了。必须把当前 buffer 关闭再打开才能重新看到光标。
+
+影响范围挺大的，暂时弃用了。
+#+BEGIN_SRC emacs-lisp
+  (setq tab-always-indent 'complete)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-a") 'beginning-of-defun)
   (global-set-key (kbd "M-e") 'end-of-defun)
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun fei-newline ()
     (interactive)
     (end-of-line)
     (newline-and-indent))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "M-N") 'transient-scroll-up-line)
   (global-set-key (kbd "M-P") 'transient-scroll-down-line)
 
@@ -501,9 +510,9 @@ next-eshell-buffer
     (call-interactively 'scroll-down-line)
     '(("n" . scroll-up-line)
       ("p" . scroll-down-line)))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; @see https://www.emacswiki.org/emacs/CopyingWholeLines
   ;; duplicate current line
   (defun duplicate-current-line (&optional n)
@@ -520,23 +529,23 @@ next-eshell-buffer
         (while (> n 0)
           (insert current-line)
           (decf n)))))
-#+end_src
+#+END_SRC
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun back-to-indentation-or-beginning () (interactive)
          (if (= (point) (progn (back-to-indentation) (point)))
              (beginning-of-line)))
-#+end_src
+#+END_SRC
 
 <C-M-backspace> 在系统层面绑定了 kill xorg 命令
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
-#+end_src
+#+END_SRC
 
 * Evil
 evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-S-z") 'evil-mode-with-cursor)
   (define-key evil-normal-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (define-key evil-insert-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
@@ -544,11 +553,11 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
   (define-key evil-motion-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (setq evil-emacs-state-cursor 'bar)
-#+end_src
+#+END_SRC
 
 * Pyim
 ivy 支持拼音搜索
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; @REF: https://emacs-china.org/t/ivy-read/2432/6?u=yongfeizhai
   (defun eh-ivy-cregexp (str)
     (if (eq 0 (length str))
@@ -557,10 +566,11 @@ ivy 支持拼音搜索
        (ivy--regex-plus str)
        "\\|"
        (pyim-cregexp-build str))))
-#+end_src
+#+END_SRC
+
 * Rime
 ** switch between xhup & flypy
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 
 (defvar rime--flypy-p nil
   "输入法默认的状态是小鹤双拼+posframe的显示格式")
@@ -579,7 +589,7 @@ ivy 支持拼音搜索
 	(setq rime--flypy-p t))
     (message "Rime has not been required")))
 
-#+end_src
+#+END_SRC
 
 ** 输入方案相关链接
 
@@ -602,12 +612,12 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
 ** 这段代码是想要配置选中的项的高亮配色
 还不知道是什么原因，下面的设置不能生效，保留是为了下次想追究方便回忆
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (set-face-attribute 'rime-default-face nil :slant 'italic)
-#+end_src
+#+END_SRC
 
 ** rime mode line indicator 自己魔改的版本
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'rime
     ;; 下面的设置会覆盖默认信息，但我只是想添加这个指示信息，便有了
     ;; `fei-rime-lighter'，
@@ -633,15 +643,15 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
              'rime-indicator-dim-face))
         ""))
     )
-#+end_src
+#+END_SRC
 
 * Pyim
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (pyim-isearch-mode t)
-#+end_src
+#+END_SRC
 
 * EAF
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun fei-eaf-start ()
     (interactive)
     (use-package eaf
@@ -650,10 +660,10 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
       (use-package ctable :defer t :ensure t)
       (use-package deferred :defer t :ensure t)
       (use-package s :defer t :ensure t)))
-#+end_src
+#+END_SRC
 
 * Keybindings
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'matlab-mode
     (define-key matlab-mode-map (kbd "M-j") 'ivy-switch-buffer))
 
@@ -662,11 +672,11 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
   (define-key ivy-minibuffer-map (kbd "M-j") (kbd "RET"))
   (define-key minibuffer-local-map (kbd "M-j") (kbd "RET"))
   (define-key minibuffer-local-map (kbd "M-h") (kbd "RET"))
-#+end_src
+#+END_SRC
 
 * Ibuffer
 从零开始是用 ibuffer ，备份一下之前的配置
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (setq ibuffer-show-empty-filter-groups nil) ;; 不显示空组
   (setq ibuffer-movement-cycle nil)
   (add-hook 'ibuffer-mode-hook #'hl-line-mode)
@@ -691,16 +701,16 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
            ;; 下面这个是贪婪匹配，就是匹配 * 开头和结尾所有句子（包括空格）
            ("Files" (not (name . "^\\*.*\\*$")))
            )))
-#+end_src
+#+END_SRC
 
 后来发现 ibuffer 一点也不常用
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-x C-b") (li (ibuffer-jump) (ibuffer-auto-mode 1)))
   (global-set-key (kbd "C-x 4 C-b") (li (ibuffer-jump t) (ibuffer-auto-mode 1)))
-#+end_src
+#+END_SRC
 
 * Windows
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun other-window-backward ()
     (interactive)
     (other-window -1))
@@ -713,10 +723,10 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
     (other-window-backward)
     '(("o" . other-window)
       ("O" . other-window-backward)))
-#+end_src
+#+END_SRC
 
 * Octave
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
   (add-hook 'octave-mode-hook
@@ -727,11 +737,11 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
                 (setq comment-add 0)
                 (setq comment-column 0)
                 )))
-#+end_src
+#+END_SRC
 
 * Ivy-posframe
 设置 ivy 相关的窗口显示的位置
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (ivy-posframe-mode 1)
 
   (setq ivy-posframe-display-functions-alist
@@ -744,11 +754,11 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
   ;;       (counsel-M-x . ivy-posframe-display-at-frame-center)
   ;;       (counsel-find-file . ivy-posframe-display-at-frame-center)
   ;;       (ivy-switch-buffer . ivy-posframe-display-at-frame-center)))
-#+end_src
+#+END_SRC
 
 * Encode
 只有在 Windows 平台才会出现编码问题
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   ;; 此配置会导致在菜单栏选字体的时候出现乱码
   ;; (setq locale-coding-system   'utf-8)    ; pretty
   ;; (set-selection-coding-system 'utf-8)    ; please
@@ -757,10 +767,10 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
   ;; 终端命令 ec file.name 会出现文件名乱码
   ;; (prefer-coding-system        'utf-8)    ; with sugar on top
   ;; (setq default-process-coding-system '(utf-8 . utf-8))
-#+end_src
+#+END_SRC
 
 * Paredit
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 
   ;; (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
   (with-eval-after-load 'paredit
@@ -769,5 +779,5 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
     (define-key paredit-mode-map (kbd "M-R") #'paredit-splice-sexp)
     )
 
-#+end_src
+#+END_SRC
 

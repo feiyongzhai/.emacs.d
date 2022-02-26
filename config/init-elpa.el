@@ -39,6 +39,8 @@
 	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
 	embark orderless marginalia consult
 	ace-window
+	deadgrep
+	helm-org-rifle
 	pinyin-search pyim
 	youdao-dictionary
 	auctex cdlatex
@@ -52,7 +54,7 @@
 	matlab-mode
 	iedit ialign
         hide-mode-line
-	goto-line-preview
+	;; goto-line-preview
         openwith
         helpful
 	electric-spacing

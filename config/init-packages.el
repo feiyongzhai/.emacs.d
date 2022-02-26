@@ -63,4 +63,7 @@
 (setq highlight-indent-guides-auto-enabled t)
 (setq highlight-indent-guides-responsive 'top)
 
+;; deadgrep
+(global-set-key (kbd "M-s d") 'deadgrep)
+
 (provide 'init-packages)

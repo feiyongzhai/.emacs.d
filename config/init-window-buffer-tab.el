@@ -12,12 +12,11 @@
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
 (global-set-key (kbd "M-s RET") 'fei-meow-last-buffer)
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
-(global-set-key (kbd "C-x B") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x B") 'bookmark-jump)
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") ' zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "s-u") 'winner-undo)
 (fei-define-key-with-map global-map
   '(
     ("C-x w u" . transient-winner-undo)
@@ -33,6 +32,12 @@
 (setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
 (custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 ;;; ==== Tab bar ====
+
+(setq tab-bar-show 1)
+(setq tab-bar-tab-hints t)		;show number in tab-bar
+(setq tab-bar-new-tab-choice nil)	;duplicate
+(setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
+;; (setq tab-bar-new-tab-choice 'eshell)
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
@@ -82,12 +87,6 @@
   (define-key term-raw-map (kbd "M-s") 'nil)
   )
 
-(setq tab-bar-show 1)
-(setq tab-bar-tab-hints t)		;show number in tab-bar
-(setq tab-bar-new-tab-choice nil)	;duplicate
-(setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
-;; (setq tab-bar-new-tab-choice 'eshell)
-
 ;;; Funcs
 
 (transient-command winner-undo (winner-undo)
@@ -105,24 +104,8 @@
 ;; (custom-set-faces
 ;;  '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
 
-(global-set-key (kbd "C-x <left>") 'transient-tab-line-prev)
-(global-set-key (kbd "C-x <right>") 'transient-tab-line-next)
-
-(transient-command tab-line-next
-  (call-interactively 'tab-line-switch-to-next-tab)
-  '(("<left>" . tab-line-switch-to-prev-tab)
-    ("<right>" . tab-line-switch-to-next-tab)
-    ("<down>" . bury-buffer)
-    ))
-
-(transient-command tab-line-prev
-  (call-interactively 'tab-line-switch-to-prev-tab)
-  '(("<left>" . tab-line-switch-to-prev-tab)
-    ("<right>" . tab-line-switch-to-next-tab)
-    ("<down>" . bury-buffer)
-    ))
-
-;;; ==== Tab-line end ====
+(global-set-key (kbd "C-x <left>") 'tab-line-switch-to-prev-tab)
+(global-set-key (kbd "C-x <right>") 'tab-line-switch-to-next-tab)
 
 ;;; ==== Bs ====
 

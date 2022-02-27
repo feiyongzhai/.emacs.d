@@ -31,6 +31,26 @@
 
 * Mouse
 #+BEGIN_SRC emacs-lisp
+
+  ;; ==== Mode Line ====
+
+  ;FIXME: 按键的平台差异
+  (global-set-key (kbd "<mode-line> <mouse-5>") 'scroll-up-line)
+  (global-set-key (kbd "<mode-line> <mouse-4>") 'scroll-down-line)
+  (global-set-key (kbd "<mode-line> <mouse-9>") 'beginning-of-buffer)
+  (global-set-key (kbd "<mode-line> <mouse-8>") 'end-of-buffer)
+
+  ;; ==== Fringe ====
+
+  ;FIXME: 按键的平台差异
+  (global-set-key (kbd "<right-fringe> <mouse-4>") 'scroll-down-line)
+  (global-set-key (kbd "<right-fringe> <mouse-5>") 'scroll-up-line)
+  (global-set-key (kbd "<right-fringe> <mouse-9>") 'beginning-of-buffer)
+  (global-set-key (kbd "<right-fringe> <mouse-8>") 'end-of-buffer)
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
   ;; 切换 Buffer
   (global-set-key (kbd "<mouse-9>") 'next-buffer)
   (global-set-key (kbd "<mouse-8>") 'previous-buffer)
@@ -78,7 +98,7 @@ change-cursor-mode inspired manual solution
       (load-theme 'modus-vivendi t)))
 #+END_SRC
 
-* 函数
+* 过时函数
 ** display-line-numbers-cycle
 #+BEGIN_SRC emacs-lisp
   (defvar display-line-numbers-relative-p nil)
@@ -460,6 +480,21 @@ next-eshell-buffer
 
 * Tab-line
 #+BEGIN_SRC emacs-lisp
+
+  (transient-command tab-line-next
+    (call-interactively 'tab-line-switch-to-next-tab)
+    '(("<left>" . tab-line-switch-to-prev-tab)
+      ("<right>" . tab-line-switch-to-next-tab)
+      ("<down>" . bury-buffer)
+      ))
+
+  (transient-command tab-line-prev
+    (call-interactively 'tab-line-switch-to-prev-tab)
+    '(("<left>" . tab-line-switch-to-prev-tab)
+      ("<right>" . tab-line-switch-to-next-tab)
+      ("<down>" . bury-buffer)
+      ))
+
   (transient-command last-buffer
     (call-interactively 'fei-meow-last-buffer)
     '(("b" . switch-to-buffer)))

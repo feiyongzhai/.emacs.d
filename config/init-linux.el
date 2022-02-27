@@ -3,6 +3,11 @@
 ;; apt-utils
 (require 'apt-utils)
 
+;; sis
+(setq sis-prefix-override-keys '("C-c" "C-x" "C-h" "M-s"))
+(sis-ism-lazyman-config "1" "2" 'fcitx)
+(sis-global-respect-mode 1)
+
 ;; Fasd
 (add-to-list 'load-path "~/.emacs.d/extensions/fasd")
 (with-eval-after-load 'ivy

@@ -472,6 +472,13 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (start-process "emacs" nil "emacs"))
 
+(defun fei-occur-for-mouse ()
+  (interactive)
+  (if-let ((window (get-buffer-window "*Occur*")))
+      (delete-window window)
+    (fei-occur-at-point))
+  )
+
 (defun fei-occur-at-point ()
   (interactive)
   (let (case-fold-search)

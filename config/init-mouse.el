@@ -6,7 +6,7 @@
 (cond (*is-linux*
        ;; 快速查找定义 / 快速浏览文件
        (global-set-key (kbd "<mouse-9>") 'neotree-toggle)
-       (global-set-key (kbd "<mouse-8>") 'fei-occur-at-point)
+       (global-set-key (kbd "<mouse-8>") 'fei-occur-for-mouse)
        (global-set-key (kbd "C-M-s-~") 'speedbar)
        (with-eval-after-load 'speedbar
 	 (define-key speedbar-mode-map (kbd "<mouse-8>") (kbd "b"))
@@ -15,7 +15,7 @@
       (*is-windows*
        ;; 快速查找定义 / 快速浏览文件
        (global-set-key (kbd "<mouse-5>") 'neotree-toggle)
-       (global-set-key (kbd "<mouse-4>") 'fei-occur-at-point)
+       (global-set-key (kbd "<mouse-4>") 'fei-occur-for-mouse)
        (global-set-key (kbd "C-M-s-~") 'speedbar)
        (with-eval-after-load 'speedbar
 	 (define-key speedbar-mode-map (kbd "<mouse-4>") (kbd "b"))

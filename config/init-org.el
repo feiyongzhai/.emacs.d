@@ -2,8 +2,10 @@
 
 (require 'fei-funcs)
 
-;; 控制 org-latex-preview
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+(with-eval-after-load 'org
+  ;; 控制 org-latex-preview
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  )
 (setq org-adapt-indentation nil)
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
@@ -20,7 +22,6 @@
 	("LOG" . "blue")
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
-
 
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 (defun +fei-org-mode-hook ()

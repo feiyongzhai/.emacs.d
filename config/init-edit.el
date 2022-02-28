@@ -14,6 +14,9 @@
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
+;; Highlight
+(global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
+
 ;; Neotree
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)

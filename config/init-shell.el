@@ -21,9 +21,8 @@
     ("M-s j"  . eshell)
     ))
 
-(global-set-key (kbd "M-s J") 'fei-ansi-term)
-(global-set-key (kbd "C-x M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "C-c M-j") 'fei-term-cd-here)
+(global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
+(global-set-key (kbd "M-s k") 'fei-ansi-term)
 
 (add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
 

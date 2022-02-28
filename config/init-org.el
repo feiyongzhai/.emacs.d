@@ -2,6 +2,26 @@
 
 (require 'fei-funcs)
 
+;; 控制 org-latex-preview
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+(setq org-adapt-indentation nil)
+;; 使得 org 中的时间格式变成英文来规避乱码问题
+(setq system-time-locale "C")
+(setq org-default-notes-file "~/Nutstore Files/org/capture.org")
+(setq org-agenda-files '("~/Nutstore Files/org"))
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning)
+	("PLAN" . "brown")
+	("WANT" . "grey")
+	("WIP" . "orange")
+	("SOMEDAY" . "dark red")
+	("FEELING" . "blue")
+        ("REFLECT" . "purple")
+	("LOG" . "blue")
+	("NOTE" . "blue")
+        ("CANCELED" . (:foreground "grey" :weight bold))))
+
+
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 (defun +fei-org-mode-hook ()
   (org-indent-mode) ; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
@@ -27,25 +47,6 @@
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
-
-;;; Vars
-
-(setq org-adapt-indentation nil)
-;; 使得 org 中的时间格式变成英文来规避乱码问题
-(setq system-time-locale "C")
-(setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-(setq org-agenda-files '("~/Nutstore Files/org"))
-(setq org-todo-keyword-faces
-      '(("TODO" . org-warning)
-	("PLAN" . "brown")
-	("WANT" . "grey")
-	("WIP" . "orange")
-	("SOMEDAY" . "dark red")
-	("FEELING" . "blue")
-        ("REFLECT" . "purple")
-	("LOG" . "blue")
-	("NOTE" . "blue")
-        ("CANCELED" . (:foreground "grey" :weight bold))))
 
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture

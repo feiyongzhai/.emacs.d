@@ -41,7 +41,7 @@
 	ace-window
 	deadgrep
 	helm-org-rifle
-	pinyin-search pyim sis
+	pinyin-search pyim sis fcitx
 	youdao-dictionary
 	auctex cdlatex
 	neotree minimap

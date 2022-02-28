@@ -66,4 +66,9 @@
 ;; deadgrep
 (global-set-key (kbd "M-s d") 'deadgrep)
 
+;; keyfreq
+(keyfreq-mode)
+(keyfreq-autosave-mode)
+(setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
+
 (provide 'init-packages)

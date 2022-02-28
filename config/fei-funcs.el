@@ -116,7 +116,6 @@ kill region instead"
   (term-send-left)
   (term-send-right)
   nil)
-
 
 ;; Eshell Related
 
@@ -231,7 +230,6 @@ kill region instead"
   (start-process "*fasd*" nil "fasd" "-D" file))
 
 ;; Eshell Related End
-
 
 ;; IME related
 
@@ -240,7 +238,6 @@ kill region instead"
   (activate-input-method "rime")
   (call-interactively 'rime-force-enable)
   )
-
 
 ;; Org related
 
@@ -406,7 +403,6 @@ kill region instead"
   (if (display-graphic-p)
       (eaf-open "/media/yongfeizhai/文档/音乐/" "music-player")
     (message "EAF doesn't support in terminal")))
-
 
 ;; Isearch related
 
@@ -423,8 +419,7 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (isearch-exit)
   (call-interactively 'copy-region-as-kill))
-
-
+
 (defvar isearch-end-activate-input-method-predicate nil)
 
 (defun +fei-isearch-deacivate-input-method ()
@@ -440,7 +435,6 @@ confines of word boundaries (e.g. multiple words)."
     ;; 不过目前可以用这个方法解决问题 (虽然不是从根本上解决，但是管用)
     (setq-default input-method-function nil)
     (setq isearch-end-activate-input-method-predicate nil)))
-
 
 ;; VC
 (defun fei-vc-dired-jump (arg)
@@ -449,7 +443,6 @@ confines of word boundaries (e.g. multiple words)."
                         default-directory)))
     (vc-dir target-dir))
   )
-
 
 ;; Misc
 
@@ -483,7 +476,6 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (let (case-fold-search)
     (occur (concat "\\_<" (thing-at-point 'symbol) "\\_>"))))
-
 
 ;; Dired
 
@@ -495,7 +487,6 @@ confines of word boundaries (e.g. multiple words)."
   (if arg
       (call-interactively 'dired-ranger-move)
     (call-interactively 'dired-ranger-paste)))
-
 
 ;; Evil
 
@@ -525,7 +516,6 @@ confines of word boundaries (e.g. multiple words)."
 	(message "Now is EMACS"))
     (evil-mode 1)
     (message "Now is EVIL")))
-
 
 ;; Edit
 
@@ -544,7 +534,6 @@ confines of word boundaries (e.g. multiple words)."
   (if arg
       (call-interactively 'duplicate-line-below-comment)
     (call-interactively 'duplicate-line-or-region-below)))
-
 
 ;; Neotree
 
@@ -559,7 +548,6 @@ confines of word boundaries (e.g. multiple words)."
   (neotree-hide)
   (setq neo-window-position 'right)
   (neotree-show))
-
 
 ;; require `pulse' library
 (defun fei-pulse-current-line ()
@@ -572,5 +560,31 @@ confines of word boundaries (e.g. multiple words)."
   (if (display-graphic-p)
       (call-interactively 'youdao-dictionary-search-at-point-tooltip)
     (call-interactively 'youdao-dictionary-search-at-point+)))
+
+;; multi-occur-in-this-mode
+
+;; @REF: https://www.masteringemacs.org/article/searching-buffers-occur-mode
+(defun get-buffers-matching-mode (mode)
+  "Returns a list of buffers where their major-mode is equal to MODE"
+  (let ((buffer-mode-matches '()))
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (eq mode major-mode)
+          (push buf buffer-mode-matches))))
+    buffer-mode-matches))
+
+(defun multi-occur-in-this-mode ()
+  "Show all lines matching REGEXP in buffers with this major mode."
+  (interactive)
+  (multi-occur
+   (get-buffers-matching-mode major-mode)
+   (car (occur-read-primary-args))))
+
+(defun fei-multi-occur-for-mouse ()
+  (interactive)
+  (multi-occur
+   (get-buffers-matching-mode major-mode)
+   (concat "\\_<" (thing-at-point 'symbol) "\\_>")))
+
 
 (provide 'fei-funcs)

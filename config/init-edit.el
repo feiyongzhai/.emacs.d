@@ -7,6 +7,7 @@
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 
 ;;; Movement/Navigate
+(global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (global-set-key (kbd "M-g M-g") 'consult-goto-line)

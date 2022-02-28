@@ -586,5 +586,21 @@ confines of word boundaries (e.g. multiple words)."
    (get-buffers-matching-mode major-mode)
    (concat "\\_<" (thing-at-point 'symbol) "\\_>")))
 
+;; Register
+(defun fei-store-window-configuration ()
+  (interactive)
+  (window-configuration-to-register 'fei-window-register))
+
+(defun fei-load-window-configuration ()
+  (interactive)
+  (jump-to-register 'fei-window-register))
+
+(defun fei-store-file ()
+  (interactive)
+  (set-register 'fei-file-register `(file . ,(buffer-file-name))))
+
+(defun fei-load-file ()
+  (interactive)
+  (jump-to-register 'fei-file-register))
 
 (provide 'fei-funcs)

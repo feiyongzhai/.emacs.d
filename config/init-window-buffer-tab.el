@@ -16,6 +16,11 @@
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
+(global-set-key (kbd "M-s m") 'fei-store-window-configuration)
+(global-set-key (kbd "M-s u") 'fei-load-window-configuration)
+(global-set-key (kbd "M-s M") 'fei-store-file)
+(global-set-key (kbd "M-s U") 'fei-load-file)
+
 (global-set-key (kbd "C-x 1") ' zygospore-toggle-delete-other-windows)
 (fei-define-key-with-map global-map
   '(

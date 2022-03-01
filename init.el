@@ -15,7 +15,7 @@
   (require 'init-pair)
   (require 'init-latex)
   (require 'init-mail)
-  (require 'init-company)
+  (require 'init-company-yasnippet)
   (require 'init-completion)
   (require 'init-elfeed)
   (require 'init-search)

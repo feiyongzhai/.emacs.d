@@ -1,11 +1,16 @@
-;;; init-company.el --- configs for company
+;;; init-company-yasnippet.el --- configs for company
 
 (require 'init-func)
 
 ;;; Keys
+(defun +complete ()
+  (interactive)
+  (or (yas/expand)
+      (company-indent-or-complete-common nil)))
 
 (with-eval-after-load 'company
   (define-key company-mode-map (kbd "C-M-i") #'company-complete)
+  (define-key company-mode-map (kbd "TAB") '+complete)
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)
@@ -59,6 +64,16 @@
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   )
 
+(with-eval-after-load 'yasnippet
+  (define-key yas-keymap [escape] nil)
+  (define-key yas-keymap [tab] nil)
+  (define-key yas-keymap (kbd "S-<tab>") nil)
+  (define-key yas-keymap (kbd "TAB") nil)
+  (define-key yas-keymap [return] 'yas-next-field-or-maybe-expand)
+  (define-key yas-keymap (kbd "RET") 'yas-next-field-or-maybe-expand)
+  (define-key yas-keymap (kbd "S-<return>") 'yas-prev-field)
+  (define-key yas-keymap (kbd "<backtab>") 'yas-prev-field))
+
 (defun yasnippet-snippets--fixed-indent ()
   "Set `yas-indent-line' to `fixed'."
   (set (make-local-variable 'yas-indent-line) 'fixed))
@@ -71,5 +86,5 @@
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
 
 
-(provide 'init-company)
-;;; init-company.el ends here.
+(provide 'init-company-yasnippet)
+;;; init-company-yasnippet.el ends here.

@@ -47,6 +47,9 @@
   (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
 
+  (eaf-bind-key eaf-py-proxy-add_annot_squiggly "M-S" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
+
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
   (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
 
@@ -127,6 +130,7 @@
 
 ;; eaf-music-player
 (setq eaf-music-extension-list '("mp3" "m4a"))
+(setq eaf-pdf-dark-mode "ignore")	;如果不添加这行配置，pdf总是是暗色的
 
 ;; ==== Popweb ====
 

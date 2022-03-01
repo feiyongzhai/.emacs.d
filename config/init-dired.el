@@ -9,6 +9,9 @@
 
 ;;; Keys
 
+(define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
+(define-key dired-mode-map [mouse-8] 'dired-up-directory)
+
 (with-eval-after-load 'dired
   (fei-define-key-with-map dired-mode-map
     `(("w" . browse-url-of-dired-file)

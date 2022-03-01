@@ -53,6 +53,7 @@
 	use-package
 	matlab-mode
 	iedit ialign
+	yafolding
         hide-mode-line
 	;; goto-line-preview
         openwith

@@ -73,11 +73,17 @@
       rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates
-      '(rime-predicate-prog-in-code-p
-        rime-predicate-space-after-cc-p
-        rime-predicate-after-alphabet-char-p
+      '(rime-predicate-auto-english-p
+	fei-rime-predicate-prog-in-code-p
+        ;; rime-predicate-space-after-cc-p
+        ;; rime-predicate-after-alphabet-char-p
 	rime-predicate-tex-math-or-command-p
+	rime-predicate-org-latex-mode-p
 	rime-predicate-org-in-src-block-p))
+
+(defun fei-rime-predicate-prog-in-code-p ()
+    (and (derived-mode-p 'prog-mode 'conf-mode)
+	 (not (nth 4 (syntax-ppss)))))
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"

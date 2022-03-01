@@ -74,7 +74,7 @@
 	   "* %i%?\nCREATE: %T\n"
 	   :empty-lines-before 1 :immediate-finish t)
 	  ("P" "Private" entry
-	   (file "~/Nutstore Files/org/private/notes.org")
+	   (file "~/Nutstore Files/org/private/private.org")
 	   "* %i%?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("d" "Diary" entry

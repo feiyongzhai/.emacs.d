@@ -38,6 +38,9 @@
   (when *is-windows*
     (require 'init-win10))
 
+  ;; 尝鲜
+  (require 'init-tempel)
+
   ;; local configs
   (let ((local-config "~/.emacs.d/config/init-local.el"))
     (when (file-exists-p local-config)

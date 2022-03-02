@@ -41,23 +41,23 @@
     ))
 
 (with-eval-after-load 'eaf
-  (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
 
-  (eaf-bind-key eaf-py-proxy-add_annot_squiggly "M-S" eaf-pdf-viewer-keybinding)
+  ;; (define-key eaf-interleave-mode-map (kbd "M-n") 'eaf-interleave-sync-next-note)
+  ;; (define-key eaf-interleave-mode-map (kbd "M-p") 'eaf-interleave-sync-previous-note)
+
+  (define-key eaf-pdf-outline-mode-map (kbd "q") 'quit-window)
+  ;; 有个需要注意的点是，如果是 eaf-py-proxy- 开头的命令，要去掉 eaf-py-proxy- 这个前缀
+  (eaf-bind-key add_annot_squiggly "M-S" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
 
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
   (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
-
-  (fei-define-key-with-map eaf-interleave-mode-map
-    '(("M-n" . eaf-interleave-sync-next-note)
-      ("M-p" . eaf-interleave-sync-previous-note))
-    )
-
+  
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   (define-key eaf-mode-map* (kbd "C-c b") #'list-bookmarks)
   )

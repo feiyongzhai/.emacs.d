@@ -108,7 +108,8 @@ kill region instead"
 
 (defun fei-ansi-term ()
   (interactive)
-  (if (get-buffer "*ansi-term*")
+  (if (and (get-buffer "*ansi-term*")
+	   (term-check-proc "*ansi-term*"))
       (switch-to-buffer "*ansi-term*")
     (ansi-term (getenv "SHELL")))
   ;; Workaround: 避免在 term 中用 back 之后，再在 eshell 中用
@@ -261,7 +262,6 @@ kill region instead"
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  (delete-other-windows)
   (olivetti-mode)
   ;; (auto-fill-mode)
   (require 'rime)
@@ -445,6 +445,18 @@ confines of word boundaries (e.g. multiple words)."
   )
 
 ;; Misc
+(defun fei-sdcv ()
+  (interactive)
+  (let* ((current-word (word-at-point t))
+	 (word (read-string
+		(format "Word (%s): " (or current-word ""))
+		nil t current-word)))
+    (shell-command (concat "sdcv " word) "*SDCV-OUTPUT*")))
+
+(defun catfish ()
+  (interactive)
+  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: "))
+  )
 
 (defun file-manager-here()
   "Open an external Windows cmd in the current directory"

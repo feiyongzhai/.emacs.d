@@ -26,7 +26,7 @@
     ("M-x" . counsel-M-x)
     ("C-c l" . counsel-locate)
     ("C-x C-f" . counsel-find-file)
-    ("M-s y"        . counsel-yank-pop)
+    ("M-s y" . counsel-yank-pop)
     ))
 
 (global-set-key (kbd "M-s r") 'rg-project)

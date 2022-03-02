@@ -6,8 +6,8 @@
 
 (winner-mode 1)
 
-;;; Buffer
-(global-set-key (kbd "M-k") 'fei-kill-current-buffer)
+;;; ==== Buffer ====
+(global-set-key (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
 (global-set-key (kbd "M-s RET") 'fei-meow-last-buffer)
@@ -20,22 +20,16 @@
 (global-set-key (kbd "M-s u") 'fei-load-window-configuration)
 (global-set-key (kbd "M-s M") 'fei-store-file)
 (global-set-key (kbd "M-s U") 'fei-load-file)
-
+(global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "C-x 1") ' zygospore-toggle-delete-other-windows)
-(fei-define-key-with-map global-map
-  '(
-    ("C-x w u" . transient-winner-undo)
-    ("C-x w s" . window-swap-states)
-    ("C-S-m" . maximize-window)		; matlab like keybinding
-    ("C-x w M" . maximize-window)
-    ("C-x w m" . minimize-window)
-    ("C-x o" . ace-window)
-    ("C-x O" . other-frame)
-    ))
+(global-set-key (kbd "C-x w u") 'transient-winner-undo)
+(global-set-key (kbd "C-x w s") 'window-swap-states)
+(global-set-key (kbd "C-S-m") 'maximize-window)		; matlab like keybinding
+(global-set-key (kbd "C-x w M") 'maximize-window)
+(global-set-key (kbd "C-x w m") 'minimize-window)
+(global-set-key (kbd "C-x o") 'ace-window)
+(global-set-key (kbd "C-x O") 'other-frame)
 
-(setq aw-scope 'frame)
-(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
-(custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 ;;; ==== Tab bar ====
 
 (setq tab-bar-show 1)
@@ -98,7 +92,7 @@
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-;;; ==== Tab-line begin ====
+;;; ==== Tab-line ====
 
 (require 'tab-line)
 

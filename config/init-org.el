@@ -25,7 +25,7 @@
 
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 (defun +fei-org-mode-hook ()
-  (org-indent-mode) ; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
+  ;; (org-indent-mode) ; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
   (toggle-truncate-lines -1))
 

@@ -16,7 +16,7 @@
   (require 'init-latex)
   (require 'init-mail)
   (require 'init-company-yasnippet)
-  (require 'init-completion)
+  (require 'init-ivy)
   (require 'init-elfeed)
   (require 'init-search)
   (require 'init-evil)

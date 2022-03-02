@@ -1,7 +1,6 @@
-;;; init-completion.el  --- configs for counsel/swiper/ivy/ido
+;;; init-ivy.el  --- configs for counsel/swiper/ivy/ido
 
 (ivy-mode 1)
-;; (vertico-mode 1)
 
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
@@ -53,36 +52,5 @@
 
 ;; (setq search-default-mode #'char-fold-to-regexp)
 
-;; Ido
-(setq ido-enable-flex-matching t)
-(setq ido-use-virtual-buffers nil)
-;; (setq ido-max-window-height 1)
-;; Disable auto merge work directories behavior, But you can merge
-;; manually by M-s, undo merge by C-z manually
-(setq ido-auto-merge-work-directories-length -1)
+(provide 'init-ivy)
 
-;; ==== vertico / marginalia / embark / orderless ====
-
-;; Embark
-(setq prefix-help-command 'embark-prefix-help-command)
-
-;; Vertico + Orderless
-(defun +vertico-init-minibuffer ()
-  (setq-local completion-styles '(basic orderless)))
-
-(with-eval-after-load 'vertico
-  (require 'orderless)
-  (add-hook 'minibuffer-setup-hook '+vertico-init-minibuffer))
-
-;; Orderless 添加拼音支持
-;; @REF https://elpa.gnu.org/packages/pyim.html#org787edf5
-(require 'pyim)
-(defun my-orderless-regexp (orig_func component)
-  (let ((result (funcall orig_func component)))
-    (pyim-cregexp-build result)))
-
-(advice-add 'orderless-regexp :around #'my-orderless-regexp)
-
-
-(provide 'init-completion)
-;;; init-completion.el ends here.

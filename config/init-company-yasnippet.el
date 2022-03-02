@@ -1,5 +1,4 @@
 ;;; init-company-yasnippet.el --- configs for company
-
 (require 'init-func)
 
 (defun +complete ()
@@ -24,7 +23,7 @@
       ))
 
   (define-key company-search-map (kbd "M-n") 'company-select-next)
-  (define-key company-search-map (kbd "M-n") 'company-select-previous)
+  (define-key company-search-map (kbd "M-p") 'company-select-previous)
   
   (setq company-show-numbers t)
   (setq company-idle-delay 0.1
@@ -56,7 +55,6 @@
       )
 
 ;; ==== yasnippet ====
-
 (with-eval-after-load 'yasnippet
   (define-key yas-keymap [escape] nil)
   (define-key yas-keymap [tab] nil)
@@ -67,17 +65,7 @@
   (define-key yas-keymap (kbd "S-<return>") 'yas-prev-field)
   (define-key yas-keymap (kbd "<backtab>") 'yas-prev-field))
 
-(defun yasnippet-snippets--fixed-indent ()
-  "Set `yas-indent-line' to `fixed'."
-  (set (make-local-variable 'yas-indent-line) 'fixed))
-
-(defun yasnippet-snippets--no-indent ()
-  "Set `yas-indent-line' to nil."
-  (set (make-local-variable 'yas-indent-line) nil))
-
 (with-eval-after-load 'yasnippet
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
 
-
 (provide 'init-company-yasnippet)
-;;; init-company-yasnippet.el ends here.

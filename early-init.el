@@ -36,6 +36,15 @@
 (setq frame-inhibit-implied-resize t)	; 不要缩放frame.
 ;; (setq initial-scratch-message "")
 
+(tool-bar-mode -1)
+(global-tab-line-mode)
+
+(let ((hour (string-to-number
+             (substring (current-time-string) 11 13))))
+  (unless (member hour (number-sequence 6 18))
+    (load-theme 'tangotango t)  
+    ))
+
 
 ;; `early-init.el' 可对 emacsclient 生效
 (require 'init-font)

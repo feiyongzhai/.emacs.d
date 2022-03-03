@@ -9,6 +9,9 @@
 
 ;;; Keys
 
+(define-key dired-mode-map (kbd ";m") 'point-to-register)
+(define-key dired-mode-map (kbd ";j") 'jump-to-register)
+
 (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
 (define-key dired-mode-map [mouse-8] 'dired-up-directory)
 

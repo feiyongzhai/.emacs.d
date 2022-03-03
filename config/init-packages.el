@@ -73,4 +73,11 @@
 (keyfreq-autosave-mode)
 (setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
 
+;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
+;; 一些 org 文件，所以配合起来使用也能接受
+(global-set-key (kbd "C-x c o") 'helm-org-rifle)
+(with-eval-after-load 'helm
+  (global-set-key (kbd "C-x c o") 'helm-org-rifle))
+
+
 (provide 'init-packages)

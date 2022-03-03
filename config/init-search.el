@@ -19,6 +19,7 @@
 
 (global-set-key (kbd "M-s M-s") 'browse-url)
 (global-set-key (kbd "s-s") 'fei-search)
+(global-set-key (kbd "M-s M-g") 'fei-search)
 (global-set-key (kbd "M-s p") 'swiper-isearch)
 (global-set-key (kbd "M-s M-p") 'swiper-isearch)
 

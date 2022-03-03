@@ -43,7 +43,6 @@
 (global-set-key (kbd "<f6>") 'fei-org-agenda)
 (global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
 (global-set-key (kbd "<f9>") 'fei-org-capture-WANT)
-(global-set-key (kbd "<f10>") 'fei-org-capture-SAR)
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)

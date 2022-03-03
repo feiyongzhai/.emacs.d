@@ -4,7 +4,7 @@
   (require 'init-misc)
   (require 'init-packages)
   (require 'init-ibuffer)
-  (require 'init-window-buffer-tab)
+  (require 'init-window-buffer)
   (require 'init-tab-line)
   (require 'init-bs)
   (require 'init-eyebrowse)

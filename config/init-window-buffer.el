@@ -30,12 +30,17 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 
-;;; ==== Tab bar ====
-;;; Funcs
+;; ace-window
+(setq aw-ignore-current nil)
+(setq aw-dispatch-when-more-than 2)
+(setq aw-scope 'frame)
+(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
+(setq aw-char-position 'top-left)
+(custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 
 (transient-command winner-undo (winner-undo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-(provide 'init-window-buffer-tab)
+(provide 'init-window-buffer)
 ;;; init-windows.el ends here.

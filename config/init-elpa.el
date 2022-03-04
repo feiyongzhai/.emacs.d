@@ -37,16 +37,16 @@
 	eshell-up
 	company yasnippet
 	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
-	embark orderless marginalia consult
+	embark orderless marginalia consult vertico
 	ace-window
 	deadgrep
-	helm-org-rifle
 	pinyin-search pyim sis fcitx
 	youdao-dictionary
 	auctex cdlatex
 	neotree minimap
 	engine-mode
 	;; org-roam org-roam-server
+	helm-org-rifle
 	org-download
 	markdown-mode
 	;; devdocs

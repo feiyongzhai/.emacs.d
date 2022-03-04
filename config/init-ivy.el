@@ -2,9 +2,6 @@
 
 (ivy-mode 1)
 
-(setq enable-recursive-minibuffers t)
-(minibuffer-depth-indicate-mode 1)
-
 ;; Keys
 (when *is-linux*
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
@@ -29,8 +26,6 @@
     ("M-s y" . counsel-yank-pop)
     ))
 
-(global-set-key (kbd "M-s r") 'rg-project)
-(global-set-key (kbd "M-s b") 'consult-buffer)
 (global-set-key (kbd "C-c r") 'counsel-register)
 (global-set-key (kbd "C-c K") 'counsel-kmacro)
 (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))

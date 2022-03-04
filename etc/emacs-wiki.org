@@ -1,6 +1,18 @@
 #+TITLE: 记录一些 Emacs Wiki
 #+STARTUP: overview
 
+* rg 搜索隐藏文件
+** counsel-rg
+看了 counsel-rg 的文档发现可以指定参数。
+
+举个例子：
+比如，我想搜索隐藏文件中的 "some" 这个字符串
+我可以在 counsel-rg 中输入 "some -- --hidden"，这样就可以把 =--hidden= 这个参数传给 rg 了
+** deadgrep
+在结果界面，选 "glob" 这个按钮，然后输入 =*= 就可以了。应该就是让 rg 搜索所有文件的意思
+** rg
+直接调用 rg 命令也可以搜到
+
 * 自带的功能
 
 - org-occur :: 

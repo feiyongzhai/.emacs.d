@@ -35,6 +35,7 @@
 
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
+(global-set-key (kbd "M-s b") 'consult-buffer)
 
 ;; minimap
 (setq minimap-window-location 'right)
@@ -79,5 +80,8 @@
 (with-eval-after-load 'helm
   (global-set-key (kbd "C-x c o") 'helm-org-rifle))
 
+;; rg
+(global-set-key (kbd "M-s r") 'rg-project)
+(define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
 (provide 'init-packages)

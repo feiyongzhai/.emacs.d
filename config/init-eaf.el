@@ -50,14 +50,17 @@
   ;; (define-key eaf-interleave-mode-map (kbd "M-n") 'eaf-interleave-sync-next-note)
   ;; (define-key eaf-interleave-mode-map (kbd "M-p") 'eaf-interleave-sync-previous-note)
 
+  (eaf-bind-key nil "M-s" eaf-terminal-keybinding) ;default is `eaf-py-proxy-search_text_backward'
+
   (define-key eaf-pdf-outline-mode-map (kbd "q") 'quit-window)
   ;; 有个需要注意的点是，如果是 eaf-py-proxy- 开头的命令，要去掉 eaf-py-proxy- 这个前缀
   (eaf-bind-key add_annot_squiggly "M-S" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down_page "<backspace>" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
 
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
   (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
-  
+
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   (define-key eaf-mode-map* (kbd "C-c b") #'list-bookmarks)
   )

@@ -3,7 +3,9 @@
 (require 'init-func)
 (require 'fei-funcs)
 
-;;; Modes 
+;;; Modes
+(setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode 1)
 (global-auto-revert-mode t)	    ;autoload the file changes on disk
 (delete-selection-mode t)	    ;选中文本后输入会覆盖
 (column-number-mode t)

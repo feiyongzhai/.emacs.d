@@ -54,7 +54,7 @@
       ;; company-backends '(company-keywords company-files (company-capf :with company-yasnippet) company-dabbrev)
       )
 
-;; ==== yasnippet ====
+;; ==== Yasnippet ====
 (with-eval-after-load 'yasnippet
   (define-key yas-keymap [escape] nil)
   (define-key yas-keymap [tab] nil)

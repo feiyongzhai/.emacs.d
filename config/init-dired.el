@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
 (require 'fei-funcs)
-(require 'dired-x)
+;; (require 'dired-x)
 
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)

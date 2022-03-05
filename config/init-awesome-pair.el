@@ -29,7 +29,7 @@
                'swift-mode-hook
                ;; 'minibuffer-inactive-mode-hook
                ))
-  (add-hook hook '(lambda () (awesome-pair-mode 1))))
+  (add-hook hook #'(lambda () (awesome-pair-mode 1))))
 
 (define-key awesome-pair-mode-map (kbd "(") 'awesome-pair-open-round)
 (define-key awesome-pair-mode-map (kbd "[") 'awesome-pair-open-bracket)

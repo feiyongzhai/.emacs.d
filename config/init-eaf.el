@@ -89,8 +89,12 @@
       eaf-proxy-port "1089")
 
 (unless *is-windows*
-  (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
-				      ("." . browse-url-default-browser))))
+  ;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
+  ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
+  ;; 				      ("." . browse-url-default-browser)))
+  (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
+			      ("." . browse-url-default-browser)))
+  )
 
 ;;; Funcs
 

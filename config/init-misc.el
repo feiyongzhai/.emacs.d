@@ -94,7 +94,8 @@
 (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
 ;; y-or-n
-(fset 'yes-or-no-p 'y-or-n-p)
+;; (fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)		;emacs-28 推荐配置
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)

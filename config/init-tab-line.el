@@ -9,7 +9,6 @@
 
 (global-set-key (kbd "C-x <left>") 'tab-line-switch-to-prev-tab)
 (global-set-key (kbd "C-x <right>") 'tab-line-switch-to-next-tab)
-(global-set-key (kbd "<tab-line> <mouse-3>") 'tab-line-close-tab)
 
 ;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
 (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)

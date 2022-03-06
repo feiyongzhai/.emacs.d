@@ -32,51 +32,60 @@
 
 ;;; general needed packages
 (setq fei-package-ensure-installed
-      '(evil general
-	elfeed
-	eshell-up
+      '(
+	;; ==== 编辑相关 ====
+	use-package
+	evil general
 	company yasnippet
-	smex counsel ivy swiper ivy-posframe ctrlf anzu avy
-	embark orderless marginalia consult vertico
-	ace-window
+	avy ace-window
+	;; ctrlf anzu
 	deadgrep
-	pinyin-search pyim sis fcitx
-	youdao-dictionary
 	auctex cdlatex
 	neotree minimap
-	engine-mode
-	;; org-roam org-roam-server
-	helm-org-rifle
-	org-download
 	markdown-mode
 	;; devdocs
-	use-package
 	matlab-mode
 	iedit ialign
 	yafolding
-        hide-mode-line
-	;; goto-line-preview
-        openwith
-        helpful
-	electric-spacing
-	cal-china-x
-	eyebrowse zygospore
 	symbol-overlay
-	tldr trashed w3m
-	alarm-clock
+	electric-spacing
 	separedit
-	;; frames-only-mode
-	mb-url
-	eshell-git-prompt
 	pyvenv
 	highlight-indent-guides
+	helm-org-rifle org-download
+	;; org-roam org-roam-server
 
-	;; == 有趣/有用的 packages 备忘 ==
+	;; ==== minibuffer ====
+	embark orderless marginalia consult vertico
+	smex counsel ivy swiper ivy-posframe
+
+	;; ==== 非编辑相关 ====
+	adafruit-wisdom
+	eshell-up
+	elfeed
+	pyim sis fcitx
+	;; pinyin-search
+	youdao-dictionary
+	engine-mode
+	w3m mb-url
+	eyebrowse zygospore
+        hide-mode-line
+	;; mini-modeline
+        helpful
+	eshell-git-prompt
+        openwith
+	alarm-clock
+	tldr trashed
+	cal-china-x
 	academic-phrases
+
+	;; ==== 备忘 ====
+	;; goto-line-preview
 	;; calfw / calfw-org
+	;; frames-only-mode
 	;; zone zone-rainbow zone-nyan zone-sl totd
 	;; zoom zlc web-search google-this
-	;; web-search bing-dict
+	;; bing-dict
 
 	))
 

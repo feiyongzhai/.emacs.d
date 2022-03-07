@@ -1,6 +1,6 @@
 ;;; init-ivy.el  --- configs for counsel/swiper/ivy/ido
 
-(ivy-mode 1)
+;; (ivy-mode 1)
 
 ;; Keys
 (when *is-linux*

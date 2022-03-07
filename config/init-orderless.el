@@ -2,6 +2,9 @@
 
 ;; (vertico-mode 1)
 
+;; consult
+(setq consult-preview-key nil)
+
 ;; Embark
 (setq prefix-help-command 'embark-prefix-help-command)
 

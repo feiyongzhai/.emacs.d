@@ -20,9 +20,9 @@
     ("M-0" . eyebrowse-switch-to-window-config-0)
     ))
 
-(add-hook 'term-mode-hook '+fei-term-mode-hook)
+(add-hook 'term-mode-hook '+fei-eyebrowse-term-mode-hook)
 
-(defun +fei-term-mode-hook ()
+(defun +fei-eyebrowse-term-mode-hook ()
   ;; 占用了终端 native 的 M-num 的按键：不过这个按键也不常用，所以没什么问题
   (define-key term-raw-map (kbd "M-`") 'eyebrowse-last-window-config)
   (define-key term-raw-map (kbd "M-1") 'eyebrowse-switch-to-window-config-1)
@@ -35,7 +35,6 @@
   (define-key term-raw-map (kbd "M-8") 'eyebrowse-switch-to-window-config-8)
   (define-key term-raw-map (kbd "M-9") 'eyebrowse-switch-to-window-config-9)
   (define-key term-raw-map (kbd "M-0") 'eyebrowse-switch-to-window-config-0)
-  (define-key term-raw-map (kbd "M-s") 'nil)
   )
 
 (provide 'init-eyebrowse)

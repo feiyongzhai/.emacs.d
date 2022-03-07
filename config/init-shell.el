@@ -54,5 +54,8 @@
   (remove-hook 'comint-output-filter-functions
 	       'comint-postoutput-scroll-to-bottom))
 
+(with-eval-after-load 'term
+  (define-key term-raw-map (kbd "M-s") 'nil))
+
 (provide 'init-shell)
 ;;; init-shell.el ends here.

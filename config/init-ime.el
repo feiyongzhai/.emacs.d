@@ -11,6 +11,8 @@
   (setq ivy-re-builders-alist
 	'((t . pyim-cregexp-ivy))))
 
+(define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
+
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)
   (pyim-basedict-enable)

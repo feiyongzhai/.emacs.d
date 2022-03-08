@@ -56,6 +56,7 @@
   ;; 有个需要注意的点是，如果是 eaf-py-proxy- 开头的命令，要去掉 eaf-py-proxy- 这个前缀
   (eaf-bind-key add_annot_squiggly "M-S" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down_page "<backspace>" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
 
   (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)

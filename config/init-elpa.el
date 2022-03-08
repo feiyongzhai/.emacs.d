@@ -86,6 +86,7 @@
 	;; zone zone-rainbow zone-nyan zone-sl totd
 	;; zoom zlc web-search google-this
 	;; bing-dict
+	;; emojify
 
 	))
 

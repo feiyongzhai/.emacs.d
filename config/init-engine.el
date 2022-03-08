@@ -6,6 +6,10 @@
   "https://github.com/search?ref=simplesearch&q=%s"
   :keybinding "h")
 
+(defengine stackoverflow
+  "https://stackoverflow.com/search?q=%s"
+  :keybinding "s-s")
+
 (defengine google-images
   "http://www.google.com/images?hl=en&source=hp&biw=1440&bih=795&gbv=2&aq=f&aqi=&aql=&oq=&q=%s"
   :keybinding "i")

@@ -6,11 +6,17 @@
   ;; 控制 org-latex-preview
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   )
-(setq org-adapt-indentation nil)
+(setq org-highlight-latex-and-related '(native)
+      org-ellipsis "  "
+      org-adapt-indentation nil)
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 (setq org-agenda-files '("~/Nutstore Files/org"))
+(setq org-refile-targets
+      '((nil :maxlevel . 1)
+	(org-agenda-files :maxlevel . 1)
+	("~/Nutstore Files/org/private/private.org" :maxlevel . 1)))
 (setq org-todo-keyword-faces
       '(("TODO" . org-warning)
 	("PLAN" . "brown")
@@ -24,6 +30,7 @@
         ("CANCELED" . (:foreground "grey" :weight bold))))
 
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (defun +fei-org-mode-hook ()
   ;; (org-indent-mode) ; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)

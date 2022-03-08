@@ -132,4 +132,10 @@
 (global-set-key (kbd "C-c C-d") 'fei-golden-dict)
 (global-set-key (kbd "C-c d") 'fei-golden-dict)
 
+(add-hook 'server-after-make-frame-hook 'fei-resize-frame)
+(defun fei-resize-frame ()
+  (interactive)
+  (when (display-graphic-p)
+    (set-frame-width nil 125)))
+
 (provide 'init-misc)

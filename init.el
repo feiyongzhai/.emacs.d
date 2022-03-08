@@ -1,4 +1,9 @@
 ;;; init.el
+
+;;(require 'benchmark-init-modes)
+;;(require 'benchmark-init)
+;;(benchmark-init/activate)
+
 (let ((gc-cons-threshold most-positive-fixnum)
       (gc-cons-percentage 0.6))
   (require 'init-misc)

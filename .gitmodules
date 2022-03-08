@@ -31,3 +31,6 @@
 [submodule "extensions/feebleline"]
 	path = extensions/feebleline
 	url = https://github.com/feiyongzhai/feebleline.git
+[submodule "extensions/grep-dired"]
+	path = extensions/grep-dired
+	url = https://github.com/manateelazycat/grep-dired.git

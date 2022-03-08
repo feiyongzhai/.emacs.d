@@ -5,6 +5,7 @@
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;;; Movement/Navigate
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)

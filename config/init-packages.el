@@ -84,4 +84,8 @@
 (global-set-key (kbd "M-s r") 'rg-project)
 (define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
+;; grep-dired
+(add-to-list 'load-path "~/.emacs.d/extensions/grep-dired")
+(autoload 'grep-dired "grep-dired" nil t) ;emacs 自带了一个相似的命令 `find-name-dired'
+
 (provide 'init-packages)

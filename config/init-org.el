@@ -1,5 +1,4 @@
 ;;; init-org-markdown.el == configs for Org/Markdown
-
 (require 'fei-funcs)
 
 (with-eval-after-load 'org

@@ -20,10 +20,13 @@
 - subword-mode :: 把 StudlyCapsIdentifiers 当作一个 word
 - glasses-mode :: 把 areYouReady 显示成 are_You_Ready
 - superword-mode :: 把 this_is_a_symbol 当作一个 word
+- list-charset-chars :: 
+- shortdoc-display-group :: 
 
 * 有用的变量
 - mouse-wheel-scroll-amount :: 滚轮和修饰键的组合行为
 - mouse-wheel-progressive-speed :: 滚轮速度的行为
+- completion-at-point-functions :: 
 - org-link-file-path-type :: 
 
 * compile emacs

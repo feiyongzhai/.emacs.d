@@ -1,6 +1,7 @@
 ;; ==== vertico / marginalia / embark / orderless ====
 
 (vertico-mode 1)
+(marginalia-mode)
 
 ;; consult
 (setq consult-preview-key nil)		;不自动预览

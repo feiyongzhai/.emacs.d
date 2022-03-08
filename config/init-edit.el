@@ -45,6 +45,7 @@
 (global-set-key (kbd "M-H") 'mark-defun)
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)
 (global-set-key (kbd "C-,") 'set-mark-command)
+(setq shift-select-mode 'permanent)
 
 ;;; Misc
 (global-set-key (kbd "C-c q") 'query-replace)

@@ -26,6 +26,7 @@
     ("M-s y" . counsel-yank-pop)
     ))
 
+(global-set-key (kbd "C-x 8 e") 'ivy-emoji)
 (global-set-key (kbd "C-c r") 'counsel-register)
 (global-set-key (kbd "C-c K") 'counsel-kmacro)
 (with-eval-after-load 'ivy

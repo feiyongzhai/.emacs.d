@@ -80,6 +80,10 @@
 (with-eval-after-load 'helm
   (global-set-key (kbd "C-x c o") 'helm-org-rifle))
 
+(global-set-key (kbd "C-x H b") 'helm-chrome-bookmarks)
+(global-set-key (kbd "C-x M-h b") 'helm-chrome-bookmarks)
+
+
 ;; rg
 (global-set-key (kbd "M-s r") 'rg-project)
 (define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)

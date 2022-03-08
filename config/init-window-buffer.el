@@ -10,7 +10,7 @@
 (global-set-key (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
-(global-set-key (kbd "M-s RET") 'fei-meow-last-buffer)
+
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x B") 'bookmark-jump)
 (global-set-key (kbd "C-x b") 'consult-buffer)
@@ -29,6 +29,12 @@
 (global-set-key (kbd "C-x w m") 'minimize-window)
 (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'other-frame)
+
+(autoload 'evil-move-window "evil" nil t)
+(global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
+(global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
+(global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
+(global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
 
 ;; ace-window
 (setq aw-ignore-current nil)

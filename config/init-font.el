@@ -2,7 +2,7 @@
 ;; 其实我不太知道 EMACS 中的 font 的工作机制，但是我下面的配置可以完成我预期的效果。
 ;; So, anyway, it works! 🐼🐼🐼
 
-(setq-default line-spacing 3)		;控制每行之间的间距
+;; (setq-default line-spacing 3)		;控制每行之间的间距，和字体配合使用
 
 (custom-set-faces
  ;; '(default ((t (:family "Hack" :foundry "simp" :slant normal :weight normal :height 143 :width normal))))

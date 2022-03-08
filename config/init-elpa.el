@@ -34,6 +34,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== 编辑相关 ====
+	tab-bar-echo-area
 	use-package
 	evil general
 	company yasnippet

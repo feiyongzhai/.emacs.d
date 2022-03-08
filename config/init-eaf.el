@@ -26,6 +26,8 @@
 
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
+;; 初心：便于取消 popweb 的弹出窗口
+(global-set-key (kbd "<C-escape>") 'keyboard-escape-quit)
 
 (fei-define-key-with-map global-map
   '(
@@ -135,6 +137,11 @@
 (fei-eaf-wrapper eaf-open-rss-reader)
 (fei-eaf-wrapper eaf-open-terminal)
 (fei-eaf-wrapper eaf-open-url-at-point)
+
+(defun fei-eaf-terminal-here ()
+  (interactive)
+  (eaf-terminal-run-command-in-dir "tmux" default-directory))
+(global-set-key (kbd "<s-return>") 'fei-eaf-terminal-here)
 
 ;; eaf-music-player
 (setq eaf-music-extension-list '("mp3" "m4a"))

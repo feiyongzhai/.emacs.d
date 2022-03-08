@@ -43,7 +43,8 @@
 
 ;; Keys
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
-(global-set-key (kbd "M-J") (li (deactivate-input-method)))
+(global-set-key (kbd "M-J") (li (activate-input-method "pyim")))
+;; (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
@@ -70,7 +71,8 @@
       (list :internal-border-width 4))
 
 (setq default-input-method "rime"
-      rime-show-candidate 'posframe
+      rime-show-candidate nil
+      ;; rime-show-candidate 'posframe
       rime-show-preedit t
       rime-posframe-fixed-position t)
 

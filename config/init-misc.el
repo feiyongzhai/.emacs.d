@@ -4,6 +4,7 @@
 (require 'fei-funcs)
 
 ;;; Modes
+(setq describe-bindings-outline t)
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
 (global-auto-revert-mode t)	    ;autoload the file changes on disk
@@ -12,6 +13,7 @@
 (save-place-mode t)
 (show-paren-mode 1)
 (blink-cursor-mode -1)
+(repeat-mode)
 ;; (savehist-mode t)		    ;保存 minibuffer 历史
 ;; (global-subword-mode 1)
 ;; (desktop-save-mode t)
@@ -137,5 +139,9 @@
   (interactive)
   (when (display-graphic-p)
     (set-frame-width nil 125)))
+
+;; 计算器
+(global-set-key (kbd "M-s -") 'calculator)
+(global-set-key (kbd "M-s =") 'calc)
 
 (provide 'init-misc)

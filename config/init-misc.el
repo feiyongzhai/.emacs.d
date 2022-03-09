@@ -78,6 +78,7 @@
     ("M-ESC u" . fei-toggle-ui)
     ("M-ESC w" . whitespace-mode)
     ("M-ESC W" . whitespace-newline-mode)
+    ("M-ESC v" . evil-mode-with-cursor)
     ))
 
 ;; Bookmark

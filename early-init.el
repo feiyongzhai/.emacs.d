@@ -42,7 +42,7 @@
 (let ((hour (string-to-number
              (substring (current-time-string) 11 13))))
   (unless (member hour (number-sequence 6 18))
-    (load-theme 'tangotango t)  
+    (load-theme 'modus-vivendi t)  
     ))
 
 

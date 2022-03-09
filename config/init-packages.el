@@ -35,7 +35,6 @@
 
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
-(global-set-key (kbd "M-s b") 'consult-buffer)
 
 ;; minimap
 (setq minimap-window-location 'right)

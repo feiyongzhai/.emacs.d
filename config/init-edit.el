@@ -10,6 +10,7 @@
 ;;; Movement/Navigate
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
+(global-set-key (kbd "M-O") 'fei-occur-for-mouse)
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (global-set-key (kbd "M-g M-g") 'consult-goto-line)
 ;;; Cursor Movement (experimental config)
@@ -42,7 +43,7 @@
       )
 
 ;;; Mark
-(global-set-key (kbd "M-H") 'mark-defun)
+(global-set-key (kbd "M-H") 'mark-line)
 (global-set-key (kbd "C-x C-p") 'mark-paragraph)
 (global-set-key (kbd "C-,") 'set-mark-command)
 (setq shift-select-mode 'permanent)

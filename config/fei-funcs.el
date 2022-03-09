@@ -510,17 +510,6 @@ confines of word boundaries (e.g. multiple words)."
 
 ;; Evil
 
-(autoload 'evil-local-mode "evil" nil t)
-
-(defun evil-local-mode-with-cursor ()
-  (interactive)
-  (unless (boundp 'evil-local-mode)
-    (evil-local-mode -1)) ;; unless part is for initialization
-  (if evil-local-mode
-      (progn (evil-local-mode -1)
-	     (setq cursor-type 'bar))
-    (evil-local-mode 1)))
-
 (defun evil-mode-with-cursor ()
   "设置 message 就是为了终端下面有一个提示"
   (interactive)
@@ -533,9 +522,12 @@ confines of word boundaries (e.g. multiple words)."
 	(dolist (buf (buffer-list))
 	  (set-buffer buf)
 	  (setq cursor-type 'bar))
+	(add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
 	(message "Now is EMACS"))
     (evil-mode 1)
-    (message "Now is EVIL")))
+    (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+    (message "Now is EVIL")
+    ))
 
 ;; Edit
 
@@ -554,6 +546,18 @@ confines of word boundaries (e.g. multiple words)."
   (if arg
       (call-interactively 'duplicate-line-below-comment)
     (call-interactively 'duplicate-line-or-region-below)))
+
+(defun mark-line ()
+  "Mark one whole line, similar to `mark-paragraph'.
+
+抄自懒猫的 basic-toolkit.el"
+  (interactive)
+  (beginning-of-line)
+  (if mark-active
+      (exchange-point-and-mark)
+    (push-mark nil nil t))
+  (forward-line)
+  (exchange-point-and-mark))
 
 ;; Neotree
 

@@ -588,6 +588,17 @@ evil-mode 偶尔才会用一下，没有必要搞一个快捷键。
   (define-key evil-motion-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (define-key evil-emacs-state-map (kbd "C-S-z") 'evil-mode-with-cursor)
   (setq evil-emacs-state-cursor 'bar)
+
+  (autoload 'evil-local-mode "evil" nil t)
+
+  (defun evil-local-mode-with-cursor ()
+    (interactive)
+    (unless (boundp 'evil-local-mode)
+      (evil-local-mode -1)) ;; unless part is for initialization
+    (if evil-local-mode
+	(progn (evil-local-mode -1)
+	       (setq cursor-type 'bar))
+      (evil-local-mode 1)))
 #+END_SRC
 
 * Pyim

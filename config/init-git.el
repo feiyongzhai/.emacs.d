@@ -11,6 +11,8 @@
   (define-key vc-dir-mode-map (kbd "h") 'magit-dispatch)
   (define-key vc-dir-mode-map (kbd "H") 'magit-status)
   (define-key vc-dir-mode-map (kbd "s") 'magit-stage)
+  (define-key vc-dir-mode-map (kbd "!") 'shell-command)
+  (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
   )
 
 ;;; Vars

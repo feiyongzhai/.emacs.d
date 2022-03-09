@@ -3,4 +3,4 @@
 # key: defvar
 # group : d
 # --
-(defvar ${1:symbol} ${2:initvalue} "${3:docstring}")
+(defvar $0)

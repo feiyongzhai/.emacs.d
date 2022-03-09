@@ -1,15 +1,18 @@
 ;; ==== vertico / marginalia / embark / orderless ====
 
 (vertico-mode 1)
+(vertico-mouse-mode 1)
 (marginalia-mode)
 
 ;; consult
 (setq consult-preview-key nil)		;不自动预览
 
 ;; Embark
-(setq prefix-help-command 'embark-prefix-help-command)
+;; (setq prefix-help-command 'embark-prefix-help-command)
 
 ;; Vertico + Orderless
+(define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
+
 (defun +vertico-init-minibuffer ()
   (setq-local completion-styles '(basic orderless)))
 

@@ -18,7 +18,7 @@
   (require 'init-proxy)
   (require 'init-eww)
   (require 'init-w3m)
-  (require 'init-vc)
+  (require 'init-git)
   (require 'init-org)
   (require 'init-markdown)
   (require 'init-publish)

@@ -21,7 +21,6 @@
 ;;; Vars
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
-(global-set-key (kbd "C-c M-c") 'calendar)
 
 (recentf-mode t)
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes

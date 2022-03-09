@@ -1,7 +1,6 @@
 # -*- mode: snippet -*-
-# contributor: Xah Lee (XahLee.org)
 # name: defalias
 # key: defalias
 # group : d
 # --
-(defalias '${1:symbol} '${2:alias}${3: "docstring"})
+(defalias $0)

@@ -72,15 +72,15 @@
 	   :empty-lines-before 1)
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
-	   "* %?\nCREATE: %T\n"
+	   "* CREATE: %T\n%?"
 	   :empty-lines-before 1)
-	  ("I" "Inbox" entry
-	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
-	   "* %i%?\nCREATE: %T\n"
+	  ("I" "Private" entry
+	   (file "~/Nutstore Files/org/private/private.org")
+	   "* CREATE: %T\n%i%?"
 	   :empty-lines-before 1 :immediate-finish t)
 	  ("P" "Private" entry
 	   (file "~/Nutstore Files/org/private/private.org")
-	   "* %i%?\nCREATE: %T\n"
+	   "* CREATE: %T\n%i%?"
 	   :empty-lines-before 1)
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/private/diary.org")
@@ -89,7 +89,7 @@
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
-	   "* %?\nCREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src"
+	   "* %?CREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src"
 	   :empty-lines-after 1)
 	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")

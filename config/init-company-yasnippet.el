@@ -12,6 +12,7 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)
+      ("C-h" . nil)	  ;当前编译的 emacs-28 按 C-h 会卡死。暂时关闭
       ("M-i" . yas-next-field-or-maybe-expand)
       ("TAB" . company-complete-selection)
       ("M-h" . company-complete-selection)
@@ -56,14 +57,26 @@
 
 ;; ==== Yasnippet ====
 (with-eval-after-load 'yasnippet
-  (define-key yas-keymap [escape] nil)
-  (define-key yas-keymap [tab] nil)
-  (define-key yas-keymap (kbd "S-<tab>") nil)
-  (define-key yas-keymap (kbd "TAB") nil)
-  (define-key yas-keymap [return] 'yas-next-field-or-maybe-expand)
-  (define-key yas-keymap (kbd "RET") 'yas-next-field-or-maybe-expand)
-  (define-key yas-keymap (kbd "S-<return>") 'yas-prev-field)
-  (define-key yas-keymap (kbd "<backtab>") 'yas-prev-field))
+  (define-key yas-keymap (kbd "M-n") 'company/yas-next)
+  (define-key yas-keymap (kbd "M-p") 'company/yas-prev)
+
+  ;; experiment
+  ;; (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
+  ;; (define-key yas-minor-mode-map (kbd "RET") yas-maybe-expand)
+  (define-key yas-minor-mode-map (kbd "C-x y") 'yas-insert-snippet)
+  )
+
+(defun company/yas-next ()
+  (interactive)
+  (or (when (company--active-p)
+	(company-select-next))
+      (yas-next-field)))
+
+(defun company/yas-prev ()
+  (interactive)
+  (or (when (company--active-p)
+	(company-select-previous))
+      (yas-prev-field)))
 
 (with-eval-after-load 'yasnippet
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))

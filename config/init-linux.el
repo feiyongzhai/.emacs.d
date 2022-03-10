@@ -32,6 +32,7 @@
   (global-set-key (kbd "C-x M-f") 'fasd-find-file))
 
 ;; Telega
+(autoload 'telega "telega" nil t)
 (setq telega-chat-fill-column 50
       telega-use-images t
       telega-open-file-function 'org-open-file

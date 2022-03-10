@@ -34,3 +34,6 @@
 [submodule "extensions/grep-dired"]
 	path = extensions/grep-dired
 	url = https://github.com/manateelazycat/grep-dired.git
+[submodule "extensions/telega"]
+	path = extensions/telega
+	url = https://github.com/zevlg/telega.el.git

@@ -21,6 +21,8 @@
 
 ;;; Vars
 
+(setq evil-undo-system 'undo-redo)
+
 ;; (add-hook 'find-file-hook #'evil-local-mode)
 ;; (add-hook 'help-mode-hook #'evil-local-mode)
 

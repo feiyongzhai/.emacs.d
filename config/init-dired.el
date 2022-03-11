@@ -7,6 +7,14 @@
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 
+;;; Vars
+
+(setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
+(when *is-linux*
+  (setq dired-listing-switches "-Bhl --group-directories-first"))
+
 ;;; Keys
 
 (define-key dired-mode-map (kbd ";m") 'point-to-register)
@@ -17,9 +25,7 @@
 
 (with-eval-after-load 'dired
   (fei-define-key-with-map dired-mode-map
-    `(("w" . browse-url-of-dired-file)
-      ("W" . dired-copy-filename-as-kill)
-      ("/" . dired-copy-filename-as-kill)
+    `(
       ("b" . dired-up-directory)
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
@@ -45,13 +51,9 @@
     (dired-goto-file file)
     ))
 
-;;; Vars
-
-(setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
-(setq dired-recursive-copies 'always)
-(setq dired-recursive-deletes 'always)
-(when *is-linux*
-  (setq dired-listing-switches "-Bhl --group-directories-first"))
+;; dired-filter
+;; 这个包在设计上和 ibuffer 的 filter 保持了高度一致
+(require 'dired-filter)
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

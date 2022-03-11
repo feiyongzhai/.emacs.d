@@ -73,7 +73,7 @@ kill region instead"
 		   (region-end))
     (backward-kill-word (or arg 1))))
 
-;;; @REF: https://oremacs.com/page32/
+;; @REF: https://oremacs.com/page32/
 (defun dired-open-term ()
   "Open an `ansi-term' that corresponds to current directory."
   (interactive)
@@ -143,8 +143,8 @@ kill region instead"
 	(terminal-here)
       (message "can't open terminal here"))))
 
-;;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
-;;; `aweshell-emacs' function
+;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
+;; `aweshell-emacs' function
 (defun eshell/edit (&rest args)
   "Open a file in Emacs with ARGS, Some habits die hard."
   (cond

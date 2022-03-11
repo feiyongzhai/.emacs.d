@@ -51,6 +51,7 @@
 
   ;; 尝鲜
   (require 'init-tempel)
+  (require 'init-roam)
 
   ;; local configs
   (let ((local-config "~/.emacs.d/config/init-local.el"))

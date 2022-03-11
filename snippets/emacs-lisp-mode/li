@@ -3,4 +3,4 @@
 # group : l
 # key: li
 # --
-(lambda () (interactive) $0)
+(li $0)

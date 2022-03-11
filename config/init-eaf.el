@@ -93,7 +93,8 @@
 
 (with-eval-after-load 'eaf
   (eaf-setq eaf-browser-enable-adblocker "true")
-  (eaf-setq eaf-terminal-font-family "Hack")
+  (eaf-setq eaf-terminal-font-family "JetBrains Mono")
+  ;; (eaf-setq eaf-terminal-font-family "Hack")
   (eaf-setq eaf-terminal-font-size "20")
   (eaf-setq eaf-browser-enable-adblocker "true"))
 
@@ -193,7 +194,8 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
 		    (buffer-name))
               orig-fn))
         (ext (file-name-extension file)))
-    (if (eaf--find-file-ext-p ext)
+    (if (and (not (eq major-mode 'telega-chat-mode)) ; 处理 telega 打开图片的问题
+	     (eaf--find-file-ext-p ext))
         (apply fn file nil)
       (apply orig-fn file args))))
 (advice-add #'find-file-noselect :around #'eaf--find-file-advisor)

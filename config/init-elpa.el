@@ -88,6 +88,8 @@
 	;; zoom zlc web-search google-this
 	;; bing-dict
 	;; emojify
+	;; focus
+	;; dired-sider-bar
 
 	))
 

@@ -144,4 +144,8 @@
 (global-set-key (kbd "M-s -") 'calculator)
 (global-set-key (kbd "M-s =") 'calc)
 
+;; ;; experiment
+;; (global-unset-key (kbd "C-x C-c"))
+;; (defalias 'exit 'save-buffers-kill-terminal)
+
 (provide 'init-misc)

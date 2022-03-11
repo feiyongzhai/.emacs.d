@@ -12,6 +12,7 @@
 	'((t . pyim-cregexp-ivy))))
 
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
+(define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
 
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)

@@ -56,6 +56,7 @@
       )
 
 ;; ==== Yasnippet ====
+(global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (with-eval-after-load 'yasnippet
   (define-key yas-keymap (kbd "M-n") 'company/yas-next)
   (define-key yas-keymap (kbd "M-p") 'company/yas-prev)
@@ -63,7 +64,6 @@
   ;; experiment
   ;; (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
   ;; (define-key yas-minor-mode-map (kbd "RET") yas-maybe-expand)
-  (define-key yas-minor-mode-map (kbd "C-x y") 'yas-insert-snippet)
   )
 
 (defun company/yas-next ()

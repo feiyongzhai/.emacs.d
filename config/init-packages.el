@@ -72,6 +72,10 @@
 (keyfreq-mode)
 (keyfreq-autosave-mode)
 (setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
+(setq keyfreq-excluded-commands
+      '(
+	;; mwheel-scroll
+        ))
 
 ;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
 ;; 一些 org 文件，所以配合起来使用也能接受

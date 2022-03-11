@@ -33,6 +33,18 @@
       ("C-y" . fei-dired-paste/move)
       )))
 
+(define-key dired-mode-map (kbd "F") 'dired-jump-following-symlinks)
+;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
+;; @REF2: `ibuffer-jump' 的源码
+(defun dired-jump-following-symlinks ()
+  "In Dired, visit the file or directory on the line, following symlinks"
+  (interactive)
+  (let ((find-file-visit-truename t)
+	(file (file-truename (dired-get-filename))))
+    (dired (file-name-directory file))
+    (dired-goto-file file)
+    ))
+
 ;;; Vars
 
 (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站

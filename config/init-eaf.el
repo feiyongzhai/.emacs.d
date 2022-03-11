@@ -1,5 +1,15 @@
 (require 'fei-funcs)
 
+;; ==== Popweb ====
+
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
+(add-to-list 'load-path "~/.emacs.d/extensions/popweb/")
+(require 'popweb-dict-bing)
+(require 'popweb-dict-youdao)
+(require 'popweb-latex)
+
+;; ==== EAF ====
 (add-to-list 'load-path "~/.emacs.d/extensions/emacs-application-framework")
 (require 'eaf)
 (require 'eaf-browser)
@@ -143,18 +153,54 @@
   (eaf-terminal-run-command-in-dir "tmux" default-directory))
 (global-set-key (kbd "<s-return>") 'fei-eaf-terminal-here)
 
-;; eaf-music-player
+;; == eaf-music-player ==
 (setq eaf-music-extension-list '("mp3" "m4a"))
-(setq eaf-pdf-dark-mode "ignore")	;如果不添加这行配置，pdf总是是暗色的
 
-;; ==== Popweb ====
+;; == eaf-pdf-viewer ==
+;; 如果不添加下面这行配置，pdf总是是暗色的，这是一个 bug, 在 eaf-pdf-viewer
+;; 最近的一次更新 cabb7696f95a9f334c97e350fee46d7420eee93e 已经修复了。
+;; 不过更新测试发现还是存在不符合我预期的行为，暂时不更新
+(setq eaf-pdf-dark-mode "ignore")
 
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/")
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
-(require 'popweb-latex)
+(define-key eaf-mode-map* (kbd "C-x C-j") 'eaf-dired-jump)
+(defun eaf-dired-jump ()
+  "目前只对 EAF 的 pdf浏览器 和 图片浏览器有作用"
+  (interactive)
+  (if (eq major-mode 'eaf-mode)
+      (let ((file (concat default-directory (buffer-name))))
+	(dired-jump)
+	(dired-goto-file file))
+    (message "You are not in EAF buffer!")))
+
+
+;; 或许我可以给 EAF 来个 PR，不过不着急，先测试一段时间
+
+;; 下面这个 patch 的功能：
+;;	1. 支持 consult-buffer 打开 pdf 是用 eaf-pdf-viewer 打开 （起因）
+;;	2. 可以简化 eaf.el 中代码
+;;	3. 可以使 dired 中行为与 emacs 的设计保持一致。
+;;	现在 eaf.el 的逻辑是：如果有 mark 的文件，会一次性打开所有的文件。但通过我的测试发现
+;;	emacs 中 dired-find-alternate-file/dired-find-file 的默认行为不是一次性打开所有 mark 的文件，
+;;	而是只打开光标所在的文件。而我的这个 patch 则保证着同样的行为。更合理。
+
+(defun eaf--find-file-advisor (orig-fn file &rest args)
+  "Advisor of `find-file' that opens EAF supported file using EAF.
+
+It currently identifies PDF, videos, images, and mindmap file extensions."
+  (let ((fn (if (commandp 'eaf-open)
+                #'(lambda (file)
+                    (eaf-open file)
+		    (buffer-name))
+              orig-fn))
+        (ext (file-name-extension file)))
+    (if (eaf--find-file-ext-p ext)
+        (apply fn file nil)
+      (apply orig-fn file args))))
+(advice-add #'find-file-noselect :around #'eaf--find-file-advisor)
+
+(advice-remove 'find-file 'eaf--find-file-advisor)
+(advice-remove 'dired-find-file 'eaf--dired-find-file-advisor)
+(advice-remove 'dired-find-alternate-file 'eaf--dired-find-file-advisor)
 
 
 (provide 'init-eaf)

@@ -1,15 +1,19 @@
+(add-hook 'org-roam-find-file-hook 'fei-org-roam-hook)
+(defun fei-org-roam-hook ()
+  (activate-input-method 'rime))
+
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory (file-truename "~/Sandbox/Org/roam"))
-  :bind (("C-c r l" . org-roam-buffer-toggle)
-         ("C-c r f" . org-roam-node-find)
-         ("C-c r g" . org-roam-graph)
-         ("C-c r i" . org-roam-node-insert)
-         ("C-c r c" . org-roam-capture)
+  (org-roam-directory (file-truename "~/Nutstore Files/org/roam"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
          ;; Dailies
-         ("C-c r j" . org-roam-dailies-capture-today)
-         ("C-c r J" . org-roam-dailies-goto-today)
+         ("C-c n j" . org-roam-dailies-capture-today)
+         ("C-c n J" . org-roam-dailies-goto-today)
 	 )
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
@@ -22,7 +26,7 @@
 
 (use-package org-roam-ui
   :ensure t
-  :bind (("C-c r o" . org-roam-ui-open)))
+  :bind (("C-c n o" . org-roam-ui-open)))
 
 ;; (use-package org-roam-bibtex
 ;;   :ensure t

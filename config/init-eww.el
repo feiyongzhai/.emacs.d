@@ -29,8 +29,8 @@
 ;; @REF: https://emacs-china.org/t/topic/2808/56?u=yongfeizhai
 (setq url-proxy-services
       '(("https" . "localhost:8889")
-	;; ("http" . "localhost:8889")
-        ;; ("no_proxy" . "0.0.0.0")
+	("http" . "localhost:8889")
+        ("no_proxy" . "0.0.0.0")
 	))
 
 

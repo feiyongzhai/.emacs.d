@@ -827,3 +827,14 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
 
 #+END_SRC
 
+* VC
+emacs28 自带的 `project-vc-dir' 已经可以替代这个函数了，而且处理得更好
+#+BEGIN_SRC emacs-lisp
+(defun fei-vc-dired-jump (arg)
+  (interactive "P")
+  (let ((target-dir (or (vc-root-dir)
+                        default-directory)))
+    (vc-dir target-dir))
+  )
+#+END_SRC
+

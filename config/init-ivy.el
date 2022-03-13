@@ -15,6 +15,7 @@
     ("C-h v" . counsel-describe-variable)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
+    ("C-c K" . fei-counsel-rg-my-org)
     ("C-c v p" . ivy-push-view)
     ("C-c v P" . ivy-pop-view)
     ("C-c v s" . ivy-switch-view)
@@ -28,7 +29,6 @@
 
 (global-set-key (kbd "C-x 8 e") 'ivy-emoji)
 ;; (global-set-key (kbd "C-c r") 'counsel-register)
-(global-set-key (kbd "C-c K") 'counsel-kmacro)
 (with-eval-after-load 'ivy
   (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
   (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable))

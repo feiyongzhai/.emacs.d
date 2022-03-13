@@ -1,4 +1,4 @@
-;;; init-org-markdown.el == configs for Org/Markdown
+;;; init-org.el == configs for Org/Markdown
 (require 'fei-funcs)
 
 (with-eval-after-load 'org
@@ -10,6 +10,7 @@
       org-adapt-indentation nil)
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
+(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 (setq org-agenda-files '("~/Nutstore Files/org"))
 (setq org-refile-targets

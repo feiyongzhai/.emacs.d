@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
 (require 'fei-funcs)
-;; (require 'dired-x)
 
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
@@ -23,6 +22,8 @@
 (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
 (define-key dired-mode-map [mouse-8] 'dired-up-directory)
 
+(define-key dired-mode-map (kbd "N") 'dired-create-empty-file) ;default is `dired-man'
+
 (with-eval-after-load 'dired
   (fei-define-key-with-map dired-mode-map
     `(
@@ -30,6 +31,7 @@
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
       ("j" . dired-next-line)
+      ("J" . find-file)
       ("k" . dired-previous-line)
       ("l" . dired-find-file)
       ("e" . wdired-change-to-wdired-mode)
@@ -39,7 +41,10 @@
       ("C-y" . fei-dired-paste/move)
       )))
 
-(define-key dired-mode-map (kbd "F") 'dired-jump-following-symlinks)
+(define-key dired-mode-map (kbd "M-n") 'dired-next-subdir)
+(define-key dired-mode-map (kbd "M-p") 'dired-prev-subdir)
+
+(define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
 ;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
 ;; @REF2: `ibuffer-jump' 的源码
 (defun dired-jump-following-symlinks ()
@@ -51,7 +56,6 @@
     (dired-goto-file file)
     ))
 
-;; dired-filter
 ;; 这个包在设计上和 ibuffer 的 filter 保持了高度一致
 (require 'dired-filter)
 

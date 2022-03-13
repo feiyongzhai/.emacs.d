@@ -445,12 +445,7 @@ confines of word boundaries (e.g. multiple words)."
     (setq isearch-end-activate-input-method-predicate nil)))
 
 ;; VC
-(defun fei-vc-dired-jump (arg)
-  (interactive "P")
-  (let ((target-dir (or (vc-root-dir)
-                        default-directory)))
-    (vc-dir target-dir))
-  )
+
 
 ;; Misc
 (defun fei-sdcv ()
@@ -626,5 +621,11 @@ confines of word boundaries (e.g. multiple words)."
 (defun fei-load-file ()
   (interactive)
   (jump-to-register 'fei-file-register))
+
+;; Counsel
+(defun fei-counsel-rg-my-org ()
+  (interactive)
+  (counsel-rg nil "~/Nutstore Files/org")
+  )
 
 (provide 'fei-funcs)

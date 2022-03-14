@@ -12,6 +12,13 @@
 (global-set-key (kbd "M-s C-w") 'tab-close)
 (global-set-key (kbd "M-s C-m") 'fei-tab-switch)
 
+(add-hook 'term-mode-hook '+fei-term-mode-hook)
+
+(defun +fei-term-mode-hook ()
+  (define-key term-raw-map (kbd "M-`") 'tab-recent)
+  (define-key term-mode-map (kbd "M-s") 'nil)
+  )
+
 (defun fei-tab-switch (name)
   "这个代码从 emacs-29 的仓库中取出来的，当 emacs29 发布之后，这个函数就过时了"
   (interactive

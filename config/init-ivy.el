@@ -22,10 +22,12 @@
     ("C-x f" . counsel-find-file)
     ("C-S-s" . swiper-isearch)
     ("M-x" . counsel-M-x)
-    ("C-c l" . counsel-locate)
     ("C-x C-f" . counsel-find-file)
     ("M-s y" . counsel-yank-pop)
     ))
+
+(global-set-key (kbd "C-c l") 'locate)
+(global-set-key (kbd "C-c L") 'counsel-locate)
 
 (global-set-key (kbd "C-x 8 e") 'ivy-emoji)
 ;; (global-set-key (kbd "C-c r") 'counsel-register)

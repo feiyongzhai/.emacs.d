@@ -22,7 +22,7 @@
 ;; Neotree
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)
-(global-set-key (kbd "C-c N") 'neotree)
+(global-set-key (kbd "<f8>") 'neotree)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
   (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)

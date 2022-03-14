@@ -102,7 +102,7 @@ kill region instead"
          (let ((v (tramp-dissect-file-name current-dir t)))
            (format "ssh %s@%s\n"
                    (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))
+       (format "cd %s\n" (shell-quote-wildcard-pattern current-dir))))
     (term-send-left)
     (term-send-right)))
 
@@ -448,6 +448,21 @@ confines of word boundaries (e.g. multiple words)."
 
 
 ;; Misc
+(defun fei-ff-find-other-file-pdf-org ()
+  (interactive)
+  (let* ((name (or (buffer-file-name)
+		   (buffer-name)))
+	 (current-ext (file-name-extension name))
+	 (current-name (file-name-sans-extension name)))
+    (cond ((string= current-ext "org")
+	   (find-file (concat current-name ".pdf")))
+	  ((string= current-ext "md")
+	   (find-file (concat current-name ".pdf")))
+	  ((string= current-ext "pdf")
+	   (find-file (concat current-name ".org")))
+	  (t (message "当前不支持这个文件")))
+    ))
+
 (defun fei-sdcv ()
   (interactive)
   (let* ((current-word (word-at-point t))
@@ -571,7 +586,7 @@ confines of word boundaries (e.g. multiple words)."
 ;; require `pulse' library
 (defun fei-pulse-current-line ()
   (interactive)
-  (pulse-momentary-highlight-one-line (point)))
+  (pulse-momentary-highlight-one-line (point) 'hl-line))
 
 ;; youdao-dictionary
 (defun fei-youdao-at-point ()

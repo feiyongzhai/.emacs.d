@@ -16,7 +16,6 @@
 (fei-define-key-with-map global-map
   `(
     ("<s-return>" . fei-terminal-here)
-    ("<f8>" . ,(li (split-window-below) (other-window 1) (call-interactively 'fei-eshell-cd-here)))
     ("M-s M-j" . fei-eshell-cd-here)
     ("M-s j"  . eshell)
     ))

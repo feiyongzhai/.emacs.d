@@ -148,4 +148,6 @@
 ;; (global-unset-key (kbd "C-x C-c"))
 ;; (defalias 'exit 'save-buffers-kill-terminal)
 
+(global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
+
 (provide 'init-misc)

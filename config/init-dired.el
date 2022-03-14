@@ -8,6 +8,8 @@
 
 ;;; Vars
 
+;; find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile
+(setq dired-guess-shell-alist-user '(("\\.pdf\\'" "find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile" "xpdf")))
 (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)

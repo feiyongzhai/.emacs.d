@@ -64,8 +64,8 @@
 	adafruit-wisdom
 	eshell-up
 	elfeed
-	pyim sis fcitx
-	;; pinyin-search
+	pyim pyim-basedict fcitx
+	;; sis pinyin-search
 	youdao-dictionary
 	engine-mode
 	w3m mb-url
@@ -79,6 +79,9 @@
 	tldr trashed
 	cal-china-x
 	academic-phrases
+	smartparens
+	corfu tempel
+	olivetti
 
 	;; ==== 备忘 ====
 	;; goto-line-preview

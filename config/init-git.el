@@ -1,4 +1,4 @@
-;;; init-vc.el --- configs for vc
+;;; init-git.el --- configs for git related
 
 (require 'fei-funcs)
 

@@ -294,6 +294,8 @@ kill region instead"
   (org-capture nil "P")
   (olivetti-mode)
   ;; (auto-fill-mode)
+  (when (bound-and-true-p evil-mode)
+    (evil-insert 0))
   (require 'rime)
   (activate-input-method 'rime))
 
@@ -302,6 +304,8 @@ kill region instead"
   (org-capture nil "d")
   (olivetti-mode)
   ;; (auto-fill-mode)
+  (when (bound-and-true-p evil-mode)
+    (evil-insert 0))
   (require 'rime)
   (activate-input-method 'rime))
 

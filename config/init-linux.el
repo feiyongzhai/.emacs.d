@@ -15,10 +15,13 @@
 ;; (sis-global-respect-mode 1)
 
 ;; fcitx
+(setq fcitx-active-evil-states '(insert emacs hybrid))
+(fcitx-aggressive-setup)
 (fcitx-aggressive-minibuffer-turn-on)
 (fcitx-prefix-keys-add "M-s")
 (fcitx-prefix-keys-add "C-x")
 (fcitx-prefix-keys-add "C-c")
+(fcitx-prefix-keys-add "C-h")
 (fcitx-prefix-keys-turn-on)
 
 ;; Fasd

@@ -21,7 +21,8 @@
 - glasses-mode :: 把 areYouReady 显示成 are_You_Ready
 - superword-mode :: 把 this_is_a_symbol 当作一个 word
 - list-charset-chars :: 
-- shortdoc-display-group :: 
+- shortdoc-display-group ::
+- customize-create-theme :: 这个命令可以自己定制一个主题出来，好像还挺好玩的
 
 * 有用的变量
 - mouse-wheel-scroll-amount :: 滚轮和修饰键的组合行为

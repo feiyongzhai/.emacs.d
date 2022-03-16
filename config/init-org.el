@@ -32,24 +32,22 @@
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (defun +fei-org-mode-hook ()
-  ;; (org-indent-mode) ; @REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
+  ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
+  (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
   (toggle-truncate-lines -1))
 
 ;; Keys
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
 
-(global-set-key (kbd "<f1>") 'fei-org-capture-private)
-
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)
-
 (global-set-key (kbd "C-c c") 'fei-org-capture-note)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
-(global-set-key (kbd "<f6>") 'fei-org-agenda)
-(global-set-key (kbd "<f2>") 'fei-org-capture-SAR)
-(global-set-key (kbd "<f9>") 'fei-org-capture-WANT)
+(global-set-key (kbd "C-c n p") 'fei-org-capture-private)
+(global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
+(global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)

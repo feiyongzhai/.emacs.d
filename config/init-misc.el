@@ -87,6 +87,7 @@
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
 
+(setq help-window-select t)		;always select help window
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
 (define-key 'help-command (kbd "C-v") 'find-variable)
@@ -149,5 +150,12 @@
 ;; (defalias 'exit 'save-buffers-kill-terminal)
 
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
+
+;; fei-prefix-map
+(defvar fei-prefix-map (make-sparse-keymap))
+(global-set-key (kbd "<f1>") fei-prefix-map)
+(define-key fei-prefix-map (kbd "j") 'fasd-ivy-find-file)
+(define-key fei-prefix-map (kbd "g") (li (fei-search 1)))
+
 
 (provide 'init-misc)

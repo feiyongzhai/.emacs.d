@@ -8,7 +8,7 @@
 
 (setq w32-lwindow-modifier 'super)
 (setq w32-pass-lwindow-to-system nil)
-(setq w32-apps-modifier 'super)
+n(setq w32-apps-modifier 'super)
 
 ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
 (dolist (keys '([s-0] [s-1] [s-2] [s-3]
@@ -49,5 +49,6 @@
     (set-frame-size frame w h)))
 (arrange-frame 84 30 170 20)
 
+(setq browse-url-handlers '(("." . browse-url-default-browser)))
 
 (provide 'init-win10)

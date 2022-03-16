@@ -10,7 +10,7 @@
 ;;; Movement/Navigate
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
-(global-set-key (kbd "M-O") 'fei-occur-for-mouse)
+;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中用特殊的含义，和 f1-f4 绑定在一起
 (global-set-key (kbd "C-'") 'avy-goto-line)
 (global-set-key (kbd "M-g M-g") 'consult-goto-line)
 ;;; Cursor Movement (experimental config)

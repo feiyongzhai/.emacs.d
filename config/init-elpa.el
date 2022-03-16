@@ -63,6 +63,7 @@
 	;; ==== 非编辑相关 ====
 	adafruit-wisdom
 	eshell-up
+	bash-completion
 	elfeed
 	pyim pyim-basedict fcitx
 	;; sis pinyin-search

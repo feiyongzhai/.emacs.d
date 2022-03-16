@@ -56,9 +56,9 @@
   )
 
 ;; Helpful
-(global-set-key (kbd "C-h o") 'helpful-symbol)
-(global-set-key (kbd "C-h O") 'describe-symbol)
-(global-set-key (kbd "C-h k") 'helpful-key)
+;; (global-set-key (kbd "C-h o") 'helpful-symbol)
+;; (global-set-key (kbd "C-h O") 'describe-symbol)
+;; (global-set-key (kbd "C-h k") 'helpful-key)
 
 ;; highlight-indent-guides copied from lazycat
 (setq highlight-indent-guides-method 'character)

@@ -48,6 +48,7 @@
 (global-set-key (kbd "C-c n p") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
+(global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
@@ -68,6 +69,10 @@
 	  ("S" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
 	   "* TODO %?\nCREATE: %T\n"
+	   :empty-lines-before 1)
+	  ("K" "Research" entry
+	   (file "~/Nutstore Files/org/private/Research.org") 
+	   "* CREATE: %T\n%?"
 	   :empty-lines-before 1)
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")

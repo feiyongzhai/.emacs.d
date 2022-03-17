@@ -14,13 +14,17 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (when *is-linux*
-  (setq dired-listing-switches "-Bhl --group-directories-first"))
+  ;; 今天突然感觉按照文件名排序就挺好的
+  ;; (setq dired-listing-switches "-Bhl --group-directories-first")
+  (setq dired-listing-switches "-Bhl")
+  )
 
 ;;; Keys
 
 (define-key dired-mode-map (kbd ";m") 'point-to-register)
 (define-key dired-mode-map (kbd ";j") 'jump-to-register)
 
+(define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
 (define-key dired-mode-map [mouse-8] 'dired-up-directory)
 

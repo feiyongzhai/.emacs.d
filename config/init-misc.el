@@ -156,6 +156,8 @@
 (global-set-key (kbd "<f1>") fei-prefix-map)
 (define-key fei-prefix-map (kbd "j") 'fasd-ivy-find-file)
 (define-key fei-prefix-map (kbd "g") (li (fei-search 1)))
-
+(define-key fei-prefix-map (kbd "o") 'fei-counsel-fd-file-jump)
+(define-key fei-prefix-map (kbd "e") 'file-manager-here)
+(define-key fei-prefix-map (kbd "0") 'scratch)
 
 (provide 'init-misc)

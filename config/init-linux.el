@@ -32,7 +32,7 @@
   (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
   (setq fasd-enable-initial-prompt nil)
-  (global-set-key (kbd "C-x M-f") 'fasd-find-file))
+  )
 
 ;; Telega
 (add-to-list 'load-path "~/.emacs.d/extensions/telega")

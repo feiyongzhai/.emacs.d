@@ -259,6 +259,14 @@ kill region instead"
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
+(defun fei-org-capture-Research ()
+  (interactive)
+  (org-capture nil "K")
+  (olivetti-mode)
+  ;; (auto-fill-mode)
+  (require 'rime)
+  (activate-input-method 'rime))
+
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
@@ -521,6 +529,11 @@ confines of word boundaries (e.g. multiple words)."
   (if arg
       (call-interactively 'dired-ranger-move)
     (call-interactively 'dired-ranger-paste)))
+
+(defun fei-dired-mouse-find-file-externally (event)
+  (interactive "e")
+  (mouse-set-point event)
+  (call-interactively 'browse-url-of-dired-file))
 
 ;; Evil
 
@@ -646,5 +659,27 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (counsel-rg nil "~/Nutstore Files/org")
   )
+
+;; @REF: counsel-fd.el :: `counsel-fd-file-jump'
+(defun fei-counsel-fd-file-jump (&optional initial-input initial-directory)
+  "Jump to a file below the current directory.
+List all files within the current directory or any of its subdirectories.
+INITIAL-INPUT can be given as the initial minibuffer input.
+INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
+  (interactive
+   (list nil
+         (when current-prefix-arg
+           (read-directory-name "From directory: "))))
+  (counsel-require-program "fd")
+  (let* ((default-directory (or initial-directory default-directory)))
+    (ivy-read "File: "
+              (split-string
+               (shell-command-to-string
+                (concat "fd --hidden --color never " "--exclude '*.git'"))
+               "\n" t)
+              :initial-input initial-input
+              :action (lambda (d) (find-file (expand-file-name d)))
+              :caller 'fei-counsel-fd-file-jump)))
+
 
 (provide 'fei-funcs)

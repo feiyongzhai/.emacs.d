@@ -27,7 +27,8 @@
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (with-eval-after-load 'symbol-overlay
-  (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse))
+  (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse)
+  (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 ;; Consult
 (setq register-preview-delay 0

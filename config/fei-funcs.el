@@ -262,7 +262,7 @@ kill region instead"
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
-  (olivetti-mode)
+  ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))
@@ -270,7 +270,7 @@ kill region instead"
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  (olivetti-mode)
+  ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))
@@ -278,7 +278,7 @@ kill region instead"
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
-  (olivetti-mode)
+  ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (require 'rime)
   (activate-input-method 'rime))
@@ -292,7 +292,7 @@ kill region instead"
         (org-capture-string strings "I") nil)
     (org-capture nil "i")
     ;; (delete-other-windows)
-    (olivetti-mode)
+    ;; (olivetti-mode)
     ;; (auto-fill-mode)
     (require 'rime)
     (activate-input-method 'rime)))
@@ -300,7 +300,7 @@ kill region instead"
 (defun fei-org-capture-private ()
   (interactive)
   (org-capture nil "P")
-  (olivetti-mode)
+  ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
@@ -310,7 +310,7 @@ kill region instead"
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")
-  (olivetti-mode)
+  ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
@@ -636,6 +636,10 @@ confines of word boundaries (e.g. multiple words)."
   (multi-occur
    (get-buffers-matching-mode major-mode)
    (concat "\\_<" (thing-at-point 'symbol) "\\_>")))
+
+(defun symbol-overlay-find-at-point-project ()
+  (interactive)
+  (project-find-regexp (thing-at-point 'symbol)))
 
 ;; Register
 (defun fei-store-window-configuration ()

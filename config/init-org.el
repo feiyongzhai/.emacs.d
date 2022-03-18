@@ -45,6 +45,7 @@
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-note)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
+(global-set-key (kbd "C-c n n") 'fei-org-capture-note)
 (global-set-key (kbd "C-c n p") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)

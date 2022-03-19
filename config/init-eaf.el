@@ -21,7 +21,7 @@
 (require 'eaf-mindmap)
 (require 'eaf-mail)
 (require 'eaf-terminal)
-;; (require 'eaf-camera)
+(require 'eaf-camera)
 ;; (require 'eaf-jupyter)
 ;; (require 'eaf-netease-cloud-music)
 (require 'eaf-music-player)

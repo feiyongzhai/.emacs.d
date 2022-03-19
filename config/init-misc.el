@@ -3,9 +3,6 @@
 (require 'init-func)
 (require 'fei-funcs)
 
-;;; Modes
-(setq describe-bindings-outline t)
-(setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
 (global-auto-revert-mode t)	    ;autoload the file changes on disk
 (delete-selection-mode t)	    ;选中文本后输入会覆盖
@@ -19,6 +16,12 @@
 ;; (desktop-save-mode t)
 
 ;;; Vars
+(setq modus-themes-mode-line '3d)
+
+(setq whitespace-line-column nil)	;nil means use fill-column
+(setq describe-bindings-outline t)
+(setq enable-recursive-minibuffers t)
+
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
 
@@ -35,10 +38,13 @@
 (setq display-time-default-load-average nil) ; 不显示time后面的不明数字
 (setq desktop-restore-frames nil)	     ; don't restore any frame
 
-;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
-(setq ring-bell-function 'ignore)
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
+
+;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
+(setq ring-bell-function 'ignore)
+(setq split-width-threshold nil) ;分屏的时候使用上下分屏，这个配置对于大屏幕比较有用
+(setq word-wrap-by-category t)	 ;按照中文折行
 
 ;;; Keys
 (fei-define-key-with-map global-map

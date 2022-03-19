@@ -37,7 +37,6 @@
 ;; (setq initial-scratch-message "")
 
 (tool-bar-mode -1)
-(global-tab-line-mode)
 
 (let ((hour (string-to-number
              (substring (current-time-string) 11 13))))

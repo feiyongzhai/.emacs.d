@@ -59,7 +59,7 @@
 (with-eval-after-load 'org-capture
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
-	'(("t" "Task" entry
+	`(("t" "Task" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
 	   "* TODO %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
@@ -72,20 +72,20 @@
 	   "* TODO %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("K" "Research" entry
-	   (file "~/Nutstore Files/org/private/Research.org") 
-	   "* CREATE: %T\n%?"
+	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
+	   "* %(substring (current-time-string) 11 16) %?"
 	   :empty-lines-before 1)
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
-	   "* CREATE: %T\n%?"
+	   "* CREATE: %U\n%?"
 	   :empty-lines-before 1)
-	  ("I" "Private" entry
-	   (file "~/Nutstore Files/org/private/private.org")
-	   "* CREATE: %T\n%i%?"
-	   :empty-lines-before 1 :immediate-finish t)
 	  ("P" "Private" entry
-	   (file "~/Nutstore Files/org/private/private.org")
-	   "* CREATE: %T\n%i%?"
+	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
+	   "* %(substring (current-time-string) 11 16) %?"
+	   :empty-lines-before 1 :immediate-finish t)
+	  ("p" "Private" entry
+	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
+	   "* %(substring (current-time-string) 11 16) %?"
 	   :empty-lines-before 1)
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/private/diary.org")

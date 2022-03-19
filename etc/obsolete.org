@@ -322,7 +322,7 @@ change-cursor-mode inspired manual solution
 
 从其他人配置中抄过来的，不知道有什么用
 #+BEGIN_SRC emacs-lisp
-  (setq split-width-threshold nil)        ;分屏的时候使用左右分屏
+  (setq split-width-threshold nil)        ;分屏的时候使用上下分屏
   (setq split-height-threshold nil)
 #+END_SRC
 

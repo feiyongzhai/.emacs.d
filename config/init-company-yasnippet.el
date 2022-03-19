@@ -57,10 +57,10 @@
       )
 
 ;; ==== Yasnippet ====
-(global-set-key (kbd "C-M-y") 'yas-insert-snippet)
-(global-set-key (kbd "C-x y") 'company-yasnippet)
+(global-set-key (kbd "C-x y") 'yas-insert-snippet)
+(global-set-key (kbd "C-M-y") 'company-yasnippet)
 (with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-x y") 'fei-company-yasnippet) ;这个设计的不是很完美，不过也不经常用，不管了
+  (define-key company-active-map (kbd "C-M-y") 'fei-company-yasnippet) ;这个设计的不是很完美，不过也不经常用，不管了
   (defun fei-company-yasnippet ()
     "Hide the current completeions and show snippets."
     (interactive)

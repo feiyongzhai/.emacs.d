@@ -299,7 +299,7 @@ kill region instead"
 
 (defun fei-org-capture-private ()
   (interactive)
-  (org-capture nil "P")
+  (org-capture nil "p")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
@@ -603,6 +603,7 @@ confines of word boundaries (e.g. multiple words)."
 ;; require `pulse' library
 (defun fei-pulse-current-line ()
   (interactive)
+  (require 'hl-line)
   (pulse-momentary-highlight-one-line (point) 'hl-line))
 
 ;; youdao-dictionary

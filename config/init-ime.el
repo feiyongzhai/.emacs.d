@@ -44,8 +44,8 @@
 
 ;; Keys
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
-(global-set-key (kbd "M-J") (li (activate-input-method "pyim")))
-;; (global-set-key (kbd "M-J") (li (deactivate-input-method)))
+;; (global-set-key (kbd "M-J") (li (activate-input-method "pyim")))
+(global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
@@ -73,7 +73,7 @@
 
 (setq default-input-method "rime"
       rime-show-candidate nil
-      ;; rime-show-candidate 'posframe
+      rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-preedit t
       rime-posframe-fixed-position t)
 

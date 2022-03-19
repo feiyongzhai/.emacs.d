@@ -2,6 +2,10 @@
 (defun fei-org-roam-hook ()
   (activate-input-method 'rime))
 
+(setq org-roam-dailies-capture-templates
+      '(("d" "default" entry "* %(substring (current-time-string) 11 16) %?" :target
+	 (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
+
 (use-package org-roam
   :ensure t
   :custom

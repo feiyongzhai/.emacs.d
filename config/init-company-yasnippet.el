@@ -12,7 +12,7 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)
-      ("C-h" . nil)	  ;当前编译的 emacs-28 按 C-h 会卡死。暂时关闭
+      ("C-h" . company-show-doc-buffer)	;当前编译的 emacs-28 按 C-h 会卡死。暂时关闭，不知道什么情况，现在又可以正常工作了
       ("M-i" . yas-next-field-or-maybe-expand)
       ("TAB" . company-complete-selection)
       ("M-h" . company-complete-selection)

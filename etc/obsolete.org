@@ -213,6 +213,15 @@ change-cursor-mode inspired manual solution
 #+END_SRC
 
 * Company & Yasnippet
+之前抄的 karthink 的配置在会用到 backquote-change ，结果是会破坏undo，
+现在用 # type:command 的方式就不会出现 undo 逻辑的问题了，所以下面的配
+置就不需要了
+#+BEGIN_SRC emacs-lisp
+(use-package warnings
+  :config
+  (push '(yasnippet backquote-change) warning-suppress-types))
+#+END_SRC
+
 这部分的配置都是抄的 =Centuar Emacs= 的配置，但是当时抄的时候没有怎么弄懂
 #+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'yasnippet

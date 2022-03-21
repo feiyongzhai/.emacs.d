@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: fei-frac
+# key: //
+# expand-env: ((numerator (quote t)))
+# condition: (and (texmathp) (quote auto))
+# type: command
+# --
+(condition-case nil (save-excursion (backward-sexp) (kill-sexp) (delete-char 1)) (error (setq numerator 'nil)))
+(insert "\\frac{")
+(insert (current-kill 0))
+(insert "}")
+(yas-expand-snippet "{$1}$0")

@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: Fraction slash
 # key: /
-# expand-env: ((numerator 't))
 # condition: (texmathp)
 # group: math
+# type: command
 # --
-`(condition-case nil (save-excursion (backward-sexp) (kill-sexp) (delete-char 1)) (error (setq numerator 'nil)))`\\frac{`(if numerator (yank))`}{$1}$0
+(yas-expand-snippet "\\frac{$1}{$2}$0")

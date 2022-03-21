@@ -48,8 +48,5 @@
         (yas-expand))))
 (add-hook 'post-self-insert-hook #'my/yas-try-expanding-auto-snippets)
 
-(use-package warnings
-  :config
-  (push '(yasnippet backquote-change) warning-suppress-types))
 
 (provide 'init-latex)

@@ -1,0 +1,11 @@
+# key: nil
+# name: 论文阅读
+# --
+#+TITLE: `(file-name-sans-extension (buffer-name))`
+#+DATE: 待填
+#+STARTUP: overview
+#+DESCRIPTION: 待略读
+
+* 看图说话
+* 要解决的问题?
+* 是怎么解决的?

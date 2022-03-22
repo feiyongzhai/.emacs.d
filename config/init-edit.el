@@ -36,6 +36,7 @@
 ;;; Scroll
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)
+(setq next-screen-context-lines 1)	;default is 2
 (setq scroll-step 1
       scroll-conservatively 10000
       scroll-margin 0 ;这个变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值

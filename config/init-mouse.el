@@ -1,6 +1,10 @@
 ;; 该配置的初衷：希望尽可能的利用到鼠标的侧键和拇指键，先利用鼠标宏功
 ;; 能，将一些很难按的按键绑定到鼠标的按键上，如 "C-M-s-~"
 
+;; less known keybindings：
+;; 1. <C-M-mouse-1> ：mouse-drag-region-rectangle
+;; 2. <M-mouse-1> ：mouse-set-secondary (secondary selection)
+
 (require 'fei-funcs)
 
 (cond (*is-linux*

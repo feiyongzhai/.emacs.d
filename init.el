@@ -40,6 +40,7 @@
   (require 'init-alias)
   (require 'init-cursor)
   (require 'init-mouse)
+  (require 'init-menu-bar)
   (require 'init-prog)
   (require 'init-python)
   (require 'init-awesome-pair)

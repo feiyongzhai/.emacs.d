@@ -8,8 +8,10 @@
   (define-key python-mode-map (kbd "<f5>") (li (compile (concat "python3 " (buffer-file-name)))))
   )
 
-(define-key prog-mode-map (kbd "M-n") 'jump-to-same-indent)
-(define-key prog-mode-map (kbd "M-p") 'jump-back-to-same-indent)
+;; (define-key prog-mode-map (kbd "M-n") 'jump-to-same-indent)
+;; (define-key prog-mode-map (kbd "M-p") 'jump-back-to-same-indent)
+
+;; 发现下面的需求可以用 set-goal-column 巧妙解决
 
 ;; @REF1: https://superuser.com/questions/1017094/emacs-jump-to-the-next-line-with-same-indentation
 ;; @REF2: https://emacs.stackexchange.com/questions/20900/navigate-by-indentation

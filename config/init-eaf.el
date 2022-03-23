@@ -177,7 +177,7 @@
 
 ;; 或许我可以给 EAF 来个 PR，不过不着急，先测试一段时间
 
-;; 下面这个 patch 的功能：
+;; 下面 patch 的功能：
 ;;	1. 支持 consult-buffer 打开 pdf 是用 eaf-pdf-viewer 打开 （起因）
 ;;	2. 可以简化 eaf.el 中代码
 ;;	3. 可以使 dired 中行为与 emacs 的设计保持一致。
@@ -185,7 +185,9 @@
 ;;	emacs 中 dired-find-alternate-file/dired-find-file 的默认行为不是一次性打开所有 mark 的文件，
 ;;	而是只打开光标所在的文件。而我的这个 patch 则保证着同样的行为。更合理。
 
-(defun eaf--find-file-advisor (orig-fn file &rest args)
+;; 下面 patch 已知的问题：
+;;	1. 在 dired buffer 中按 o(dired-find-file-other-window) 工作不按照预期
+(defun fei-eaf--find-file-noselect-advisor (orig-fn file &rest args)
   "Advisor of `find-file' that opens EAF supported file using EAF.
 
 It currently identifies PDF, videos, images, and mindmap file extensions."
@@ -199,11 +201,16 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
 	     (eaf--find-file-ext-p ext))
         (apply fn file nil)
       (apply orig-fn file args))))
-(advice-add #'find-file-noselect :around #'eaf--find-file-advisor)
+(advice-add #'find-file-noselect :around #'fei-eaf--find-file-noselect-advisor)
 
 (advice-remove 'find-file 'eaf--find-file-advisor)
 (advice-remove 'dired-find-file 'eaf--dired-find-file-advisor)
 (advice-remove 'dired-find-alternate-file 'eaf--dired-find-file-advisor)
 
+;; default behavior of eaf
+;; (advice-remove #'find-file-noselect #'fei-eaf--find-file-noselect-advisor)
+;; (advice-add 'dired-find-file :around 'eaf--dired-find-file-advisor)
+;; (advice-add 'dired-find-alternate-file :around 'eaf--dired-find-file-advisor)
+;; (advice-add 'find-file :around 'eaf--find-file-advisor)
 
 (provide 'init-eaf)

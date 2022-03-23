@@ -64,7 +64,7 @@
 	   "* TODO %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("s" "SomeDay" entry
-	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
+	   (file "~/Nutstore Files/org/gtd.org") 
 	   "* SOMEDAY %?\nCREATE: %T\n"
 	   :empty-lines-before 1)
 	  ("S" "SAR" entry

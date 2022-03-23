@@ -1,7 +1,19 @@
 #+TITLE: 记录一些 Emacs Wiki
 #+STARTUP: overview
 
-* rg 搜索隐藏文件
+* rg
+** 而且 rg 这个命令很好用
+** rg 搜索 emasc-application-framework 下的所有源代码文件
+下面是一个很好的范例
+#+BEGIN_SRC sh
+  fd -e py -E /app/*/node_modules -I -e el -X rg atomic[_-]edit --color always
+#+END_SRC
+刚刚发现我甚至不需要先用 fd 来做一次文件过滤，直接 rg 就可以在这么多文件中暴力搜出来，而且用时也差不多！！！（只测试了emasc-application-framework）
+#+BEGIN_SRC sh
+  rg atomic[_-]edit --hidden --no-ignore
+#+END_SRC
+
+
 ** counsel-rg
 看了 counsel-rg 的文档发现可以指定参数。
 

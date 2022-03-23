@@ -8,6 +8,12 @@
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;;; Movement/Navigate
+(global-set-key (kbd "M-s n") (li (switch-to-buffer "*eaf*")))
+(global-set-key (kbd "M-s p") (li (switch-to-buffer "*scratch*")))
+
+(global-set-key (kbd "M-s [") 'point-to-register)
+(global-set-key (kbd "M-s ]") 'jump-to-register)
+
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 ;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中用特殊的含义，和 f1-f4 绑定在一起
@@ -22,6 +28,7 @@
 ;; Neotree
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)
+(global-set-key (kbd "<tab-line> <mouse-9>") 'neotree)
 (global-set-key (kbd "<f8>") 'neotree)
 (global-set-key (kbd "<C-f8>") 'speedbar)
 (with-eval-after-load 'neotree
@@ -31,7 +38,13 @@
   (define-key neotree-mode-map (kbd "K") 'fei-neotree-move-to-right)
   (define-key neotree-mode-map (kbd "l") 'neotree-enter)
   (define-key neotree-mode-map (kbd "f") 'neotree-enter)
+  (define-key neotree-mode-map (kbd "<mouse-3>") 'neotree-mouse-open-external)
   )
+
+(defun neotree-mouse-open-external (event)
+  (interactive "e")
+  (mouse-set-point event)
+  (neotree-open-file-in-system-application))
 
 ;;; Scroll
 (global-set-key (kbd "M-N") 'scroll-up-line)
@@ -49,6 +62,9 @@
 (setq shift-select-mode 'permanent)
 
 ;;; Misc
+
+(global-set-key (kbd "S-SPC") 'just-one-space)
+
 (global-set-key (kbd "C-c q") 'query-replace)
 (global-set-key (kbd "C-c Q") 'query-replace-regexp)
 

@@ -4,6 +4,7 @@
 (require 'fei-funcs)
 (require 'eshell-hacks)
 
+(setq eshell-banner-message "")
 (setq eshell-list-files-after-cd t)
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)
@@ -11,20 +12,24 @@
 ;; 小心启用这个里面的功能
 (setq eshell-visual-commands nil)
 
+;;; Make eshell don't always scroll to bottom
+;; @REF: https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
+;; There are two solutions
+(setq eshell-scroll-show-maximum-output nil)
+;; (add-hook 'eshell-mode-hook
+;;           (defun chunyang-eshell-mode-setup ()
+;;             (remove-hook 'eshell-output-filter-functions
+;;                          'eshell-postoutput-scroll-to-bottom)))
+
 ;;; Keys
 
-(fei-define-key-with-map global-map
-  `(
-    ("<s-return>" . fei-terminal-here)
-    ("M-s M-j" . fei-eshell-cd-here)
-    ("M-s j"  . eshell)
-    ))
-
-(global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
+(global-set-key (kbd "<s-return>") 'fei-terminal-here)
+(global-set-key (kbd "M-s j") 'eshell)
+(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "M-s k") 'fei-ansi-term)
+(global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
 
 (add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
-
 (defun +fei-eshell-mode-hook ()
   (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
@@ -34,15 +39,6 @@
   ;; `substring' style is very useful for eshell completion
   (setq-local completion-styles '(basic partial-completion substring emacs22))
   (toggle-truncate-lines 0))
-
-;;; Make eshell don't always scroll to bottom
-;; @REF: https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command
-;; There are two solutions
-;; (setq eshell-scroll-show-maximum-output nil)
-(add-hook 'eshell-mode-hook
-          (defun chunyang-eshell-mode-setup ()
-            (remove-hook 'eshell-output-filter-functions
-                         'eshell-postoutput-scroll-to-bottom)))
 
 ;; Shell
 (with-eval-after-load 'shell
@@ -57,7 +53,7 @@
   (bash-completion-setup)
   )
 
-(global-set-key (kbd "C-z") 'shell)
+(global-set-key (kbd "C-z") 'eshell)
 
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))

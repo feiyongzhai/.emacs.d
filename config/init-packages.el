@@ -21,8 +21,8 @@
 (require 'feebleline)
 
 ;; tldr
-(global-set-key (kbd "C-c M") 'man)
-(global-set-key (kbd "C-c M-m") 'tldr)
+(global-set-key (kbd "C-h j") 'man)
+(global-set-key (kbd "C-h t") 'tldr)
 
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
@@ -39,8 +39,8 @@
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
 
-;; minimap
-(setq minimap-window-location 'right)
+;; minimap 不怎么用
+;; (setq minimap-window-location 'right)
 
 ;; scratch
 (global-set-key (kbd "C-c s") 'scratch)

@@ -1,6 +1,7 @@
 ;;; init-window-buffer-tab.el  --- configs for Window/Buffer/Tab
 
 (require 'init-func)
+(autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
 
 ;;; Mode
 
@@ -22,7 +23,7 @@
 (global-set-key (kbd "M-s U") 'fei-load-file)
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
-(global-set-key (kbd "C-x 1") ' zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)
 (global-set-key (kbd "C-x w s") 'window-swap-states)
 (global-set-key (kbd "C-S-m") 'maximize-window)		; matlab like keybinding

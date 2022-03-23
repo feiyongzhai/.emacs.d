@@ -343,7 +343,7 @@ kill region instead"
 (defun fei-dired-toggle-hidden ()
   (interactive)
   (if fei-dired-toggle-hidden
-      (progn (dired-sort-other "-Bhl  --group-directories-first")
+      (progn (dired-sort-other "-Bhl")
 	     (setq fei-dired-toggle-hidden nil))
     (dired-sort-other (concat dired-listing-switches " -a"))
     (setq fei-dired-toggle-hidden t)))

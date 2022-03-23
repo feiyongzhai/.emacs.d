@@ -14,21 +14,16 @@
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (when *is-linux*
-  ;; 今天突然感觉按照文件名排序就挺好的
+  ;; 感觉按照文件名排序就挺好的
   ;; (setq dired-listing-switches "-Bhl --group-directories-first")
   (setq dired-listing-switches "-Bhl")
   )
 
 ;;; Keys
 
-(define-key dired-mode-map (kbd ";m") 'point-to-register)
-(define-key dired-mode-map (kbd ";j") 'jump-to-register)
-
 (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
 (define-key dired-mode-map [mouse-8] 'dired-up-directory)
-
-(define-key dired-mode-map (kbd "N") 'dired-create-empty-file) ;default is `dired-man'
 
 (with-eval-after-load 'dired
   (fei-define-key-with-map dired-mode-map
@@ -53,6 +48,9 @@
 (define-key dired-mode-map (kbd "M-n") 'dired-next-subdir)
 (define-key dired-mode-map (kbd "M-p") 'dired-prev-subdir)
 
+(define-key dired-mode-map (kbd "]") 'jump-to-register)
+(define-key dired-mode-map (kbd "[") 'point-to-register)
+
 (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
 ;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
 ;; @REF2: `ibuffer-jump' 的源码
@@ -65,7 +63,7 @@
     (dired-goto-file file)
     ))
 
-;; 这个包在设计上和 ibuffer 的 filter 保持了高度一致
+;; 这个包在设计上和 ibuffer 的 filter 保持了一致
 (require 'dired-filter)
 
 (provide 'init-dired)

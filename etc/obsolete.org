@@ -303,6 +303,13 @@ change-cursor-mode inspired manual solution
 
 * Misc
 #+BEGIN_SRC emacs-lisp
+  ;; experiments
+  (setq auto-hscroll-mode 'current-line)	;设置成 current-line 的时候，鼠标点的时候会抽风，不好用
+  (setq auto-hscroll-mode 't)
+  (setq hscroll-step 2)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
   (defun load-path-add (dir)
     (add-to-list 'load-path dir))
 #+END_SRC

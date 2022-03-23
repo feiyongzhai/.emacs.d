@@ -42,7 +42,7 @@
 	;; ctrlf anzu
 	deadgrep
 	auctex cdlatex
-	neotree minimap
+	neotree
 	markdown-mode
 	;; devdocs
 	matlab-mode
@@ -70,7 +70,8 @@
 	youdao-dictionary
 	engine-mode
 	w3m mb-url
-	eyebrowse zygospore
+	eyebrowse
+	;; zygospore 用自己修改的版本了
         hide-mode-line
 	;; mini-modeline
         helpful
@@ -85,7 +86,7 @@
 	olivetti
 
 	;; ==== 备忘 ====
-	;; goto-line-preview
+	;; goto-line-preview minimap
 	;; calfw / calfw-org
 	;; frames-only-mode
 	;; zone zone-rainbow zone-nyan zone-sl totd

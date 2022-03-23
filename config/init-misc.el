@@ -157,6 +157,12 @@
 
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 
+;; Man
+(setq Man-notify-method 'aggressive)
+(with-eval-after-load 'man
+  (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
+
+
 ;; fei-prefix-map
 (defvar fei-prefix-map (make-sparse-keymap))
 (global-set-key (kbd "<f1>") fei-prefix-map)

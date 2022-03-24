@@ -35,7 +35,14 @@
   (bs-refresh))
 
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
-(global-set-key (kbd "C-x C-b") (li (setq bs-cur-major-mode major-mode) (call-interactively 'bs-show)))
+(global-set-key (kbd "C-x C-b") 'fei-bs-show)
+(global-set-key (kbd "M-s b") 'fei-bs-show)
+(global-set-key (kbd "M-s M-b") 'fei-bs-show)
+(defun fei-bs-show ()
+  (interactive)
+  (setq bs-cur-major-mode major-mode)
+  (call-interactively 'bs-show))
+
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)

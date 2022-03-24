@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: eng.eval
-# key: eeval
+# key: ee
 # --
 eng.eval('$1',nargout=0)$0

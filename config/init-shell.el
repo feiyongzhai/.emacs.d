@@ -49,8 +49,9 @@
   ;; (setq comint-prompt-read-only t)
   (remove-hook 'comint-output-filter-functions
 	       'comint-postoutput-scroll-to-bottom)
-  (require 'bash-completion)
-  (bash-completion-setup)
+  (when *is-linux*
+    (require 'bash-completion)
+    (bash-completion-setup))
   )
 
 (global-set-key (kbd "C-z") 'eshell)

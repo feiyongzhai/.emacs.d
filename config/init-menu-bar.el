@@ -7,7 +7,8 @@
 
 (define-key my-menu-bar-menu [my-cmd1] '(menu-item "fei-emacs" fei-emacs))
 (define-key my-menu-bar-menu [my-cmd2] '(menu-item "fei-vscode" open-current-file-with-vscode))
-(define-key my-menu-bar-menu [my-cmd3] '(menu-item "fei-gedit" open-current-file-with-gedit))
+(when *is-linux*
+  (define-key my-menu-bar-menu [my-cmd3] '(menu-item "fei-gedit" open-current-file-with-gedit)))
 (define-key my-menu-bar-menu [my-cmd4] '(menu-item "fei-gvim" open-current-file-with-gvim))
 (define-key my-menu-bar-menu [my-cmd5] '(menu-item "fei-emacsq" open-current-file-with-emacsq))
 

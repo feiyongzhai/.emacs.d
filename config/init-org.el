@@ -60,46 +60,46 @@
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
 	`(("t" "Task" entry
-	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks") 
+	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
 	   "* TODO %?\nCREATE: %T\n"
-	   :empty-lines-before 1)
+	   )
 	  ("s" "SomeDay" entry
-	   (file "~/Nutstore Files/org/gtd.org") 
+	   (file "~/Nutstore Files/org/gtd.org")
 	   "* SOMEDAY %?\nCREATE: %T\n"
-	   :empty-lines-before 1)
+	   )
 	  ("S" "SAR" entry
-	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox") 
+	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox")
 	   "* TODO %?\nCREATE: %T\n"
-	   :empty-lines-before 1)
+	   )
 	  ("K" "Research" entry
 	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
 	   "* %(substring (current-time-string) 11 16) %?"
-	   :empty-lines-before 1)
+	   )
 	  ("i" "Inbox" entry
-	   (file+headline "~/Nutstore Files/org/notes.org" "Inbox")
-	   "* CREATE: %U\n%?"
-	   :empty-lines-before 1)
+	   (file+headline "~/Nutstore Files/org/notes.org" ,(format-time-string "%Y-%m-%d" (current-time)))
+	   "* %(substring (current-time-string) 11 16) %?"
+	   )
 	  ("P" "Private" entry
 	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?"
-	   :empty-lines-before 1 :immediate-finish t)
+	   :immediate-finish t)
 	  ("p" "Private" entry
 	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?"
-	   :empty-lines-before 1)
+	   )
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/private/diary.org")
 	   "* %t\n%?"
-	   :empty-lines-before 1)
+	   )
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
 	   "* %?CREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src"
-	   :empty-lines-after 1)
+	   )
 	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
 	   "* %?\nCREATE: %T\n#+begin_src shell\n%^C\n#+end_src"
-	   :empty-lines-after 1))))
+	   ))))
 
 ;;; Org-download
 (setq org-download-display-inline-images nil)

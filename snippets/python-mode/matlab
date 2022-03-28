@@ -2,6 +2,10 @@
 # name: matlab
 # key: mat
 # --
+# @REF: https://ww2.mathworks.cn/help/matlab/matlab-engine-for-python.html
 import matlab.engine
 eng = matlab.engine.start_matlab("-desktop")
+# eng = matlab.engine.connect_matlab()
+# names = matlab.engine.find_matlab()
+
 

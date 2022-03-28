@@ -67,3 +67,5 @@ ede-projects.el
 /.sx/
 /games/
 abbrev_defs
+/multisession/
+image-dired/

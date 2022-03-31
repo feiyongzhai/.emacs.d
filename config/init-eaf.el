@@ -1,7 +1,6 @@
 (require 'fei-funcs)
 
 ;; ==== Popweb ====
-
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/")
@@ -18,18 +17,8 @@
 (require 'eaf-video-player)
 (require 'eaf-image-viewer)
 (require 'eaf-org-previewer)
-(require 'eaf-mindmap)
-(require 'eaf-mail)
-(require 'eaf-terminal)
-(require 'eaf-camera)
-;; (require 'eaf-jupyter)
-;; (require 'eaf-netease-cloud-music)
 (require 'eaf-music-player)
-(require 'eaf-system-monitor)
-(require 'eaf-file-manager)
 (require 'eaf-file-browser)
-(require 'eaf-interleave)
-(require 'eaf-rss-reader)
 (require 'eaf-demo)
 (require 'eaf-vue-demo)
 (require 'eaf-fei)
@@ -53,17 +42,6 @@
     ))
 
 (with-eval-after-load 'eaf
-  ;; (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
-  ;; (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
-  ;; (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
-  ;; (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
-  ;; (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
-
-  ;; (define-key eaf-interleave-mode-map (kbd "M-n") 'eaf-interleave-sync-next-note)
-  ;; (define-key eaf-interleave-mode-map (kbd "M-p") 'eaf-interleave-sync-previous-note)
-
-  (eaf-bind-key nil "M-s" eaf-terminal-keybinding) ;default is `eaf-py-proxy-search_text_backward'
-
   (define-key eaf-pdf-outline-mode-map (kbd "q") 'quit-window)
   ;; 有个需要注意的点是，如果是 eaf-py-proxy- 开头的命令，要去掉 eaf-py-proxy- 这个前缀
   (eaf-bind-key add_annot_highlight "M-q" eaf-pdf-viewer-keybinding) ;这个按键单纯因为好按
@@ -75,10 +53,7 @@
   (eaf-bind-key scroll_down_page "<backspace>" eaf-pdf-viewer-keybinding)
   (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
-
-  (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
-  (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
-
+  
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   (define-key eaf-mode-map* (kbd "C-c b") #'list-bookmarks)
   )
@@ -92,16 +67,7 @@
 (setq eaf-browser-enable-scrollbar t)
 (setq eaf-music-play-order "random")
 (setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
-(setq eaf-file-manager-show-hidden-file nil)
-(setq eaf-rss-reader-web-page-other-window nil)
 (setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
-
-(with-eval-after-load 'eaf
-  (eaf-setq eaf-browser-enable-adblocker "true")
-  (eaf-setq eaf-terminal-font-family "JetBrains Mono")
-  ;; (eaf-setq eaf-terminal-font-family "Hack")
-  (eaf-setq eaf-terminal-font-size "20")
-  (eaf-setq eaf-browser-enable-adblocker "true"))
 
 (setq eaf-proxy-type "socks5"
       eaf-proxy-host "127.0.0.1"
@@ -132,10 +98,7 @@
 
 (global-set-key (kbd "M-s e b") 'fei-eaf-open-browser-with-history)
 (global-set-key (kbd "M-s e B") 'fei-eaf-open-browser)
-(global-set-key (kbd "M-s e r") 'fei-eaf-open-rss-reader)
-(global-set-key (kbd "M-s e f") 'fei-eaf-open-in-file-manager)
 (global-set-key (kbd "M-s e s") 'fei-eaf-file-share-current-dir)
-(global-set-key (kbd "M-s e t") 'fei-eaf-open-terminal)
 (global-set-key (kbd "M-s e u") 'fei-eaf-open-url-at-point)
 (global-set-key (kbd "M-s e m") 'fei-eaf-play-music)
 
@@ -147,17 +110,9 @@
 	 (call-interactively ',(intern (symbol-name sym)))
        (message "EAF doesn't support in terminal"))))
 
-(fei-eaf-wrapper eaf-open-in-file-manager)
 (fei-eaf-wrapper eaf-open-browser)
 (fei-eaf-wrapper eaf-open-browser-with-history)
-(fei-eaf-wrapper eaf-open-rss-reader)
-(fei-eaf-wrapper eaf-open-terminal)
 (fei-eaf-wrapper eaf-open-url-at-point)
-
-(defun fei-eaf-terminal-here ()
-  (interactive)
-  (eaf-terminal-run-command-in-dir "tmux" default-directory))
-(global-set-key (kbd "<s-return>") 'fei-eaf-terminal-here)
 
 ;; == eaf-music-player ==
 (setq eaf-music-extension-list '("mp3" "m4a"))

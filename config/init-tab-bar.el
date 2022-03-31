@@ -1,9 +1,8 @@
-(tab-bar-echo-area-mode)
-
-(setq tab-bar-show nil)
+(setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice nil)	;duplicate
 (setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
+(setq tab-bar-tab-name-function 'tab-bar-tab-name-truncated)
 ;; (setq tab-bar-new-tab-choice 'eshell)
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)

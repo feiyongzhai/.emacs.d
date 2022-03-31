@@ -8,12 +8,12 @@
       (gc-cons-percentage 0.6))
   (require 'init-misc)
   (require 'init-packages)
+  (require 'init-bs)
   (require 'init-ibuffer)
   (require 'init-window-buffer)
   (require 'init-tab-line)
-  (require 'init-bs)
-  ;; (require 'init-eyebrowse)
   (require 'init-tab-bar)
+  ;; (require 'init-eyebrowse)
   (require 'init-dired)
   (require 'init-proxy)
   (require 'init-eww)
@@ -22,7 +22,7 @@
   (require 'init-org)
   (require 'init-markdown)
   (require 'init-publish)
-  (require 'init-pair)
+  (require 'init-lisp)
   (require 'init-latex)
   (require 'init-mail)
   (require 'init-company-yasnippet)
@@ -34,21 +34,25 @@
   (require 'init-ime)
   (require 'init-shell)
   (require 'init-engine)
-  (require 'init-thing-edit)
-  (require 'init-auto-save)
   (require 'init-edit)
+  (require 'init-thing-edit)
+  (require 'init-awesome-pair)
+  (require 'init-auto-save)
   (require 'init-alias)
   (require 'init-cursor)
   (require 'init-mouse)
   (require 'init-menu-bar)
   (require 'init-prog)
   (require 'init-python)
-  (require 'init-awesome-pair)
+  (require 'init-matlab)
+  (require 'init-c)
   (require 'init-lsp)
-  (when *is-linux*
+  
+  (cond
+   (*is-linux*
     (require 'init-linux))
-  (when *is-windows*
-    (require 'init-win10))
+   (*is-windows*
+    (require 'init-win10)))
 
   ;; 尝鲜
   (require 'init-tempel)

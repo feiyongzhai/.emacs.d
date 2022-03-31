@@ -94,13 +94,15 @@
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
 
 (setq help-window-select t)		;always select help window
+(global-set-key (kbd "C-h M-f") 'describe-face)
+(global-set-key (kbd "C-h M-k") 'describe-keymap)
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-k") 'find-function-on-key)
 (define-key 'help-command (kbd "C-v") 'find-variable)
 (define-key 'help-command (kbd "C-f") 'find-function)
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
-(tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
+;; (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
 ;; y-or-n
 ;; (fset 'yes-or-no-p 'y-or-n-p)
@@ -141,11 +143,11 @@
 (global-set-key (kbd "C-c C-d") 'fei-golden-dict)
 (global-set-key (kbd "C-c d") 'fei-golden-dict)
 
-(add-hook 'server-after-make-frame-hook 'fei-resize-frame)
-(defun fei-resize-frame ()
-  (interactive)
-  (when (display-graphic-p)
-    (set-frame-width nil 125)))
+;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
+;; (defun fei-resize-frame ()
+;;   (interactive)
+;;   (when (display-graphic-p)
+;;     (set-frame-width nil 125)))
 
 ;; 计算器
 (global-set-key (kbd "M-s -") 'calculator)

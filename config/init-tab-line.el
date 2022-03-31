@@ -14,8 +14,6 @@
  '(tab-line-tab-current ((t (:inherit tab-line-tab :underline t))))
  '(tab-line-tab-inactive ((t (:inherit tab-line-tab)))))
 
-(global-tab-line-mode)
-
 ;; `face-spec-set' 和 `custom-set-faces' 还是有点区别的，
 ;; `custom-set-faces' 在更换主题后会重新加载，所以更推荐用
 ;; `custom-set-faces'

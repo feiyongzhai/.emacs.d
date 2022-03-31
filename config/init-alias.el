@@ -12,16 +12,21 @@
 
 ;; Designed for `eshell'
 
+(with-eval-after-load 'eshell
+  (require 'eshell-up)
+  (defalias 'eshell/u 'eshell-up)
+  (defalias 'eshell/up 'eshell-up)
+  )
+
+(with-eval-after-load 'em-alias
+  (eshell/alias "tig" "magit")
+  )
+
 (defalias 'open 'find-file-other-window)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/s 'eshell/eaf-search)
 (defalias 'eshell/bash 'fei-ansi-term)
 (defalias 'eshell/bashj 'fei-term-cd-here)
-
-(with-eval-after-load 'eshell
-  (require 'eshell-up)
-  (defalias 'eshell/u 'eshell-up)
-  (defalias 'eshell/up 'eshell-up))
 
 (defalias 'eshell/ks 'fei-org-capture-SAR)
 (defalias 'eshell/kw 'fei-org-capture-WANT)

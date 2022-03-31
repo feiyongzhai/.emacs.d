@@ -11,4 +11,4 @@
 (define-key smartparens-mode-map (kbd "M-q") 'sp-indent-defun)
 
 
-(provide 'init-pair)
+(provide 'init-lisp)

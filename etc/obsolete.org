@@ -713,15 +713,67 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
 #+END_SRC
 
 * EAF
+
+不用的 EAF 模块
 #+BEGIN_SRC emacs-lisp
-  (defun fei-eaf-start ()
+  (require 'eaf-mail)
+  (require 'eaf-camera)
+  (require 'eaf-jupyter)
+  (require 'eaf-netease-cloud-music)
+  (require 'eaf-system-monitor)
+  (require 'eaf-interleave)
+  (require 'eaf-mindmap)
+
+  (with-eval-after-load 'eaf
+
+    (eaf-bind-key eaf-interleave-sync-next-note "M-n" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key eaf-interleave-sync-previous-note "M-p" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key eaf-interleave-open-notes-file "n" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key eaf-interleave-add-note "a" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key eaf-interleave-sync-current-note "s" eaf-pdf-viewer-keybinding)
+
+    (define-key eaf-interleave-mode-map (kbd "M-n") 'eaf-interleave-sync-next-note)
+    (define-key eaf-interleave-mode-map (kbd "M-p") 'eaf-interleave-sync-previous-note)
+
+    )
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'server-after-make-frame-hook
+	  (lambda () (when window-system (require 'init-eaf))))
+#+END_SRC
+
+不用 file-manager 了
+#+BEGIN_SRC emacs-lisp
+  (require 'eaf-file-manager)
+  (setq eaf-file-manager-show-hidden-file nil)
+  (fei-eaf-wrapper eaf-open-in-file-manager)
+  (global-set-key (kbd "M-s e f") 'fei-eaf-open-in-file-manager)
+#+END_SRC
+
+不用 rss-reader 了
+#+BEGIN_SRC emacs-lisp
+  (require 'eaf-rss-reader)
+  (setq eaf-rss-reader-web-page-other-window nil)
+  (global-set-key (kbd "M-s e r") 'fei-eaf-open-rss-reader)
+  (fei-eaf-wrapper eaf-open-rss-reader)
+  (eaf-bind-key js_mark_article_as_read "b" eaf-rss-reader-keybinding)
+#+END_SRC
+
+不用 eaf-terminal 了
+#+BEGIN_SRC emacs-lisp
+  (require 'eaf-terminal)
+  (defun fei-eaf-terminal-here ()
     (interactive)
-    (use-package eaf
-      :init
-      (use-package epc :defer t :ensure t)
-      (use-package ctable :defer t :ensure t)
-      (use-package deferred :defer t :ensure t)
-      (use-package s :defer t :ensure t)))
+    (eaf-terminal-run-command-in-dir "tmux" default-directory))
+  (global-set-key (kbd "<s-return>") 'fei-eaf-terminal-here)
+
+  (eaf-setq eaf-terminal-font-family "JetBrains Mono")
+  ;; (eaf-setq eaf-terminal-font-family "Hack")
+  (eaf-setq eaf-terminal-font-size "20")	;`eaf-setq' 已经过时了
+
+  (eaf-bind-key nil "M-s" eaf-terminal-keybinding) ;default is `eaf-py-proxy-search_text_backward'
+  (eaf-bind-key eaf-open-terminal "S" eaf-file-manager-keybinding)
 #+END_SRC
 
 * Keybindings

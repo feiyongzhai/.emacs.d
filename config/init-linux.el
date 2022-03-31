@@ -45,7 +45,5 @@
 ;; EAF is special
 (when (display-graphic-p)
   (require 'init-eaf))
-(add-hook 'server-after-make-frame-hook
-	  (lambda () (when window-system (require 'init-eaf))))
 
 (provide 'init-linux)

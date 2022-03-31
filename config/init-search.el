@@ -21,6 +21,7 @@
 (global-set-key (kbd "s-s") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-S") 'swiper-isearch)
+(global-set-key (kbd "M-s s") 'swiper-isearch)
 
 (with-eval-after-load 'swiper
   (define-key swiper-map (kbd "M-S") 'swiper-isearch-toggle)
@@ -42,8 +43,7 @@
  isearch-regexp-lax-whitespace t
  search-whitespace-regexp ".*?")
 
-;; ctrlf-mode
-
+;; ==== ctrlf-mode ====
 ;; (ctrlf-mode 1)
 
 (with-eval-after-load 'ctrlf

@@ -36,7 +36,11 @@
 (setq frame-inhibit-implied-resize t)	; 不要缩放frame.
 ;; (setq initial-scratch-message "")
 
-(tool-bar-mode -1)
+(tab-bar-mode)
+(tab-bar-echo-area-mode -1)
+(tool-bar-mode)
+(menu-bar-mode -1)
+(global-tab-line-mode -1)
 
 (let ((hour (string-to-number
              (substring (current-time-string) 11 13))))

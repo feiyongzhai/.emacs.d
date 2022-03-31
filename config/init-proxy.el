@@ -37,7 +37,7 @@
       (proxy-socks-disable)
     (proxy-socks-enable)))
 
-;; (proxy-socks-enable)
+(proxy-socks-enable)
 
 ;; 从实际的使用经验来看，emacs使用 http 的方式代理能够适配更多的场景
 ;; 典型的场景：
@@ -45,8 +45,7 @@
 ;;	2. cargo 相同的问题
 
 ;; 2022-03-13: 呃…… 刚刚测试，又抽风可以使用了。搞不懂到底什么情况。
-
-;; 现在就使用 http 代理的方式
+;; 2022-03-31: 换回 socks 代理了。更稳定一点
 
 ;; copied from xuchunyang-emacs.d
 (defun chunyang-toggle-url-proxy ()

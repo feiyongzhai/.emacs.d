@@ -28,64 +28,67 @@
 
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
-      '(magit citre sx))
+      '(magit citre sx bash-completion))
 
 ;;; general needed packages
 (setq fei-package-ensure-installed
       '(
 	;; ==== 编辑相关 ====
-	tab-bar-echo-area
-	use-package
 	evil general
 	company yasnippet
 	avy ace-window
-	;; ctrlf anzu
 	deadgrep
-	auctex cdlatex
 	neotree
-	markdown-mode
-	;; devdocs
-	matlab-mode
+	electric-spacing highlight-indent-guides
 	iedit ialign
-	yafolding
+	yafolding pyvenv
 	symbol-overlay
-	electric-spacing
 	separedit
-	pyvenv
-	highlight-indent-guides
+	smartparens
+	corfu tempel
+	olivetti
+
+	;; ==== Helm ====
+	helm-chrome helm-chrome-history
+
+	;; ==== Major-mode ====
+	markdown-mode matlab-mode
+	auctex cdlatex
+
+	;; ==== Org ====
 	helm-org-rifle org-download
 	;; org-roam org-roam-server
 
-	;; ==== minibuffer ====
-	embark orderless marginalia consult vertico
-	smex counsel ivy swiper ivy-posframe
+	;; ==== Minibuffer ====
+	orderless marginalia consult vertico embark
+	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====
+	tab-bar-echo-area
+	use-package
 	adafruit-wisdom
 	eshell-up
-	bash-completion
 	elfeed
 	pyim pyim-basedict fcitx
-	;; sis pinyin-search
 	youdao-dictionary
 	engine-mode
-	w3m mb-url
 	eyebrowse
-	;; zygospore 用自己修改的版本了
         hide-mode-line
-	;; mini-modeline
+	
         helpful
-	eshell-git-prompt
         openwith
 	alarm-clock
 	tldr trashed
 	cal-china-x
 	academic-phrases
-	smartparens
-	corfu tempel
-	olivetti
 
 	;; ==== 备忘 ====
+	;; ctrlf anzu
+	;; eshell-git-prompt
+	;; devdocs
+	;; sis pinyin-search
+	;; mini-modeline
+	;; zygospore 用自己修改的版本了
 	;; goto-line-preview minimap
 	;; calfw / calfw-org
 	;; frames-only-mode
@@ -95,6 +98,9 @@
 	;; emojify
 	;; focus
 	;; dired-sider-bar
+	;; ivy-posframe
+	;; ==== 不想折腾了 ====
+	;; w3m mb-url
 
 	))
 

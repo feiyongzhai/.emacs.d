@@ -1,3 +1,4 @@
+(require 'init-func)
 (require 'fei-funcs)
 
 ;; ==== Popweb ====
@@ -25,8 +26,6 @@
 
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
-;; 初心：便于取消 popweb 的弹出窗口
-(global-set-key (kbd "<C-escape>") 'keyboard-escape-quit)
 
 (fei-define-key-with-map global-map
   '(

@@ -2,6 +2,7 @@
 
 (defvar my-menu-bar-menu (make-sparse-keymap "Mine"))
 (define-key global-map [C-M-down-mouse-3] my-menu-bar-menu) ;menu bar 也可以绑定一个快捷键
+
 (add-to-list 'menu-bar-final-items 'my-menu 'append) ;让自己添加的 menu 放到最后的位置
 (define-key-after global-map [menu-bar my-menu] (cons "Mine" my-menu-bar-menu) 'tools)
 
@@ -14,6 +15,9 @@
 (define-key my-menu-bar-menu [separator] '(menu-item "--" nil))
 (define-key my-menu-bar-menu [my-cmd6] '(menu-item "file-manager" file-manager-here))
 (define-key my-menu-bar-menu [my-cmd7] '(menu-item "terminal-here" fei-terminal-here))
+
+;; 添加子菜单示例
+;; (define-key my-menu-bar-menu [my-cmd8] `(menu-item "Search" ,menu-bar-search-menu))
 
 
 (provide 'init-menu-bar)

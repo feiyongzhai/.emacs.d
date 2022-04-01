@@ -36,6 +36,8 @@
 
 (setq display-time-format " %H:%M  %Y-%m-%d")
 (setq display-time-default-load-average nil) ; 不显示time后面的不明数字
+(display-time-mode)
+
 (setq desktop-restore-frames nil)	     ; don't restore any frame
 
 ;; redirect the backup file path
@@ -64,7 +66,7 @@
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
-(global-set-key (kbd "M-s M-l") (li (find-file "~/.emacs.d/config/init-local.el")))
+(global-set-key (kbd "M-s M-l") (li (switch-to-buffer "*scratch*")))
 (global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
 
 ;; ESC ESC * == toggle style mode
@@ -164,6 +166,7 @@
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
+(global-set-key (kbd "C-x m") 'execute-extended-command) ;default is `compose-mail'
 
 ;; fei-prefix-map
 (defvar fei-prefix-map (make-sparse-keymap))

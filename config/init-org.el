@@ -69,7 +69,7 @@
 	   )
 	  ("S" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox")
-	   "* TODO %?\nCREATE: %T\n"
+	   "* TODO %?"
 	   )
 	  ("K" "Research" entry
 	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 

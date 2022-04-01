@@ -1,3 +1,11 @@
+(setq tab-bar-format
+      '(tab-bar-format-history
+	tab-bar-format-tabs
+	tab-bar-separator
+	tab-bar-format-add-tab
+	tab-bar-format-align-right
+	tab-bar-format-global))
+
 (setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice nil)	;duplicate
@@ -6,6 +14,7 @@
 ;; (setq tab-bar-new-tab-choice 'eshell)
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
+(global-set-key (kbd "<C-tab>") 'tab-next)
 (global-set-key (kbd "M-`") 'tab-recent) ;这个按键总是会被系统占用
 (global-set-key (kbd "M-s C-l") 'tab-recent)
 (global-set-key (kbd "M-s C-n") 'tab-new)

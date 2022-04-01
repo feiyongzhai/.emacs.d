@@ -2,7 +2,7 @@
 
 (vertico-mode 1)
 (vertico-mouse-mode 1)
-(marginalia-mode)
+(marginalia-mode -1)
 
 ;; consult
 (setq consult-preview-key nil)		;不自动预览
@@ -12,6 +12,7 @@
 
 ;; Vertico + Orderless
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
+(define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 
 (defun +vertico-init-minibuffer ()
   (setq-local completion-styles '(basic orderless)))

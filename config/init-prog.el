@@ -8,7 +8,5 @@
 
 ;; Octave
 (add-hook 'octave-mode-hook 'electric-pair-local-mode)
-(global-set-key (kbd "<C-tab>") 'hs-toggle-hiding)
-
 
 (provide 'init-prog)

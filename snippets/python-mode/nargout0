@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: nargout0
+# key: n0
+# --
+nargout=0

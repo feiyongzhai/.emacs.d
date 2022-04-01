@@ -37,6 +37,7 @@
 ;; (setq initial-scratch-message "")
 
 (tab-bar-mode)
+(tab-bar-history-mode)
 (tab-bar-echo-area-mode -1)
 (tool-bar-mode)
 (menu-bar-mode -1)
@@ -44,10 +45,11 @@
 
 (let ((hour (string-to-number
              (substring (current-time-string) 11 13))))
-  (unless (member hour (number-sequence 6 18))
+  (unless (member hour (number-sequence 6 21))
     ;; (load-theme 'modus-vivendi t)
     ;; (load-theme 'whiteboard t)
-    (load-theme 'deeper-blue t)
+    ;; (load-theme 'deeper-blue t)
+    (load-theme 'tango-dark t)
     ))
 
 

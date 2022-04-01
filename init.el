@@ -17,14 +17,22 @@
   (require 'init-dired)
   (require 'init-proxy)
   (require 'init-eww)
-  (require 'init-w3m)
-  (require 'init-git)
+  ;; (require 'init-w3m)
+
   (require 'init-org)
-  (require 'init-markdown)
   (require 'init-publish)
+
+  (require 'init-git)
+  (require 'init-markdown)
+  (require 'init-prog)
+  (require 'init-python)
+  (require 'init-matlab)
+  (require 'init-c)
+  (require 'init-lsp)
   (require 'init-lisp)
+
   (require 'init-latex)
-  (require 'init-mail)
+  ;; (require 'init-mail)
   (require 'init-company-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)
@@ -41,12 +49,8 @@
   (require 'init-alias)
   (require 'init-cursor)
   (require 'init-mouse)
+  (require 'init-tool-bar)
   (require 'init-menu-bar)
-  (require 'init-prog)
-  (require 'init-python)
-  (require 'init-matlab)
-  (require 'init-c)
-  (require 'init-lsp)
   
   (cond
    (*is-linux*

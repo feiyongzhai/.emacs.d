@@ -75,7 +75,6 @@
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
 (global-set-key (kbd "C-x l") 'ialign)
-(global-set-key (kbd "C-x <mouse-1>") 'open-current-file-with-vscode)
 (global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
 
 (add-to-list 'load-path "~/.emacs.d/extensions/move-text")

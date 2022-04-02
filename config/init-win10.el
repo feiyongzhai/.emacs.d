@@ -29,9 +29,8 @@
 
 (global-set-key (kbd "s-e") 'file-manager-here)
 (global-set-key (kbd "M-s s") 'fei-search)
-(global-set-key (kbd "<f12>") 'open-current-file-with-vscode)
 
-(tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
+;; (tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
 
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
 (setq locate-command "es.exe")
@@ -47,8 +46,36 @@
     ;; (delete-other-windows)
     (set-frame-position frame x y)
     (set-frame-size frame w h)))
-(arrange-frame 84 30 170 20)
+;; (arrange-frame 84 30 170 20)
 
 (setq browse-url-handlers '(("." . browse-url-default-browser)))
+
+(when (version<= "28.0" emacs-version)
+
+  (add-hook 'minibuffer-setup-hook 'fei-win10-deactivate-ime)
+  (add-hook 'minibuffer-exit-hook 'fei-restore-ime-status)
+
+  (defvar fei--ime-status-previous nil)
+
+  (defun fei-win10-deactivate-ime ()
+    (setq fei--ime-status-previous (w32-get-ime-open-status))
+    (w32-set-ime-open-status nil))
+
+  (defun fei-restore-ime-status ()
+    (w32-set-ime-open-status fei--ime-status-previous))
+  )
+
+;; ==== windows emoji 字体设置 ====
+;; @REF: https://ianyepan.github.io/posts/emacs-emojis/
+(when (member "Segoe UI Emoji" (font-family-list))
+  (set-fontset-font
+   t 'symbol (font-spec :family "Segoe UI Emoji") nil 'prepend))
+
+(add-hook 'server-after-make-frame-hook 'fei-win10-setup-emoji)
+(defun fei-win10-setup-emoji ()
+  (when (member "Segoe UI Emoji" (font-family-list))
+    (set-fontset-font
+     t 'emoji (font-spec :family "Segoe UI Emoji") nil 'prepend))
+  )
 
 (provide 'init-win10)

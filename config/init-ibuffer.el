@@ -3,8 +3,8 @@
 ;;; Keys
 
 (with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line)
-  (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line)
+  (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;default is `ibuffer-jump-to-buffer' M-g bind this by default
+  (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;default is `ibuffer-kill-line'
   (define-key ibuffer-mode-map (kbd "M-j") nil)
   )
 

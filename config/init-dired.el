@@ -23,7 +23,11 @@
 
 (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
 (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
-(define-key dired-mode-map [mouse-8] 'dired-up-directory)
+(cond
+ (*is-linux*
+  (define-key dired-mode-map [mouse-8] 'dired-up-directory))
+ (*is-windows*
+  (define-key dired-mode-map [mouse-4] 'dired-up-directory)))
 
 (with-eval-after-load 'dired
   (fei-define-key-with-map dired-mode-map

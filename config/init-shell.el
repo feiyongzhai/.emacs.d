@@ -5,7 +5,7 @@
 (require 'eshell-hacks)
 
 (setq eshell-banner-message "")
-(setq eshell-list-files-after-cd t)
+(setq eshell-list-files-after-cd nil)
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)
 ;; 这个命令总是会引入一些问题：暂时把这个关了，避免自己在日常使用中不

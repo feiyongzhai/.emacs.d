@@ -5,6 +5,9 @@
 ;; 1. <C-M-mouse-1> ：mouse-drag-region-rectangle
 ;; 2. <M-mouse-1> ：mouse-set-secondary (secondary selection)
 
+;; windows 上的 mouse-4 对应 linux 上的 mouse-8
+;; windows 上的 mouse-5 对应 linux 上的 mouse-9
+
 (require 'fei-funcs)
 
 (cond (*is-linux*

@@ -11,11 +11,9 @@
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 181 :width normal))))
  ;; '(default ((t (:family "等距更纱黑体 SC" :foundry "????" :slant normal :weight normal :height 158 :width normal))))
  )
-(set-fontset-font t 'symbol "Symbola" nil 'append)
 
-
-;; 下面这段代码会让 emoji 无法正常显示，
 (when *is-linux*
+  (set-fontset-font t 'symbol "Symbola" nil 'append)
   ;; (set-fontset-font "fontset-default" 'unicode'("文泉驿等宽微米黑"))
   ;; 用 `before-make-frame-hook' 就可以让 emacsclient 和 emacs 的 frame 的字体都能够按照预期设置
   (add-hook 'before-make-frame-hook '+fei-before-make-frame-hook)

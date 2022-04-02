@@ -39,6 +39,8 @@
 
 ;; Keys
 (global-set-key (kbd "<pause>") 'fei-org-time)
+(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
+(global-set-key (kbd "<M-pause>") (li (org-timer-set-timer "20")))
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))

@@ -36,6 +36,7 @@
   (require 'init-company-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)
+  (require 'init-help)
   (require 'init-elfeed)
   (require 'init-search)
   (require 'init-evil)

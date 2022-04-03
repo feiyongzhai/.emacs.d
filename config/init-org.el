@@ -40,8 +40,13 @@
 ;; Keys
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
-(global-set-key (kbd "<M-pause>") (li (org-timer-set-timer "20")))
+(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
+
+(defun fei-pomodoro-timer ()
+  (interactive)
+  (org-timer-set-timer "20")
+  (alarm-clock-set "20 minutes" "20分钟时间到了"))
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)

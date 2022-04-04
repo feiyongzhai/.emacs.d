@@ -33,6 +33,9 @@
 ;;; general needed packages
 (setq fei-package-ensure-installed
       '(
+	;; ==== Misc ====
+	minions
+
 	;; ==== 编辑相关 ====
 	evil general
 	company yasnippet

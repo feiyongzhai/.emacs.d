@@ -43,10 +43,16 @@
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
 
+(setq org-clock-sound "~/Music/rings/ding0.wav")
 (defun fei-pomodoro-timer ()
   (interactive)
+  ;; `org-timer-set-timer' 会调用 `org-timer--get-timer-title' 来获取
+  ;; `org-timer-countdown-timer-title'。故暂无法自定义 notify 消息。而
+  ;; 且 org-timer-countdown-timer-title 是用 defvar 声明的，说明也没有
+  ;; 想让我们自定义，不折腾为妙。
   (org-timer-set-timer "20")
-  (alarm-clock-set "20 minutes" "20分钟时间到了"))
+  ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
+  )
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)

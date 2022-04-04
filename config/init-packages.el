@@ -16,10 +16,6 @@
 ;; trashed
 (global-set-key (kbd "C-c T") 'trashed)
 
-;; feebleline
-(add-to-list 'load-path "~/.emacs.d/extensions/feebleline")
-(require 'feebleline)
-
 ;; tldr
 (global-set-key (kbd "C-h j") 'man)
 (global-set-key (kbd "C-h t") 'tldr)

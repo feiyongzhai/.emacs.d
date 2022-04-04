@@ -52,6 +52,7 @@
   (require 'init-mouse)
   (require 'init-tool-bar)
   (require 'init-menu-bar)
+  (require 'init-modeline)
   
   (cond
    (*is-linux*

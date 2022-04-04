@@ -70,18 +70,3 @@
 #+begin_src emacs-lisp
   quail-show-keyboard-layout
 #+end_src
-
-
-* 修改 mode-line 的一个示例
-#+BEGIN_SRC emacs-lisp
-(setq mode-line-format
-      `(:propertize (:eval (buffer-name))
-            help-echo "Major mode\n\
-mouse-1: Display major mode menu\n\
-mouse-2: Show help for major mode\n\
-mouse-3: Toggle minor modes"
-	    face bold
-            mouse-face highlight
-            local-map ,(make-mode-line-mouse-map 'mouse-1 my-menu-bar-menu)))
-#+END_SRC
-

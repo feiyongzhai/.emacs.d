@@ -16,6 +16,9 @@
 ;; (desktop-save-mode t)
 
 ;;; Vars
+(when (executable-find "rg")
+  (setq xref-search-program 'ripgrep))
+
 (setq modus-themes-mode-line '3d)
 
 (setq whitespace-line-column nil)	;nil means use fill-column

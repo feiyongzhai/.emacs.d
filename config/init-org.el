@@ -41,6 +41,7 @@
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
+(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
 
 (setq org-clock-sound "~/Music/rings/ding0.wav")

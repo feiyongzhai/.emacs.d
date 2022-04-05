@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-x g") 'project-vc-dir)
 (with-eval-after-load 'vc-dir
   (define-key vc-dir-mode-map (kbd "h") 'magit-dispatch)
+  (define-key vc-dir-mode-map (kbd "e") 'project-eshell) ;default is `vc-find-file'
+  (define-key vc-dir-mode-map (kbd "j") 'project-find-file)
   (define-key vc-dir-mode-map (kbd "H") 'magit-status)
   (define-key vc-dir-mode-map (kbd "s") 'magit-stage)
   (define-key vc-dir-mode-map (kbd "!") 'shell-command)

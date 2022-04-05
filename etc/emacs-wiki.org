@@ -57,6 +57,11 @@
 #+end_src
 
 * Snippets
+使用自带 tool-tip
+#+BEGIN_SRC emacs-lisp
+  (setq x-gtk-use-system-tooltips nil)
+#+END_SRC
+
 [[https://emacs-china.org/t/word/19878][来源（Emacs-China）]]
 #+begin_src emacs-lisp
   (setq sentence-end "\\([。！？]\\)[ \t\n]*")

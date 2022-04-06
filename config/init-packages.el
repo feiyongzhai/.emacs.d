@@ -20,6 +20,19 @@
 (global-set-key (kbd "C-h j") 'man)
 (global-set-key (kbd "C-h t") 'tldr)
 
+;; 方便左手在键盘，右手在鼠标上的操作姿势
+(global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s 1") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s M-2") 'fei-unhighlight-symbol-at-point)
+(global-set-key (kbd "M-s 2") 'fei-unhighlight-symbol-at-point)
+
+(defun fei-unhighlight-symbol-at-point ()
+  (interactive)
+  (unhighlight-regexp
+   (concat "\\_<"
+	   (thing-at-point 'symbol)
+	   "\\_>")))
+
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)

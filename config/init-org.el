@@ -62,8 +62,11 @@
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)
 (global-set-key (kbd "C-c n p") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
+(global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
+(global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
 (global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
+(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)

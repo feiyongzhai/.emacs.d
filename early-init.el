@@ -36,11 +36,12 @@
 (setq frame-inhibit-implied-resize t)	; 不要缩放frame.
 ;; (setq initial-scratch-message "")
 
+(setq tab-bar-select-tab-modifiers '(meta)) ;这个需要在 tab-bar-mode 启用之前
 (tab-bar-mode)
 (tab-bar-history-mode)
 (tab-bar-echo-area-mode -1)
 (tool-bar-mode)
-(menu-bar-mode -1)
+(menu-bar-mode)
 (global-tab-line-mode -1)
 
 (let ((hour (string-to-number

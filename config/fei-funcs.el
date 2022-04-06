@@ -242,15 +242,6 @@ kill region instead"
 
 ;; Org related
 
-(defun fei-org-capture ()
-  (interactive)
-  ;; 这个写法可以传递prefix number，之前的不行
-  (call-interactively 'org-capture)
-  (require 'rime)
-  (activate-input-method 'rime)
-  (auto-fill-mode)
-  (message "RIME输入法已经激活！"))
-
 (defun fei-org-time ()
   (interactive)
   (if (not (boundp 'org-timer-start-time))
@@ -259,28 +250,46 @@ kill region instead"
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
+;; Org-capture
+(defun fei-org-capture ()
+  (interactive)
+  ;; 这个写法可以传递prefix number，之前的不行
+  (call-interactively 'org-capture)
+  (activate-input-method 'rime)
+  (auto-fill-mode)
+  (message "RIME输入法已经激活！"))
+
+(defun fei-org-capture-goto-Research ()
+  (interactive)
+  (org-capture-goto-target "K"))
+
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (require 'rime)
   (activate-input-method 'rime))
+
+(defun fei-org-capture-goto-SAR ()
+  (interactive)
+  (org-capture-goto-target "S"))
 
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (require 'rime)
   (activate-input-method 'rime))
+
+(defun fei-org-capture-goto-WANT ()
+  (interactive)
+  (org-capture-goto-target "s"))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (require 'rime)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-note (&rest strings)
@@ -294,7 +303,6 @@ kill region instead"
     ;; (delete-other-windows)
     ;; (olivetti-mode)
     ;; (auto-fill-mode)
-    (require 'rime)
     (activate-input-method 'rime)))
 
 (defun fei-org-capture-private ()
@@ -304,7 +312,6 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (require 'rime)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-diary ()
@@ -314,7 +321,6 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (require 'rime)
   (activate-input-method 'rime))
 
 (defun fei-org-agenda ()

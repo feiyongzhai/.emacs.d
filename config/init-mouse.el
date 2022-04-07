@@ -13,9 +13,11 @@
 (cond (*is-linux*
        ;; 快速查找定义 / 快速切换 buffer 或者 文件
        (global-set-key (kbd "<C-mouse-9>") (li (setq bs-cur-major-mode major-mode) (bs-show nil)))
-       (global-set-key (kbd "<mouse-9>") 'neotree-toggle)
+       ;; (global-set-key (kbd "<mouse-9>") 'neotree-toggle)
+       (global-set-key (kbd "<mouse-9>") 'treemacs)
        (global-set-key (kbd "<mouse-8>") 'fei-occur-for-mouse)
-       (global-set-key (kbd "<C-mouse-8>") 'fei-multi-occur-for-mouse)
+       ;; (global-set-key (kbd "<C-mouse-8>") 'fei-multi-occur-for-mouse)
+       (global-set-key (kbd "<C-mouse-8>") 'symbol-overlay-find-at-point-project)
        ;; 相当于快速标记一个点并跳回（只作用于当前 buffer）
        (global-set-key (kbd "<M-mouse-9>") 'push-mark-command)
        (global-set-key (kbd "<M-mouse-8>") 'pop-to-mark-command)

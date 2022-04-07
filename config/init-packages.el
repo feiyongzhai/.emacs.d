@@ -2,6 +2,14 @@
 
 (require 'fei-funcs)
 
+;; treemacs
+(setq treemacs-position 'right)
+
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
+  (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
+  )
+
 ;; alarm-clock
 (global-set-key (kbd "M-s a s") 'alarm-clock-set)
 (global-set-key (kbd "M-s a l") 'alarm-clock-list-view)

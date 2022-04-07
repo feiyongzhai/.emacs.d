@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-S-m") 'maximize-window)		; matlab like keybinding
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
-(global-set-key (kbd "C-x o") 'ace-window)
+;; (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 
 (autoload 'evil-move-window "evil" nil t)

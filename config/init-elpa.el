@@ -35,6 +35,8 @@
       '(
 	;; ==== Misc ====
 	minions
+	all-the-icons-ibuffer
+	treemacs-icons-dired
 
 	;; ==== 编辑相关 ====
 	evil general

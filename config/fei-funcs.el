@@ -251,6 +251,8 @@ kill region instead"
       (call-interactively 'org-timer-pause-or-continue))))
 
 ;; Org-capture
+(autoload 'org-capture-goto-target "org-capture")
+
 (defun fei-org-capture ()
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
@@ -615,6 +617,20 @@ confines of word boundaries (e.g. multiple words)."
   (neotree-hide)
   (setq neo-window-position 'right)
   (neotree-show))
+
+;; Treemacs
+(defun fei-treemacs-move-to-left ()
+  (interactive)
+  (treemacs-quit)
+  (setq treemacs-position 'left)
+  (treemacs))
+
+(defun fei-treemacs-move-to-right ()
+  (interactive)
+  (treemacs-quit)
+  (setq treemacs-position 'right)
+  (treemacs))
+
 
 ;; require `pulse' library
 (defun fei-pulse-current-line ()

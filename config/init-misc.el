@@ -145,8 +145,8 @@
 ;;     (set-frame-width nil 125)))
 
 ;; 计算器
-(global-set-key (kbd "M-s -") 'calculator)
-(global-set-key (kbd "M-s =") 'calc)
+(global-set-key (kbd "C-c -") 'calculator)
+(global-set-key (kbd "C-c =") 'calc)
 
 ;; ;; experiment
 ;; (global-unset-key (kbd "C-x C-c"))
@@ -165,6 +165,7 @@
 (defvar fei-prefix-map (make-sparse-keymap))
 (global-set-key (kbd "<f1>") fei-prefix-map)
 (define-key fei-prefix-map (kbd "j") 'fasd-ivy-find-file)
+(define-key fei-prefix-map (kbd "k") 'rg)
 (define-key fei-prefix-map (kbd "g") (li (fei-search 1)))
 (define-key fei-prefix-map (kbd "o") 'fei-counsel-fd-file-jump)
 (define-key fei-prefix-map (kbd "e") 'file-manager-here)

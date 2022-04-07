@@ -3,11 +3,13 @@
 (require 'dired-ranger)
 (require 'fei-funcs)
 
+(treemacs-icons-dired-mode)
 (add-hook 'dired-mode-hook #'hl-line-mode)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 
 ;;; Vars
 
+;; @REF: https://stackoverflow.com/questions/4532241/linux-find-all-symlinks-of-a-given-original-file-reverse-readlink
 ;; find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile
 (setq dired-guess-shell-alist-user '(("\\.pdf\\'" "find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile" "xpdf")))
 (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站

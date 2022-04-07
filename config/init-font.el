@@ -1,3 +1,5 @@
+;; @REF: https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
+
 ;; Commentary:
 ;; 其实我不太知道 EMACS 中的 font 的工作机制，但是我下面的配置可以完成我预期的效果。
 ;; So, anyway, it works! 🐼🐼🐼

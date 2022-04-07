@@ -16,7 +16,7 @@
   ;; (require 'init-eyebrowse)
   (require 'init-dired)
   (require 'init-proxy)
-  (require 'init-eww)
+  ;; (require 'init-eww)
   ;; (require 'init-w3m)
 
   (require 'init-org)

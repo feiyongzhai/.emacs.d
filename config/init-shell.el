@@ -55,6 +55,7 @@
   )
 
 (global-set-key (kbd "C-z") 'eshell)
+(global-set-key (kbd "M-s z") 'shell)
 
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))

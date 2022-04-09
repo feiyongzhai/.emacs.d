@@ -1,3 +1,7 @@
+;; based on the conda install location
+(setq conda-env-home-directory "~/.conda/")
+(setq conda-anaconda-home "/opt/miniconda")
+
 ;; this config is prepared for `pyvenv-workon'
 (setenv "WORKON_HOME" "~/Sandbox/Python/virtualenv")
 

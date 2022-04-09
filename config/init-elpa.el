@@ -37,6 +37,7 @@
 	minions
 	all-the-icons-ibuffer
 	treemacs-icons-dired
+	keyfreq
 
 	;; ==== 编辑相关 ====
 	evil general
@@ -46,7 +47,7 @@
 	neotree
 	electric-spacing highlight-indent-guides
 	iedit ialign
-	yafolding pyvenv
+	yafolding pyvenv conda
 	symbol-overlay
 	separedit
 	smartparens

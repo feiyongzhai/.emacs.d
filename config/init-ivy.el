@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-c l") 'locate)
 (global-set-key (kbd "C-c L") 'counsel-locate)
 
-(global-set-key (kbd "C-x 8 e") 'ivy-emoji)
+;; (global-set-key (kbd "C-x 8 e") 'ivy-emoji)
 ;; (global-set-key (kbd "C-c r") 'counsel-register)
 (with-eval-after-load 'ivy
   (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))

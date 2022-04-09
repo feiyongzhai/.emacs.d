@@ -16,8 +16,8 @@
   (setq url-gateway-method 'socks
         socks-noproxy '("localhost")
         socks-server '("Default server" "127.0.0.1" 1089 5))
-  (setenv "all_proxy" "socks5://127.0.0.1:1089")
-  ;; (setenv "http_proxy" "http://127.0.0.1:8889")
+  ;; (setenv "all_proxy" "socks5://127.0.0.1:1089")
+  (setenv "http_proxy" "http://127.0.0.1:1089")
   (proxy-socks-show))
 
 (defun proxy-socks-disable ()

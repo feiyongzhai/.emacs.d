@@ -22,7 +22,7 @@
 (require 'eaf-file-browser)
 (require 'eaf-demo)
 (require 'eaf-vue-demo)
-(require 'eaf-fei)
+;; (require 'eaf-fei)
 
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
@@ -95,12 +95,6 @@
     (call-interactively 'tab-line-switch-to-next-tab))
   )
 
-(global-set-key (kbd "M-s e b") 'fei-eaf-open-browser-with-history)
-(global-set-key (kbd "M-s e B") 'fei-eaf-open-browser)
-(global-set-key (kbd "M-s e s") 'fei-eaf-file-share-current-dir)
-(global-set-key (kbd "M-s e u") 'fei-eaf-open-url-at-point)
-(global-set-key (kbd "M-s e m") 'fei-eaf-play-music)
-
 (defmacro fei-eaf-wrapper (sym)
   "给 EAF 相关的命令添加一个 wrapper ，避免在终端下不小心调用到出现问题"
   `(defun ,(intern (format "fei-%s" (symbol-name sym))) ()
@@ -112,6 +106,12 @@
 (fei-eaf-wrapper eaf-open-browser)
 (fei-eaf-wrapper eaf-open-browser-with-history)
 (fei-eaf-wrapper eaf-open-url-at-point)
+
+(global-set-key (kbd "M-s e b") 'fei-eaf-open-browser-with-history)
+(global-set-key (kbd "M-s e B") 'fei-eaf-open-browser)
+(global-set-key (kbd "M-s e s") 'fei-eaf-file-share-current-dir)
+(global-set-key (kbd "M-s e u") 'fei-eaf-open-url-at-point)
+(global-set-key (kbd "M-s e m") 'fei-eaf-play-music)
 
 ;; == eaf-music-player ==
 (setq eaf-music-extension-list '("mp3" "m4a"))

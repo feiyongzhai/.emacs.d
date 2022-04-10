@@ -475,6 +475,12 @@ confines of word boundaries (e.g. multiple words)."
     (setq isearch-end-activate-input-method-predicate nil)))
 
 ;; VC
+(defun fei-vc-dired-jump (arg)
+  (interactive "P")
+  (let ((target-dir (or (vc-root-dir)
+                        default-directory)))
+    (vc-dir target-dir))
+  )
 
 
 ;; Misc

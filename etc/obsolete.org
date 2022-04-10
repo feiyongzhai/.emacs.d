@@ -896,7 +896,9 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
 #+END_SRC
 
 * VC
-emacs28 自带的 `project-vc-dir' 已经可以替代这个函数了，而且处理得更好
+emacs28 自带的 `project-vc-dir' 已经可以替代这个函数了，而且处理得更好。
+update-2022-04-10 ：project-vc-dir 会把 submodule 的仓库视为一个 project 。不是很符合我的预期，还是用 fei-vc-dired-jump
+
 #+BEGIN_SRC emacs-lisp
 (defun fei-vc-dired-jump (arg)
   (interactive "P")

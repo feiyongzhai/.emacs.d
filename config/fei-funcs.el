@@ -439,7 +439,7 @@ kill region instead"
 (defun fei-eaf-play-music ()
   (interactive)
   (if (display-graphic-p)
-      (eaf-open "/media/yongfeizhai/文档/音乐/" "music-player")
+      (eaf-open "/run/media/yongfeizhai/文档/音乐/" "music-player")
     (message "EAF doesn't support in terminal")))
 
 ;; Isearch related

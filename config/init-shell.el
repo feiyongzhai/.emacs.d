@@ -24,7 +24,7 @@
 ;;; Keys
 
 (global-set-key (kbd "<s-return>") 'fei-terminal-here)
-(global-set-key (kbd "M-s j") 'eshell)
+(global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "M-s k") 'fei-ansi-term)
 (global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
@@ -59,6 +59,12 @@
 
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))
+
+;; Vterm
+;; @HOME: https://github.com/akermu/emacs-libvterm
+(global-set-key (kbd "M-s J") 'vterm)	;sometimes need vterm
+(with-eval-after-load 'vterm
+  (define-key vterm-mode-map (kbd "M-s") nil))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

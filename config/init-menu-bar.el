@@ -9,8 +9,10 @@
 (define-key my-menu-bar-menu [my-cmd1] '(menu-item "fei-emacs" fei-emacs))
 (define-key my-menu-bar-menu [my-cmd2] '(menu-item "fei-vscode" open-current-file-with-vscode))
 (when *is-linux*
-  (define-key my-menu-bar-menu [my-cmd3] '(menu-item "fei-gedit" open-current-file-with-gedit)))
-(define-key my-menu-bar-menu [my-cmd4] '(menu-item "fei-gvim" open-current-file-with-gvim))
+  (and (executable-find "gedit")
+       (define-key my-menu-bar-menu [my-cmd3] '(menu-item "fei-gedit" open-current-file-with-gedit))))
+(and (executable-find "gvim")
+     (define-key my-menu-bar-menu [my-cmd4] '(menu-item "fei-gvim" open-current-file-with-gvim)))
 (define-key my-menu-bar-menu [my-cmd5] '(menu-item "fei-emacsq" open-current-file-with-emacsq))
 (define-key my-menu-bar-menu [separator] '(menu-item "--" nil))
 (define-key my-menu-bar-menu [my-cmd6] '(menu-item "file-manager" file-manager-here))

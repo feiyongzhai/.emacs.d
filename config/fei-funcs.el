@@ -724,5 +724,13 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
 
+;; treemacs
+(defun fei-switch-to-treemacs ()
+  (interactive)
+  (catch 'done
+    (dolist (w (window-list) (treemacs))
+      (with-current-buffer (window-buffer w)
+	(when (eq major-mode 'treemacs-mode)
+	  (throw 'done (select-window w)))))))
 
 (provide 'fei-funcs)

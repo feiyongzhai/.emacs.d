@@ -8,7 +8,7 @@
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (with-eval-after-load 'vc-dir
   (define-key vc-dir-mode-map (kbd "h") 'magit-dispatch)
-  (define-key vc-dir-mode-map (kbd "e") 'project-eshell) ;default is `vc-find-file'
+  (define-key vc-dir-mode-map (kbd "e") 'fei-eshell-cd-here) ;default is `vc-find-file'
   (define-key vc-dir-mode-map (kbd "j") 'project-find-file)
   (define-key vc-dir-mode-map (kbd "H") 'magit-status)
   (define-key vc-dir-mode-map (kbd "s") 'magit-stage)

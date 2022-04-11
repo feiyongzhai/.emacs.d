@@ -2,13 +2,35 @@
 
 (require 'fei-funcs)
 
-;; treemacs
+;; Treemacs
 (setq treemacs-position 'right)
+(global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
+(global-set-key (kbd "<C-f8>") 'speedbar)
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
   (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
+  (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump)
+  (define-key treemacs-mode-map (kbd "G") 'magit)
   )
+
+;; Neotree
+(setq neo-theme 'ascii)
+(setq neo-window-position 'right)
+(with-eval-after-load 'neotree
+  (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
+  (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)
+  (define-key neotree-mode-map (kbd "J") 'fei-neotree-move-to-left)
+  (define-key neotree-mode-map (kbd "K") 'fei-neotree-move-to-right)
+  (define-key neotree-mode-map (kbd "l") 'neotree-enter)
+  (define-key neotree-mode-map (kbd "f") 'neotree-enter)
+  (define-key neotree-mode-map (kbd "<mouse-3>") 'neotree-mouse-open-external)
+  )
+
+(defun neotree-mouse-open-external (event)
+  (interactive "e")
+  (mouse-set-point event)
+  (neotree-open-file-in-system-application))
 
 ;; alarm-clock
 (global-set-key (kbd "M-s a s") 'alarm-clock-set)

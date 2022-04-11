@@ -10,7 +10,7 @@
 (setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice 'ibuffer)	;default is duplicate
-(setq tab-bar-close-last-tab-choice 'tab-bar-mode-disable)
+(setq tab-bar-close-last-tab-choice nil)
 (setq tab-bar-tab-name-function 'tab-bar-tab-name-truncated)
 ;; (setq tab-bar-new-tab-choice 'eshell)
 

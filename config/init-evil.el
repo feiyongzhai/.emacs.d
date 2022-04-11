@@ -14,9 +14,12 @@
 
 (fei-space-leader-def
   ;; "gg" 'browse-stackoverflow-search
+  "SPC" 'counsel-M-x
+  "w" 'pwd
   "g" 'engine-mode-prefixed-map
   "ff" 'ido-find-file
   "fo" 'ido-find-file-other-window
+  "ft" 'find-file-other-tab
   )
 
 ;;; Vars

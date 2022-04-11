@@ -28,7 +28,7 @@
 
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
-      '(magit citre sx bash-completion))
+      '(magit citre sx bash-completion vterm))
 
 ;;; general needed packages
 (setq fei-package-ensure-installed

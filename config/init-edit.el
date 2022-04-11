@@ -25,27 +25,6 @@
 ;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
-;; Neotree
-(setq neo-theme 'ascii)
-(setq neo-window-position 'right)
-(global-set-key (kbd "<tab-line> <mouse-9>") 'neotree)
-(global-set-key (kbd "<f8>") 'neotree)
-(global-set-key (kbd "<C-f8>") 'speedbar)
-(with-eval-after-load 'neotree
-  (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
-  (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)
-  (define-key neotree-mode-map (kbd "J") 'fei-neotree-move-to-left)
-  (define-key neotree-mode-map (kbd "K") 'fei-neotree-move-to-right)
-  (define-key neotree-mode-map (kbd "l") 'neotree-enter)
-  (define-key neotree-mode-map (kbd "f") 'neotree-enter)
-  (define-key neotree-mode-map (kbd "<mouse-3>") 'neotree-mouse-open-external)
-  )
-
-(defun neotree-mouse-open-external (event)
-  (interactive "e")
-  (mouse-set-point event)
-  (neotree-open-file-in-system-application))
-
 ;;; Scroll
 (global-set-key (kbd "M-N") 'scroll-up-line)
 (global-set-key (kbd "M-P") 'scroll-down-line)

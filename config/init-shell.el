@@ -54,7 +54,7 @@
     (bash-completion-setup))
   )
 
-(global-set-key (kbd "C-z") 'eshell)
+(global-set-key (kbd "C-z") 'vterm-toggle)
 (global-set-key (kbd "M-s z") 'shell)
 
 (with-eval-after-load 'term

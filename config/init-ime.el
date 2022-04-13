@@ -13,6 +13,7 @@
 
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
 (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
+(define-key pyim-mode-map (kbd "<escape>") 'pyim-quit-clear)
 
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)
@@ -43,7 +44,7 @@
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 ;; Keys
-(global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-j") (li (activate-input-method "pyim")))
 ;; (global-set-key (kbd "M-J") (li (activate-input-method "pyim")))
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
@@ -63,7 +64,7 @@
 		    (:background "#dcdccc" :foreground "#333333" :slant italic)))))
 
 (cond (*is-linux*
-       (setq rime-user-data-dir "~/.emacs.d/rime/linux/xhup"))
+       (setq rime-user-data-dir "~/.emacs.d/rime/linux"))
       (*is-windows*
        (setq rime-user-data-dir "~/.emacs.d/rime/win10"))
       (t (message "使用默认值：~/.emacs.d/rime/")))

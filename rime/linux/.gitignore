@@ -1,0 +1,6 @@
+*.userdb
+user.yaml
+sync
+*.userdb.old
+opencc
+installation.yaml

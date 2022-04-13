@@ -54,6 +54,10 @@ Argument ARG if not nil, switching in a new window."
 	(set-transient-map 'engine-mode-prefixed-map))
     (call-interactively 'fei-google-search)))
 
+(defun fei-search-1 ()
+  (interactive)
+  (fei-search 1))
+
 (defun fei-kill-current-buffer (arg)
   "智能关闭 windows 和 buffer"
   (interactive "P")

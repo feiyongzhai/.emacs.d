@@ -1,6 +1,7 @@
 (global-set-key (kbd "C-c /") 'webjump)
 (global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
 (global-set-key (kbd "C-x C-/") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-h C-y") 'engine/search-quword)
 
 (defengine github
   "https://github.com/search?ref=simplesearch&q=%s"

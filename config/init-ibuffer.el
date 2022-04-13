@@ -1,6 +1,6 @@
 ;;; init-ibuffer.el  --- configs for ibuffer
 
-(all-the-icons-ibuffer-mode)
+(add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 
 ;;; Keys
 

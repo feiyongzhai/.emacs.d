@@ -172,4 +172,8 @@
 (define-key fei-prefix-map (kbd "e") 'file-manager-here)
 (define-key fei-prefix-map (kbd "0") 'scratch)
 
+;; Goto
+(global-set-key (kbd "M-g M-f") 'fasd-ivy-find-file)
+(global-set-key (kbd "M-g M-l") 'goto-line)
+
 (provide 'init-misc)

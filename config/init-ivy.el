@@ -1,4 +1,4 @@
-;;; init-ivy.el  --- configs for counsel/swiper/ivy/ido
+;;; init-ivy.el  --- configs for counsel/swiper/ivy
 
 ;; (ivy-mode 1)
 
@@ -33,12 +33,17 @@
 ;; (global-set-key (kbd "C-c r") 'counsel-register)
 (with-eval-after-load 'ivy
   (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable))
+  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
+  )
 
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")
   (setq-default ivy-initial-inputs-alist nil)
+
+  (ivy-add-actions
+   'counsel-find-file
+   '(("t" (lambda (file) (find-file-other-tab file)) "other tab")))
   )
 
 (setq counsel-search-engine 'google)

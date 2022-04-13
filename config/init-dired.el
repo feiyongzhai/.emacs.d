@@ -15,6 +15,7 @@
 (setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
+(setq dired-mouse-drag-files t)		;require emacs29
 (when *is-linux*
   ;; 感觉按照文件名排序就挺好的
   ;; (setq dired-listing-switches "-Bhl --group-directories-first")
@@ -35,6 +36,7 @@
   (fei-define-key-with-map dired-mode-map
     `(
       ("b" . dired-up-directory)
+      ("<C-return>" . browse-url-of-dired-file)
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
       ("j" . dired-next-line)

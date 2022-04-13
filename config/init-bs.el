@@ -34,6 +34,12 @@
   (setq bs-default-configuration bs-current-configuration)
   (bs-refresh))
 
+(defun fei-bs-switch-buffer-other-tab ()
+  (interactive)
+  (let ((buf (bs--current-buffer)))
+    (bs-kill)
+    (switch-to-buffer-other-tab buf)))
+
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
 (global-set-key (kbd "C-x C-b") 'fei-bs-show)
 (global-set-key (kbd "M-s b") 'fei-bs-show)
@@ -72,6 +78,7 @@
   (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)
   (define-key bs-mode-map (kbd "k") 'nil) ;default is `bs-delete', 但是最近总是误触
   (define-key bs-mode-map (kbd "f") (li (fei-bs-set-configuration-default "files")))
+  (define-key bs-mode-map (kbd "C-t") 'fei-bs-switch-buffer-other-tab)
   (define-key bs-mode-map (kbd "<mouse-1>") 'bs-select)
   (define-key bs-mode-map (kbd "<mouse-2>") 'bs-select-other-window)
   (define-key bs-mode-map (kbd "<mouse-3>") 'bs-mouse-select-other-frame)

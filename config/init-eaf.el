@@ -50,6 +50,7 @@
   (eaf-bind-key add_annot_underline "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key add_annot_popup_text "e" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down_page "<backspace>" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key youdao-dictionary-search-from-input "y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
   

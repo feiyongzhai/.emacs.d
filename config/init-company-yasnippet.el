@@ -1,14 +1,8 @@
 ;;; init-company-yasnippet.el --- configs for company
 (require 'init-func)
 
-(defun +complete ()
-  (interactive)
-  (or (yas/expand)
-      (company-indent-or-complete-common nil)))
-
 (with-eval-after-load 'company
   (define-key company-mode-map (kbd "C-M-i") #'company-complete)
-  (define-key company-mode-map (kbd "TAB") '+complete)
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)

@@ -33,7 +33,7 @@
 ;; (global-set-key (kbd "C-c r") 'counsel-register)
 (with-eval-after-load 'ivy
   (define-key ivy-minibuffer-map (kbd "M-h") (kbd "RET"))
-  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
+  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-activate-pyim)
   )
 
 (with-eval-after-load 'counsel

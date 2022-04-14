@@ -37,7 +37,7 @@
 	minions
 	all-the-icons-ibuffer
 	treemacs-icons-dired
-	keyfreq scratch imenu-list
+	keyfreq scratch imenu-list rg
 
 	;; ==== 编辑相关 ====
 	evil general

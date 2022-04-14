@@ -238,6 +238,11 @@ kill region instead"
 
 ;; IME related
 
+(defun fei-activate-pyim ()
+  (interactive)
+  (activate-input-method "pyim")
+  )
+
 (defun fei-rime-force-enable ()
   (interactive)
   (activate-input-method "rime")
@@ -261,9 +266,9 @@ kill region instead"
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
-  (activate-input-method 'rime)
+  (activate-input-method 'pyim)
   (auto-fill-mode)
-  (message "RIME输入法已经激活！"))
+  )
 
 (defun fei-org-capture-goto-Research ()
   (interactive)
@@ -274,7 +279,7 @@ kill region instead"
   (org-capture nil "K")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (defun fei-org-capture-goto-SAR ()
   (interactive)
@@ -285,7 +290,7 @@ kill region instead"
   (org-capture nil "S")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (defun fei-org-capture-goto-WANT ()
   (interactive)
@@ -296,7 +301,7 @@ kill region instead"
   (org-capture nil "s")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (defun fei-org-capture-note (&rest strings)
   (interactive)
@@ -309,7 +314,7 @@ kill region instead"
     ;; (delete-other-windows)
     ;; (olivetti-mode)
     ;; (auto-fill-mode)
-    (activate-input-method 'rime)))
+    (activate-input-method 'pyim)))
 
 (defun fei-org-capture-private ()
   (interactive)
@@ -318,7 +323,7 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (defun fei-org-capture-diary ()
   (interactive)
@@ -327,7 +332,7 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (defun fei-org-agenda ()
   (interactive)

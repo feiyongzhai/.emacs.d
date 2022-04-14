@@ -1,6 +1,6 @@
 (add-hook 'org-roam-find-file-hook 'fei-org-roam-hook)
 (defun fei-org-roam-hook ()
-  (activate-input-method 'rime))
+  (activate-input-method 'pyim))
 
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %(substring (current-time-string) 11 16) %?" :target

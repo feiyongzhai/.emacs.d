@@ -5,6 +5,8 @@
 
 ;; Pyim
 
+(pyim-isearch-mode)
+
 ;; 这行配置存在性能问题：
 ;; 1. 当在 minibuffer 中粘贴很长的一个链接的时候，会出现卡死的情况
 (with-eval-after-load 'ivy
@@ -44,8 +46,7 @@
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 ;; Keys
-(global-set-key (kbd "M-j") (li (activate-input-method "pyim")))
-;; (global-set-key (kbd "M-J") (li (activate-input-method "pyim")))
+(global-set-key (kbd "M-j") 'fei-activate-pyim)
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
@@ -72,7 +73,7 @@
 (setq rime-posframe-properties
       (list :internal-border-width 4))
 
-(setq default-input-method "rime"
+(setq default-input-method "pyim"
       rime-show-candidate nil
       rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-preedit t

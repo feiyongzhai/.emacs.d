@@ -53,9 +53,6 @@
 (with-eval-after-load 'dired-x
   (define-key dired-mode-map (kbd "M-G") nil))
 
-(define-key dired-mode-map (kbd "M-n") 'dired-next-subdir)
-(define-key dired-mode-map (kbd "M-p") 'dired-prev-subdir)
-
 (define-key dired-mode-map (kbd "]") 'jump-to-register)
 (define-key dired-mode-map (kbd "[") 'point-to-register)
 

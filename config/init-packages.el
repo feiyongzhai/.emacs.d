@@ -65,8 +65,8 @@
 
 ;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
-(global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
-(global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
+(global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
 (with-eval-after-load 'symbol-overlay
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))

@@ -117,8 +117,8 @@
 (with-eval-after-load 'diff
   (define-key diff-mode-map (kbd "M-o") nil)
   (define-key diff-mode-map (kbd "M-k") nil)
-  (define-key diff-mode-map (kbd "M-n") 'diff-file-next)
-  (define-key diff-mode-map (kbd "M-p") 'diff-file-prev)
+  (define-key diff-mode-map (kbd "M-n") nil)
+  (define-key diff-mode-map (kbd "M-p") nil)
   (define-key diff-mode-map (kbd "M-N") nil)
   (define-key diff-mode-map (kbd "M-P") nil)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)

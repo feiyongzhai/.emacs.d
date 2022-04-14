@@ -171,6 +171,18 @@
 (define-key fei-prefix-map (kbd "o") 'fei-counsel-fd-file-jump)
 (define-key fei-prefix-map (kbd "e") 'file-manager-here)
 (define-key fei-prefix-map (kbd "0") 'scratch)
+(define-key fei-prefix-map (kbd "n") 'transient-scroll-up-line)
+(define-key fei-prefix-map (kbd "p") 'transient-scroll-down-line)
+
+(transient-command scroll-up-line
+  (scroll-up-line)
+  '(("n" . scroll-up-line)
+    ("p" . scroll-down-line)))
+
+(transient-command scroll-down-line
+  (scroll-down-line)
+  '(("n" . scroll-up-line)
+    ("p" . scroll-down-line)))
 
 ;; Goto
 (global-set-key (kbd "M-g M-f") 'fasd-ivy-find-file)

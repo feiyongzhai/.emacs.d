@@ -16,6 +16,8 @@
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
 (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
 (define-key pyim-mode-map (kbd "<escape>") 'pyim-quit-clear)
+(define-key pyim-mode-map (kbd "C-v") 'pyim-next-page)
+(define-key pyim-mode-map (kbd "M-v") 'pyim-previous-page)
 
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)

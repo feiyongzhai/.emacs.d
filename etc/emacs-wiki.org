@@ -75,3 +75,7 @@
 #+begin_src emacs-lisp
   quail-show-keyboard-layout
 #+end_src
+
+* emacs28 更新后报 wrong-number-of-arguments #<subr string-match> 4
+总结：需要重新编译一下 elc 。比较简单的做法就是把所有相关的包卸载重新安装即可
+参考连接：[[https://github.com/magit/magit/discussions/4554][Weird "wrong-number-of-arguments #<subr string-match> 4" error on Emacs 28 · Discussion #4554 · magit/magit]]

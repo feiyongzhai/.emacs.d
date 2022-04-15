@@ -13,7 +13,6 @@
 (repeat-mode)
 ;; (savehist-mode t)		    ;保存 minibuffer 历史
 ;; (global-subword-mode 1)
-;; (desktop-save-mode t)
 
 ;;; Vars
 (when (executable-find "rg")
@@ -43,6 +42,7 @@
 (display-time-mode)
 
 (setq desktop-restore-frames nil)	     ; don't restore any frame
+(desktop-save-mode t)
 
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
@@ -175,12 +175,14 @@
 (define-key fei-prefix-map (kbd "p") 'transient-scroll-down-line)
 
 (transient-command scroll-up-line
-  (scroll-up-line)
+  (progn (scroll-up-line)
+	 (fei-pulse-current-line))
   '(("n" . scroll-up-line)
     ("p" . scroll-down-line)))
 
 (transient-command scroll-down-line
-  (scroll-down-line)
+  (progn (scroll-down-line)
+	 (fei-pulse-current-line))
   '(("n" . scroll-up-line)
     ("p" . scroll-down-line)))
 

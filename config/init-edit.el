@@ -17,7 +17,7 @@
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 ;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中用特殊的含义，和 f1-f4 绑定在一起
-(global-set-key (kbd "C-'") 'avy-goto-line)
+(global-set-key (kbd "C-'") 'avy-resume)
 (global-set-key (kbd "M-g M-g") 'consult-goto-line)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
@@ -26,8 +26,25 @@
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
 ;;; Scroll
-(global-set-key (kbd "M-N") 'scroll-up-line)
-(global-set-key (kbd "M-P") 'scroll-down-line)
+(global-set-key (kbd "M-n") 'fei-scroll-up-line)
+
+(defun fei-scroll-up-line ()
+  (interactive)
+  (if (or (eq last-command 'fei-scroll-down-line)
+	  (eq last-command 'fei-scroll-up-line))
+    (scroll-up-line)
+    (scroll-up-line)
+    (fei-pulse-current-line)))
+
+(global-set-key (kbd "M-p") 'fei-scroll-down-line)
+(defun fei-scroll-down-line ()
+  (interactive)
+  (if (or (eq last-command 'fei-scroll-down-line)
+	  (eq last-command 'fei-scroll-up-line))
+    (scroll-down-line)
+    (scroll-down-line)
+    (fei-pulse-current-line)))
+
 (setq next-screen-context-lines 1)	;default is 2
 (setq scroll-step 1
       scroll-conservatively 10000

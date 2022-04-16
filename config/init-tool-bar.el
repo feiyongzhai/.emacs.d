@@ -1,3 +1,4 @@
+;; (tool-bar-add-item "spell" 'global-tab-line-mode 'global-tab-line-mode)
 
 (define-key-after (default-value 'tool-bar-map) [separator-fei] menu-bar-separator)
 ;; (tool-bar-add-item-from-menu 'previous-buffer "left-arrow" nil :vert-only t)

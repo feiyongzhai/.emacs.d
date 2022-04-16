@@ -6,7 +6,7 @@
 
 (let ((gc-cons-threshold most-positive-fixnum)
       (gc-cons-percentage 0.6))
-  (require 'init-misc)
+  (require 'init-builtin)
   (require 'init-packages)
   (require 'init-bs)
   (require 'init-ibuffer)
@@ -18,6 +18,7 @@
   (require 'init-proxy)
   ;; (require 'init-eww)
   ;; (require 'init-w3m)
+  (require 'init-misc)
 
   (require 'init-org)
   (require 'init-publish)

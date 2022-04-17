@@ -18,7 +18,6 @@
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 
-(require 'init-elpa)
 
 ;;; ==== Encode config ====
 
@@ -32,6 +31,9 @@
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))
+
+(require 'init-elpa)
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq inhibit-splash-screen t)
 (setq frame-inhibit-implied-resize t)	; 不要缩放frame.

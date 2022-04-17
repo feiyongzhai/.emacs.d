@@ -57,7 +57,7 @@
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)
-(global-set-key (kbd "C-c c") 'fei-org-capture-note)
+(global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)
 (global-set-key (kbd "C-c n p") 'fei-org-capture-private)

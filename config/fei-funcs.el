@@ -240,6 +240,7 @@ kill region instead"
 
 (defun fei-activate-pyim ()
   (interactive)
+  (pyim-convert-string-at-point)
   (activate-input-method "pyim")
   )
 
@@ -295,6 +296,13 @@ kill region instead"
 (defun fei-org-capture-goto-WANT ()
   (interactive)
   (org-capture-goto-target "s"))
+
+(defun fei-org-capture-TODO ()
+  (interactive)
+  (org-capture nil "t")
+  ;; (olivetti-mode)
+  ;; (auto-fill-mode)
+  (activate-input-method 'pyim))
 
 (defun fei-org-capture-WANT ()
   (interactive)

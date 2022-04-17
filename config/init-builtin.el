@@ -14,6 +14,18 @@
 ;; (savehist-mode t)		    ;保存 minibuffer 历史
 ;; (global-subword-mode 1)
 
+;; (add-hook 'read-only-mode-hook 'view-mode) ; 不要这么用，会无法 toggle read-only-mode
+;; 不建议上来就把 view-mode-map 的按键搞的像 vim 的一样。会很容易进入 vim 的习惯。
+(setq view-read-only t)
+(with-eval-after-load 'view
+  (define-key view-mode-map (kbd "j") 'scroll-up-line)
+  (define-key view-mode-map (kbd "i") 'symbol-overlay-put)
+  (define-key view-mode-map (kbd "k") 'scroll-down-line)
+  (define-key view-mode-map (kbd "c") 'nil)
+  (define-key view-mode-map (kbd "Q") 'nil)
+  (define-key view-mode-map (kbd "q") 'nil)
+  )
+
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))
 

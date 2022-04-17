@@ -16,7 +16,6 @@
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 (global-set-key (kbd "<C-tab>") 'tab-next)
-(global-set-key (kbd "M-`") 'tab-recent) ;这个按键总是会被系统占用
 (global-set-key (kbd "M-s C-l") 'tab-recent)
 (global-set-key (kbd "M-s C-n") 'tab-new)
 (global-set-key (kbd "M-s M-n") 'tab-next)
@@ -28,8 +27,17 @@
 (add-hook 'term-mode-hook '+fei-term-mode-hook)
 
 (defun +fei-term-mode-hook ()
-  (define-key term-raw-map (kbd "M-`") 'tab-recent)
   (define-key term-mode-map (kbd "M-s") 'nil)
+  (define-key term-mode-map (kbd "M-0") 'nil)
+  (define-key term-mode-map (kbd "M-1") 'nil)
+  (define-key term-mode-map (kbd "M-2") 'nil)
+  (define-key term-mode-map (kbd "M-3") 'nil)
+  (define-key term-mode-map (kbd "M-4") 'nil)
+  (define-key term-mode-map (kbd "M-5") 'nil)
+  (define-key term-mode-map (kbd "M-6") 'nil)
+  (define-key term-mode-map (kbd "M-7") 'nil)
+  (define-key term-mode-map (kbd "M-8") 'nil)
+  (define-key term-mode-map (kbd "M-9") 'nil)
   )
 
 (defun fei-tab-switch (name)
@@ -46,5 +54,20 @@
         (tab-bar-select-tab (1+ tab-index))
       (tab-bar-new-tab)
       (tab-bar-rename-tab name))))
+
+(defun fei-select-tab (&optional tab-number)
+  (interactive "P")
+  (unless (integerp tab-number)
+    (let ((key (event-basic-type last-command-event)))
+      (setq tab-number (if (and (characterp key) (>= key ?1) (<= key ?9))
+                           (- key ?0)
+                         0))))
+  (let* ((tabs (funcall tab-bar-tabs-function))
+	 (from-index (tab-bar--current-tab-index tabs)))
+    (if (> tab-number (length tabs))
+	(tab-new)
+      (tab-bar-select-tab tab-number))))
+
+(global-set-key [remap tab-bar-select-tab] 'fei-select-tab)
 
 (provide 'init-tab-bar)

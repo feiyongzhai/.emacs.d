@@ -18,7 +18,7 @@
 (add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
 
 (global-set-key (kbd "M-s M-s") 'browse-url)
-(global-set-key (kbd "s-s") 'fei-search)
+(global-set-key (kbd "s-g") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-S") 'swiper-isearch)
 (global-set-key (kbd "M-s s") 'swiper-isearch)

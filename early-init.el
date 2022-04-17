@@ -18,6 +18,7 @@
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
 
+(require 'init-elpa)
 
 ;;; ==== Encode config ====
 
@@ -56,4 +57,4 @@
 
 ;; `early-init.el' 可对 emacsclient 生效
 (require 'init-font)
-(require 'init-elpa)
+

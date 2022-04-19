@@ -72,8 +72,8 @@
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 ;; Consult
-(setq register-preview-delay 0.1
-      register-preview-function #'consult-register-format)
+;; (setq register-preview-delay 0.1
+;;       register-preview-function #'consult-register-format)
 
 (global-set-key (kbd "C-c J") 'consult-register-store)
 (global-set-key (kbd "C-c j") 'consult-register-load)
@@ -87,7 +87,7 @@
 ;; youdao-dictionary
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
-  (define-key youdao-dictionary-mode-map (kbd "s") 'fei-quword-at-point))
+  (define-key youdao-dictionary-mode-map (kbd "b") 'fei-quword-at-point))
 (global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
 (global-set-key (kbd "C-c y") 'fei-youdao-at-point)

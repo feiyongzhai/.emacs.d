@@ -15,15 +15,25 @@
 ;; (global-subword-mode 1)
 
 ;; (add-hook 'read-only-mode-hook 'view-mode) ; 不要这么用，会无法 toggle read-only-mode
-;; 不建议上来就把 view-mode-map 的按键搞的像 vim 的一样。会很容易进入 vim 的习惯。
 (setq view-read-only t)
 (with-eval-after-load 'view
-  (define-key view-mode-map (kbd "j") 'scroll-up-line)
   (define-key view-mode-map (kbd "i") 'symbol-overlay-put)
-  (define-key view-mode-map (kbd "k") 'scroll-down-line)
+  (define-key view-mode-map (kbd "o") 'fei-occur-for-mouse)
+  (define-key view-mode-map (kbd "O") 'multi-occur-in-this-mode)
+  (define-key view-mode-map (kbd "h") 'nil)
+  (define-key view-mode-map (kbd "e") 'nil)
+  (define-key view-mode-map (kbd "v") 'fei-search)
+  (define-key view-mode-map (kbd "V") 'fei-search-1)
   (define-key view-mode-map (kbd "c") 'nil)
   (define-key view-mode-map (kbd "Q") 'nil)
   (define-key view-mode-map (kbd "q") 'nil)
+  (define-key view-mode-map (kbd "w") 'nil)
+  (define-key view-mode-map (kbd "z") 'nil)
+  (define-key view-mode-map (kbd "s") 'swiper-isearch)
+  (define-key view-mode-map (kbd "r") 'nil)
+
+  (define-key view-mode-map (kbd "y") 'fei-youdao-at-point)
+  (define-key view-mode-map (kbd ".") 'isearch-forward-symbol-at-point)
   )
 
 (when (executable-find "rg")

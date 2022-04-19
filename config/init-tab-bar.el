@@ -15,12 +15,6 @@
 ;; (setq tab-bar-new-tab-choice 'eshell)
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
-(global-set-key (kbd "<C-tab>") 'tab-next)
-(global-set-key (kbd "M-s C-l") 'tab-recent)
-(global-set-key (kbd "M-s C-n") 'tab-new)
-(global-set-key (kbd "M-s M-n") 'tab-next)
-(global-set-key (kbd "M-s M-p") 'tab-previous)
-(global-set-key (kbd "M-s C-w") 'tab-close)
 (global-set-key (kbd "M-s C-m") 'fei-tab-switch)
 (global-set-key (kbd "M-s C-i") 'tab-bar-echo-area-print-tab-names)
 
@@ -56,6 +50,7 @@
       (tab-bar-rename-tab name))))
 
 (defun fei-select-tab (&optional tab-number)
+  "抄的 `tab-bar-select-tab'"
   (interactive "P")
   (unless (integerp tab-number)
     (let ((key (event-basic-type last-command-event)))

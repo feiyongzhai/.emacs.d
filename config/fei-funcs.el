@@ -238,9 +238,18 @@ kill region instead"
 
 ;; IME related
 
+(defvar fei-pyim-force-enable nil)
+(defun fei-pyim-force-enable () fei-pyim-force-enable)
+(with-eval-after-load 'pyim
+  (add-to-list 'pyim-force-input-chinese-functions 'fei-pyim-force-enable))
+
 (defun fei-activate-pyim ()
+  "暂时无法实现像 rime 中那个样子的强制启用一次输入中文的功能，只能做成这个样子，不过也挺好用的"
   (interactive)
-  (pyim-convert-string-at-point)
+  ;; (pyim-convert-string-at-point)
+  (if fei-pyim-force-enable
+      (setq fei-pyim-force-enable nil)
+    (setq fei-pyim-force-enable t))
   (activate-input-method "pyim")
   )
 

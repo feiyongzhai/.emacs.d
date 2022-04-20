@@ -75,8 +75,8 @@
 ;; (setq register-preview-delay 0.1
 ;;       register-preview-function #'consult-register-format)
 
-(global-set-key (kbd "C-c J") 'consult-register-store)
-(global-set-key (kbd "C-c j") 'consult-register-load)
+(global-set-key (kbd "C-c J") 'point-to-register)
+(global-set-key (kbd "C-c j") 'jump-to-register)
 
 ;; minimap 不怎么用
 ;; (setq minimap-window-location 'right)

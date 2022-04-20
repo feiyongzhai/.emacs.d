@@ -3,5 +3,7 @@
 # key: cb
 # condition: (and (texmathp) 'auto)
 # group: math
+# type: command
 # --
-`(delete-backward-char 1)`^3$0
+(delete-backward-char 1)
+(yas-expand-snippet "^3$0")

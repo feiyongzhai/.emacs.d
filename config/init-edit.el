@@ -58,6 +58,7 @@
 (setq shift-select-mode 'permanent)
 
 ;;; Misc
+(global-set-key (kbd "C-x i") 'insert-char)
 
 (global-set-key (kbd "S-SPC") 'just-one-space)
 

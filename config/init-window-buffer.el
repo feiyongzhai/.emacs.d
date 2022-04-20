@@ -32,6 +32,10 @@
 ;; (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 
+;; These two keybindings is inspired by `C-x -'
+(global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
+(global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
+
 (autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))

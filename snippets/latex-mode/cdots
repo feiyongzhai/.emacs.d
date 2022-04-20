@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cdots
+# key: c...
+# condition: (and (texmathp) 'auto)
+# group: math
+# --
+\\cdots $0

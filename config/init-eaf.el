@@ -50,6 +50,7 @@
   (eaf-bind-key add_annot_squiggly "s" eaf-pdf-viewer-keybinding)
   (eaf-bind-key add_annot_underline "a" eaf-pdf-viewer-keybinding)
   (eaf-bind-key fei-eaf-open-pdf-external "e" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key file-manager-here "1" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down_page "<backspace>" eaf-pdf-viewer-keybinding)
   (eaf-bind-key youdao-dictionary-search-from-input "<return>" eaf-pdf-viewer-keybinding)
   (eaf-bind-key fei-eaf-open-pdf-external "C-c e" eaf-pdf-viewer-keybinding)

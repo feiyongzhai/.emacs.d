@@ -250,7 +250,7 @@ kill region instead"
   (if fei-pyim-force-enable
       (setq fei-pyim-force-enable nil)
     (setq fei-pyim-force-enable t))
-  (activate-input-method "pyim")
+  (activate-input-method "rime")
   )
 
 (defun fei-rime-force-enable ()
@@ -276,7 +276,7 @@ kill region instead"
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
-  (activate-input-method 'pyim)
+  (activate-input-method 'rime)
   (auto-fill-mode)
   )
 
@@ -289,7 +289,7 @@ kill region instead"
   (org-capture nil "K")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-goto-SAR ()
   (interactive)
@@ -300,7 +300,7 @@ kill region instead"
   (org-capture nil "S")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-goto-WANT ()
   (interactive)
@@ -311,14 +311,14 @@ kill region instead"
   (org-capture nil "t")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
   ;; (olivetti-mode)
   ;; (auto-fill-mode)
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-note (&rest strings)
   (interactive)
@@ -331,7 +331,7 @@ kill region instead"
     ;; (delete-other-windows)
     ;; (olivetti-mode)
     ;; (auto-fill-mode)
-    (activate-input-method 'pyim)))
+    (activate-input-method 'rime)))
 
 (defun fei-org-capture-private ()
   (interactive)
@@ -340,7 +340,7 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-diary ()
   (interactive)
@@ -349,7 +349,7 @@ kill region instead"
   ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'pyim))
+  (activate-input-method 'rime))
 
 (defun fei-org-agenda ()
   (interactive)

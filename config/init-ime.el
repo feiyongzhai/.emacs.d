@@ -5,7 +5,7 @@
 
 ;; Pyim
 
-(pyim-isearch-mode)
+;; (pyim-isearch-mode)
 
 ;; 这行配置存在性能问题：
 ;; 1. 当在 minibuffer 中粘贴很长的一个链接的时候，会出现卡死的情况
@@ -75,7 +75,7 @@
 (setq rime-posframe-properties
       (list :internal-border-width 4))
 
-(setq default-input-method "pyim"
+(setq default-input-method "rime"
       rime-show-candidate nil
       rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-preedit t

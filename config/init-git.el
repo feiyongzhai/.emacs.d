@@ -25,7 +25,7 @@
 	;; log-edit-insert-filenames-without-changelog
 	auto-fill-mode
 	display-fill-column-indicator-mode
-        (lambda () (activate-input-method 'pyim))
+        (lambda () (activate-input-method 'rime))
 	))
 
 (provide 'init-git)

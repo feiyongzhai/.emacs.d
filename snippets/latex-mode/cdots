@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: cdots
-# key: c...
+# key: cds
 # condition: (and (texmathp) 'auto)
 # group: math
 # --

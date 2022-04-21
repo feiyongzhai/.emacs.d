@@ -14,6 +14,12 @@
 (setq tab-bar-tab-name-function 'tab-bar-tab-name-truncated)
 ;; (setq tab-bar-new-tab-choice 'eshell)
 
+(setq tab-bar-new-tab-to 'rightmost)
+(defun fei-tab-duplicate-advisor (orig-fun &rest args)
+  (let ((tab-bar-new-tab-to 'right))
+    (apply orig-fun args)))
+(advice-add 'tab-bar-duplicate-tab :around 'fei-tab-duplicate-advisor)
+
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 (global-set-key (kbd "M-s C-m") 'fei-tab-switch)
 (global-set-key (kbd "M-s C-i") 'tab-bar-echo-area-print-tab-names)

@@ -72,7 +72,7 @@
 	;; register-alist ;默认保存 register 会保存很多无意义的 register,即 register 的内容丢失，所以还是不开启好用一点
 	file-name-history))
 
-(desktop-save-mode t)
+;; (desktop-save-mode t)
 
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))

@@ -48,6 +48,13 @@
 (add-hook 'LaTeX-mode-hook #'laas-mode)
 (add-hook 'org-mode-hook #'laas-mode)
 
+(with-eval-after-load 'laas
+  (aas-set-snippets 'laas-mode
+  :cond (lambda () (and (not (texmathp)) (quote auto)))
+  "dm" (li (yas-expand-snippet "\\[\n$0\n\\]"))
+  "mk" (li (yas-expand-snippet (yas-lookup-snippet "Inline Math" 'latex-mode))) ;可以复用 yasnippets
+  ))
+
 ;; === Auto Expand option 2 (powered by `yasnippet' & `post-command-hook') ===
 
 ;; @REF: https://github.com/karthink/.emacs.d/blob/0d56c66c2e2d53ba05366493f433e523cc36cd87/init.el#L2943

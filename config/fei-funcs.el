@@ -250,7 +250,7 @@ kill region instead"
   (if fei-pyim-force-enable
       (setq fei-pyim-force-enable nil)
     (setq fei-pyim-force-enable t))
-  (activate-input-method "rime")
+  (activate-input-method 'pyim)
   )
 
 (defun fei-rime-force-enable ()

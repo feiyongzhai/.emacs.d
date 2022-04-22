@@ -96,7 +96,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"M-n" "M-p"
+	"M-n" "M-p" "C-`"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 (provide 'init-ime)

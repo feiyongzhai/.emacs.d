@@ -72,8 +72,8 @@
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 ;; Consult
-;; (setq register-preview-delay 0.1
-;;       register-preview-function #'consult-register-format)
+(setq register-preview-delay 0.1
+      register-preview-function #'consult-register-format)
 
 (global-set-key (kbd "C-c J") 'point-to-register)
 (global-set-key (kbd "C-c j") 'jump-to-register)

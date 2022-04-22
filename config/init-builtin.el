@@ -62,18 +62,6 @@
 (setq display-time-default-load-average nil) ; 不显示time后面的不明数字
 (display-time-mode)
 
-(setq desktop-restore-frames nil)	; don't restore any frame
-(setq desktop-globals-to-save
-      '(desktop-missing-file-warning
-	tags-file-name
-	tags-table-list
-	search-ring
-	regexp-search-ring
-	;; register-alist ;默认保存 register 会保存很多无意义的 register,即 register 的内容丢失，所以还是不开启好用一点
-	file-name-history))
-
-;; (desktop-save-mode t)
-
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 
@@ -129,5 +117,9 @@
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;default is `compose-mail'
+
+;; Desktop
+(global-set-key (kbd "C-c d r") 'desktop-read) ;if you `desktop-read' by accident, you can use `desktop-clear'
+(global-set-key (kbd "C-c d s") 'desktop-save)
 
 (provide 'init-builtin)

@@ -9,7 +9,7 @@
 
 (setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
-(setq tab-bar-new-tab-choice 'ibuffer)	;default is duplicate
+(setq tab-bar-new-tab-choice 'fei-eshell-cd-here) ;default is duplicate
 (setq tab-bar-close-last-tab-choice nil)
 (setq tab-bar-tab-name-function 'tab-bar-tab-name-truncated)
 ;; (setq tab-bar-new-tab-choice 'eshell)
@@ -38,6 +38,7 @@
   (define-key term-mode-map (kbd "M-7") 'nil)
   (define-key term-mode-map (kbd "M-8") 'nil)
   (define-key term-mode-map (kbd "M-9") 'nil)
+  (define-key term-mode-map (kbd "M-`") 'nil)
   )
 
 (defun fei-tab-switch (name)
@@ -70,5 +71,8 @@
       (tab-bar-select-tab tab-number))))
 
 (global-set-key [remap tab-bar-select-tab] 'fei-select-tab)
+(global-set-key (kbd "M-0") 'tab-close)
+(global-set-key (kbd "M--") 'tab-undo)
+(global-set-key (kbd "M-`") 'tab-recent)
 
 (provide 'init-tab-bar)

@@ -58,6 +58,9 @@
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history
 
+	;; ==== Theme ====
+	kaolin-themes
+
 	;; ==== Major-mode ====
 	markdown-mode matlab-mode
 	auctex cdlatex
@@ -67,7 +70,8 @@
 	;; org-roam org-roam-server
 
 	;; ==== Minibuffer ====
-	orderless marginalia consult vertico embark
+	orderless marginalia consult vertico
+	;; embark
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====

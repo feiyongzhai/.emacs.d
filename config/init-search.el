@@ -7,7 +7,8 @@
 (setq lazy-count-prefix-format nil)
 (with-eval-after-load 'isearch
   (define-key isearch-mode-map (kbd "M-g") 'isearch-cancel)
-  (define-key isearch-mode-map (kbd "DEL") 'isearch-del-char)
+  ;; (define-key isearch-mode-map (kbd "DEL") 'isearch-del-char) ;default is `isearch-delete-char'
+
   ;; M-j 配合 `isearch-mode-hook' 和 `isearch-mode-end-hook' 可以完成
   ;; 在 isearch 的情况下也是 "输入中文" 这个功能，这样 M-j 按键的功能
   ;; 就有一致性的表现了

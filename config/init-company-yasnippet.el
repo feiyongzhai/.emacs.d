@@ -23,7 +23,7 @@
   
   (setq company-show-numbers t)
   (setq company-idle-delay 0.1
-	company-minimum-prefix-length 1
+	company-minimum-prefix-length 3
 	company-tooltip-limit 10
 	company-echo-delay (if (display-graphic-p) nil 0))
   ;;; 避免补全中文的一个workaround

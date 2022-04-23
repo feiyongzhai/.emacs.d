@@ -78,41 +78,33 @@
   (setq org-capture-templates
 	`(("t" "Task" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
-	   "* TODO %?\nCREATE: %T\n"
-	   )
+	   "* TODO %?\nCREATE: %T\n")
 	  ("s" "SomeDay" entry
 	   (file "~/Nutstore Files/org/gtd.org")
-	   "* SOMEDAY %?\nCREATE: %T\n"
-	   )
+	   "* SOMEDAY %?\nCREATE: %T\n")
 	  ("S" "SAR" entry
 	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox")
-	   "* TODO %?"
-	   )
+	   "* TODO %?")
 	  ("K" "Research" entry
 	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
-	   "* %(substring (current-time-string) 11 16) %?"
-	   )
+	   "* %(substring (current-time-string) 11 16) %?")
 	  ("i" "Inbox" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?"
-	   )
+	   "* %(substring (current-time-string) 11 16) %?")
 	  ("P" "Private" entry
 	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?"
+	   "* %(substring (current-time-string) 11 16) %i%?"
 	   :immediate-finish t)
 	  ("p" "Private" entry
 	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?"
-	   )
+	   "* %(substring (current-time-string) 11 16) %?")
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/private/diary.org")
-	   "* %t\n%?"
-	   )
+	   "* %t\n%?")
 	  ("c" "Code Snippets")
 	  ("ce" "Code Snippets for Emacs" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
-	   "* %?CREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src"
-	   )
+	   "* %?CREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src")
 	  ("co" "Code Snippets for Others" entry
 	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
 	   "* %?\nCREATE: %T\n#+begin_src shell\n%^C\n#+end_src"

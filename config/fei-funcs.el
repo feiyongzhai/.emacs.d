@@ -326,7 +326,7 @@ kill region instead"
   (if strings
       (progn
 	(setq strings (eshell-flatten-and-stringify strings))
-        (org-capture-string strings "I") nil)
+        (org-capture-string strings "P") nil)
     (org-capture nil "i")
     ;; (delete-other-windows)
     ;; (olivetti-mode)

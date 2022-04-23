@@ -54,6 +54,7 @@
   (require 'init-tool-bar)
   (require 'init-menu-bar)
   (require 'init-modeline)
+  (require 'init-roam)
   
   (cond
    (*is-linux*
@@ -62,9 +63,8 @@
     (require 'init-win10)))
 
   ;; 尝鲜
-  (require 'init-tempel)
-  (require 'init-roam)
-
+  ;; (require 'init-tempel)
+  
   ;; local configs
   (let ((local-config "~/.emacs.d/config/init-local.el"))
     (when (file-exists-p local-config)

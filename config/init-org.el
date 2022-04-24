@@ -115,5 +115,17 @@
 (setq-default org-download-image-dir "./images")
 (org-download-enable)
 
+;; Org Babel Dot(graphviz)
+;; @REF: https://joy.pm/post/2017-09-17-a_graphviz_primer/
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; this line activates dot
+
+(defun my/fix-inline-images ()
+  (when org-inline-image-overlays
+    (org-redisplay-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
+
 (provide 'init-org)
 ;;; init-org-markdown.el ends here.

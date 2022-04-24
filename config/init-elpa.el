@@ -28,7 +28,8 @@
 
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
-      '(magit citre sx bash-completion vterm vterm-toggle))
+      '(magit citre sx bash-completion
+	vterm vterm-toggle graphviz-dot-mode))
 
 ;;; general needed packages
 (setq fei-package-ensure-installed

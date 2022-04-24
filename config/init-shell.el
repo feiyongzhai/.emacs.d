@@ -4,7 +4,7 @@
 (require 'fei-funcs)
 (require 'eshell-hacks)
 
-(setq eshell-banner-message "")
+;; (setq eshell-banner-message "")
 (setq eshell-list-files-after-cd nil)
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)

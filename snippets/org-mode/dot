@@ -1,8 +1,10 @@
 # -*- mode: snippet -*-
 # name: dot
 # key: dot_
+# expand-env: ((yas-indent-line 'fixed))
 # --
-#+begin_src dot :file ${1:file} :cmdline -t${2:pdf} :exports none :results silent
-$0
+#+begin_src dot :file ${1:file}.png :cmdline -Kdot -Tpng :exports none
+  digraph ${2:name} {
+    $0
+  }
 #+end_src
-[[file:${3:path}]]

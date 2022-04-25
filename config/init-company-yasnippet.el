@@ -22,8 +22,8 @@
   (define-key company-search-map (kbd "M-p") 'company-select-previous)
   
   (setq company-show-numbers t)
-  (setq company-idle-delay 0.1
-	company-minimum-prefix-length 3
+  (setq company-minimum-prefix-length 3
+	;; company-idle-delay 0.1
 	company-tooltip-limit 10
 	company-echo-delay (if (display-graphic-p) nil 0))
   ;;; 避免补全中文的一个workaround

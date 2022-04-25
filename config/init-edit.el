@@ -59,6 +59,8 @@
 
 ;;; Misc
 (global-set-key (kbd "C-x i") 'insert-char)
+(global-set-key (kbd "C-x I") 'emoji-search)
+(global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
 (global-set-key (kbd "S-SPC") 'just-one-space)
 

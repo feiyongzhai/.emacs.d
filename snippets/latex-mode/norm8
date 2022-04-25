@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: norm
-# key: norm
+# name: norm8
+# key: norm8
 # condition: (and (texmathp) 'auto)
 # --
-\\left\\| $0 \\right\\|
+\\left\\| $0 \\right\\|_{\infty}

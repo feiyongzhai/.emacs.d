@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: norm
-# key: norm
+# name: text
+# key: text
 # condition: (and (texmathp) 'auto)
 # --
-\\left\\| $0 \\right\\|
+\\text{$0}

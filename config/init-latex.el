@@ -50,10 +50,17 @@
 
 (with-eval-after-load 'laas
   (aas-set-snippets 'laas-mode
-  :cond (lambda () (and (not (texmathp)) (quote auto)))
-  "dm" (li (yas-expand-snippet "\\[\n$0\n\\]"))
-  "mk" (li (yas-expand-snippet (yas-lookup-snippet "Inline Math" 'latex-mode))) ;可以复用 yasnippets
-  ))
+    :cond (lambda () (and (not (texmathp)) (quote auto)))
+    "dm" (li (yas-expand-snippet "\\[\n$0\n\\]"))
+    "mk" (li (yas-expand-snippet (yas-lookup-snippet "Inline Math" 'latex-mode))) ;可以复用 yasnippets
+    )
+  (aas-set-snippets 'laas-mode
+    :cond 'texmathp
+    "st" "\\text{s.t.}"
+    "qq" "\\quad"
+    "KK" "^k"
+    "pw" (li (yas-expand-snippet "^{$0}"))
+    ))
 
 ;; === Auto Expand option 2 (powered by `yasnippet' & `post-command-hook') ===
 

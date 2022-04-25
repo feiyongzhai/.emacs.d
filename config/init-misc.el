@@ -48,7 +48,6 @@
 (global-set-key (kbd "C-c o E") 'open-current-file-with-emacs)
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
-(global-set-key (kbd "M-s M-l") (li (switch-to-buffer "*scratch*")))
 (global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
 
 (fei-define-key-with-map global-map

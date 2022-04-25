@@ -18,6 +18,7 @@
 (setq view-read-only t)
 (with-eval-after-load 'view
   (define-key view-mode-map (kbd "i") 'symbol-overlay-put)
+  (define-key view-mode-map (kbd "<return>") 'youdao-dictionary-search-from-input)
   (define-key view-mode-map (kbd "o") 'fei-occur-for-mouse)
   (define-key view-mode-map (kbd "O") 'multi-occur-in-this-mode)
   (define-key view-mode-map (kbd "h") 'nil)

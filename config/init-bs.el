@@ -20,6 +20,11 @@
 (defun fei-bs-not-cur-major-mode (buf)
   (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
 
+(defun fei-bs-not-have-same-base-name (buf)
+  (with-current-buffer buf
+    (not (string= (file-name-base bs-cur-buffer-name)
+		  (file-name-base (buffer-name))))))
+
 (defun fei-bs-get-current-buffer-list ()
   (mapcar (lambda (buf) (buffer-name buf)) bs-current-list))
 
@@ -42,11 +47,10 @@
 
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
 (global-set-key (kbd "C-x C-b") 'fei-bs-show)
-(global-set-key (kbd "M-s b") 'fei-bs-show)
-(global-set-key (kbd "M-s M-b") 'fei-bs-show)
 (defun fei-bs-show ()
   (interactive)
   (setq bs-cur-major-mode major-mode)
+  (setq bs-cur-buffer-name (buffer-name))
   (call-interactively 'bs-show))
 
 (add-hook 'bs-mode-hook 'hl-line-mode)
@@ -59,6 +63,7 @@
 	("eshell-and-term" nil nil nil fei-bs-not-eshell/term bs-sort-buffer-interns-are-last)
 	("eww-and-w3m" nil nil nil fei-bs-not-eww/w3m bs-sort-buffer-interns-are-last)
 	("same-major" nil nil nil fei-bs-not-cur-major-mode bs-sort-buffer-interns-are-last)
+	("same-base-name" nil nil nil fei-bs-not-have-same-base-name bs-sort-buffer-interns-are-last)
 	("Org" nil nil nil fei-bs-not-org bs-sort-buffer-interns-are-last)
 	("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last)
 	))
@@ -72,6 +77,7 @@
   (define-key bs-mode-map (kbd "e") (li (fei-bs-set-configuration-default "eshell-and-term")))
   (define-key bs-mode-map (kbd "E") (li (fei-bs-set-configuration-default "EAF")))
   (define-key bs-mode-map (kbd "h") (li (fei-bs-set-configuration-default "same-major")))
+  (define-key bs-mode-map (kbd "H") (li (fei-bs-set-configuration-default "same-base-name")))
   (define-key bs-mode-map (kbd "O") (li (fei-bs-set-configuration-default "Org")))
   (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'switch-to-buffer)))
   (define-key bs-mode-map (kbd "I") (li (bs-kill) (call-interactively 'ibuffer)))

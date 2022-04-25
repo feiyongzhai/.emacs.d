@@ -24,8 +24,12 @@
 (global-set-key (kbd "M-S") 'swiper-isearch)
 (global-set-key (kbd "M-s s") 'swiper-isearch)
 
+(global-set-key (kbd "s-s") 'swiper-isearch)
+(global-set-key (kbd "s-r") 'swiper-isearch-backward)
 (with-eval-after-load 'swiper
   (define-key swiper-map (kbd "M-S") 'swiper-isearch-toggle)
+  (define-key swiper-map (kbd "s-s") 'swiper-C-s)
+  (define-key swiper-map (kbd "s-r") 'swiper-isearch-C-r)
   )
 
 (fei-define-key-with-map isearch-mode-map
@@ -33,10 +37,11 @@
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
     ("C-'" . avy-isearch)
-    ("M-'" . avy-isearch)		;gnome-terminal 读不到 C-',用这个代替
+    ("M-'" . avy-isearch)	 ;gnome-terminal 读不到 C-',用这个代替
     ("M-s r" . rg-isearch-project)
     ("<C-return>" . prot-search-isearch-other-end)
     ("M-S" . swiper-isearch-toggle)
+    ("s-s" . swiper-isearch-toggle)
     ))
 
 ;; (global-anzu-mode t)

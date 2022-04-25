@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inner productor
+# key: ip
+# --
+\\langle $0, \\rangle 

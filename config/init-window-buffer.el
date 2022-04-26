@@ -14,7 +14,7 @@
 
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x B") 'bookmark-jump)
-(global-set-key (kbd "C-x b") 'consult-buffer)
+;; (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
 (global-set-key (kbd "M-s m") 'fei-store-window-configuration)

@@ -22,7 +22,6 @@
     ("C-x f" . counsel-find-file)
     ("C-S-s" . swiper-isearch)
     ("M-x" . counsel-M-x)
-    ("C-x C-f" . counsel-find-file)
     ("M-s y" . counsel-yank-pop)
     ))
 

@@ -72,6 +72,8 @@
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 ;; Consult
+(setq consult-preview-key nil)		;不自动预览
+
 (setq register-preview-delay 0.1
       register-preview-function #'consult-register-format)
 

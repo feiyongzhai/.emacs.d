@@ -8,4 +8,4 @@
 (define-key minibuffer-local-map (kbd "C-M-i") 'switch-to-completions)
 (define-key completion-list-mode-map (kbd "C-M-i") 'switch-to-minibuffer)
 
-(provide 'live-completions)
+(provide 'init-live-completions)

@@ -39,8 +39,8 @@
       ("<C-return>" . browse-url-of-dired-file)
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
-      ("C-k" . dired-do-kill-lines)
       ("j" . dired-next-line)
+      ("J" . fei-counsel-fd-file-jump)
       ("k" . dired-previous-line)
       ("l" . dired-find-file)
       ("e" . wdired-change-to-wdired-mode)
@@ -57,6 +57,7 @@
 (define-key dired-mode-map (kbd "[") 'point-to-register)
 
 (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
+(define-key dired-mode-map (kbd ";e") 'fei-eshell-cd-here)
 ;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
 ;; @REF2: `ibuffer-jump' 的源码
 (defun dired-jump-following-symlinks ()

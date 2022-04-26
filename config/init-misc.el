@@ -6,7 +6,7 @@
 (define-key fei-prefix-map (kbd "j") 'fasd-ivy-find-file)
 (define-key fei-prefix-map (kbd "k") 'rg)
 (define-key fei-prefix-map (kbd "g") 'fei-search-1)
-(define-key fei-prefix-map (kbd "o") 'fei-counsel-fd-file-jump)
+(define-key fei-prefix-map (kbd "o") (li (fei-counsel-fd-file-jump nil "~/Desktop/文献仓库")))
 (define-key fei-prefix-map (kbd "e") 'file-manager-here)
 (define-key fei-prefix-map (kbd "0") 'scratch)
 (define-key fei-prefix-map (kbd "n") 'transient-scroll-up-line)
@@ -49,6 +49,7 @@
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
 (global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
+(global-set-key (kbd "M-s M-l") 'scratch)
 
 (fei-define-key-with-map global-map
   `(("<insert>"     . fei-occur-at-point)

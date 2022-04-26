@@ -54,7 +54,7 @@
 	smartparens
 	corfu tempel
 	olivetti
-	laas math-symbol-lists
+	math-symbol-lists laas
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history

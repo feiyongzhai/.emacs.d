@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# contributor : Rasmus Borgsmidt <rasmus@borgsmidt.dk>
+# key : alie
+# group: environments
+# name : align
+# --
+\begin{aligned}
+  $0
+\end{aligned}

@@ -58,6 +58,8 @@
     :cond 'texmathp
     "st" "\\text{s.t.}"
     "qq" "\\quad"
+    ",," "\\,"
+    ";;" "\\\\\n"
     "KK" "^k"
     "pw" (li (yas-expand-snippet "^{$0}"))
     ))

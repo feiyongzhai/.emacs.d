@@ -46,7 +46,7 @@
   (require 'init-engine)
   (require 'init-edit)
   (require 'init-thing-edit)
-  (require 'init-awesome-pair)
+  ;; (require 'init-awesome-pair)
   (require 'init-auto-save)
   (require 'init-alias)
   (require 'init-cursor)

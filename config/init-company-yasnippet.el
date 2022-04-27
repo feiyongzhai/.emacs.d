@@ -64,25 +64,9 @@
     (call-interactively 'company-yasnippet)))
 
 (with-eval-after-load 'yasnippet
-  (define-key yas-keymap (kbd "M-n") 'company/yas-next)
-  (define-key yas-keymap (kbd "M-p") 'company/yas-prev)
-
-  ;; experiment
-  ;; (define-key yas-minor-mode-map (kbd "SPC") yas-maybe-expand)
-  ;; (define-key yas-minor-mode-map (kbd "RET") yas-maybe-expand)
+  (define-key yas-keymap (kbd "M-n") 'yas-next-field)
+  (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
   )
-
-(defun company/yas-next ()
-  (interactive)
-  (or (when (company--active-p)
-	(company-select-next))
-      (yas-next-field)))
-
-(defun company/yas-prev ()
-  (interactive)
-  (or (when (company--active-p)
-	(company-select-previous))
-      (yas-prev-field)))
 
 (with-eval-after-load 'yasnippet
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))

@@ -16,9 +16,9 @@
   ;; "gg" 'browse-stackoverflow-search
   "SPC" 'counsel-M-x
   "w" 'pwd
+  "z" 'vterm-toggle
   "g" 'engine-mode-prefixed-map
-  "ff" 'ido-find-file
-  "fo" 'ido-find-file-other-window
+  "ff" 'counsel-find-file
   "ft" 'find-file-other-tab
   )
 
@@ -38,6 +38,7 @@
 	       (grep-mode . emacs)
 	       (Info-mode . emacs)
 	       (term-mode . emacs)
+	       (vterm-mode . emacs)
 	       (sdcv-mode . emacs)
 	       (anaconda-nav-mode . emacs)
 	       (log-edit-mode . emacs)
@@ -72,7 +73,6 @@
 	       (js2-error-buffer-mode . emacs)))
     (evil-set-initial-state (car p) (cdr p)))
   )
-
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

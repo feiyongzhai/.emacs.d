@@ -24,21 +24,36 @@
 (require 'eaf-vue-demo)
 ;; (require 'eaf-fei)
 
+
+;;; Vars
+
+(setq eaf-browser-continue-where-left-off t)
+(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
+(setq eaf-browser-enable-adblocker t)
+(setq eaf-browser-enable-autofill t)
+(setq eaf-browser-enable-scrollbar t)
+(setq eaf-music-play-order "random")
+(setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
+(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
+
+(setq eaf-proxy-type "socks5"
+      eaf-proxy-host "127.0.0.1"
+      eaf-proxy-port "1089")
+
+(unless *is-windows*
+  ;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
+  ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
+  ;; 				      ("." . browse-url-default-browser)))
+  (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
+			      ("." . browse-url-default-browser))))
+
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
-
-(fei-define-key-with-map global-map
-  '(
-    ("C-c e" . eaf-open-this-buffer)
-    ;; 终端用命令 `emacsclient -t file-name` 的时候，总是会响应快捷键
-    ;; `ESC [ I` 这一组按键序列（这个可以通过 C-h l 来查看），这就导致
-    ;; 启动的时候会自动调用下面的命令 `fei-eaf-file-share-current-dir`，
-    ;; 很烦人，也暂时不知道怎么解决这个问题，只能先不把 `M-[` 快捷键绑
-    ;; 定到命令上
-    ;; 
-    ;; ("M-[" . fei-eaf-file-share-current-dir)
-    ("M-]" . fei-eaf-file-share-current-dir)
-    ))
+(global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
+;; 终端用命令 `emacsclient -t file-name` 时，会响应这一组 `ESC [ I`按
+;; 键序列（可通过 C-h l 查看），导致启动的时候会自动调用下面的命令
+;; `fei-eaf-file-share-current-dir`
+;; (global-set-key (kbd "M-[") 'fei-eaf-file-share-current-dir)
 
 (with-eval-after-load 'eaf
   (tooltip-mode -1)
@@ -62,29 +77,6 @@
   
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   (define-key eaf-mode-map* (kbd "C-c b") #'list-bookmarks)
-  )
-
-;;; Vars
-
-(setq eaf-browser-continue-where-left-off t)
-(setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
-(setq eaf-browser-enable-adblocker t)
-(setq eaf-browser-enable-autofill t)
-(setq eaf-browser-enable-scrollbar t)
-(setq eaf-music-play-order "random")
-(setq eaf-marker-letters "JKHLNMUIOYPFDSAVCRREW")
-(setq confirm-kill-processes nil)	; 退出不需要确认杀死进程
-
-(setq eaf-proxy-type "socks5"
-      eaf-proxy-host "127.0.0.1"
-      eaf-proxy-port "1089")
-
-(unless *is-windows*
-  ;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
-  ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
-  ;; 				      ("." . browse-url-default-browser)))
-  (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
-			      ("." . browse-url-default-browser)))
   )
 
 ;;; Funcs
@@ -139,7 +131,6 @@
 	(dired-goto-file file))
     (message "You are not in EAF buffer!")))
 
-
 ;; 或许我可以给 EAF 来个 PR，不过不着急，先测试一段时间
 
 ;; 下面 patch 的功能：
@@ -172,7 +163,7 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
 (advice-remove 'dired-find-file 'eaf--dired-find-file-advisor)
 (advice-remove 'dired-find-alternate-file 'eaf--dired-find-file-advisor)
 
-;; default behavior of eaf
+;; Default behavior of eaf
 ;; (advice-remove #'find-file-noselect #'fei-eaf--find-file-noselect-advisor)
 ;; (advice-add 'dired-find-file :around 'eaf--dired-find-file-advisor)
 ;; (advice-add 'dired-find-alternate-file :around 'eaf--dired-find-file-advisor)
@@ -183,7 +174,6 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
   (when (and (eq major-mode 'eaf-mode)
 	     (string= eaf--buffer-app-name "pdf-viewer"))
     (start-process "evince" nil
-		   "evince" "-i" (cadr mode-line-position) (buffer-name)))
-  )
+		   "evince" "-i" (cadr mode-line-position) (buffer-name))))
 
 (provide 'init-eaf)

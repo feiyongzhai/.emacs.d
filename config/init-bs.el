@@ -1,24 +1,30 @@
-;; powered by builtin package `bs'
+;; Powered by builtin package `bs'
 
 (defun fei-bs-not-dired (buf)
-  (with-current-buffer buf (not (eq major-mode 'dired-mode))))
+  (with-current-buffer buf
+    (not (eq major-mode 'dired-mode))))
 
 (defun fei-bs-not-eaf (buf)
-  (with-current-buffer buf (not (eq major-mode 'eaf-mode))))
+  (with-current-buffer buf
+    (not (eq major-mode 'eaf-mode))))
 
 (defun fei-bs-not-eww/w3m (buf)
-  (with-current-buffer buf (not (or (eq major-mode 'eww-mode)
-				    (eq major-mode 'w3m-mode)))))
+  (with-current-buffer buf
+    (not (or (eq major-mode 'eww-mode)
+	     (eq major-mode 'w3m-mode)))))
 
 (defun fei-bs-not-eshell/term (buf)
-  (with-current-buffer buf (not (or (eq major-mode 'eshell-mode)
-				    (eq major-mode 'term-mode)))))
+  (with-current-buffer buf
+    (not (or (eq major-mode 'eshell-mode)
+	     (eq major-mode 'term-mode)))))
 
 (defun fei-bs-not-org (buf)
-  (with-current-buffer buf (not (eq major-mode 'org-mode))))
+  (with-current-buffer buf
+    (not (eq major-mode 'org-mode))))
 
 (defun fei-bs-not-cur-major-mode (buf)
-  (with-current-buffer buf (not (eq major-mode bs-cur-major-mode))))
+  (with-current-buffer buf
+    (not (eq major-mode bs-cur-major-mode))))
 
 (defun fei-bs-not-have-same-base-name (buf)
   (with-current-buffer buf
@@ -30,7 +36,8 @@
 
 (defun fei-switch-to-buffer-from-bs ()
   (interactive)
-  (let ((buf (completing-read "Switch to buffer: " (fei-bs-get-current-buffer-list))))
+  (let ((buf (completing-read "Switch to buffer: "
+			      (fei-bs-get-current-buffer-list))))
     (bs-kill)
     (switch-to-buffer buf)))
 

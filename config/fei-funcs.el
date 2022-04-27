@@ -226,14 +226,12 @@ kill region instead"
   (setq args (eshell-flatten-and-stringify args))
   (let* ((fasd (concat "fasd -d " args))
 	 (fasd-result (shell-command-to-string fasd))
-	 (path (replace-regexp-in-string "\n$" "" fasd-result))
-	 )
+	 (path (replace-regexp-in-string "\n$" "" fasd-result)))
     (if (eq 0 (length args))
 	(call-interactively 'fasd-find-file)
       (eshell/cd path)
       ;; (eshell/echo path)
-      )
-    ))
+      )))
 
 (defun fei-fasd-delete-file-from-db (file)
   (start-process "*fasd*" nil "fasd" "-D" file))
@@ -369,23 +367,6 @@ kill region instead"
   (require 'org)
   (call-interactively 'org-store-link))
 
-(defun fei-simple-compile ()
-  (interactive)
-  (save-buffer)
-  (let (compilation-read-command)
-    (call-interactively 'compile)))
-
-(defvar fei-dired-toggle-hidden nil
-  "t means on, nil means off")
-
-(defun fei-dired-toggle-hidden ()
-  (interactive)
-  (if fei-dired-toggle-hidden
-      (progn (dired-sort-other "-Bhl")
-	     (setq fei-dired-toggle-hidden nil))
-    (dired-sort-other (concat dired-listing-switches " -a"))
-    (setq fei-dired-toggle-hidden t)))
-
 ;; @REF: https://emacs-china.org/t/leader-vscode/19166/29?u=yongfeizhai
 (defun open-current-file-with-vscode ()
   (interactive)
@@ -448,7 +429,7 @@ kill region instead"
 ;; EAF related
 
 (defun fei-eaf-browse-url (url &optional _new-window)
-  "根据 `browse-url-chromium' 这个函数改的"
+  "根据 `browse-url-chromium' 这个函数改的 这个函数诞生是为了让终端下也可以用 eaf"
   (interactive (browse-url-interactive-arg "URL: "))
   (setq url (browse-url-encode-url url))
   (if (and (display-graphic-p)
@@ -461,9 +442,7 @@ kill region instead"
 (defun fei-eaf-file-share-current-dir ()
   (interactive)
   (if (display-graphic-p)
-      (progn
-	(require 'eaf)
-	(eaf-file-browser-qrcode (substring (pwd) 10)))
+      (eaf-file-browser-qrcode (substring (pwd) 10))
     (message "EAF doesn't support in terminal")))
 
 (defun fei-eaf-play-music ()
@@ -487,22 +466,6 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (isearch-exit)
   (call-interactively 'copy-region-as-kill))
-
-(defvar isearch-end-activate-input-method-predicate nil)
-
-(defun +fei-isearch-deacivate-input-method ()
-  (when (string= current-input-method "rime")
-    (deactivate-input-method)
-    (setq isearch-end-activate-input-method-predicate t)))
-
-(defun +fei-isearch-end-restore-input-method ()
-  (when isearch-end-activate-input-method-predicate
-    (activate-input-method "rime")
-    ;; 不知道什么原因，isearch-mode 退出之后重新激活输入法，会导致
-    ;; (default-value 'input-method-function) 的值变成 rime-input-method
-    ;; 不过目前可以用这个方法解决问题 (虽然不是从根本上解决，但是管用)
-    (setq-default input-method-function nil)
-    (setq isearch-end-activate-input-method-predicate nil)))
 
 ;; VC
 (defun fei-vc-dired-jump (arg)
@@ -604,11 +567,26 @@ confines of word boundaries (e.g. multiple words)."
 	  (set-buffer buf)
 	  (setq cursor-type 'bar))
 	(add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-	(message "Now is EMACS"))
+	(message "Now is EMACS 🤠"))
     (evil-mode 1)
     (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-    (message "Now is EVIL")
+    (message "Now is EVIL 👽")
     ))
+
+(defun emacs ()
+  (interactive)
+  (evil-mode -1)
+  (dolist (buf (buffer-list))
+    (set-buffer buf)
+    (setq cursor-type 'bar))
+  (add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+  (message "Now is EMACS 🤠"))
+
+(defun vim ()
+  (interactive)
+  (evil-mode 1)
+  (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+  (message "Now is EVIL 👽"))
 
 ;; Edit
 

@@ -1,8 +1,3 @@
-;;; Keys
-
-(with-eval-after-load 'elfeed
-  (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
-
 ;;; Vars
 
 (setq elfeed-feeds
@@ -20,6 +15,11 @@
 	;; ("https://sspai.com/feed" sspai)
 	))
 
-(setq shr-inhibit-images t)
+;;; Keys
+
+(with-eval-after-load 'elfeed
+  (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
+
+;; (setq shr-inhibit-images t) ;nil
 
 (provide 'init-elfeed)

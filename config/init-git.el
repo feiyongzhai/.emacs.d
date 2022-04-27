@@ -2,6 +2,18 @@
 
 (require 'fei-funcs)
 
+;;; Vars
+
+(setq log-edit-hook
+      '(log-edit-insert-message-template
+	log-edit-insert-cvs-template
+	log-edit-insert-changelog
+	;; log-edit-insert-filenames-without-changelog
+	auto-fill-mode
+	display-fill-column-indicator-mode
+        (lambda () (activate-input-method 'rime))
+	))
+
 ;;; Keys
 
 (global-set-key (kbd "C-x G") 'magit-status)
@@ -15,17 +27,5 @@
   (define-key vc-dir-mode-map (kbd "!") 'shell-command)
   (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
   )
-
-;;; Vars
-
-(setq log-edit-hook
-      '(log-edit-insert-message-template
-	log-edit-insert-cvs-template
-	log-edit-insert-changelog
-	;; log-edit-insert-filenames-without-changelog
-	auto-fill-mode
-	display-fill-column-indicator-mode
-        (lambda () (activate-input-method 'rime))
-	))
 
 (provide 'init-git)

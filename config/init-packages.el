@@ -2,6 +2,9 @@
 
 (require 'fei-funcs)
 
+(require 'cal-china-x)
+(setq calendar-week-start-day 1)
+
 ;; Treemacs
 (setq treemacs-position 'right)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)

@@ -213,6 +213,20 @@ change-cursor-mode inspired manual solution
 #+END_SRC
 
 * Company & Yasnippet
+#+BEGIN_SRC emacs-lisp
+(defun company/yas-next ()
+  (interactive)
+  (or (when (company--active-p)
+	(company-select-next))
+      (yas-next-field)))
+
+(defun company/yas-prev ()
+  (interactive)
+  (or (when (company--active-p)
+	(company-select-previous))
+      (yas-prev-field)))
+#+END_SRC
+
 之前抄的 karthink 的配置在会用到 backquote-change ，结果是会破坏undo，
 现在用 # type:command 的方式就不会出现 undo 逻辑的问题了，所以下面的配
 置就不需要了
@@ -302,6 +316,14 @@ change-cursor-mode inspired manual solution
 #+END_SRC
 
 * Misc
+#+BEGIN_SRC emacs-lisp
+(defun fei-simple-compile ()
+  (interactive)
+  (save-buffer)
+  (let (compilation-read-command)
+    (call-interactively 'compile)))
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
   ;; experiments
   (setq auto-hscroll-mode 'current-line)	;设置成 current-line 的时候，鼠标点的时候会抽风，不好用

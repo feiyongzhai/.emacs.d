@@ -1,4 +1,5 @@
 (setq help-window-select t)		;always select help window
+
 (global-set-key (kbd "C-h M-c") 'describe-char)
 (global-set-key (kbd "C-h M-f") 'describe-face)
 (global-set-key (kbd "C-h M-k") 'describe-keymap)

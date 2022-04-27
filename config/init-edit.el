@@ -93,6 +93,9 @@
 (global-set-key (kbd "C-x C-l") nil)
 (global-set-key (kbd "C-x C-u") nil)
 
-(transient-command undo (undo) '(("u" . undo)))
+(transient-command undo
+  (undo)
+  '(("u" . undo)
+    ("U" . undo-redo)))
 
 (provide 'init-edit)

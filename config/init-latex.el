@@ -59,7 +59,8 @@
     "st" "\\text{s.t.}"
     "qq" "\\quad"
     ",," "\\,"
-    ";;" "\\\\\n"
+    ;; ";;" "\\\\\n"			; laas 默认很多用 ;; 开头的 snippets，所以还是
+    "\\\\" "\\\\\n"
     "KK" "^k"
     "pw" (li (yas-expand-snippet "^{$0}"))
     ))

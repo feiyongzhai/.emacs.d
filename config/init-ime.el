@@ -99,5 +99,32 @@
 	"M-n" "M-p" "C-`"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
+;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用
+
+;; M-j 配合 `isearch-mode-hook' 和 `isearch-mode-end-hook' 可以完成在
+;; isearch 的情况下也是 "输入中文" 这个功能，这样 M-j 按键的功能就有一
+;; 致性的表现了
+
+(define-key isearch-mode-map (kbd "M-j") 'isearch-edit-string)
+
+(add-hook 'isearch-mode-hook '+fei-isearch-deacivate-input-method)
+(add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
+
+
+(defvar isearch-end-activate-input-method-predicate nil)
+
+(defun +fei-isearch-deacivate-input-method ()
+  (when (string= current-input-method "rime")
+    (deactivate-input-method)
+    (setq isearch-end-activate-input-method-predicate t)))
+
+(defun +fei-isearch-end-restore-input-method ()
+  (when isearch-end-activate-input-method-predicate
+    (activate-input-method "rime")
+    ;; 不知道什么原因，isearch-mode 退出之后重新激活输入法，会导致
+    ;; (default-value 'input-method-function) 的值变成 rime-input-method
+    ;; 不过目前可以用这个方法解决问题 (虽然不是从根本上解决，但是管用)
+    (setq-default input-method-function nil)
+    (setq isearch-end-activate-input-method-predicate nil)))
 (provide 'init-ime)
 ;;; init-ime.el ends here.

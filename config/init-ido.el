@@ -1,7 +1,3 @@
-;; Fido
-(setq icomplete-compute-delay 0)
-
-;; Ido
 (setq ido-enable-flex-matching t)
 (setq ido-use-virtual-buffers nil)
 ;; (setq ido-max-window-height 1)

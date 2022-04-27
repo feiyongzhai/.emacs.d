@@ -4,6 +4,7 @@
 (with-eval-after-load 'org
   ;; 控制 org-latex-preview
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   )
 (setq org-highlight-latex-and-related '(native)
       ;; org-ellipsis " ∇ "
@@ -43,6 +44,8 @@
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "C-c S") 'fei-org-store-link)
+(global-set-key (kbd "C-S-y") 'org-download-clipboard)
+
 
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (defun fei-pomodoro-timer ()

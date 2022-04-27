@@ -17,16 +17,17 @@
 ;; (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
-(global-set-key (kbd "M-s m") 'fei-store-window-configuration)
-(global-set-key (kbd "M-s u") 'fei-load-window-configuration)
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "M-s m") 'window-configuration-to-register)
+(global-set-key (kbd "M-s u") 'jump-to-register)
+;; (global-set-key (kbd "M-s m") 'fei-store-window-configuration)
+;; (global-set-key (kbd "M-s u") 'fei-load-window-configuration)
 (global-set-key (kbd "M-s M") 'fei-store-file)
 (global-set-key (kbd "M-s U") 'fei-load-file)
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
-(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)
 (global-set-key (kbd "C-x w s") 'window-swap-states)
-(global-set-key (kbd "C-S-m") 'maximize-window)		; matlab like keybinding
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
 ;; (global-set-key (kbd "C-x o") 'ace-window)

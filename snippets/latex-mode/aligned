@@ -2,7 +2,7 @@
 # contributor : Rasmus Borgsmidt <rasmus@borgsmidt.dk>
 # key : alie
 # group: environments
-# name : align
+# name : aligned
 # --
 \begin{aligned}
   $0

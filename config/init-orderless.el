@@ -3,15 +3,16 @@
 
 ;; powered by emacs29
 (setq minibuffer-completion-auto-choose nil)
-(setq completions-format 'horizontal)	;horizontal
-(setq completion-flex-nospace nil)	;nil
-(setq completions-detailed nil)		;nil
-(setq completion-auto-select 'second-tab)
+(setq completions-format 'horizontal)	  ;horizontal
+(setq completion-flex-nospace nil)	  ;nil
+(setq completions-detailed nil)		  ;nil
+(setq completion-auto-help t)		  ;t
+(setq completion-auto-select t)		  ;nil，这个设置搭配上面的快捷键效果还不错
 
 (define-key minibuffer-local-map (kbd "C-p") 'minibuffer-previous-completion)
 (define-key minibuffer-local-map (kbd "C-n") 'minibuffer-next-completion)
+(define-key minibuffer-local-completion-map (kbd "<C-return>") 'minibuffer-choose-completion)
 ;; (define-key minibuffer-local-must-match-map (kbd "RET") 'minibuffer-choose-completion)
-(define-key minibuffer-local-must-match-map (kbd "<C-return>") 'minibuffer-choose-completion)
 ;; (define-key minibuffer-local-map (kbd "<return>") 'minibuffer-choose-completion)
 ;; (define-key minibuffer-local-map (kbd "C-M-j") 'minibuffer-complete-and-exit)
 

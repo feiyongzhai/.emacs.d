@@ -62,6 +62,9 @@
    (*is-windows*
     (require 'init-win10)))
 
+  (server-start)
+  (setenv "EDITOR" "emacsclient")
+
   ;; 尝鲜
   ;; (require 'init-tempel)
   

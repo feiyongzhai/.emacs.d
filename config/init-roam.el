@@ -15,6 +15,10 @@
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
+	 ;; org-roam-alias-add
+	 ;; org-roam-tag-add
+	 ;; org-id-get-create
+	 ;; org-roam-refile
          ;; Dailies
          ("C-c n j" . org-roam-dailies-capture-today)
          ("C-c n J" . org-roam-dailies-goto-today)

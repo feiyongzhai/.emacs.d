@@ -4,7 +4,7 @@
 
 (with-eval-after-load 'evil
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
-  (define-key evil-normal-state-map (kbd "<tab>") 'ace-window)
+  (define-key evil-normal-state-map (kbd "<tab>") 'other-window)
   )
 
 ;;; Leader Key
@@ -16,6 +16,9 @@
   ;; "gg" 'browse-stackoverflow-search
   "SPC" 'counsel-M-x
   "w" 'pwd
+  "e" 'eshell
+  "k" 'kill-this-buffer
+  "m" 'execute-extended-command
   "z" 'vterm-toggle
   "g" 'engine-mode-prefixed-map
   "ff" 'counsel-find-file

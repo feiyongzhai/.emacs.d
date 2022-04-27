@@ -317,6 +317,28 @@ change-cursor-mode inspired manual solution
 
 * Misc
 #+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "M-s m") 'fei-store-window-configuration)
+  (global-set-key (kbd "M-s u") 'fei-load-window-configuration)
+  (global-set-key (kbd "M-s M") 'fei-store-file)
+  (global-set-key (kbd "M-s U") 'fei-load-file)
+  (defun fei-store-window-configuration ()
+    (interactive)
+    (window-configuration-to-register 'fei-window-register))
+
+  (defun fei-load-window-configuration ()
+    (interactive)
+    (jump-to-register 'fei-window-register))
+
+  (defun fei-store-file ()
+    (interactive)
+    (set-register 'fei-file-register `(file . ,(buffer-file-name))))
+
+  (defun fei-load-file ()
+    (interactive)
+    (jump-to-register 'fei-file-register))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
 (defun fei-simple-compile ()
   (interactive)
   (save-buffer)
@@ -391,6 +413,13 @@ change-cursor-mode inspired manual solution
 #+END_SRC
 
 * Eshell
+#+BEGIN_SRC emacs-lisp
+(defun eshell/fish ()
+  (interactive)
+  (ansi-term (executable-find "fish"))
+  (toggle-truncate-lines))
+#+END_SRC
+
 next-eshell-buffer
 #+BEGIN_SRC emacs-lisp
   ;; @ref https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el line 492
@@ -551,6 +580,20 @@ next-eshell-buffer
 #+END_SRC
 
 * Edit
+#+BEGIN_SRC emacs-lisp
+(defun mark-line ()
+  "Mark one whole line, similar to `mark-paragraph'.
+
+抄自懒猫的 basic-toolkit.el"
+  (interactive)
+  (beginning-of-line)
+  (if mark-active
+      (exchange-point-and-mark)
+    (push-mark nil nil t))
+  (forward-line)
+  (exchange-point-and-mark))
+#+END_SRC
+
 这个选项在大多数情况下很带来比较好的结果：可以用 tab 键做更多的事情，而且操作符合 bash 中习惯。但最近发现了一些问题：在 org 中使用 yasnippet ，如 <sh 这个 snippets 。按 tab 键的时候，它总是给我提供一个补全选项，调用的是 ivy overlay 的补全窗口。而且此时按 C-g 取消后，就看不到光标了。必须把当前 buffer 关闭再打开才能重新看到光标。
 
 影响范围挺大的，暂时弃用了。

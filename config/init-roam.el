@@ -15,8 +15,9 @@
          ("C-c n g" . org-roam-graph)
          ("C-c n i" . org-roam-node-insert)
          ("C-c n c" . org-roam-capture)
-	 ;; org-roam-alias-add
-	 ;; org-roam-tag-add
+	 ("C-c n a" . org-roam-alias-add)
+	 ("C-c n t" . org-roam-tag-add)
+	 ("C-c n r" . org-roam-node-random)
 	 ;; org-id-get-create
 	 ;; org-roam-refile
          ;; Dailies

@@ -193,11 +193,6 @@ kill region instead"
       (eshell-life-is-too-much)
     (delete-char arg)))
 
-(defun eshell/fish ()
-  (interactive)
-  (ansi-term (executable-find "fish"))
-  (toggle-truncate-lines))
-
 ;; @REF: https://github.com/ramsayleung/emacs.d/blob/6b85374180e0a622301df0d0ab8ff08cbab46c4a/lisp/init-eshell.el#L14
 (defun eshell/unpack (file &rest args)
   "Unpack FILE with ARGS using default command."
@@ -233,33 +228,7 @@ kill region instead"
       ;; (eshell/echo path)
       )))
 
-(defun fei-fasd-delete-file-from-db (file)
-  (start-process "*fasd*" nil "fasd" "-D" file))
-
 ;; Eshell Related End
-
-;; IME related
-
-(defvar fei-pyim-force-enable nil)
-(defun fei-pyim-force-enable () fei-pyim-force-enable)
-(with-eval-after-load 'pyim
-  (add-to-list 'pyim-force-input-chinese-functions 'fei-pyim-force-enable))
-
-(defun fei-activate-pyim ()
-  "暂时无法实现像 rime 中那个样子的强制启用一次输入中文的功能，只能做成这个样子，不过也挺好用的"
-  (interactive)
-  ;; (pyim-convert-string-at-point)
-  (if fei-pyim-force-enable
-      (setq fei-pyim-force-enable nil)
-    (setq fei-pyim-force-enable t))
-  (activate-input-method 'pyim)
-  )
-
-(defun fei-rime-force-enable ()
-  (interactive)
-  (activate-input-method "rime")
-  (call-interactively 'rime-force-enable)
-  )
 
 ;; Org related
 
@@ -289,8 +258,6 @@ kill region instead"
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-goto-SAR ()
@@ -300,8 +267,6 @@ kill region instead"
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-goto-WANT ()
@@ -311,15 +276,11 @@ kill region instead"
 (defun fei-org-capture-TODO ()
   (interactive)
   (org-capture nil "t")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (activate-input-method 'rime))
 
 (defun fei-org-capture-note (&rest strings)
@@ -330,16 +291,11 @@ kill region instead"
 	(setq strings (eshell-flatten-and-stringify strings))
         (org-capture-string strings "P") nil)
     (org-capture nil "i")
-    ;; (delete-other-windows)
-    ;; (olivetti-mode)
-    ;; (auto-fill-mode)
     (activate-input-method 'rime)))
 
 (defun fei-org-capture-private ()
   (interactive)
   (org-capture nil "p")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
   (activate-input-method 'rime))
@@ -347,8 +303,6 @@ kill region instead"
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")
-  ;; (olivetti-mode)
-  ;; (auto-fill-mode)
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
   (activate-input-method 'rime))
@@ -472,8 +426,7 @@ confines of word boundaries (e.g. multiple words)."
   (interactive "P")
   (let ((target-dir (or (vc-root-dir)
                         default-directory)))
-    (vc-dir target-dir))
-  )
+    (vc-dir target-dir)))
 
 
 ;; Misc
@@ -489,8 +442,7 @@ confines of word boundaries (e.g. multiple words)."
 	   (find-file (concat current-name ".pdf")))
 	  ((string= current-ext "pdf")
 	   (find-file (concat current-name ".org")))
-	  (t (message "当前不支持这个文件")))
-    ))
+	  (t (message "当前不支持这个文件")))))
 
 (defun fei-sdcv ()
   (interactive)
@@ -502,8 +454,7 @@ confines of word boundaries (e.g. multiple words)."
 
 (defun catfish ()
   (interactive)
-  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: "))
-  )
+  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: ")))
 
 (defun file-manager-here()
   "Open an external Windows cmd in the current directory"
@@ -511,8 +462,7 @@ confines of word boundaries (e.g. multiple words)."
   (cond (*is-windows*
 	 (call-process-shell-command "start explorer ."))
 	(*is-linux*
-	 (call-process-shell-command "xdg-open .")))
-  )
+	 (call-process-shell-command "xdg-open ."))))
 
 (defun fei-toggle-ui ()
   (interactive)
@@ -528,8 +478,7 @@ confines of word boundaries (e.g. multiple words)."
   (interactive)
   (if-let ((window (get-buffer-window "*Occur*")))
       (delete-window window)
-    (fei-occur-at-point))
-  )
+    (fei-occur-at-point)))
 
 (defun fei-occur-at-point ()
   (interactive)
@@ -570,8 +519,7 @@ confines of word boundaries (e.g. multiple words)."
 	(message "Now is EMACS 🤠"))
     (evil-mode 1)
     (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-    (message "Now is EVIL 👽")
-    ))
+    (message "Now is EVIL 👽")))
 
 (defun emacs ()
   (interactive)
@@ -595,8 +543,7 @@ confines of word boundaries (e.g. multiple words)."
   (if (eq display-line-numbers-type 'visual)
       (menu-bar--display-line-numbers-mode-absolute)
     ;; I find visual style is more useful than relative
-    (menu-bar--display-line-numbers-mode-visual)
-    ))
+    (menu-bar--display-line-numbers-mode-visual)))
 
 (add-to-list 'load-path "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
@@ -606,17 +553,6 @@ confines of word boundaries (e.g. multiple words)."
       (call-interactively 'duplicate-line-below-comment)
     (call-interactively 'duplicate-line-or-region-below)))
 
-(defun mark-line ()
-  "Mark one whole line, similar to `mark-paragraph'.
-
-抄自懒猫的 basic-toolkit.el"
-  (interactive)
-  (beginning-of-line)
-  (if mark-active
-      (exchange-point-and-mark)
-    (push-mark nil nil t))
-  (forward-line)
-  (exchange-point-and-mark))
 
 ;; Neotree
 
@@ -687,29 +623,12 @@ confines of word boundaries (e.g. multiple words)."
 (defun symbol-overlay-find-at-point-project ()
   (interactive)
   (project-find-regexp (thing-at-point 'symbol)))
-
-;; Register
-(defun fei-store-window-configuration ()
-  (interactive)
-  (window-configuration-to-register 'fei-window-register))
 
-(defun fei-load-window-configuration ()
-  (interactive)
-  (jump-to-register 'fei-window-register))
-
-(defun fei-store-file ()
-  (interactive)
-  (set-register 'fei-file-register `(file . ,(buffer-file-name))))
-
-(defun fei-load-file ()
-  (interactive)
-  (jump-to-register 'fei-file-register))
 
 ;; Counsel
 (defun fei-counsel-rg-my-org ()
   (interactive)
-  (counsel-rg nil "~/Nutstore Files/org")
-  )
+  (counsel-rg nil "~/Nutstore Files/org"))
 
 ;; @REF: counsel-fd.el :: `counsel-fd-file-jump'
 (defun fei-counsel-fd-file-jump (&optional initial-input initial-directory)
@@ -732,7 +651,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
 
-;; treemacs
+;; Treemacs
 (defun fei-switch-to-treemacs ()
   (interactive)
   (catch 'done

@@ -34,6 +34,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
+(defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
 (defalias 'sh 'shell)
 (defalias 'ev 'evil-mode-with-cursor)

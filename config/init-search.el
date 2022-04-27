@@ -13,6 +13,7 @@
 (global-set-key (kbd "s-g") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-S") 'swiper-isearch)
+(global-set-key (kbd "M-s s") 'swiper-isearch)
 
 (global-set-key (kbd "s-s") 'swiper-isearch)
 (global-set-key (kbd "s-r") 'swiper-isearch-backward)

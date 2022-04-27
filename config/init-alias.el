@@ -25,7 +25,7 @@
 (defalias 'je (li (find-file "~/.emacs.d")))
 (defalias 'ja (li (find-file "~/.emacs.d/config/init-alias.el")))
 (defalias 'jg (li (find-file "~/Nutstore Files/")))
-(defalias 'jo (li (find-file "~/Nutstore Files/org")))
+(defalias 'org (li (find-file "~/Nutstore Files/org")))
 (defalias 'jl 'fei-meow-last-buffer)
 
 (defalias 'ov 'open-current-file-with-vscode)

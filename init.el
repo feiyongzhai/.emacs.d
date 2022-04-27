@@ -62,9 +62,6 @@
    (*is-windows*
     (require 'init-win10)))
 
-  (server-start)
-  (setenv "EDITOR" "emacsclient")
-
   ;; 尝鲜
   ;; (require 'init-tempel)
   
@@ -77,5 +74,7 @@
   ;; (when (file-exists-p custom-file)
   ;;   (load-file custom-file))
   )
+
+(server-start)
 
 ;; init.el ends here

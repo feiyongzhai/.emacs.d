@@ -1,14 +1,27 @@
 ;;; init-org.el == configs for Org/Markdown
 (require 'fei-funcs)
 
+;; (setq valign-fancy-bar t)
+(add-hook 'org-mode-hook #'valign-mode)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+(add-hook 'org-mode-hook '+fei-org-mode-hook)
+
+(defun +fei-org-mode-hook ()
+  ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
+  (yas-minor-mode)
+  (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
+  (toggle-truncate-lines -1))
+
 (with-eval-after-load 'org
   ;; 控制 org-latex-preview
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   )
+
 (setq org-highlight-latex-and-related '(native)
       ;; org-ellipsis " ∇ "
       org-adapt-indentation nil)
+
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 (setq system-time-locale "C")
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
@@ -30,23 +43,6 @@
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
 
-(add-hook 'org-mode-hook '+fei-org-mode-hook)
-(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-(defun +fei-org-mode-hook ()
-  ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
-  (yas-minor-mode)
-  (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
-  (toggle-truncate-lines -1))
-
-;; Keys
-(global-set-key (kbd "<pause>") 'fei-org-time)
-(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
-(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "C-c S") 'fei-org-store-link)
-(global-set-key (kbd "C-S-y") 'org-download-clipboard)
-
-
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (defun fei-pomodoro-timer ()
   (interactive)
@@ -58,11 +54,20 @@
   ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
   )
 
+;; Keys
+(global-set-key (kbd "<pause>") 'fei-org-time)
+(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
+(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
+(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
+(global-set-key (kbd "C-c S") 'fei-org-store-link)
+(global-set-key (kbd "C-S-y") 'org-download-clipboard)
+
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)
+(global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
 (global-set-key (kbd "C-c n p") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
 (global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)

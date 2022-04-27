@@ -1,14 +1,19 @@
-;; @REF: https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
+;; init-font.el
 
 ;; Commentary:
+
 ;; 其实我不太知道 EMACS 中的 font 的工作机制，但是我下面的配置可以完成我预期的效果。
 ;; So, anyway, it works! 🐼🐼🐼
+
+;; SEE ALSO
+;; @REF: https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
 
 ;; (setq-default line-spacing 3)		;控制每行之间的间距，和字体配合使用
 
 (custom-set-faces
  ;; '(default ((t (:family "Hack" :foundry "simp" :slant normal :weight normal :height 143 :width normal))))
  '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 143 :width normal))))
+ ;; '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight regular :height 128 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 181 :width normal))))
  ;; '(default ((t (:family "等距更纱黑体 SC" :foundry "????" :slant normal :weight normal :height 158 :width normal))))

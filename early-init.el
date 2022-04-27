@@ -26,8 +26,7 @@
 (set-keyboard-coding-system  'utf-8)
 
 
-;; 这行代码放在这里，启动速度会快一点，
-(package-initialize)
+(package-initialize)		 ;这行代码放在这里，启动速度会快一点，
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))

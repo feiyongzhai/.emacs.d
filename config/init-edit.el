@@ -18,7 +18,6 @@
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 ;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中用特殊的含义，和 f1-f4 绑定在一起
 (global-set-key (kbd "C-'") 'avy-resume)
-(global-set-key (kbd "M-g M-g") 'consult-goto-line)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
@@ -67,13 +66,12 @@
 (global-set-key (kbd "C-c q") 'query-replace)
 (global-set-key (kbd "C-c Q") 'query-replace-regexp)
 
-(global-set-key (kbd "C-c o o") 'consult-outline)
-(global-set-key (kbd "M-X") 'consult-mode-command)
+(global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-=") 'align-regexp)
-(global-set-key (kbd "C-x l") 'ialign)
+(global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
 (global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
 
 (add-to-list 'load-path "~/.emacs.d/extensions/move-text")

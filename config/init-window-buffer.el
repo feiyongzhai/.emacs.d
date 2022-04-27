@@ -14,7 +14,6 @@
 
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x B") 'bookmark-jump)
-;; (global-set-key (kbd "C-x b") 'consult-buffer)
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)

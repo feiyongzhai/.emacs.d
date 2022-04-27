@@ -293,6 +293,10 @@ kill region instead"
     (org-capture nil "i")
     (activate-input-method 'rime)))
 
+(defun fei-org-capture-goto-note ()
+  (interactive)
+  (org-capture-goto-target "i"))
+
 (defun fei-org-capture-private ()
   (interactive)
   (org-capture nil "p")

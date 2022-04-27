@@ -44,10 +44,9 @@
 	evil general
 	company yasnippet
 	avy ace-window
-	deadgrep
 	neotree
 	electric-spacing highlight-indent-guides
-	iedit ialign
+	iedit
 	yafolding pyvenv conda
 	symbol-overlay
 	separedit
@@ -71,8 +70,8 @@
 	;; org-roam org-roam-server
 
 	;; ==== Minibuffer ====
-	orderless marginalia consult vertico
-	;; embark
+	orderless vertico
+	;; consult embark marginalia
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====
@@ -111,8 +110,10 @@
 	;; focus
 	;; dired-sider-bar
 	;; ivy-posframe
+	;; deadgrep
 	;; ==== 不想折腾了 ====
 	;; w3m mb-url
+	;; ialign 它竟然会修改只读 buffer
 
 	))
 

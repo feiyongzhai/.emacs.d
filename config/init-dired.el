@@ -40,6 +40,7 @@
       ("<C-return>" . browse-url-of-dired-file)
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
+      ("C-k" . dired-kill-subdir)
       ("j" . dired-next-line)
       ("J" . fei-counsel-fd-file-jump)
       ("k" . dired-previous-line)

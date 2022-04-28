@@ -202,17 +202,6 @@
           (decf n)))))
 #+END_SRC
 * <C-M-backspace> 在系统层面绑定了 kill xorg 命令
-* evil 把指示放到前面
-#+BEGIN_SRC emacs-lisp
-  ;; 最终我还是没有把指示放到前面，因为我发现这样每次要看指示的很累，要看右下角，而原来在中间看起来很舒服一点
-  (setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
-  (setq evil-insert-state-tag " [I]")
-  (setq evil-normal-state-tag " [N]")
-  (setq evil-visual-state-tag " [V]")
-  (setq evil-motion-state-tag " [M]")
-  (setq evil-emacs-state-tag " [E]")
-#+END_SRC
-
 * Rime 输入法相关链接备忘
 
 小鹤双拼方案地址: https://github.com/cnfeat/Rime

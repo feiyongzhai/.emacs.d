@@ -1,5 +1,12 @@
 ;;; init-evil --- configs for evil
 
+(setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
+(setq evil-insert-state-tag " [I]")
+(setq evil-normal-state-tag " [N]")
+(setq evil-visual-state-tag " [V]")
+(setq evil-motion-state-tag " [M]")
+(setq evil-emacs-state-tag " [E]")
+
 ;;; Keys
 
 (with-eval-after-load 'evil
@@ -16,6 +23,7 @@
   "SPC" 'counsel-M-x
   "w" 'pwd
   "j" 'fasd-ivy-find-file
+  "l" 'fei-meow-last-buffer
   "e" 'eshell
   "k" 'kill-this-buffer
   "m" 'execute-extended-command

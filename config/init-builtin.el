@@ -11,7 +11,7 @@
 (show-paren-mode)
 (blink-cursor-mode -1)
 (repeat-mode)
-;; (savehist-mode t)		    ;保存 minibuffer 历史
+(savehist-mode t)		    ;保存 minibuffer 历史
 ;; (global-subword-mode 1)
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))

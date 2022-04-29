@@ -59,7 +59,7 @@
 	helm-chrome helm-chrome-history
 
 	;; ==== Theme ====
-	kaolin-themes
+	kaolin-themes intellij-theme
 
 	;; ==== Major-mode ====
 	markdown-mode matlab-mode

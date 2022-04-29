@@ -26,6 +26,8 @@
 (defalias 'ja (li (find-file "~/.emacs.d/config/init-alias.el")))
 (defalias 'jg (li (find-file "~/Nutstore Files/")))
 (defalias 'org (li (find-file "~/Nutstore Files/org")))
+(defalias 'dot (li (find-file "~/Repos/dotfiles")))
+(defalias 'sc 'scratch)
 (defalias 'jl 'fei-meow-last-buffer)
 
 (defalias 'ov 'open-current-file-with-vscode)

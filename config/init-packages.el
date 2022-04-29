@@ -147,5 +147,9 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/grep-dired")
 (autoload 'grep-dired "grep-dired" nil t) ;emacs 自带了一个相似的命令 `find-name-dired'
 
+;; jetbrains == Interoperable between emacs with jetbrains IDE
+(autoload 'jetbrains-open-buffer-file "jetbrains" nil t)
+(autoload 'jetbrains-create-dir-local-file "jetbrains" nil t)
+(global-set-key (kbd "C-M-9") 'jetbrains-open-buffer-file)
 
 (provide 'init-packages)

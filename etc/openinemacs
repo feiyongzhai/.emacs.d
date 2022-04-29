@@ -1,0 +1,21 @@
+#!/bin/bash
+
+file=$1
+
+line=$2
+
+col=$3
+
+if [[ -n $line ]]; then
+    if [[ -n $col ]]; then
+	/usr/bin/emacsclient -n +$line:$col $file
+	echo $line $col
+    else
+	/usr/bin/emacsclient -n +$line $file
+	echo 2
+    fi
+    else
+	/usr/bin/emacsclient -n $file
+	echo 3
+fi
+

@@ -68,7 +68,6 @@
 
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
-(defalias 'eshell/s 'eshell/eaf-search)
 (defalias 'eshell/j 'samray/eshell-fasd-z)
 
 (defalias 'eshell/k 'fei-org-capture-note)

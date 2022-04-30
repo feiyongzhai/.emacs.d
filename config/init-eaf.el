@@ -44,8 +44,9 @@
   ;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
   ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
   ;; 				      ("." . browse-url-default-browser)))
-  (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
-			      ("." . browse-url-default-browser))))
+  ;; (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
+  ;; 			      ("." . browse-url-default-browser)))
+  )
 
 ;;; Keys
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
@@ -175,5 +176,28 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
 	     (string= eaf--buffer-app-name "pdf-viewer"))
     (start-process "evince" nil
 		   "evince" "-i" (cadr mode-line-position) (buffer-name))))
+
+(defun fei-eaf-browse-url (url &optional _new-window)
+  "根据 `browse-url-chromium' 这个函数改的 这个函数诞生是为了让终端下也可以用 eaf"
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (browse-url-encode-url url))
+  (if (and (display-graphic-p)
+	   (or (eq major-mode 'eshell-mode)
+	       (eq major-mode 'shell-mode)
+	       (getenv "TERM")))
+      (eaf-open-browser url _new-window)
+    (browse-url-default-browser url _new-window)))
+
+(defun fei-eaf-file-share-current-dir ()
+  (interactive)
+  (if (display-graphic-p)
+      (eaf-file-browser-qrcode (substring (pwd) 10))
+    (message "EAF doesn't support in terminal")))
+
+(defun fei-eaf-play-music ()
+  (interactive)
+  (if (display-graphic-p)
+      (eaf-open "/run/media/yongfeizhai/文档/音乐/" "music-player")
+    (message "EAF doesn't support in terminal")))
 
 (provide 'init-eaf)

@@ -19,7 +19,6 @@
   :states '(normal visual))
 
 (fei-space-leader-def
-  ;; "gg" 'browse-stackoverflow-search
   "SPC" 'counsel-M-x
   "w" 'pwd
   "j" 'fasd-ivy-find-file
@@ -39,7 +38,6 @@
 (setq evil-undo-system 'undo-redo)
 
 ;; (add-hook 'find-file-hook #'evil-local-mode)
-;; (add-hook 'help-mode-hook #'evil-local-mode)
 
 ;;; Funcs
 

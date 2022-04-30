@@ -165,11 +165,14 @@ kill region instead"
 	    (find-file-other-tab x))
 	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
 
-(defun eshell/eaf-search (&rest strings)
+(defun eshell/s (&rest strings)
   (interactive)
-  (if (null strings)
-      (call-interactively 'eaf-search-it)
-    (fei-google-search strings)))
+  (fei-google-search strings))
+
+(defun eshell/es (&rest strings)
+  (interactive)
+  (setq strings (eshell-flatten-and-stringify strings))
+  (eaf-search-it strings))
 
 ;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
 (defun fei-my/ivy-eshell-history ()
@@ -383,31 +386,7 @@ kill region instead"
 		   (concat "+" line ":" column)
 		   (or (buffer-file-name)
 		       default-directory))))
-
-;; EAF related
 
-(defun fei-eaf-browse-url (url &optional _new-window)
-  "根据 `browse-url-chromium' 这个函数改的 这个函数诞生是为了让终端下也可以用 eaf"
-  (interactive (browse-url-interactive-arg "URL: "))
-  (setq url (browse-url-encode-url url))
-  (if (and (display-graphic-p)
-	   (not (or (eq major-mode 'eshell-mode)
-		    (eq major-mode 'shell-mode)
-		    (getenv "TERM"))))
-      (eaf-open-browser url _new-window)
-    (browse-url-default-browser url _new-window)))
-
-(defun fei-eaf-file-share-current-dir ()
-  (interactive)
-  (if (display-graphic-p)
-      (eaf-file-browser-qrcode (substring (pwd) 10))
-    (message "EAF doesn't support in terminal")))
-
-(defun fei-eaf-play-music ()
-  (interactive)
-  (if (display-graphic-p)
-      (eaf-open "/run/media/yongfeizhai/文档/音乐/" "music-player")
-    (message "EAF doesn't support in terminal")))
 
 ;; Isearch related
 

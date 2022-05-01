@@ -20,7 +20,7 @@
 (defalias 'j1 (li (find-file "~/Desktop/文献仓库/01 First Pass")))
 (defalias 'j2 (li (find-file "~/Desktop/文献仓库/02 Second Pass")))
 (defalias 'j3 (li (find-file "~/Desktop/文献仓库/03 Third Pass")))
-(defalias 'js (li (find-file "~/Sanbox")))
+(defalias 'js (li (find-file "~/Sandbox")))
 (defalias 'jr (li (find-file "~/Repos")))
 (defalias 'je (li (find-file "~/.emacs.d")))
 (defalias 'ja (li (find-file "~/.emacs.d/config/init-alias.el")))

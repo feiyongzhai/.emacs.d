@@ -14,8 +14,22 @@
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;`compose-mail'
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
 
+(global-set-key (kbd "C-x j l") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x j w") 'jw)
+(global-set-key (kbd "C-x j 0") 'j0)
+(global-set-key (kbd "C-x j 1") 'j1)
+(global-set-key (kbd "C-x j 2") 'j2)
+(global-set-key (kbd "C-x j 3") 'j3)
+(global-set-key (kbd "C-x j s") 'js)
+(global-set-key (kbd "C-x j e") 'je)
+(global-set-key (kbd "C-x j a") 'ja)
+(global-set-key (kbd "C-x j g") 'jg)
+(global-set-key (kbd "C-x j r") 'jr)
+(global-set-key (kbd "C-x j o") (li (find-file "~/Nutstore Files/org")))
+(global-set-key (kbd "C-x j d") (li (find-file "~/Repos/dotfiles")))
+
 ;; Designed for `M-x', but it can also be used in `eshell'
-(defalias 'jj (li (find-file "~/Desktop/文献仓库/")))
+(defalias 'jw (li (find-file "~/Desktop/文献仓库/")))
 (defalias 'j0 (li (find-file "~/Desktop/文献仓库/00 基本理论（凸优化&others）")))
 (defalias 'j1 (li (find-file "~/Desktop/文献仓库/01 First Pass")))
 (defalias 'j2 (li (find-file "~/Desktop/文献仓库/02 Second Pass")))

@@ -4,6 +4,7 @@
 (require 'fei-funcs)
 (require 'eshell-hacks)
 
+(setenv "PAGER" "cat")
 ;; (setq eshell-banner-message "")
 (setq eshell-list-files-after-cd nil)
 (setq eshell-history-size 500)

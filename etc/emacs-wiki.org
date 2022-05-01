@@ -293,3 +293,36 @@ workaround: 修改 rime 源码相应部分，不让它重新编译。便采用�
   (set-fontset-font "fontset-default" 'unicode'("等距更纱黑体 SC"))
 #+END_SRC
 
+* 让 consult 和 eaf 更好的工作
+#+BEGIN_SRC emacs-lisp
+;; 下面 patch 的功能：
+;;	1. 支持 consult-buffer 打开 pdf 是用 eaf-pdf-viewer 打开 （起因）
+;;	2. 可以简化 eaf.el 中代码
+;;	3. 可以使 dired 中行为与 emacs 的设计保持一致。
+;;	现在 eaf.el 的逻辑是：如果有 mark 的文件，会一次性打开所有的文件。但通过我的测试发现
+;;	emacs 中 dired-find-alternate-file/dired-find-file 的默认行为不是一次性打开所有 mark 的文件，
+;;	而是只打开光标所在的文件。而我的这个 patch 则保证着同样的行为。更合理。
+
+;; 下面 patch 已知的问题：
+;;	1. 在 dired buffer 中按 o(dired-find-file-other-window) 工作不按照预期
+(defun fei-eaf--find-file-noselect-advisor (orig-fn file &rest args)
+  "Advisor of `find-file' that opens EAF supported file using EAF.
+
+It currently identifies PDF, videos, images, and mindmap file extensions."
+  (let ((fn (if (commandp 'eaf-open)
+                #'(lambda (file)
+                    (eaf-open file)
+		    (buffer-name))
+              orig-fn))
+        (ext (file-name-extension file)))
+    (if (and (not (eq major-mode 'telega-chat-mode)) ; 处理 telega 打开图片的问题
+	     (eaf--find-file-ext-p ext))
+        (apply fn file nil)
+      (apply orig-fn file args))))
+(advice-add #'find-file-noselect :around #'fei-eaf--find-file-noselect-advisor)
+
+(advice-remove 'find-file 'eaf--find-file-advisor)
+(advice-remove 'dired-find-file 'eaf--dired-find-file-advisor)
+(advice-remove 'dired-find-alternate-file 'eaf--dired-find-file-advisor)
+#+END_SRC
+

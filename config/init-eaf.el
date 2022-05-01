@@ -49,6 +49,11 @@
   )
 
 ;;; Keys
+(with-eval-after-load 'eaf-browser
+  (eaf-bind-key nil "M-s" eaf-browser-keybinding)
+  (eaf-bind-key nil "M-S" eaf-browser-keybinding)
+  )
+
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 (global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
 ;; 终端用命令 `emacsclient -t file-name` 时，会响应这一组 `ESC [ I`按

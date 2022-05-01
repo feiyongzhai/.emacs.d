@@ -47,11 +47,7 @@
 (setq imenu-list-focus-after-activation t)
 
 ;; trashed
-(global-set-key (kbd "C-c T") 'trashed)
-
-;; tldr
-(global-set-key (kbd "C-h j") 'man)
-(global-set-key (kbd "C-h t") 'tldr)
+(global-set-key (kbd "C-c t") 'trashed)
 
 ;; 方便左手在键盘，右手在鼠标上的操作姿势
 (global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
@@ -74,8 +70,6 @@
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
-;; Consult
-
 (setq register-preview-delay 0.1)
 
 (global-set-key (kbd "M-s [") 'point-to-register)
@@ -83,12 +77,6 @@
 
 (global-set-key (kbd "C-c J") (li (fei-counsel-fd-file-jump nil "~/Desktop/文献仓库")))
 (global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
-
-;; minimap 不怎么用
-;; (setq minimap-window-location 'right)
-
-;; scratch
-(global-set-key (kbd "C-c s") 'scratch)
 
 ;; youdao-dictionary
 (with-eval-after-load 'youdao-dictionary
@@ -102,12 +90,6 @@
   (interactive)
   (engine/search-quword (thing-at-point 'word)))
 
-;; EAF
-(with-eval-after-load 'eaf-browser
-  (eaf-bind-key nil "M-s" eaf-browser-keybinding)
-  (eaf-bind-key nil "M-S" eaf-browser-keybinding)
-  )
-
 ;; Helpful
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)
 ;; (global-set-key (kbd "C-h O") 'describe-symbol)
@@ -117,9 +99,6 @@
 (setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-auto-enabled t)
 (setq highlight-indent-guides-responsive 'top)
-
-;; deadgrep
-(global-set-key (kbd "M-s d") 'deadgrep)
 
 ;; keyfreq
 (keyfreq-mode)

@@ -13,6 +13,7 @@
 (global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
 
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
+(global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
 (global-set-key (kbd "C-x B") 'bookmark-jump)
 
 ;;; ==== Window ====

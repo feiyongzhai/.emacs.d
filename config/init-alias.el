@@ -2,9 +2,10 @@
 
 ;; Commentary:
 
-;; Finally, I find use a meaningful alias is more smoothly to
-;; use. smoothly is not directly related to quickly. but I think
-;; it is very critical about be a longtime quickly working state.
+;; Finally, I find use a meaningful alias is more smoothly to use a
+;; keybinding. smoothly is not directly related to quickly. but I
+;; think it is very critical about be a longtime quickly working
+;; state.
 
 (require 'fei-funcs)
 
@@ -14,6 +15,7 @@
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;`compose-mail'
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
 
+(global-set-key (kbd "C-x j k") 'jk)
 (global-set-key (kbd "C-x j l") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x j w") 'jw)
 (global-set-key (kbd "C-x j 0") 'j0)
@@ -27,6 +29,7 @@
 (global-set-key (kbd "C-x j r") 'jr)
 (global-set-key (kbd "C-x j o") (li (find-file "~/Nutstore Files/org")))
 (global-set-key (kbd "C-x j d") (li (find-file "~/Repos/dotfiles")))
+(global-set-key (kbd "C-x j f") (li (browse-url "https://feiyongzhai.github.io")))
 
 ;; Designed for `M-x', but it can also be used in `eshell'
 (defalias 'jw (li (find-file "~/Desktop/文献仓库/")))
@@ -35,6 +38,7 @@
 (defalias 'j2 (li (find-file "~/Desktop/文献仓库/02 Second Pass")))
 (defalias 'j3 (li (find-file "~/Desktop/文献仓库/03 Third Pass")))
 (defalias 'js (li (find-file "~/Sandbox")))
+(defalias 'jk (li (find-file "~")))
 (defalias 'jr (li (find-file "~/Repos")))
 (defalias 'je (li (find-file "~/.emacs.d")))
 (defalias 'ja (li (find-file "~/.emacs.d/config/init-alias.el")))
@@ -43,13 +47,19 @@
 (defalias 'dot (li (find-file "~/Repos/dotfiles")))
 (defalias 'sc 'scratch)
 (defalias 'jl 'fei-meow-last-buffer)
+(defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
+(defalias 'oE 'open-current-file-with-emacs)
 (defalias 'og 'open-current-file-with-gedit)
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
+(defalias 'ol 'olivetti-mode)
+(defalias 'cl 'fei-display-line-numbers-cycle)
+(defalias 'dl 'display-line-numbers-mode)
+(defalias 'dcl 'display-fill-column-indicator-mode)
 (defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
 (defalias 'sh 'shell)
@@ -61,11 +71,11 @@
 (defalias 'one 'zygospore-toggle-delete-other-windows)
 (defalias 'vs 'split-window-below)
 (defalias 'hs 'split-window-right)
-(defalias 'tn 'tab-new)
-(defalias 'tc 'tab-close)
+(defalias 'nt 'tab-new)
+(defalias 'kt 'tab-close)
 (defalias 't1 'tab-close-other)
-(defalias 'fn 'make-frame)
-(defalias 'fc 'delete-frame)
+(defalias 'nf 'make-frame)
+(defalias 'kf 'delete-frame)
 (defalias 'ffo 'find-file-other-window)
 (defalias 'fft 'find-file-other-tab)
 (defalias 'fff 'find-file-other-frame)

@@ -56,6 +56,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
+(defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
 (defalias 'cl 'fei-display-line-numbers-cycle)
 (defalias 'dl 'display-line-numbers-mode)

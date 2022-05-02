@@ -7,6 +7,7 @@
 (let ((gc-cons-threshold most-positive-fixnum)
       (gc-cons-percentage 0.6))
   (require 'init-builtin)
+  (require 'init-compile)
   (require 'init-packages)
   (require 'init-bs)
   (require 'init-ibuffer)

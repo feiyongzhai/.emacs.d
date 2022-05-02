@@ -158,14 +158,15 @@
   (interactive)
   (when buffer-file-name
     (let ((ide-helper (jetbrains--detect-ide buffer-file-name major-mode)))
-      (when ide-helper
+      (if ide-helper
         (shell-command
          (mapconcat #'shell-quote-argument
                     (list (symbol-name ide-helper)
                           "--line"
                           (int-to-string (line-number-at-pos))
 			  buffer-file-name)
-                    " "))))))
+                    " "))
+	(message "Jetbrains do no thing!")))))
 
 ;;;###autoload
 (defun jetbrains-create-dir-local-file ()

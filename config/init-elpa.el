@@ -54,6 +54,7 @@
 	corfu tempel
 	olivetti
 	math-symbol-lists laas
+	expand-region
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history

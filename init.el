@@ -45,6 +45,7 @@
   (require 'init-shell)
   (require 'init-engine)
   (require 'init-edit)
+  (require 'init-mark)
   (require 'init-thing-edit)
   ;; (require 'init-awesome-pair)
   (require 'init-auto-save)

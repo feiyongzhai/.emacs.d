@@ -9,15 +9,25 @@
                                (interactive "r") (delete-region b e) (yank)))
          (define-key map "x" #'exchange-point-and-mark)
          (define-key map "y" #'kill-ring-save)
-         (define-key map (kbd "C-y") #'kill-ring-save) ;这个设置很巧妙
+         (define-key map "w" #'kill-ring-save)
          (define-key map "Y" (lambda
                                (b e)
                                (interactive "r")
                                (kill-new (buffer-substring b e))
                                (message "Region saved")))
-	 
+	 (define-key map (kbd "o") (lambda
+				     (b e)
+				     (interactive "r")
+				     (occur (buffer-substring b e))))
+	 (define-key map (kbd "O") (lambda
+				     (b e)
+				     (interactive "r")
+				     (project-find-regexp (buffer-substring b e))))
+
          (define-key map "q" #'query-replace)
          (define-key map "Q" #'query-replace-regexp)
+	 (define-key map "s" #'fei-search-1)
+	 (define-key map "\C-m" #'browse-url-at-point)
 
 	 ;; Navigate
 	 (define-key map "n" #'next-line)
@@ -28,7 +38,8 @@
 	 (define-key map "f" #'forward-char)
 
 	 (define-key map "g" #'keyboard-quit)
-
+	 (define-key map " " #'keyboard-quit)
+	 
          ;; mark things
          (define-key map "d" #'mark-defun)
          (define-key map "i" #'er/mark-inside-pairs)

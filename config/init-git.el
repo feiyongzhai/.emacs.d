@@ -28,4 +28,11 @@
   (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
   )
 
+;;; Funcs
+(defun fei-vc-dired-jump (arg)
+  (interactive "P")
+  (let ((target-dir (or (vc-root-dir)
+                        default-directory)))
+    (vc-dir target-dir)))
+
 (provide 'init-git)

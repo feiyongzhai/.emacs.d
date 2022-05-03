@@ -2,10 +2,11 @@
 
 (require 'fei-funcs)
 
+;;; Calendar
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
 
-;; Treemacs
+;;; Treemacs
 (setq treemacs-position 'right)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 (global-set-key (kbd "<C-f8>") 'speedbar)
@@ -17,7 +18,27 @@
   (define-key treemacs-mode-map (kbd "G") 'magit)
   )
 
-;; Neotree
+(defun fei-switch-to-treemacs ()
+  (interactive)
+  (catch 'done
+    (dolist (w (window-list) (treemacs))
+      (with-current-buffer (window-buffer w)
+	(when (eq major-mode 'treemacs-mode)
+	  (throw 'done (select-window w)))))))
+
+(defun fei-treemacs-move-to-left ()
+  (interactive)
+  (treemacs-quit)
+  (setq treemacs-position 'left)
+  (treemacs))
+
+(defun fei-treemacs-move-to-right ()
+  (interactive)
+  (treemacs-quit)
+  (setq treemacs-position 'right)
+  (treemacs))
+
+;;; Neotree
 (setq neo-theme 'ascii)
 (setq neo-window-position 'right)
 (with-eval-after-load 'neotree
@@ -30,23 +51,35 @@
   (define-key neotree-mode-map (kbd "<mouse-3>") 'neotree-mouse-open-external)
   )
 
+(defun fei-neotree-move-to-left ()
+  (interactive)
+  (neotree-hide)
+  (setq neo-window-position 'left)
+  (neotree-show))
+
+(defun fei-neotree-move-to-right ()
+  (interactive)
+  (neotree-hide)
+  (setq neo-window-position 'right)
+  (neotree-show))
+
 (defun neotree-mouse-open-external (event)
   (interactive "e")
   (mouse-set-point event)
   (neotree-open-file-in-system-application))
 
-;; alarm-clock
+;;; alarm-clock
 (global-set-key (kbd "M-s a s") 'alarm-clock-set)
 (global-set-key (kbd "M-s a l") 'alarm-clock-list-view)
 
-;; separedit
+;;; separedit
 (define-key prog-mode-map        (kbd "C-c '") #'separedit)
 (define-key minibuffer-local-map (kbd "C-c '") #'separedit)
 
-;; imenu-list
+;;; Imenu-list
 (setq imenu-list-focus-after-activation t)
 
-;; trashed
+;;; Trashed
 (global-set-key (kbd "C-c t") 'trashed)
 
 ;; 方便左手在键盘，右手在鼠标上的操作姿势
@@ -62,7 +95,7 @@
 	   (thing-at-point 'symbol)
 	   "\\_>")))
 
-;; Symbol-overlay
+;;; Symbol-overlay
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
 (global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
@@ -70,6 +103,11 @@
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
+(defun symbol-overlay-find-at-point-project ()
+  (interactive)
+  (project-find-regexp (thing-at-point 'symbol)))
+
+;;; Registers
 (setq register-preview-delay 0.1)
 
 (global-set-key (kbd "M-s [") 'point-to-register)
@@ -78,7 +116,7 @@
 (global-set-key (kbd "C-c J") (li (fei-counsel-fd-file-jump nil "~/Desktop/文献仓库")))
 (global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
 
-;; youdao-dictionary
+;;; youdao-dictionary
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
   (define-key youdao-dictionary-mode-map (kbd "b") 'fei-quword-at-point))
@@ -90,17 +128,17 @@
   (interactive)
   (engine/search-quword (thing-at-point 'word)))
 
-;; Helpful
+;;; Helpful
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)
 ;; (global-set-key (kbd "C-h O") 'describe-symbol)
 ;; (global-set-key (kbd "C-h k") 'helpful-key)
 
-;; highlight-indent-guides copied from lazycat
+;;; highlight-indent-guides copied from lazycat
 (setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-auto-enabled t)
 (setq highlight-indent-guides-responsive 'top)
 
-;; keyfreq
+;;; keyfreq
 (keyfreq-mode)
 (keyfreq-autosave-mode)
 (setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
@@ -118,15 +156,15 @@
 (global-set-key (kbd "C-x H b") 'helm-chrome-bookmarks)
 (global-set-key (kbd "C-x M-h b") 'helm-chrome-bookmarks)
 
-;; rg
+;;; Rg
 (global-set-key (kbd "M-s r") 'rg-project)
 (define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
-;; grep-dired
+;;; grep-dired
 (add-to-list 'load-path "~/.emacs.d/extensions/grep-dired")
 (autoload 'grep-dired "grep-dired" nil t) ;emacs 自带了一个相似的命令 `find-name-dired'
 
-;; jetbrains == Interoperable between emacs with jetbrains IDE
+;;; jetbrains == Interoperable between emacs with jetbrains IDE
 (autoload 'jetbrains-open-buffer-file "jetbrains" nil t)
 (autoload 'jetbrains-create-dir-local-file "jetbrains" nil t)
 (global-set-key (kbd "C-M-9") 'jetbrains-open-buffer-file)

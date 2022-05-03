@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: defalias
-# key: defalias
+# key: da
 # group : d
 # --
-(defalias $0)
+(defalias '$0)

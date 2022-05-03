@@ -9,8 +9,9 @@
 
 ;;; ==== Buffer ====
 (global-set-key (kbd "M-k") 'kill-current-buffer)
+(global-set-key (kbd "M-K") 'reopen-killed-file)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
-(global-set-key (kbd "C-x K") 'fei-kill-current-buffer)	; inspired by protesilaos
+(global-set-key (kbd "C-x K") 'reopen-killed-file)
 
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
 (global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
@@ -51,7 +52,6 @@
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
-(global-set-key (kbd "M-K") 'reopen-killed-file)
 ;; @REF https://emacs.stackexchange.com/questions/3330/how-to-reopen-just-killed-buffer-like-c-s-t-in-firefox-browser
 (defvar killed-file-list nil
   "List of recently killed files.")

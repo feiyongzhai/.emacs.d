@@ -56,6 +56,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
+(defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
 (defalias 'cl 'fei-display-line-numbers-cycle)
@@ -91,6 +92,7 @@
 (defalias 'eshell/vim 'vim)
 (defalias 'eshell/emacs 'emacs)
 
+(defalias 'eshell/s 'fei-google-search)
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/j 'samray/eshell-fasd-z)
@@ -99,6 +101,15 @@
 (defalias 'eshell/ks 'fei-org-capture-SAR)
 (defalias 'eshell/kw 'fei-org-capture-WANT)
 (defalias 'eshell/kd 'fei-org-capture-diary)
+
+(defun eshell/a ()
+  (org-agenda nil "a")
+  (delete-other-windows))
+
+(defun eshell/es (&rest strings)
+  (interactive)
+  (setq strings (eshell-flatten-and-stringify strings))
+  (eaf-search-it strings))
 
 ;; 不推荐用 `eshll/alias' 设置 alias，因为会在每次启动的时候重置 eshell/alias 文件
 

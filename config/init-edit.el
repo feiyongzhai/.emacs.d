@@ -8,6 +8,7 @@
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;;; Movement/Navigate
+(global-set-key (kbd "M-s i") 'imenu)
 (global-set-key (kbd "M-s n") (li (switch-to-buffer "*eaf*")))
 (global-set-key (kbd "M-s p") (li (switch-to-buffer "*scratch*")))
 

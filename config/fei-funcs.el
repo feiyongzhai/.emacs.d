@@ -122,118 +122,7 @@ kill region instead"
   (term-send-right)
   nil)
 
-;; Eshell Related
-
-(defun fei-eshell-cd-here ()
-  (interactive)
-  (if (eq major-mode 'eshell-mode)
-      (message "You are already in eshell buffer!")
-    (let ((dir default-directory)
-	  (buf (eshell))
-	  eshell-list-files-after-cd)
-      (set-buffer buf)
-      ;; bind `eshell-list-files-after-cd' with `t' will cause error
-      ;; when run `eshell/cd' in lisp code. as shown below. but it
-      ;; won't cause any problem when use `cd' in eshell buffer. so I
-      ;; use let-bind `eshell-list-files-after-cd' with nil
-      (message "eshell previous at: %s" default-directory)
-      (unless (string= default-directory dir)
-	;; (message "fei debug message")
-	(eshell/cd dir)
-	(eshell-reset))
-      )))
-
-(defun fei-terminal-here ()
-  (interactive)
-  (if *is-linux*
-      (shell-command "gnome-terminal")
-    (if (fboundp 'terminal-here)
-	(terminal-here)
-      (message "can't open terminal here"))))
-
-;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
-;; `aweshell-emacs' function
-(defun eshell/edit (&rest args)
-  "Open a file in Emacs with ARGS, Some habits die hard."
-  (cond
-   ((null args)
-    (dired "."))
-   ((eq (length args) 1)
-    (eval `(find-file ,@args)))
-   (t
-    (mapc (lambda (x) 
-	    (find-file-other-tab x))
-	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
-
-(defun eshell/s (&rest strings)
-  (interactive)
-  (fei-google-search strings))
-
-(defun eshell/es (&rest strings)
-  (interactive)
-  (setq strings (eshell-flatten-and-stringify strings))
-  (eaf-search-it strings))
-
-;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
-(defun fei-my/ivy-eshell-history ()
-  (interactive)
-  (require 'em-hist)
-  (let* ((start-pos (save-excursion (eshell-bol) (point)))
-         (end-pos (point))
-         (input (buffer-substring-no-properties start-pos end-pos))
-         (command (ivy-read "Command: "
-                            (delete-dups
-                             (when (> (ring-size eshell-history-ring) 0)
-                               (ring-elements eshell-history-ring)))
-                            :initial-input input)))
-    (setf (buffer-substring start-pos end-pos) command)
-    (end-of-line)))
-
-;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
-(defun +eshell/quit-or-delete-char (arg)
-  (interactive "p")
-  (if (and (eolp) (looking-back eshell-prompt-regexp nil))
-      (eshell-life-is-too-much)
-    (delete-char arg)))
-
-;; @REF: https://github.com/ramsayleung/emacs.d/blob/6b85374180e0a622301df0d0ab8ff08cbab46c4a/lisp/init-eshell.el#L14
-(defun eshell/unpack (file &rest args)
-  "Unpack FILE with ARGS using default command."
-  (let ((command (some (lambda (x)
-                         (if (string-match-p (car x) file)
-                             (cadr x)))
-                       '((".*\.tar.bz2" "tar xjf")
-                         (".*\.tar.gz" "tar xzf")
-                         (".*\.bz2" "bunzip2")
-                         (".*\.rar" "unrar x")
-                         (".*\.gz" "gunzip")
-                         (".*\.tar" "tar xf")
-                         (".*\.tbz2" "tar xjf")
-                         (".*\.tgz" "tar xzf")
-                         (".*\.zip" "unzip")
-                         (".*\.Z" "uncompress")
-                         (".*" "echo 'Could not unpack the file:'")))))
-    (let ((unpack-command (concat command " " file " " (mapconcat 'identity args " "))))
-      (eshell/printnl "Unpack command: " unpack-command)
-      (eshell-command-result unpack-command))
-    ))
-
-;; @REF https://0x709394.me/Fasd%E4%B8%8E-Eshell%E7%9A%84%E4%B8%8D%E6%9C%9F%E8%80%8C%E9%81%87
-(defun samray/eshell-fasd-z (&rest args)
-  "Use fasd to change directory more effectively by passing ARGS."
-  (setq args (eshell-flatten-and-stringify args))
-  (let* ((fasd (concat "fasd -d " args))
-	 (fasd-result (shell-command-to-string fasd))
-	 (path (replace-regexp-in-string "\n$" "" fasd-result)))
-    (if (eq 0 (length args))
-	(call-interactively 'fasd-find-file)
-      (eshell/cd path)
-      ;; (eshell/echo path)
-      )))
-
-;; Eshell Related End
-
-;; Org related
+;;; Org related
 
 (defun fei-org-time ()
   (interactive)
@@ -243,16 +132,14 @@ kill region instead"
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
-;; Org-capture
+;;; Org-capture
 (autoload 'org-capture-goto-target "org-capture")
 
 (defun fei-org-capture ()
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
-  (activate-input-method 'rime)
-  (auto-fill-mode)
-  )
+  (activate-input-method 'rime))
 
 (defun fei-org-capture-goto-Research ()
   (interactive)
@@ -319,10 +206,6 @@ kill region instead"
   (org-agenda nil "a")
   (delete-other-windows))
 
-(defun eshell/a ()
-  (org-agenda nil "a")
-  (delete-other-windows))
-
 (defun fei-org-store-link ()
   (interactive)
   (require 'org)
@@ -386,33 +269,8 @@ kill region instead"
 		   (concat "+" line ":" column)
 		   (or (buffer-file-name)
 		       default-directory))))
-
 
-;; Isearch related
-
-(defun prot-search-isearch-other-end ()
-  "End current search in the opposite side of the match.
-Particularly useful when the match does not fall within the
-confines of word boundaries (e.g. multiple words)."
-  (interactive)
-  (isearch-done)
-  (when isearch-other-end
-    (goto-char isearch-other-end)))
-
-(defun fei-isearch-copy-region ()
-  (interactive)
-  (isearch-exit)
-  (call-interactively 'copy-region-as-kill))
-
-;; VC
-(defun fei-vc-dired-jump (arg)
-  (interactive "P")
-  (let ((target-dir (or (vc-root-dir)
-                        default-directory)))
-    (vc-dir target-dir)))
-
-
-;; Misc
+;;; Misc
 (defun fei-ff-find-other-file-pdf-org ()
   (interactive)
   (let* ((name (or (buffer-file-name)
@@ -468,7 +326,7 @@ confines of word boundaries (e.g. multiple words)."
   (let (case-fold-search)
     (occur (concat "\\_<" (thing-at-point 'symbol) "\\_>"))))
 
-;; Dired
+;;; Dired
 
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
@@ -484,7 +342,7 @@ confines of word boundaries (e.g. multiple words)."
   (mouse-set-point event)
   (call-interactively 'browse-url-of-dired-file))
 
-;; Evil
+;;; Evil
 
 (defun evil-mode-with-cursor ()
   "设置 message 就是为了终端下面有一个提示"
@@ -519,8 +377,7 @@ confines of word boundaries (e.g. multiple words)."
   (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
   (message "Now is EVIL 👽"))
 
-;; Edit
-
+;;; Edit
 (defun fei-display-line-numbers-cycle ()
   (interactive)
   (if (eq display-line-numbers-type 'visual)
@@ -537,48 +394,20 @@ confines of word boundaries (e.g. multiple words)."
     (call-interactively 'duplicate-line-or-region-below)))
 
 
-;; Neotree
-
-(defun fei-neotree-move-to-left ()
-  (interactive)
-  (neotree-hide)
-  (setq neo-window-position 'left)
-  (neotree-show))
-
-(defun fei-neotree-move-to-right ()
-  (interactive)
-  (neotree-hide)
-  (setq neo-window-position 'right)
-  (neotree-show))
-
-;; Treemacs
-(defun fei-treemacs-move-to-left ()
-  (interactive)
-  (treemacs-quit)
-  (setq treemacs-position 'left)
-  (treemacs))
-
-(defun fei-treemacs-move-to-right ()
-  (interactive)
-  (treemacs-quit)
-  (setq treemacs-position 'right)
-  (treemacs))
-
-
 ;; require `pulse' library
 (defun fei-pulse-current-line ()
   (interactive)
   (require 'hl-line)
   (pulse-momentary-highlight-one-line (point) 'hl-line))
 
-;; youdao-dictionary
+;;; youdao-dictionary
 (defun fei-youdao-at-point ()
   (interactive)
   (if (display-graphic-p)
       (call-interactively 'youdao-dictionary-search-at-point-tooltip)
     (call-interactively 'youdao-dictionary-search-at-point+)))
 
-;; multi-occur-in-this-mode
+;;; multi-occur-in-this-mode
 
 ;; @REF: https://www.masteringemacs.org/article/searching-buffers-occur-mode
 (defun get-buffers-matching-mode (mode)
@@ -602,13 +431,9 @@ confines of word boundaries (e.g. multiple words)."
   (multi-occur
    (get-buffers-matching-mode major-mode)
    (concat "\\_<" (thing-at-point 'symbol) "\\_>")))
-
-(defun symbol-overlay-find-at-point-project ()
-  (interactive)
-  (project-find-regexp (thing-at-point 'symbol)))
 
 
-;; Counsel
+;;; Counsel
 (defun fei-counsel-rg-my-org ()
   (interactive)
   (counsel-rg nil "~/Nutstore Files/org"))
@@ -633,14 +458,5 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :initial-input initial-input
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
-
-;; Treemacs
-(defun fei-switch-to-treemacs ()
-  (interactive)
-  (catch 'done
-    (dolist (w (window-list) (treemacs))
-      (with-current-buffer (window-buffer w)
-	(when (eq major-mode 'treemacs-mode)
-	  (throw 'done (select-window w)))))))
 
 (provide 'fei-funcs)

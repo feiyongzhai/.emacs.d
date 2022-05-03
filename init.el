@@ -35,6 +35,7 @@
 
   (require 'init-latex)
   ;; (require 'init-mail)
+  (require 'init-wanderlust)
   (require 'init-company-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)

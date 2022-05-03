@@ -20,6 +20,7 @@
 (fei-define-key-with-map global-map
   '(
     ("C-h f" . counsel-describe-function)
+    ("C-h o" . counsel-describe-symbol)
     ("C-h v" . counsel-describe-variable)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)

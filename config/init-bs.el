@@ -36,8 +36,8 @@
 
 (defun fei-switch-to-buffer-from-bs ()
   (interactive)
-  (let ((buf (completing-read "Switch to buffer: "
-			      (fei-bs-get-current-buffer-list))))
+  (let ((buf (ivy-completing-read "Switch to buffer: "
+				  (fei-bs-get-current-buffer-list))))
     (bs-kill)
     (switch-to-buffer buf)))
 
@@ -53,7 +53,7 @@
     (switch-to-buffer-other-tab buf)))
 
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
-(global-set-key (kbd "C-x C-b") 'fei-bs-show)
+(global-set-key (kbd "C-x b") 'fei-bs-show)
 (defun fei-bs-show ()
   (interactive)
   (setq bs-cur-major-mode major-mode)
@@ -80,13 +80,15 @@
   (define-key bs-mode-map (kbd "a") (li (fei-bs-set-configuration-default "all")))
   (define-key bs-mode-map (kbd "A") 'bs-toggle-show-all)
   (define-key bs-mode-map (kbd "d") (li (fei-bs-set-configuration-default "dired")))
+  (define-key bs-mode-map (kbd "C-j") 'bs-select)
+  (define-key bs-mode-map (kbd "C-c j") (li (bs-kill) (call-interactively 'fasd-ivy-find-file)))
   (define-key bs-mode-map (kbd "C-k") 'bs-delete)
   (define-key bs-mode-map (kbd "e") (li (fei-bs-set-configuration-default "eshell-and-term")))
   (define-key bs-mode-map (kbd "E") (li (fei-bs-set-configuration-default "EAF")))
   (define-key bs-mode-map (kbd "h") (li (fei-bs-set-configuration-default "same-major")))
   (define-key bs-mode-map (kbd "H") (li (fei-bs-set-configuration-default "same-base-name")))
   (define-key bs-mode-map (kbd "O") (li (fei-bs-set-configuration-default "Org")))
-  (define-key bs-mode-map (kbd "i") (li (bs-kill) (call-interactively 'ibuffer)))
+  (define-key bs-mode-map (kbd "i") (li (bs-kill) (ibuffer)))
   (define-key bs-mode-map (kbd "j") 'fei-switch-to-buffer-from-bs)
   (define-key bs-mode-map (kbd "k") 'nil) ;default is `bs-delete', 但是最近总是误触
   (define-key bs-mode-map (kbd "f") (li (fei-bs-set-configuration-default "files")))

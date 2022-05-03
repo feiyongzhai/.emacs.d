@@ -9,13 +9,14 @@
       'mail-send-hook))
 
 (setq
-  wl-smtp-connection-type   'ssl	      ; Use TLS
-  wl-smtp-posting-port      465               ; The SMTP port
-  wl-smtp-authenticate-type "login"           ; Authentication type
-  wl-smtp-posting-user      "yongfeizhai"          ; Username
-  wl-smtp-posting-server    "smtp.qq.com"  ; SMTP server
-  wl-local-domain           "qq.com"       ; The SMTP server again
-  wl-message-id-domain      "smtp.qq.com") ; And... Again?
+ wl-temporary-file-directory "~/.emacs.d/.cache/wanderlust/"
+ wl-smtp-connection-type   'ssl		   ; Use TLS
+ wl-smtp-posting-port      465		   ; The SMTP port
+ wl-smtp-authenticate-type "login"	   ; Authentication type
+ wl-smtp-posting-user      "yongfeizhai"   ; Username
+ wl-smtp-posting-server    "smtp.qq.com"   ; SMTP server
+ wl-local-domain           "qq.com"	   ; The SMTP server again
+ wl-message-id-domain      "smtp.qq.com") ; And... Again?
 
 
 (setq wl-from "yongfeizhai <yongfeizhai@qq.com>")

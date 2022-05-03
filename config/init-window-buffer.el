@@ -15,6 +15,7 @@
 
 (global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
 (global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
+(global-set-key (kbd "C-x C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x B") 'bookmark-jump)
 
 ;;; ==== Window ====
@@ -34,6 +35,10 @@
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 
+(global-set-key (kbd "C-x w h") 'windmove-left)
+(global-set-key (kbd "C-x w l") 'windmove-right)
+(global-set-key (kbd "C-x w j") 'windmove-down)
+(global-set-key (kbd "C-x w k") 'windmove-up)
 (autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))

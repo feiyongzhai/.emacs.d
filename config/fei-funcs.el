@@ -187,6 +187,10 @@ kill region instead"
   (interactive)
   (org-capture-goto-target "i"))
 
+(defun fei-org-capture-goto-private ()
+  (interactive)
+  (org-capture-goto-target "p"))
+
 (defun fei-org-capture-private ()
   (interactive)
   (org-capture nil "p")

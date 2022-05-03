@@ -36,6 +36,7 @@
 	 (define-key map "a" #'beginning-of-line)
 	 (define-key map "b" #'backward-char)
 	 (define-key map "f" #'forward-char)
+	 (define-key map "m" #'back-to-indentation)
 
 	 (define-key map "g" #'keyboard-quit)
 	 (define-key map " " #'keyboard-quit)

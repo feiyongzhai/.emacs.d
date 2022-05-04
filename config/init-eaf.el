@@ -76,6 +76,7 @@
   (eaf-bind-key fei-eaf-open-pdf-external "C-c e" eaf-pdf-viewer-keybinding)
   (eaf-bind-key fei-search "v" eaf-pdf-viewer-keybinding)
   (eaf-bind-key fei-search-1 "V" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key search-kill "C-y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key youdao-dictionary-search-from-input "y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
@@ -165,5 +166,9 @@
   (if (display-graphic-p)
       (eaf-open "/run/media/yongfeizhai/文档/音乐/" "music-player")
     (message "EAF doesn't support in terminal")))
+
+(defun search-kill ()
+  (interactive)
+  (fei-google-search (car kill-ring)))
 
 (provide 'init-eaf)

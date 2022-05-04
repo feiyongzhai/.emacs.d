@@ -1,5 +1,7 @@
 ;; Powered by builtin package `bs'
 
+(setq bs-default-configuration "all")
+
 (defun fei-bs-not-dired (buf)
   (with-current-buffer buf
     (not (eq major-mode 'dired-mode))))

@@ -86,7 +86,7 @@
       ;; when run `eshell/cd' in lisp code. as shown below. but it
       ;; won't cause any problem when use `cd' in eshell buffer. so I
       ;; use let-bind `eshell-list-files-after-cd' with nil
-      (message "eshell previous at: %s" default-directory)
+      ;; (message "eshell previous at: %s" default-directory)
       (unless (string= default-directory dir)
 	;; (message "fei debug message")
 	(eshell/cd dir)

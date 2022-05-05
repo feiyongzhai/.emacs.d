@@ -4,7 +4,7 @@
 
 
 ;;; 百度网盘
-(add-to-list 'load-path "~/.emacs.d/extensions/emacs-baidupan")
+(add-to-list 'load-path "~/.emacs.d/extensions/baidupan")
 (require 'dupan)
 
 ;;; Calendar

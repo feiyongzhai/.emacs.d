@@ -2,7 +2,6 @@
 
 (require 'init-func)
 (require 'fei-funcs)
-(require 'eshell-hacks)
 
 (setenv "PAGER" "cat")
 ;; (setq eshell-banner-message "")

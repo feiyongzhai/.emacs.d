@@ -175,11 +175,8 @@
 (global-set-key (kbd "C-M-9") 'jetbrains-open-buffer-file)
 
 ;;; flutter
-(use-package flutter
-  :after dart-mode
-  :bind (:map dart-mode-map
-              ("C-M-x" . #'flutter-run-or-hot-reload))
-  :custom
-  (flutter-sdk-path "~/.local/opt/flutter/"))
+(with-eval-after-load 'dart-mode
+  (define-key dart-mode-map (kbd "C-M-x") #'flutter-run-or-hot-reload))
+(setq flutter-sdk-path "~/.local/opt/flutter/")
 
 (provide 'init-packages)

@@ -1,6 +1,12 @@
 (require 'fei-funcs)
 
+(setq shift-select-mode 'permanent)
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
+(setq next-screen-context-lines 2)	;default is 2
+(setq scroll-step 1
+      scroll-conservatively 10000
+      scroll-margin 0 ;这个变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
+      )
 
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
@@ -27,6 +33,7 @@
 
 ;;; Scroll
 (global-set-key (kbd "M-n") 'fei-scroll-up-line)
+(global-set-key (kbd "M-p") 'fei-scroll-down-line)
 
 (defun fei-scroll-up-line ()
   (interactive)
@@ -36,7 +43,6 @@
     (scroll-up-line)
     (fei-pulse-current-line)))
 
-(global-set-key (kbd "M-p") 'fei-scroll-down-line)
 (defun fei-scroll-down-line ()
   (interactive)
   (if (or (eq last-command 'fei-scroll-down-line)
@@ -45,17 +51,8 @@
     (scroll-down-line)
     (fei-pulse-current-line)))
 
-(setq next-screen-context-lines 1)	;default is 2
-(setq scroll-step 1
-      scroll-conservatively 10000
-      scroll-margin 0 ;这个变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
-      )
-
 ;;; Mark
-(global-set-key (kbd "M-H") 'mark-line)
-(global-set-key (kbd "C-x C-p") 'mark-paragraph)
 (global-set-key (kbd "C-,") 'set-mark-command)
-(setq shift-select-mode 'permanent)
 
 ;;; Misc
 (global-set-key (kbd "C-x i") 'insert-char)

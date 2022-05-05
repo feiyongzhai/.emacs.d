@@ -37,3 +37,6 @@
 [submodule "extensions/emacs-application-framework"]
 	path = extensions/emacs-application-framework
 	url = https://github.com/feiyongzhai/emacs-application-framework.git
+[submodule "extensions/emacs-baidupan"]
+	path = extensions/emacs-baidupan
+	url = https://github.com/lorniu/emacs-baidupan.git

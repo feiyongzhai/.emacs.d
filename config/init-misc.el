@@ -3,9 +3,9 @@
 ;; fei-prefix-map
 (defvar fei-prefix-map (make-sparse-keymap))
 (defvar fei-jump-map (make-sparse-keymap))
-(global-set-key (kbd "<f1>") fei-prefix-map)
-(global-set-key (kbd "M-<XF86AudioMute>") fei-prefix-map)
 (global-set-key (kbd "M-<XF86AudioLowerVolume>") fei-prefix-map)
+(global-set-key (kbd "M-<XF86AudioMute>") fei-prefix-map)
+(global-set-key (kbd "<f1>") fei-prefix-map)
 (global-set-key (kbd "<menu>") fei-prefix-map)
 (define-key fei-prefix-map (kbd "1") 'zygospore-toggle-delete-other-windows)
 (define-key fei-prefix-map (kbd "2") (li (split-window-right) (other-window 1)))

@@ -2,6 +2,11 @@
 
 (require 'fei-funcs)
 
+
+;;; 百度网盘
+(add-to-list 'load-path "~/.emacs.d/extensions/emacs-baidupan")
+(require 'dupan)
+
 ;;; Calendar
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)

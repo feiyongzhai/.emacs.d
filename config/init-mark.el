@@ -27,7 +27,7 @@
          (define-key map "q" #'query-replace)
          (define-key map "Q" #'query-replace-regexp)
 	 (define-key map "s" #'fei-search-1)
-	 (define-key map "\C-m" #'browse-url-at-point)
+	 (define-key map "\C-m" #'er/expand-region)
 
 	 ;; Navigate
 	 (define-key map "n" #'next-line)

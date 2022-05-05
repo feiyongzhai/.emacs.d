@@ -53,7 +53,7 @@
 
 ;; Rime
 
-(add-to-list 'load-path "~/.emacs.d/extensions/emacs-rime/")
+(add-to-list 'load-path "~/.emacs.d/extensions/rime/")
 
 (setq rime-title "ㄓ ")
 (autoload 'rime-activate "rime" nil nil nil)

@@ -10,7 +10,7 @@
 (require 'popweb-latex)
 
 ;; ==== EAF ====
-(add-to-list 'load-path "~/.emacs.d/extensions/emacs-application-framework")
+(add-to-list 'load-path "~/.emacs.d/extensions/eaf")
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)

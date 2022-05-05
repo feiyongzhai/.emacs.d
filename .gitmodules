@@ -5,7 +5,7 @@
 	path = extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
 [submodule "extensions/emacs-rime"]
-	path = extensions/emacs-rime
+	path = extensions/rime
 	url = https://github.com/feiyongzhai/emacs-rime.git
 [submodule "extensions/popweb"]
 	path = extensions/popweb
@@ -35,7 +35,7 @@
 	path = extensions/telega
 	url = https://github.com/zevlg/telega.el.git
 [submodule "extensions/emacs-application-framework"]
-	path = extensions/emacs-application-framework
+	path = extensions/eaf
 	url = https://github.com/feiyongzhai/emacs-application-framework.git
 [submodule "extensions/emacs-baidupan"]
 	path = extensions/baidupan

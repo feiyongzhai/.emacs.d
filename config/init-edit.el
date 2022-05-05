@@ -94,4 +94,19 @@
   '(("u" . undo)
     ("U" . undo-redo)))
 
+(global-set-key (kbd "C-s-n") 'scroll-up-line)
+(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
+(global-set-key (kbd "C-s-p") 'scroll-down-line)
+(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
+
+(defun fei-scroll-up-line-other-window ()
+  (interactive)
+  (with-selected-window (next-window)
+    (scroll-up-line)))
+
+(defun fei-scroll-down-line-other-window ()
+  (interactive)
+  (with-selected-window (next-window)
+    (scroll-down-line)))
+
 (provide 'init-edit)

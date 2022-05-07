@@ -167,11 +167,14 @@
 ;;; jetbrains == Interoperable between emacs with jetbrains IDE
 (autoload 'jetbrains-open-buffer-file "jetbrains" nil t)
 (autoload 'jetbrains-create-dir-local-file "jetbrains" nil t)
-(global-set-key (kbd "C-M-9") 'jetbrains-open-buffer-file)
+(global-set-key (kbd "C-9") 'jetbrains-open-buffer-file)
+(global-set-key (kbd "C-M-9") 'jetbrains-create-dir-local-file)
 
 ;;; flutter
+(add-hook 'dart-mode 'electric-pair-local-mode)
 (with-eval-after-load 'dart-mode
   (define-key dart-mode-map (kbd "C-M-x") #'flutter-run-or-hot-reload))
 (setq flutter-sdk-path "~/.local/opt/flutter/")
+(setq lsp-dart-flutter-sdk-dir "~/.local/opt/flutter/")
 
 (provide 'init-packages)

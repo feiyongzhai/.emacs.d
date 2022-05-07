@@ -57,6 +57,9 @@
 	math-symbol-lists laas
 	expand-region
 
+	;; Programming
+	lsp-dart flutter
+
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history
 

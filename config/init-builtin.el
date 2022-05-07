@@ -39,7 +39,7 @@
 
 ;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)	;no bell
-(setq split-width-threshold nil) ;分屏的时候使用上下分屏，这个配置对于大屏幕比较有用
+;; (setq split-width-threshold nil) ;分屏的时候使用上下分屏，这个配置对于大屏幕比较有用
 (setq word-wrap-by-category t)	 ;按照中文折行
 
 ;;; Bookmark

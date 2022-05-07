@@ -14,7 +14,6 @@
 ;;; Treemacs
 (setq treemacs-position 'right)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
-(global-set-key (kbd "<C-f8>") 'speedbar)
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
@@ -88,6 +87,7 @@
 (global-set-key (kbd "C-c t") 'trashed)
 
 ;; 方便左手在键盘，右手在鼠标上的操作姿势
+(global-set-key (kbd "M-s h a") 'fei-highlight-region)
 (global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
 (global-set-key (kbd "M-s 1") 'highlight-symbol-at-point)
 (global-set-key (kbd "M-s M-2") 'fei-unhighlight-symbol-at-point)
@@ -100,12 +100,16 @@
 	   (thing-at-point 'symbol)
 	   "\\_>")))
 
-;;; Symbol-overlay
+(defun fei-highlight-region (b e)
+  (interactive "r")
+  (highlight-phrase (buffer-substring b e))
+  (deactivate-mark))
+
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
 (global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
 (with-eval-after-load 'symbol-overlay
-  (define-key symbol-overlay-map (kbd "o") 'fei-occur-for-mouse)
+  (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 (defun symbol-overlay-find-at-point-project ()
@@ -142,15 +146,6 @@
 (setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-auto-enabled t)
 (setq highlight-indent-guides-responsive 'top)
-
-;;; keyfreq
-(keyfreq-mode)
-(keyfreq-autosave-mode)
-(setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
-(setq keyfreq-excluded-commands
-      '(
-	;; mwheel-scroll
-        ))
 
 ;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
 ;; 一些 org 文件，所以配合起来使用也能接受

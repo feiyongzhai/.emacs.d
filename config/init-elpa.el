@@ -38,7 +38,7 @@
 	minions
 	all-the-icons-ibuffer
 	treemacs-icons-dired
-	keyfreq scratch imenu-list rg
+	scratch imenu-list rg
 	rainbow-mode
 
 	;; ==== 编辑相关 ====

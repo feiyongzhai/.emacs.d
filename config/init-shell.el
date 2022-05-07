@@ -68,7 +68,7 @@
 (defun fei-terminal-here ()
   (interactive)
   (if *is-linux*
-      (shell-command "gnome-terminal")
+      (shell-command "xfce4-terminal")
     (if (fboundp 'terminal-here)
 	(terminal-here)
       (message "can't open terminal here"))))
@@ -158,7 +158,7 @@
 	 (fasd-result (shell-command-to-string fasd))
 	 (path (replace-regexp-in-string "\n$" "" fasd-result)))
     (if (eq 0 (length args))
-	(call-interactively 'fasd-find-file)
+	(eshell/cd "-")
       (eshell/cd path)
       ;; (eshell/echo path)
       )))

@@ -1,10 +1,13 @@
 (setq tab-bar-format
-      '(tab-bar-format-history
+      '(
+	tab-bar-format-menu-bar
 	tab-bar-format-tabs
 	tab-bar-separator
 	tab-bar-format-add-tab
-	tab-bar-format-align-right
-	tab-bar-format-global ;在 emacsclient gui/tui 混用情况下有问题
+	tab-bar-separator
+	;; tab-bar-format-align-right
+	;; tab-bar-format-history
+	;; tab-bar-format-global ;在 emacsclient gui/tui 混用情况下有问题
 	))
 
 (setq tab-bar-show t)

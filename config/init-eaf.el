@@ -14,15 +14,13 @@
 (require 'eaf)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
-(require 'eaf-markdown-previewer)
-(require 'eaf-video-player)
 (require 'eaf-image-viewer)
-(require 'eaf-org-previewer)
+(require 'eaf-video-player)
 (require 'eaf-music-player)
+(require 'eaf-file-sender)
 (require 'eaf-file-browser)
 (require 'eaf-demo)
 (require 'eaf-vue-demo)
-;; (require 'eaf-fei)
 
 ;;; Vars
 
@@ -97,8 +95,7 @@
 
   (defun eaf-goto-right-tab ()
     (interactive)
-    (call-interactively 'tab-line-switch-to-next-tab))
-  )
+    (call-interactively 'tab-line-switch-to-next-tab)))
 
 (defmacro fei-eaf-wrapper (sym)
   "给 EAF 相关的命令添加一个 wrapper ，避免在终端下不小心调用到出现问题"
@@ -122,10 +119,7 @@
 (setq eaf-music-extension-list '("mp3" "m4a"))
 
 ;; == eaf-pdf-viewer ==
-;; 如果不添加下面这行配置，pdf总是是暗色的，这是一个 bug, 在 eaf-pdf-viewer
-;; 最近的一次更新 cabb7696f95a9f334c97e350fee46d7420eee93e 已经修复了。
-;; 不过更新测试发现还是存在不符合我预期的行为，暂时不更新
-(setq eaf-pdf-dark-mode "ignore")
+;; (setq eaf-pdf-dark-mode "ignore")
 
 (define-key eaf-mode-map* (kbd "C-x C-j") 'eaf-dired-jump)
 (defun eaf-dired-jump ()

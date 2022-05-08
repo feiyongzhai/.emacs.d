@@ -40,6 +40,11 @@
 
 	 (define-key map "g" #'keyboard-quit)
 	 (define-key map " " #'keyboard-quit)
+
+	 ;; Surround
+	 (define-key map "9" (lambda (b e)
+			       (interactive "r")
+			       (surround-region-with "(" b e)))
 	 
          ;; mark things
          (define-key map "d" #'mark-defun)
@@ -49,6 +54,17 @@
          (define-key map (kbd "-") #'er/contract-region)
          (define-key map (kbd "=") #'er/expand-region)
          map))))
+
+(defun surround-region-with (pair b e)
+  (let ((origin-str (buffer-substring b e))
+	(pair-right (pcase pair
+		      ("(" ")")
+		      ("{" "}")
+		      ("[" "]"))))
+    (delete-active-region)
+    (save-excursion
+      (insert (concat pair origin-str pair-right))))
+  (deactivate-mark))
 
 (global-set-key (kbd "M-O") 'set-mark-command)
 ;; 这个命令的影响范围还不熟悉，需要在实际应用中测试

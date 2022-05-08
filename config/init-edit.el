@@ -32,8 +32,8 @@
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
 ;;; Scroll
-(global-set-key (kbd "M-n") 'fei-scroll-up-line)
-(global-set-key (kbd "M-p") 'fei-scroll-down-line)
+(global-set-key (kbd "M-p") 'scroll-down-command)
+(global-set-key (kbd "M-n") 'scroll-up-command)
 
 (defun fei-scroll-up-line ()
   (interactive)
@@ -93,9 +93,9 @@
   '(("u" . undo)
     ("U" . undo-redo)))
 
-(global-set-key (kbd "C-s-n") 'scroll-up-line)
+(global-set-key (kbd "C-s-n") 'fei-scroll-up-line)
 (global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
-(global-set-key (kbd "C-s-p") 'scroll-down-line)
+(global-set-key (kbd "C-s-p") 'fei-scroll-down-line)
 (global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
 
 (defun fei-scroll-up-line-other-window ()

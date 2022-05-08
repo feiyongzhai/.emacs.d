@@ -23,12 +23,12 @@
 
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
-;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中用特殊的含义，和 f1-f4 绑定在一起
+;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中有特殊的含义，和 f1-f4 绑定在一起
 (global-set-key (kbd "C-'") 'avy-resume)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
-;; Highlight
+;;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
 ;;; Scroll
@@ -68,9 +68,8 @@
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
 (global-set-key (kbd "C-x u") 'transient-undo)
-(global-set-key (kbd "C-=") 'align-regexp)
+(global-set-key (kbd "C-=") 'compile)
 (global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
-(global-set-key (kbd "<C-f12>") 'open-current-file-with-vscode)
 
 (add-to-list 'load-path "~/.emacs.d/extensions/move-text")
 (require 'move-text)

@@ -102,7 +102,6 @@
 (defalias 'eshell/vim 'vim)
 (defalias 'eshell/emacs 'emacs)
 
-(defalias 'eshell/s 'fei-google-search)
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/j 'samray/eshell-fasd-z)

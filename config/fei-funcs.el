@@ -30,6 +30,12 @@ Argument ARG if not nil, switching in a new window."
           (buffer-substring-no-properties (region-beginning) (region-end))
 	(read-string "GoldenDict: "))))))
 
+(defun eshell/s (&rest search-string)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (eshell-flatten-and-stringify search-string))))
+
 (defun fei-google-search (&rest search-string)
   "Googles a query or region if any.
 
@@ -38,11 +44,9 @@ Argument ARG if not nil, switching in a new window."
   (browse-url
    (concat
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if search-string
-	(eshell-flatten-and-stringify search-string)
-      (if mark-active
-          (buffer-substring-no-properties (region-beginning) (region-end))
-	(read-string "Google: "))))))
+    (if mark-active
+        (buffer-substring-no-properties (region-beginning) (region-end))
+      (read-string "Google: ")))))
 
 (defun fei-search (&optional arg)
   "A wrapper for `fei-google-search', powered by `engine-mode'"

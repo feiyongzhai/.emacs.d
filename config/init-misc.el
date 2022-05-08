@@ -68,6 +68,9 @@
     ("M-ESC W" . whitespace-newline-mode)
     ))
 
+(global-set-key (kbd "M-/") 'dabbrev-completion)
+(global-set-key (kbd "C-M-/") 'dabbrev-expand)
+
 ;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
 ;; (defun fei-resize-frame ()
 ;;   (interactive)

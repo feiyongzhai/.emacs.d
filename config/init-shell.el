@@ -63,7 +63,6 @@
 (with-eval-after-load 'vterm
   (define-key vterm-mode-map (kbd "M-s") nil))
 
-
 ;;; ==== Funcs ====
 (defun fei-terminal-here ()
   (interactive)

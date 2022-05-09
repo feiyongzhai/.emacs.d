@@ -66,7 +66,6 @@
       (insert (concat pair origin-str pair-right))))
   (deactivate-mark))
 
-(global-set-key (kbd "M-O") 'set-mark-command)
 ;; 这个命令的影响范围还不熟悉，需要在实际应用中测试
 (add-to-list 'emulation-mode-map-alists
              'angel-transient-mode-map-alist t)

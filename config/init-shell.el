@@ -67,7 +67,7 @@
 (defun fei-terminal-here ()
   (interactive)
   (if *is-linux*
-      (shell-command "xfce4-terminal")
+      (start-process "xfce4-terminal" nil "xfce4-terminal")
     (if (fboundp 'terminal-here)
 	(terminal-here)
       (message "can't open terminal here"))))

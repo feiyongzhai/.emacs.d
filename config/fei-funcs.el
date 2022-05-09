@@ -36,7 +36,7 @@ Argument ARG if not nil, switching in a new window."
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
     (eshell-flatten-and-stringify search-string))))
 
-(defun fei-google-search (&rest search-string)
+(defun fei-google-search (&optional search-string)
   "Googles a query or region if any.
 
 参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/"
@@ -44,17 +44,19 @@ Argument ARG if not nil, switching in a new window."
   (browse-url
    (concat
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (if mark-active
-        (buffer-substring-no-properties (region-beginning) (region-end))
-      (read-string "Google: ")))))
+    (or search-string
+	(if mark-active
+            (buffer-substring-no-properties (region-beginning) (region-end))
+	  (read-string "Google: "))))))
 
 (defun fei-search (&optional arg)
   "A wrapper for `fei-google-search', powered by `engine-mode'"
   (interactive "P")
   (if arg
       (progn
-	(message (concat "[b/B] B站/Bing [w/h] Wikipedia/Github [c] 词典 [y] YouTube \n"
-			 "[s/S/M-s] 学术/搜狗/StackOverFlow [d/D] DuckDuckGo/百度 [g/i] 谷歌/图片"))
+	(message
+	 (concat "[b/B] B站/Bing [w/h] Wikipedia/Github [c] 词典 [y] YouTube \n"
+		 "[s/S/M-s] 学术/搜狗/StackOverFlow [d/D] DuckDuckGo/百度 [g/i] 谷歌/图片"))
 	(set-transient-map 'engine-mode-prefixed-map))
     (call-interactively 'fei-google-search)))
 
@@ -393,7 +395,6 @@ kill region instead"
     ;; I find visual style is more useful than relative
     (menu-bar--display-line-numbers-mode-visual)))
 
-(add-to-list 'load-path "~/.emacs.d/extensions/duplicate-line/")
 (require 'duplicate-line)
 (defun fei-duplicate-line-or-region (&optional arg)
   (interactive "P")

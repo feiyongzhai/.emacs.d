@@ -1,6 +1,5 @@
 ;; (setq-default cursor-type 'bar)
 
-;; (add-to-list 'load-path "~/.emacs.d/extensions")
 ;; (require 'cursor-chg)	       ; Load this library
 ;; 
 ;; (change-cursor-mode 1)	       ; On for overwrite/read-only/input mode

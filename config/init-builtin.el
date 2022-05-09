@@ -4,6 +4,7 @@
 (require 'init-func)
 
 (minibuffer-depth-indicate-mode)
+(global-hl-line-mode)
 (global-auto-revert-mode)	    ;autoload the file changes on disk
 (delete-selection-mode)		    ;选中文本后输入会覆盖
 (column-number-mode)
@@ -44,7 +45,7 @@
 
 ;;; Bookmark
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
-(global-set-key (kbd "C-c b") 'list-bookmarks)
+(global-set-key (kbd "C-c b") 'helm-chrome-history)
 (global-set-key (kbd "C-c B") 'counsel-bookmark)
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
@@ -111,8 +112,5 @@
   (define-key view-mode-map (kbd "r") 'nil)
   (define-key view-mode-map (kbd "y") 'fei-youdao-at-point)
   (define-key view-mode-map (kbd ".") 'isearch-forward-symbol-at-point))
-
-;;; MISC
-(global-set-key (kbd "C-x :") 'compile)
 
 (provide 'init-builtin)

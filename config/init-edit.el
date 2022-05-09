@@ -1,11 +1,12 @@
 (require 'fei-funcs)
+(require 'move-text)
 
 (setq shift-select-mode 'permanent)
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
 (setq next-screen-context-lines 2)	;default is 2
 (setq scroll-step 1
       scroll-conservatively 10000
-      scroll-margin 0 ;这个变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
+      scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
       )
 
 ;;; Kill/Yank
@@ -14,16 +15,12 @@
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
 ;;; Movement/Navigate
-(global-set-key (kbd "M-s i") 'imenu)
 (global-set-key (kbd "M-s n") (li (switch-to-buffer "*eaf*")))
 (global-set-key (kbd "M-s p") (li (switch-to-buffer "*scratch*")))
 
-(global-set-key (kbd "M-s [") 'point-to-register)
-(global-set-key (kbd "M-s ]") 'jump-to-register)
-
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
-;; (global-set-key (kbd "M-O") 'fei-occur-for-mouse) ;M-O 在终端中有特殊的含义，和 f1-f4 绑定在一起
+
 (global-set-key (kbd "C-'") 'avy-resume)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
@@ -55,24 +52,21 @@
 (global-set-key (kbd "C-,") 'set-mark-command)
 
 ;;; Misc
+(global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
+(global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
+
 (global-set-key (kbd "C-x i") 'insert-char)
 (global-set-key (kbd "C-x I") 'emoji-search)
 (global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
 (global-set-key (kbd "S-SPC") 'just-one-space)
 
-(global-set-key (kbd "C-c q") 'query-replace)
-(global-set-key (kbd "C-c Q") 'query-replace-regexp)
-
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
 (global-set-key (kbd "C-x u") 'transient-undo)
-(global-set-key (kbd "C-=") 'compile)
 (global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
-
-(add-to-list 'load-path "~/.emacs.d/extensions/move-text")
-(require 'move-text)
 
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)

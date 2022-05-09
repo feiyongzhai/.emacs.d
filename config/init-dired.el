@@ -1,7 +1,7 @@
 ;;; init-dired.el --- configs for dired
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
-(require 'dired-filter)	; 这个包在设计上和 ibuffer 的 filter 保持了一致
+(require 'dired-filter)
 (require 'fei-funcs)
 
 ;; (add-hook 'dired-mode-hook #'treemacs-icons-dired-mode)
@@ -17,7 +17,7 @@
 	 "find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile"
 	 "xpdf")))
 
-(setq delete-by-moving-to-trash t) ;; 删除 `dired' 文件进入回收站
+(setq delete-by-moving-to-trash t)	;删除 `dired' 文件进入回收站
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (setq dired-mouse-drag-files t)		;Powered by emacs29
@@ -62,9 +62,6 @@
 
 (with-eval-after-load 'dired-x
   (define-key dired-mode-map (kbd "M-G") nil))
-
-(define-key dired-mode-map (kbd "]") 'jump-to-register)
-(define-key dired-mode-map (kbd "[") 'point-to-register)
 
 (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
 (define-key dired-mode-map (kbd ";e") 'fei-eshell-cd-here)

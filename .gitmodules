@@ -1,6 +1,3 @@
-[submodule "site-lisp/move-text"]
-	path = extensions/move-text
-	url = https://github.com/manateelazycat/move-text.git
 [submodule "extensions/insert-translated-name"]
 	path = extensions/insert-translated-name
 	url = https://github.com/manateelazycat/insert-translated-name.git
@@ -10,12 +7,6 @@
 [submodule "extensions/popweb"]
 	path = extensions/popweb
 	url = https://github.com/manateelazycat/popweb.git
-[submodule "extensions/duplicate-line"]
-	path = extensions/duplicate-line
-	url = https://github.com/manateelazycat/duplicate-line.git
-[submodule "extensions/one-key"]
-	path = extensions/one-key
-	url = https://github.com/manateelazycat/one-key.git
 [submodule "extensions/fasd"]
 	path = extensions/fasd
 	url = https://github.com/feiyongzhai/fasd.git

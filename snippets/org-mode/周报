@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: 周报
+# key: 周报
+# --
+#+TITLE: `(format-time-string "%Y-%m-%d")`-周报-翟勇飞
+#+AUTHOR: 翟勇飞
+#+DATE: `(format-time-string "%Y-%m-%d")`
+#+OPTIONS: toc:nil title:nil
+
+* 两周总结（`(format-time-string "%Y.%m.%d" (time-subtract (current-time) (* 14 60 60 24)))`-`(format-time-string "%Y.%m.%d")`）
+#+begin_center
+翟勇飞
+#+end_center
+
+** COMMENT 草稿
+
+* 计划/安排
+
+** COMMENT 草稿

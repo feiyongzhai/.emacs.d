@@ -11,6 +11,7 @@
 	))
 
 ;; Keys
+(global-set-key (kbd "C-x ,") 'counsel-M-x)
 (when *is-linux*
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   (global-set-key (kbd "C-c m") 'counsel-linux-app)

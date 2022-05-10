@@ -1,6 +1,5 @@
 ;;; Linux 专用配置
 
-(require 'apt-utils)
 (require 'init-eaf)
 
 ;; Fasd

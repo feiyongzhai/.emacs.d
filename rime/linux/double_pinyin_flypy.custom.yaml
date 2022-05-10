@@ -7,6 +7,9 @@ patch:
       code: "[a-zA-Z]+(*$"
       url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]{1,10}[.:_-].*$"
 
+  punctuator:
+    import_preset: symbols
+
   ### 精简 simp
   # "translator/dictionary": pinyin_simp
   "translator/preedit_format": {} # 默认双拼不自动展开

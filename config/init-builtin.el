@@ -46,7 +46,7 @@
 ;;; Bookmark
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
 (global-set-key (kbd "C-c b") 'helm-chrome-history)
-(global-set-key (kbd "C-c B") 'counsel-bookmark)
+(global-set-key (kbd "C-c B") 'helm-chrome-bookmarks)
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
 

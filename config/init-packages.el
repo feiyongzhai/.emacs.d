@@ -178,4 +178,7 @@
 (setq flutter-sdk-path "~/.local/opt/flutter/")
 (setq lsp-dart-flutter-sdk-dir "~/.local/opt/flutter/")
 
+;;; pdf-tools
+(pdf-tools-install)
+
 (provide 'init-packages)

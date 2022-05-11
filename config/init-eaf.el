@@ -12,6 +12,7 @@
 ;; ==== EAF ====
 (add-to-list 'load-path "~/.emacs.d/extensions/eaf")
 (require 'eaf)
+(require 'eaf-org)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
 (require 'eaf-image-viewer)
@@ -24,6 +25,7 @@
 
 ;;; Vars
 
+(setq eaf-org-override-pdf-links-store t)
 (setq eaf-browser-continue-where-left-off t)
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
 (setq eaf-browser-enable-adblocker t)

@@ -90,6 +90,7 @@
 	engine-mode
 	eyebrowse
         hide-mode-line
+	pdf-tools
 	
         helpful
         openwith

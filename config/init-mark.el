@@ -22,7 +22,8 @@
 	 (define-key map (kbd "O") (lambda
 				     (b e)
 				     (interactive "r")
-				     (project-find-regexp (buffer-substring b e))))
+				     (rg-project (buffer-substring b e) "all") ;rg-project 计算的 project 更符合我的预期
+				     (deactivate-mark)))
 
          (define-key map "q" #'query-replace)
          (define-key map "Q" #'query-replace-regexp)

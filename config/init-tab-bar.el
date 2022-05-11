@@ -24,7 +24,6 @@
 (advice-add 'tab-bar-duplicate-tab :around 'fei-tab-duplicate-advisor)
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
-(global-set-key (kbd "M-s C-m") 'fei-tab-switch)
 (global-set-key (kbd "M-s C-i") 'tab-bar-echo-area-print-tab-names)
 
 (add-hook 'term-mode-hook '+fei-term-mode-hook)

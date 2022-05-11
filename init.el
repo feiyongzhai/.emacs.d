@@ -66,6 +66,7 @@
     (require 'init-win10)))
 
   ;; 尝鲜
+  (require 'init-lsp-bridge)
   ;; (require 'init-tempel)
   
   ;; local configs

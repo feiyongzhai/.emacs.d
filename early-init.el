@@ -46,15 +46,6 @@
 (menu-bar-mode)
 (global-tab-line-mode -1)
 
-(let ((hour (string-to-number
-             (substring (current-time-string) 11 13))))
-  (unless (member hour (number-sequence 6 21))
-    ;; (load-theme 'modus-vivendi t)
-    ;; (load-theme 'whiteboard t)
-    ;; (load-theme 'deeper-blue t)
-    (load-theme 'tango-dark t)
-    ))
-
 
 ;; `early-init.el' 可对 emacsclient 生效
 (require 'init-font)

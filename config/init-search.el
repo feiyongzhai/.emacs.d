@@ -9,18 +9,16 @@
  isearch-regexp-lax-whitespace t
  search-whitespace-regexp ".*?")
 
-(global-set-key (kbd "M-s M-s") 'browse-url)
+(global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "s-g") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-S") 'swiper-isearch)
 (global-set-key (kbd "M-s s") 'swiper-isearch)
-
-(global-set-key (kbd "s-s") 'swiper-isearch)
-(global-set-key (kbd "s-r") 'swiper-isearch-backward)
+(global-set-key (kbd "M-s M-s") 'swiper-isearch)
 
 (with-eval-after-load 'swiper
-  (define-key swiper-map (kbd "s-s") 'swiper-C-s)
-  (define-key swiper-map (kbd "s-r") 'swiper-isearch-C-r)
+  (define-key swiper-map (kbd "M-s") 'swiper-C-s)
+  (define-key swiper-map (kbd "M-r") 'swiper-isearch-C-r)
   )
 
 (fei-define-key-with-map isearch-mode-map
@@ -34,7 +32,7 @@
     ("C-c k" . fei-counsel-rg-from-isearch)
     ("M-s r" . rg-isearch-project)
     ("M-S" . swiper-isearch-toggle)
-    ("s-s" . swiper-isearch-toggle)
+    ("M-s M-s" . swiper-isearch-toggle)
     ))
 
 (defun fei-counsel-rg-from-isearch ()

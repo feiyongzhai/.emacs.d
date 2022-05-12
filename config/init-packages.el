@@ -178,9 +178,4 @@
 (setq flutter-sdk-path "~/.local/opt/flutter/")
 (setq lsp-dart-flutter-sdk-dir "~/.local/opt/flutter/")
 
-;;; pdf-tools
-(pdf-tools-install)
-(define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
-(define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
-
 (provide 'init-packages)

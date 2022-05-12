@@ -4,7 +4,6 @@
 (require 'init-func)
 
 (minibuffer-depth-indicate-mode)
-(global-hl-line-mode)
 (global-auto-revert-mode)	    ;autoload the file changes on disk
 (delete-selection-mode)		    ;选中文本后输入会覆盖
 (column-number-mode)

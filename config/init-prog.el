@@ -5,6 +5,7 @@
 (defun +fei-prog-hook ()
   (display-line-numbers-mode t)
   (company-mode t)
+  (hl-line-mode t)
   (yas-minor-mode t))
 
 ;; Octave

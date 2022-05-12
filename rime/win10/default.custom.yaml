@@ -7,7 +7,4 @@ customization:
 patch:
   schema_list:
     - schema: double_pinyin_flypy
-    - schema: flypy
     - schema: luna_pinyin_simp
-    - schema: xhup_express
-    - schema: xhup_fluency

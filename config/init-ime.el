@@ -22,7 +22,8 @@
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)
   (pyim-basedict-enable)
-  (setq pyim-default-scheme 'xiaohe-shuangpin)
+  (setq pyim-default-scheme 'quanpin)
+  (setq pyim-assistant-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
   )
 (setq-default pyim-english-input-switch-functions

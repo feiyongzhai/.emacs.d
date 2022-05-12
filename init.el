@@ -18,7 +18,6 @@
   (require 'init-dired)
   (require 'init-proxy)
   ;; (require 'init-eww)
-  ;; (require 'init-w3m)
   (require 'init-misc)
 
   (require 'init-org)

@@ -65,9 +65,6 @@
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history
 
-	;; ==== Theme ====
-	kaolin-themes intellij-theme
-
 	;; ==== Major-mode ====
 	markdown-mode matlab-mode
 	auctex cdlatex

@@ -26,7 +26,7 @@
   (require 'init-git)
   (require 'init-markdown)
   (require 'init-prog)
-  (require 'init-js)
+  (require 'init-html-css-js)
   (require 'init-python)
   (require 'init-matlab)
   (require 'init-c)

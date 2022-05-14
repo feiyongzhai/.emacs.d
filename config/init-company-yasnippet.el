@@ -6,8 +6,8 @@
   (fei-define-key-with-map company-active-map
     '(("M-n" . company-select-next)
       ("M-p" . company-select-previous)
-      ("C-h" . company-show-doc-buffer)	;当前编译的 emacs-28 按 C-h 会卡死。暂时关闭，不知道什么情况，现在又可以正常工作了
-      ("M-i" . yas-next-field-or-maybe-expand)
+      ("C-h" . company-show-doc-buffer)
+      ("M-i" . yas-expand)
       ("TAB" . company-complete-selection)
       ("M-h" . company-complete-selection)
       ("M-H" . company-complete-common)

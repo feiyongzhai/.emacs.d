@@ -24,7 +24,7 @@
   (add-to-list 'company-transformers 'delete-dups)
   )
 
-(setq company-minimum-prefix-length 3
+(setq company-minimum-prefix-length 1
       ;; company-idle-delay 0.1
       company-tooltip-limit 10
       company-show-numbers t

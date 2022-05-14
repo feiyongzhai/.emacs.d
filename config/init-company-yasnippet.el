@@ -51,9 +51,15 @@
     (company-cancel)
     (call-interactively 'company-yasnippet)))
 
+;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
+  (define-key yas-minor-mode-map (kbd "<tab>") nil)
+  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意： `yas-maybe-expand' 是一个 variable
   (define-key yas-keymap (kbd "M-n") 'yas-next-field)
   (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
+  (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
+  (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
   )
 
 (with-eval-after-load 'yasnippet

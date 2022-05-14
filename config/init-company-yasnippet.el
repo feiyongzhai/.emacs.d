@@ -21,15 +21,7 @@
   (define-key company-search-map (kbd "M-n") 'company-select-next)
   (define-key company-search-map (kbd "M-p") 'company-select-previous)
 
-  ;; Add yasnippet support for all company backends.
-  ;; @REF: lazycat init-company-mode.el
   (add-to-list 'company-transformers 'delete-dups)
-  (defun company-mode/backend-with-yas (backend)
-    (if (and (listp backend) (member 'company-yasnippet backend))
-        backend
-      (append (if (consp backend) backend (list backend))
-              '(:with company-yasnippet))))
-  (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   )
 
 (setq company-minimum-prefix-length 3

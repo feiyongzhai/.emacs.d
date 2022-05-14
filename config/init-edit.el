@@ -28,10 +28,6 @@
 ;;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
-;;; Scroll
-(global-set-key (kbd "M-p") 'scroll-down-command)
-(global-set-key (kbd "M-n") 'scroll-up-command)
-
 (defun fei-scroll-up-line ()
   (interactive)
   (if (or (eq last-command 'fei-scroll-down-line)

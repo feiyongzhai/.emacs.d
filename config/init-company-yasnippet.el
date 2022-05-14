@@ -20,14 +20,6 @@
 
   (define-key company-search-map (kbd "M-n") 'company-select-next)
   (define-key company-search-map (kbd "M-p") 'company-select-previous)
-  
-  (setq company-show-numbers t)
-  (setq company-minimum-prefix-length 3
-	;; company-idle-delay 0.1
-	company-tooltip-limit 10
-	company-echo-delay (if (display-graphic-p) nil 0))
-  ;;; 避免补全中文的一个workaround
-  (setq company-dabbrev-char-regexp "[-_a-zA-Z0-9]")
 
   ;; Add yasnippet support for all company backends.
   ;; @REF: lazycat init-company-mode.el
@@ -40,15 +32,19 @@
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   )
 
-;; @REF: Centuar Emacs
-(setq company-tooltip-align-annotations t
+(setq company-minimum-prefix-length 3
+      ;; company-idle-delay 0.1
+      company-tooltip-limit 10
+      company-show-numbers t
+      company-echo-delay (if (display-graphic-p) nil 0)
+      company-tooltip-align-annotations t
       company-require-match nil
       company-dabbrev-ignore-case nil
       company-dabbrev-downcase nil
       company-global-modes '(not erc-mode message-mode help-mode
-                                 gud-mode eshell-mode shell-mode)
-      ;; company-backends '(company-keywords company-files (company-capf :with company-yasnippet) company-dabbrev)
-      )
+                                 gud-mode eshell-mode shell-mode))
+;; 避免补全中文的一个workaround
+(setq company-dabbrev-char-regexp "[-_a-zA-Z0-9]")
 
 ;; ==== Yasnippet ====
 (yas-global-mode)

@@ -28,6 +28,7 @@
   (require 'init-prog)
   (require 'init-html-css-js)
   (require 'init-python)
+  (require 'init-rust)
   (require 'init-matlab)
   (require 'init-c)
   (require 'init-lsp)

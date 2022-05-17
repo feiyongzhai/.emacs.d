@@ -1,5 +1,3 @@
-;;; init-builtin.el
-
 (require 'fei-funcs)
 (require 'init-func)
 
@@ -76,10 +74,6 @@
 ;;; hl-line
 ;; (setq hl-line-sticky-flag t)
 
-;;; Experiment
-;; (global-unset-key (kbd "C-x C-c"))
-;; (defalias 'exit 'save-buffers-kill-terminal)
-
 ;;; Man
 (setq Man-notify-method 'aggressive)
 (with-eval-after-load 'man
@@ -88,5 +82,9 @@
 ;;; Desktop
 (global-set-key (kbd "C-c d r") 'desktop-read) ;if you `desktop-read' by accident, you can use `desktop-clear'
 (global-set-key (kbd "C-c d s") 'desktop-save)
+
+;;; Experiment
+;; (global-unset-key (kbd "C-x C-c"))
+;; (defalias 'exit 'save-buffers-kill-terminal)
 
 (provide 'init-builtin)

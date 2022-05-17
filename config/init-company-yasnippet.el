@@ -1,4 +1,4 @@
-;;; init-company-yasnippet.el --- configs for company
+;;; init-company-yasnippet.el
 (require 'init-func)
 
 (with-eval-after-load 'company

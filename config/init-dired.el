@@ -1,4 +1,4 @@
-;;; init-dired.el --- configs for dired
+;;; init-dired.el
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'dired-ranger)
 (require 'dired-filter)

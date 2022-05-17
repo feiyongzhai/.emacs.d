@@ -1,5 +1,3 @@
-;;; Vars
-
 (setq elfeed-feeds
       '(("http://www.solidot.org/index.rss" Solidot)
 	("https://manateelazycat.github.io/feed.xml" ManateeLazyCat)
@@ -14,8 +12,6 @@
 	;; ("https://www.zhihu.com/rss" 知乎)
 	;; ("https://sspai.com/feed" sspai)
 	))
-
-;;; Keys
 
 (with-eval-after-load 'elfeed
   (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))

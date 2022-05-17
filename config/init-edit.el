@@ -1,7 +1,7 @@
 (require 'fei-funcs)
 (require 'move-text)
 
-(setq shift-select-mode 'permanent)
+(setq shift-select-mode t)		;回归默认行为
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
 (setq next-screen-context-lines 2)	;default is 2
 (setq scroll-step 1

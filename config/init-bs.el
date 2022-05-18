@@ -2,6 +2,9 @@
 
 (setq bs-default-configuration "all")
 
+(defun fei-bs-not-all (buf)
+  t)
+
 (defun fei-bs-not-dired (buf)
   (with-current-buffer buf
     (not (eq major-mode 'dired-mode))))
@@ -65,6 +68,7 @@
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)
+	("not-all" nil nil nil fei-bs-not-all )
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("dired" nil nil nil fei-bs-not-dired bs-sort-buffer-interns-are-last)
 	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
@@ -80,6 +84,7 @@
 (with-eval-after-load 'bs
   (define-key bs-mode-map (kbd "w") (li (fei-bs-set-configuration-default "eww-and-w3m")))
   (define-key bs-mode-map (kbd "a") (li (fei-bs-set-configuration-default "all")))
+  (define-key bs-mode-map (kbd ";") (li (fei-bs-set-configuration-default "not-all")))
   (define-key bs-mode-map (kbd "A") 'bs-toggle-show-all)
   (define-key bs-mode-map (kbd "d") (li (fei-bs-set-configuration-default "dired")))
   (define-key bs-mode-map (kbd "C-j") 'bs-select)

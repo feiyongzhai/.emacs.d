@@ -44,6 +44,7 @@
 
 	;; ==== 编辑相关 ====
 	evil general
+	highlight-parentheses
 	company yasnippet
 	avy ace-window
 	neotree

@@ -19,6 +19,6 @@
 (add-hook 'matlab-mode-hook 'yafolding-mode)
 (add-hook 'matlab-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'matlab-mode-hook 'display-line-numbers-mode)
-
+(add-hook 'matlab-mode-hook 'highlight-parentheses-mode)
 
 (provide 'init-matlab)

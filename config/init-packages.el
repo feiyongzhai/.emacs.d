@@ -109,6 +109,7 @@
 (global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
 (with-eval-after-load 'symbol-overlay
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
+  (define-key symbol-overlay-map (kbd "l") 'recenter-top-bottom)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
 
 (defun symbol-overlay-find-at-point-project ()

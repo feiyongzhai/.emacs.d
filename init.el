@@ -1,8 +1,8 @@
 ;;; init.el
 
-;;(require 'benchmark-init-modes)
-;;(require 'benchmark-init)
-;;(benchmark-init/activate)
+;; (require 'benchmark-init-modes)
+;; (require 'benchmark-init)
+;; (benchmark-init/activate)
 
 (let ((gc-cons-threshold most-positive-fixnum)
       (gc-cons-percentage 0.6))
@@ -14,10 +14,8 @@
   (require 'init-window-buffer)
   (require 'init-tab-line)
   (require 'init-tab-bar)
-  ;; (require 'init-eyebrowse)
   (require 'init-dired)
   (require 'init-proxy)
-  ;; (require 'init-eww)
   (require 'init-misc)
 
   (require 'init-org)
@@ -35,7 +33,6 @@
   (require 'init-lisp)
 
   (require 'init-latex)
-  ;; (require 'init-mail)
   (require 'init-wanderlust)
   (require 'init-company-yasnippet)
   (require 'init-ivy)
@@ -73,7 +70,7 @@
   (let ((local-config "~/.emacs.d/config/init-local.el"))
     (when (file-exists-p local-config)
       (load-file local-config)))
-
+  
   ;; load `custom-file' if exists
   ;; (when (file-exists-p custom-file)
   ;;   (load-file custom-file))

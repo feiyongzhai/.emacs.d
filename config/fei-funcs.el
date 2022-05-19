@@ -216,11 +216,6 @@ kill region instead"
   (org-agenda nil "a")
   (delete-other-windows))
 
-(defun fei-org-store-link ()
-  (interactive)
-  (require 'org)
-  (call-interactively 'org-store-link))
-
 ;; @REF: https://emacs-china.org/t/leader-vscode/19166/29?u=yongfeizhai
 (defun open-current-file-with-vscode ()
   (interactive)

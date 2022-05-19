@@ -20,8 +20,8 @@
   (setq org-latex-default-class "ctexart")
   (setq org-latex-compiler "xelatex"))
 
-(require 'ox-beamer) ;没有这一行在 ox-dispatcher 中不会显示 ox-beamer 的选项
-(with-eval-after-load 'ox-beamer
+(with-eval-after-load 'ox
+  (require 'ox-beamer) ;没有这一行在 ox-dispatcher 中不会显示 ox-beamer 的选项
   (add-to-list 'org-latex-classes
                '("beamer" "\\documentclass[presentation]{ctexbeamer}"
 		 ("\\section{%s}" . "\\section*{%s}")

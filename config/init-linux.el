@@ -1,20 +1,18 @@
 ;;; Linux 专用配置
 
-(require 'init-eaf)
-
-;;; pdf-tools
-(pdf-tools-install)
-(define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
-(define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+(require 'fei-funcs)
 
 ;; Fasd
 (add-to-list 'load-path "~/.emacs.d/extensions/fasd")
+(autoload 'fasd-ivy-find-file "fasd" nil t)
+(global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
+(setq fasd-add-file-to-db-when-eshell t)
+(setq fasd-enable-initial-prompt nil)
+
 (with-eval-after-load 'ivy
   ;; 因为 fasd 的原因，需要在 ivy 之后加载
   (require 'fasd)
-  (setq fasd-add-file-to-db-when-eshell t)
   (global-fasd-mode t)
-  (setq fasd-enable-initial-prompt nil)
   )
 
 ;; Telega
@@ -24,6 +22,19 @@
       telega-use-images t
       telega-open-file-function 'org-open-file
       telega-proxies '((:server "localhost" :port 1089 :enable t :type (:@type "proxyTypeSocks5"))))
+
+;; 耗时的操作延迟加载
+(run-with-idle-timer
+ 1 nil
+ (lambda ()
+   ;; (message "开始延迟加载")
+   (require 'init-eaf)
+   
+   ;; pdf-tools
+   (pdf-tools-install)
+   (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+   (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+   ))
 
 ;; Fcitx
 (setq fcitx-active-evil-states '(insert emacs hybrid))

@@ -59,7 +59,6 @@
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "C-c S") 'fei-org-store-link)
 (global-set-key (kbd "C-S-y") 'org-download-clipboard)
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))

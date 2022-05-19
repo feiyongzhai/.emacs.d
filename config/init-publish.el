@@ -4,9 +4,10 @@
 (global-set-key (kbd "C-c o p")
 		;; load `init-publish.el' 以保证 preamble.html 的修改可以更新
 		;; 这个和 elisp 的 backquote 的语法有关
-		(li (load "init-publish.el") (call-interactively 'org-publish)))
+		(li (require 'ox-publish)
+		    (load "init-publish.el")
+		    (call-interactively 'org-publish)))
 
-(require 'ox-publish)
 ;; (setq org-html-validation-link nil)
 
 (defun read-html-template (template-file)

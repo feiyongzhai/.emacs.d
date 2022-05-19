@@ -123,7 +123,6 @@
 (global-set-key (kbd "M-s ]") 'jump-to-register)
 
 (global-set-key (kbd "C-c J") (li (fei-counsel-fd-file-jump nil "~/Desktop/文献仓库")))
-(global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
 
 ;;; youdao-dictionary
 (with-eval-after-load 'youdao-dictionary

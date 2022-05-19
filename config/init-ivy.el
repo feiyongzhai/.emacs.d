@@ -51,27 +51,4 @@
      ))
   )
 
-(with-eval-after-load 'fasd
-  (ivy-add-actions
-   'fasd-ivy-find-file
-   '(("e" fei-counsel-find-file-eshell-here-action "eshell here"))))
-
-(defun fei-counsel-find-file-eshell-here-action (file)
-  (let ((dir (if (file-directory-p file)
-		 file
-	       (file-name-directory file)))
-	(buf (eshell))
-	eshell-list-files-after-cd)
-    (set-buffer buf)
-    ;; (message "eshell previous at: %s" default-directory)
-    ;; bind `eshell-list-files-after-cd' with `t' will cause error
-    ;; when run `eshell/cd' in lisp code. as shown below. but it
-    ;; won't cause any problem when use `cd' in eshell buffer. so I
-    ;; use let-bind `eshell-list-files-after-cd' with nil
-    (unless (string= default-directory dir)
-      ;; (message "eshell jump to: %s" dir)
-      (eshell/cd dir)
-      (eshell-reset))))
-
 (provide 'init-ivy)
-

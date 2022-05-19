@@ -11,6 +11,7 @@
 (require 'lsp-bridge-icon)        ;; 补全菜单显示类型图标，可选
 
 (dolist (hook (list
+	       'rust-mode-hook
 	       'c-mode-hook
 	       'c++-mode-hook
 	       'python-mode-hook))
@@ -20,9 +21,10 @@
   (lsp-bridge-mode 1)
   (company-mode -1)
   (corfu-mode)
-  (define-key lsp-bridge-mode-map (kbd "<f2>") 'lsp-bridge-rename)
-  (define-key lsp-bridge-mode-map (kbd "C-M-.") 'lsp-bridge-find-references)
   )
+
+(define-key lsp-bridge-mode-map (kbd "<f2>") 'lsp-bridge-rename)
+(define-key lsp-bridge-mode-map (kbd "C-M-.") 'lsp-bridge-find-references)
 
 ;; Xref 配置：
 (add-hook 'lsp-bridge-mode-hook (lambda ()

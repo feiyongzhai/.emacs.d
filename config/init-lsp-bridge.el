@@ -1,53 +1,31 @@
 (add-to-list 'load-path "~/Repos/lsp-bridge")
 
-(require 'lsp-bridge)             ;; load lsp-bridge
+;; corfu 配置:
+(setq lsp-bridge-completion-provider 'corfu)
+(require 'corfu)
+(require 'corfu-info)
+(require 'corfu-history)
 
-(require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
-(require 'lsp-bridge-icon)        ;; show icon for completion items, optional
+(require 'lsp-bridge)             ;; 加载lsp-bridge
+(require 'lsp-bridge-orderless)   ;; 支持代码补全时模糊搜索，可选
+(require 'lsp-bridge-icon)        ;; 补全菜单显示类型图标，可选
 
-;; Enable auto completion in elisp mode.
 (dolist (hook (list
-               'emacs-lisp-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto t)
-                   )))
+	       'c-mode-hook
+	       'c++-mode-hook
+	       'python-mode-hook))
+  (add-hook hook 'fei-lsp-bridge-hook))
 
-;; Enable lsp-bridge.
-(dolist (hook (list
-               'c-mode-hook
-               'c++-mode-hook
-               ;; 'java-mode-hook
-               'python-mode-hook
-               ;; 'ruby-mode-hook
-               ;; 'rust-mode-hook
-               ;; 'elixir-mode-hook
-               ;; 'go-mode-hook
-               ;; 'haskell-mode-hook
-               ;; 'haskell-literate-mode-hook
-               ;; 'dart-mode-hook
-               ;; 'scala-mode-hook
-               ;; 'typescript-mode-hook
-               ;; 'js2-mode-hook
-               ;; 'js-mode-hook
-               ;; 'tuareg-mode-hook
-               ;; 'latex-mode-hook
-               ;; 'Tex-latex-mode-hook
-               ;; 'texmode-hook
-               ;; 'context-mode-hook
-               ;; 'texinfo-mode-hook
-               ;; 'bibtex-mode-hook
-               ))
-  (add-hook hook (lambda ()
-                   (setq-local corfu-auto nil)  ;; let lsp-bridge control when popup completion frame
-                   (lsp-bridge-mode 1)
-		   (company-mode -1)
-		   (corfu-mode 1)
-                   )))
+(defun fei-lsp-bridge-hook ()
+  (lsp-bridge-mode 1)
+  (company-mode -1)
+  (corfu-mode)
+  (define-key lsp-bridge-mode-map (kbd "<f2>") 'lsp-bridge-rename)
+  (define-key lsp-bridge-mode-map (kbd "C-M-.") 'lsp-bridge-find-references)
+  )
 
-(add-hook 'lsp-bridge-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "M-.") 'lsp-bridge-find-def)
-	    (local-set-key (kbd "C-.") 'lsp-bridge-find-references)))
+;; Xref 配置：
+(add-hook 'lsp-bridge-mode-hook (lambda ()
+  (add-hook 'xref-backend-functions #'lsp-bridge-xref-backend nil t)))
 
 (provide 'init-lsp-bridge)

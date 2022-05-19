@@ -39,13 +39,11 @@
       eaf-proxy-host "127.0.0.1"
       eaf-proxy-port "1089")
 
-(unless *is-windows*
-  ;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
-  ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
-  ;; 				      ("." . browse-url-default-browser)))
-  ;; (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
-  ;; 			      ("." . browse-url-default-browser)))
-  )
+;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
+;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
+;; 				      ("." . browse-url-default-browser)))
+;; (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
+;; 			      ("." . browse-url-default-browser)))
 
 ;;; Keys
 (with-eval-after-load 'eaf-browser
@@ -121,7 +119,7 @@
 (setq eaf-music-extension-list '("mp3" "m4a"))
 
 ;; == eaf-pdf-viewer ==
-;; (setq eaf-pdf-dark-mode "ignore")
+(setq eaf-pdf-dark-mode "ignore")
 
 (define-key eaf-mode-map* (kbd "C-x C-j") 'eaf-dired-jump)
 (defun eaf-dired-jump ()

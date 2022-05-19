@@ -44,11 +44,11 @@
 
 	;; ==== 编辑相关 ====
 	evil general
-	highlight-parentheses
+	highlight-parentheses highlight-indentation
 	company yasnippet
 	avy ace-window
 	neotree
-	electric-spacing highlight-indent-guides
+	electric-spacing
 	iedit
 	yafolding pyvenv conda
 	symbol-overlay
@@ -101,6 +101,7 @@
 	;; ==== 备忘 ====
 	;; ctrlf anzu
 	;; eshell-git-prompt
+	;; highlight-indent-guides
 	;; devdocs
 	;; sis pinyin-search
 	;; mini-modeline

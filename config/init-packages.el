@@ -141,11 +141,6 @@
 ;; (global-set-key (kbd "C-h O") 'describe-symbol)
 ;; (global-set-key (kbd "C-h k") 'helpful-key)
 
-;;; highlight-indent-guides copied from lazycat
-(setq highlight-indent-guides-method 'character)
-(setq highlight-indent-guides-auto-enabled t)
-(setq highlight-indent-guides-responsive 'top)
-
 ;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
 ;; 一些 org 文件，所以配合起来使用也能接受
 (global-set-key (kbd "C-x c o") 'helm-org-rifle)

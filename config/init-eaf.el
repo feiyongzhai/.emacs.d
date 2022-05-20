@@ -11,6 +11,8 @@
 
 ;; ==== EAF ====
 (add-to-list 'load-path "~/.emacs.d/extensions/eaf")
+(setq eaf-python-command "/usr/bin/python3") ;因为有的时候会用别的 python 环境，还是指定稳定一些
+(setq popweb-python-command "/usr/bin/python3")
 (require 'eaf)
 (require 'eaf-org)
 (require 'eaf-browser)

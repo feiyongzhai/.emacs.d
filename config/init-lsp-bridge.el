@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/Repos/lsp-bridge")
+(setq lsp-bridge-python-command "/usr/bin/python3")
 
 ;; corfu 配置:
 (setq lsp-bridge-completion-provider 'corfu)

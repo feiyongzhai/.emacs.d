@@ -76,6 +76,11 @@
   ;;   (load-file custom-file))
   )
 
-(server-start)
+(run-with-idle-timer
+ 1 nil
+ (lambda ()
+   (require 'server)
+   (unless (server-running-p)
+     (server-start))))
 
 ;; init.el ends here

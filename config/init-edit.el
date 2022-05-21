@@ -99,4 +99,13 @@
   (with-selected-window (next-window)
     (scroll-down-line)))
 
+(defun narrow-to-region-indirect (start end)
+  "Restrict editing in this buffer to the current region, indirectly."
+  (interactive "r")
+  (deactivate-mark)
+  (let ((buf (clone-indirect-buffer nil 'display)))
+    (with-current-buffer buf
+      (narrow-to-region start end))))
+(global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
+
 (provide 'init-edit)

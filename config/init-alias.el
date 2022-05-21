@@ -38,7 +38,7 @@
 (define-key fei-jump-map (kbd "o") (li (find-file "~/Nutstore Files/org")))
 (define-key fei-jump-map (kbd "d") (li (find-file "~/Repos/dotfiles")))
 (define-key fei-jump-map (kbd "f") (li (browse-url "https://feiyongzhai.github.io")))
-
+(define-key fei-jump-map (kbd "b") (li (find-file "/run/media/yongfeizhai/文档/文档/[ 2_仓库 ]/图书/")))
 (global-set-key (kbd "C-x j") fei-jump-map)
 
 ;; Designed for `M-x', but it can also be used in `eshell'
@@ -68,8 +68,8 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
-(defalias 'gsk 'global-set-key)
 (defalias 'te 'fei-switch-to-treemacs)
+(defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
 (defalias 'cl 'fei-display-line-numbers-cycle)

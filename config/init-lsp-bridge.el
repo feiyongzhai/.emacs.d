@@ -1,15 +1,10 @@
 (add-to-list 'load-path "~/Repos/lsp-bridge")
 (setq lsp-bridge-python-command "/usr/bin/python3")
 
-;; corfu 配置:
-(setq lsp-bridge-completion-provider 'corfu)
-(require 'corfu)
-(require 'corfu-info)
-(require 'corfu-history)
-
 (require 'lsp-bridge)             ;; 加载lsp-bridge
-(require 'lsp-bridge-orderless)   ;; 支持代码补全时模糊搜索，可选
-(require 'lsp-bridge-icon)        ;; 补全菜单显示类型图标，可选
+(require 'lsp-bridge-ui)
+(require 'lsp-bridge-ui-history)
+(require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
 
 (dolist (hook (list
 	       'rust-mode-hook
@@ -21,7 +16,8 @@
 (defun fei-lsp-bridge-hook ()
   (lsp-bridge-mode 1)
   (company-mode -1)
-  (corfu-mode)
+  (lsp-bridge-ui-history-mode t)
+  (lsp-bridge-ui-mode)
   )
 
 (define-key lsp-bridge-mode-map (kbd "<f2>") 'lsp-bridge-rename)

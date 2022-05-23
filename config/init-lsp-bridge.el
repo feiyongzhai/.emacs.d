@@ -2,9 +2,14 @@
 (setq lsp-bridge-python-command "/usr/bin/python3")
 
 (require 'lsp-bridge)             ;; 加载lsp-bridge
-(require 'lsp-bridge-ui)
-(require 'lsp-bridge-ui-history)
+
+(setq lsp-bridge-completion-provider 'corfu)
+(require 'corfu)
+(require 'corfu-info)
+(require 'corfu-history)
+(require 'lsp-bridge-icon)        ;; show icons for completion items, optional
 (require 'lsp-bridge-orderless)   ;; make lsp-bridge support fuzzy match, optional
+
 
 (dolist (hook (list
 	       'rust-mode-hook
@@ -16,8 +21,8 @@
 (defun fei-lsp-bridge-hook ()
   (lsp-bridge-mode 1)
   (company-mode -1)
-  (lsp-bridge-ui-history-mode t)
-  (lsp-bridge-ui-mode)
+  (corfu-history-mode t)
+  (corfu-mode)
   )
 
 (define-key lsp-bridge-mode-map (kbd "<f2>") 'lsp-bridge-rename)

@@ -10,9 +10,8 @@
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
-  (define-key rime-active-mode-map (kbd "<tab>") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)  
+  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-active-mode-map (kbd "C-j") 'rime--return)
   )
 
@@ -32,9 +31,9 @@
       (list :internal-border-width 4))
 
 (setq default-input-method "rime"
-      rime-show-candidate nil
       rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-preedit t
+      rime-posframe-style 'vertical
       rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates
@@ -52,7 +51,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"M-n" "M-p" "C-`"
+	"C-`" "C-d" "C-k" "C-y" "<tab>"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用

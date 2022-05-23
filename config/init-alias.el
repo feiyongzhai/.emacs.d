@@ -46,12 +46,14 @@
 (define-key fei-jump-map (kbd "c") 'jc)
 (define-key fei-jump-map (kbd "i") 'ji)
 (define-key fei-jump-map (kbd "u") 'ju)
+(define-key fei-jump-map (kbd "z") 'jz)
 (global-set-key (kbd "C-x j") fei-jump-map)
 
 ;; Designed for `M-x', but it can also be used in `eshell'
 (defalias 'ju (li (find-file "/dp:/")))
 (defalias 'ji (li (find-file "~/Pictures")))
 (defalias 'jc (li (find-file "~/.config")))
+(defalias 'jz (li (find-file "/run/media/yongfeizhai/文档/文档/[ 1_研究生 ]/研二/组会/汇报+周报/周报/")))
 (defalias 'jb (li (find-file "/run/media/yongfeizhai/文档/文档/[ 2_仓库 ]/图书/")))
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 (defalias 'jD (li (find-file "~/Repos/dotfiles")))

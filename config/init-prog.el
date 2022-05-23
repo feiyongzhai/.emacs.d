@@ -10,4 +10,7 @@
 ;; Octave
 (add-hook 'octave-mode-hook 'electric-pair-local-mode)
 
+;; Yaml
+(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
+
 (provide 'init-prog)

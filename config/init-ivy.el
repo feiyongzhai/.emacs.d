@@ -7,11 +7,10 @@
 
 (setq ivy-height-alist
       '(
-	(swiper-isearch . 1)		; 让 swiper-isearch 更像 isearch
+	(swiper-isearch . 1) ; make swiper-isearch behave like isearch
 	))
 
 ;; Keys
-(global-set-key (kbd "C-x ,") 'counsel-M-x)
 (when *is-linux*
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
@@ -46,9 +45,7 @@
 
   (ivy-add-actions
    'counsel-find-file
-   '(("t" (lambda (file) (find-file-other-tab file)) "other tab")
-     ;; ("e" fei-counsel-find-file-eshell-here-action "eshell here") ;工作不符合预期，应该是 counsel-find-file 封装了比较复杂的机制
-     ))
+   '(("t" (lambda (file) (find-file-other-tab file)) "other tab")))
   )
 
 (provide 'init-ivy)

@@ -1,5 +1,7 @@
 ;;; init-evil --- configs for evil
 
+(vim)
+
 (setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
 (setq evil-insert-state-tag " [I]")
 (setq evil-normal-state-tag " [N]")

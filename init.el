@@ -65,7 +65,7 @@
 
   ;; 尝鲜
   (add-to-list 'load-path "~/.emacs.d/config/experiment/")
-  (require 'init-lsp-bridge)
+  (require 'init-lsp-bridge nil t)
   ;; (require 'init-tempel)
   
   ;; local configs

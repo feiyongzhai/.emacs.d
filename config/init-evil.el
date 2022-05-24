@@ -11,6 +11,12 @@
 
 (with-eval-after-load 'evil
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
+  (evil-global-set-key 'normal "\C-n" 'next-line)
+  (evil-global-set-key 'normal "\C-p" 'previous-line)
+  (evil-define-key 'normal org-mode-map
+    (kbd "TAB") 'org-cycle
+    ">" 'org-shiftmetaright
+    "<" 'org-shiftmetaleft)
   )
 
 ;;; Leader Key

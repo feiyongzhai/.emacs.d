@@ -34,7 +34,8 @@
 
   (require 'init-latex)
   (require 'init-wanderlust)
-  (require 'init-company-yasnippet)
+  (require 'init-company)
+  (require 'init-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)
   (require 'init-help)

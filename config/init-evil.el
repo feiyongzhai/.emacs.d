@@ -52,6 +52,7 @@
 (with-eval-after-load 'evil
   (dolist (p '((minibuffer-inactive-mode . emacs)
 	       (calendar-mode . emacs)
+	       (youdao-dictionary-mode . emacs)
 	       (special-mode . emacs)
 	       (grep-mode . emacs)
 	       (Info-mode . emacs)

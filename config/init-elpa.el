@@ -28,8 +28,11 @@
 
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
-      '(magit citre sx bash-completion pdf-tools
-	vterm vterm-toggle graphviz-dot-mode))
+      '(
+	magit sx bash-completion pdf-tools
+	vterm vterm-toggle graphviz-dot-mode
+	;; citre
+	))
 
 ;;; general needed packages
 (setq fei-package-ensure-installed

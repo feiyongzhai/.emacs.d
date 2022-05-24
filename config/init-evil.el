@@ -8,6 +8,7 @@
 (setq evil-visual-state-tag " [V]")
 (setq evil-motion-state-tag " [M]")
 (setq evil-emacs-state-tag " [E]")
+(evil-set-undo-system 'undo-redo)
 
 ;;; Keys
 
@@ -52,10 +53,6 @@
   "o" 'other-window
   "O" 'open-current-file-with-vscode
   )
-
-;;; Vars
-
-(setq evil-undo-system 'undo-redo)
 
 ;;; Initial states
 

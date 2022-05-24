@@ -64,6 +64,7 @@
     (require 'init-win10)))
 
   ;; 尝鲜
+  (add-to-list 'load-path "~/.emacs.d/config/experiment/")
   (require 'init-lsp-bridge)
   ;; (require 'init-tempel)
   

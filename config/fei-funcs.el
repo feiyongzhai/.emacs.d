@@ -187,6 +187,8 @@ kill region instead"
 	(setq strings (eshell-flatten-and-stringify strings))
         (org-capture-string strings "P") nil)
     (org-capture nil "i")
+    (when (bound-and-true-p evil-mode)
+      (evil-insert 0))
     (activate-input-method 'rime)))
 
 (defun fei-org-capture-goto-note ()

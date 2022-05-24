@@ -15,6 +15,7 @@
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   (evil-global-set-key 'normal "\C-n" 'next-line)
   (evil-global-set-key 'normal "\C-p" 'previous-line)
+  (evil-global-set-key 'insert "\C-v" 'scroll-up-command)
   (evil-define-key 'normal org-mode-map
     (kbd "TAB") 'org-cycle
     ">" 'org-shiftmetaright
@@ -30,24 +31,33 @@
   "SPC" 'counsel-M-x
   "w" 'pwd
   "j" 'fasd-ivy-find-file
-  "l" 'fei-meow-last-buffer
+  "TAB" 'fei-meow-last-buffer
+  "i" 'ibuffer
+  "d" 'dired-jump
   "e" 'eshell
-  "k" 'kill-this-buffer
+  "k" 'counsel-rg
+  "K" 'fei-counsel-rg-my-org
+  "N" 'fei-org-capture-note
+  "n" 'fei-org-capture-private
+  "s" 'fei-search-1
   "m" 'execute-extended-command
   "x" 'execute-extended-command
   "z" 'vterm-toggle
-  "g" 'fei-vc-dired-jump
-  "ff" 'counsel-find-file
-  "ft" 'find-file-other-tab
+  "g" 'magit
+  "f" 'counsel-find-file
+  "0" 'delete-window
+  "1" 'zygospore-toggle-delete-other-windows
+  "2" 'split-window-right
+  "3" 'split-window-below
+  "o" 'other-window
+  "O" 'open-current-file-with-vscode
   )
 
 ;;; Vars
 
 (setq evil-undo-system 'undo-redo)
 
-;; (add-hook 'find-file-hook #'evil-local-mode)
-
-;;; Funcs
+;;; Initial states
 
 (with-eval-after-load 'evil
   (dolist (p '((minibuffer-inactive-mode . emacs)

@@ -16,7 +16,12 @@
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   (evil-global-set-key 'normal "\C-n" 'next-line)
   (evil-global-set-key 'normal "\C-p" 'previous-line)
-  (evil-global-set-key 'insert "\C-v" 'scroll-up-command)
+  (evil-global-set-key 'insert "\C-v" 'nil)
+  (evil-global-set-key 'insert "\C-a" 'nil)
+  (evil-global-set-key 'insert "\C-e" 'nil)
+  (evil-global-set-key 'insert "\C-y" 'nil)
+  (evil-global-set-key 'insert "\C-n" 'nil)
+  (evil-global-set-key 'insert "\C-p" 'nil)
   (evil-define-key 'normal org-mode-map
     (kbd "TAB") 'org-cycle
     ">" 'org-shiftmetaright
@@ -31,10 +36,13 @@
 (fei-space-leader-def
   "SPC" 'counsel-M-x
   "w" 'pwd
+  "W" 'whitespace-mode
+  "t" 'fei-switch-to-treemacs
   "j" 'fasd-ivy-find-file
   "TAB" 'fei-meow-last-buffer
   "i" 'ibuffer
   "d" 'dired-jump
+  "b" 'switch-to-buffer
   "e" 'eshell
   "k" 'counsel-rg
   "K" 'fei-counsel-rg-my-org
@@ -46,10 +54,11 @@
   "z" 'vterm-toggle
   "g" 'magit
   "f" 'counsel-find-file
+  "F" 'ffap
   "0" 'delete-window
   "1" 'zygospore-toggle-delete-other-windows
-  "2" 'split-window-right
-  "3" 'split-window-below
+  "2" 'split-window-below
+  "3" 'split-window-right
   "o" 'other-window
   "O" 'open-current-file-with-vscode
   )

@@ -63,6 +63,9 @@
    (*is-windows*
     (require 'init-win10)))
 
+  ;; 自己写的垃圾小插件
+  (require 'init-fei)
+
   ;; 尝鲜
   (add-to-list 'load-path "~/.emacs.d/config/experiment/")
   (require 'init-lsp-bridge nil t)

@@ -15,6 +15,7 @@
 (with-eval-after-load 'evil
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   (evil-global-set-key 'normal "\C-n" 'next-line)
+  (evil-global-set-key 'normal "\M-." 'nil)
   (evil-global-set-key 'normal "\C-p" 'previous-line)
   (evil-global-set-key 'insert "\C-v" 'nil)
   (evil-global-set-key 'insert "\C-a" 'nil)

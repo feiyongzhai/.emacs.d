@@ -33,16 +33,14 @@
       (insert-button (propertize fn-name 'face 'font-lock-function-name-face)
 		     'action
 		     `(lambda (e)
-					;TODO: i do not know this display buffer strategy is good
+			;;TODO: i do not know this display buffer strategy is good
+			(select-window (get-buffer-window ,vxref-buffer-name)) ; 如果没有这行，evil-mode 会工作不预期，不知道 evil-mode 做了什么
 			(other-window 1)
 			(switch-to-buffer ,fn-buf)
 			(goto-char ,fn-pos)
 			(fei-pulse-current-line)
-			(other-window -1)
-			;; (switch-to-buffer-other-window ,fn-buf)
-			))
-
-      )
+			(other-window -1))
+		     ))
     (display-buffer-in-side-window buf '((side . right)))
     )
   )

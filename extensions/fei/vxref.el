@@ -8,6 +8,7 @@
 ;; 目前效果勉勉强强能够使用
 
 (require 'which-func)									     ;use for know fn-called-from
+(require 'fei-funcs)
 
 (defvar vxref-buffer-name "*VXREF*")
 
@@ -23,20 +24,22 @@
     (with-current-buffer buf
       (goto-char (point-max))
       (unless (bobp) (insert "\n"))
-					;TODO: do not insert two same entry(fn-name)
-					;目前还不知道怎么做去重处理，但是，*vxref* buffer 的内容是可修改的，自动不了就手动，哈哈哈
-					;但是有一个比较头痛的问题是，button 是通过 overlay 实现的，如果，我修改了 button 的位置，
-					;button 就没了，所以我得给这个文字添加一个高亮，这样就算没有了可以点击的功能，还有一个颜色
-					;指示被调用关系，
+      ;; TODO: do not insert two same entry(fn-name)
+      ;; 目前还不知道怎么做去重处理，但是，*vxref* buffer 的内容是可修改的，自动不了就手动，哈哈哈
+      ;; 但是有一个比较头痛的问题是，button 是通过 overlay 实现的，如果，我修改了 button 的位置，
+      ;; button 就没了，所以我得给这个文字添加一个高亮，这样就算没有了可以点击的功能，还有一个颜色
+      ;; 指示被调用关系，
       (insert (concat fn-called-from "\n :: "))
       (insert-button (propertize fn-name 'face 'font-lock-function-name-face)
 		     'action
 		     `(lambda (e)
 					;TODO: i do not know this display buffer strategy is good
-					;actually, i want to dispaly buffer behavior like `xref-go-back'
-			(pop-to-buffer ,fn-buf)
-			;; (switch-to-buffer-other-window ,fn-buf)
+			(other-window 1)
+			(switch-to-buffer ,fn-buf)
 			(goto-char ,fn-pos)
+			(fei-pulse-current-line)
+			(other-window -1)
+			;; (switch-to-buffer-other-window ,fn-buf)
 			))
 
       )

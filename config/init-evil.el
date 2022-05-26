@@ -79,6 +79,7 @@
 	       (term-mode . emacs)
 	       (vterm-mode . emacs)
 	       (sdcv-mode . emacs)
+	       (telega-chat-mode . emacs)
 	       (anaconda-nav-mode . emacs)
 	       (log-edit-mode . emacs)
 	       (vc-log-edit-mode . emacs)

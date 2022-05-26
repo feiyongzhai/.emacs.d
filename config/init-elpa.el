@@ -83,7 +83,7 @@
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====
-	tab-bar-echo-area
+	;; tab-bar-echo-area
 	use-package
 	adafruit-wisdom
 	eshell-up

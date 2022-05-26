@@ -12,10 +12,9 @@
 
 (setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
-(setq tab-bar-new-tab-choice 'fei-eshell-cd-here) ;default is duplicate
+(setq tab-bar-new-tab-choice t)
 (setq tab-bar-close-last-tab-choice nil)
 (setq tab-bar-tab-name-function 'tab-bar-tab-name-truncated)
-;; (setq tab-bar-new-tab-choice 'eshell)
 
 (setq tab-bar-new-tab-to 'rightmost)
 (defun fei-tab-duplicate-advisor (orig-fun &rest args)

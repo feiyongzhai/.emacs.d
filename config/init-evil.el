@@ -1,6 +1,7 @@
 ;;; init-evil --- configs for evil
 
-(vim)
+;; (vim)
+;; (evil-set-undo-system 'undo-redo)
 
 (setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
 (setq evil-insert-state-tag " [I]")
@@ -8,7 +9,6 @@
 (setq evil-visual-state-tag " [V]")
 (setq evil-motion-state-tag " [M]")
 (setq evil-emacs-state-tag " [E]")
-(evil-set-undo-system 'undo-redo)
 
 ;;; Keys
 

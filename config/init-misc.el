@@ -44,6 +44,7 @@
 ;; Pulse
 (global-set-key (kbd "C-c h") 'fei-pulse-current-line)
 
+;; Misc
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 
@@ -55,17 +56,6 @@
     ("C-x F"        . set-fill-column)
     ("<f5>"         . recompile)
     ("M-s g"        . rgrep)
-    ))
-
-;; ESC ESC * == toggle style mode
-(fei-define-key-with-map global-map
-  '(
-    ("M-ESC b" . display-battery-mode)
-    ("M-ESC M" . feebleline-mode)
-    ("M-ESC r" . ruler-mode)
-    ("M-ESC u" . fei-toggle-ui)
-    ("M-ESC w" . whitespace-mode)
-    ("M-ESC W" . whitespace-newline-mode)
     ))
 
 ;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)

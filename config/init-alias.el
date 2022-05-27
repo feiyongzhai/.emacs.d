@@ -81,6 +81,8 @@
 (defalias 'jl 'fei-meow-last-buffer)
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 
+(defalias 'wh 'whitespace-mode)
+(defalias 'f 'feebleline-mode)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
 (defalias 'oE 'open-current-file-with-emacs)

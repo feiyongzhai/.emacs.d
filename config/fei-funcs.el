@@ -20,16 +20,6 @@ Argument ARG if not nil, switching in a new window."
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
 
-(defun fei-golden-dict (&rest search-string)
-  (interactive)
-  (call-process "goldendict" nil nil nil
-   (concat
-    (if search-string
-	(eshell-flatten-and-stringify search-string)
-      (if mark-active
-          (buffer-substring-no-properties (region-beginning) (region-end))
-	(read-string "GoldenDict: "))))))
-
 (defun eshell/s (&rest search-string)
   (browse-url
    (concat
@@ -63,16 +53,6 @@ Argument ARG if not nil, switching in a new window."
 (defun fei-search-1 ()
   (interactive)
   (fei-search 1))
-
-(defun fei-kill-current-buffer (arg)
-  "智能关闭 windows 和 buffer"
-  (interactive "P")
-  (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((or arg (one-window-p))
-    (kill-buffer))
-   (t (kill-buffer-and-window))))
 
 (defun backward-kill-word-or-region (&optional arg)
   "Kill word backwards unless region is active,
@@ -464,5 +444,29 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :initial-input initial-input
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
+
+;; Rarely used command
+
+(defun fei-golden-dict (&rest search-string)
+  (interactive)
+  (call-process "goldendict" nil nil nil
+   (concat
+    (if search-string
+	(eshell-flatten-and-stringify search-string)
+      (if mark-active
+          (buffer-substring-no-properties (region-beginning) (region-end))
+	(read-string "GoldenDict: "))))))
+
+(defun fei-kill-current-buffer (arg)
+  "智能关闭 windows 和 buffer"
+  (interactive "P")
+  (cond
+   ((minibufferp)
+    (keyboard-escape-quit))
+   ((or arg (one-window-p))
+    (kill-buffer))
+   (t (kill-buffer-and-window))))
+
+
 
 (provide 'fei-funcs)

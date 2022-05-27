@@ -88,6 +88,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
+(defalias 'h 'engine/search-汉典)
 (defalias 'te 'fei-switch-to-treemacs)
 (defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)

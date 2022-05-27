@@ -53,7 +53,7 @@
   `(("<insert>"     . fei-occur-at-point)
     ("<insertchar>" . fei-occur-at-point)
     ("C-x F"        . set-fill-column)
-    ("<f5>"         . fei-simple-compile)
+    ("<f5>"         . recompile)
     ("M-s g"        . rgrep)
     ))
 

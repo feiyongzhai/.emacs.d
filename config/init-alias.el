@@ -90,7 +90,6 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
-(defalias 'h 'engine/search-汉典)
 (defalias 'te 'fei-switch-to-treemacs)
 (defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
@@ -102,21 +101,15 @@
 (defalias 'cmp 'compile)
 (defalias 'sh 'shell)
 (defalias 'ev 'evil-mode-with-cursor)
-(defalias 'wH (li (evil-move-window 'left)))
-(defalias 'wL (li (evil-move-window 'right))) ;conflict to wanderlust
-(defalias 'wJ (li (evil-move-window 'below)))
-(defalias 'wK (li (evil-move-window 'above)))
 (defalias 'one 'zygospore-toggle-delete-other-windows)
 (defalias 'vs 'split-window-below)
+
 (defalias 'hs 'split-window-right)
 (defalias 'nt 'tab-new)
 (defalias 'kt 'tab-close)
 (defalias 't1 'tab-close-other)
 (defalias 'nf 'make-frame)
 (defalias 'kf 'delete-framep)
-(defalias 'ffo 'find-file-other-window)
-(defalias 'fft 'find-file-other-tab)
-(defalias 'fff 'find-file-other-frame)
 
 ;; Designed for `eshell'
 (with-eval-after-load 'eshell

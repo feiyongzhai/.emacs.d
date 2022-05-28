@@ -39,6 +39,7 @@
   (require 'init-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)
+  (require 'init-minibuffer)
   (require 'init-help)
   (require 'init-elfeed)
   (require 'init-search)

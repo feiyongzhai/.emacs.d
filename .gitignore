@@ -69,6 +69,7 @@ ede-projects.el
 abbrev_defs
 /multisession/
 image-dired/
+var/
 .pan-baidu-com
 .dap-breakpoints
 /config/experiment/

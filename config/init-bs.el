@@ -58,7 +58,7 @@
     (switch-to-buffer-other-tab buf)))
 
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
-(global-set-key (kbd "C-x b") 'fei-bs-show)
+(global-set-key (kbd "C-x C-b") 'fei-bs-show)
 (defun fei-bs-show ()
   (interactive)
   (setq bs-cur-major-mode major-mode)

@@ -78,7 +78,7 @@
 	;; org-roam org-roam-server
 
 	;; ==== Minibuffer ====
-	orderless vertico
+	orderless vertico embark
 	;; consult embark marginalia
 	smex counsel ivy swiper
 

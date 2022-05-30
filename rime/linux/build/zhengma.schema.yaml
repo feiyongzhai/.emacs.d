@@ -8,7 +8,7 @@ __build_info:
     punctuation: 1646936619
     punctuation.custom: 0
     zhengma.custom: 0
-    zhengma.schema: 1653724153
+    zhengma.schema: 1653897244
 engine:
   processors:
     - ascii_composer
@@ -138,14 +138,15 @@ recognizer:
   import_preset: default
   patterns:
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    reverse_lookup: "`[a-z]*$"
+    reverse_lookup: ";[a-z]*$|[a-z]*:"
     uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
 reverse_lookup:
   dictionary: pinyin_simp
   preedit_format:
     - "xform/([nljqxy])v/$1ü/"
-  prefix: "`"
+  prefix: ";"
+  suffix: ":"
   tips: "〔拼音〕"
 schema:
   author:

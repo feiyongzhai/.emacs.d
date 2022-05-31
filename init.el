@@ -67,12 +67,6 @@
 
   ;; 自己写的垃圾小插件
   (require 'init-fei)
-
-  ;; 尝鲜
-  (add-to-list 'load-path "~/.emacs.d/config/experiment/")
-  ;; (require 'init-lsp-bridge nil t)
-  (require 'init-lspce nil t)
-  ;; (require 'init-tempel)
   
   ;; local configs
   (let ((local-config "~/.emacs.d/config/init-local.el"))

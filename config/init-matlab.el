@@ -14,7 +14,7 @@
   )
 
 (add-hook 'matlab-mode-hook 'electric-pair-local-mode)
-(add-hook 'matlab-mode-hook 'electric-spacing-mode)
+;; (add-hook 'matlab-mode-hook 'electric-spacing-mode)
 (add-hook 'matlab-mode-hook 'hs-minor-mode)
 (add-hook 'matlab-mode-hook 'yafolding-mode)
 (add-hook 'matlab-mode-hook 'highlight-indentation-mode)

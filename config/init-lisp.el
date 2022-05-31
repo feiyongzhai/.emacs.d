@@ -3,14 +3,31 @@
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+(add-hook 'emacs-lisp-mode-hook 'fei-lisp-hook)
 ;; (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
 (setq sp-highlight-pair-overlay nil
       sp-highlight-wrap-overlay nil)
+
 
 (define-key smartparens-mode-map (kbd "<C-right>") 'sp-forward-slurp-sexp)
 (define-key smartparens-mode-map (kbd "<C-left>") 'sp-forward-barf-sexp)
 (define-key smartparens-mode-map (kbd "M-U") 'sp-splice-sexp)
 (define-key smartparens-mode-map (kbd "M-q") 'sp-indent-defun)
 
+(defun fei-lisp-hook ()
+  (interactive)
+  (d9))
+
+(defun d9 ()
+  (interactive)
+  (define-key smartparens-mode-map (kbd "9") (kbd "("))
+  (define-key smartparens-mode-map (kbd "0") (kbd ")"))
+  )
+
+(defun u9 ()
+  (interactive)
+  (define-key smartparens-mode-map (kbd "9") 'self-insert-command)
+  (define-key smartparens-mode-map (kbd "0") 'self-insert-command)
+  )
 
 (provide 'init-lisp)

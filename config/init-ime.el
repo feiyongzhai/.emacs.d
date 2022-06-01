@@ -9,6 +9,7 @@
 
 ;; 这行配置存在性能问题：
 ;; 1. 当在 minibuffer 中粘贴很长的一个链接的时候，会出现卡死的情况
+(require 'pyim-cregexp-utils)
 (with-eval-after-load 'ivy
   (setq ivy-re-builders-alist
 	'((t . pyim-cregexp-ivy))))

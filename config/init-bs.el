@@ -41,8 +41,9 @@
 
 (defun fei-switch-to-buffer-from-bs ()
   (interactive)
-  (let ((buf (ivy-completing-read "Switch to buffer: "
-				  (fei-bs-get-current-buffer-list))))
+  (let ((buf (completing-read
+	      "Switch to buffer: "
+	      (fei-bs-get-current-buffer-list))))
     (bs-kill)
     (switch-to-buffer buf)))
 

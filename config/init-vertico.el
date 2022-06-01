@@ -8,6 +8,7 @@
       '((consult-line buffer)
         (consult-imenu reverse buffer)
 	(rime-select-schema flat)
+	(fei-switch-to-buffer-from-bs flat)
         (execute-extended-command flat)))
 
 (setq vertico-multiform-categories

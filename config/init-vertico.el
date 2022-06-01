@@ -12,7 +12,7 @@
 
 (setq vertico-multiform-categories
       '((file buffer grid)
-	(buffer buffer grid)))
+	(buffer unobtrusive)))
 
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)

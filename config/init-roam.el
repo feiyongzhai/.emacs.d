@@ -6,34 +6,25 @@
       '(("d" "default" entry "* %(substring (current-time-string) 11 16) %?" :target
 	 (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
 
-(use-package org-roam
-  :ensure t
-  :custom
-  (org-roam-directory (file-truename "~/Nutstore Files/org/roam"))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-ivy-find)
-         ("C-c n g" . org-roam-graph)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-	 ("C-c n a" . org-roam-alias-add)
-	 ("C-c n t" . org-roam-tag-add)
-	 ("C-c n r" . org-roam-node-random)
-	 ;; org-id-get-create
-	 ;; org-roam-refile
-	 )
-  :config
-  ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
+(setq org-roam-directory (file-truename "~/Nutstore Files/org/roam"))
 
-;; (define-key org-roam-mode-map [mouse-1] #'org-roam-visit-thing)
+(fei-define-key-with-map global-map
+  '(("C-c n l" . org-roam-buffer-toggle)
+    ("C-c n f" . org-roam-node-ivy-find)
+    ("C-c n g" . org-roam-graph)
+    ("C-c n i" . org-roam-node-insert)
+    ("C-c n c" . org-roam-capture)
+    ("C-c n a" . org-roam-alias-add)
+    ("C-c n t" . org-roam-tag-add)
+    ("C-c n r" . org-roam-node-random)
+    ;; org-id-get-create
+    ;; org-roam-refile
+    ("C-c n o" . org-roam-ui-open)
+    ))
 
-(use-package org-roam-ui
-  :ensure t
-  :bind (("C-c n o" . org-roam-ui-open)))
-
+(setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+(org-roam-db-autosync-mode)
+(require 'org-roam-protocol) ;; If using org-roam-protocol
 
 ;;; Funcs
 (defun org-roam-node-ivy-find ()

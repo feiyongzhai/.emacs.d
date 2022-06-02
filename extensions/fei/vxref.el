@@ -62,6 +62,12 @@
     (vxref--refresh-vxref-buffer fn-info)
     ))
 
-(advice-add 'xref-find-definitions :around 'vxref-xref-find-definitions-advisor)
+(define-minor-mode vxref-mode
+  "自己乱糊的，哈哈哈"
+  :init-value nil
+  :global t
+  (if vxref-mode
+      (advice-add 'xref-find-definitions :around 'vxref-xref-find-definitions-advisor)
+    (advice-remove 'xref-find-definitions 'vxref-xref-find-definitions-advisor)))
 
 (provide 'vxref)

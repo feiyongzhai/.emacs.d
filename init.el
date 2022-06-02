@@ -4,84 +4,92 @@
 ;; (require 'benchmark-init)
 ;; (benchmark-init/activate)
 
-(let ((gc-cons-threshold most-positive-fixnum)
+;;@REF: https://github.com/lujun9972/emacs-document/blob/master/emacs-common/2个鲜为人知的提高Emacs启动速度的步骤.org
+(let ((file-name-handler-alist nil)
+      (gc-cons-threshold most-positive-fixnum)
       (gc-cons-percentage 0.6))
   (require 'init-builtin)
   (require 'init-cursor)
-  (require 'init-compile)
-  (require 'init-packages)
-  (require 'init-bs)
-  (require 'init-ibuffer)
   (require 'init-window-buffer)
-  (require 'init-tab-line)
   (require 'init-tab-bar)
-  (require 'init-dired)
-  (require 'init-proxy)
   (require 'init-misc)
 
   (require 'init-org)
-  (require 'init-publish)
 
   (require 'init-git)
-  (require 'init-markdown)
   (require 'init-prog)
   (require 'init-html-css-js)
   (require 'init-python)
   (require 'init-rust)
   (require 'init-matlab)
   (require 'init-c)
-  (require 'init-lsp)
   (require 'init-lisp)
 
-  (require 'init-latex)
-  (require 'init-wanderlust)
-  (require 'init-company)
-  (require 'init-yasnippet)
   (require 'init-ivy)
   (require 'init-orderless)
   ;; (require 'init-minibuffer)
   (require 'init-vertico)
   (require 'init-help)
-  (require 'init-elfeed)
   (require 'init-search)
-  (require 'init-evil)
-  (require 'init-ime)
-  (require 'init-shell)
-  (require 'init-engine)
+
   (require 'init-edit)
   (require 'init-mark)
-  (require 'init-thing-edit)
   (require 'init-auto-save)
   (require 'init-alias)
   (require 'init-mouse)
   (require 'init-tool-bar)
   (require 'init-menu-bar)
-  (require 'init-modeline)
-  
-  (cond
-   (*is-linux*
-    (require 'init-linux))
-   (*is-windows*
-    (require 'init-win10)))
 
-  ;; 自己写的垃圾小插件
-  (require 'init-fei)
-  
+  (run-with-idle-timer
+   1 nil
+   (lambda ()
+     ;; 把一些不是立刻需要的功能放到这里
+     (require 'init-dired)
+     (require 'init-bs)
+
+     (require 'init-markdown)
+     (require 'init-engine)
+     (require 'init-ibuffer)
+     (require 'init-proxy)
+     (require 'init-compile)
+     (require 'init-lsp)
+     (require 'init-elfeed)
+     (require 'init-thing-edit)
+     (require 'init-ime)
+     (require 'init-modeline)     
+     (require 'init-evil)
+     (require 'init-latex)
+     (require 'init-publish)
+     (require 'init-shell)
+     (require 'init-tab-line)
+     (require 'init-packages)
+
+     (require 'init-wanderlust)
+
+     (require 'init-yasnippet)
+     (require 'init-company)
+     
+     (cond
+      (*is-linux*
+       (require 'init-linux))
+      (*is-windows*
+       (require 'init-win10)))
+
+     ;; 自己写的垃圾小插件
+     (require 'init-fei)
+
+     (require 'server)
+     (unless (server-running-p)
+       (server-start))))
+
   ;; local configs
   (let ((local-config "~/.emacs.d/config/init-local.el"))
     (when (file-exists-p local-config)
       (load-file local-config)))
-  
+
   ;; load `custom-file' if exists
   ;; (when (file-exists-p custom-file)
   ;;   (load-file custom-file))
   )
-
-(run-with-idle-timer
- 1 nil
- (lambda ()
-   (require 'server)
-   (unless (server-running-p)
-     (server-start))))
 
 ;; init.el ends here

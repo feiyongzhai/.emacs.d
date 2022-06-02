@@ -1,5 +1,7 @@
 (setq ahk-indentation 4)
 
+;; (global-subword-mode 1)
+
 (add-hook 'prog-mode-hook '+fei-prog-hook)
 (defun +fei-prog-hook ()
   (display-line-numbers-mode t)

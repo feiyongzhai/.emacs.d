@@ -315,15 +315,6 @@ kill region instead"
 
 ;;; Dired
 
-(add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
-(require 'dired-ranger)
-
-(defun fei-dired-paste/move (arg)
-  (interactive "P")
-  (if arg
-      (call-interactively 'dired-ranger-move)
-    (call-interactively 'dired-ranger-paste)))
-
 (defun fei-dired-mouse-find-file-externally (event)
   (interactive "e")
   (mouse-set-point event)
@@ -363,22 +354,6 @@ kill region instead"
   (evil-mode 1)
   (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
   (message "Now is EVIL 👽"))
-
-;;; Edit
-(defun fei-display-line-numbers-cycle ()
-  (interactive)
-  (if (eq display-line-numbers-type 'visual)
-      (menu-bar--display-line-numbers-mode-absolute)
-    ;; I find visual style is more useful than relative
-    (menu-bar--display-line-numbers-mode-visual)))
-
-(require 'duplicate-line)
-(defun fei-duplicate-line-or-region (&optional arg)
-  (interactive "P")
-  (if arg
-      (call-interactively 'duplicate-line-below-comment)
-    (call-interactively 'duplicate-line-or-region-below)))
-
 
 ;; require `pulse' library
 (defun fei-pulse-current-line ()

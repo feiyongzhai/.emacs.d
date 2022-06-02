@@ -94,7 +94,6 @@
 (defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
-(defalias 'cl 'fei-display-line-numbers-cycle)
 (defalias 'dl 'display-line-numbers-mode)
 (defalias 'dcl 'display-fill-column-indicator-mode)
 (defalias 'ui 'fei-toggle-ui)

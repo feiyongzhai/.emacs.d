@@ -1,5 +1,7 @@
 ;; Powered by builtin package `bs'
 
+(global-set-key (kbd "C-x b") 'fei-bs-show)
+
 (setq bs-default-configuration "all")
 
 (defun fei-bs-not-all (buf)

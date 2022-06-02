@@ -1,5 +1,4 @@
 (require 'fei-funcs)
-(require 'move-text)
 
 (setq shift-select-mode t)		;回归默认行为
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
@@ -13,7 +12,6 @@
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "C-x b") 'fei-bs-show)
 (global-set-key (kbd "C-x C-b") 'switch-to-buffer)
 
 ;;; Movement/Navigate
@@ -67,6 +65,8 @@
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
 
+(autoload 'move-text-up "move-text" nil t)
+(autoload 'move-text-down "move-text" nil t)
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
@@ -90,6 +90,14 @@
 (global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
 (global-set-key (kbd "C-s-p") 'fei-scroll-down-line)
 (global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
+
+(autoload 'duplicate-line-below-comment "duplicate-line" nil t)
+(autoload 'duplicate-line-or-region-below "duplicate-line" nil t)
+(defun fei-duplicate-line-or-region (&optional arg)
+  (interactive "P")
+  (if arg
+      (call-interactively 'duplicate-line-below-comment)
+    (call-interactively 'duplicate-line-or-region-below)))
 
 (defun fei-scroll-up-line-other-window ()
   (interactive)

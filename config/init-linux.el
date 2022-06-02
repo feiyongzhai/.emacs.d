@@ -24,15 +24,16 @@
       telega-proxies '((:server "localhost" :port 1089 :enable t :type (:@type "proxyTypeSocks5"))))
 
 ;; 耗时的操作延迟加载
-(run-with-idle-timer
- 1 nil
- (lambda ()
-   ;; (message "开始延迟加载")
-   (require 'init-eaf)
-   
-   ;; pdf-tools
-   (require 'init-pdf-tools)
-   ))
+(require 'init-eaf)
+;; pdf-tools
+(require 'init-pdf-tools)
+
+;; (run-with-idle-timer
+;;  1 nil
+;;  (lambda ()
+;;    ;; (message "开始延迟加载")
+
+;;    ))
 
 ;; Fcitx
 (setq fcitx-active-evil-states '(insert emacs hybrid))

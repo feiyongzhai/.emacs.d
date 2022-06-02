@@ -57,7 +57,6 @@
   (require 'init-tool-bar)
   (require 'init-menu-bar)
   (require 'init-modeline)
-  (require 'init-roam)
   
   (cond
    (*is-linux*

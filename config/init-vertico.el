@@ -12,7 +12,7 @@
         (execute-extended-command flat)))
 
 (setq vertico-multiform-categories
-      '((file buffer grid)	; 感觉 buffer 的 ui 和 embark-act 更配
+      '((file flat)
 	(buffer unobtrusive)))
 
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)

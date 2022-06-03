@@ -11,10 +11,10 @@
 	;; tab-bar-format-global ;在 emacsclient gui/tui 混用情况下有问题
 	))
 
+(setq tab-bar-show nil)
 (tab-bar-mode)
 (tab-bar-history-mode)
 
-(setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar
 (setq tab-bar-new-tab-choice t)
 (setq tab-bar-close-last-tab-choice nil)

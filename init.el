@@ -48,6 +48,7 @@
      ;; 把一些不是立刻需要的功能放到这里
      (require 'init-dired)
      (require 'init-bs)
+     (require 'init-tab-line)
 
      (require 'init-pyim)
      (require 'init-markdown)
@@ -63,7 +64,6 @@
      (require 'init-latex)
      (require 'init-publish)
      (require 'init-shell)
-     (require 'init-tab-line)
      (require 'init-packages)
 
      (require 'init-wanderlust)

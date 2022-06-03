@@ -1,4 +1,4 @@
-;; (global-tab-line-mode -1)
+(global-tab-line-mode 1)
 (require 'tab-line)
 
 (setq tab-line-close-button-show t)
@@ -30,6 +30,10 @@
 
 ;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
 (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
+
+(global-set-key (kbd "M-s-j") 'previous-buffer)
+(global-set-key (kbd "M-s-k") 'next-buffer)
+
 
 (defun tab-line-kill-this-buffer ()
   (interactive)

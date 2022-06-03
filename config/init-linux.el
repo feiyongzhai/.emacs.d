@@ -1,19 +1,7 @@
 ;;; Linux 专用配置
 
 (require 'fei-funcs)
-
-;; Fasd
-(add-to-list 'load-path "~/.emacs.d/extensions/fasd")
-(autoload 'fasd-ivy-find-file "fasd" nil t)
-(global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
-(setq fasd-add-file-to-db-when-eshell t)
-(setq fasd-enable-initial-prompt nil)
-
-(with-eval-after-load 'ivy
-  ;; 因为 fasd 的原因，需要在 ivy 之后加载
-  (require 'fasd)
-  (global-fasd-mode t)
-  )
+(require 'init-rime)
 
 ;; Telega
 (add-to-list 'load-path "~/.emacs.d/extensions/telega")

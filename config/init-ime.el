@@ -50,9 +50,6 @@
     (setq fei-pyim-force-enable t))
   (activate-input-method 'pyim))
 
-
-(when *is-linux*
-  (require 'init-rime))
 
 (provide 'init-ime)
 ;;; init-ime.el ends here.

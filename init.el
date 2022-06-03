@@ -1,8 +1,8 @@
 ;;; init.el
 
-;; (require 'benchmark-init-modes)
-;; (require 'benchmark-init)
-;; (benchmark-init/activate)
+(require 'benchmark-init-modes)
+(require 'benchmark-init)
+(benchmark-init/activate)
 
 ;;@REF: https://github.com/lujun9972/emacs-document/blob/master/emacs-common/2个鲜为人知的提高Emacs启动速度的步骤.org
 (let ((file-name-handler-alist nil)
@@ -39,23 +39,33 @@
   (require 'init-mouse)
   (require 'init-tool-bar)
   (require 'init-menu-bar)
+  (require 'init-proxy)
 
   (run-with-idle-timer
    1 nil
+   (lambda ()
+     (cond
+      (*is-linux*
+       (require 'init-linux))
+      (*is-windows*
+       (require 'init-win10)))))
+
+  (run-with-idle-timer
+   3 nil
    (lambda ()
      ;; 把一些不是立刻需要的功能放到这里
      (require 'init-dired)
      (require 'init-bs)
 
+     (require 'init-ime)
      (require 'init-markdown)
      (require 'init-engine)
      (require 'init-ibuffer)
-     (require 'init-proxy)
+
      (require 'init-compile)
      (require 'init-lsp)
      (require 'init-elfeed)
      (require 'init-thing-edit)
-     (require 'init-ime)
      (require 'init-modeline)     
      (require 'init-evil)
      (require 'init-latex)
@@ -68,12 +78,6 @@
 
      (require 'init-yasnippet)
      (require 'init-company)
-     
-     (cond
-      (*is-linux*
-       (require 'init-linux))
-      (*is-windows*
-       (require 'init-win10)))
 
      ;; 自己写的垃圾小插件
      (require 'init-fei)

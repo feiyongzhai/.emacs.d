@@ -14,9 +14,6 @@
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))
 
-(setq modus-themes-mode-line '(3d))
-;; (setq modus-themes-mode-line '3d)	;emacs29 不支持这个配置
-
 (setq whitespace-line-column nil)	;nil means use fill-column
 (setq describe-bindings-outline t)
 (setq enable-recursive-minibuffers t)

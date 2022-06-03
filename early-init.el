@@ -3,6 +3,11 @@
 ;;; Commentary:
 ;; 注意：emacs 26.3 不支持 early-init.el
 
+;; 根据 emacs-china 的说法，吧 gc 相关的配置放到 early-init 中会快一点
+;; @REF: https://emacs-china.org/t/emacs-10/17716
+(setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-percentage 0.6)
+
 ;;; Enable disabled command
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
@@ -38,12 +43,13 @@
 (setq frame-inhibit-implied-resize t)	; 不要缩放frame.
 ;; (setq initial-scratch-message "")
 
-(setq tab-bar-select-tab-modifiers '(meta)) ;这个需要在 tab-bar-mode 启用之前
-(tab-bar-mode)
-(tab-bar-history-mode)
-(tool-bar-mode)
-(menu-bar-mode)
-(global-tab-line-mode -1)
+(setq modus-themes-mode-line '(3d))
+;; (setq modus-themes-mode-line '3d)	;emacs29 不支持这个配置
+(load-theme 'modus-operandi t)
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
 
 ;; `early-init.el' 可对 emacsclient 生效

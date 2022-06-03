@@ -38,7 +38,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	minions
+	minions gcmh
 	all-the-icons-ibuffer
 	treemacs-icons-dired
 	scratch imenu-list rg

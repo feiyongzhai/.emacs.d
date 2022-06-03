@@ -15,7 +15,19 @@
   (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-c p") 'proced)
-  )
+  
+  ;; Fasd
+  (add-to-list 'load-path "~/.emacs.d/extensions/fasd")
+  (autoload 'fasd-ivy-find-file "fasd" nil t)
+  (global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
+  (setq fasd-add-file-to-db-when-eshell t)
+  (setq fasd-enable-initial-prompt nil)
+
+  (with-eval-after-load 'ivy
+    ;; 因为 fasd 的原因，需要在 ivy 之后加载
+    (require 'fasd)
+    (global-fasd-mode t)
+    ))
 
 (fei-define-key-with-map global-map
   '(

@@ -1,3 +1,4 @@
+(setq tab-bar-select-tab-modifiers '(meta)) ;这个需要在 tab-bar-mode 启用之前
 (setq tab-bar-format
       '(
 	tab-bar-format-menu-bar
@@ -9,6 +10,9 @@
 	;; tab-bar-format-history
 	;; tab-bar-format-global ;在 emacsclient gui/tui 混用情况下有问题
 	))
+
+(tab-bar-mode)
+(tab-bar-history-mode)
 
 (setq tab-bar-show t)
 (setq tab-bar-tab-hints t)		;show number in tab-bar

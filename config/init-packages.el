@@ -172,4 +172,7 @@
 (setq flutter-sdk-path "~/.local/opt/flutter/")
 (setq lsp-dart-flutter-sdk-dir "~/.local/opt/flutter/")
 
+;;; 自动调整 gc
+(gcmh-mode)
+
 (provide 'init-packages)

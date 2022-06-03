@@ -176,3 +176,7 @@
 (gcmh-mode)
 
 (provide 'init-packages)
+
+;; Local Variables:
+;; outline-regexp: ";;;+"
+;; End:

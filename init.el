@@ -12,6 +12,7 @@
   (require 'init-cursor)
   (require 'init-window-buffer)
   (require 'init-tab-bar)
+
   (require 'init-misc)
   (require 'init-eshell)
 

@@ -1,4 +1,4 @@
-;;; init-ime.el  --- 中文输入法相关配置 rime & pyim
+;;; init-pyim.el
 
 (require 'fei-funcs)
 (require 'pyim)
@@ -51,5 +51,5 @@
   (activate-input-method 'pyim))
 
 
-(provide 'init-ime)
-;;; init-ime.el ends here.
+(provide 'init-pyim)
+;;; init-pyim.el ends here.

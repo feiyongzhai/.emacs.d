@@ -1,9 +1,10 @@
 (global-set-key (kbd "C-c /") 'webjump)
-(global-set-key (kbd "C-x /") 'engine-mode-prefixed-map)
-(global-set-key (kbd "C-x C-/") 'engine-mode-prefixed-map)
+(global-set-key (kbd "C-c SPC") 'engine-mode-prefixed-map)
+(with-eval-after-load 'engine-mode
+  (define-key engine-mode-prefixed-map (kbd "SPC") 'fei-search-1))
 (global-set-key (kbd "C-h C-y") 'engine/search-quword)
 (global-set-key (kbd "C-<return>") 'engine/search-汉典)
-(global-set-key (kbd "C-c SPC") 'engine/search-汉典)
+(global-set-key (kbd "C-c C-SPC") 'engine/search-汉典)
 
 (setq fei-search-prompt
       (concat "[b/B] B站/Bing [w/i] Wikipedia/Github [h/c] 汉典/词典 [y] YouTube \n"

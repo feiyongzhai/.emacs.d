@@ -43,13 +43,16 @@
   (require 'init-menu-bar)
   (require 'init-proxy)
 
+  (require 'init-tab-line)
+  (require 'init-modeline)
+  (require 'init-fei)
+
   (run-with-idle-timer
    3 nil
    (lambda ()
      ;; 把一些不是立刻需要的功能放到这里
      (require 'init-dired)
      (require 'init-bs)
-     (require 'init-tab-line)
 
      (require 'init-pyim)
      (require 'init-markdown)
@@ -60,7 +63,6 @@
      (require 'init-lsp)
      (require 'init-elfeed)
      (require 'init-thing-edit)
-     (require 'init-modeline)     
      (require 'init-evil)
      (require 'init-latex)
      (require 'init-publish)
@@ -79,7 +81,7 @@
        (require 'init-win10)))
 
      ;; 自己写的垃圾小插件
-     (require 'init-fei)
+     ;; (require 'init-fei)
 
      (require 'server)
      (unless (server-running-p)

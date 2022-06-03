@@ -45,21 +45,6 @@
   (define-key term-mode-map (kbd "M-`") 'nil)
   )
 
-(defun fei-tab-switch (name)
-  "这个代码从 emacs-29 的仓库中取出来的，当 emacs29 发布之后，这个函数就过时了"
-  (interactive
-   (let* ((recent-tabs (mapcar (lambda (tab)
-                                 (alist-get 'name tab))
-                               (tab-bar--tabs-recent))))
-     (list (completing-read (format-prompt "Switch to tab by name"
-                                           (car recent-tabs))
-                            recent-tabs nil nil nil nil recent-tabs))))
-  (let ((tab-index (tab-bar--tab-index-by-name name)))
-    (if tab-index
-        (tab-bar-select-tab (1+ tab-index))
-      (tab-bar-new-tab)
-      (tab-bar-rename-tab name))))
-
 (defun fei-select-tab (&optional tab-number)
   "抄的 `tab-bar-select-tab'"
   (interactive "P")

@@ -29,6 +29,7 @@
   (setq pyim-assistant-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
   (setq pyim-page-style 'vertical)
+  (setq pyim-cloudim 'baidu)
   )
 (setq-default pyim-english-input-switch-functions
 	      '(pyim-probe-auto-english

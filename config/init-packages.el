@@ -143,12 +143,13 @@
 
 ;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
 ;; 一些 org 文件，所以配合起来使用也能接受
-(global-set-key (kbd "C-x c o") 'helm-org-rifle)
+(global-set-key (kbd "C-c h o") 'helm-org-rifle)
+(global-set-key (kbd "C-c h b") 'helm-chrome-bookmarks)
 (with-eval-after-load 'helm
-  (global-set-key (kbd "C-x c o") 'helm-org-rifle))
+  (global-set-key (kbd "C-c h o") 'helm-org-rifle)
+  (global-set-key (kbd "C-c h b") 'helm-chrome-bookmarks))
 
-(global-set-key (kbd "C-x H b") 'helm-chrome-bookmarks)
-(global-set-key (kbd "C-x M-h b") 'helm-chrome-bookmarks)
+(setq helm-command-prefix-key (kbd "C-c h"))
 
 ;;; Rg
 (global-set-key (kbd "M-s r") 'rg-project)

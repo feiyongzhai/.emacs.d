@@ -40,7 +40,7 @@
     ("P" . scroll-other-window-down)))
 
 ;; Pulse
-(global-set-key (kbd "C-c h") 'fei-pulse-current-line)
+(global-set-key (kbd "C-c H") 'fei-pulse-current-line)
 
 ;; Misc
 (global-set-key (kbd "C-M-=") 'calculator)

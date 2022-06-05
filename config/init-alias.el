@@ -90,7 +90,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
-(defalias 'te 'fei-switch-to-treemacs)
+(defalias 'side 'fei-switch-to-treemacs)
 (defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)

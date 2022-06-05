@@ -15,13 +15,6 @@
 ;; pdf-tools
 (require 'init-pdf-tools)
 
-;; (run-with-idle-timer
-;;  1 nil
-;;  (lambda ()
-;;    ;; (message "开始延迟加载")
-
-;;    ))
-
 ;; Fcitx
 (setq fcitx-active-evil-states '(insert emacs hybrid))
 (fcitx-evil-turn-on)

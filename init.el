@@ -38,19 +38,21 @@
   (require 'init-mark)
   (require 'init-auto-save)
   (require 'init-alias)
-  (require 'init-mouse)
-  (require 'init-tool-bar)
-  (require 'init-menu-bar)
   (require 'init-proxy)
 
   (require 'init-tab-line)
   (require 'init-modeline)
   (require 'init-fei)
+  (require 'init-rime)
 
   (run-with-idle-timer
    3 nil
    (lambda ()
      ;; 把一些不是立刻需要的功能放到这里
+     (require 'init-mouse)
+     (require 'init-tool-bar)
+     (require 'init-menu-bar)
+
      (require 'init-dired)
      (require 'init-bs)
 

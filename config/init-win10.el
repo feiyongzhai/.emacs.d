@@ -1,6 +1,8 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+(setq default-input-method "pyim")
+
 (openwith-mode t)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
                               ("\\.doc\\'" "start" (file))

@@ -1,7 +1,6 @@
 ;;; Linux 专用配置
 
 (require 'fei-funcs)
-(require 'init-rime)
 
 ;; Telega
 (add-to-list 'load-path "~/.emacs.d/extensions/telega")

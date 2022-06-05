@@ -14,8 +14,6 @@
   (setq ivy-re-builders-alist
 	'((t . pyim-cregexp-ivy))))
 
-(setq default-input-method "pyim")
-
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
 (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
 (define-key pyim-mode-map (kbd "<escape>") 'pyim-quit-clear)

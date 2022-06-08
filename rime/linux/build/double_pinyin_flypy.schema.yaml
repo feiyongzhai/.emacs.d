@@ -2,7 +2,7 @@ __build_info:
   rime_version: 1.7.3
   timestamps:
     default: 1646936619
-    default.custom: 0
+    default.custom: 1654691081
     double_pinyin_flypy.custom: 1652164917
     double_pinyin_flypy.schema: 1652164920
     key_bindings: 1646936619
@@ -75,6 +75,7 @@ key_binder:
     - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
     - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
     - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
+    - {accept: "Alt+n", select: .next, when: always}
   import_preset: default
 menu:
   page_size: 5

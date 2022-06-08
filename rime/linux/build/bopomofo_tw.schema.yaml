@@ -6,7 +6,7 @@ __build_info:
     bopomofo_tw.custom: 0
     bopomofo_tw.schema: 1612175965
     default: 1646936619
-    default.custom: 0
+    default.custom: 1654691081
     grammar: 0
     key_bindings: 1646936619
     key_bindings.custom: 0
@@ -82,6 +82,7 @@ key_binder:
     - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
     - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
     - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
+    - {accept: "Alt+n", select: .next, when: always}
     - {accept: comma, send: comma, when: has_menu}
     - {accept: period, send: period, when: has_menu}
     - {accept: minus, send: minus, when: has_menu}

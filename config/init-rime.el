@@ -51,7 +51,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a"
+	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "M-n" "M-p"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用

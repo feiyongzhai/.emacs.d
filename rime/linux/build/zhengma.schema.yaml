@@ -2,13 +2,13 @@ __build_info:
   rime_version: 1.7.3
   timestamps:
     default: 1646936619
-    default.custom: 0
+    default.custom: 1654691081
     key_bindings: 1646936619
     key_bindings.custom: 0
     punctuation: 1646936619
     punctuation.custom: 0
     zhengma.custom: 0
-    zhengma.schema: 1653897244
+    zhengma.schema: 1654690812
 engine:
   processors:
     - ascii_composer
@@ -62,6 +62,7 @@ key_binder:
     - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
     - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
     - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
+    - {accept: "Alt+n", select: .next, when: always}
   import_preset: default
 menu:
   page_size: 5
@@ -138,7 +139,7 @@ recognizer:
   import_preset: default
   patterns:
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    reverse_lookup: ";[a-z]*$|[a-z]*:"
+    reverse_lookup: ";[a-z]*$|[a-z]*;$"
     uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
 reverse_lookup:
@@ -146,7 +147,7 @@ reverse_lookup:
   preedit_format:
     - "xform/([nljqxy])v/$1ü/"
   prefix: ";"
-  suffix: ":"
+  suffix: ";"
   tips: "〔拼音〕"
 schema:
   author:

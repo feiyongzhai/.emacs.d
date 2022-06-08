@@ -4,7 +4,7 @@ __build_info:
     cangjie5.custom: 0
     cangjie5.schema: 1614110223
     default: 1646936619
-    default.custom: 0
+    default.custom: 1654691081
     key_bindings: 1646936619
     key_bindings.custom: 0
     punctuation: 1646936619
@@ -71,6 +71,7 @@ key_binder:
     - {accept: "Control+Shift+numbersign", toggle: full_shape, when: always}
     - {accept: "Control+Shift+dollar", toggle: simplification, when: always}
     - {accept: "Control+Shift+percent", toggle: extended_charset, when: always}
+    - {accept: "Alt+n", select: .next, when: always}
   import_preset: default
 menu:
   page_size: 5

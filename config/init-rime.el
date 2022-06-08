@@ -51,7 +51,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "M-n" "M-p"
+	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用
@@ -64,6 +64,28 @@
 
 (add-hook 'isearch-mode-hook '+fei-isearch-deacivate-input-method)
 (add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
+
+
+(defvar rime-cycle-zhengma-luna "zhengma")
+
+(defun rime-cycle-zhengma-luna ()
+  (interactive)
+  (if (string= rime-cycle-zhengma-luna "zhengma")
+      (progn
+	(rime-lib-select-schema "luna_pinyin")
+	(setq rime-cycle-zhengma-luna "luna_pinyin")
+	(message "切换到拼音")
+	)
+    (rime-lib-select-schema "zhengma")
+    (setq rime-cycle-zhengma-luna "zhengma")
+    (message "切换到郑码")
+    ))
+
+;; 为了防止快捷键冲突带来的问题，用了这个不太好的快捷键，有优化的空间，
+;; 但是现在没有优化的必要，但是我发现这个快捷键有一个奇怪的表现：当我
+;; 按这个快捷键的时候，它确实可以完成切换，但是不会清空已存在的 posframe
+;; （我的 rime 的候选项是用 posframe 显示的）
+(global-set-key (kbd "s-n") 'rime-cycle-zhengma-luna)
 
 
 (defvar isearch-end-activate-input-method-predicate nil)

@@ -66,19 +66,19 @@
 (add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)
 
 
-(defvar rime-cycle-zhengma-luna "zhengma")
+(defvar rime-cycle-zhengma-luna "zmbig")
 
 (defun rime-cycle-zhengma-luna ()
   (interactive)
-  (if (string= rime-cycle-zhengma-luna "zhengma")
+  (if (string= rime-cycle-zhengma-luna "zmbig")
       (progn
 	(rime-lib-select-schema "luna_pinyin")
 	(setq rime-cycle-zhengma-luna "luna_pinyin")
 	(message "切换到拼音")
 	)
-    (rime-lib-select-schema "zhengma")
-    (setq rime-cycle-zhengma-luna "zhengma")
-    (message "切换到郑码")
+    (rime-lib-select-schema "zmbig")
+    (setq rime-cycle-zhengma-luna "zmbig")
+    (message "切换到郑码巨集")
     ))
 
 ;; 为了防止快捷键冲突带来的问题，用了这个不太好的快捷键，有优化的空间，

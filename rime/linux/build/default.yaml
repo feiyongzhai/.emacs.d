@@ -2,7 +2,7 @@ __build_info:
   rime_version: 1.7.3
   timestamps:
     default: 1646936619
-    default.custom: 1654691081
+    default.custom: 1654762137
     key_bindings: 1646936619
     key_bindings.custom: 0
     punctuation: 1646936619
@@ -137,6 +137,9 @@ schema_list:
   - schema: cangjie5
   - schema: stroke
   - schema: terra_pinyin
+  - schema: zmbig
+  - schema: zmb
+  - schema: zmjd
 switcher:
   abbreviate_options: true
   caption: "〔方案選單〕"

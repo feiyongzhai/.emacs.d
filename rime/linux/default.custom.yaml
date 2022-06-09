@@ -10,6 +10,9 @@ patch:
     - schema: cangjie5
     - schema: stroke
     - schema: terra_pinyin
+    - schema: zmbig
+    - schema: zmb
+    - schema: zmjd
 
   key_binder/bindings:
     - {accept: "Control+p", send: Up, when: composing}

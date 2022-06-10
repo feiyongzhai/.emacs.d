@@ -15,8 +15,11 @@
 
 (defun update-mode-line-tab-bar-indicator ()
   (setq current-tab-index (1+ (tab-bar--current-tab-index)))
-  (dolist (buf (buffer-list))
-      (with-current-buffer buf
-	(setq mode-line-format `(,(number-to-string current-tab-index) . ,(cdr mode-line-format))))))
+  (walk-windows
+   (lambda (w)
+     (with-selected-window w
+       (setq mode-line-format
+	     (cons (number-to-string current-tab-index)
+		   (cdr mode-line-format)))))))
 
 (provide 'tab-bar-mode-indicator)

@@ -13,6 +13,9 @@
   (global-set-key (kbd "C-c 2") outline-mode-prefix-map)
   (define-key outline-mode-prefix-map (kbd "o") 'counsel-outline))
 
+(define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
+(define-key prog-mode-map (kbd "M-S-<return>") 'hs-show-block)
+
 ;; (global-subword-mode 1)
 
 ;; Octave

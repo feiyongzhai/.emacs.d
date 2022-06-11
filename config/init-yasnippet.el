@@ -1,6 +1,7 @@
 ;; ==== Yasnippet ====
 (yas-global-mode)
 (global-set-key (kbd "C-x y") 'yas-insert-snippet)
+(global-set-key (kbd "C-x Y") 'yas-new-snippet)
 (global-set-key (kbd "C-M-y") 'company-yasnippet)
 
 (with-eval-after-load 'company

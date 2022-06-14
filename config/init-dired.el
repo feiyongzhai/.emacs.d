@@ -1,7 +1,5 @@
 ;;; init-dired.el
 (add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
-(require 'dired-ranger)
-(require 'dired-filter)
 (require 'fei-funcs)
 
 ;; (add-hook 'dired-mode-hook #'treemacs-icons-dired-mode)
@@ -25,15 +23,19 @@
 
 ;;; Keys
 
-(define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
-(define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
-(cond
- (*is-linux*
-  (define-key dired-mode-map [mouse-8] 'dired-up-directory))
- (*is-windows*
-  (define-key dired-mode-map [mouse-4] 'dired-up-directory)))
-
 (with-eval-after-load 'dired
+  
+  (require 'dired-ranger)
+  (require 'dired-filter)
+
+  (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
+  (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
+  (cond
+   (*is-linux*
+    (define-key dired-mode-map [mouse-8] 'dired-up-directory))
+   (*is-windows*
+    (define-key dired-mode-map [mouse-4] 'dired-up-directory)))
+
   (fei-define-key-with-map dired-mode-map
     `(
       ("b" . dired-up-directory)
@@ -49,7 +51,17 @@
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
       ("`" . fei-eshell-cd-here)
-      )))
+      ))
+
+  (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
+  (define-key dired-mode-map (kbd ";e") 'fei-eshell-cd-here)
+  (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
+  (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
+  (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
+  )
+
+(with-eval-after-load 'dired-x
+  (define-key dired-mode-map (kbd "M-G") nil))
 
 (defun fei-dired-toggle-hidden ()
   (interactive)
@@ -59,14 +71,6 @@
     (setq-local dired-listing-switches "-lha")
     (dired-sort-other dired-listing-switches)))
 
-(with-eval-after-load 'dired-x
-  (define-key dired-mode-map (kbd "M-G") nil))
-
-(define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
-(define-key dired-mode-map (kbd ";e") 'fei-eshell-cd-here)
-(define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
-(define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
-(define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
 
 ;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
 ;; @REF2: `ibuffer-jump' 的源码

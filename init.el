@@ -44,6 +44,7 @@
   (require 'init-modeline)
   (require 'init-fei)
   (require 'init-rime)
+  (require 'init-dired)
 
   (run-with-idle-timer
    3 nil
@@ -53,7 +54,6 @@
      (require 'init-tool-bar)
      (require 'init-menu-bar)
 
-     (require 'init-dired)
      (require 'init-bs)
 
      (require 'init-pyim)

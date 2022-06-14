@@ -45,7 +45,8 @@
 
 (setq modus-themes-mode-line '(3d))
 ;; (setq modus-themes-mode-line '3d)	;emacs29 不支持这个配置
-(load-theme 'modus-operandi t)
+;; (load-theme 'modus-operandi t)
+;; 换回默认配色，换换口味
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)

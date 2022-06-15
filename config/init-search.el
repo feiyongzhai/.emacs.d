@@ -21,6 +21,11 @@
   (define-key swiper-map (kbd "M-r") 'swiper-isearch-C-r)
   )
 
+;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而
+;; 一般没有光标同时我想要进行复制的场景是在 isearch 的情形下，所以这个配
+;; 置放在这里也比较合理
+(setq copy-region-blink-delay .1)
+
 (fei-define-key-with-map isearch-mode-map
   '(
     ("M-g" . isearch-cancel)

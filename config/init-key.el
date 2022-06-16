@@ -45,16 +45,12 @@
 ;; Misc
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
-
+(global-set-key (kbd "<f5>") 'recompile)
 (global-set-key (kbd "<f12>") 'fei-emacs) ;use for quick debug
 
-(fei-define-key-with-map global-map
-  `(("<insert>"     . fei-occur-at-point)
-    ("<insertchar>" . fei-occur-at-point)
-    ("C-x F"        . set-fill-column)
-    ("<f5>"         . recompile)
-    ("M-s g"        . rgrep)
-    ))
+(global-set-key (kbd "<insert>") 'fei-occur-at-point)
+(global-set-key (kbd "<insertchar>") 'fei-occur-at-point)
+(global-set-key (kbd "C-x F") 'set-fill-column)
 
 ;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
 ;; (defun fei-resize-frame ()
@@ -62,4 +58,4 @@
 ;;   (when (display-graphic-p)
 ;;     (set-frame-width nil 125)))
 
-(provide 'init-misc)
+(provide 'init-key)

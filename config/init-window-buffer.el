@@ -1,4 +1,4 @@
-;;; init-window-buffer-tab.el  --- configs for Window/Buffer/Tab
+;;; init-window-buffer.el  --- configs for Window/Buffer
 
 (require 'init-func)
 (autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
@@ -56,6 +56,9 @@
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
+
+;;; undo kill buffer
+
 ;; @REF https://emacs.stackexchange.com/questions/3330/how-to-reopen-just-killed-buffer-like-c-s-t-in-firefox-browser
 (defvar killed-file-list nil
   "List of recently killed files.")
@@ -75,4 +78,4 @@
     (find-file (pop killed-file-list))))
 
 (provide 'init-window-buffer)
-;;; init-windows.el ends here.
+

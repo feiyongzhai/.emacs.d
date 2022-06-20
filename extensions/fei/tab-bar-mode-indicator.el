@@ -2,6 +2,7 @@
 
 ;; TODO: 更好的 mode-line 显示，其实我觉得现在的就挺好
 ;; TODO: 目前必须在 (minions-mode) 之后加载，要不然 (minions-mode) 就无法奏效
+;; BUG: calendar 下会出现 error 因为 calendar 的 mode-line-format 比较特殊
 
 (require 'tab-bar)
 

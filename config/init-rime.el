@@ -6,7 +6,7 @@
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 ;; Keys
-(global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-j") 'fei-ime-force-enable)
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)

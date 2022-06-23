@@ -105,10 +105,14 @@
     (setq-default input-method-function nil)
     (setq isearch-end-activate-input-method-predicate nil)))
 
-(defun fei-rime-force-enable ()
+(defun fei-ime-force-enable ()
   (interactive)
-  (activate-input-method "rime")
-  (call-interactively 'rime-force-enable))
+  (cond
+   (*is-windows*
+    (pyim-convert-string-at-point))
+   (*is-linux*
+    (activate-input-method "rime")
+    (call-interactively 'rime-force-enable))))
 
 
 ;; Misc

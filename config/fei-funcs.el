@@ -1,5 +1,8 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+(defvar fei-ime (cond (*is-linux* 'rime)
+		      (*is-windows* 'pyim)))
+
 (defun fei-meow-last-buffer (arg)
   "Switch to last buffer.
 Argument ARG if not nil, switching in a new window."
@@ -125,7 +128,7 @@ kill region instead"
   (interactive)
   ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-goto-Research ()
   (interactive)
@@ -134,7 +137,7 @@ kill region instead"
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-goto-SAR ()
   (interactive)
@@ -143,7 +146,7 @@ kill region instead"
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-goto-WANT ()
   (interactive)
@@ -152,12 +155,12 @@ kill region instead"
 (defun fei-org-capture-TODO ()
   (interactive)
   (org-capture nil "t")
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-note (&rest strings)
   (interactive)
@@ -169,7 +172,7 @@ kill region instead"
     (org-capture nil "i")
     (when (bound-and-true-p evil-mode)
       (evil-insert 0))
-    (activate-input-method 'rime)))
+    (activate-input-method fei-ime)))
 
 (defun fei-org-capture-goto-note ()
   (interactive)
@@ -184,14 +187,14 @@ kill region instead"
   (org-capture nil "p")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method 'rime))
+  (activate-input-method fei-ime))
 
 (defun fei-org-agenda ()
   (interactive)

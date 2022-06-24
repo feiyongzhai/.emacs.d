@@ -75,10 +75,14 @@
       (progn
 	(rime-lib-select-schema "luna_pinyin")
 	(setq rime-cycle-zhengma-luna "luna_pinyin")
+	(rime--clear-state)
+	(setq rime-show-candidate 'posframe)
 	(message "拼音")
 	)
     (rime-lib-select-schema "zmbig")
     (setq rime-cycle-zhengma-luna "zmbig")
+    (rime--clear-state)
+    (setq rime-show-candidate 'minibuffer)
     (message "郑码巨集")
     ))
 

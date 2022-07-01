@@ -9,14 +9,14 @@
                               ("\\.docx\\'" "start" (file))))
 
 (setq w32-lwindow-modifier 'super)
-(setq w32-pass-lwindow-to-system nil)
+(setq w32-pass-lwindow-to-system t)
 (setq w32-apps-modifier 'super)
 
-;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
-(dolist (keys '([s-0] [s-1] [s-2] [s-3]
-		[s-s] [s-u] [s-e]
-		[s-return] [M-escape]))
-  (w32-register-hot-key keys))
+;; ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
+;; (dolist (keys '([s-0] [s-1] [s-2] [s-3]
+;; 		[s-s] [s-u] [s-e]
+;; 		[s-return] [M-escape]))
+;;   (w32-register-hot-key keys))
 
 (with-eval-after-load 'python
   ;; simple complie for python
@@ -29,7 +29,6 @@
                    "*fei-python*"
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
-(global-set-key (kbd "s-e") 'file-manager-here)
 (global-set-key (kbd "M-s s") 'fei-search)
 
 ;; (tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")

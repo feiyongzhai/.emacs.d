@@ -21,6 +21,7 @@
   "Keymap when input method is enabled.")
 
 (global-set-key (kbd "C-x J K") 'fei-eshell-cd-here)
+(defvar fei-jump-map (make-sparse-keymap))
 (define-key fei-jump-map (kbd "h") 'jh)
 (define-key fei-jump-map (kbd "k") 'eshell)
 (define-key fei-jump-map (kbd "l") 'fei-meow-last-buffer)

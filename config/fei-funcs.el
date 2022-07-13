@@ -126,7 +126,6 @@ kill region instead"
 
 (defun fei-org-capture ()
   (interactive)
-  ;; 这个写法可以传递prefix number，之前的不行
   (call-interactively 'org-capture)
   (activate-input-method fei-ime))
 

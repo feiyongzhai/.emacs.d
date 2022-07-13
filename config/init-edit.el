@@ -44,9 +44,6 @@
     (scroll-down-line)
     (fei-pulse-current-line)))
 
-;;; Mark
-(global-set-key (kbd "C-,") 'set-mark-command)
-
 ;;; Misc
 (global-set-key (kbd "C-0") 'delete-window)
 (global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
@@ -57,7 +54,7 @@
 (global-set-key (kbd "C-x I") 'emoji-search)
 (global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
-(global-set-key (kbd "S-SPC") 'just-one-space)
+(global-set-key (kbd "S-SPC") 'set-mark-command)
 
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)

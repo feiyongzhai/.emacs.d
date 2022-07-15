@@ -79,11 +79,9 @@
 (defalias 'qrr 'query-replace-regexp)
 (defalias 'qr 'query-replace)
 (defalias 'sc 'scratch)
-(defalias 'jl 'fei-meow-last-buffer)
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 
 (defalias 'wh 'whitespace-mode)
-(defalias 'f 'feebleline-mode)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
 (defalias 'oE 'open-current-file-with-emacs)
@@ -102,14 +100,12 @@
 (defalias 'sh 'shell)
 (defalias 'ev 'evil-mode-with-cursor)
 (defalias 'one 'zygospore-toggle-delete-other-windows)
-(defalias 'vs 'split-window-below)
 
-(defalias 'hs 'split-window-right)
 (defalias 'nt 'tab-new)
 (defalias 'kt 'tab-close)
 (defalias 't1 'tab-close-other)
 (defalias 'nf 'make-frame)
-(defalias 'kf 'delete-framep)
+(defalias 'kf 'delete-frame)
 
 ;; Designed for `eshell'
 (with-eval-after-load 'eshell

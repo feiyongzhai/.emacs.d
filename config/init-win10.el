@@ -12,6 +12,16 @@
 (setq w32-pass-lwindow-to-system t)
 (setq w32-apps-modifier 'super)
 
+;; 控制启动窗口的大小
+(add-hook 'server-after-make-frame-hook
+	  (lambda ()
+	    ;; @REF: http://kimi.im/2019-02-09-emacs-frame-dimention
+	    (set-frame-height nil (/ (* 4 (x-display-pixel-height))
+				     (* 5 (frame-char-height))))
+	    (set-frame-width nil (/ (* 4 (x-display-pixel-width))
+				    (* 5 (frame-char-width))))
+	    ))
+
 ;; ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
 ;; (dolist (keys '([s-0] [s-1] [s-2] [s-3]
 ;; 		[s-s] [s-u] [s-e]

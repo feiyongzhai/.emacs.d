@@ -176,6 +176,16 @@
 ;;; 自动调整 gc
 (gcmh-mode)
 
+;;; Funcs
+
+;; youdao-dictionary
+(defun fei-youdao-at-point ()
+  (interactive)
+  (if (display-graphic-p)
+      (call-interactively 'youdao-dictionary-search-at-point-tooltip)
+    (call-interactively 'youdao-dictionary-search-at-point+)))
+
+
 (provide 'init-packages)
 
 ;; Local Variables:

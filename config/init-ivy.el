@@ -43,11 +43,16 @@
     ("M-s y" . counsel-yank-pop)
     ))
 
-(global-set-key (kbd "C-c l") 'locate)
-(global-set-key (kbd "C-c L") 'counsel-locate)
-
+(cond
+ (*is-windows*
+  (global-set-key (kbd "C-c l") 'counsel-locate))
+ (t
+  (global-set-key (kbd "C-c l") 'locate)
+  (global-set-key (kbd "C-c L") 'counsel-locate)
+  ))
+  
 (with-eval-after-load 'ivy
-  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
+  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-ime-force-enable)
   )
 
 (with-eval-after-load 'counsel

@@ -114,5 +114,40 @@
     (evil-set-initial-state (car p) (cdr p)))
   )
 
+;; Funcs
+(defun evil-mode-with-cursor ()
+  "设置 message 就是为了终端下面有一个提示"
+  (interactive)
+  (unless (boundp 'evil-mode)
+    (evil-mode -1)
+    (message "Now is EMACS")) ;; unless part is for initialization
+  (if evil-mode
+      (progn
+	(evil-mode -1)
+	(dolist (buf (buffer-list))
+	  (set-buffer buf)
+	  (setq cursor-type 'bar))
+	(add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+	(message "Now is EMACS 🤠"))
+    (evil-mode 1)
+    (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+    (message "Now is EVIL 👽")))
+
+(defun emacs ()
+  (interactive)
+  (evil-mode -1)
+  (dolist (buf (buffer-list))
+    (set-buffer buf)
+    (setq cursor-type 'bar))
+  (add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+  (message "Now is EMACS 🤠"))
+
+(defun vim ()
+  (interactive)
+  (evil-mode 1)
+  (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
+  (message "Now is EVIL 👽"))
+
+
 (provide 'init-evil)
 ;;; init-evil.el ends here

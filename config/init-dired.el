@@ -71,7 +71,6 @@
     (setq-local dired-listing-switches "-lha")
     (dired-sort-other dired-listing-switches)))
 
-
 ;; @REF1: https://emacs.stackexchange.com/questions/41286/follow-symlinked-directories-in-dired
 ;; @REF2: `ibuffer-jump' 的源码
 (defun dired-jump-following-symlinks ()
@@ -82,6 +81,11 @@
     (dired (file-name-directory file))
     (dired-goto-file file)
     ))
+
+(defun fei-dired-mouse-find-file-externally (event)
+  (interactive "e")
+  (mouse-set-point event)
+  (call-interactively 'browse-url-of-dired-file))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

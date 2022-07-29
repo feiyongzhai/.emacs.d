@@ -1,8 +1,5 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
-(defvar fei-ime (cond (*is-linux* 'rime)
-		      (*is-windows* 'pyim)))
-
 (defun fei-meow-last-buffer (arg)
   "Switch to last buffer.
 Argument ARG if not nil, switching in a new window."
@@ -22,12 +19,6 @@ Argument ARG if not nil, switching in a new window."
       ;; 不清楚 sudo:root@localhost: 表示的含义，但是现在这个命令能用
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
-
-(defun eshell/s (&rest search-string)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (eshell-flatten-and-stringify search-string))))
 
 (defun fei-google-search (&optional search-string)
   "Googles a query or region if any.
@@ -66,140 +57,7 @@ kill region instead"
 		   (region-end))
     (backward-kill-word (or arg 1))))
 
-;; @REF: https://oremacs.com/page32/
-(defun dired-open-term ()
-  "Open an `ansi-term' that corresponds to current directory."
-  (interactive)
-  (let ((current-dir (dired-current-directory)))
-    (if (get-buffer "*ansi-term*")
-	(switch-to-buffer "*ansi-term*")
-      (ansi-term "/bin/bash"))
-    (term-send-string
-     (get-buffer-process "*ansi-term*")
-     (if (file-remote-p current-dir)
-         (let ((v (tramp-dissect-file-name current-dir t)))
-           (format "ssh %s@%s\n"
-                   (aref v 1) (aref v 2)))
-       (format "cd '%s'\n" current-dir)))))
-
-(defun fei-term-cd-here ()
-  "Open an `ansi-term' that corresponds to current directory."
-  (interactive)
-  (let ((current-dir default-directory))
-    (if (get-buffer "*ansi-term*")
-	(switch-to-buffer "*ansi-term*")
-      (ansi-term "/bin/bash"))
-    (term-send-string
-     (get-buffer-process "*ansi-term*")
-     (if (file-remote-p current-dir)
-         (let ((v (tramp-dissect-file-name current-dir t)))
-           (format "ssh %s@%s\n"
-                   (aref v 1) (aref v 2)))
-       (format "cd %s\n" (shell-quote-wildcard-pattern current-dir))))
-    (term-send-left)
-    (term-send-right)))
-
-(defun fei-ansi-term ()
-  (interactive)
-  (if (and (get-buffer "*ansi-term*")
-	   (term-check-proc "*ansi-term*"))
-      (switch-to-buffer "*ansi-term*")
-    (ansi-term (getenv "SHELL")))
-  ;; Workaround: 避免在 term 中用 back 之后，再在 eshell 中用
-  ;; bash(fei-term-cd-here) 会出现光标位置出现在不期望的地方的情况
-  (term-send-left)
-  (term-send-right)
-  nil)
 
-;;; Org related
-
-(defun fei-org-time ()
-  (interactive)
-  (if (not (boundp 'org-timer-start-time))
-      (org-timer-start)
-    (if (not org-timer-start-time)
-	(org-timer-start)
-      (call-interactively 'org-timer-pause-or-continue))))
-
-;;; Org-capture
-(autoload 'org-capture-goto-target "org-capture")
-
-(defun fei-org-capture ()
-  (interactive)
-  (call-interactively 'org-capture)
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-goto-Research ()
-  (interactive)
-  (org-capture-goto-target "K"))
-
-(defun fei-org-capture-Research ()
-  (interactive)
-  (org-capture nil "K")
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-goto-SAR ()
-  (interactive)
-  (org-capture-goto-target "S"))
-
-(defun fei-org-capture-SAR ()
-  (interactive)
-  (org-capture nil "S")
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-goto-WANT ()
-  (interactive)
-  (org-capture-goto-target "s"))
-
-(defun fei-org-capture-TODO ()
-  (interactive)
-  (org-capture nil "t")
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-WANT ()
-  (interactive)
-  (org-capture nil "s")
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-note (&rest strings)
-  (interactive)
-  ;; (setq strings (eshell-flatten-and-stringify strings)) ;FIXME: 如果语句在这，strings 将总是会为 t
-  (if strings
-      (progn
-	(setq strings (eshell-flatten-and-stringify strings))
-        (org-capture-string strings "P") nil)
-    (org-capture nil "i")
-    (when (bound-and-true-p evil-mode)
-      (evil-insert 0))
-    (activate-input-method fei-ime)))
-
-(defun fei-org-capture-goto-note ()
-  (interactive)
-  (org-capture-goto-target "i"))
-
-(defun fei-org-capture-goto-private ()
-  (interactive)
-  (org-capture-goto-target "p"))
-
-(defun fei-org-capture-private ()
-  (interactive)
-  (org-capture nil "p")
-  (when (bound-and-true-p evil-mode)
-    (evil-insert 0))
-  (activate-input-method fei-ime))
-
-(defun fei-org-capture-diary ()
-  (interactive)
-  (org-capture nil "d")
-  (when (bound-and-true-p evil-mode)
-    (evil-insert 0))
-  (activate-input-method fei-ime))
-
-(defun fei-org-agenda ()
-  (interactive)
-  (org-agenda nil "a")
-  (delete-other-windows))
-
 ;; @REF: https://emacs-china.org/t/leader-vscode/19166/29?u=yongfeizhai
 (defun open-current-file-with-vscode ()
   (interactive)
@@ -260,31 +118,6 @@ kill region instead"
 		       default-directory))))
 
 ;;; Misc
-(defun fei-ff-find-other-file-pdf-org ()
-  (interactive)
-  (let* ((name (or (buffer-file-name)
-		   (buffer-name)))
-	 (current-ext (file-name-extension name))
-	 (current-name (file-name-sans-extension name)))
-    (cond ((string= current-ext "org")
-	   (find-file (concat current-name ".pdf")))
-	  ((string= current-ext "md")
-	   (find-file (concat current-name ".pdf")))
-	  ((string= current-ext "pdf")
-	   (find-file (concat current-name ".org")))
-	  (t (message "当前不支持这个文件")))))
-
-(defun fei-sdcv ()
-  (interactive)
-  (let* ((current-word (word-at-point t))
-	 (word (read-string
-		(format "Word (%s): " (or current-word ""))
-		nil t current-word)))
-    (shell-command (concat "sdcv " word) "*SDCV-OUTPUT*")))
-
-(defun catfish ()
-  (interactive)
-  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: ")))
 
 (defun file-manager-here()
   "Open an external Windows cmd in the current directory"
@@ -314,61 +147,7 @@ kill region instead"
   (interactive)
   (let (case-fold-search)
     (occur (concat "\\_<" (thing-at-point 'symbol) "\\_>"))))
-
-;;; Dired
 
-(defun fei-dired-mouse-find-file-externally (event)
-  (interactive "e")
-  (mouse-set-point event)
-  (call-interactively 'browse-url-of-dired-file))
-
-;;; Evil
-
-(defun evil-mode-with-cursor ()
-  "设置 message 就是为了终端下面有一个提示"
-  (interactive)
-  (unless (boundp 'evil-mode)
-    (evil-mode -1)
-    (message "Now is EMACS")) ;; unless part is for initialization
-  (if evil-mode
-      (progn
-	(evil-mode -1)
-	(dolist (buf (buffer-list))
-	  (set-buffer buf)
-	  (setq cursor-type 'bar))
-	(add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-	(message "Now is EMACS 🤠"))
-    (evil-mode 1)
-    (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-    (message "Now is EVIL 👽")))
-
-(defun emacs ()
-  (interactive)
-  (evil-mode -1)
-  (dolist (buf (buffer-list))
-    (set-buffer buf)
-    (setq cursor-type 'bar))
-  (add-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-  (message "Now is EMACS 🤠"))
-
-(defun vim ()
-  (interactive)
-  (evil-mode 1)
-  (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
-  (message "Now is EVIL 👽"))
-
-;; require `pulse' library
-(defun fei-pulse-current-line ()
-  (interactive)
-  (require 'hl-line)
-  (pulse-momentary-highlight-one-line (point) 'hl-line))
-
-;;; youdao-dictionary
-(defun fei-youdao-at-point ()
-  (interactive)
-  (if (display-graphic-p)
-      (call-interactively 'youdao-dictionary-search-at-point-tooltip)
-    (call-interactively 'youdao-dictionary-search-at-point+)))
 
 ;;; multi-occur-in-this-mode
 
@@ -434,16 +213,16 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
           (buffer-substring-no-properties (region-beginning) (region-end))
 	(read-string "GoldenDict: "))))))
 
-(defun fei-kill-current-buffer (arg)
-  "智能关闭 windows 和 buffer"
-  (interactive "P")
-  (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((or arg (one-window-p))
-    (kill-buffer))
-   (t (kill-buffer-and-window))))
+(defun catfish ()
+  (interactive)
+  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: ")))
 
-
+(defun fei-sdcv ()
+  (interactive)
+  (let* ((current-word (word-at-point t))
+	 (word (read-string
+		(format "Word (%s): " (or current-word ""))
+		nil t current-word)))
+    (shell-command (concat "sdcv " word) "*SDCV-OUTPUT*")))
 
 (provide 'fei-funcs)

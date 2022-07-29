@@ -137,5 +137,94 @@
 
 (add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
 
+;; Funcs
+
+(defun fei-org-time ()
+  (interactive)
+  (if (not (boundp 'org-timer-start-time))
+      (org-timer-start)
+    (if (not org-timer-start-time)
+	(org-timer-start)
+      (call-interactively 'org-timer-pause-or-continue))))
+
+;; Org-capture
+(autoload 'org-capture-goto-target "org-capture")
+
+(defun fei-org-capture ()
+  (interactive)
+  (call-interactively 'org-capture)
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-goto-Research ()
+  (interactive)
+  (org-capture-goto-target "K"))
+
+(defun fei-org-capture-Research ()
+  (interactive)
+  (org-capture nil "K")
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-goto-SAR ()
+  (interactive)
+  (org-capture-goto-target "S"))
+
+(defun fei-org-capture-SAR ()
+  (interactive)
+  (org-capture nil "S")
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-goto-WANT ()
+  (interactive)
+  (org-capture-goto-target "s"))
+
+(defun fei-org-capture-TODO ()
+  (interactive)
+  (org-capture nil "t")
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-WANT ()
+  (interactive)
+  (org-capture nil "s")
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-note (&rest strings)
+  (interactive)
+  ;; (setq strings (eshell-flatten-and-stringify strings)) ;FIXME: 如果语句在这，strings 将总是会为 t
+  (if strings
+      (progn
+	(setq strings (eshell-flatten-and-stringify strings))
+        (org-capture-string strings "P") nil)
+    (org-capture nil "i")
+    (when (bound-and-true-p evil-mode)
+      (evil-insert 0))
+    (activate-input-method fei-ime)))
+
+(defun fei-org-capture-goto-note ()
+  (interactive)
+  (org-capture-goto-target "i"))
+
+(defun fei-org-capture-goto-private ()
+  (interactive)
+  (org-capture-goto-target "p"))
+
+(defun fei-org-capture-private ()
+  (interactive)
+  (org-capture nil "p")
+  (when (bound-and-true-p evil-mode)
+    (evil-insert 0))
+  (activate-input-method fei-ime))
+
+(defun fei-org-capture-diary ()
+  (interactive)
+  (org-capture nil "d")
+  (when (bound-and-true-p evil-mode)
+    (evil-insert 0))
+  (activate-input-method fei-ime))
+
+(defun fei-org-agenda ()
+  (interactive)
+  (org-agenda nil "a")
+  (delete-other-windows))
+
 (provide 'init-org)
 ;;; init-org-markdown.el ends here.

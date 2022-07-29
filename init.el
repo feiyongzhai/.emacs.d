@@ -13,7 +13,6 @@
   (require 'init-window-buffer)
   (require 'init-tab-bar)
 
-  (require 'init-key)
   (require 'init-eshell)
 
   (require 'init-org)

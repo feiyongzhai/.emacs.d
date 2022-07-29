@@ -35,7 +35,6 @@
   (require 'init-search)
 
   (require 'init-edit)
-  (require 'init-mark)
   (require 'init-auto-save)
   (require 'init-alias)
   (require 'init-proxy)
@@ -45,6 +44,7 @@
   (require 'init-fei)
   (require 'init-rime)
   (require 'init-dired)
+  ;; (require 'init-mark)
 
   (run-with-idle-timer
    3 nil

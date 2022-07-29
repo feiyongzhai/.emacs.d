@@ -1,6 +1,9 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+(setq recentf-max-saved-items 200)
+(global-set-key (kbd "C-c j") 'counsel-recentf)
+
 (setq default-input-method "pyim")
 
 (openwith-mode t)

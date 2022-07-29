@@ -64,21 +64,6 @@
 
 (setq browse-url-handlers '(("." . browse-url-default-browser)))
 
-(when (version<= "28.0" emacs-version)
-
-  (add-hook 'minibuffer-setup-hook 'fei-win10-deactivate-ime)
-  (add-hook 'minibuffer-exit-hook 'fei-restore-ime-status)
-
-  (defvar fei--ime-status-previous nil)
-
-  (defun fei-win10-deactivate-ime ()
-    (setq fei--ime-status-previous (w32-get-ime-open-status))
-    (w32-set-ime-open-status nil))
-
-  (defun fei-restore-ime-status ()
-    (w32-set-ime-open-status fei--ime-status-previous))
-  )
-
 ;; ==== windows emoji 字体设置 ====
 ;; @REF: https://ianyepan.github.io/posts/emacs-emojis/
 (when (member "Segoe UI Emoji" (font-family-list))

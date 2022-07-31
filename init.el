@@ -71,9 +71,7 @@
      (require 'init-publish)
      (require 'init-shell)
      (require 'init-packages)
-
-     (require 'init-wanderlust)
-
+     
      (require 'init-yasnippet)
      (require 'init-company)
 

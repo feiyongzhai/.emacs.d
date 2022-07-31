@@ -19,11 +19,13 @@
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))
 
-;; Vterm
-;; @HOME: https://github.com/akermu/emacs-libvterm
-(global-set-key (kbd "C-z") 'vterm-toggle)
-(with-eval-after-load 'vterm
-  (define-key vterm-mode-map (kbd "M-s") nil))
+(when *is-linux*
+  ;; Vterm
+  ;; @HOME: https://github.com/akermu/emacs-libvterm
+  (global-set-key (kbd "C-z") 'vterm-toggle)
+  (with-eval-after-load 'vterm
+    (define-key vterm-mode-map (kbd "M-s") nil))
+  )
 
 ;;; ==== Funcs ====
 (defun fei-terminal-here ()

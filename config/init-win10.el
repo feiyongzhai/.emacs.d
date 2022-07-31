@@ -49,19 +49,6 @@
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
 (setq locate-command "es.exe")
 
-(defun wt()
-  "Open an external Windows cmd in the current directory"
-  (interactive)
-  (call-process-shell-command "start wt"))
-
-(defun arrange-frame (w h x y)
-  "Set the width, height, and x/y position of the current frame"
-  (let ((frame (selected-frame)))
-    ;; (delete-other-windows)
-    (set-frame-position frame x y)
-    (set-frame-size frame w h)))
-;; (arrange-frame 84 30 170 20)
-
 (setq browse-url-handlers '(("." . browse-url-default-browser)))
 
 ;; ==== windows emoji 字体设置 ====
@@ -76,5 +63,19 @@
     (set-fontset-font
      t 'emoji (font-spec :family "Segoe UI Emoji") nil 'prepend))
   )
+
+;;; Funcs
+(defun wt()
+  "Open an external Windows cmd in the current directory"
+  (interactive)
+  (call-process-shell-command "start wt"))
+
+(defun arrange-frame (w h x y)
+  "Set the width, height, and x/y position of the current frame"
+  (let ((frame (selected-frame)))
+    ;; (delete-other-windows)
+    (set-frame-position frame x y)
+    (set-frame-size frame w h)))
+;; (arrange-frame 84 30 170 20)
 
 (provide 'init-win10)

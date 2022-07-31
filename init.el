@@ -43,6 +43,8 @@
   (require 'init-fei)
   (require 'init-rime)
   (require 'init-dired)
+  (when *is-windows*
+    (require 'init-win10))
   ;; (require 'init-mark)
 
   (run-with-idle-timer
@@ -75,11 +77,8 @@
      (require 'init-yasnippet)
      (require 'init-company)
 
-     (cond
-      (*is-linux*
+     (when *is-linux*
        (require 'init-linux))
-      (*is-windows*
-       (require 'init-win10)))
 
      ;; 自己写的垃圾小插件
      ;; (require 'init-fei)

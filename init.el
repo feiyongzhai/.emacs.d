@@ -80,9 +80,6 @@
      (when *is-linux*
        (require 'init-linux))
 
-     ;; 自己写的垃圾小插件
-     ;; (require 'init-fei)
-
      (require 'server)
      (unless (server-running-p)
        (server-start))))

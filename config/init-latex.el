@@ -30,7 +30,9 @@
 
 (with-eval-after-load 'org
   ;; @REF: https://emacs.stackexchange.com/questions/17988/variable-to-set-org-export-pdf-viewer
-  (add-to-list 'org-file-apps '("\\.pdf" . "evince %s")) ; 指定 org-export 后打开 pdf 的软件
+  (when *is-linux*
+    (add-to-list 'org-file-apps '("\\.pdf" . "evince %s")) ; 指定 org-export 后打开 pdf 的软件
+    )
   )
 
 

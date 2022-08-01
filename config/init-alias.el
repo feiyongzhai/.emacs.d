@@ -90,7 +90,6 @@
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
 (defalias 'side 'fei-switch-to-treemacs)
-(defalias 'gsk 'global-set-key)
 (defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
 (defalias 'dl 'display-line-numbers-mode)
@@ -101,11 +100,6 @@
 (defalias 'ev 'evil-mode-with-cursor)
 (defalias 'one 'zygospore-toggle-delete-other-windows)
 
-(defalias 'nt 'tab-new)
-(defalias 'kt 'tab-close)
-(defalias 't1 'tab-close-other)
-(defalias 'nf 'make-frame)
-(defalias 'kf 'delete-frame)
 
 ;; Designed for `eshell'
 (with-eval-after-load 'eshell

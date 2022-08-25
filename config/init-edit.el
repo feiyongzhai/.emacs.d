@@ -67,10 +67,6 @@
 (global-set-key (kbd "<M-up>") 'move-text-up)
 (global-set-key (kbd "<M-down>") 'move-text-down)
 
-(global-set-key (kbd "C-S-n") 'move-text-down)
-(global-set-key (kbd "C-S-p") 'move-text-up)
-(global-set-key (kbd "C-S-l") 'fei-duplicate-line-or-region)
-
 ;; Iedit
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)

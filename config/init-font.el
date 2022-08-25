@@ -12,7 +12,7 @@
 
 (custom-set-faces
  ;; '(default ((t (:family "Hack" :foundry "simp" :slant normal :weight normal :height 143 :width normal))))
- '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 143 :width normal))))
+ '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
  ;; '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight regular :height 128 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 181 :width normal))))

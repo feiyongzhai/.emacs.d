@@ -35,12 +35,17 @@
   ;; simple complie for python
   (define-key python-mode-map (kbd "<f5>") 'fei-python-run)
 
-  (defun fei-python-run ()
-    (interactive)
+  (defun fei-python-run (&optional flag)
+    (interactive "P")
     (save-buffer (current-buffer))
-    (start-process "python"
+    (if flag
+	(start-process "python"
+                   "*fei-python*"
+                   "cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
+      (start-process "python"
                    "*fei-python*"
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
+  )
 
 (global-set-key (kbd "M-s s") 'fei-search)
 

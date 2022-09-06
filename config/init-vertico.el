@@ -11,9 +11,10 @@
 	(fei-switch-to-buffer-from-bs flat)
         (execute-extended-command flat)))
 
-(setq vertico-multiform-categories
-      '((file flat)
-	(buffer unobtrusive)))
+;; 回归默认样式
+;; (setq vertico-multiform-categories
+;;       '((file flat)
+;; 	(buffer unobtrusive)))
 
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)

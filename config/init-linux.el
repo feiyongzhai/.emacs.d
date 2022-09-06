@@ -15,7 +15,7 @@
 ;; pdf-tools
 (require 'init-pdf-tools)
 
-(require 'init-wanderlust)
+;; (require 'init-wanderlust)
 
 ;; Fcitx
 (setq fcitx-active-evil-states '(insert emacs hybrid))

@@ -201,28 +201,5 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
 
-;; Rarely used command
-
-(defun fei-golden-dict (&rest search-string)
-  (interactive)
-  (call-process "goldendict" nil nil nil
-   (concat
-    (if search-string
-	(eshell-flatten-and-stringify search-string)
-      (if mark-active
-          (buffer-substring-no-properties (region-beginning) (region-end))
-	(read-string "GoldenDict: "))))))
-
-(defun catfish ()
-  (interactive)
-  (start-process "catfish" nil "catfish" "--start" (read-string "catfish: ")))
-
-(defun fei-sdcv ()
-  (interactive)
-  (let* ((current-word (word-at-point t))
-	 (word (read-string
-		(format "Word (%s): " (or current-word ""))
-		nil t current-word)))
-    (shell-command (concat "sdcv " word) "*SDCV-OUTPUT*")))
 
 (provide 'fei-funcs)

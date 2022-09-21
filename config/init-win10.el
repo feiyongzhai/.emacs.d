@@ -34,6 +34,7 @@
 (with-eval-after-load 'python
   ;; simple complie for python
   (define-key python-mode-map (kbd "<f5>") 'fei-python-run)
+  (define-key python-mode-map (kbd "<C-f5>") (li (fei-python-run 1)))
 
   (defun fei-python-run (&optional flag)
     (interactive "P")

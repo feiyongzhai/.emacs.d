@@ -178,7 +178,7 @@ kill region instead"
 ;;; Counsel
 (defun fei-counsel-rg-my-org ()
   (interactive)
-  (counsel-rg "找不到的话，到你的闪念胶囊里看看|" "~/Nutstore Files/org"))
+  (counsel-rg nil "~/Nutstore Files/org"))
 
 ;; @REF: counsel-fd.el :: `counsel-fd-file-jump'
 (defun fei-counsel-fd-file-jump (&optional initial-input initial-directory)

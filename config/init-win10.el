@@ -1,6 +1,10 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+(w32-set-ime-open-status nil)
+(defvar first-make-frame-flag nil
+  "标志信号，保证只在第一次进行修改")
+
 (setq recentf-max-saved-items 200)
 (global-set-key (kbd "C-c j") 'counsel-recentf)
 
@@ -19,6 +23,9 @@
 (add-hook 'server-after-make-frame-hook
 	  (lambda ()
 	    ;; @REF: http://kimi.im/2019-02-09-emacs-frame-dimention
+	    (unless first-make-frame-flag
+	      (w32-set-ime-open-status nil)
+	      (setq first-make-frame-flag 1))
 	    (set-frame-height nil (/ (* 4 (x-display-pixel-height))
 				     (* 5 (frame-char-height))))
 	    (set-frame-width nil (/ (* 4 (x-display-pixel-width))

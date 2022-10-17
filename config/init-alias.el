@@ -98,7 +98,6 @@
 (defalias 'cmp 'compile)
 (defalias 'sh 'shell)
 (defalias 'ev 'evil-mode-with-cursor)
-(defalias 'one 'zygospore-toggle-delete-other-windows)
 
 
 ;; Designed for `eshell'

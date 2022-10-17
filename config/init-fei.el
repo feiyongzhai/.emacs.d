@@ -44,7 +44,8 @@
 
 (global-set-key (kbd "C-c 1") 'fei-frame-one-line)
 
-(add-hook 'org-capture-mode-hook (lambda () (set-window-text-height nil 1)))
+;; 不需要了
+;; (add-hook 'org-capture-mode-hook (lambda () (set-window-text-height nil 1)))
 
 
 (defun fei-ff-find-other-file-pdf-org ()

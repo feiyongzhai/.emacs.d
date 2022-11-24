@@ -26,10 +26,11 @@
 	    (unless first-make-frame-flag
 	      (w32-set-ime-open-status nil)
 	      (setq first-make-frame-flag 1))
-	    (set-frame-height nil (/ (* 4 (x-display-pixel-height))
-				     (* 5 (frame-char-height))))
-	    (set-frame-width nil (/ (* 4 (x-display-pixel-width))
-				    (* 5 (frame-char-width))))
+
+	    ;; (set-frame-height nil (/ (* 4 (x-display-pixel-height))
+	    ;; 			     (* 5 (frame-char-height))))
+	    ;; (set-frame-width nil (/ (* 4 (x-display-pixel-width))
+	    ;; 			    (* 5 (frame-char-width))))
 	    ))
 
 ;; ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting

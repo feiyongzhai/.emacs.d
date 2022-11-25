@@ -71,7 +71,7 @@
 
 (defun rime-cycle-zhengma-luna ()
   (interactive)
-  (if (string= rime-cycle-zhengma-luna "zmbig")
+  (if (string= rime-cycle-zhengma-luna "double_pinyin_flypy")
       (progn
 	(rime-lib-select-schema "luna_pinyin")
 	(setq rime-cycle-zhengma-luna "luna_pinyin")
@@ -79,11 +79,11 @@
 	(setq rime-show-candidate 'posframe)
 	(message "拼音")
 	)
-    (rime-lib-select-schema "zmbig")
-    (setq rime-cycle-zhengma-luna "zmbig")
+    (rime-lib-select-schema "double_pinyin_flypy")
+    (setq rime-cycle-zhengma-luna "double_pinyin_flypy")
     (rime--clear-state)
     (setq rime-show-candidate 'minibuffer)
-    (message "郑码巨集")
+    (message "小鹤双拼")
     ))
 
 ;; 为了防止快捷键冲突带来的问题，用了这个不太好的快捷键，有优化的空间，

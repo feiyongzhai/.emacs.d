@@ -30,8 +30,8 @@
   (pyim-basedict-enable)
   (setq pyim-default-scheme 'quanpin)
   (setq pyim-assistant-scheme 'xiaohe-shuangpin)
-  (setq pyim-page-tooltip 'minibuffer)
-  (setq pyim-page-style 'vertical)
+  (setq pyim-page-tooltip 'posframe)
+  (setq pyim-page-style 'two-line)
   (setq pyim-cloudim 'baidu)
   )
 (setq-default pyim-english-input-switch-functions

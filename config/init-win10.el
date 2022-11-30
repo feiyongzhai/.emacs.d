@@ -94,4 +94,11 @@
 
 (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
+;; 输入法自动切换插件，sis 在 linux 下使用有点问题。windows 下好像还不错。
+(sis-ism-lazyman-config nil t 'w32)
+(sis-global-respect-mode)
+
+(add-hook 'org-capture-mode-hook #'sis-set-other)
+(add-hook 'log-edit-mode-hook #'sis-set-other)
+
 (provide 'init-win10)

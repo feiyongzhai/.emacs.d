@@ -11,7 +11,7 @@
 	;; log-edit-insert-filenames-without-changelog
 	auto-fill-mode
 	display-fill-column-indicator-mode
-        (lambda () (activate-input-method fei-ime))
+	fei-activate-ime
 	))
 
 ;;; Key

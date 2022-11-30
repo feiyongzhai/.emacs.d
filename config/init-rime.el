@@ -113,7 +113,9 @@
   (interactive)
   (cond
    (*is-windows*
-    (pyim-convert-string-at-point))
+    (w32-set-ime-open-status t)
+    ;; (pyim-convert-string-at-point)
+    )
    (*is-linux*
     (activate-input-method "rime")
     (call-interactively 'rime-force-enable))))

@@ -92,4 +92,6 @@
     (set-frame-size frame w h)))
 ;; (arrange-frame 84 30 170 20)
 
+(global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
+
 (provide 'init-win10)

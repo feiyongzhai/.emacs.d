@@ -153,7 +153,7 @@
 (defun fei-org-capture ()
   (interactive)
   (call-interactively 'org-capture)
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-goto-Research ()
   (interactive)
@@ -162,7 +162,7 @@
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-goto-SAR ()
   (interactive)
@@ -171,7 +171,7 @@
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-goto-WANT ()
   (interactive)
@@ -180,12 +180,12 @@
 (defun fei-org-capture-TODO ()
   (interactive)
   (org-capture nil "t")
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-note (&rest strings)
   (interactive)
@@ -197,7 +197,7 @@
     (org-capture nil "i")
     (when (bound-and-true-p evil-mode)
       (evil-insert 0))
-    (activate-input-method fei-ime)))
+    (fei-activate-ime)))
 
 (defun fei-org-capture-goto-note ()
   (interactive)
@@ -212,19 +212,26 @@
   (org-capture nil "p")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method fei-ime))
+  (fei-activate-ime))
 
 (defun fei-org-agenda ()
   (interactive)
   (org-agenda nil "a")
   (delete-other-windows))
+
+(defun fei-activate-ime ()
+  (cond
+   (*is-windows*
+    (w32-set-ime-open-status t))
+   (*is-linux*
+    (activate-input-method 'rime))))
 
 (provide 'init-org)
 ;;; init-org-markdown.el ends here.

@@ -18,8 +18,8 @@
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s m") 'window-configuration-to-register)
-(global-set-key (kbd "M-s u") 'jump-to-register)
+(global-set-key (kbd "M-s m") (li (window-configuration-to-register 106))) ;49 对应的是按键1
+(global-set-key (kbd "M-s u") (li (jump-to-register 106)))
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)

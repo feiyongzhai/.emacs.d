@@ -12,8 +12,6 @@
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(add-hook 'ibuffer-mode-hook 'hl-line-mode)
 
 ;;; Movement/Navigate
 (global-set-key (kbd "M-s n") (li (switch-to-buffer "*eaf*")))

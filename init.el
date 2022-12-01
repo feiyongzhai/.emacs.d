@@ -43,6 +43,8 @@
   (require 'init-fei)
   (require 'init-rime)
   (require 'init-dired)
+  (require 'init-ibuffer)
+
   (when *is-windows*
     (require 'init-win10))
   ;; (require 'init-mark)
@@ -60,7 +62,6 @@
      (require 'init-pyim)
      (require 'init-markdown)
      (require 'init-engine)
-     (require 'init-ibuffer)
 
      (require 'init-compile)
      (require 'init-lsp)

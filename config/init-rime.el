@@ -32,7 +32,7 @@
 
 (setq default-input-method "rime"
       ;; rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
-      rime-show-candidate 'minibuffer
+      rime-show-candidate 'posframe
       rime-show-preedit t
       rime-posframe-style 'vertical
       rime-posframe-fixed-position t)

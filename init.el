@@ -55,7 +55,7 @@
      (require 'init-tool-bar)
      (require 'init-menu-bar)
 
-     (require 'init-bs)
+     ;; (require 'init-bs)
 
      (require 'init-pyim)
      (require 'init-markdown)

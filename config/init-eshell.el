@@ -37,11 +37,6 @@
   (toggle-truncate-lines 0))
 
 ;; Funcs
-(defun eshell/s (&rest search-string)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (eshell-flatten-and-stringify search-string))))
 
 (defun fei-eshell-cd-here ()
   (interactive)

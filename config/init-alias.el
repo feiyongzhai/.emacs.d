@@ -123,11 +123,6 @@
   (org-agenda nil "a")
   (delete-other-windows))
 
-(defun eshell/es (&rest strings)
-  (interactive)
-  (setq strings (eshell-flatten-and-stringify strings))
-  (eaf-search-it strings))
-
 ;; 不推荐用 `eshll/alias' 设置 alias，因为会在每次启动的时候重置 eshell/alias 文件
 
 ;; (with-eval-after-load 'em-alias

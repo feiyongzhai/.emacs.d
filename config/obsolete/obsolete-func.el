@@ -1,6 +1,14 @@
 ;; 放一些没有用，很少会用到的函数
 
 
+;; 去除 alias
+
+(defun eshell/es (&rest strings)
+  (interactive)
+  (setq strings (eshell-flatten-and-stringify strings))
+  (eaf-search-it strings))
+
+
 ;; Rime 相关配置
 
 (defvar rime-cycle-zhengma-luna "zmbig")

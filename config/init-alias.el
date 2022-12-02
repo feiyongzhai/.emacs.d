@@ -112,7 +112,10 @@
 
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
-(defalias 'eshell/j 'samray/eshell-fasd-z)
+(cond (*is-linux*
+       (defalias 'eshell/j 'samray/eshell-fasd-z))
+      (*is-windows*
+       (require 'eshell-autojump)))
 
 (defalias 'eshell/k 'fei-org-capture-note)
 (defalias 'eshell/ks 'fei-org-capture-SAR)

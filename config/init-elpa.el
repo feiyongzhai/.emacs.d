@@ -44,6 +44,7 @@
 	scratch imenu-list rg
 	rainbow-mode
 	rainbow-delimiters
+	eshell-autojump
 
 	;; ==== 编辑相关 ====
 	evil general

@@ -44,6 +44,7 @@
   (require 'init-rime)
   (require 'init-dired)
   (require 'init-ibuffer)
+  (require 'init-engine)
 
   (when *is-windows*
     (require 'init-win10))
@@ -61,7 +62,6 @@
 
      (require 'init-pyim)
      (require 'init-markdown)
-     (require 'init-engine)
 
      (require 'init-compile)
      (require 'init-lsp)

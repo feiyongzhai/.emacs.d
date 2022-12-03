@@ -6,12 +6,12 @@
 	tab-bar-separator
 	tab-bar-format-add-tab
 	tab-bar-separator
-	;; tab-bar-format-align-right
+	tab-bar-format-align-right
 	;; tab-bar-format-history
-	;; tab-bar-format-global ;在 emacsclient gui/tui 混用情况下有问题
+	;; tab-bar-format-global
 	))
 
-(setq tab-bar-show nil)
+(setq tab-bar-show 1)
 (tab-bar-mode)
 (tab-bar-history-mode)
 

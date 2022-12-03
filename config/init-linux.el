@@ -3,6 +3,8 @@
 (require 'fei-funcs)
 
 ;; Telega
+;; 相关链接：https://zevlg.github.io/telega.el/#windows-10-users
+
 (add-to-list 'load-path "~/.emacs.d/extensions/telega")
 (autoload 'telega "telega" nil t)
 (setq telega-chat-fill-column 50

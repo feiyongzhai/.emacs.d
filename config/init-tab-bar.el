@@ -62,5 +62,6 @@
 (global-set-key (kbd "M-0") 'tab-close)
 (global-set-key (kbd "M--") 'tab-undo)
 (global-set-key (kbd "M-`") 'tab-recent)
+(global-set-key (kbd "C-x t i") 'tab-bar-mode)
 
 (provide 'init-tab-bar)

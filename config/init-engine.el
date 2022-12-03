@@ -10,6 +10,13 @@
       (concat "[b/B] B站/Bing [w/i] Wikipedia/Github [h/c] 汉典/词典 [y] YouTube \n"
 	      "[s/S/M-s] 学术/搜狗/StackOverFlow [d/D] 百度/DuckDuckGo [g/i] 谷歌/图片"))
 
+;; 抖音
+(defun eshell/dy (&rest search-string)
+  (browse-url
+   (concat
+    "https://www.douyin.com/search/"
+    (eshell-flatten-and-stringify search-string))))
+
 ;; 微信
 (defengine weixin "https://weixin.sogou.com/weixin?type=2&query=%s")
 

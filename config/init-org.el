@@ -65,6 +65,7 @@
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
+(global-set-key (kbd "C-c n t") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)
 (global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
 (global-set-key (kbd "C-c n j") 'fei-org-capture-private)
@@ -87,6 +88,10 @@
 	`(("t" "Task" entry
 	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
 	   "* TODO %?\nCREATE: %T\n")
+	  ("T" "Task(为Eshell设计)" entry
+	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
+	   "* TODO %i\nCREATE: %T\n"
+	   :immediate-finish t)
 	  ("s" "SomeDay" entry
 	   (file "~/Nutstore Files/org/gtd.org")
 	   "* SOMEDAY %?\nCREATE: %T\n")
@@ -96,7 +101,7 @@
 	  ("K" "Research" entry
 	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
 	   "* %(substring (current-time-string) 11 16) %?")
-	  ("i" "Inbox" entry
+	  ("n" "note" entry
 	   (file+headline "~/Nutstore Files/org/notes.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?")
 	  ("P" "Private" entry
@@ -177,10 +182,17 @@
   (interactive)
   (org-capture-goto-target "s"))
 
-(defun fei-org-capture-TODO ()
+(defun fei-org-capture-TODO (&rest strings)
   (interactive)
-  (org-capture nil "t")
-  (fei-activate-ime))
+  ;; (setq strings (eshell-flatten-and-stringify strings)) ;FIXME: 如果语句在这，strings 将总是会为 t
+  (if strings
+      (progn
+	(setq strings (eshell-flatten-and-stringify strings))
+        (org-capture-string strings "T") nil)
+    (org-capture nil "t")
+    (when (bound-and-true-p evil-mode)
+      (evil-insert 0))
+    (fei-activate-ime)))
 
 (defun fei-org-capture-WANT ()
   (interactive)
@@ -194,7 +206,7 @@
       (progn
 	(setq strings (eshell-flatten-and-stringify strings))
         (org-capture-string strings "P") nil)
-    (org-capture nil "i")
+    (org-capture nil "n")
     (when (bound-and-true-p evil-mode)
       (evil-insert 0))
     (fei-activate-ime)))

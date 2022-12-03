@@ -117,7 +117,10 @@
       (*is-windows*
        (require 'eshell-autojump)))
 
-(defalias 'eshell/k 'fei-org-capture-note)
+
+(defalias 'eshell/k 'fei-org-capture-TODO)
+(defalias 'eshell/note 'fei-org-capture-note)
+(defalias 'eshell/todo 'fei-org-capture-TODO)
 (defalias 'eshell/ks 'fei-org-capture-SAR)
 (defalias 'eshell/kw 'fei-org-capture-WANT)
 (defalias 'eshell/kd 'fei-org-capture-diary)

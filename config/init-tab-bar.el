@@ -12,7 +12,6 @@
 	))
 
 (setq tab-bar-show t)
-(tab-bar-mode)
 (tab-bar-history-mode)
 
 (setq tab-bar-tab-hints t)		;show number in tab-bar

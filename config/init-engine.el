@@ -116,10 +116,11 @@
   :docstring "哔哩哔哩")
 
 (defun eshell/blbl (&rest search-string)
-  (browse-url
-   (concat
-    "https://search.bilibili.com/all?keyword="
-    (eshell-flatten-and-stringify search-string))))
+  (let (word (eshell-flatten-and-stringify search-string))
+    (browse-url
+     (if word
+	 (concat "https://search.bilibili.com/all?keyword=" word)
+       "https://www.bilibili.com"))))
 
 ;; 必应
 (defengine bing

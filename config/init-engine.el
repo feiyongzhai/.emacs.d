@@ -125,6 +125,22 @@
 	 "https://www.bilibili.com"
        (concat "https://search.bilibili.com/all?keyword=" word)))))
 
+;; 网易公开课
+(defun eshell/wy (&rest search-string)
+  (let ((word (eshell-flatten-and-stringify search-string)))
+    (browse-url
+     (if (string-empty-p word)
+	 "https://open.163.com"
+       (concat "https://open.163.com/newview/search/" word)))))
+
+;; 京东
+(defun eshell/jd (&rest search-string)
+  (let ((word (eshell-flatten-and-stringify search-string)))
+    (browse-url
+     (if (string-empty-p word)
+	 "https://www.jd.com"
+       (concat "https://search.jd.com/Search?keyword=" word)))))
+
 ;; 必应
 (defengine bing
   "https://www.bing.com/search?q=%s"

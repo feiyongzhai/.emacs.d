@@ -23,10 +23,15 @@
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)
+
+;; 参考浏览器的快捷键
+(global-set-key (kbd "M-<left>") 'winner-undo)
+(global-set-key (kbd "M-<right>") 'winner-redo)
+
 (global-set-key (kbd "C-x w s") 'window-swap-states)
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
-;; (global-set-key (kbd "C-x o") 'ace-window)
+(global-set-key (kbd "C-x M-o") 'ace-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 
 ;; These two keybindings is inspired by `C-x -'

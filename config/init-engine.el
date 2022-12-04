@@ -12,10 +12,11 @@
 
 ;; 抖音
 (defun eshell/dy (&rest search-string)
-  (browse-url
-   (concat
-    "https://www.douyin.com/search/"
-    (eshell-flatten-and-stringify search-string))))
+  (let (word (eshell-flatten-and-stringify search-string))
+    (browse-url
+     (if word
+	 (concat "https://www.douyin.com/search/" word)
+       "https://www.douyin.com"))))
 
 ;; 微信
 (defengine weixin "https://weixin.sogou.com/weixin?type=2&query=%s")
@@ -37,10 +38,11 @@
   :keybinding "i")
 
 (defun eshell/github (&rest search-string)
-  (browse-url
-   (concat
-    "https://github.com/search?ref=simplesearch&q="
-    (eshell-flatten-and-stringify search-string))))
+  (let (word (eshell-flatten-and-stringify search-string))
+    (browse-url
+     (if word
+	 (concat "https://github.com/search?ref=simplesearch&q=" word)
+       "https://www.github.com"))))
 
 ;; Stackoverflow
 (defengine stackoverflow
@@ -92,10 +94,11 @@
   :keybinding "y")
 
 (defun eshell/yt (&rest search-string)
-  (browse-url
-   (concat
-    "http://www.youtube.com/results?aq=f&oq=&search_query="
-    (eshell-flatten-and-stringify search-string))))
+  (let (word (eshell-flatten-and-stringify search-string))
+    (browse-url
+     (if word
+	 (concat "http://www.youtube.com/results?aq=f&oq=&search_query=" word)
+       "https://www.youtube.com"))))
 
 ;; 知乎
 (defengine zhihu

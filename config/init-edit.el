@@ -56,6 +56,7 @@
 
 (global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x C-l") 'fei-meow-last-buffer)
 
 (autoload 'move-text-up "move-text" nil t)
 (autoload 'move-text-down "move-text" nil t)
@@ -70,7 +71,6 @@
 (global-set-key (kbd "M-c") 'capitalize-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
-(global-set-key (kbd "C-x C-l") nil)
 (global-set-key (kbd "C-x C-u") nil)
 
 (transient-command undo

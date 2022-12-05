@@ -13,10 +13,6 @@
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
-;;; Movement/Navigate
-(global-set-key (kbd "M-s n") (li (switch-to-buffer "*eaf*")))
-(global-set-key (kbd "M-s p") (li (switch-to-buffer "*scratch*")))
-
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 

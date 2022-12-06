@@ -37,6 +37,13 @@
 (define-key rime-mode-map (kbd "C-l") 'rime-cycle-zhengma-luna)
 
 
+;; Misc
+(global-set-key (kbd "C-c M-k") 'fei-counsel-rg-zhengma)
+(defun fei-counsel-rg-zhengma ()
+  (interactive)
+  (counsel-rg nil "~/.emacs.d/rime/linux/"))
+
+
 
 (defun fei-sdcv ()
   (interactive)

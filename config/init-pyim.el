@@ -9,10 +9,12 @@
 
 ;; 这行配置存在性能问题：
 ;; 1. 当在 minibuffer 中粘贴很长的一个链接的时候，会出现卡死的情况
-(require 'pyim-cregexp-utils)
-(with-eval-after-load 'ivy
-  (setq ivy-re-builders-alist
-	'((t . pyim-cregexp-ivy))))
+;; 2. windows平台，使用下面的代码会出现很多我不想要的搜索结果（counsel-rg的时候），故不用【关键原因】
+
+;; (require 'pyim-cregexp-utils)
+;; (with-eval-after-load 'ivy
+;;   (setq ivy-re-builders-alist
+;; 	'((t . pyim-cregexp-ivy))))
 
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
 (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)

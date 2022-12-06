@@ -125,8 +125,7 @@
 (defalias 'eshell/kd 'fei-org-capture-diary)
 
 (defun eshell/a ()
-  (org-agenda nil "a")
-  (delete-other-windows))
+  (org-agenda nil "a"))
 
 ;; 不推荐用 `eshll/alias' 设置 alias，因为会在每次启动的时候重置 eshell/alias 文件
 

@@ -23,7 +23,6 @@
 (defvar fei-jump-map (make-sparse-keymap))
 (define-key fei-jump-map (kbd "h") 'jh)
 (define-key fei-jump-map (kbd "k") 'eshell)
-(define-key fei-jump-map (kbd "l") 'fei-meow-last-buffer)
 (define-key fei-jump-map (kbd "w") 'jw)
 (define-key fei-jump-map (kbd "p") 'scratch-buffer)
 (define-key fei-jump-map (kbd "0") 'j0)
@@ -88,11 +87,7 @@
 (defalias 'of 'file-manager-here)
 (defalias 'ot 'fei-terminal-here)	;ot is not quickly to type
 
-(defalias 'side 'fei-switch-to-treemacs)
-(defalias 'uk 'reopen-killed-file)
 (defalias 'ol 'olivetti-mode)
-(defalias 'dl 'display-line-numbers-mode)
-(defalias 'dcl 'display-fill-column-indicator-mode)
 (defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
 (defalias 'sh 'shell)
@@ -105,6 +100,12 @@
   (defalias 'eshell/u 'eshell-up)
   (defalias 'eshell/up 'eshell-up)
   )
+
+(defun eshell/jo ()
+  (eshell/cd "~/Nutstore Files/org"))
+
+(defun eshell/je ()
+  (eshell/cd "~/.emacs.d"))
 
 (defalias 'eshell/vim 'vim)
 (defalias 'eshell/emacs 'emacs)

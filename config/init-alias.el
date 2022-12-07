@@ -22,7 +22,6 @@
 
 (defvar fei-jump-map (make-sparse-keymap))
 (define-key fei-jump-map (kbd "h") 'jh)
-(define-key fei-jump-map (kbd "k") 'eshell)
 (define-key fei-jump-map (kbd "w") 'jw)
 (define-key fei-jump-map (kbd "p") 'scratch-buffer)
 (define-key fei-jump-map (kbd "0") 'j0)

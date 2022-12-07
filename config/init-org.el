@@ -86,10 +86,10 @@
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
 	`(("t" "Task" entry
-	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
+	   (file "~/Nutstore Files/org/gtd.org")
 	   "* TODO %?\nCREATE: %T\n")
 	  ("T" "Task(为Eshell设计)" entry
-	   (file+headline "~/Nutstore Files/org/gtd.org" "Tasks")
+	   (file "~/Nutstore Files/org/gtd.org")
 	   "* TODO %i\nCREATE: %T\n"
 	   :immediate-finish t)
 	  ("s" "SomeDay" entry

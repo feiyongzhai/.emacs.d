@@ -2,8 +2,6 @@
 
 (require 'fei-funcs)
 
-;; 耗时的操作延迟加载
-(require 'init-eaf)
 ;; pdf-tools
 (require 'init-pdf-tools)
 

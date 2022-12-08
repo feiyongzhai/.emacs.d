@@ -76,6 +76,7 @@
 
 	;; ==== Org ====
 	helm-org-rifle org-download
+	valign
 	;; org-roam org-roam-server
 
 	;; ==== Minibuffer ====

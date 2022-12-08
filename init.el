@@ -69,7 +69,6 @@
      (require 'init-thing-edit)
      (require 'init-evil)
      (require 'init-latex)
-     (require 'init-publish)
      (require 'init-shell)
      (require 'init-packages)
      

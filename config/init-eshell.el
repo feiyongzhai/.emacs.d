@@ -19,7 +19,6 @@
 
 ;;; Keys
 
-(global-set-key (kbd "<s-return>") 'fei-terminal-here)
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "M-s k") 'fei-ansi-term)

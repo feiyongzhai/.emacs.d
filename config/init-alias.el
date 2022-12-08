@@ -73,12 +73,8 @@
 (defalias 'jg (li (find-file "~/Nutstore Files/")))
 (defalias 'org (li (find-file "~/Nutstore Files/org")))
 (defalias 'dot (li (find-file "~/Repos/dotfiles")))
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'qr 'query-replace)
-(defalias 'sc 'scratch)
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 
-(defalias 'wh 'whitespace-mode)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
 (defalias 'oE 'open-current-file-with-emacs)
@@ -89,8 +85,6 @@
 (defalias 'ol 'olivetti-mode)
 (defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
-(defalias 'sh 'shell)
-(defalias 'ev 'evil-mode-with-cursor)
 
 
 ;; Designed for `eshell'

@@ -172,7 +172,12 @@
 (defun eshell/s (&rest search-string)
   (browse-url
    (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    "https://www.google.com.hk/search?ie=utf-8&oe=utf-8&q="
+    ;; 用下面的链接会出现总是让你人机验证的问题
+    ;; 目前定位到的是：一个是 https ，另一个是 .hk 必须两个都有
+    ;; "https://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    ;; "http://www.google.com.hk/search?ie=utf-8&oe=utf-8&q="
+    ;; "https://www.google.com/search?q="
     (eshell-flatten-and-stringify search-string))))
 
 ;; 百度

@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# 这里主要用来记录和配置 emacs 环境中的问题
+
+* emacs 源码安装参考教程
+参考链接: https://www.cnblogs.com/CodeAndMoe/p/13822409.html
+参考链接: [[https://github.com/org-roam/org-roam-ui/issues/63][void-function json-parse-buffer 解决方法]]
+** 编译安装 GNU Emacs 28.2 （Deepin 安装成功，debian 系的 linux 可以参考）
+# 这里使用注释的原因：有高亮，视觉上更容易分辨
+从 [[https://mirrors.tuna.tsinghua.edu.cn/gnu/emacs/][TUNA]] （或者其他的）下载 Emacs 相应的源码文件
+
+# 安装源码编译所需要的包
+sudo apt-get install build-essential libncurses-dev
+
+# 安装需要的包及X窗口支持
+# 和链接中不一样，添加了 libjansson4 libjansson-dev librsvg2-dev
+# 分别对应 json 和 svg 支持
+sudo apt install autoconf make gcc texinfo libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff5-dev libncurses5-dev libxml2-dev libgnutls28-dev libjansson4 libjansson-dev librsvg2-dev
+
+# 压缩包解压
+tar -xvJf emacs-28.2.tar.xz
+cd emacs-28.2
+
+# 安装
+./autogen.sh
+
+./configure
+
+# 这里的 4 根据设备的具体情况设定
+make -j 4
+
+sudo make install
+
+# 测试是否安装成功
+emacs --version
+emacs -nw # 无 GUI 界面启动
+emacs # GUI 界面启动

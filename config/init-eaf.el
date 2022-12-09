@@ -1,3 +1,9 @@
+;;; 安装遇到的相关问题和解决方法
+
+;;TODO: 待补充
+
+
+;; Code:
 (require 'init-func)
 (require 'fei-funcs)
 

@@ -1,6 +1,10 @@
-;; Telega
+;;; 安装遇到的相关问题和解决方法
+
+;; TODO: 待补充
+
 ;; 相关链接：https://zevlg.github.io/telega.el/#windows-10-users
 
+;;; Code
 (add-to-list 'load-path "~/.emacs.d/extensions/telega")
 (autoload 'telega "telega" nil t)
 (setq telega-chat-fill-column 50

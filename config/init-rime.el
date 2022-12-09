@@ -1,3 +1,9 @@
+;;; 安装遇到的相关问题和解决方法
+
+;; 需要安装的包
+;; Deepin 平台
+;; sudo apt install librime-dev
+
 ;; Rime
 (add-to-list 'load-path "~/.emacs.d/extensions/rime/")
 

@@ -173,7 +173,7 @@
   (browse-url
    (concat
     "https://www.google.com.hk/search?ie=utf-8&oe=utf-8&q="
-    ;; 用下面的链接会出现总是让你人机验证的问题
+    ;; 用下面的链接会出现总是让你人机验证的问题（实验室台式机遇到的 Deepin）
     ;; 目前定位到的是：一个是 https ，另一个是 .hk 必须两个都有
     ;; "https://www.google.com/search?ie=utf-8&oe=utf-8&q="
     ;; "http://www.google.com.hk/search?ie=utf-8&oe=utf-8&q="

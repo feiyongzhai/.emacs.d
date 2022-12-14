@@ -5,8 +5,6 @@
 Argument ARG if not nil, switching in a new window."
   (interactive "P")
   (cond
-   (tab-bar-mode
-    (tab-recent))
    ((minibufferp)
     (keyboard-escape-quit))
    ((not arg)

@@ -110,7 +110,9 @@
 (with-eval-after-load 'symbol-overlay
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
   (define-key symbol-overlay-map (kbd "l") 'recenter-top-bottom)
-  (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project))
+  (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project)
+  (define-key symbol-overlay-map (kbd "M-r") 'rg-dwim-current-dir)
+  )
 
 (defun symbol-overlay-find-at-point-project ()
   (interactive)
@@ -152,7 +154,9 @@
 (setq helm-command-prefix-key (kbd "C-c h"))
 
 ;;; Rg
-(global-set-key (kbd "M-s r") 'rg-project)
+(global-set-key (kbd "M-s r") 'rg-dwim-current-file)
+(global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
+(global-set-key (kbd "M-s M-r") 'rg-dwim-project-dir)
 (define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
 ;;; grep-dired

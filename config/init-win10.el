@@ -93,6 +93,7 @@
 ;; (arrange-frame 84 30 170 20)
 
 (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
+(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 
 ;; 输入法自动切换插件，sis 在 linux 下使用有点问题。windows 下好像还不错。
 ;; (sis-ism-lazyman-config nil t 'w32)

@@ -213,7 +213,7 @@
 
 (defun fei-org-capture-goto-note ()
   (interactive)
-  (org-capture-goto-target "i"))
+  (org-capture-goto-target "n"))
 
 (defun fei-org-capture-goto-private ()
   (interactive)

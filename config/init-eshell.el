@@ -7,6 +7,7 @@
 (setq eshell-history-size 500)
 (setq eshell-cmpl-ignore-case t)
 (setq eshell-visual-commands nil)	;避免自己不小心启用
+(setq eshell-history-size 2000)
 
 ;;; Make eshell don't always scroll to bottom
 ;; @REF: https://emacs.stackexchange.com/questions/28819/eshell-goes-to-the-bottom-of-the-page-after-executing-a-command

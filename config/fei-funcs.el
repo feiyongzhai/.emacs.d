@@ -62,7 +62,8 @@ kill region instead"
 (defun open-current-file-with-vscode ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))
-	(column (number-to-string (current-column))))
+	;; emacs 中的 column 是从 0 开始计数的，vscode 的 column 是从 1 开始计数的
+	(column (number-to-string (1+ (current-column)))))
     (start-process "vscode" nil "code" "--goto"
 		   (concat (or (buffer-file-name)
 			       default-directory)
@@ -80,8 +81,8 @@ kill region instead"
 (defun open-current-file-with-emacsq ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))
-	;; emacs 中的 column 是从 0 开始计数的
-	(column (number-to-string (1+ (current-column)))))
+	;; emacs 中的 column 是从 0 开始计数的，命令行是按照列从一开始计数，所以输入的参数会做 -1 处理
+	(column (number-to-string (current-column))))
     (start-process "emacsq" nil "emacs" "-Q"
 		   (concat "+" line ":" column)
 		   (or (buffer-file-name)

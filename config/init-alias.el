@@ -76,6 +76,7 @@
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
 
 (defalias 'ov 'open-current-file-with-vscode)
+(defalias 'code 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
 (defalias 'oE 'open-current-file-with-emacs)
 (defalias 'og 'open-current-file-with-gedit)

@@ -66,6 +66,7 @@
 	;; Programming
 	lsp-dart flutter
 	emmet-mode js2-mode web-mode
+	dumb-jump
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history

@@ -189,6 +189,8 @@
       (call-interactively 'youdao-dictionary-search-at-point-tooltip)
     (call-interactively 'youdao-dictionary-search-at-point+)))
 
+;; dumb-jump
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (provide 'init-packages)
 

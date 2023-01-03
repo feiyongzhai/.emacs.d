@@ -89,7 +89,7 @@
   (define-key bs-mode-map (kbd "A") 'bs-toggle-show-all)
   (define-key bs-mode-map (kbd "d") (li (fei-bs-set-configuration-default "dired")))
   (define-key bs-mode-map (kbd "C-j") 'bs-select)
-  (define-key bs-mode-map (kbd "C-c j") (li (bs-kill) (call-interactively 'fasd-ivy-find-file)))
+  (define-key bs-mode-map (kbd "C-c j") (li (bs-kill) (call-interactively 'counsel-recentf)))
   (define-key bs-mode-map (kbd "C-k") 'bs-delete)
   (define-key bs-mode-map (kbd "e") (li (fei-bs-set-configuration-default "eshell-and-term")))
   (define-key bs-mode-map (kbd "E") (li (fei-bs-set-configuration-default "EAF")))

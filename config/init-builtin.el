@@ -18,9 +18,9 @@
 (setq describe-bindings-outline t)
 (setq enable-recursive-minibuffers t)
 
-;; 或许我并不需要 recentf-mode，fasd 对于我来说已经够用了
-;; (recentf-mode t)
-;; (setq recentf-max-saved-items 200)
+;; recentf
+(recentf-mode t)
+(setq recentf-max-saved-items 200)
 
 (setq-default cursor-in-non-selected-windows nil)
 (setq-default display-line-numbers-width 3)

@@ -116,12 +116,12 @@
     ))
 
 ;; @REF https://0x709394.me/Fasd%E4%B8%8E-Eshell%E7%9A%84%E4%B8%8D%E6%9C%9F%E8%80%8C%E9%81%87
-(defun samray/eshell-fasd-z (&rest args)
-  "Use fasd to change directory more effectively by passing ARGS."
+(defun samray/eshell-zoxide-z (&rest args)
+  "Use zoxide to change directory more effectively by passing ARGS."
   (setq args (eshell-flatten-and-stringify args))
-  (let* ((fasd (concat "fasd -d " args))
-	 (fasd-result (shell-command-to-string fasd))
-	 (path (replace-regexp-in-string "\n$" "" fasd-result)))
+  (let* ((zoxide (concat "zoxide query " args))
+	 (zoxide-result (shell-command-to-string zoxide))
+	 (path (replace-regexp-in-string "\n$" "" zoxide-result)))
     (if (eq 0 (length args))
 	(eshell/cd "-")
       (eshell/cd path)

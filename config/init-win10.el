@@ -5,9 +5,6 @@
 (defvar first-make-frame-flag nil
   "标志信号，保证只在第一次进行修改")
 
-(setq recentf-max-saved-items 200)
-(global-set-key (kbd "C-c j") 'counsel-recentf)
-
 (setq default-input-method "pyim")
 
 (openwith-mode t)

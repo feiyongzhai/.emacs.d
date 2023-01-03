@@ -4,9 +4,6 @@
 [submodule "extensions/popweb"]
 	path = extensions/popweb
 	url = https://github.com/manateelazycat/popweb.git
-[submodule "extensions/fasd"]
-	path = extensions/fasd
-	url = https://github.com/feiyongzhai/fasd.git
 [submodule "extensions/dired-hacks"]
 	path = extensions/dired-hacks
 	url = https://github.com/feiyongzhai/dired-hacks.git
@@ -25,3 +22,6 @@
 [submodule "extensions/emacs-baidupan"]
 	path = extensions/baidupan
 	url = https://github.com/lorniu/emacs-baidupan.git
+[submodule "extensions/zoxide"]
+	path = extensions/zoxide
+	url = https://github.com/feiyongzhai/zoxide

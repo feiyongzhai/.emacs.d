@@ -42,7 +42,7 @@
   "w" 'pwd
   "W" 'whitespace-mode
   "t" 'fei-switch-to-treemacs
-  "j" 'fasd-ivy-find-file
+  "j" 'counsel-recentf
   "TAB" 'fei-meow-last-buffer
   "i" 'ibuffer
   "d" 'dired-jump

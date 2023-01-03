@@ -16,18 +16,11 @@
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-c p") 'proced)
   
-  ;; Fasd
-  (add-to-list 'load-path "~/.emacs.d/extensions/fasd")
-  (autoload 'fasd-ivy-find-file "fasd" nil t)
-  (global-set-key (kbd "C-c j") 'fasd-ivy-find-file)
-  (setq fasd-add-file-to-db-when-eshell t)
-  (setq fasd-enable-initial-prompt nil)
-
-  (with-eval-after-load 'ivy
-    ;; 因为 fasd 的原因，需要在 ivy 之后加载
-    (require 'fasd)
-    (global-fasd-mode t)
-    ))
+  ;; zoxide1
+  (add-to-list 'load-path "~/.emacs.d/extensions/zoxide/")
+  (require 'zoxide)
+  (global-zoxide-mode)
+  )
 
 (fei-define-key-with-map global-map
   '(
@@ -37,6 +30,7 @@
     ("C-h C-l" . counsel-find-library)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
+    ("C-c j" . counsel-recentf)
     ("C-c K" . fei-counsel-rg-my-org)
     ("C-x f" . counsel-find-file)
     ("M-x" . counsel-M-x)

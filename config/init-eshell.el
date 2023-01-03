@@ -122,6 +122,9 @@
   (let* ((zoxide (concat "zoxide query " args))
 	 (zoxide-result (shell-command-to-string zoxide))
 	 (path (replace-regexp-in-string "\n$" "" zoxide-result)))
+    (when *is-windows*
+      (setq path (decode-coding-string
+		  (encode-coding-string path 'gbk) 'utf-8)))
     (if (eq 0 (length args))
 	(eshell/cd "-")
       (eshell/cd path)

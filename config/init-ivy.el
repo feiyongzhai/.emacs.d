@@ -16,10 +16,6 @@
   (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-c p") 'proced)
   
-  ;; zoxide1
-  (add-to-list 'load-path "~/.emacs.d/extensions/zoxide/")
-  (require 'zoxide)
-  (global-zoxide-mode)
   )
 
 (fei-define-key-with-map global-map

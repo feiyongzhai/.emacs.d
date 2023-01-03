@@ -192,6 +192,11 @@
 ;; dumb-jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
+;; zoxide
+(add-to-list 'load-path "~/.emacs.d/extensions/zoxide/")
+(require 'zoxide)
+(global-zoxide-mode)
+
 (provide 'init-packages)
 
 ;; Local Variables:

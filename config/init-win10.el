@@ -99,4 +99,11 @@
 ;; (add-hook 'org-capture-mode-hook #'sis-set-other)
 ;; (add-hook 'log-edit-mode-hook #'sis-set-other)
 
+;; zoxide
+;; @REF: https://emacs-china.org/t/emacs-helm-ag/6764
+;; 使用以下配置之后 eshell 中的 zoxide 命令可以正常工作
+;; 测试
+(modify-coding-system-alist 'process "zoxide" '(utf-8 . chinese-gbk-dos))
+
+
 (provide 'init-win10)

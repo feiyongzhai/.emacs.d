@@ -81,9 +81,12 @@
      (require 'server)
      (unless (server-running-p)
        (server-start))))
-
+  
   ;; local configs
-  (let ((local-config "~/.emacs.d/config/init-local.el"))
+  (let ((local-config
+	 (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
+	       (*is-linux* "~/Nutstore Files/src/local-linux.el")
+	       (t ""))))
     (when (file-exists-p local-config)
       (load-file local-config)))
 

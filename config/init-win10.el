@@ -105,5 +105,8 @@
 ;; 测试
 (modify-coding-system-alist 'process "zoxide" '(utf-8 . chinese-gbk-dos))
 
+;; 参考上面，解决 windows counsel-rg 乱码的问题
+(modify-coding-system-alist 'process "rg" '(utf-8 . chinese-gbk-dos))
+
 
 (provide 'init-win10)

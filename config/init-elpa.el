@@ -66,7 +66,7 @@
 	;; Programming
 	lsp-dart flutter
 	emmet-mode js2-mode web-mode
-	dumb-jump
+	dumb-jump diff-hl
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history
@@ -82,7 +82,7 @@
 
 	;; ==== Minibuffer ====
 	orderless vertico embark
-	;; consult embark marginalia
+	consult marginalia
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====

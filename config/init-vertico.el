@@ -40,5 +40,14 @@
 ;; (setq vertico-posframe-min-height 20)
 ;; (setq vertico-posframe-min-width 150)
 
+
+;; ==== [consult] ====
+
+(global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
+(defun fei-consult-ripgrep-my-org ()
+  (interactive)
+  (consult-ripgrep "~/Nutstore Files/org" nil))
+
+(global-set-key (kbd "C-c s") 'consult-line)
 
 (provide 'init-vertico)

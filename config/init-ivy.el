@@ -27,7 +27,6 @@
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
     ("C-c j" . counsel-recentf)
-    ("C-c K" . fei-counsel-rg-my-org)
     ("C-x f" . counsel-find-file)
     ("M-x" . counsel-M-x)
     ("M-s y" . counsel-yank-pop)
@@ -55,5 +54,25 @@
    'counsel-find-file
    '(("t" (lambda (file) (find-file-other-tab file)) "other tab")))
   )
+
+(global-set-key (kbd "M-s n") 'fei-swiper-isearch)
+(global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
+
+(defun fei-swiper-isearch ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (call-interactively 'swiper-isearch)
+    ))
+
+(defun fei-swiper-isearch-backward ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (call-interactively 'swiper-isearch-backward)
+    ))
+
 
 (provide 'init-ivy)

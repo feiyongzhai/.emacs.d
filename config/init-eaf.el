@@ -55,12 +55,11 @@
 
 ;;; Keys
 (with-eval-after-load 'eaf-browser
-  (eaf-bind-key nil "M-s" eaf-browser-keybinding)
+  (eaf-bind-key nil "C-e" eaf-browser-keybinding)
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
 
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
-(global-set-key (kbd "C-c e") 'eaf-open-this-buffer)
 ;; 终端用命令 `emacsclient -t file-name` 时，会响应这一组 `ESC [ I`按
 ;; 键序列（可通过 C-h l 查看），导致启动的时候会自动调用下面的命令
 ;; `fei-eaf-file-share-current-dir`
@@ -85,7 +84,7 @@
   (eaf-bind-key search-kill "C-y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key youdao-dictionary-search-from-input "y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key nil "M-s" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key nil "C-e" eaf-pdf-viewer-keybinding)
   
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   (define-key eaf-mode-map* (kbd "C-c b") #'helm-chrome-history)
@@ -117,11 +116,11 @@
 (fei-eaf-wrapper eaf-open-browser-with-history)
 (fei-eaf-wrapper eaf-open-url-at-point)
 
-(global-set-key (kbd "M-s e b") 'fei-eaf-open-browser-with-history)
-(global-set-key (kbd "M-s e B") 'fei-eaf-open-browser)
-(global-set-key (kbd "M-s e s") 'fei-eaf-file-share-current-dir)
-(global-set-key (kbd "M-s e u") 'fei-eaf-open-url-at-point)
-(global-set-key (kbd "M-s e m") 'fei-eaf-play-music)
+(global-set-key (kbd "C-c e b") 'fei-eaf-open-browser-with-history)
+(global-set-key (kbd "C-c e B") 'fei-eaf-open-browser)
+(global-set-key (kbd "C-c e s") 'fei-eaf-file-share-current-dir)
+(global-set-key (kbd "C-c e u") 'fei-eaf-open-url-at-point)
+(global-set-key (kbd "C-c e m") 'fei-eaf-play-music)
 
 ;; == eaf-music-player ==
 (setq eaf-music-extension-list '("mp3" "m4a"))

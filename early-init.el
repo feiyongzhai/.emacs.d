@@ -22,6 +22,9 @@
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
+(setq fei-local-config (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
+			     (*is-linux* "~/Nutstore Files/src/local-linux.el")
+			     (t "")))
 
 
 ;;; ==== Encode config ====

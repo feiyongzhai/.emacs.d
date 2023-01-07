@@ -83,13 +83,9 @@
        (server-start))))
   
   ;; local configs
-  (let ((local-config
-	 (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
-	       (*is-linux* "~/Nutstore Files/src/local-linux.el")
-	       (t ""))))
-    (when (file-exists-p local-config)
-      (load-file local-config)))
-
+  (when (file-exists-p fei-local-config)
+      (load-file fei-local-config))
+  
   ;; load `custom-file' if exists
   ;; (when (file-exists-p custom-file)
   ;;   (load-file custom-file))

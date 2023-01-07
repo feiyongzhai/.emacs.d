@@ -53,7 +53,8 @@
                    "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
   )
 
-(global-set-key (kbd "M-s s") 'fei-search)
+(global-set-key (kbd "M-s k") 'shell)
+(global-set-key (kbd "M-s M-k") 'shell)
 
 ;; (tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
 

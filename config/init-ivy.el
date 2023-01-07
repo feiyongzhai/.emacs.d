@@ -18,6 +18,8 @@
   
   )
 
+(global-set-key (kbd "M-s l") 'counsel-load-theme)
+
 (fei-define-key-with-map global-map
   '(
     ("C-h f" . counsel-describe-function)

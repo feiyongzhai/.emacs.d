@@ -23,7 +23,7 @@
 (defvar fei-jump-map (make-sparse-keymap))
 (define-key fei-jump-map (kbd "h") 'jh)
 (define-key fei-jump-map (kbd "w") 'jw)
-(define-key fei-jump-map (kbd "p") 'scratch-buffer)
+(define-key fei-jump-map (kbd "p") 'jp)
 (define-key fei-jump-map (kbd "0") 'j0)
 (define-key fei-jump-map (kbd "1") 'j1)
 (define-key fei-jump-map (kbd "2") 'j2)
@@ -49,7 +49,8 @@
 
 ;; Designed for `M-x', but it can also be used in `eshell'
 (defalias 'ju (li (find-file "/dp:/")))
-(defalias 'ji (li (find-file "~/Pictures")))
+(defalias 'jp (li (find-file "~/Pictures")))
+(defalias 'ji (li (find-file "~/.emacs.d/init.el")))
 (defalias 'jc (li (find-file "~/.config")))
 (defalias 'jz (li (find-file "/run/media/yongfeizhai/文档/文档/[ 1_研究生 ]/研二/组会/汇报+周报/周报/")))
 (defalias 'jb (li (find-file "/run/media/yongfeizhai/文档/文档/[ 2_仓库 ]/图书/")))
@@ -87,6 +88,8 @@
 (defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
 
+(global-set-key (kbd "C-x j l") (li (find-file fei-local-config)))
+
 
 ;; Designed for `eshell'
 (with-eval-after-load 'eshell
@@ -100,6 +103,11 @@
 
 (defun eshell/je ()
   (eshell/cd "~/.emacs.d"))
+
+(global-set-key (kbd "M-s v") 'vim)
+(global-set-key (kbd "M-s M-v") 'vim)
+(global-set-key (kbd "M-s e") 'emacs)
+(global-set-key (kbd "M-s M-e") 'emacs)
 
 (defalias 'eshell/vim 'vim)
 (defalias 'eshell/emacs 'emacs)

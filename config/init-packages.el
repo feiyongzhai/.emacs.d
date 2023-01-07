@@ -10,6 +10,10 @@
 (require 'cal-china-x)
 (setq calendar-week-start-day 1)
 
+;; 快捷键讲究的就是一个随心所欲，狗屁章法
+(global-set-key (kbd "M-s M-n") 'neotree-toggle)
+(global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
+
 ;;; Treemacs
 (setq treemacs-position 'right)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
@@ -42,7 +46,7 @@
   (treemacs))
 
 ;;; Neotree
-(setq neo-theme 'ascii)
+(setq neo-theme 'classic)
 (setq neo-window-position 'right)
 (with-eval-after-load 'neotree
   (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
@@ -196,6 +200,10 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/zoxide/")
 (require 'zoxide)
 (global-zoxide-mode)
+
+
+;; expand-region
+(global-set-key (kbd "C-M-SPC") 'er/expand-region)
 
 (provide 'init-packages)
 

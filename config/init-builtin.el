@@ -77,10 +77,6 @@
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
-;;; Desktop
-(global-set-key (kbd "C-c d r") 'desktop-read) ;if you `desktop-read' by accident, you can use `desktop-clear'
-(global-set-key (kbd "C-c d s") 'desktop-save)
-
 ;;; Experiment
 ;; (global-unset-key (kbd "C-x C-c"))
 ;; (defalias 'exit 'save-buffers-kill-terminal)

@@ -208,6 +208,7 @@
 
 ;; dirvish
 (dirvish-override-dired-mode)
+(global-set-key (kbd "C-c d") 'dirvish-side)
 (setq dirvish-attributes
       '(subtree-state all-the-icons file-time file-size))
 (setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")

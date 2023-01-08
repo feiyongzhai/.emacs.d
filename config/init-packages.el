@@ -227,12 +227,12 @@
     ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
     ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
     ("TAB" . dirvish-subtree-toggle)
-    ("M-f" . dirvish-history-go-forward)
-    ("M-b" . dirvish-history-go-backward)
+    ("M-n" . dirvish-history-go-forward)
+    ("M-p" . dirvish-history-go-backward)
     ("M-l" . dirvish-ls-switches-menu)
     ("M-m" . dirvish-mark-menu)
     ("M-t" . dirvish-layout-toggle)
-    ("M-s" . dirvish-setup-menu)
+    ("M-u" . dirvish-setup-menu)
     ("M-e" . dirvish-emerge-menu)
     )))
 

@@ -51,6 +51,7 @@
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
       ("`" . fei-eshell-cd-here)
+      (")" . dired-create-empty-file)
       ))
 
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)

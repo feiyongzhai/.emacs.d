@@ -1,5 +1,7 @@
 ;;; init-shell.el  --- configs for shell/terminal
 
+(global-set-key (kbd "M-s z") 'shell)
+
 ;; Shell
 (with-eval-after-load 'shell
   ;; 实际使用中发现下面这个设置会和 matlab-shell 的补全冲突
@@ -14,8 +16,6 @@
     (bash-completion-setup))
   )
 
-(global-set-key (kbd "M-s z") 'shell)
-
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))
 
@@ -26,16 +26,6 @@
   (with-eval-after-load 'vterm
     (define-key vterm-mode-map (kbd "M-s") nil))
   )
-
-;;; ==== Funcs ====
-(defun fei-terminal-here ()
-  (interactive)
-  (if *is-linux*
-      (start-process "xfce4-terminal" nil "xfce4-terminal")
-    (if (fboundp 'terminal-here)
-	(terminal-here)
-      (message "can't open terminal here"))))
-
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

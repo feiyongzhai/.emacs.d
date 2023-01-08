@@ -202,5 +202,13 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :action (lambda (d) (find-file (expand-file-name d)))
               :caller 'fei-counsel-fd-file-jump)))
 
+
+(defun fei-terminal-here ()
+  (interactive)
+  (if *is-linux*
+      (start-process "xfce4-terminal" nil "xfce4-terminal")
+    (if (fboundp 'terminal-here)
+	(terminal-here)
+      (message "can't open terminal here"))))
 
 (provide 'fei-funcs)

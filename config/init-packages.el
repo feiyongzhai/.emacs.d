@@ -205,6 +205,14 @@
 ;; expand-region
 (global-set-key (kbd "C-M-SPC") 'er/expand-region)
 
+
+;; dirvish
+(dirvish-override-dired-mode)
+(setq dirvish-attributes
+      '(subtree-state all-the-icons file-time file-size))
+(setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")
+
+
 (provide 'init-packages)
 
 ;; Local Variables:

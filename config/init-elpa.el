@@ -45,6 +45,7 @@
 	rainbow-mode
 	rainbow-delimiters
 	eshell-autojump
+	dirvish
 
 	;; ==== 编辑相关 ====
 	evil general

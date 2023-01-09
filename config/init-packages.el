@@ -205,37 +205,6 @@
 ;; expand-region
 (global-set-key (kbd "C-M-SPC") 'er/expand-region)
 
-
-;; dirvish
-(dirvish-override-dired-mode)
-(global-set-key (kbd "C-c d") 'dirvish-side)
-(global-set-key (kbd "C-c C-d") 'dirvish-side)
-(setq dirvish-attributes
-      '(subtree-state all-the-icons file-time file-size))
-(setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")
-
-(setq dired-listing-switches
-        "-l --almost-all --human-readable --group-directories-first --no-group")
-(with-eval-after-load 'dirvish
-  (fei-define-key-with-map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
-  '(("a"   . dirvish-quick-access)
-    ("f"   . dirvish-file-info-menu)
-    ("y"   . dirvish-yank-menu)
-    ("N"   . dirvish-narrow)
-    ("^"   . dirvish-history-last)
-    ("H"   . dirvish-history-jump)	; remapped `describe-mode'
-    ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
-    ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
-    ("TAB" . dirvish-subtree-toggle)
-    ("M-n" . dirvish-history-go-forward)
-    ("M-p" . dirvish-history-go-backward)
-    ("M-l" . dirvish-ls-switches-menu)
-    ("M-m" . dirvish-mark-menu)
-    ("M-t" . dirvish-layout-toggle)
-    ("M-u" . dirvish-setup-menu)
-    ("M-e" . dirvish-emerge-menu)
-    )))
-
 
 (provide 'init-packages)
 

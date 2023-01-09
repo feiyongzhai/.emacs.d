@@ -31,7 +31,7 @@
 (global-set-key (kbd "C-x w s") 'window-swap-states)
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
-(global-set-key (kbd "C-x M-o") 'ace-window)
+(global-set-key (kbd "C-x o") 'ace-window) ;ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
 (global-set-key (kbd "C-x O") 'other-frame)
 
 ;; These two keybindings is inspired by `C-x -'

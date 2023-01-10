@@ -6,6 +6,7 @@
   (jump-to-register ?1))
 
 (defvar fei-timer nil)
+(defvar fei-clock-deamon nil)
 
 (defun fei-clock-start ()
   (interactive)
@@ -47,6 +48,10 @@
 (defun fei-clock-count-down ()
   "每次空闲 arg seconds 显示时钟"
   (interactive)
+  (and (timerp fei-clock-deamon)
+       (cancel-timer fei-clock-deamon))
+  (and (timerp fei-timer)
+       (cancel-timer fei-timer))
   (setq fei-clock-deamon
 	(run-with-idle-timer
 	 (read-number "空闲多久显示时钟屏保(秒): " 60)
@@ -54,8 +59,10 @@
 
 (defun fei-clock-deamon-quit ()
   (interactive)
-  (cancel-timer fei-clock-deamon)
-  (cancel-timer fei-timer)
+  (and (timerp fei-clock-deamon)
+       (cancel-timer fei-clock-deamon))
+  (and (timerp fei-timer)
+       (cancel-timer fei-timer))
   (jump-to-register ?1)
   )
 

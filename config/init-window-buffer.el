@@ -13,9 +13,6 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 (global-set-key (kbd "C-x K") 'reopen-killed-file)
 
-(global-set-key (kbd "M-s l") 'fei-meow-last-buffer)
-(global-set-key (kbd "M-s L") (li (fei-meow-last-buffer 1)))
-
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "M-s m") (li (window-configuration-to-register 106))) ;49 对应的是按键 1

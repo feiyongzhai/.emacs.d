@@ -45,7 +45,7 @@
 	rainbow-mode
 	rainbow-delimiters
 	eshell-autojump
-	dirvish
+	dirvish ef-themes
 
 	;; ==== 编辑相关 ====
 	evil general

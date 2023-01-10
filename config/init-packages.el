@@ -201,6 +201,9 @@
 (require 'zoxide)
 (global-zoxide-mode)
 
+
+(global-set-key (kbd "M-s M-l") 'ef-themes-load-random)
+
 (provide 'init-packages)
 
 ;; Local Variables:

@@ -28,6 +28,11 @@
 (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4)))
 (setq pyim-indicator-modeline-string '("中 " "英 "))
 
+(setq pyim-indicator-list
+      ;; 不用光标颜色来指示输入法状态，因为在切换主题的时候，光标颜色的恢复逻辑有异常。
+      ;; 具体点就是，会恢复上一个主题的光标颜色，但是我已经切换主题了，不应该把颜色切换到上一个主题颜色上
+      '(pyim-indicator-with-modeline))
+
 (with-eval-after-load 'pyim
   (require 'pyim-basedict)
   (pyim-basedict-enable)

@@ -1,5 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/fei")
 
+;; fei-clock
+(require 'fei-clock)
+
+
 (require 'vxref)
 ;; (require 'tab-bar-mode-indicator)
 

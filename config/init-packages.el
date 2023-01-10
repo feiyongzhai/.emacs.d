@@ -201,11 +201,6 @@
 (require 'zoxide)
 (global-zoxide-mode)
 
-
-;; expand-region
-(global-set-key (kbd "C-M-SPC") 'er/expand-region)
-
-
 (provide 'init-packages)
 
 ;; Local Variables:

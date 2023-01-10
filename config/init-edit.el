@@ -50,8 +50,6 @@
 (global-set-key (kbd "C-x I") 'emoji-search)
 (global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
-(global-set-key (kbd "S-SPC") 'set-mark-command)
-
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 

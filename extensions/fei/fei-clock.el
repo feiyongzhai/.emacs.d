@@ -8,12 +8,12 @@
 (defun fei-clock-start ()
   (interactive)
   (setq fei-timer
-       (run-with-timer 1 1 'fei-clock-update-time))
+       (run-with-timer 0 1 'fei-clock-update-time))
   (window-configuration-to-register ?0)
   (frameset-to-register ?1)
   (pop-to-buffer "*FEI-CLOCK*")
-  (fei-clock-update-time)
-
+  (fei-clock-update-time)		;初始化 buffer 内容
+  
   (let ((ignore-window-parameters t))
     ;; set `ignore-window-parameters' to t to delete side windows
     (delete-other-windows))
@@ -21,6 +21,7 @@
   (let ((map (make-sparse-keymap)))
     (set-keymap-parent map (current-local-map))
     (define-key map "q" #'fei-clock-quit)
+    (define-key map "Q" #'fei-clock-deamon-quit)
     (use-local-map map))
 
   (fit-frame-to-buffer)
@@ -44,6 +45,9 @@
 
 (defun fei-clock-deamon-quit ()
   (interactive)
-  (cancel-timer fei-clock-deamon))
+  (cancel-timer fei-clock-deamon)
+  (cancel-timer fei-timer)
+  (jump-to-register ?1)
+  )
 
 (provide 'fei-clock)

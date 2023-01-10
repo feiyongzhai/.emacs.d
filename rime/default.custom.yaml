@@ -13,6 +13,9 @@ patch:
     - schema: zmbig
     - schema: zmb
     - schema: zmjd
+    - schema: pinyin_simp
+    - schema: pinyin123
+    - schema: 2flypy
 
   key_binder/bindings:
     - {accept: "Control+p", send: Up, when: composing}

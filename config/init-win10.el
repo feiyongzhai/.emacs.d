@@ -5,8 +5,6 @@
 (defvar first-make-frame-flag nil
   "标志信号，保证只在第一次进行修改")
 
-(setq default-input-method "pyim")
-
 (openwith-mode t)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
                               ("\\.doc\\'" "start" (file))
@@ -90,7 +88,7 @@
     (set-frame-size frame w h)))
 ;; (arrange-frame 84 30 170 20)
 
-(global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
+;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 
 ;; 输入法自动切换插件，sis 在 linux 下使用有点问题。windows 下好像还不错。

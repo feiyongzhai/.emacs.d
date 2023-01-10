@@ -11,7 +11,7 @@
 	;; log-edit-insert-filenames-without-changelog
 	auto-fill-mode
 	display-fill-column-indicator-mode
-	fei-activate-ime
+	(lambda () (activate-input-method "pyim"))
 	))
 
 ;;; Key

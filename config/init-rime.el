@@ -12,8 +12,9 @@
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
 ;; Keys
-(global-set-key (kbd "M-j") 'fei-ime-force-enable)
+(global-set-key (kbd "M-j") 'fei-rime-force-enable)
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
+
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
@@ -22,6 +23,24 @@
   )
 
 ;; Vars
+(setq rime-user-data-dir "~/.emacs.d/rime/") ;linux 和 windows 共用一个配置文件
+
+(when *is-windows*
+  (setq rime-share-data-dir
+	;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
+	;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
+	;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll 在执行 opencc 命令的时候
+	;; librime-emacs.dll 编译命令：
+	;; gcc lib.c -o librime-emacs.dll -fPIC -O2 -Wall -I '/c/Program Files/Emacs/emacs-28.2/include/' -shared -lrime
+	;; 这个命令：ln -s /mingw64/share/opencc/* /mingw64/share/rime-data/opencc
+	;; 因为我的 /mingw64/share/rime-data/ 文件夹中没有 opencc 文件夾，所以上面的命令会出錯，則修改为
+	;; ln -s /mingw64/share/opencc /mingw64/share/rime-data/opencc
+	;; 但是仍然不能解决繁體的問題。现在能想到的迴避問題的方法：就是用一個簡體詞庫的方案。但是心有不甘。
+	;; 另外一個很蹩腳的方案：我發現【朙月拼音】雖然默認是繁體輸出（詞庫是繁體的），但是它裏面也有簡體的字，
+	;; 所以還是可以輸入簡體字符，只不過需要選擇好久。
+	;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
+	"c:/msys64/mingw64/share/rime-data"))
+
 (with-eval-after-load 'rime
   (face-spec-set 'rime-default-face
 		 '((((class color) (background dark))
@@ -29,15 +48,15 @@
 		   (((class color) (background light))
 		    (:background "#dcdccc" :foreground "#333333" :slant italic)))))
 
-(cond (*is-linux*
-       (setq rime-user-data-dir "~/.emacs.d/rime/linux"))
-      (t (message "使用默认值：~/.emacs.d/rime/")))
-
 (setq rime-posframe-properties
       (list :internal-border-width 4))
 
-(setq default-input-method "rime"
-      ;; rime-show-candidate 'posframe ;posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
+(cond (*is-windows*
+       (setq default-input-method "pyim"))
+      (t
+       (setq default-input-method "rime")))
+
+(setq ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-candidate 'posframe
       rime-show-preedit t
       rime-posframe-style 'vertical
@@ -61,6 +80,7 @@
 	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
+
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用
 
 ;; M-j 配合 `isearch-mode-hook' 和 `isearch-mode-end-hook' 可以完成在
@@ -89,15 +109,10 @@
     (setq-default input-method-function nil)
     (setq isearch-end-activate-input-method-predicate nil)))
 
-(defun fei-ime-force-enable ()
+(defun fei-rime-force-enable ()
   (interactive)
-  (cond
-   (*is-windows*
-    (w32-set-ime-open-status t)
-    ;; (pyim-convert-string-at-point)
-    )
-   (*is-linux*
-    (activate-input-method "rime")
-    (call-interactively 'rime-force-enable))))
+  (activate-input-method "rime")
+    (call-interactively 'rime-force-enable)
+  )
 
 (provide 'init-rime)

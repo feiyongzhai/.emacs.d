@@ -34,7 +34,8 @@
   (setq pyim-assistant-scheme 'xiaohe-shuangpin)
   (setq pyim-page-tooltip 'posframe)
   (setq pyim-page-style 'two-line)
-  (setq pyim-cloudim 'baidu)
+  ;; 使用云输入法会有不习惯：候选栏的更新比较慢，就是有点不跟手，输入体验还不如没有云拼音
+  ;; (setq pyim-cloudim 'baidu)
   )
 (setq-default pyim-english-input-switch-functions
 	      '(pyim-probe-auto-english

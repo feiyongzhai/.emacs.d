@@ -12,14 +12,6 @@
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "s-g") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-S") 'swiper-isearch)
-(global-set-key (kbd "M-s s") 'swiper-isearch)
-(global-set-key (kbd "M-s M-s") 'swiper-isearch)
-
-(with-eval-after-load 'swiper
-  (define-key swiper-map (kbd "M-s") 'swiper-C-s)
-  (define-key swiper-map (kbd "M-r") 'swiper-isearch-C-r)
-  )
 
 ;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而
 ;; 一般没有光标同时我想要进行复制的场景是在 isearch 的情形下，所以这个配
@@ -36,8 +28,6 @@
     ("M-'" . avy-isearch)	 ;gnome-terminal 读不到 C-',用这个代替
     ("C-c k" . fei-counsel-rg-from-isearch)
     ("M-s r" . rg-isearch-project)
-    ("M-S" . swiper-isearch-toggle)
-    ("M-s M-s" . swiper-isearch-toggle)
     ))
 
 (defun fei-counsel-rg-from-isearch ()

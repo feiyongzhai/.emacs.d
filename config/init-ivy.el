@@ -43,7 +43,7 @@
   ))
   
 (with-eval-after-load 'ivy
-  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-ime-force-enable)
+  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
   )
 
 (with-eval-after-load 'counsel

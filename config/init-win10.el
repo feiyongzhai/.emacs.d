@@ -1,6 +1,15 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+;; font
+(defun fei-setup-win-emoji ()
+  (set-fontset-font "fontset-default" 'unicode '("微软雅黑"))
+  ;; @REF: https://ianyepan.github.io/posts/emacs-emojis/
+  (when (member "Segoe UI Emoji" (font-family-list))
+    (set-fontset-font t 'emoji (font-spec :family "Segoe UI Emoji"))))
+
+(fei-setup-win-emoji)
+
 (w32-set-ime-open-status nil)
 (defvar first-make-frame-flag nil
   "标志信号，保证只在第一次进行修改")
@@ -21,6 +30,8 @@
 	    (unless first-make-frame-flag
 	      (w32-set-ime-open-status nil)
 	      (setq first-make-frame-flag 1))
+
+	    (fei-setup-win-emoji)
 
 	    ;; (set-frame-height nil (/ (* 4 (x-display-pixel-height))
 	    ;; 			     (* 5 (frame-char-height))))
@@ -60,19 +71,6 @@
 (setq locate-command "es.exe")
 
 (setq browse-url-handlers '(("." . browse-url-default-browser)))
-
-;; ==== windows emoji 字体设置 ====
-;; @REF: https://ianyepan.github.io/posts/emacs-emojis/
-(when (member "Segoe UI Emoji" (font-family-list))
-  (set-fontset-font
-   t 'symbol (font-spec :family "Segoe UI Emoji") nil 'prepend))
-
-(add-hook 'server-after-make-frame-hook 'fei-win10-setup-emoji)
-(defun fei-win10-setup-emoji ()
-  (when (member "Segoe UI Emoji" (font-family-list))
-    (set-fontset-font
-     t 'emoji (font-spec :family "Segoe UI Emoji") nil 'prepend))
-  )
 
 ;;; Funcs
 (defun wt()

@@ -20,16 +20,24 @@
  )
 
 (when *is-linux*
-  (set-fontset-font t 'symbol "Symbola" nil 'append)
-  ;; (set-fontset-font "fontset-default" 'unicode'("文泉驿等宽微米黑"))
-  ;; 用 `before-make-frame-hook' 就可以让 emacsclient 和 emacs 的 frame 的字体都能够按照预期设置
-  (add-hook 'before-make-frame-hook '+fei-before-make-frame-hook)
-  )
+  (set-fontset-font t 'symbol "Symbola" nil 'append))
 
-(defun +fei-before-make-frame-hook ()
+;; (set-fontset-font "fontset-default" 'unicode'("文泉驿等宽微米黑"))
+;; @linux: 用 `before-make-frame-hook' 就可以让 emacsclient 和 emacs 的 frame 的字体都能够按照预期设置
+(when *is-linux*
+  (add-hook 'before-make-frame-hook 'fei-setup-linux-emoji-font))
+
+(defun fei-setup-linux-emoji-font ()
   (set-fontset-font "fontset-default" 'unicode '("文泉驿等宽微米黑"))
-  ;;XXX: 下面这行关于 emoji 的配置必须要放到上面这个设置下面才能正常显示 emoji
+  ;; !注意: 下面这行关于 emoji 的配置必须要放到上面这个设置下面才能正常显示 emoji
   (set-fontset-font t 'emoji "Noto Color Emoji" nil 'prepend) ;emacs-28 的特性，原生支持 emoji
   )
+
+(with-eval-after-load 'org
+  ;; 关于字体设置，可以多使用 `describe-char' 这个命令，有很多关于字体多信息
+  ;; 用 `set-face-attribute' 更换主题的时候，字体会恢复到默认设置，用 `face-spec-set' 就不会
+  ;; 关于 `face-spec-set' 的一个简要说明：http://xahlee.info/emacs/emacs/elisp_define_face.html
+  (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-12")))))
+
 
 (provide 'init-font)

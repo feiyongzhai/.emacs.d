@@ -1,8 +1,6 @@
 ;;; init-org.el == configs for Org/Markdown
 (require 'fei-funcs)
 
-;; (setq valign-fancy-bar t)
-(add-hook 'org-mode-hook #'valign-mode)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 

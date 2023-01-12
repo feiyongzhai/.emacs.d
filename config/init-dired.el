@@ -40,7 +40,6 @@
   (fei-define-key-with-map dired-mode-map
     `(
       ("b" . dired-up-directory)
-      ("<C-return>" . browse-url-of-dired-file)
       ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
       ("C-k" . dired-kill-subdir)
@@ -115,8 +114,10 @@
     ("M-l" . dirvish-ls-switches-menu)
     ("M-m" . dirvish-mark-menu)
     ("M-t" . dirvish-layout-toggle)
+    ("M-h" . dirvish-layout-toggle)	;好按
     ("M-u" . dirvish-setup-menu)
     ("M-e" . dirvish-emerge-menu)
+    ("M-S" . dirvish-layout-switch)
     )))
 
 (provide 'init-dired)

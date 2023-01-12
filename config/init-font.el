@@ -39,5 +39,6 @@
   ;; 关于 `face-spec-set' 的一个简要说明：http://xahlee.info/emacs/emacs/elisp_define_face.html
   (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-12")))))
 
+(face-spec-set 'markdown-table-face '((t (:font "Sarasa Mono SC-12"))))
 
 (provide 'init-font)

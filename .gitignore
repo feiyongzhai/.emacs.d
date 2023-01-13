@@ -25,7 +25,6 @@ viper
 eww-bookmarks
 ido.last
 dmenu-items
-init-local.el
 image-dired/.image-dired_db
 places
 .alarm-clock.cache
@@ -45,11 +44,6 @@ ncm-playlist
 completions
 racket-mode/Racket-REPL
 pyim/
-/rime/build/
-/rime/installation.yaml
-/rime/user.yaml
-/rime/linux/build/
-/rime/win10/sync
 /.mc-lists.el
 .authinfo
 /savehist

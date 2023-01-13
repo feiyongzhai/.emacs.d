@@ -76,5 +76,13 @@
     (call-interactively 'swiper-isearch-backward)
     ))
 
+(global-set-key (kbd "C-M-z") 'fei-compile)
+(defun fei-compile ()
+  (interactive)
+  (condition-case err
+      ;; condition-case 是用来处理 error 的
+      ;; see also (info "(elisp) Error Symbols")
+      (call-interactively 'counsel-compile)
+    (error (call-interactively 'compile))))
 
 (provide 'init-ivy)

@@ -28,10 +28,18 @@
     ("C-h C-l" . counsel-find-library)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
-    ("C-c j" . counsel-recentf)
+    ("C-c j" . fei-counsel-recentf-pinyin)
     ("C-x f" . counsel-find-file)
     ("M-x" . counsel-M-x)
     ("M-s y" . counsel-yank-pop)
+    ))
+
+(defun fei-counsel-recentf-pinyin ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (call-interactively 'counsel-recentf)
     ))
 
 (cond

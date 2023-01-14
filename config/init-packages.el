@@ -157,12 +157,18 @@
 
 (setq helm-command-prefix-key (kbd "C-c h"))
 
+
 ;;; Rg
+(rg-define-toggle "--context 3" (kbd "C"))
+(rg-define-toggle "-A 5" (kbd "A"))
+(rg-define-search rg-project-all-files-no-ask
+  :dir project :files "all")
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)
 (global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
-(global-set-key (kbd "M-s M-r") 'rg-dwim-project-dir)
+(global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
 (define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
+
 ;;; grep-dired
 (add-to-list 'load-path "~/.emacs.d/extensions/grep-dired")
 (autoload 'grep-dired "grep-dired" nil t) ;emacs 自带了一个相似的命令 `find-name-dired'

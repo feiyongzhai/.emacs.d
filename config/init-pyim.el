@@ -15,7 +15,6 @@
 ;; (with-eval-after-load 'ivy
 ;;   (setq ivy-re-builders-alist
 ;; 	'((t . pyim-cregexp-ivy))))
-(global-set-key (kbd "S-SPC") 'toggle-input-method)
 
 (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
 (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)

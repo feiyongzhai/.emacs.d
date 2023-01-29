@@ -8,7 +8,8 @@
       scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
       )
 
-(global-set-key (kbd "C-,") 'set-mark-command) ;C-SPC用于系统输入法的切换
+(global-set-key (kbd "S-SPC") 'set-mark-command)
+
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)

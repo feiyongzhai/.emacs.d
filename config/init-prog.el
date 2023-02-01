@@ -14,7 +14,7 @@
   (define-key outline-mode-prefix-map (kbd "o") 'counsel-outline))
 
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
-(define-key prog-mode-map (kbd "M-S-<return>") 'hs-show-block)
+(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)
 
 ;; (global-subword-mode 1)
 

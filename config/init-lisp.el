@@ -1,5 +1,6 @@
 ;; smartparens-mode
 (require 'smartparens-config)
+(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)

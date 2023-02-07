@@ -7,6 +7,9 @@
       scroll-conservatively 10000
       scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
       )
+;; @REF: https://emacs-china.org/t/word/19878
+;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")
+(setq sentence-end "\\([.?!…‽][]\"'”’)}»›]*\\($\\|[  ]$\\|\t\\|[  ][  ]\\)\\|[。．？！:：]+\\)[  \t\n]*")
 
 (global-set-key (kbd "S-SPC") 'set-mark-command)
 

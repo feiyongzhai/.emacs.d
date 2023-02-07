@@ -21,7 +21,12 @@
       org-adapt-indentation nil)
 
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
-(setq system-time-locale "C")
+;; (setq system-time-locale "C")
+(with-eval-after-load 'org
+  ;; 统一 linux 和 windows 平台的时间戳显示
+  ;; @REF: https://emacs-china.org/t/topic/1551/31?u=yongfeizhai
+  (setq org-time-stamp-formats '("<%Y-%m-%d %A>" . "<%Y-%m-%d %A %H:%M>"))
+  )
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 (setq org-agenda-files '("~/Nutstore Files/org"))

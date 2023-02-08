@@ -10,8 +10,12 @@
  search-whitespace-regexp ".*?")
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
-(global-set-key (kbd "s-g") 'fei-search)
 (global-set-key (kbd "M-G") 'fei-search)
+(global-set-key (kbd "M-s M-w") 'fei-search)
+(global-set-key (kbd "M-s M-s") 'fei-search)
+(global-set-key (kbd "M-s s") 'fei-search)
+(global-set-key (kbd "M-S") 'fei-search)
+
 
 ;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而
 ;; 一般没有光标同时我想要进行复制的场景是在 isearch 的情形下，所以这个配

@@ -94,6 +94,7 @@
   :keybinding "y")
 
 (defun eshell/yt (&rest search-string)
+  (interactive)
   (let ((word (eshell-flatten-and-stringify search-string)))
     (browse-url
      (if (string-empty-p word)
@@ -119,6 +120,7 @@
   :docstring "哔哩哔哩")
 
 (defun eshell/blbl (&rest search-string)
+  (interactive)
   (let ((word (eshell-flatten-and-stringify search-string)))
     (browse-url
      (if (string-empty-p word)

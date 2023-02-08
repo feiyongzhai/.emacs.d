@@ -44,6 +44,7 @@
 (define-key fei-jump-map (kbd "c") 'jc)
 (define-key fei-jump-map (kbd "i") 'ji)
 (define-key fei-jump-map (kbd "u") 'ju)
+(define-key fei-jump-map (kbd "q") 'jq)
 (define-key fei-jump-map (kbd "z") 'jz)
 (global-set-key (kbd "C-x j") fei-jump-map)
 
@@ -75,6 +76,7 @@
 (defalias 'org (li (find-file "~/Nutstore Files/org")))
 (defalias 'dot (li (find-file "~/Repos/dotfiles")))
 (defalias 'jf (li (browse-url "https://feiyongzhai.github.io")))
+(defalias 'jq (li (browse-url "https://quword.com")))
 
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'code 'open-current-file-with-vscode)

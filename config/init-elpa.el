@@ -83,7 +83,7 @@
 
 	;; ==== Minibuffer ====
 	orderless vertico embark
-	consult marginalia
+	consult marginalia embark-consult
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====

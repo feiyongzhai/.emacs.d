@@ -19,7 +19,7 @@
       `(
         ;; notes component
         ("blog-orgs"
-         :base-directory "~/Repos/feiyongzhai.github.io/org"
+         :base-directory "~/Nutstore Files/org/blog"
          :base-extension "org"
          ;; :html-link-home "index.html"
          :publishing-directory "~/Repos/feiyongzhai.github.io/html"
@@ -35,7 +35,7 @@
          )
         ;; images component
         ("blog-images"
-         :base-directory "~/Repos/feiyongzhai.github.io/org/"
+         :base-directory "~/Nutstore Files/org/blog/"
          :base-extension "png\\|jpg\\|gif\\|pdf"
          :publishing-directory "~/Repos/feiyongzhai.github.io/html/"
          :recursive t

@@ -48,6 +48,4 @@
   (interactive)
   (consult-ripgrep "~/Nutstore Files/org" nil))
 
-(global-set-key (kbd "C-c s") 'consult-line)
-
 (provide 'init-vertico)

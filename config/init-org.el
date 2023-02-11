@@ -26,7 +26,13 @@
   ;; 统一 linux 和 windows 平台的时间戳显示
   ;; @REF: https://emacs-china.org/t/topic/1551/31?u=yongfeizhai
   (setq org-time-stamp-formats '("<%Y-%m-%d %A>" . "<%Y-%m-%d %A %H:%M>"))
+
+  ;; org-mode 中的 C-c M-l 绑定到了 `org-insert-last-stored-link' 上
+  ;; C-c s 用于想在 org-mode 中用 `org-store-link'
+  (global-set-key (kbd "C-c M-l") 'org-store-link)
+  (global-set-key (kbd "C-c s") 'org-store-link)
   )
+
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 (setq org-agenda-files '("~/Nutstore Files/org"))

@@ -15,4 +15,15 @@
       ("<M-down>" . markdown-move-down)
       )))
 
+;; obsidian
+(obsidian-specify-path "~/Nutstore Files/org/obsidian")
+(define-key markdown-mode-map (kbd "C-c M-o") 'obsidian-follow-link-at-point)
+(define-key markdown-mode-map (kbd "C-x M-o") 'open-current-file-with-obsidian)
+
+;; @REF: https://emacs-china.org/t/emacs-obsidian/22504/11?u=yongfeizhai
+(defun open-current-file-with-obsidian ()
+  "这个函数只可以打开 obsidian 仓库中的文件"
+  (interactive)
+  (browse-url (concat "obsidian://open?path=" (url-hexify-string (buffer-file-name)))))
+
 (provide 'init-markdown)

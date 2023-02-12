@@ -80,6 +80,7 @@
 	helm-org-rifle org-download
 	valign
 	;; org-roam org-roam-server
+	obsidian
 
 	;; ==== Minibuffer ====
 	orderless vertico embark

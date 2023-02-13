@@ -80,7 +80,10 @@
 
      (require 'server)
      (unless (server-running-p)
-       (server-start))))
+       (server-start))
+     
+     (message "延时加载包加载完成！")
+     ))
   
   ;; local configs
   (when (file-exists-p fei-local-config)

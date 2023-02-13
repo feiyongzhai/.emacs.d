@@ -106,6 +106,9 @@
 	cal-china-x
 	academic-phrases
 
+	;; ==== 游戏 ====
+	rubik
+
 	;; ==== 备忘 ====
 	;; ctrlf anzu
 	;; eshell-git-prompt

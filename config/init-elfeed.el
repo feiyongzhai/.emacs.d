@@ -13,6 +13,11 @@
 	;; ("https://sspai.com/feed" sspai)
 	))
 
+(add-hook 'elfeed-show-mode-hook
+	  (lambda ()
+	    (olivetti-mode t)
+	    (olivetti-set-width 80)))
+
 (with-eval-after-load 'elfeed
   (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-12"))))
 

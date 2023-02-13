@@ -7,6 +7,7 @@
 (setq vertico-multiform-commands
       '((consult-line buffer)
         (consult-imenu reverse buffer)
+	(fei-consult-ripgrep-my-org buffer)
 	(rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)
         (execute-extended-command flat)))

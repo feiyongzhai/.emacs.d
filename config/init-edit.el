@@ -26,6 +26,8 @@
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 
+(global-set-key [remap goto-line] 'avy-goto-line)
+
 ;;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 

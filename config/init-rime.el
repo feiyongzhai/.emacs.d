@@ -29,11 +29,17 @@
   (setq rime-share-data-dir
 	;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
 	;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
-	;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll 在执行 opencc 命令的时候
-	;; librime-emacs.dll 编译命令：
+	;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll
+	;; 0. 确保自己一定是最新的状态
+	;; pacman -Syu # 这个命令你可能需要运行好几次
+	;; 1. 安装基本包
+	;; pacman -S base-devel mingw64-x86_64-librime mingw64-x86_64-librime-data mingw64-x86_64-toolchain
+	;; 2. 切换到 rime 目录，编译 librime-emacs.dll：
+	;; cd ~/.emacs.d/extensions/rime
 	;; gcc lib.c -o librime-emacs.dll -fPIC -O2 -Wall -I '/c/Program Files/Emacs/emacs-28.2/include/' -shared -lrime
-	;; librime.dll 的获取方式：
+	;; 3. 复制 librime.dll 到 emacs.exe 所在的文件夹：
 	;; 直接复制 msys64 下 pacman -S librime 安装的 librime.dll 就可以了（推荐用 everything 搜索）
+	;; * 备注
 	;; 这个命令：ln -s /mingw64/share/opencc/* /mingw64/share/rime-data/opencc
 	;; 因为我的 /mingw64/share/rime-data/ 文件夹中没有 opencc 文件夾，所以上面的命令会出錯，則修改为
 	;; ln -s /mingw64/share/opencc /mingw64/share/rime-data/opencc

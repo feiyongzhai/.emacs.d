@@ -26,27 +26,27 @@
 (setq rime-user-data-dir "~/.emacs.d/rime/") ;linux 和 windows 共用一个配置文件
 
 (when *is-windows*
+  ;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
+  ;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
+  ;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll
+  ;; 0. 确保自己一定是最新的状态
+  ;; pacman -Syu # 这个命令你可能需要运行好几次
+  ;; 1. 安装基本包
+  ;; pacman -S base-devel mingw64-x86_64-librime mingw64-x86_64-librime-data mingw64-x86_64-toolchain
+  ;; 2. 切换到 rime 目录，编译 librime-emacs.dll：
+  ;; cd ~/.emacs.d/extensions/rime
+  ;; gcc lib.c -o librime-emacs.dll -fPIC -O2 -Wall -I '/c/Program Files/Emacs/emacs-28.2/include/' -shared -lrime
+  ;; 3. 复制 librime.dll 到 emacs.exe 所在的文件夹：
+  ;; 直接复制 msys64 下 pacman -S librime 安装的 librime.dll 就可以了（推荐用 everything 搜索）
+  ;; * 备注
+  ;; 这个命令：ln -s /mingw64/share/opencc/* /mingw64/share/rime-data/opencc
+  ;; 因为我的 /mingw64/share/rime-data/ 文件夹中没有 opencc 文件夾，所以上面的命令会出錯，則修改为
+  ;; ln -s /mingw64/share/opencc /mingw64/share/rime-data/opencc
+  ;; 但是仍然不能解决繁體的問題。现在能想到的迴避問題的方法：就是用一個簡體詞庫的方案。但是心有不甘。
+  ;; 另外一個很蹩腳的方案：我發現【朙月拼音】雖然默認是繁體輸出（詞庫是繁體的），但是它裏面也有簡體的字，
+  ;; 所以還是可以輸入簡體字符，只不過需要選擇好久。
+  ;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
   (setq rime-share-data-dir
-	;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
-	;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
-	;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll
-	;; 0. 确保自己一定是最新的状态
-	;; pacman -Syu # 这个命令你可能需要运行好几次
-	;; 1. 安装基本包
-	;; pacman -S base-devel mingw64-x86_64-librime mingw64-x86_64-librime-data mingw64-x86_64-toolchain
-	;; 2. 切换到 rime 目录，编译 librime-emacs.dll：
-	;; cd ~/.emacs.d/extensions/rime
-	;; gcc lib.c -o librime-emacs.dll -fPIC -O2 -Wall -I '/c/Program Files/Emacs/emacs-28.2/include/' -shared -lrime
-	;; 3. 复制 librime.dll 到 emacs.exe 所在的文件夹：
-	;; 直接复制 msys64 下 pacman -S librime 安装的 librime.dll 就可以了（推荐用 everything 搜索）
-	;; * 备注
-	;; 这个命令：ln -s /mingw64/share/opencc/* /mingw64/share/rime-data/opencc
-	;; 因为我的 /mingw64/share/rime-data/ 文件夹中没有 opencc 文件夾，所以上面的命令会出錯，則修改为
-	;; ln -s /mingw64/share/opencc /mingw64/share/rime-data/opencc
-	;; 但是仍然不能解决繁體的問題。现在能想到的迴避問題的方法：就是用一個簡體詞庫的方案。但是心有不甘。
-	;; 另外一個很蹩腳的方案：我發現【朙月拼音】雖然默認是繁體輸出（詞庫是繁體的），但是它裏面也有簡體的字，
-	;; 所以還是可以輸入簡體字符，只不過需要選擇好久。
-	;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
 	"c:/msys64/mingw64/share/rime-data"))
 
 (with-eval-after-load 'rime

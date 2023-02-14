@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#+STARTUP: overview
 # 这里主要用来记录和配置 emacs 环境中的问题
 
 * emacs 源码安装参考教程
@@ -34,3 +35,7 @@ sudo make install
 emacs --version
 emacs -nw # 无 GUI 界面启动
 emacs # GUI 界面启动
+* emacs gpg: Can't check signature: No public key
+#+BEGIN_SRC emacs-lisp
+  (setq package-check-signature nil)
+#+END_SRC

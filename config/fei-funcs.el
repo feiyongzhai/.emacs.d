@@ -247,6 +247,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
       (end-of-line)
       (current-column))))
 
+;; `fit-frame-to-buffer' 好像干了我想干的事，而且比我干的更好。
 (defun adjust-frame-by-longest-line ()
   (interactive)
   ;; 其实我按照的是视觉长度，但是无关紧要，可以用

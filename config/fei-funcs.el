@@ -211,4 +211,46 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 	(terminal-here)
       (message "can't open terminal here"))))
 
+
+;; @REF: https://emacs-china.org/t/topic/18075/3
+(defun goto-longest-line ()
+  (interactive)
+  (let ((current-line 0)
+        (current-column 0))
+    (save-excursion
+      (goto-char (point-min))
+      (catch 'end-of-file
+        (while t
+          (end-of-line)
+          (when (< current-column (current-column))
+            (setq current-line (line-number-at-pos)
+                  current-column (current-column)))
+          (unless (zerop (forward-line 1))
+            (throw 'end-of-file nil)))))
+    (goto-line current-line)))
+
+(defun longest-line-colum ()
+  (let ((current-line 0)
+        (current-column 0))
+    (save-excursion
+      (goto-char (point-min))
+      (catch 'end-of-file
+        (while t
+          (end-of-line)
+          (when (< current-column (current-column))
+            (setq current-line (line-number-at-pos)
+                  current-column (current-column)))
+          (unless (zerop (forward-line 1))
+            (throw 'end-of-file nil)))))
+    (save-excursion
+      (goto-line current-line)
+      (end-of-line)
+      (current-column))))
+
+(defun adjust-frame-by-longest-line ()
+  (interactive)
+  ;; 其实我按照的是视觉长度，但是无关紧要，可以用
+  (set-frame-width nil (+ (if display-line-numbers-mode 5 0)
+			  (longest-line-colum))))
+
 (provide 'fei-funcs)

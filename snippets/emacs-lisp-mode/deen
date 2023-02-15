@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: den
+# key: den
+# --
+(decode-coding-string (encode-coding-string "$0" '${1:gbk}) '${2:utf-8})

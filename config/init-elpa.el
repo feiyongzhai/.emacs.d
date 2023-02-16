@@ -40,11 +40,9 @@
 	;; ==== Misc ====
 	minions gcmh
 	all-the-icons-ibuffer
-	treemacs-icons-dired
 	scratch imenu-list rg
 	rainbow-mode
 	rainbow-delimiters
-	eshell-autojump
 	dirvish ef-themes
 
 	;; ==== 编辑相关 ====
@@ -59,7 +57,8 @@
 	symbol-overlay
 	separedit
 	smartparens
-	corfu tempel
+	corfu
+	;; tempel
 	olivetti
 	math-symbol-lists laas
 	expand-region
@@ -78,7 +77,6 @@
 
 	;; ==== Org ====
 	helm-org-rifle org-download
-	valign
 	;; org-roam org-roam-server
 	obsidian
 
@@ -90,7 +88,6 @@
 	;; ==== 非编辑相关 ====
 	;; tab-bar-echo-area
 	use-package
-	adafruit-wisdom
 	eshell-up
 	elfeed
 	pyim pyim-basedict fcitx
@@ -102,7 +99,7 @@
         helpful
         openwith
 	alarm-clock
-	tldr trashed
+	trashed
 	cal-china-x
 	academic-phrases
 
@@ -110,6 +107,11 @@
 	rubik
 
 	;; ==== 备忘 ====
+	;; valign
+	;; tldr
+	;; adafruit-wisdom
+	;; eshell-autojump
+	;; treemacs-icons-dired
 	;; ctrlf anzu
 	;; eshell-git-prompt
 	;; highlight-indent-guides

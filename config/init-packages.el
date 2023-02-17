@@ -161,6 +161,7 @@
 ;;; Rg
 (rg-define-toggle "--context 3" (kbd "C"))
 (rg-define-toggle "-A 5" (kbd "A"))
+(rg-define-toggle "-F" (kbd "F"))	;-F / --fixed-strings flag do a literally search
 (rg-define-search rg-project-all-files-no-ask
   :dir project :files "all")
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)

@@ -1,4 +1,4 @@
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 (add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (add-hook 'ibuffer-mode-hook 'hl-line-mode)
 
@@ -22,6 +22,17 @@
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
+  (define-key ibuffer-mode-map (kbd "_") 'fei-remove-ibuffer-tmp-hide-regexps)
   )
+
+(defun fei-remove-ibuffer-tmp-hide-regexps ()
+  "`ibuffer-add-to-tmp-hide' 的逆向命令"
+  (interactive)
+  (with-current-buffer "*Ibuffer*"
+    (when ibuffer-tmp-hide-regexps
+      (setq ibuffer-tmp-hide-regexps
+            (remove
+             (ivy-read "Pop tmp hide buffer " ibuffer-tmp-hide-regexps)
+             ibuffer-tmp-hide-regexps)))))
 
 (provide 'init-ibuffer)

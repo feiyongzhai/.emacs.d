@@ -36,7 +36,8 @@
   (require 'init-edit)
   (require 'init-auto-save)
   (require 'init-alias)
-  (require 'init-proxy)
+  (unless *is-termux*
+    (require 'init-proxy))
 
   ;; (require 'init-tab-line)
   (require 'init-modeline)

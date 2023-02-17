@@ -22,6 +22,9 @@
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
+(defconst *is-termux* (string-match-p "android" system-configuration)
+  "这个判断方式不一定完全准确")
+
 (setq fei-local-config (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
 			     (*is-linux* "~/Nutstore Files/src/local-linux.el")
 			     (t "")))
@@ -53,9 +56,9 @@
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
+(unless *is-termux*
+  (scroll-bar-mode -1)
 
-
-;; `early-init.el' 可对 emacsclient 生效
-(require 'init-font)
-
+  ;; `early-init.el' 可对 emacsclient 生效
+  (require 'init-font)
+  )

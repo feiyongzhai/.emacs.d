@@ -6,7 +6,8 @@
 (global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
 
 ;; pdf-tools
-(require 'init-pdf-tools)
+(unless *is-termux*
+  (require 'init-pdf-tools))
 
 ;; (require 'init-wanderlust)
 

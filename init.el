@@ -49,6 +49,8 @@
 
   (when *is-windows*
     (require 'init-win10))
+  (when *is-termux*
+    (require 'init-termux))
   ;; (require 'init-mark)
 
   (run-with-idle-timer

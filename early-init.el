@@ -22,7 +22,9 @@
 (defconst *is-mac* (eq system-type 'darwin))
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-windows* (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
-(defconst *is-termux* (string-match-p "android" system-configuration)
+(defconst *is-termux*
+  (and (eq system-type 'gnu/linux)
+       (string-match-p "android" system-configuration))
   "这个判断方式不一定完全准确")
 
 (setq fei-local-config (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")

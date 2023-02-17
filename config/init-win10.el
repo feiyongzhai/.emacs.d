@@ -78,6 +78,12 @@
   (interactive)
   (call-process-shell-command "start wt"))
 
+(defun open-current-file-with-notepad ()
+  (interactive)
+  (start-process "notepad" nil "notepad.exe"
+		 (or (buffer-file-name)
+		     default-directory)))
+
 (defun arrange-frame (w h x y)
   "Set the width, height, and x/y position of the current frame"
   (let ((frame (selected-frame)))

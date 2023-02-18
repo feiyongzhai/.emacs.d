@@ -83,7 +83,8 @@
 
      (require 'server)
      (unless (server-running-p)
-       (server-start))
+       (server-start)
+       (message "server 启动成功!"))
      
      (message "延时加载包加载完成！")
      ))

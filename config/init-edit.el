@@ -81,10 +81,8 @@
 (global-set-key (kbd "M-u") 'upcase-dwim)
 (global-set-key (kbd "C-x C-u") nil)
 
-(transient-command undo
-  (undo)
-  '(("u" . undo)
-    ("U" . undo-redo)))
+(global-set-key (kbd "C-x u") 'vundo)
+(global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
 
 (global-set-key (kbd "C-s-n") 'fei-scroll-up-line)
 (global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)

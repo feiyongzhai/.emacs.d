@@ -62,6 +62,7 @@
 	olivetti
 	math-symbol-lists laas
 	expand-region
+	vundo
 
 	;; Programming
 	lsp-dart flutter

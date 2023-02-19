@@ -22,6 +22,7 @@
 
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
+(global-set-key (kbd "C-x r p") 'replace-string)
 
 (add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
 (defun +fei-eshell-mode-hook ()

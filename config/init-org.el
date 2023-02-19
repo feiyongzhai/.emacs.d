@@ -35,9 +35,7 @@
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-(if *is-termux*
-    (setq org-agenda-files '("~/org"))
-  (setq org-agenda-files '("~/Nutstore Files/org")))
+(setq org-agenda-files '("~/Nutstore Files/org"))
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
@@ -92,9 +90,7 @@
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
-(if *is-termux*
-    (setq org-directory "~/org")	;命令行用不了坚果云同步
-  (setq org-directory "~/Nutstore Files/org"))
+(setq org-directory "~/Nutstore Files/org")
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行

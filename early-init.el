@@ -29,6 +29,7 @@
 
 (setq fei-local-config (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
 			     (*is-linux* "~/Nutstore Files/src/local-linux.el")
+			     (*is-termux* "~Nutstore Files/src/local-termux.el")
 			     (t "")))
 
 

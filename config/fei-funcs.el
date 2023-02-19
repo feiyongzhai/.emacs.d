@@ -31,7 +31,7 @@ Argument ARG if not nil, switching in a new window."
     (or search-string
 	(if mark-active
             (buffer-substring-no-properties (region-beginning) (region-end))
-	  (read-string "Google: "))))))
+	  (url-encode-url (read-string "Google: ")))))))
 
 (defvar fei-search-prompt)
 

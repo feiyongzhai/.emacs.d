@@ -35,7 +35,9 @@
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-(setq org-agenda-files '("~/Nutstore Files/org"))
+(if *is-termux*
+    (setq org-agenda-files '("~/org"))
+  (setq org-agenda-files '("~/Nutstore Files/org")))
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
@@ -90,38 +92,41 @@
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
+(if *is-termux*
+    (setq org-directory "~/org")	;命令行用不了坚果云同步
+  (setq org-directory "~/Nutstore Files/org"))
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
 	`(("t" "Task" entry
-	   (file "~/Nutstore Files/org/gtd.org")
+	   (file "gtd.org")
 	   "* TODO %?\nCREATE: %T\n")
 	  ("T" "Task(为Eshell设计)" entry
-	   (file "~/Nutstore Files/org/gtd.org")
+	   (file "gtd.org")
 	   "* TODO %i\nCREATE: %T\n"
 	   :immediate-finish t)
 	  ("s" "SomeDay" entry
-	   (file "~/Nutstore Files/org/gtd.org")
+	   (file "gtd.org")
 	   "* SOMEDAY %?\nCREATE: %T\n")
 	  ("S" "SAR" entry
-	   (file+headline "~/Nutstore Files/org/SAR.org" "Inbox")
+	   (file+headline "SAR.org" "Inbox")
 	   "* TODO %?")
 	  ("K" "Research" entry
-	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
+	   (file+headline "private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
 	   "* %(substring (current-time-string) 11 16) %?")
 	  ("n" "note" entry
-	   (file "~/Nutstore Files/org/notes.org")
+	   (file "notes.org")
 	   "* %?")
 	  ("P" "Private" entry
-	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
+	   (file+headline "private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %i%?"
 	   :immediate-finish t)
 	  ("p" "Private" entry
-	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
+	   (file+headline "private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?")
 	  ("d" "Diary" entry
-	   (file "~/Nutstore Files/org/private/diary.org")
+	   (file "private/diary.org")
 	   "* %t\n%?")
 	  )))
 

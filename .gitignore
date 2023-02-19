@@ -60,3 +60,4 @@ var/
 .dap-breakpoints
 /config/experiment/
 /elgrep-data.el
+/.sx/

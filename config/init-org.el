@@ -111,8 +111,8 @@
 	   (file+headline "~/Nutstore Files/org/private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
 	   "* %(substring (current-time-string) 11 16) %?")
 	  ("n" "note" entry
-	   (file+headline "~/Nutstore Files/org/notes.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?")
+	   (file "~/Nutstore Files/org/notes.org")
+	   "* %?")
 	  ("P" "Private" entry
 	   (file+headline "~/Nutstore Files/org/private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %i%?"
@@ -123,14 +123,7 @@
 	  ("d" "Diary" entry
 	   (file "~/Nutstore Files/org/private/diary.org")
 	   "* %t\n%?")
-	  ("c" "Code Snippets")
-	  ("ce" "Code Snippets for Emacs" entry
-	   (file+headline "~/Nutstore Files/org/snippets.org" "Emacs")
-	   "* %?CREATE: %T\n#+begin_src emacs-lisp\n%^C\n#+end_src")
-	  ("co" "Code Snippets for Others" entry
-	   (file+headline "~/Nutstore Files/org/snippets.org" "Others")
-	   "* %?\nCREATE: %T\n#+begin_src shell\n%^C\n#+end_src"
-	   ))))
+	  )))
 
 ;;; Org-download
 (setq org-download-display-inline-images nil)

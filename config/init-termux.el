@@ -1,3 +1,7 @@
+(setq default-input-method "pyim")
+
+(global-set-key (kbd "M-j") (li (activate-input-method "pyim")))
+
 (defun termux-eudic ()
   "@REF: https://emacs-china.org/t/emacs/18978/2"
   (interactive)

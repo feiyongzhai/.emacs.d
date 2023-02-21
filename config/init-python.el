@@ -1,9 +1,11 @@
-;; based on the conda install location
-(setq conda-env-home-directory "~/.conda/")
-(setq conda-anaconda-home "/opt/miniconda")
+(when *is-linux*
+  ;; based on the conda install location
+  (setq conda-env-home-directory "~/.conda/")
+  (setq conda-anaconda-home "/opt/miniconda")
 
-;; this config is prepared for `pyvenv-workon'
-(setenv "WORKON_HOME" "~/Sandbox/Python/virtualenv")
+  ;; this config is prepared for `pyvenv-workon'
+  (setenv "WORKON_HOME" "~/Sandbox/Python/virtualenv")
+  )
 
 ;; 看网上的讨论 yafolding-mode 只是单纯的根据缩进折叠，所以只在 python 中启用了
 (add-hook 'python-mode-hook 'yafolding-mode)

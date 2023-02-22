@@ -1,4 +1,4 @@
-(global-tab-line-mode 1)
+;; (global-tab-line-mode 1)
 (require 'tab-line)
 
 (setq tab-line-close-button-show t)

@@ -39,7 +39,7 @@
   (unless *is-termux*
     (require 'init-proxy))
 
-  ;; (require 'init-tab-line)
+  (require 'init-tab-line)
   (require 'init-modeline)
   (require 'init-fei)
   (require 'init-rime)

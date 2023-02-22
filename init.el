@@ -34,7 +34,9 @@
   (require 'init-search)
 
   (require 'init-edit)
-  (require 'init-auto-save)
+  ;; (require 'init-auto-save)
+  (setq auto-save-visited-interval 1)
+  (auto-save-visited-mode)
   (require 'init-alias)
   (unless *is-termux*
     (require 'init-proxy))

@@ -8,7 +8,11 @@
   ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
   (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
-  (toggle-truncate-lines -1))
+
+  ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好
+  (visual-line-mode)
+  ;; (toggle-truncate-lines -1)
+  )
 
 (with-eval-after-load 'org
   ;; 控制 org-latex-preview

@@ -9,7 +9,7 @@
   (yas-minor-mode)
   (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
 
-  ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好
+  ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好，这两个函数在终端下表现差异很小
   (visual-line-mode)
   ;; (toggle-truncate-lines -1)
   )

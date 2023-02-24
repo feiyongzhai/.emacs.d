@@ -57,14 +57,22 @@
 		    (:background "#dcdccc" :foreground "#333333" :slant italic)))))
 
 (setq rime-posframe-properties
-      (list :internal-border-width 4))
+      (list :internal-border-width 2)
+      rime-candidate-num-format-function 'fei-rime--candidate-num-format)
+
+(defun fei-rime--candidate-num-format (num select-labels)
+  "魔改的 `rime--candidate-num-format'"
+  (if select-labels
+      (format "%s. " (nth (1- num) select-labels))
+    (format "%d." num)))
 
 (setq default-input-method "rime")
 
 (setq ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-candidate 'posframe
       rime-show-preedit t
-      rime-posframe-style 'vertical
+      ;; rime-posframe-style 'vertical
+      rime-posframe-style 'horizontal
       rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates

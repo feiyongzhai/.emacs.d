@@ -22,7 +22,7 @@
 (when *is-linux*
   ;; Vterm
   ;; @HOME: https://github.com/akermu/emacs-libvterm
-  (global-set-key (kbd "C-z") 'vterm-toggle)
+  (global-set-key (kbd "C-z") 'vterm)
   (with-eval-after-load 'vterm
     (define-key vterm-mode-map (kbd "M-s") nil))
   )

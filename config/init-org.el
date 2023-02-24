@@ -1,5 +1,7 @@
 ;;; init-org.el == configs for Org/Markdown
 (require 'fei-funcs)
+(when (executable-find "deno")
+  (require 'init-deno-bridge-jieba))
 
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook '+fei-org-mode-hook)

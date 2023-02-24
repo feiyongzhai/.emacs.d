@@ -44,7 +44,8 @@
   (require 'init-tab-line)
   (require 'init-modeline)
   (require 'init-fei)
-  (require 'init-rime)
+  (unless *is-termux*
+    (require 'init-rime))
   (require 'init-dired)
   (require 'init-ibuffer)
   (require 'init-engine)

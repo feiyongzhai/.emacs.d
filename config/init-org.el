@@ -167,7 +167,7 @@
 (defun fei-org-capture ()
   (interactive)
   (call-interactively 'org-capture)
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-goto-Research ()
   (interactive)
@@ -176,7 +176,7 @@
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-goto-SAR ()
   (interactive)
@@ -185,7 +185,7 @@
 (defun fei-org-capture-SAR ()
   (interactive)
   (org-capture nil "S")
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-goto-WANT ()
   (interactive)
@@ -201,12 +201,12 @@
     (org-capture nil "t")
     (when (bound-and-true-p evil-mode)
       (evil-insert 0))
-    (activate-input-method "pyim")))
+    (activate-input-method default-input-method)))
 
 (defun fei-org-capture-WANT ()
   (interactive)
   (org-capture nil "s")
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-note (&rest strings)
   (interactive)
@@ -218,7 +218,7 @@
     (org-capture nil "n")
     (when (bound-and-true-p evil-mode)
       (evil-insert 0))
-    (activate-input-method "pyim")))
+    (activate-input-method default-input-method)))
 
 (defun fei-org-capture-goto-note ()
   (interactive)
@@ -233,14 +233,14 @@
   (org-capture nil "p")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-diary ()
   (interactive)
   (org-capture nil "d")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
-  (activate-input-method "pyim"))
+  (activate-input-method default-input-method))
 
 (defun fei-org-agenda ()
   (interactive)

@@ -59,10 +59,7 @@
 (setq rime-posframe-properties
       (list :internal-border-width 4))
 
-(cond (*is-windows*
-       (setq default-input-method "pyim"))
-      (t
-       (setq default-input-method "rime")))
+(setq default-input-method "rime")
 
 (setq ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       rime-show-candidate 'posframe

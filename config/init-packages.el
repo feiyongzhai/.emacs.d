@@ -136,6 +136,7 @@
   (define-key youdao-dictionary-mode-map (kbd "d") 'fei-quword-at-point))
 (global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
 (global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "C-M-y") 'youdao-dictionary-search-from-input)
 (global-set-key (kbd "C-c y") 'fei-youdao-at-point)
 
 (defun fei-quword-at-point ()

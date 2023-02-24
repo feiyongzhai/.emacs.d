@@ -55,7 +55,6 @@
   "s" 'fei-search-1
   "m" 'execute-extended-command
   "x" 'execute-extended-command
-  "z" 'vterm-toggle
   "g" 'magit
   "f" 'counsel-find-file
   "F" 'ffap

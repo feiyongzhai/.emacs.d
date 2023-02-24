@@ -30,8 +30,8 @@
 (setq fei-package-ensure-installed-linux
       '(
 	magit sx bash-completion pdf-tools
-	vterm vterm-toggle graphviz-dot-mode
-	;; citre
+	graphviz-dot-mode
+	;; citre vterm vterm-toggle 
 	))
 
 ;;; general needed packages

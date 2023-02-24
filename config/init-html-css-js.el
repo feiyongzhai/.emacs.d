@@ -20,4 +20,8 @@
 
 (add-hook 'js-mode-hook 'electric-pair-local-mode)
 
+
+;; CSS
+(add-hook 'css-mode-hook 'electric-pair-local-mode)
+
 (provide 'init-html-css-js)

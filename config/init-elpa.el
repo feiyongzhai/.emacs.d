@@ -44,6 +44,7 @@
 	rainbow-mode
 	rainbow-delimiters
 	dirvish ef-themes
+	websocket
 
 	;; ==== 编辑相关 ====
 	evil general

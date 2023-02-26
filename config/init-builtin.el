@@ -35,7 +35,12 @@
 
 ;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)	;no bell
-(setq split-width-threshold nil) ;分屏的时候使用上下分屏，这个配置对于大屏幕比较有用
+
+;; (setq split-width-threshold nil) ;分屏的时候只使用上下分屏
+
+;; 我的实践过程中发现，在外接显示器或者较大的屏幕的时候，用一些比较宽
+;; 的屏幕的时候，我还是希望可以左右分屏（水平分屏）的
+
 (setq word-wrap-by-category t)	 ;按照中文折行
 
 ;;; Bookmark

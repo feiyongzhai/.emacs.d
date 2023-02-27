@@ -45,6 +45,7 @@
 	rainbow-delimiters
 	dirvish ef-themes
 	websocket
+	interaction-log			;这个包需要自己 require，不会自动加载
 
 	;; ==== 编辑相关 ====
 	evil general

@@ -2,23 +2,13 @@
 
 ;;TODO: 待补充
 
-
 ;; Code:
 (require 'init-func)
 (require 'fei-funcs)
 
-;; ==== Popweb ====
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
-(add-to-list 'load-path "~/.emacs.d/extensions/popweb/")
-(require 'popweb-dict-bing)
-(require 'popweb-dict-youdao)
-(require 'popweb-latex)
-
-;; ==== EAF ====
 (add-to-list 'load-path "~/.emacs.d/extensions/eaf")
 (setq eaf-python-command "/usr/bin/python3") ;因为有的时候会用别的 python 环境，还是指定稳定一些
-(setq popweb-python-command "/usr/bin/python3")
+
 (require 'eaf)
 (require 'eaf-org)
 (require 'eaf-browser)
@@ -59,7 +49,6 @@
   (eaf-bind-key nil "M-S" eaf-browser-keybinding)
   )
 
-(global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 ;; 终端用命令 `emacsclient -t file-name` 时，会响应这一组 `ESC [ I`按
 ;; 键序列（可通过 C-h l 查看），导致启动的时候会自动调用下面的命令
 ;; `fei-eaf-file-share-current-dir`

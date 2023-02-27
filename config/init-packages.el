@@ -192,6 +192,9 @@
 ;;; 自动调整 gc
 (gcmh-mode)
 
+;;; interaction-log
+(autoload 'interaction-log-mode "interaction-log" nil t)
+
 ;;; Funcs
 
 ;; youdao-dictionary

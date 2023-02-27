@@ -12,6 +12,7 @@
 (setq sentence-end "\\([.?!…‽][]\"'”’)}»›]*\\($\\|[  ]$\\|\t\\|[  ][  ]\\)\\|[。．？！:：]+\\)[  \t\n]*")
 
 (global-set-key (kbd "S-SPC") 'set-mark-command)
+(global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
 
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)

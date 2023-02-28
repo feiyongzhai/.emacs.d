@@ -30,6 +30,9 @@
 
 (global-set-key [remap goto-line] 'avy-goto-line)
 
+;;; Navigate
+(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
+
 ;;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 

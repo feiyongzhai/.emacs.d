@@ -115,5 +115,4 @@
 (defun eshell/d () (eshell/cd "d:/"))
 (defun eshell/c () (eshell/cd "c:/"))
 
-
 (provide 'init-win10)

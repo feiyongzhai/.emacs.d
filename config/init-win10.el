@@ -110,6 +110,10 @@
 
 ;; 参考上面，解决 windows counsel-rg 乱码的问题
 (modify-coding-system-alist 'process "rg" '(utf-8 . chinese-gbk-dos))
+
+;; Eshell
+(defun eshell/d () (eshell/cd "d:/"))
+(defun eshell/c () (eshell/cd "c:/"))
 
 
 (provide 'init-win10)

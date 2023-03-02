@@ -14,6 +14,8 @@
   ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好，这两个函数在终端下表现差异很小
   (visual-line-mode)
   ;; (toggle-truncate-lines -1)
+
+  ;; (setq org-level-color-stars-only t)	;只高亮 stars
   )
 
 (with-eval-after-load 'org

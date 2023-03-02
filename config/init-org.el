@@ -24,6 +24,7 @@
 
 (setq org-highlight-latex-and-related '(native)
       ;; org-ellipsis " ∇ "
+      org-ellipsis " ↩"
       org-adapt-indentation nil)
 
 ;; 使得 org 中的时间格式变成英文来规避乱码问题

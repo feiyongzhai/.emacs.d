@@ -20,4 +20,10 @@
 ;;             mouse-face highlight
 ;;             local-map ,(make-mode-line-mouse-map 'mouse-1 my-menu-bar-menu)))
 
+
+;;; modeline 到顶部
+;; (setq-default header-line-format mode-line-format) ; Copy mode-line
+;; (setq-default mode-line-format nil) ; Remove mode-line
+
+
 (provide 'init-modeline)

@@ -1,5 +1,6 @@
 ;; Org-publish config
 ;; @REF: http://www.zhangjiee.com/blog/2019/build-site-with-org-mode.html
+;; @REF: https://guidao.github.io/emacs_blog.html#org38eccd7
 
 (global-set-key (kbd "C-c P")
 		;; load `init-publish.el' 以保证 preamble.html 的修改可以更新

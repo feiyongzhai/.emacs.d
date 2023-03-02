@@ -29,9 +29,9 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	magit sx bash-completion pdf-tools
+	magit bash-completion pdf-tools
 	graphviz-dot-mode
-	;; citre vterm vterm-toggle 
+	;; citre vterm vterm-toggle sx
 	))
 
 ;;; general needed packages
@@ -41,47 +41,29 @@
 	minions gcmh
 	all-the-icons-ibuffer
 	scratch imenu-list rg
-	rainbow-mode
-	rainbow-delimiters
-	dirvish ef-themes
-	websocket
+	rainbow-mode rainbow-delimiters
+	dirvish ef-themes websocket
 	interaction-log			;这个包需要自己 require，不会自动加载
 
 	;; ==== 编辑相关 ====
 	evil general
 	highlight-parentheses highlight-indentation
-	company yasnippet
-	avy ace-window
-	neotree
-	electric-spacing
-	iedit
-	yafolding pyvenv conda
-	symbol-overlay
-	separedit
-	smartparens
-	corfu
-	;; tempel
-	olivetti
-	math-symbol-lists laas
-	expand-region
-	vundo
+	company yasnippet avy ace-window
+	neotree electric-spacing iedit yafolding pyvenv conda
+	symbol-overlay separedit smartparens corfu
+	olivetti math-symbol-lists laas expand-region vundo
 
 	;; Programming
-	lsp-dart flutter
-	emmet-mode js2-mode web-mode
-	dumb-jump diff-hl
+	lsp-dart flutter emmet-mode js2-mode web-mode dumb-jump diff-hl
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history
 
 	;; ==== Major-mode ====
-	markdown-mode matlab-mode
-	auctex cdlatex
+	markdown-mode matlab-mode auctex cdlatex
 
 	;; ==== Org ====
-	helm-org-rifle org-download
-	;; org-roam org-roam-server
-	obsidian
+	org-download obsidian
 
 	;; ==== Minibuffer ====
 	orderless vertico embark
@@ -89,27 +71,22 @@
 	smex counsel ivy swiper
 
 	;; ==== 非编辑相关 ====
-	;; tab-bar-echo-area
 	use-package
-	eshell-up
-	elfeed
-	pyim pyim-basedict fcitx
-	youdao-dictionary
-	engine-mode
-	eyebrowse
-        hide-mode-line
+	eshell-up elfeed pyim pyim-basedict fcitx
+	youdao-dictionary engine-mode hide-mode-line
 	
-        helpful
-        openwith
-	alarm-clock
-	trashed
-	cal-china-x
-	academic-phrases
+        helpful alarm-clock openwith trashed cal-china-x
 
 	;; ==== 游戏 ====
 	rubik
 
 	;; ==== 备忘 ====
+	;; helm-org-rifle
+	;; org-roam org-roam-server
+	;; tempel
+	;; tab-bar-echo-area
+	;; eyebrowse
+	;; academic-phrases
 	;; valign
 	;; tldr
 	;; adafruit-wisdom

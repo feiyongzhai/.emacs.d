@@ -34,6 +34,7 @@
 ;; These two keybindings is inspired by `C-x -'
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
+(global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
 
 (global-set-key (kbd "C-x w h") 'windmove-left)
 (global-set-key (kbd "C-x w l") 'windmove-right)

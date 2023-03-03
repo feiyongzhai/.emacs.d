@@ -72,6 +72,10 @@
   ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
   )
 
+(require 'fei-promodo "~/.emacs.d/extensions/fei/fei-promodo.el")
+(autoload 'org-timer-set-timer "org" t)
+(add-hook 'org-timer-done-hook 'fei-promodo-notify)
+
 ;; Keys
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)

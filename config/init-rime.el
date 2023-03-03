@@ -46,6 +46,8 @@
   ;; 另外一個很蹩腳的方案：我發現【朙月拼音】雖然默認是繁體輸出（詞庫是繁體的），但是它裏面也有簡體的字，
   ;; 所以還是可以輸入簡體字符，只不過需要選擇好久。
   ;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
+
+  ;; 备注：windows 下需要 C:\msys64\mingw64\bin 在 path 中
   (setq rime-share-data-dir
 	"c:/msys64/mingw64/share/rime-data"))
 

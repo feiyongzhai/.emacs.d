@@ -47,7 +47,7 @@
   ;; 所以還是可以輸入簡體字符，只不過需要選擇好久。
   ;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
 
-  ;; 备注：windows 下需要 C:\msys64\mingw64\bin 在 path 中
+  ;; 备注：windows 下需要 C:\msys64\mingw64\bin 在 path 中，emacs-rime 才可以正常使用。
   (setq rime-share-data-dir
 	"c:/msys64/mingw64/share/rime-data"))
 

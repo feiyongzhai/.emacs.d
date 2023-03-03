@@ -69,6 +69,7 @@
   ;; 且 org-timer-countdown-timer-title 是用 defvar 声明的，说明也没有
   ;; 想让我们自定义，不折腾为妙。
   (org-timer-set-timer "20")
+  (message "开始倒计时")
   ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
   )
 

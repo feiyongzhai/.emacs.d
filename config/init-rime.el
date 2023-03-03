@@ -28,6 +28,7 @@
 (when *is-windows*
   ;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
   ;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
+  ;; REF3: https://github.com/DogLooksGood/emacs-rime/issues/64
   ;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll
   ;; 0. 确保自己一定是最新的状态
   ;; pacman -Syu # 这个命令你可能需要运行好几次
@@ -48,6 +49,9 @@
   ;; 本着「又不是不能用」的原則，決定還是先把 rime 全平臺用起來。
 
   ;; 备注：windows 下需要 C:\msys64\mingw64\bin 在 path 中，emacs-rime 才可以正常使用。
+
+  ;; Changelog:
+  ;; 2023年03月03日 15:15:04: 也不知道发什么了，现在可以简繁切换，且工作正常了。
   (setq rime-share-data-dir
 	"c:/msys64/mingw64/share/rime-data"))
 

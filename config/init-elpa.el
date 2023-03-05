@@ -7,6 +7,7 @@
 ;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 ;;; USTC mirrors
 (setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+			 ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
                          ;; ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
                          ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))

@@ -15,8 +15,6 @@
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s m") 'point-stack-push)
-(global-set-key (kbd "M-s u") 'point-stack-pop)
 
 ;; EMASC 用 ring 的模式记录 mark ，在跳回的时候，有时候的位置理解不了，
 ;; 因为 ring 存在循环的情况，很容易跳着跳着就 get lost 了，不如用栈。
@@ -85,25 +83,34 @@
     (find-file (pop killed-file-list))))
 
 
-;; point stack 栈式存储 mark，比自带的 ring 数据结构来的更简单理解一些。
-;; @COPIED: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el
-(defvar point-stack nil)
+;; mark stack 栈式存储 mark，比自带的 ring 数据结构来的更简单理解一些。
+;; 下面的代码自然不能应付所有场景，但是可以应付大部分场景
+;; @REF: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el
 
-(defun point-stack-push ()
+(global-set-key (kbd "M-s m") 'mark-stack-push)
+(global-set-key (kbd "M-s u") 'mark-stack-pop)
+
+(defvar mark-stack nil)
+
+(defun mark-stack-push ()
   "Push current point in stack."
   (interactive)
   (message "Location marked.")
-  (setq point-stack (cons (list (current-buffer) (point)) point-stack)))
+  ;; 下面两行，REF: `push-mark'
+  (set-marker (mark-marker) (point) (current-buffer))
+  (setq mark-stack (cons (copy-marker (mark-marker)) mark-stack))
+  )
 
-(defun point-stack-pop ()
+(defun mark-stack-pop ()
   "Pop point from stack."
   (interactive)
-  (if (null point-stack)
+  (if (null mark-stack)
       (message "Stack is empty.")
-    (switch-to-buffer (caar point-stack))
-    (goto-char (cadar point-stack))
-    (setq point-stack (cdr point-stack))))
-
+    ;; 下面三行，REF: `pop-global-mark'
+    (switch-to-buffer (marker-buffer (car mark-stack)))
+    (goto-char (marker-position (car mark-stack)))
+    (setq mark-stack (cdr mark-stack)))
+  )
 
 (provide 'init-window-buffer)
 

@@ -18,7 +18,7 @@
 
 ;; EMASC 用 ring 的模式记录 mark ，在跳回的时候，有时候的位置理解不了，
 ;; 因为 ring 存在循环的情况，很容易跳着跳着就 get lost 了，不如用栈。
-(global-set-key (kbd "C-x C-p") 'pop-global-mark)
+(global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)

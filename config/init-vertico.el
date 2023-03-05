@@ -22,6 +22,8 @@
 (define-key vertico-map (kbd "M-o") 'embark-act)
 ;; embark-act 这个东西还是在 minibuffer 中好用，在别的场景中使用有点水土不服
 
+(setq prefix-help-command 'embark-prefix-help-command)
+
 ;; Temporary toggling between the different display modes is
 ;; possible. Bind the following commands:
 

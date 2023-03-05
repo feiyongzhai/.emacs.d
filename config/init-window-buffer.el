@@ -15,8 +15,9 @@
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s m") (li (window-configuration-to-register 106))) ;49 对应的是按键 1
-(global-set-key (kbd "M-s u") (li (jump-to-register 106))) ;106 对应按键 j
+(global-set-key (kbd "M-s m") (li (window-configuration-to-register ?j) (push-mark) (message "记录当前位置")))
+(global-set-key (kbd "M-s u") (li (jump-to-register ?j) (message "跳回之前位置")))
+(global-set-key (kbd "C-x C-p") 'pop-global-mark) ;用 ring 的模式记录 mark 在跳回的时候，有时候的位置理解不了，因为 ring 会循环，感觉还不如用栈
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)

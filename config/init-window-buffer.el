@@ -15,9 +15,13 @@
 
 ;;; ==== Window ====
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s m") (li (window-configuration-to-register ?j) (push-mark) (message "记录当前位置")))
-(global-set-key (kbd "M-s u") (li (jump-to-register ?j) (message "跳回之前位置")))
-(global-set-key (kbd "C-x C-p") 'pop-global-mark) ;用 ring 的模式记录 mark 在跳回的时候，有时候的位置理解不了，因为 ring 会循环，感觉还不如用栈
+(global-set-key (kbd "M-s m") 'point-stack-push)
+(global-set-key (kbd "M-s u") 'point-stack-pop)
+
+;; EMASC 用 ring 的模式记录 mark ，在跳回的时候，有时候的位置理解不了，
+;; 因为 ring 存在循环的情况，很容易跳着跳着就 get lost 了，不如用栈。
+(global-set-key (kbd "C-x C-p") 'pop-global-mark)
+
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 (global-set-key (kbd "C-x w u") 'transient-winner-undo)
@@ -79,6 +83,27 @@
   (interactive)
   (when killed-file-list
     (find-file (pop killed-file-list))))
+
+
+;; point stack 栈式存储 mark，比自带的 ring 数据结构来的更简单理解一些。
+;; @COPIED: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el
+(defvar point-stack nil)
+
+(defun point-stack-push ()
+  "Push current point in stack."
+  (interactive)
+  (message "Location marked.")
+  (setq point-stack (cons (list (current-buffer) (point)) point-stack)))
+
+(defun point-stack-pop ()
+  "Pop point from stack."
+  (interactive)
+  (if (null point-stack)
+      (message "Stack is empty.")
+    (switch-to-buffer (caar point-stack))
+    (goto-char (cadar point-stack))
+    (setq point-stack (cdr point-stack))))
+
 
 (provide 'init-window-buffer)
 

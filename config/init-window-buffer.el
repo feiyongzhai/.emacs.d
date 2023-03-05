@@ -87,29 +87,34 @@
 ;; 下面的代码自然不能应付所有场景，但是可以应付大部分场景
 ;; @REF: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el
 
-(global-set-key (kbd "M-s m") 'mark-stack-push)
-(global-set-key (kbd "M-s u") 'mark-stack-pop)
+(global-set-key (kbd "M-s m") 'marker-stack-push)
+(global-set-key (kbd "M-s u") 'marker-stack-pop)
 
-(defvar mark-stack nil)
+(defvar marker-stack nil)
 
-(defun mark-stack-push ()
+(defun marker-stack-push ()
   "Push current point in stack."
   (interactive)
   (message "Location marked.")
   ;; 下面两行，REF: `push-mark'
   (set-marker (mark-marker) (point) (current-buffer))
-  (setq mark-stack (cons (copy-marker (mark-marker)) mark-stack))
+  (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack))
   )
 
-(defun mark-stack-pop ()
+(defun marker-stack-pop ()
   "Pop point from stack."
   (interactive)
-  (if (null mark-stack)
+  (if (null marker-stack)
       (message "Stack is empty.")
-    ;; 下面三行，REF: `pop-global-mark'
-    (switch-to-buffer (marker-buffer (car mark-stack)))
-    (goto-char (marker-position (car mark-stack)))
-    (setq mark-stack (cdr mark-stack)))
+    (if-let* ((marker (car marker-stack))
+	      (buffer (marker-buffer marker))
+	      (position (marker-position marker)))
+	;; 下面三行，REF: `pop-global-mark'
+	(progn
+	  (switch-to-buffer buffer)
+	  (goto-char position))
+      (message "buffer has been killed."))
+    (setq marker-stack (cdr marker-stack)))
   )
 
 (provide 'init-window-buffer)

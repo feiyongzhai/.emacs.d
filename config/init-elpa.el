@@ -48,7 +48,7 @@
 	beframe
 
 	;; ==== 编辑相关 ====
-	evil general
+	evil general backward-forward
 	highlight-parentheses highlight-indentation
 	company yasnippet avy ace-window
 	neotree electric-spacing iedit yafolding pyvenv conda

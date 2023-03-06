@@ -49,6 +49,7 @@
   (require 'init-dired)
   (require 'init-ibuffer)
   (require 'init-engine)
+  (require 'init-backward-forward)
 
   (when *is-windows*
     (require 'init-win10))

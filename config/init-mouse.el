@@ -18,11 +18,7 @@
        (global-set-key (kbd "<mouse-8>") 'fei-occur-for-mouse)
        ;; (global-set-key (kbd "<C-mouse-8>") 'fei-multi-occur-for-mouse)
        (global-set-key (kbd "<C-mouse-8>") 'symbol-overlay-find-at-point-project)
-       ;; 相当于快速标记一个点并跳回（只作用于当前 buffer）
-       (global-set-key (kbd "<M-mouse-9>") 'push-mark-command)
-       (global-set-key (kbd "<M-mouse-8>") 'pop-to-mark-command)
 
-       (global-set-key (kbd "C-M-s-~") 'speedbar)
        (with-eval-after-load 'speedbar
 	 (define-key speedbar-mode-map (kbd "<mouse-8>") (kbd "b"))
 	 (define-key speedbar-mode-map (kbd "<mouse-9>") (kbd "f")))
@@ -32,7 +28,6 @@
        (global-set-key (kbd "<mouse-5>") 'neotree-toggle)
        (global-set-key (kbd "<mouse-4>") 'fei-occur-for-mouse)
        (global-set-key (kbd "<C-mouse-4>") 'fei-multi-occur-for-mouse)
-       (global-set-key (kbd "C-M-s-~") 'speedbar)
        (with-eval-after-load 'speedbar
 	 (define-key speedbar-mode-map (kbd "<mouse-4>") (kbd "b"))
 	 (define-key speedbar-mode-map (kbd "<mouse-5>") (kbd "f")))

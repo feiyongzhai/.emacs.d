@@ -19,16 +19,20 @@
       (delete-other-windows))
 
     ;; 插入一些内容
+    (read-only-mode -1)
     (erase-buffer)
     (insert (format "%s" (propertize "时间到了！" 'display '(height 10))))
     (when (> fei-continue-times 0)
       (message "已经连续工作 %d 次" fei-continue-times))
 
+    (read-only-mode)
     ;; 设置快捷键 
     (let ((map (make-sparse-keymap)))
       (set-keymap-parent map (current-local-map))
       (define-key map "q" #'fei-promodo-quit-buffer)
       (define-key map "c" #'fei-promodo-continue)
+      (define-key map (kbd "C-x k") (li (message "不要关闭我！")))
+      (define-key map (kbd "M-k") (li (message "不要关闭我！")))
       (use-local-map map))
 
     (fit-frame-to-buffer)

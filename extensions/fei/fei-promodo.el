@@ -35,6 +35,22 @@
 
     ))
 
+(defun fei-pomodoro-timer ()
+  (interactive)
+  ;; `org-timer-set-timer' 会调用 `org-timer--get-timer-title' 来获取
+  ;; `org-timer-countdown-timer-title'。故暂无法自定义 notify 消息。而
+  ;; 且 org-timer-countdown-timer-title 是用 defvar 声明的，说明也没有
+  ;; 想让我们自定义，不折腾为妙。
+  (org-timer-set-timer "20")
+  (add-to-list 'kill-emacs-query-functions 'fei-promodo-kill-emacs-query-function)
+  (message "开始倒计时")
+  ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
+  )
+
+(defun fei-promodo-kill-emacs-query-function ()
+  (yes-or-no-p "有运行的番茄时钟！确定退出吗？")
+  )
+
 (defun fei-promodo-continue ()
   (interactive)
   (org-timer-set-timer "20")
@@ -46,6 +62,8 @@
   (interactive)
   ;; fei-timer-for-promodo 是一个不重复的 timer，运行完之后就没结束了，所以不需要 cancel-timer
   ;; (cancel-timer 'fei-timer-for-promodo)
+  (setq kill-emacs-query-functions
+	(remove 'fei-promodo-kill-emacs-query-function kill-emacs-query-functions))
   (setq fei-continue-times 0)
   (jump-to-register ?p))
 

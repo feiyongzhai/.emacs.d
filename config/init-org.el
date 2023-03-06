@@ -61,19 +61,10 @@
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
 
-(setq org-clock-sound "~/Music/rings/ding0.wav")
-(defun fei-pomodoro-timer ()
-  (interactive)
-  ;; `org-timer-set-timer' 会调用 `org-timer--get-timer-title' 来获取
-  ;; `org-timer-countdown-timer-title'。故暂无法自定义 notify 消息。而
-  ;; 且 org-timer-countdown-timer-title 是用 defvar 声明的，说明也没有
-  ;; 想让我们自定义，不折腾为妙。
-  (org-timer-set-timer "20")
-  (message "开始倒计时")
-  ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
-  )
+
 
 (require 'fei-promodo "~/.emacs.d/extensions/fei/fei-promodo.el")
+(setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
 (add-hook 'org-timer-done-hook 'fei-promodo-notify)
 

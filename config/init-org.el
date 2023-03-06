@@ -66,7 +66,7 @@
 (require 'fei-promodo "~/.emacs.d/extensions/fei/fei-promodo.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
-(add-hook 'org-timer-done-hook 'fei-promodo-notify)
+
 
 ;; Keys
 (global-set-key (kbd "<pause>") 'fei-org-time)

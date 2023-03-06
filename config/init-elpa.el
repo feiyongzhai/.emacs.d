@@ -44,7 +44,7 @@
 	scratch imenu-list rg
 	rainbow-mode rainbow-delimiters
 	dirvish ef-themes websocket
-	interaction-log			;这个包需要自己 require，不会自动加载
+	interaction-log		 ;这个包需要自己 require，不会自动加载
 	beframe
 
 	;; ==== 编辑相关 ====
@@ -83,39 +83,23 @@
 	rubik
 
 	;; ==== 备忘 ====
-	;; helm-org-rifle
-	;; org-roam org-roam-server
-	;; tempel
-	;; tab-bar-echo-area
-	;; eyebrowse
-	;; academic-phrases
-	;; valign
-	;; tldr
-	;; adafruit-wisdom
-	;; eshell-autojump
+	;; helm-org-rifle org-roam org-roam-server
+	;; tempel tab-bar-echo-area eyebrowse
+	;; academic-phrases valign tldr
+	;; adafruit-wisdom eshell-autojump
 	;; treemacs-icons-dired
-	;; ctrlf anzu
-	;; eshell-git-prompt
+	;; ctrlf anzu eshell-git-prompt
 	;; highlight-indent-guides
-	;; devdocs
-	;; sis pinyin-search
-	;; mini-modeline
-	;; zygospore 用自己修改的版本了
+	;; devdocs sis pinyin-search mini-modeline
 	;; goto-line-preview minimap
-	;; calfw / calfw-org
-	;; frames-only-mode
+	;; calfw / calfw-org frames-only-mode
 	;; zone zone-rainbow zone-nyan zone-sl totd
 	;; zoom zlc web-search google-this
-	;; bing-dict
-	;; emojify
-	;; focus
-	;; dired-sider-bar
-	;; ivy-posframe
-	;; deadgrep
+	;; bing-dict emojify focus dired-sider-bar ivy-posframe deadgrep
+	;; zygospore 用自己修的版本了
 	;; ==== 不想折腾了 ====
 	;; w3m mb-url
 	;; ialign 它竟然会修改只读 buffer
-
 	))
 
 (when *is-linux*

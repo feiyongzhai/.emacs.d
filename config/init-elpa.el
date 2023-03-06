@@ -39,7 +39,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	minions gcmh tmr
+	minions gcmh tmr org-contrib
 	all-the-icons-ibuffer
 	scratch imenu-list rg
 	rainbow-mode rainbow-delimiters

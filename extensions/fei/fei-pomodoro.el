@@ -21,7 +21,7 @@
     ;; 插入一些内容
     (read-only-mode -1)
     (erase-buffer)
-    (insert (format "%s" (propertize "时间到了！" 'display '(height 10))))
+    (insert (format "%s" (propertize "干点别的吧！" 'display '(height 5))))
     (when (> fei-continue-times 0)
       (message "已经连续工作 %d 次" fei-continue-times))
 

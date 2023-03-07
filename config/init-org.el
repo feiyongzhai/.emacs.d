@@ -65,7 +65,7 @@
 
 
 
-(require 'fei-promodo "~/.emacs.d/extensions/fei/fei-promodo.el")
+(require 'fei-pomodoro "~/.emacs.d/extensions/fei/fei-pomodoro.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
 

@@ -47,6 +47,7 @@
       (set-keymap-parent map (current-local-map))
       (define-key map "q" #'fei-pomodoro-quit-buffer)
       (define-key map "c" #'fei-pomodoro-continue)
+      (define-key map "s" #'fei-org-timer-set-timer)
       (define-key map (kbd "C-x k") (li (message "不要关闭我！")))
       (define-key map (kbd "M-k") (li (message "不要关闭我！")))
       (use-local-map map))
@@ -64,6 +65,12 @@
   (org-timer-set-timer "30")
   (message "开始倒计时")
   ;; (alarm-clock-set "2 seconds" "20分钟时间到了")
+  )
+
+(defun fei-org-timer-set-timer ()
+  (interactive)
+  (jump-to-register ?p)
+  (call-interactively 'org-timer-set-timer)
   )
 
 (defun fei-remove-kill-emacs-pomodoro-query ()

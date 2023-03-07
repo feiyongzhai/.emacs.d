@@ -12,7 +12,7 @@
     "是不是又钻牛角尖呀!"
     )
   "用于番茄时钟时间到了的时候随机显示的文本素材"
-  :type 'list
+  :type '(repeat string)
   )
 
 (defun fei-pomodoro-set-timer (time)

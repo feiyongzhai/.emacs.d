@@ -59,6 +59,7 @@
 
 (add-hook 'org-timer-set-hook 'fei-add-kill-emacs-pomodoro-query)
 (add-hook 'org-timer-done-hook 'fei-remove-kill-emacs-pomodoro-query)
+(add-hook 'org-timer-stop-hook 'fei-remove-kill-emacs-pomodoro-query)
 (add-hook 'org-timer-done-hook 'fei-pomodoro-notify)
 
 (defun fei-pomodoro-kill-emacs-query-function ()

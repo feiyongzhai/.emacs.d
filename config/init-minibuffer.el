@@ -2,6 +2,7 @@
 
 (define-key minibuffer-local-map (kbd "C-M-i") 'switch-to-completions)
 (define-key completion-list-mode-map (kbd "C-M-i") 'switch-to-minibuffer)
+(define-key completion-list-mode-map (kbd "M-e") 'switch-to-minibuffer) ;参照 isearch 快捷键
 (define-key minibuffer-local-map (kbd "M-i") 'switch-to-completions)
 (define-key completion-list-mode-map (kbd "M-i") 'switch-to-minibuffer)
 

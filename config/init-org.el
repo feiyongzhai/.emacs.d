@@ -16,6 +16,8 @@
   ;; (toggle-truncate-lines -1)
 
   ;; (setq org-level-color-stars-only t)	;只高亮 stars
+
+  (setq tab-width 2)
   )
 
 (with-eval-after-load 'org

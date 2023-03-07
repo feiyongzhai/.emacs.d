@@ -10,7 +10,8 @@
 			 ("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")
                          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
                          ;; ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
+                         ;; ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")
+			 ))
 
 ;; (package-initialize)
 

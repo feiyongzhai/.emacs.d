@@ -1,6 +1,20 @@
 (defvar fei-timer-for-pomodoro nil)
 (defvar fei-continue-times 0)
 
+(defcustom fei-pomodoro-message
+  '(
+    "去做 10 个俯卧撑!"
+    "去做 10 个深蹲!"
+    "去看看风景吧!"
+    "上个厕所吧!"
+    "用冷水洗洗脸"
+    "干点别的吧！"
+    "是不是又钻牛角尖呀!"
+    )
+  "用于番茄时钟时间到了的时候随机显示的文本素材"
+  :type 'list
+  )
+
 (defun fei-pomodoro-set-timer (time)
   (setq fei-timer-for-pomodoro
 	(run-with-timer
@@ -21,7 +35,9 @@
     ;; 插入一些内容
     (read-only-mode -1)
     (erase-buffer)
-    (insert (format "%s" (propertize "干点别的吧！" 'display '(height 5))))
+    (insert (format "%s" (propertize
+			  (seq-random-elt fei-pomodoro-message)
+			  'display '(height 5))))
     (when (> fei-continue-times 0)
       (message "已经连续工作 %d 次" fei-continue-times))
 

@@ -24,7 +24,9 @@
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
   (define-key ibuffer-mode-map (kbd "_") 'fei-remove-ibuffer-tmp-hide-regexps)
-  (define-key ibuffer-mode-map (kbd "a") 'ibuffer-bs-toggle-all)
+  (define-key ibuffer-mode-map (kbd "a") 'ibuffer-toggle-all)
+  (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
+  (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
   )
 
 (defun fei-remove-ibuffer-tmp-hide-regexps ()
@@ -36,5 +38,44 @@
             (remove
              (ivy-read "Pop tmp hide buffer " ibuffer-tmp-hide-regexps)
              ibuffer-tmp-hide-regexps)))))
+
+(defun ibuffer-toggle-notes ()
+  "抄的 `ibuffer-bs-toggle-all'"
+  (interactive)
+  (if ibuffer-filtering-qualifiers
+      (if (equal ibuffer-filtering-qualifiers '((filename . "Nutstore Files/org/")))
+	  (ibuffer-pop-filter)
+	(ibuffer-pop-filter)
+	(ibuffer-push-filter '(filename . "Nutstore Files/org/"))
+	(ibuffer-update nil t)
+	)
+    (progn (ibuffer-push-filter '(filename . "Nutstore Files/org/"))
+	   (ibuffer-update nil t))))
+
+(defun ibuffer-toggle-emacs ()
+  "抄的 `ibuffer-bs-toggle-all'"
+  (interactive)
+  (if ibuffer-filtering-qualifiers
+      (if (equal ibuffer-filtering-qualifiers '((filename . "\\.emacs\\.d")))
+	  (ibuffer-pop-filter)
+	(ibuffer-pop-filter)
+	(ibuffer-push-filter '(filename . "\\.emacs\\.d"))
+	(ibuffer-update nil t)
+	)
+    (progn (ibuffer-push-filter '(filename . "\\.emacs\\.d"))
+	   (ibuffer-update nil t))))
+
+(defun ibuffer-toggle-all ()
+  "抄的 `ibuffer-bs-toggle-all'"
+  (interactive)
+  (if ibuffer-filtering-qualifiers
+      (if (equal ibuffer-filtering-qualifiers '((filename . ".*")))
+	  (ibuffer-pop-filter)
+	(ibuffer-pop-filter)
+	(ibuffer-push-filter '(filename . ".*"))
+	(ibuffer-update nil t)
+	)
+    (progn (ibuffer-push-filter '(filename . ".*"))
+	   (ibuffer-update nil t))))
 
 (provide 'init-ibuffer)

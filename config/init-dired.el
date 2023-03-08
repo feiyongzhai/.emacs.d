@@ -52,6 +52,7 @@
       ("." . fei-dired-toggle-hidden)
       ("`" . fei-eshell-cd-here)
       (")" . dired-create-empty-file)
+      ("SPC" . find-file)
       ))
 
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)

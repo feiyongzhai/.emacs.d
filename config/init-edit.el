@@ -35,6 +35,9 @@
 ;;; Navigate
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 
+(global-set-key (kbd "M-p") 'goto-last-change)
+(global-set-key (kbd "M-n") 'goto-last-change-reverse)
+
 ;;; Highlight
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 

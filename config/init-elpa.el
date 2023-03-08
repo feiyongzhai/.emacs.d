@@ -50,7 +50,7 @@
 	beframe
 
 	;; ==== 编辑相关 ====
-	evil general backward-forward
+	evil general backward-forward goto-chg
 	highlight-parentheses highlight-indentation
 	company yasnippet avy ace-window
 	neotree electric-spacing iedit yafolding pyvenv conda

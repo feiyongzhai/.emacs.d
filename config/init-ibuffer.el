@@ -1,6 +1,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 (add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (add-hook 'ibuffer-mode-hook 'hl-line-mode)
+(autoload 'ibuffer-bs-toggle-all "ibuf-ext" nil t)
 
 (setq all-the-icons-ibuffer-formats
       '((mark modified read-only locked " "
@@ -23,6 +24,7 @@
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
   (define-key ibuffer-mode-map (kbd "_") 'fei-remove-ibuffer-tmp-hide-regexps)
+  (define-key ibuffer-mode-map (kbd "a") 'ibuffer-bs-toggle-all)
   )
 
 (defun fei-remove-ibuffer-tmp-hide-regexps ()

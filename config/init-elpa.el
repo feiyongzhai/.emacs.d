@@ -41,6 +41,7 @@
       '(
 	;; ==== Misc ====
 	minions gcmh tmr org-contrib
+	org-appear
 	all-the-icons-ibuffer
 	scratch imenu-list rg
 	rainbow-mode rainbow-delimiters

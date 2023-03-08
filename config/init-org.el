@@ -14,10 +14,10 @@
   ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好，这两个函数在终端下表现差异很小
   (visual-line-mode)
   ;; (toggle-truncate-lines -1)
-
-  ;; (setq org-level-color-stars-only t)	;只高亮 stars
-
+  
   (setq tab-width 2)
+
+  (smartparens-mode)
   )
 
 (with-eval-after-load 'org
@@ -26,11 +26,7 @@
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   )
 
-(setq org-highlight-latex-and-related '(native)
-      ;; org-ellipsis " ∇ "
-      org-ellipsis " ↩"
-      org-adapt-indentation nil)
-
+
 ;; 使得 org 中的时间格式变成英文来规避乱码问题
 ;; (setq system-time-locale "C")
 (with-eval-after-load 'org
@@ -51,6 +47,8 @@
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
 	("~/Nutstore Files/org/private/private.org" :maxlevel . 1)))
+
+;; 更好的样式
 (setq org-todo-keyword-faces
       '(("TODO" . org-warning)
 	("PLAN" . "brown")
@@ -63,9 +61,87 @@
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
 
+(setq org-fontify-quote-and-verse-blocks t) ;给 quote 和 verse block 添加样式
+(setq org-log-into-drawer t)		;把 log 放到 drawer 中，看起来更规整一些
+;; (setq org-level-color-stars-only t)	;只高亮 stars
+;; (setq org-hide-leading-stars t)
+(setq org-highlight-latex-and-related '(native)
+      ;; org-ellipsis " ∇ "
+      org-ellipsis " ↩"
+      org-adapt-indentation nil)
+(with-eval-after-load 'org
+  ;; 完成任务时, 将其划线勾掉
+  (set-face-attribute 'org-headline-done nil :strike-through t))
 
+;; 设置各个标题的大小，不使用配色来区分 headline 层级
+(custom-set-faces
+ '(org-level-1 ((t (:weight extra-bold :height 1.25))))
+ '(org-level-2 ((t (:weight bold :height 1.15))))
+ '(org-level-3 ((t (:weight bold :height 1.12))))
+ '(org-level-4 ((t (:weight semi-bold :height 1.09))))
+ '(org-level-5 ((t (:weight semi-bold :height 1.06))))
+ '(org-level-6 ((t (:weight semi-bold :height 1.03))))
+ '(org-level-8 ((t (:weight semi-bold)))))
 
-(require 'fei-promodo "~/.emacs.d/extensions/fei/fei-promodo.el")
+;; headline 上下空一行会好看一些
+
+;; org-num-mode: 给 headline 添加数字标题（内置功能）
+;; org-bars: 添加缩进线（外部包，目前只在 github 上）
+;; org-fragtog: latex 预览（melpa 可下载）
+
+;; org-appear
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-hide-emphasis-markers t)	;builtin option
+(setq org-appear-autoemphasis t
+      org-appear-autosubmarkers t
+      org-appear-autolinks nil)
+
+;;; org 中文格式去除需要添加空格的限制，以及相应的 org-export 配置
+;; @REF: https://emacs-china.org/t/org-mode/597/6?u=yongfeizhai
+;; @REF: https://emacs-china.org/t/org-mode/597/5?u=yongfeizhai
+;; @NOTE: 配置可能存在潜在问题，出现问题的时候留意观察
+(setq org-emphasis-regexp-components
+      ;; markup 记号前后允许中文
+      (list (concat " \t('\"{"            "[:nonascii:]")
+            (concat "- \t.,:!?;'\")}\\["  "[:nonascii:]")
+            " \t\r\n,\"'"
+            "."
+            1))
+(with-eval-after-load 'org
+  (setq org-match-substring-regexp
+        (concat
+         ;; 限制上标和下标的匹配范围，org 中对其的介绍见：(org) Subscripts and superscripts
+         "\\([0-9a-zA-Zα-γΑ-Ω]\\)\\([_^]\\)\\("
+         "\\(?:" (org-create-multibrace-regexp "{" "}" org-match-sexp-depth) "\\)"
+         "\\|"
+         "\\(?:" (org-create-multibrace-regexp "(" ")" org-match-sexp-depth) "\\)"
+         "\\|"
+         "\\(?:\\*\\|[+-]?[[:alnum:].,\\]*[[:alnum:]]\\)\\)")))
+
+;;; 关于 org-export 是对于换行符号的处理
+;; latex 中的 xelatex 可以自己处理换行，所以在 emacs 这边不需要多余的处理
+;; html 不会，所以需要在 emacs 这边进行一些配置
+;; @NOTE: 配置可能存在潜在风险，出现问题的留意观察该部分
+;; @REF: https://emacs-china.org/t/org-mode-html/7174
+;; @REF: https://emacs-china.org/t/org-mode-html/7174/2?u=yongfeizhai
+;; @REF: https://github.com/syl20bnr/spacemacs/blob/84d649ac2e5e6de508d3e5b57be38b6e00d5cdc1/layers/%2Bintl/chinese/packages.el#L131
+;; 1. 一种方式是：#+options: \n:t
+;; 2. 另外一种方式如下
+(defadvice org-html-paragraph (before org-html-paragraph-advice
+                                        (paragraph contents info) activate)
+    "Join consecutive Chinese lines into a single long line without
+unwanted space when exporting org-mode to html."
+    (let* ((origin-contents (ad-get-arg 1))
+           (fix-regexp "[[:multibyte:]]")
+           (fixed-contents
+            (replace-regexp-in-string
+             (concat
+              "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
+      (ad-set-arg 1 fixed-contents)))
+
+
+
+(require 'fei-pomodoro "~/.emacs.d/extensions/fei/fei-pomodoro.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
 

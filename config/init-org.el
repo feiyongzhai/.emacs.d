@@ -42,7 +42,7 @@
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-(setq org-agenda-files '("~/Nutstore Files/org"))
+(setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
@@ -186,7 +186,7 @@ unwanted space when exporting org-mode to html."
 	   "* TODO %i\nCREATE: %T\n"
 	   :immediate-finish t)
 	  ("s" "SomeDay" entry
-	   (file "gtd.org")
+	   (file "inbox.org")
 	   "* SOMEDAY %?\nCREATE: %T\n")
 	  ("S" "SAR" entry
 	   (file+headline "SAR.org" "Inbox")

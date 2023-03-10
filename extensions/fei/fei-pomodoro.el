@@ -19,7 +19,7 @@
 
 (defun fei-pomodoro-set-todo-message ()
   (interactive)
-  (setq fei-pomodoro-todo-message (read-string "你下次要记录的: ")))
+  (setq fei-pomodoro-todo-message (read-string "你下次要提醒的: ")))
 
 (defun fei-pomodoro-set-timer (time)
   (setq fei-timer-for-pomodoro

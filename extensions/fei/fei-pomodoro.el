@@ -15,6 +15,12 @@
   :type '(repeat string)
   )
 
+(defvar fei-pomodoro-todo-message nil)
+
+(defun fei-pomodoro-set-todo-message ()
+  (interactive)
+  (setq fei-pomodoro-todo-message (read-string "你下次要记录的: ")))
+
 (defun fei-pomodoro-set-timer (time)
   (setq fei-timer-for-pomodoro
 	(run-with-timer
@@ -35,9 +41,13 @@
     ;; 插入一些内容
     (read-only-mode -1)
     (erase-buffer)
-    (insert (format "%s" (propertize
-			  (seq-random-elt fei-pomodoro-message)
-			  'display '(height 5))))
+    (if fei-pomodoro-todo-message
+	(progn (insert fei-pomodoro-todo-message)
+	       (setq fei-pomodoro-todo-message nil))
+	(insert (format "%s" (propertize
+			      (seq-random-elt fei-pomodoro-message)
+			      'display '(height 5)))))
+    
     (when (> fei-continue-times 0)
       (message "已经连续工作 %d 次" fei-continue-times))
 

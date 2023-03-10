@@ -7,7 +7,9 @@
 
 ;; pdf-tools
 (unless *is-termux*
-  (require 'init-pdf-tools))
+  (require 'init-pdf-tools)
+  (require 'init-flutter)
+  )
 
 ;; (require 'init-wanderlust)
 

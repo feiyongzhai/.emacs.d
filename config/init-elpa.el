@@ -32,7 +32,7 @@
 (setq fei-package-ensure-installed-linux
       '(
 	magit bash-completion pdf-tools
-	graphviz-dot-mode
+	graphviz-dot-mode lsp-dart flutter
 	;; citre vterm vterm-toggle sx
 	))
 
@@ -58,7 +58,7 @@
 	olivetti math-symbol-lists laas expand-region vundo
 
 	;; Programming
-	lsp-dart flutter emmet-mode js2-mode web-mode dumb-jump diff-hl
+	emmet-mode js2-mode web-mode dumb-jump diff-hl
 
 	;; ==== Helm ====
 	helm-chrome helm-chrome-history

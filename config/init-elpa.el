@@ -61,7 +61,7 @@
 	emmet-mode js2-mode web-mode dumb-jump diff-hl
 
 	;; ==== Helm ====
-	helm-chrome helm-chrome-history
+	;; helm-chrome helm-chrome-history
 
 	;; ==== Major-mode ====
 	markdown-mode matlab-mode auctex cdlatex

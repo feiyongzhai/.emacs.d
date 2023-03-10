@@ -76,7 +76,7 @@
   (eaf-bind-key nil "C-e" eaf-pdf-viewer-keybinding)
   
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
-  (define-key eaf-mode-map* (kbd "C-c b") #'helm-chrome-history)
+  ;; (define-key eaf-mode-map* (kbd "C-c b") #'helm-chrome-history)
   )
 
 ;;; Funcs

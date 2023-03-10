@@ -27,6 +27,7 @@
   (define-key ibuffer-mode-map (kbd "a") 'ibuffer-toggle-all)
   (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
   (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
+  (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
   )
 
 (defun fei-remove-ibuffer-tmp-hide-regexps ()

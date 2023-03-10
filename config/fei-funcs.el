@@ -134,10 +134,6 @@ kill region instead"
   (if tool-bar-mode (tool-bar-mode -1) (tool-bar-mode t))
   (if scroll-bar-mode (scroll-bar-mode -1) (scroll-bar-mode t)))
 
-(defun fei-emacs ()
-  (interactive)
-  (start-process "emacs" nil "emacs"))
-
 (defun fei-occur-for-mouse ()
   (interactive)
   (if-let ((window (get-buffer-window "*Occur*")))
@@ -247,10 +243,9 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
       (end-of-line)
       (current-column))))
 
-;; `fit-frame-to-buffer' 好像干了我想干的事，而且比我干的更好。
+;; `fit-frame-to-buffer' 做了差不多的事情
 (defun adjust-frame-by-longest-line ()
   (interactive)
-  ;; 其实我按照的是视觉长度，但是无关紧要，可以用
   (set-frame-width nil (+ (if display-line-numbers-mode 5 0)
 			  (longest-line-colum))))
 

@@ -6,7 +6,6 @@
 (add-to-list 'menu-bar-final-items 'my-menu 'append) ;让自己添加的 menu 放到最后的位置
 (define-key-after global-map [menu-bar my-menu] (cons "Mine" my-menu-bar-menu) 'tools)
 
-(define-key my-menu-bar-menu [my-cmd1] '(menu-item "fei-emacs" fei-emacs))
 (define-key my-menu-bar-menu [my-cmd2] '(menu-item "fei-vscode" open-current-file-with-vscode))
 (when *is-linux*
   (and (executable-find "gedit")

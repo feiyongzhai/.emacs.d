@@ -48,6 +48,7 @@
 	dirvish ef-themes websocket
 	interaction-log		 ;这个包需要自己 require，不会自动加载
 	beframe google-translate
+	auto-dim-other-buffers
 
 	;; ==== 编辑相关 ====
 	evil general backward-forward goto-chg

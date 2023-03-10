@@ -198,6 +198,9 @@
 ;; 配合 `rainbow-delimiters-mode' 只需要显示一层括号颜色就够了
 (setq highlight-parentheses-colors '("Red"))
 
+
+(auto-dim-other-buffers-mode)
+
 (provide 'init-packages)
 
 ;; Local Variables:

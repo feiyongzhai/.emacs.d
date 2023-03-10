@@ -62,6 +62,7 @@
   (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
   (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
+  (define-key dired-mode-map (kbd ";d") 'dired-duplicate-this-file)
   )
 
 (with-eval-after-load 'dired-x
@@ -90,6 +91,27 @@
   (interactive "e")
   (mouse-set-point event)
   (call-interactively 'browse-url-of-dired-file))
+
+
+(defun fei-git-status ()
+  (interactive)
+  (compile "git status"))
+
+;; @REF: https://emacs.stackexchange.com/questions/60661/how-to-duplicate-a-file-in-dired
+(defun dired-duplicate-this-file ()
+  "Duplicate file on this line.
+   暂时没有对文件夹很好的处理，不过能用，管他的呢。"
+  (interactive)
+  (let* ((this (dired-get-filename t))
+	 (name (file-name-base this))
+	 (ext  (file-name-extension this))
+         (ctr  1)
+         (new   (format "%s[%d].%s" name ctr ext)))
+    (while (file-exists-p new)
+      (setq ctr  (1+ ctr)
+            new  (format "%s[%d].%s" name ctr ext)))
+    (dired-copy-file this new nil))
+  (revert-buffer))
 
 
 ;; dirvish
@@ -124,9 +146,6 @@
     )))
 
 
-(defun fei-git-status ()
-  (interactive)
-  (compile "git status"))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

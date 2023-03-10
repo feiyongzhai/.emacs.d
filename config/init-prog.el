@@ -7,16 +7,10 @@
   (hl-line-mode t)
   (yas-minor-mode t))
 
-(with-eval-after-load 'outline
-  ;; use `add-file-local-variable' to change `outline-regexp' for a single file
-  (global-set-key (kbd "C-c o") outline-mode-prefix-map)
-  (global-set-key (kbd "C-c 2") outline-mode-prefix-map)
-  (define-key outline-mode-prefix-map (kbd "o") 'counsel-outline))
+;; use `add-file-local-variable' to change `outline-regexp' for a single file
 
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)
-
-;; (global-subword-mode 1)
 
 ;; Octave
 (add-hook 'octave-mode-hook 'electric-pair-local-mode)

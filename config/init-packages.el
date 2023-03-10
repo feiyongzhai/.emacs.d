@@ -125,11 +125,6 @@
 ;;; Registers
 (setq register-preview-delay 0.1)
 
-(global-set-key (kbd "M-s [") 'point-to-register)
-(global-set-key (kbd "M-s ]") 'jump-to-register)
-
-(global-set-key (kbd "C-c J") (li (fei-counsel-fd-file-jump nil "~/Desktop/文献仓库")))
-
 ;;; youdao-dictionary
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
@@ -147,16 +142,6 @@
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)
 ;; (global-set-key (kbd "C-h O") 'describe-symbol)
 ;; (global-set-key (kbd "C-h k") 'helpful-key)
-
-;; helm-org-rifle 搜索的 org 文件需要打开。不过 org-agenda 会默认打开
-;; 一些 org 文件，所以配合起来使用也能接受
-(global-set-key (kbd "C-c h o") 'helm-org-rifle)
-(global-set-key (kbd "C-c h b") 'helm-chrome-bookmarks)
-(with-eval-after-load 'helm
-  (global-set-key (kbd "C-c h o") 'helm-org-rifle)
-  (global-set-key (kbd "C-c h b") 'helm-chrome-bookmarks))
-
-(setq helm-command-prefix-key (kbd "C-c h"))
 
 
 ;;; Rg

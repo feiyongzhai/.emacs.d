@@ -115,4 +115,19 @@
 (defun eshell/d () (eshell/cd "d:/"))
 (defun eshell/c () (eshell/cd "c:/"))
 
+
+(with-eval-after-load 'counsel
+  (defun counsel-git (&optional initial-input)
+    "魔改的 counsel-git 原始版本，解决编码问题
+Find file in the current Git repository.
+INITIAL-INPUT can be given as the initial minibuffer input."
+    (interactive)
+    (counsel-require-program counsel-git-cmd)
+    (let ((default-directory (counsel-locate-git-root)))
+      (ivy-read "Find file: " (mapcar (lambda (str) (decode-coding-string str 'utf-8)) (counsel-git-cands default-directory)) ;魔改部分
+		:initial-input initial-input
+		:action #'counsel-git-action
+		:history 'counsel-git-history
+		:caller 'counsel-git))))
+
 (provide 'init-win10)

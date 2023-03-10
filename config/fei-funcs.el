@@ -192,7 +192,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
     (ivy-read "File: "
               (split-string
                (shell-command-to-string
-                (concat "fd --hidden --color never " "--exclude '*.git'"))
+                (concat "fd --hidden --color never " "--exclude *.git"))
                "\n" t)
               :initial-input initial-input
               :action (lambda (d) (find-file (expand-file-name d)))

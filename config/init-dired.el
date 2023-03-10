@@ -53,6 +53,8 @@
       ("`" . fei-eshell-cd-here)
       (")" . dired-create-empty-file)
       ("SPC" . find-file)
+      ("z" . fei-compile)
+      ("9" . fei-git-status)
       ))
 
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
@@ -120,6 +122,11 @@
     ("M-e" . dirvish-emerge-menu)
     ("M-S" . dirvish-layout-switch)
     )))
+
+
+(defun fei-git-status ()
+  (interactive)
+  (compile "git status"))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

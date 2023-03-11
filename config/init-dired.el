@@ -51,18 +51,20 @@
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
       ("`" . fei-eshell-cd-here)
-      (")" . dired-create-empty-file)
+      ("_" . dired-create-empty-file)
       ("SPC" . find-file)
       ("z" . fei-compile)
-      ("9" . fei-git-status)
       ))
 
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
-  (define-key dired-mode-map (kbd ";e") 'fei-eshell-cd-here)
   (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
   (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
   (define-key dired-mode-map (kbd ";d") 'dired-duplicate-this-file)
+  (define-key dired-mode-map (kbd ";g") 'fei-git-status)
+  (define-key dired-mode-map (kbd ";s") 'fei-vc-dired-jump)
+  (define-key dired-mode-map (kbd ";w") 'file-manager-here)
+  (define-key dired-mode-map (kbd ";l") 'vc-print-root-log)
   )
 
 (with-eval-after-load 'dired-x

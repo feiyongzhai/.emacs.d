@@ -119,12 +119,13 @@
 ;; dirvish
 (dirvish-override-dired-mode)
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
+(setq dirvish-mode-line-height 18)
 (setq dirvish-attributes
       '(subtree-state all-the-icons file-time file-size))
 (setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")
 
 (setq dired-listing-switches
-        "-l --almost-all --human-readable --group-directories-first --no-group")
+      "-l --almost-all --human-readable --group-directories-first --no-group")
 (with-eval-after-load 'dirvish
   (fei-define-key-with-map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
   '(("a"   . dirvish-quick-access)

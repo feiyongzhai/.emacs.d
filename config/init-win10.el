@@ -14,11 +14,6 @@
 (defvar first-make-frame-flag nil
   "标志信号，保证只在第一次进行修改")
 
-(openwith-mode t)
-(setq openwith-associations '(("\\.pdf\\'" "start" (file))
-                              ("\\.doc\\'" "start" (file))
-                              ("\\.docx\\'" "start" (file))))
-
 (setq w32-lwindow-modifier 'super)
 (setq w32-pass-lwindow-to-system t)
 (setq w32-apps-modifier 'super)

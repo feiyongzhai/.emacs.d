@@ -40,12 +40,12 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	minions gcmh tmr org-contrib
+	gcmh tmr org-contrib
 	org-appear
 	all-the-icons-ibuffer
 	scratch imenu-list rg
 	rainbow-mode rainbow-delimiters
-	dirvish ef-themes websocket
+	dirvish websocket
 	interaction-log		 ;这个包需要自己 require，不会自动加载
 	beframe google-translate
 	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
@@ -81,12 +81,13 @@
 	eshell-up elfeed pyim pyim-basedict fcitx
 	youdao-dictionary engine-mode hide-mode-line
 	
-        helpful alarm-clock openwith trashed cal-china-x
+        helpful alarm-clock trashed cal-china-x
 
 	;; ==== 游戏 ====
 	rubik
 
 	;; ==== 备忘 ====
+	;; minions openwith
 	;; helm-org-rifle org-roam org-roam-server
 	;; tempel tab-bar-echo-area eyebrowse
 	;; academic-phrases valign tldr

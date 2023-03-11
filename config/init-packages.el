@@ -190,10 +190,6 @@
 (global-zoxide-mode)
 
 
-;; ef-themes
-(global-set-key (kbd "M-s M-l") 'ef-themes-load-random)
-
-
 ;; highlight-parentheses
 ;; 配合 `rainbow-delimiters-mode' 只需要显示一层括号颜色就够了
 (setq highlight-parentheses-colors '("Red"))

@@ -1,9 +1,3 @@
-;; minions-mode == 简化 minor-mode 的显示
-(minions-mode)
-(global-set-key [S-down-mouse-3] 'minions-minor-modes-menu) ;默认是 `kmacro-call-macro' （加载 kmacro.el 后）
-(add-to-list 'minions-promoted-modes '(feebleline-mode . nil))	;添加显示的菜单项
-(setq minions-prominent-modes '(company-mode company-search-mode)) ;不隐藏的 minor-mode
-
 ;; feebleline
 (add-to-list 'load-path "~/.emacs.d/extensions/feebleline")
 (require 'feebleline)

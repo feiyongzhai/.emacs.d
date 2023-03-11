@@ -30,7 +30,8 @@
          :auto-preamble t
 	 :html-preamble ,(read-html-template "preamble.html")
 	 :html-head ,(read-html-template "head.html")
-         :auto-sitemap t
+	 ;; windows 下用 sitemap 编码问题折腾不好，索性放弃
+         ;; :auto-sitemap t
          ;; :sitemap-filename "sitemap.org"
          ;; :sitemap-title "Sitemap"
          )

@@ -27,7 +27,7 @@
 (with-eval-after-load 'dired
   
   (require 'dired-ranger)
-  (require 'dired-filter)
+  ;; (require 'dired-filter)
 
   (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
   (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)

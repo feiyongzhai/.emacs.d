@@ -15,6 +15,7 @@
 
 (global-set-key (kbd "S-SPC") 'set-mark-command)
 (global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
+(global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
 ;;; Kill/Yank
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)

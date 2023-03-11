@@ -55,7 +55,7 @@
 	evil general backward-forward goto-chg
 	highlight-parentheses highlight-indentation
 	company yasnippet avy ace-window
-	neotree electric-spacing iedit yafolding pyvenv conda
+	electric-spacing iedit yafolding pyvenv conda
 	symbol-overlay separedit smartparens corfu
 	olivetti math-symbol-lists laas expand-region vundo
 
@@ -87,7 +87,7 @@
 	rubik
 
 	;; ==== 备忘 ====
-	;; minions openwith
+	;; minions openwith neotree
 	;; helm-org-rifle org-roam org-roam-server
 	;; tempel tab-bar-echo-area eyebrowse
 	;; academic-phrases valign tldr

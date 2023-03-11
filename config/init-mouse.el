@@ -13,7 +13,6 @@
 (cond (*is-linux*
        ;; 快速查找定义 / 快速切换 buffer 或者 文件
        (global-set-key (kbd "<C-mouse-9>") (li (setq bs-cur-major-mode major-mode) (bs-show nil)))
-       ;; (global-set-key (kbd "<mouse-9>") 'neotree-toggle)
        (global-set-key (kbd "<mouse-9>") 'treemacs)
        (global-set-key (kbd "<mouse-8>") 'fei-occur-for-mouse)
        ;; (global-set-key (kbd "<C-mouse-8>") 'fei-multi-occur-for-mouse)
@@ -25,7 +24,6 @@
        )
       (*is-windows*
        ;; 快速查找定义 / 快速浏览文件
-       (global-set-key (kbd "<mouse-5>") 'neotree-toggle)
        (global-set-key (kbd "<mouse-4>") 'fei-occur-for-mouse)
        (global-set-key (kbd "<C-mouse-4>") 'fei-multi-occur-for-mouse)
        (with-eval-after-load 'speedbar

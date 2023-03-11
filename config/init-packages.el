@@ -11,7 +11,6 @@
 (setq calendar-week-start-day 1)
 
 ;; 快捷键讲究的就是一个随心所欲，狗屁章法
-(global-set-key (kbd "M-s M-n") 'neotree-toggle)
 (global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
 
 ;;; Treemacs
@@ -44,36 +43,6 @@
   (treemacs-quit)
   (setq treemacs-position 'right)
   (treemacs))
-
-;;; Neotree
-(setq neo-theme 'classic)
-(setq neo-window-position 'right)
-(with-eval-after-load 'neotree
-  (define-key neotree-mode-map (kbd "j") 'neotree-next-line)
-  (define-key neotree-mode-map (kbd "k") 'neotree-previous-line)
-  (define-key neotree-mode-map (kbd "J") 'fei-neotree-move-to-left)
-  (define-key neotree-mode-map (kbd "K") 'fei-neotree-move-to-right)
-  (define-key neotree-mode-map (kbd "l") 'neotree-enter)
-  (define-key neotree-mode-map (kbd "f") 'neotree-enter)
-  (define-key neotree-mode-map (kbd "<mouse-3>") 'neotree-mouse-open-external)
-  )
-
-(defun fei-neotree-move-to-left ()
-  (interactive)
-  (neotree-hide)
-  (setq neo-window-position 'left)
-  (neotree-show))
-
-(defun fei-neotree-move-to-right ()
-  (interactive)
-  (neotree-hide)
-  (setq neo-window-position 'right)
-  (neotree-show))
-
-(defun neotree-mouse-open-external (event)
-  (interactive "e")
-  (mouse-set-point event)
-  (neotree-open-file-in-system-application))
 
 ;;; alarm-clock
 (global-set-key (kbd "M-s a s") 'alarm-clock-set)

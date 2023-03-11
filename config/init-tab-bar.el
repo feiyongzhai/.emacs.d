@@ -64,5 +64,13 @@
 (global-set-key (kbd "M-`") 'tab-recent)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
+(global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
+
+
+(defun fei-switch-current-buffer-to-new-tab ()
+  (interactive)
+  (let ((cur-buf (current-buffer)))
+    (winner-undo)			;切换回上一个状态
+    (switch-to-buffer-other-tab cur-buf)))
 
 (provide 'init-tab-bar)

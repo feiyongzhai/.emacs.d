@@ -56,7 +56,7 @@
 (setq imenu-list-focus-after-activation t)
 
 ;;; Trashed
-(global-set-key (kbd "C-c t") 'trashed)
+(global-set-key (kbd "C-c T") 'trashed)
 
 ;; 方便左手在键盘，右手在鼠标上的操作姿势
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)

@@ -166,6 +166,12 @@
 
 (auto-dim-other-buffers-mode)
 
+
+;; Dashboard
+(setq dashboard-startup-banner 'logo)
+(setq dashboard-center-content t)
+(setq tab-bar-new-tab-choice 'dashboard-open)
+
 (provide 'init-packages)
 
 ;; Local Variables:

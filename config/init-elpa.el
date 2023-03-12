@@ -50,7 +50,7 @@
 	beframe google-translate
 
 	;; ==== 外观 ====
-	standard-themes 
+	standard-themes dashboard
 	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
 
 	;; ==== 编辑相关 ====

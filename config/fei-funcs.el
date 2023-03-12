@@ -59,6 +59,7 @@ kill region instead"
 
 
 ;; @REF: https://emacs-china.org/t/leader-vscode/19166/29?u=yongfeizhai
+;; @REF: https://emacs-china.org/t/vscode-vscode-emacs/22927/11
 (defun open-current-file-with-vscode ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))

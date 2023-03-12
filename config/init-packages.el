@@ -170,7 +170,8 @@
 ;; Dashboard
 (setq dashboard-startup-banner 'logo)
 (setq dashboard-center-content t)
-(setq tab-bar-new-tab-choice 'dashboard-open)
+;; known bugs: 在 side 新 tab 的时候会报错
+;; (setq tab-bar-new-tab-choice 'dashboard-open)
 
 (provide 'init-packages)
 

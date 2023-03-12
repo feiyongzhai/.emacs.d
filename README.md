@@ -1,4 +1,1 @@
-# 自用的emacs配置
-```bash
-cd ~ && git clone https://github.com/feiyongzhai/.emacs.d.git
-```
+这个人很懒，什么也没有写

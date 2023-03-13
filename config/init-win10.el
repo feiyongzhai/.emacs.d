@@ -1,6 +1,12 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
 
+;;; Openwith
+(openwith-mode t)
+(setq openwith-associations '(("\\.pdf\\'" "start" (file))
+                              ("\\.doc\\'" "start" (file))
+                              ("\\.docx\\'" "start" (file))))
+
 ;; font
 (defun fei-setup-win-emoji ()
   (set-fontset-font "fontset-default" 'unicode '("微软雅黑"))

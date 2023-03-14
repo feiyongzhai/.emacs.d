@@ -32,6 +32,7 @@
 ;; (setq recenter-positions '(top middle bottom))
 
 (global-set-key [remap goto-line] 'avy-goto-line)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;;; Navigate
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)

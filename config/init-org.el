@@ -36,8 +36,6 @@
 
   ;; org-mode 中的 C-c M-l 绑定到了 `org-insert-last-stored-link' 上
   ;; C-c s 用于想在 org-mode 中用 `org-store-link'
-  (global-set-key (kbd "C-c M-l") 'org-store-link)
-  (global-set-key (kbd "C-c s") 'org-store-link)
   )
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
@@ -144,34 +142,6 @@ unwanted space when exporting org-mode to html."
 (require 'fei-pomodoro "~/.emacs.d/extensions/fei/fei-pomodoro.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
-
-
-;; Keys
-(global-set-key (kbd "<pause>") 'fei-org-time)
-(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
-(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "C-S-y") 'org-download-clipboard)
-
-(global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
-(global-set-key (kbd "C-c A") 'org-agenda)
-(global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
-(global-set-key (kbd "C-c C") 'fei-org-capture)
-(global-set-key (kbd "C-c n t") 'fei-org-capture-TODO)
-(global-set-key (kbd "C-c n n") 'fei-org-capture-note)
-(global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
-(global-set-key (kbd "C-c n j") 'fei-org-capture-private)
-(global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
-(global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
-(global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
-(global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
-(global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
-(global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
-(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
-
-(with-eval-after-load 'org-agenda
-  (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
-  (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
 (setq org-directory "~/Nutstore Files/org")
 ;;; org-capture-templates

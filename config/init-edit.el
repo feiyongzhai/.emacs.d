@@ -13,35 +13,9 @@
 ;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")
 (setq sentence-end "\\([.?!…‽][]\"'”’)}»›]*\\($\\|[  ]$\\|\t\\|[  ][  ]\\)\\|[。．？！:：]+\\)[  \t\n]*")
 
-(global-set-key (kbd "S-SPC") 'set-mark-command)
-(global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
-(global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
-;;; Kill/Yank
-(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
-(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
-(global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "M-r") 'replace-string)
-(global-set-key (kbd "M-R") 'replace-regexp)
-
-(global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
-(global-set-key (kbd "M-s O") 'fei-occur-at-point)
-
-(global-set-key (kbd "C-'") 'avy-resume)
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
-
-(global-set-key [remap goto-line] 'avy-goto-line)
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;;; Navigate
-(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
-
-(global-set-key (kbd "M-p") 'goto-last-change)
-(global-set-key (kbd "M-n") 'goto-last-change-reverse)
-
-;;; Highlight
-(global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
 (defun fei-scroll-up-line ()
   (interactive)
@@ -58,46 +32,6 @@
     (scroll-down-line)
     (scroll-down-line)
     (fei-pulse-current-line)))
-
-;;; Misc
-(global-set-key (kbd "C-0") 'delete-window)
-(global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
-(global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
-
-(global-set-key (kbd "C-x i") 'insert-char)
-(global-set-key (kbd "C-x I") 'emoji-search)
-(global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
-
-(global-set-key (kbd "C-c o o") 'counsel-outline)
-(global-set-key (kbd "C-c i") 'counsel-imenu)
-
-(global-set-key (kbd "C-x u") 'transient-undo)
-(global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
-(global-set-key (kbd "C-x C-l") 'fei-meow-last-buffer)
-
-(autoload 'move-text-up "move-text" nil t)
-(autoload 'move-text-down "move-text" nil t)
-(global-set-key (kbd "<M-up>") 'move-text-up)
-(global-set-key (kbd "<M-down>") 'move-text-down)
-
-;; Iedit
-(global-set-key (kbd "C-;") 'iedit-mode)
-(global-set-key (kbd "M-s ;") 'iedit-mode)
-
-;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
-(global-set-key (kbd "M-c") 'capitalize-dwim)
-(global-set-key (kbd "M-l") 'downcase-dwim)
-(global-set-key (kbd "M-u") 'upcase-dwim)
-(global-set-key (kbd "C-x C-u") nil)
-
-(global-set-key (kbd "C-x u") 'vundo)
-(global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
-
-(global-set-key (kbd "C-s-n") 'fei-scroll-up-line)
-(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
-(global-set-key (kbd "C-s-p") 'fei-scroll-down-line)
-(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
 
 (autoload 'duplicate-line-below-comment "duplicate-line" nil t)
 (autoload 'duplicate-line-or-region-below "duplicate-line" nil t)
@@ -124,6 +58,7 @@
   (let ((buf (clone-indirect-buffer nil 'display)))
     (with-current-buffer buf
       (narrow-to-region start end))))
-(global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
+
+
 
 (provide 'init-edit)

@@ -8,9 +8,4 @@
 (setq sp-highlight-pair-overlay nil
       sp-highlight-wrap-overlay nil)
 
-(define-key emacs-lisp-mode-map (kbd "<C-right>") 'sp-forward-slurp-sexp)
-(define-key emacs-lisp-mode-map (kbd "<C-left>") 'sp-forward-barf-sexp)
-(define-key emacs-lisp-mode-map (kbd "M-U") 'sp-splice-sexp)
-(define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
-
 (provide 'init-lisp)

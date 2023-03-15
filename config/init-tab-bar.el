@@ -25,25 +25,6 @@
     (apply orig-fun args)))
 (advice-add 'tab-bar-duplicate-tab :around 'fei-tab-duplicate-advisor)
 
-(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
-
-(add-hook 'term-mode-hook '+fei-term-mode-hook)
-
-(defun +fei-term-mode-hook ()
-  (define-key term-mode-map (kbd "M-s") 'nil)
-  (define-key term-mode-map (kbd "M-0") 'nil)
-  (define-key term-mode-map (kbd "M-1") 'nil)
-  (define-key term-mode-map (kbd "M-2") 'nil)
-  (define-key term-mode-map (kbd "M-3") 'nil)
-  (define-key term-mode-map (kbd "M-4") 'nil)
-  (define-key term-mode-map (kbd "M-5") 'nil)
-  (define-key term-mode-map (kbd "M-6") 'nil)
-  (define-key term-mode-map (kbd "M-7") 'nil)
-  (define-key term-mode-map (kbd "M-8") 'nil)
-  (define-key term-mode-map (kbd "M-9") 'nil)
-  (define-key term-mode-map (kbd "M-`") 'nil)
-  )
-
 (defun fei-select-tab (&optional tab-number)
   "抄的 `tab-bar-select-tab'"
   (interactive "P")
@@ -57,14 +38,6 @@
     (if (> tab-number (length tabs))
 	(tab-new)
       (tab-bar-select-tab tab-number))))
-
-(global-set-key [remap tab-bar-select-tab] 'fei-select-tab)
-(global-set-key (kbd "M-0") 'tab-close)
-(global-set-key (kbd "M--") 'tab-undo)
-(global-set-key (kbd "M-`") 'tab-recent)
-(global-set-key (kbd "C-x t i") 'tab-bar-mode)
-(global-set-key (kbd "C-x t l") 'tab-recent)
-(global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
 
 
 (defun fei-switch-current-buffer-to-new-tab ()

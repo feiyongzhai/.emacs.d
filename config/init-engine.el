@@ -1,7 +1,3 @@
-(global-set-key (kbd "C-c /") 'webjump)
-(global-set-key (kbd "C-h C-y") 'engine/search-quword)
-(global-set-key (kbd "C-M-<return>") 'engine/search-google)
-
 (setq fei-search-prompt
       (concat "[b/B] B站/Bing [w/i] Wikipedia/Github [h/c] 汉典/词典 [y] YouTube \n"
 	      "[s/S/M-s] 学术/搜狗/StackOverFlow [d/D] 百度/DuckDuckGo [g/i] 谷歌/图片"))

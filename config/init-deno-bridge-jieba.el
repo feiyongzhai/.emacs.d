@@ -4,6 +4,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/extensions/deno-bridge-jieba/")
 (require 'deno-bridge-jieba)
+
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "M-b") 'deno-bridge-jieba-backward-word)
   (define-key org-mode-map (kbd "M-d") 'deno-bridge-jieba-kill-word)

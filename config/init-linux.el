@@ -2,9 +2,6 @@
 
 (require 'fei-funcs)
 
-(global-set-key (kbd "M-s k") 'fei-ansi-term)
-(global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
-
 ;; pdf-tools
 (unless *is-termux*
   (require 'init-pdf-tools)

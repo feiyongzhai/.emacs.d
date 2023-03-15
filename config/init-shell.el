@@ -1,7 +1,5 @@
 ;;; init-shell.el  --- configs for shell/terminal
 
-(global-set-key (kbd "M-s z") 'shell)
-
 ;; Shell
 (with-eval-after-load 'shell
   ;; 实际使用中发现下面这个设置会和 matlab-shell 的补全冲突
@@ -15,9 +13,6 @@
     (require 'bash-completion)
     (bash-completion-setup))
   )
-
-(with-eval-after-load 'term
-  (define-key term-raw-map (kbd "M-s") 'nil))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

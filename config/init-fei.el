@@ -7,19 +7,6 @@
 (require 'vxref)
 ;; (require 'tab-bar-mode-indicator)
 
-;; Pulse
-(global-set-key (kbd "C-c H") 'fei-pulse-current-line)
-
-;; Misc
-(global-set-key (kbd "C-M-=") 'calculator)
-(global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
-(global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
-(global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
-
-(global-set-key (kbd "<insert>") 'fei-occur-at-point)
-(global-set-key (kbd "<insertchar>") 'fei-occur-at-point)
-(global-set-key (kbd "C-x F") 'set-fill-column)
-
 ;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
 ;; (defun fei-resize-frame ()
 ;;   (interactive)
@@ -46,8 +33,6 @@
       (set-frame-height nil 5)
       )))
 
-(global-set-key (kbd "C-c 1") 'fei-frame-one-line)
-
 ;; 不需要了
 ;; (add-hook 'org-capture-mode-hook (lambda () (set-window-text-height nil 1)))
 
@@ -67,7 +52,6 @@
 	  (t (message "当前不支持这个文件")))))
 
 
-(global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 
 (defun switch-to-same-major-mode-buffer ()
   "切换到和当前 buffer 相同 major-mode 的 buffer"

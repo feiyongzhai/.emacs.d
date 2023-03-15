@@ -21,8 +21,7 @@
 
 (with-eval-after-load 'elfeed
   (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-12"))))
-
-  (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
+  )
 
 ;; (setq shr-inhibit-images t) ;nil
 

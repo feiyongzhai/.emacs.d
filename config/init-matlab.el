@@ -8,10 +8,6 @@
 
 ;; Matlab
 (setq matlab-indent-level 2)
-(with-eval-after-load 'matlab
-  (define-key matlab-mode-map (kbd "M-s") nil)
-  (define-key matlab-mode-map (kbd "M-j") nil)
-  )
 
 (add-hook 'matlab-mode-hook 'electric-pair-local-mode)
 ;; (add-hook 'matlab-mode-hook 'electric-spacing-mode)

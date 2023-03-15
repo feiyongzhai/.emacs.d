@@ -1,4 +1,3 @@
-(global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 (add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (add-hook 'ibuffer-mode-hook 'hl-line-mode)
 (autoload 'ibuffer-bs-toggle-all "ibuf-ext" nil t)
@@ -19,16 +18,6 @@
 	      (icon 2 2 :left :elide)
 	      (name 16 -1)
 	      " " filename)))
-
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
-  (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
-  (define-key ibuffer-mode-map (kbd "_") 'fei-remove-ibuffer-tmp-hide-regexps)
-  (define-key ibuffer-mode-map (kbd "a") 'ibuffer-toggle-all)
-  (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
-  (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
-  (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
-  )
 
 (defun fei-remove-ibuffer-tmp-hide-regexps ()
   "`ibuffer-add-to-tmp-hide' 的逆向命令"

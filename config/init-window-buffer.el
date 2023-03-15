@@ -7,48 +7,6 @@
 
 (winner-mode 1)
 
-;;; ==== Buffer ====
-(global-set-key (kbd "M-k") 'kill-current-buffer)
-(global-set-key (kbd "M-K") 'reopen-killed-file)
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
-(global-set-key (kbd "C-x K") 'reopen-killed-file)
-
-;;; ==== Window ====
-(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-
-;; EMASC 用 ring 的模式记录 mark ，在跳回的时候，有时候的位置理解不了，
-;; 因为 ring 存在循环的情况，很容易跳着跳着就 get lost 了，不如用栈。
-(global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
-
-(global-set-key (kbd "M-s q") 'quit-window)
-(global-set-key (kbd "M-s M-q") 'unbury-buffer)
-(global-set-key (kbd "C-x w u") 'transient-winner-undo)
-
-;; 参考浏览器的快捷键
-(global-set-key (kbd "M-<left>") 'winner-undo)
-(global-set-key (kbd "M-<right>") 'winner-redo)
-
-(global-set-key (kbd "C-x w s") 'window-swap-states)
-(global-set-key (kbd "C-x w M") 'maximize-window)
-(global-set-key (kbd "C-x w m") 'minimize-window)
-(global-set-key (kbd "C-x o") 'ace-window) ;ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
-(global-set-key (kbd "C-x O") 'other-frame)
-
-;; These two keybindings is inspired by `C-x -'
-(global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
-(global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
-(global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
-
-(global-set-key (kbd "C-x w h") 'windmove-left)
-(global-set-key (kbd "C-x w l") 'windmove-right)
-(global-set-key (kbd "C-x w j") 'windmove-down)
-(global-set-key (kbd "C-x w k") 'windmove-up)
-(autoload 'evil-move-window "evil" nil t)
-(global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
-(global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
-(global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
-(global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
-
 ;; ace-window
 (setq aw-ignore-current nil)
 (setq aw-dispatch-when-more-than 2)
@@ -86,9 +44,6 @@
 ;; mark stack 栈式存储 mark，比自带的 ring 数据结构来的更简单理解一些。
 ;; 下面的代码自然不能应付所有场景，但是可以应付大部分场景
 ;; @REF: https://github.com/manateelazycat/lazycat-emacs/blob/master/site-lisp/extensions/lazycat/basic-toolkit.el
-
-(global-set-key (kbd "M-s m") 'marker-stack-push)
-(global-set-key (kbd "M-s u") 'marker-stack-pop)
 
 (defvar marker-stack nil)
 

@@ -11,17 +11,6 @@
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
-;; Keys
-(global-set-key (kbd "M-j") 'fei-rime-force-enable)
-(global-set-key (kbd "M-J") (li (deactivate-input-method)))
-
-(with-eval-after-load 'rime
-  (global-set-key (kbd "C-`") 'rime-select-schema)
-  (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
-  (define-key rime-active-mode-map (kbd "C-j") 'rime--return)
-  )
-
 ;; Vars
 (setq rime-user-data-dir "~/.emacs.d/rime/") ;linux 和 windows 共用一个配置文件
 
@@ -94,19 +83,12 @@
     (and (derived-mode-p 'prog-mode 'conf-mode)
 	 (not (nth 4 (syntax-ppss)))))
 
-(setq rime-translate-keybindings
-      '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u"
-	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
-
 
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用
 
 ;; M-j 配合 `isearch-mode-hook' 和 `isearch-mode-end-hook' 可以完成在
 ;; isearch 的情况下也是 "输入中文" 这个功能，这样 M-j 按键的功能就有一
 ;; 致性的表现了
-
-(define-key isearch-mode-map (kbd "M-j") 'isearch-edit-string)
 
 (add-hook 'isearch-mode-hook '+fei-isearch-deacivate-input-method)
 (add-hook 'isearch-mode-end-hook '+fei-isearch-end-restore-input-method)

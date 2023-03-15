@@ -16,15 +16,6 @@
 ;;   (setq ivy-re-builders-alist
 ;; 	'((t . pyim-cregexp-ivy))))
 
-(define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
-(define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
-(define-key pyim-mode-map (kbd "<escape>") 'pyim-quit-clear)
-(define-key pyim-mode-map (kbd "C-v") 'pyim-next-page)
-(define-key pyim-mode-map (kbd "M-v") 'pyim-previous-page)
-(define-key pyim-mode-map (kbd "M-1") (li (pyim-select-subword-by-number 1)))
-(define-key pyim-mode-map (kbd "M-2") (li (pyim-select-subword-by-number 2)))
-(define-key pyim-mode-map (kbd "M-3") (li (pyim-select-subword-by-number 3)))
-(define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4)))
 (setq pyim-indicator-modeline-string '("中 " "英 "))
 
 (setq pyim-indicator-list

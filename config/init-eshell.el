@@ -18,12 +18,6 @@
 ;;             (remove-hook 'eshell-output-filter-functions
 ;;                          'eshell-postoutput-scroll-to-bottom)))
 
-;;; Keys
-
-(global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
-(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "C-x r p") 'replace-string)
-
 (add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
 (defun +fei-eshell-mode-hook ()
   (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))

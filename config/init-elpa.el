@@ -79,6 +79,7 @@
 	orderless vertico embark
 	consult marginalia embark-consult
 	smex counsel ivy swiper
+	ivy-posframe vertico-posframe
 
 	;; ==== 非编辑相关 ====
 	use-package

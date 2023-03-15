@@ -50,6 +50,7 @@
   (require 'init-ibuffer)
   (require 'init-engine)
   (require 'init-backward-forward)
+  (require 'init-key)
 
   (when *is-windows*
     (require 'init-win10))
@@ -72,7 +73,6 @@
      (require 'init-compile)
      (require 'init-lsp)
      (require 'init-elfeed)
-     (require 'init-thing-edit)
      (require 'init-evil)
      (require 'init-latex)
      (require 'init-shell)
@@ -91,7 +91,7 @@
      
      (message "延时加载包加载完成！")
      ))
-  
+
   ;; local configs
   (when (file-exists-p fei-local-config)
       (load-file fei-local-config))

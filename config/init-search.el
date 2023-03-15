@@ -9,30 +9,11 @@
  isearch-regexp-lax-whitespace t
  search-whitespace-regexp ".*?")
 
-(global-set-key (kbd "M-s C-m") 'browse-url)
-(global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-s M-w") 'fei-search)
-(global-set-key (kbd "M-s M-s") 'fei-search)
-(global-set-key (kbd "M-s s") 'fei-search)
-(global-set-key (kbd "M-S") 'fei-search)
-
 
 ;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而
 ;; 一般没有光标同时我想要进行复制的场景是在 isearch 的情形下，所以这个配
 ;; 置放在这里也比较合理
 (setq copy-region-blink-delay .1)
-
-(fei-define-key-with-map isearch-mode-map
-  '(
-    ("M-g" . isearch-cancel)
-    ("M-<" . isearch-beginning-of-buffer)
-    ("M->" . isearch-end-of-buffer)
-    ("<C-return>" . prot-search-isearch-other-end)
-    ("C-'" . avy-isearch)
-    ("M-'" . avy-isearch)	 ;gnome-terminal 读不到 C-',用这个代替
-    ("C-c k" . fei-counsel-rg-from-isearch)
-    ("M-s r" . rg-isearch-project)
-    ))
 
 (defun fei-counsel-rg-from-isearch ()
   (interactive)
@@ -45,11 +26,6 @@
 (setq ctrlf-default-search-style 'fuzzy)
 (setq ctrlf-show-match-count-at-eol nil)
 (setq ctrlf-highlight-current-line nil)
-
-(with-eval-after-load 'ctrlf
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
-  )
 
 ;;; Funcs
 (defun prot-search-isearch-other-end ()

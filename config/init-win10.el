@@ -46,26 +46,6 @@
 ;; 		[s-return] [M-escape]))
 ;;   (w32-register-hot-key keys))
 
-(with-eval-after-load 'python
-  ;; simple complie for python
-  (define-key python-mode-map (kbd "<f5>") 'fei-python-run)
-  (define-key python-mode-map (kbd "<C-f5>") (li (fei-python-run 1)))
-
-  (defun fei-python-run (&optional flag)
-    (interactive "P")
-    (save-buffer (current-buffer))
-    (if flag
-	(start-process "python"
-                   "*fei-python*"
-                   "cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
-      (start-process "python"
-                   "*fei-python*"
-                   "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
-  )
-
-(global-set-key (kbd "M-s k") 'shell)
-(global-set-key (kbd "M-s M-k") 'shell)
-
 ;; (tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
 
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
@@ -92,9 +72,6 @@
     (set-frame-position frame x y)
     (set-frame-size frame w h)))
 ;; (arrange-frame 84 30 170 20)
-
-;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
-(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 
 ;; 输入法自动切换插件，sis 在 linux 下使用有点问题。windows 下好像还不错。
 ;; (sis-ism-lazyman-config nil t 'w32)

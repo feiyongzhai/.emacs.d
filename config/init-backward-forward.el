@@ -20,9 +20,6 @@
     (when (and (equal recent (point-marker)) purge)
       (my/backward-forward-next-location))))
 
-(global-set-key (kbd "M-,") 'my/backward-forward-previous-location)
-(global-set-key (kbd "C-M-,") 'my/backward-forward-next-location)
-
 (backward-forward-mode t)
 
 (provide 'init-backward-forward)

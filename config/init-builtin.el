@@ -45,8 +45,6 @@
 
 ;;; Bookmark
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
-(global-set-key (kbd "C-c b") 'helm-chrome-history)
-(global-set-key (kbd "C-c B") 'helm-chrome-bookmarks)
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
 
@@ -62,17 +60,6 @@
 ;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565
 ;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html
 (setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
-
-;;; Diff
-(with-eval-after-load 'diff
-  (define-key diff-mode-map (kbd "M-o") nil)
-  (define-key diff-mode-map (kbd "M-k") nil)
-  (define-key diff-mode-map (kbd "M-n") nil)
-  (define-key diff-mode-map (kbd "M-p") nil)
-  (define-key diff-mode-map (kbd "M-N") nil)
-  (define-key diff-mode-map (kbd "M-P") nil)
-  (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
-  (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 
 ;;; hl-line
 ;; (setq hl-line-sticky-flag t)

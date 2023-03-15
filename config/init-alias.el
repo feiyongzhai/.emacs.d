@@ -10,22 +10,6 @@
 (require 'fei-funcs)
 
 (setq echo-keystrokes 0.1)
-(global-set-key (kbd "C-x M-m") mule-keymap)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
-(global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
-(global-set-key (kbd "C-x M") 'repeat-complex-command)
-
-(global-set-key (kbd "C-x j c") (li (find-file "~/.config")))
-(global-set-key (kbd "C-x j e") (li (find-file "~/.emacs.d")))
-(global-set-key (kbd "C-x j f") (li (browse-url "https://feiyongzhai.github.io")))
-(global-set-key (kbd "C-x j g") (li (find-file "~/Nutstore Files/")))
-(global-set-key (kbd "C-x j h") (li (find-file "~")))
-(global-set-key (kbd "C-x j l") (li (find-file fei-local-config)))
-(global-set-key (kbd "C-x j o") (li (find-file "~/Nutstore Files/org")))
-(global-set-key (kbd "C-x j O") (li (find-file "~/Nutstore Files/org/obsidian")))
-(global-set-key (kbd "C-x j q") (li (browse-url "https://quword.com")))
-(global-set-key (kbd "C-x j r") (li (find-file "~/Repos")))
-(global-set-key (kbd "C-x j s") (li (find-file "~/Sandbox")))
 
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'code 'open-current-file-with-vscode)

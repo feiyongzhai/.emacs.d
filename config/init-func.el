@@ -1,3 +1,11 @@
+(defmacro win10 (&rest body)
+  `(when *is-windows*
+     ,@body))
+
+(defmacro linux (&rest body)
+  `(when *is-linux*
+     ,@body))
+
 (defmacro transient-command (fun-name command &rest keymaps)
   "一个方便定义瞬时命令的宏"
   (declare (indent 1))

@@ -1,4 +1,15 @@
+;; @REF: https://ks3-cn-beijing.ksyun.com/attachment/9ff9efaf747469424f48741629013db1
+;; @REF: https://emacs-china.github.io/emacsist/blog/2016/10/26/2016-10-23%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAemacs-latex-make%E5%B7%A5%E5%85%B7%E9%93%BE/
+;; vscode 的 latex 配置简单好用，emacs 输
+
 (add-hook 'LaTeX-mode-hook #'reftex-mode)
+(add-hook 'LaTeX-mode-hook #'visual-line-mode)
+(add-hook 'LaTeX-mode-hook #'TeX-fold-mode) ;相应快捷键为 C-c C-o 开头
+
+;; (imenu-add-menubar-index)
+
+(setq TeX-electric-escape t)		;powered by auctex
+(setq TeX-save-query nil)
 
 ;; use xelatex engine
 (with-eval-after-load 'latex

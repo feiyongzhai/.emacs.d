@@ -11,7 +11,7 @@
 (setq calendar-week-start-day 1)
 
 ;;; Treemacs
-(setq treemacs-position 'right)
+(setq treemacs-position 'left)
 
 (defun fei-switch-to-treemacs ()
   (interactive)

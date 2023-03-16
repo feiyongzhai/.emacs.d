@@ -39,4 +39,16 @@
 
 (face-spec-set 'markdown-table-face '((t (:font "Sarasa Mono SC-12"))))
 
+(defun big-font ()
+  (interactive)
+  (custom-set-faces
+   '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 180 :width normal))))
+   ))
+
+(defun small-font ()
+  (interactive)
+  (custom-set-faces
+   '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
+   ))
+
 (provide 'init-font)

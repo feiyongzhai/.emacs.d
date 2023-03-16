@@ -19,6 +19,8 @@
 (set-fontset-font t '(#x22000 . #x22fff) (font-spec :family "SimSun-ExtB")) ;中日韩统一表意文字扩展区B
 (set-fontset-font t '(#x13000 . #x1342F) (font-spec :family "Segoe UI Historic")) ;圣书体
 
+
+(setenv "EDITOR" "emacsclientw -c")
 
 (w32-set-ime-open-status nil)
 (defvar first-make-frame-flag nil

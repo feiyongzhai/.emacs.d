@@ -1,5 +1,9 @@
 ;; tricks: =M-s h r= "\w*("
 
+(add-hook 'matlab-mode-hook (lambda ()
+			      (outline-minor-mode 1)
+			      (setq outline-regexp "%%")))
+
 (custom-set-faces
  '(matlab-cellbreak-face ((t (:inherit font-lock-comment-face :weight bold)))))
 

@@ -5,6 +5,8 @@
   (display-line-numbers-mode t)
   ;; (company-mode t)
   (hl-line-mode t)
+  (hs-minor-mode t)
+  (diff-hl-mode t)
   (yas-minor-mode t))
 
 ;; use `add-file-local-variable' to change `outline-regexp' for a single file

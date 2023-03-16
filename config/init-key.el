@@ -11,6 +11,14 @@
   (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
   )
 
+(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
+(global-set-key (kbd "M-O") 'embark-act)
+(global-set-key (kbd "M-.") 'embark-dwim)
+
+(global-set-key (kbd "C-=") 'text-scale-adjust)
+(global-set-key (kbd "C--") 'text-scale-adjust)
+
+(global-set-key (kbd "<f2>") 'fei-compile) ;笔记本上 C-M-z 不好按
 (global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
 

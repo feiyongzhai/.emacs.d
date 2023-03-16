@@ -2,7 +2,7 @@
 (require 'fei-funcs)
 
 ;;; Openwith
-(openwith-mode t)
+(add-hook 'after-init-hook 'openwith-mode)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
                               ("\\.doc\\'" "start" (file))
                               ("\\.docx\\'" "start" (file))))

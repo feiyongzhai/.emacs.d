@@ -1,6 +1,7 @@
 ;;; init-git.el --- configs for git related
 
 (require 'fei-funcs)
+(require 'git-commit)
 (setenv "EDITOR" "emacsclient")
 
 ;;; Var

@@ -209,6 +209,8 @@
   )
 
 
+(define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
+(define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)
 
@@ -646,7 +648,7 @@
   (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
   )
 
-(with-eval-after-load 'vc-git-log-edit-mode
+(with-eval-after-load 'vc-git
   (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log))
 
 (provide 'init-key)

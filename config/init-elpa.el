@@ -47,7 +47,7 @@
 	rainbow-mode rainbow-delimiters
 	dirvish websocket
 	interaction-log		 ;这个包需要自己 require，不会自动加载
-	beframe google-translate
+	google-translate
 
 	;; ==== 外观 ====
 	standard-themes dashboard
@@ -63,6 +63,11 @@
 
 	;; Programming
 	emmet-mode js2-mode web-mode dumb-jump diff-hl
+
+	;; Project
+	project-tab-groups project-mode-line-tag
+	beframe
+	;; tab-bar-groups ; 这个包有一个不好的地方，可以启用，但是无法关闭
 
 	;; ==== Helm ====
 	;; helm-chrome helm-chrome-history

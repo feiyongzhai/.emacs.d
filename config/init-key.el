@@ -2,9 +2,6 @@
 
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 
-(with-eval-after-load 'vc-dir
-  (define-key vc-dir-mode-map (kbd "z") 'fei-compile))
-
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
   (define-key yas-minor-mode-map (kbd "<tab>") nil)
@@ -599,7 +596,9 @@
 ;;; Compile
 (with-eval-after-load 'compile
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
-  (define-key compilation-mode-map (kbd "e") 'compile))
+  (define-key compilation-mode-map (kbd "e") 'compile)
+  (define-key compilation-mode-map (kbd "r") 'compile)
+  )
 
 ;;; Company
 (with-eval-after-load 'company
@@ -640,10 +639,14 @@
 (win10 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump))
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 (with-eval-after-load 'vc-dir
+  (define-key vc-dir-mode-map (kbd "z") 'fei-compile)
   (define-key vc-dir-mode-map (kbd "e") 'fei-eshell-cd-here) ;default is `vc-find-file'
   (define-key vc-dir-mode-map (kbd "j") 'project-find-file)
   (define-key vc-dir-mode-map (kbd "!") 'shell-command)
   (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
   )
+
+(with-eval-after-load 'vc-git-log-edit-mode
+  (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log))
 
 (provide 'init-key)

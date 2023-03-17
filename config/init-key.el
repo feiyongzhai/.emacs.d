@@ -1,6 +1,10 @@
 (require 'init-thing-edit)
 
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
+
+(with-eval-after-load 'vc-dir
+  (define-key vc-dir-mode-map (kbd "z") 'fei-compile))
+
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
   (define-key yas-minor-mode-map (kbd "<tab>") nil)

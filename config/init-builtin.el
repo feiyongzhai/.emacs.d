@@ -10,6 +10,7 @@
 (blink-cursor-mode -1)
 (repeat-mode)
 (savehist-mode t)			;保存 minibuffer 历史
+(global-so-long-mode)
 
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))

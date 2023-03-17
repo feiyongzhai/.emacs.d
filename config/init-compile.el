@@ -5,4 +5,12 @@
     (message "%s" default-directory)
     (compile compile-command)))
 
+(defun my/apply-ansi-color-to-compilation-buffer-h ()
+  "Applies ansi codes to the compilation buffers. Meant for
+  `compilation-filter-hook'."
+  (with-silent-modifications
+    (ansi-color-apply-on-region compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook #'my/apply-ansi-color-to-compilation-buffer-h)
+
 (provide 'init-compile)

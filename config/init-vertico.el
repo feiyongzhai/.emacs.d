@@ -35,6 +35,9 @@
 
 ;; ==== [consult] ====
 
+(setq register-preview-function 'consult-register-format)
+;; (setq register-preview-function 'register-preview-default)
+
 (defun fei-consult-ripgrep-my-org ()
   (interactive)
   (consult-ripgrep "~/Nutstore Files/org" nil))

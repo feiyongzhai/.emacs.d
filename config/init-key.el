@@ -13,11 +13,32 @@
   (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
   )
 
+(global-set-key (kbd "C-|") 'fei-rime-force-enable)
+
+(define-key global-map "\M-Q" 'unfill-paragraph)
+
+(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
+(global-set-key (kbd "M-s TAB") 'window-toggle-side-windows)
+
+(define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
+(define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
+(define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
+(define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
+
+(global-set-key (kbd "M-s C-n") 'popper-cycle)
+(global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
+(global-set-key (kbd "M-s C-p") 'popper-toggle-type)
+
+(define-key global-map (kbd "M-m") 'store-register-dwim)
+(define-key global-map (kbd "M-'") 'use-register-dwim)
 (autoload 'open-newline-below "open-newline" nil t)
 (autoload 'open-newline-above "open-newline" nil t)
 (global-set-key (kbd "C-<return>") 'open-newline-below)
 (global-set-key (kbd "C-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-above)
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
+(global-set-key (kbd "M-]") 'forward-paragraph)
+(global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
@@ -57,7 +78,10 @@
 (global-set-key (kbd "C-x o") 'ace-window) ;ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "M-<left>") 'winner-undo)
-(global-set-key (kbd "M-<right>") 'winner-redo)
+(global-set-key (kbd "C-x C-/") 'winner-undo)
+(global-set-key (kbd "C-x C-?") 'winner-redo)
+(global-set-key (kbd "C-v") 'my/scroll-up-half)
+(global-set-key (kbd "M-v") 'my/scroll-down-half)
 
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
@@ -413,8 +437,6 @@
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
 
-(global-set-key (kbd "<insert>") 'fei-occur-at-point)
-(global-set-key (kbd "<insertchar>") 'fei-occur-at-point)
 (global-set-key (kbd "C-x F") 'set-fill-column)
 
 (global-set-key (kbd "C-c H") 'fei-pulse-current-line)

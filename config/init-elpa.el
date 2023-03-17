@@ -40,7 +40,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	gcmh tmr git-commit
+	macrostep gcmh tmr git-commit
 	
 	all-the-icons-ibuffer
 	scratch imenu-list rg
@@ -53,6 +53,9 @@
 	standard-themes dashboard
 	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
 
+	;; === 窗口管理 ===
+	popper
+	
 	;; ==== 编辑相关 ====
 	evil general backward-forward goto-chg
 	highlight-parentheses highlight-indentation

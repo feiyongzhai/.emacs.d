@@ -114,6 +114,10 @@
 ;; known bugs: 在 side 新 tab 的时候会报错
 ;; (setq tab-bar-new-tab-choice 'dashboard-open)
 
+
+(popper-mode)
+(popper-echo-mode)
+
 (provide 'init-packages)
 
 ;; Local Variables:

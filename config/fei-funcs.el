@@ -1,5 +1,91 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+
+(defun ascii-table ()
+  "Display basic ASCII table (0 thru 127)"
+  (interactive)
+  (switch-to-buffer "*ASCII*")
+  (erase-buffer)
+  (save-excursion (let ((i -1))
+                    (insert "ASCII characters 0 thru 127.\n\n")
+                    (insert " Hex  Dec  Char|  Hex  Dec  Char|  Hex  Dec  Char|  Hex  Dec  Char\n")
+                    (while (< i 31)
+                      (insert (format "%4x %4d %4s | %4x %4d %4s | %4x %4d %4s | %4x %4d %4s\n"
+                                      (setq i (+ 1  i)) i (single-key-description i)
+                                      (setq i (+ 32 i)) i (single-key-description i)
+                                      (setq i (+ 32 i)) i (single-key-description i)
+                                      (setq i (+ 32 i)) i (single-key-description i)))
+                      (setq i (- i 96)))))
+  (toggle-read-only 1))
+
+
+;;;###autoload
+(defun unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
+
+
+(defun back-to-indentation-or-beginning () (interactive)
+   (if (= (point) (progn (beginning-of-line-text) (point)))
+       (beginning-of-line)))
+
+
+;;;###autoload
+(defun store-register-dwim (arg register)
+  "Store what I mean in a register.
+With an active region, store or append (with \\[universal-argument]) the
+contents, optionally deleting the region (with a negative
+argument). With a numeric prefix, store the number. With \\[universal-argument]
+store the frame configuration. Otherwise, store the point."
+  (interactive
+   (list current-prefix-arg
+         (register-read-with-preview "Store in register: ")))
+  (cond
+   ((use-region-p)
+    (let ((begin (region-beginning))
+          (end (region-end))
+          (delete-flag (or (equal arg '-)  (equal arg '(-4)))))
+      (if (consp arg)
+          (append-to-register register begin end delete-flag)
+        (copy-to-register register begin end delete-flag t))))
+   ((numberp arg) (number-to-register arg register))
+   (t (point-to-register register arg))))
+
+;;;###autoload
+(defun use-register-dwim (register &optional arg)
+  "Do what I mean with a register.
+For a window configuration, restore it. For a number or text, insert it.
+For a location, jump to it."
+  (interactive
+   (list (register-read-with-preview "Use register: ")
+         current-prefix-arg))
+  (condition-case nil
+      (jump-to-register register arg)
+    (user-error (insert-register register arg))))
+
+
+;; Copied from https://github.com/karthink/.emacs.d
+(defun my/scroll-up-half ()
+  (interactive)
+  (scroll-up-command
+   (floor
+    (- (window-height)
+       next-screen-context-lines)
+    2)))
+
+(defun my/scroll-down-half ()
+  (interactive)
+  (scroll-down-command
+   (floor
+    (- (window-height)
+       next-screen-context-lines)
+    2)))
+
+
 (defun fei-meow-last-buffer (arg)
   "Switch to last buffer.
 Argument ARG if not nil, switching in a new window."

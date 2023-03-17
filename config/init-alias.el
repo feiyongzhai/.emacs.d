@@ -45,6 +45,9 @@
 
 (defun eshell/a () (org-agenda nil "a"))
 
+(defun eshell/desktop () (eshell/cd fei-desktop-dir))
+(defun eshell/de () (eshell/cd fei-desktop-dir))
+
 
 ;; 不推荐用 `eshll/alias' 设置 alias，因为会在每次启动的时候重置 eshell/alias 文件
 

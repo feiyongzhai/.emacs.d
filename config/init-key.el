@@ -101,7 +101,6 @@
 
 
 
-(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
@@ -632,7 +631,8 @@
 
 
 ;;; VC
-(global-set-key (kbd "C-x g") 'magit-status)
+(linux (global-set-key (kbd "C-x g") 'magit-status))
+(win10 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump))
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 (with-eval-after-load 'vc-dir
   (define-key vc-dir-mode-map (kbd "e") 'fei-eshell-cd-here) ;default is `vc-find-file'

@@ -40,7 +40,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	gcmh tmr
+	gcmh tmr git-commit
 	
 	all-the-icons-ibuffer
 	scratch imenu-list rg

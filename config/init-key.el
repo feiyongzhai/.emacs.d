@@ -209,6 +209,9 @@
   )
 
 
+(define-key prog-mode-map (kbd "C-c RET") 'er/expand-region)
+(define-key prog-mode-map (kbd "C-c m") 'er/expand-region)
+(define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 (define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
@@ -561,25 +564,25 @@
 ;;; Dirvish
 (with-eval-after-load 'dirvish
   (fei-define-key-with-map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
-  '(("a"   . dirvish-quick-access)
-    ("f"   . dirvish-file-info-menu)
-    ("y"   . dirvish-yank-menu)
-    ("N"   . dirvish-narrow)
-    ("^"   . dirvish-history-last)
-    ("H"   . dirvish-history-jump)	; remapped `describe-mode'
-    ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
-    ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
-    ("TAB" . dirvish-subtree-toggle)
-    ("M-n" . dirvish-history-go-forward)
-    ("M-p" . dirvish-history-go-backward)
-    ("M-l" . dirvish-ls-switches-menu)
-    ("M-m" . dirvish-mark-menu)
-    ("M-t" . dirvish-layout-toggle)
-    ("M-h" . dirvish-layout-toggle)
-    ("M-u" . dirvish-setup-menu)
-    ("M-e" . dirvish-emerge-menu)
-    ("M-S" . dirvish-layout-switch)
-    )))
+    '(("a"   . dirvish-quick-access)
+      ("f"   . dirvish-file-info-menu)
+      ("y"   . dirvish-yank-menu)
+      ("N"   . dirvish-narrow)
+      ("^"   . dirvish-history-last)
+      ("H"   . dirvish-history-jump)	; remapped `describe-mode'
+      ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
+      ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
+      ("TAB" . dirvish-subtree-toggle)
+      ("M-n" . dirvish-history-go-forward)
+      ("M-p" . dirvish-history-go-backward)
+      ("M-l" . dirvish-ls-switches-menu)
+      ("M-m" . dirvish-mark-menu)
+      ("M-t" . dirvish-layout-toggle)
+      ("M-h" . dirvish-layout-toggle)
+      ("M-u" . dirvish-setup-menu)
+      ("M-e" . dirvish-emerge-menu)
+      ("M-S" . dirvish-layout-switch)
+      )))
 
 ;;; Diff
 (with-eval-after-load 'diff

@@ -59,6 +59,14 @@
     (with-current-buffer buf
       (narrow-to-region start end))))
 
-
+(defun fei-buffer-indent ()
+  "Indent all buffer. Copied from `web-mode-buffer-indent'"
+  (interactive)
+  (let ((debug t) (ts (current-time)) (sub nil))
+    (indent-region (point-min) (point-max))
+    (when debug
+      (setq sub (time-subtract (current-time) ts))
+      (message "buffer-indent: time elapsed = %Ss %9Sµs" (nth 1 sub) (nth 2 sub)))
+    (delete-trailing-whitespace)))
 
 (provide 'init-edit)

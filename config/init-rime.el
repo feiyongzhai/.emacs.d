@@ -75,7 +75,8 @@
 	fei-rime-predicate-prog-in-code-p
         ;; rime-predicate-space-after-cc-p
         ;; rime-predicate-after-alphabet-char-p
-	rime-predicate-tex-math-or-command-p
+	(lambda () (and (featurep 'tex-site)
+			(texmathp)))
 	rime-predicate-org-latex-mode-p
 	rime-predicate-org-in-src-block-p))
 

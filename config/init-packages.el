@@ -52,9 +52,6 @@
   (interactive)
   (project-find-regexp (thing-at-point 'symbol)))
 
-;;; Registers
-(setq register-preview-delay 0.1)
-
 (defun fei-quword-at-point ()
   (interactive)
   (engine/search-quword (thing-at-point 'word)))

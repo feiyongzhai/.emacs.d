@@ -49,9 +49,8 @@
 (setq word-wrap-by-category t)	 ;按照中文折行
 
 ;;; Bookmark
+(setq bookmark-set-fringe-mark nil)	;强迫症选项
 (setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
-(with-eval-after-load 'bookmark
-  (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump))
 
 ;;; y-or-n
 ;; (fset 'yes-or-no-p 'y-or-n-p)

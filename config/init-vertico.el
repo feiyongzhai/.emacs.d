@@ -35,8 +35,11 @@
 
 ;; ==== [consult] ====
 
-(setq register-preview-function 'consult-register-format)
-;; (setq register-preview-function 'register-preview-default)
+;; (setq register-preview-function 'consult-register-format)
+;; consult-register-format 不可以正确处理 register name 是字符串的情况，如 `zygospore-spore-formation-register-name'
+
+(setq register-preview-delay .1)
+(setq register-preview-function 'register-preview-default)
 
 (defun fei-consult-ripgrep-my-org ()
   (interactive)

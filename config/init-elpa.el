@@ -54,7 +54,7 @@
 	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
 
 	;; === 窗口管理 ===
-	popper
+	popper bookmark-view
 	
 	;; ==== 编辑相关 ====
 	evil general backward-forward goto-chg

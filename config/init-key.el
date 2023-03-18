@@ -1,6 +1,7 @@
 (require 'init-thing-edit)
 
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
@@ -25,16 +26,30 @@
 (define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
 
+(global-set-key (kbd "C-S-m") 'point-to-register)
+(global-set-key (kbd "C-S-j") 'jump-to-register)
+
+(global-set-key (kbd "C-S-l") 'bookmark-bmenu-list)
+(with-eval-after-load 'bookmark
+  (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump)
+  (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
+
 (global-set-key (kbd "M-s C-n") 'popper-cycle)
 (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
 
-(define-key global-map (kbd "M-m") 'store-register-dwim)
+(global-set-key (kbd "C-x <mouse-1>") 'dirvish-side)
+(global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
+
+(define-key global-map (kbd "M-m") 'bookmark-set)
 (define-key global-map (kbd "M-'") 'use-register-dwim)
+(define-key global-map (kbd "M-M") 'bookmark-set)
+(define-key global-map (kbd "M-'") 'bookmark-jump)
 (autoload 'open-newline-below "open-newline" nil t)
 (autoload 'open-newline-above "open-newline" nil t)
 (global-set-key (kbd "C-<return>") 'open-newline-below)
-(global-set-key (kbd "C-o") 'open-newline-above)
+(global-set-key (kbd "C-o") 'open-line)
+(global-set-key (kbd "C-S-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-above)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "M-]") 'forward-paragraph)
@@ -488,12 +503,10 @@
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
-(global-set-key (kbd "C-x u") 'transient-undo)
 (global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
 (global-set-key (kbd "C-x C-l") 'fei-meow-last-buffer)
 
 (global-set-key [remap goto-line] 'avy-goto-line)
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;;; Navigate
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)

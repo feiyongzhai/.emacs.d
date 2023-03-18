@@ -5,7 +5,10 @@
 (add-hook 'after-init-hook 'openwith-mode)
 (setq openwith-associations '(("\\.pdf\\'" "start" (file))
                               ("\\.doc\\'" "start" (file))
-                              ("\\.docx\\'" "start" (file))))
+                              ("\\.docx\\'" "start" (file))
+                              ("\\.mp3\\'" "start" (file))
+                              ("\\.m4a\\'" "start" (file))
+			      ))
 
 ;; font
 (defun fei-setup-win-emoji ()

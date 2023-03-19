@@ -4,11 +4,12 @@
 
 (add-hook 'LaTeX-mode-hook #'reftex-mode)
 (add-hook 'LaTeX-mode-hook #'visual-line-mode)
+(add-hook 'LaTeX-mode-hook #'prettify-symbols-mode)
 (add-hook 'LaTeX-mode-hook #'TeX-fold-mode) ;相应快捷键为 C-c C-o 开头
 
 ;; (imenu-add-menubar-index)
 
-(setq TeX-electric-escape t)		;powered by auctex
+(setq TeX-electric-escape nil)		; 打开的时候有点烦人
 (setq TeX-save-query nil)
 
 ;; use xelatex engine

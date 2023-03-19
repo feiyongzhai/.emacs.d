@@ -2,6 +2,7 @@
 
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet

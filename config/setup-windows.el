@@ -316,7 +316,7 @@ If buffer-or-name is nil return current buffer's mode."
 					    mode))
 					 my/repl-modes-list)))
          (display-buffer-reuse-window
-          display-buffer-in-direction
+          ;; display-buffer-in-direction
           display-buffer-in-side-window)
          (body-function . select-window)
          ;; display-buffer-at-bottom

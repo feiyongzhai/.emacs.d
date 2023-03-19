@@ -59,7 +59,7 @@
     (require 'init-termux))
 
   (run-with-idle-timer
-   3 nil
+   (if *is-windows* 3 1) nil
    (lambda ()
      ;; 把一些不是立刻需要的功能放到这里
      (require 'init-mouse)

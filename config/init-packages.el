@@ -112,6 +112,11 @@
 ;; (setq tab-bar-new-tab-choice 'dashboard-open)
 
 
+(setq popper-reference-buffers '("\\*Messages\\*$"
+				 eshell-mode
+				 compilation-mode
+				 ))
+
 (popper-mode)
 (popper-echo-mode)
 

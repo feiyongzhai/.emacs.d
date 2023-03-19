@@ -298,6 +298,12 @@ If buffer-or-name is nil return current buffer's mode."
          ;;                       ))
          )
 
+	("CAPTURE-.*" (display-buffer-in-direction)
+         (window-height . 0.20)
+         (direction . bottom)
+         (slot . 0)
+         )
+
         ("\\*Apropos\\*" (display-buffer-in-side-window)
          ;; (window-height . 0.40)
          (window-width . 65)

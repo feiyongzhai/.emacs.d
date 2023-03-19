@@ -11,6 +11,7 @@
   (require 'init-builtin)
   (require 'init-cursor)
   (require 'init-window-buffer)
+  (require 'setup-windows)
   (require 'init-tab-bar)
 
   (require 'init-eshell)

@@ -676,8 +676,7 @@
 
 
 ;;; VC
-(linux (global-set-key (kbd "C-x g") 'magit-status))
-(win10 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump))
+(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 (with-eval-after-load 'vc-dir
   (define-key vc-dir-mode-map (kbd "z") 'fei-compile)

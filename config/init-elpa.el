@@ -31,9 +31,9 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	magit bash-completion pdf-tools
+	bash-completion pdf-tools
 	graphviz-dot-mode lsp-dart flutter
-	;; citre vterm vterm-toggle sx
+	;; citre vterm vterm-toggle sx magit
 	))
 
 ;;; general needed packages

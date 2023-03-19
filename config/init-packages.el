@@ -113,7 +113,7 @@
 
 
 (setq popper-reference-buffers '("\\*Messages\\*$"
-				 eshell-mode
+				 "\\*eshell\\*"
 				 compilation-mode
 				 ))
 

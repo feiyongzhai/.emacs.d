@@ -1,3 +1,5 @@
+;; @REF: https://github.com/karthink/.emacs.d/blob/5c9bb4102e53a60a7f6df2d3fb1cad5086114d1b/lisp/setup-windows.el
+
 ;;;###autoload
 (defun buffer-mode (&optional buffer-or-name)
   "Returns the major mode associated with a buffer.
@@ -17,42 +19,11 @@ If buffer-or-name is nil return current buffer's mode."
                                    rg-mode)
   "List of major-modes used in occur-type buffers")
 
-;; This does not work at buffer creation since the major-mode for
-;; REPLs is not yet set when `display-buffer' is called, but is
-;; useful afterwards
-(defvar my/repl-modes-list '(matlab-shell-mode
-                             eshell-mode
-                             geiser-repl-mode
-                             shell-mode
-                             ;; vterm-mode
-                             inferior-python-mode
-                             cider-repl-mode
-                             fennel-repl-mode
-                             jupyter-repl-mode
-                             inferior-ess-julia-mode)
-  "List of major-modes used in REPL buffers")
-
-(defvar my/repl-names-list
-  '("^\\*\\(?:.*?-\\)\\{0,1\\}e*shell[^z-a]*\\(?:\\*\\|<[[:digit:]]+>\\)$"
-    "\\*.*REPL.*\\*"
-    "\\*MATLAB\\*"
-    "\\*Python\\*"
-    "^\\*jupyter-repl.*?\\(\\*\\|<[[:digit:]]>\\)$"
-    "\\*Inferior .*\\*$"
-    "^\\*julia.*\\*$"
-    "^\\*cider-repl.*\\*$"
-    "\\*ielm\\*"
-    "\\*edebug\\*")
-  "List of buffer names used in REPL buffers")
-
 (defvar my/help-modes-list '(helpful-mode
                              help-mode
                              pydoc-mode
                              TeX-special-mode)
   "List of major-modes used in documentation buffers")
-
-(defvar my/man-modes-list '(Man-mode woman-mode)
-  "List of major-modes used in Man-type buffers")
 
 (defvar my/message-modes-list '(compilation-mode
                                 edebug-eval-mode)
@@ -119,10 +90,6 @@ If buffer-or-name is nil return current buffer's mode."
 
 (setq display-buffer-alist
       '(
-
-        ("^\\*[Ee]shell [Ee]xport: .*\\*$"
-         (display-buffer-reuse-window display-buffer-use-some-window))
-        
         ("^\\*julia\\*"
          (display-buffer-reuse-window
           display-buffer-in-direction
@@ -145,11 +112,6 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . -2)
          (preserve-size . (nil . t))
          (window-parameters . ((mode-line-format . nil))))
-
-        ("\\*Buffer List\\*" (display-buffer-in-side-window)
-         (side . top)
-         (slot . 0)
-         (window-height . shrink-window-if-larger-than-buffer))
 
         ((lambda (buf act) (member (buffer-mode buf) my/occur-grep-modes-list))
          (display-buffer-reuse-mode-window
@@ -175,14 +137,6 @@ If buffer-or-name is nil return current buffer's mode."
         ;; Windows on the side
         ;; ----------------------------------------------------------------
 
-        ;; ((lambda (buf act) (member (buffer-mode buf) my/man-modes-list))
-        ;;  ;; "^\\*\\(?:Wo\\)?Man"
-        ;;  (display-buffer-in-side-window)
-        ;;  (body-function . select-window)
-        ;;  (window-width . 76)       ; See the :hook
-        ;;  (side . left)
-        ;;  (slot . 9))
-
         ("\\*Faces\\*" (display-buffer-in-side-window)
          (window-width . 0.25)
          (side . right)
@@ -191,21 +145,6 @@ If buffer-or-name is nil return current buffer's mode."
                                ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
-        ;; ((lambda (buf act) (or (equal (buffer-mode buf) 'Custom-mode)
-        ;;                   (string-match-p "^\\*Customize" (buffer-name))))
-        ;;  (display-buffer-in-side-window)
-        ;;  (body-function . select-window)
-        ;;  (window-width . 74)
-        ;;  (side . right)
-        ;;  (slot . 5))
-
-        ("\\*undo-tree\\*" ;; (lambda (buf act) (equal (buffer-mode buf) 'undo-tree-visualizer-mode))
-         (display-buffer-in-direction)
-         (window-width . 35) ;; (lambda (win) (fit-window-to-buffer win nil nil 65 40 t)))
-         (direction . right)
-         (side . right)
-         (slot . -5))
-        
         ;; ----------------------------------------------------------------
         ;; Windows at the bottom
         ;; ----------------------------------------------------------------
@@ -227,14 +166,6 @@ If buffer-or-name is nil return current buffer's mode."
          ;; (window-parameters . (;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
          ;;                       ))
          )
-
-        ;; ("\\*scratch\\*"
-        ;;  display-buffer-in-side-window
-        ;;  (body-function . select-window)
-        ;;  ;; (window-width 35)
-        ;;  (window-height . (lambda (win) (fit-window-to-buffer win 20 nil 85)))
-        ;;  (side . bottom)
-        ;;  (slot . -8))
 
         ((lambda (buf act) (member (buffer-mode buf) my/message-modes-list))
          (display-buffer-at-bottom display-buffer-in-side-window)
@@ -292,7 +223,7 @@ If buffer-or-name is nil return current buffer's mode."
         ("\\*Completions\\*" (display-buffer-in-side-window)
          (window-height . 0.20)
          (side . bottom)
-         (slot . 0)
+         (slot . 2) ;这个里面有一点黑魔法， popper-mode 默认的 slot 是 1 这个是会有复用的表现，体验很奇妙
          ;; (window-parameters . ((no-other-window . t)
          ;;                       ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
          ;;                       ))
@@ -300,6 +231,12 @@ If buffer-or-name is nil return current buffer's mode."
 
 	("CAPTURE-.*" (display-buffer-in-direction)
          (window-height . 0.20)
+         (direction . bottom)
+         (slot . 0)
+         )
+	
+	("\\*vc-dir\\*.*" (display-buffer-in-direction)
+         (window-height . 0.5)
          (direction . bottom)
          (slot . 0)
          )
@@ -312,27 +249,7 @@ If buffer-or-name is nil return current buffer's mode."
          (window-parameters . (;; (no-other-window . t)
                                ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
-
-
-        ((lambda (buf act) (or (seq-some (lambda (regex) (string-match-p regex buf))
-					 my/repl-names-list)
-                               (seq-some (lambda (mode)
-					   (equal
-					    (buffer-mode buf)
-					    mode))
-					 my/repl-modes-list)))
-         (display-buffer-reuse-window
-          ;; display-buffer-in-direction
-          display-buffer-in-side-window)
-         (body-function . select-window)
-         ;; display-buffer-at-bottom
-         (window-height . .35)
-         (window-width .  .40)
-         ;; (preserve-size . (nil . t))
-         (direction . below)
-         (side . bottom)
-         (slot . 1))
-
+        
         ((lambda (buf act) (member (buffer-mode buf) my/help-modes-list))
          (display-buffer-reuse-window
           display-buffer-in-direction
@@ -349,25 +266,7 @@ If buffer-or-name is nil return current buffer's mode."
                                ;; (no-other-window . t)
                                ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
-
-        (;; (lambda (buf act) (equal (buffer-mode buf) 'matlab-shell-help-mode))
-         "\\*Matlab Help\\*"
-         (display-buffer-reuse-window
-          display-buffer-in-side-window
-          display-buffer-in-direction)
-         (body-function . select-window)
-         ;; (direction . bottom)
-         ;; (window-height . (lambda (win) (fit-window-to-buffer win 25 14)))
-         (window-width . 86 ;; (lambda (win) (fit-window-to-buffer win nil nil 75 65))
-                       )
-         (direction . right)
-         (side . right)
-         (slot . 2)
-         (window-parameters . ((split-window . #'ignore)
-                               ;; (no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-                               )))
-
+        
         ("^\\*eldoc\\*$"
          (display-buffer-reuse-window
           display-buffer-in-direction
@@ -398,26 +297,7 @@ If buffer-or-name is nil return current buffer's mode."
          ;; (direction . right)
          (side . bottom)
          (slot . 2))
-        
-        
-        ;; ((lambda (buf act) (with-current-buffer buf view-mode))
-        ;;  (display-buffer-in-side-window)
-        ;;  (window-height . (/ (frame-height) 3))
-        ;;  (side . bottom)
-        ;;  (slot . 10)
-        ;;  ;; (window-parameters . (;; (no-other-window . t)
-        ;;  ;;                       ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-        ;;  ;;                       ))
-        ;;  )
-
-	
-        ;; ("\\*elfeed-entry\\*" (lambda (buf act) (let ((parent-win (get-buffer-window)))
-        ;;                                      (display-buffer-in-direction buf act)
-        ;;                                      (select-window parent-win)
-        ;;                                      ))
-        ;;  (direction . below)
-        ;;  (window-height . 0.5)
-        ;;  )
+     
         ))
 
 (setq window-combination-resize t

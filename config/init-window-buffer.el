@@ -52,7 +52,8 @@
   (interactive)
   (message "Location marked.")
   ;; 下面两行，REF: `push-mark'
-  (set-marker (mark-marker) (point) (current-buffer))
+  ;; (set-marker (mark-marker) (point) (current-buffer))
+  ;; 如果放到 advice 中，上面的这个会多建立一个 mark ，直接导致 mark-sexp 无法正常工作
   (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack))
   )
 
@@ -74,7 +75,7 @@
 
 (advice-add 'push-mark :after #'marker-stack-push)
 ;; If something go wrong, remove this advice function
-(advice-remove 'push-mark #'marker-stack-push)
+;; (advice-remove 'push-mark #'marker-stack-push)
 
 (provide 'init-window-buffer)
 

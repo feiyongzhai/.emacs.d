@@ -120,6 +120,11 @@
 (popper-mode)
 (popper-echo-mode)
 
+
+(global-diff-hl-mode)
+(diff-hl-margin-mode)
+(fringe-mode 0)
+
 (provide 'init-packages)
 
 ;; Local Variables:

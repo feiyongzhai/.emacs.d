@@ -558,6 +558,9 @@
 
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 
+(with-eval-after-load 'vterm
+  (define-key vterm-mode-map (kbd "M-s") nil))
+
 ;;; Dired
 (with-eval-after-load 'dired
   (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)

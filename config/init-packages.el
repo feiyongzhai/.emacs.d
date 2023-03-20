@@ -114,6 +114,7 @@
 
 (setq popper-reference-buffers '("\\*Messages\\*$"
 				 "\\*eshell\\*"
+				 "\\*vterm\\*"
 				 compilation-mode
 				 ))
 

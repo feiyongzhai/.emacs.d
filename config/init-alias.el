@@ -36,6 +36,7 @@
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
 
+(defalias 'eshell/eh 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)
 (defalias 'eshell/note 'fei-org-capture-note)
 (defalias 'eshell/todo 'fei-org-capture-TODO)

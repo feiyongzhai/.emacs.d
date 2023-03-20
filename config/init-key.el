@@ -691,6 +691,8 @@
   )
 
 (with-eval-after-load 'vc-git
-  (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log))
+  (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log)
+  (define-key vc-git-log-view-mode-map (kbd "z") 'fei-compile)
+  )
 
 (provide 'init-key)

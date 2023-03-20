@@ -63,6 +63,7 @@
 	electric-spacing iedit yafolding pyvenv conda
 	symbol-overlay separedit smartparens corfu
 	olivetti math-symbol-lists laas expand-region vundo
+	easy-kill
 
 	;; Programming
 	emmet-mode js2-mode web-mode dumb-jump diff-hl

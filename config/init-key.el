@@ -1,5 +1,11 @@
 (require 'init-thing-edit)
 
+(global-set-key (kbd "M-w") 'easy-kill)
+(with-eval-after-load 'easy-kill
+  (define-key easy-kill-base-map (kbd "x") 'easy-kill-exchange-point-and-mark)
+  (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region)
+  )
+
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)

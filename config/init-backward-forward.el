@@ -20,6 +20,10 @@
     (when (and (equal recent (point-marker)) purge)
       (my/backward-forward-next-location))))
 
+;; backward-forward-mode 在 switch-to-buffer 的时候也会 push mark ，挺多余的，不用了
 (backward-forward-mode t)
+
+;; (global-set-key (kbd "M-,") 'my/backward-forward-previous-location)
+;; (global-set-key (kbd "C-M-,") 'my/backward-forward-next-location)
 
 (provide 'init-backward-forward)

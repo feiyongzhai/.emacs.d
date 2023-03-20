@@ -554,8 +554,7 @@
 (global-set-key (kbd "C-x j r") (li (find-file "~/Repos")))
 (global-set-key (kbd "C-x j s") (li (find-file "~/Sandbox")))
 
-(global-set-key (kbd "M-,") 'my/backward-forward-previous-location)
-(global-set-key (kbd "C-M-,") 'my/backward-forward-next-location)
+(global-set-key (kbd "C-M-,") 'marker-stack-pop)
 
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 

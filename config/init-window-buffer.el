@@ -47,8 +47,8 @@
 
 (defvar marker-stack nil)
 
-(defun marker-stack-push ()
-  "Push current point in stack."
+(defun marker-stack-push (&optional location nomsg activate)
+  "Push current point in stack. 如果要作为 advice function，注意参数要和原函数一致"
   (interactive)
   (message "Location marked.")
   ;; 下面两行，REF: `push-mark'
@@ -71,6 +71,10 @@
       (message "buffer has been killed."))
     (setq marker-stack (cdr marker-stack)))
   )
+
+(advice-add 'push-mark :after #'marker-stack-push)
+;; If something go wrong, remove this advice function
+(advice-remove 'push-mark #'marker-stack-push)
 
 (provide 'init-window-buffer)
 

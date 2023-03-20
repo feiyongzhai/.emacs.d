@@ -50,7 +50,6 @@
   (require 'init-dired)
   (require 'init-ibuffer)
   (require 'init-engine)
-  (require 'init-backward-forward)
   (require 'init-key)
 
   (when *is-windows*

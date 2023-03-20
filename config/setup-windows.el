@@ -346,4 +346,18 @@ didactic purposes."
 
       (advice-add org-function :around #'+org-fix-delete-other-windows-a))))
 
+;; @REF: https://github.com/karthink/.emacs.d/blob/5c9bb4102e53a60a7f6df2d3fb1cad5086114d1b/lisp/better-buffers.el#L75
+(defun my/delete-window-or-delete-frame (&optional window)
+      "Delete WINDOW using `delete-window'.
+If this is the sole window run `delete-frame' instead. WINDOW
+must be a valid window and defaults to the selected one. Return
+nil."
+      (interactive)
+      (condition-case nil
+          (delete-window window)
+        (error (if (and tab-bar-mode
+                        (> (length (funcall tab-bar-tabs-function)) 1))
+                   (tab-bar-close-tab)
+                 (delete-frame)))))
+
 (provide 'setup-windows)

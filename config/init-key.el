@@ -494,7 +494,7 @@
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 
-(global-set-key (kbd "C-0") 'delete-window)
+(global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))

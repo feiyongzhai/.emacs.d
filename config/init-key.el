@@ -48,7 +48,7 @@
 (global-set-key (kbd "C-x <mouse-1>") 'dirvish-side)
 (global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
 
-(define-key global-map (kbd "M-m") 'bookmark-set)
+(define-key global-map (kbd "M-m") 'back-to-indentation)
 (define-key global-map (kbd "M-'") 'use-register-dwim)
 (define-key global-map (kbd "M-M") 'bookmark-set)
 (define-key global-map (kbd "M-'") 'bookmark-jump)

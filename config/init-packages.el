@@ -126,6 +126,13 @@
 (diff-hl-margin-mode)
 (fringe-mode '(1 . 1)) ;不设为 0 0 是因为 dirvish 在 0 0 配置下有的时候工作不正常
 
+
+;; 有些时候，我们改变了一些配置导致了 `vertico-posframe' 或者 `ivy-posframe' 等 posframe 相关的
+;; 包出现显示异常，可以通过 `posframe-delete-all' command 来尝试解决
+(setq vertico-posframe-parameters
+      '((left-fringe . 8)
+        (right-fringe . 8)))
+
 (provide 'init-packages)
 
 ;; Local Variables:

@@ -157,7 +157,8 @@ unwanted space when exporting org-mode to html."
 	   :immediate-finish t)
 	  ("s" "SomeDay" entry
 	   (file "inbox.org")
-	   "* SOMEDAY %?\nCREATE: %T\n")
+	   "* SOMEDAY %?\nCREATE: %T\n"
+	   :kill-buffer t)
 	  ("S" "SAR" entry
 	   (file+headline "SAR.org" "Inbox")
 	   "* TODO %?")
@@ -174,10 +175,30 @@ unwanted space when exporting org-mode to html."
 	  ("p" "Private" entry
 	   (file+headline "private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?")
+	  ("c" "Canvas" entry
+	   (file "question.org")
+	   "* %(fei-generate-obsidian-canvas-uuid-link) %?"
+	   :jump-to-captured t
+	   :empty-lines 1)
 	  ("d" "Diary" entry
 	   (file "private/diary.org")
 	   "* %t\n%?")
 	  )))
+
+(defun fei-generate-obsidian-canvas-uuid-link ()
+  "Designed for org-capture-templates"
+  (concat "[["
+	  "obsidian://new?vault=obsidian"
+	  "&file="     ;注意：? 和 & 不可以放到 `url-hexify-string' 里
+	  (url-hexify-string "白板/")
+	  (org-id-uuid)
+	  ".canvas"
+	  "&overwrite" ;复用已经存在的文件
+	  "][白板]]"
+	  ;; note: 使用 ?path 参数并不能实现在指定文件夹创建文件，所以
+	  ;; 只能采用制定 vault + file 的方式来实现，可能缺乏一定灵活
+	  ;; 性：不能适应多 vault 的情况。
+	  ))
 
 ;;; Org-download
 (setq org-download-display-inline-images nil)
@@ -228,6 +249,15 @@ unwanted space when exporting org-mode to html."
 (defun fei-org-capture-goto-SAR ()
   (interactive)
   (org-capture-goto-target "S"))
+
+(defun fei-org-capture-goto-canvas ()
+  (interactive)
+  (org-capture-goto-target "c"))
+
+(defun fei-org-capture-canvas ()
+  (interactive)
+  (org-capture nil "c")
+  (activate-input-method default-input-method))
 
 (defun fei-org-capture-SAR ()
   (interactive)
@@ -300,6 +330,19 @@ unwanted space when exporting org-mode to html."
     (w32-set-ime-open-status t))
    (*is-linux*
     (activate-input-method 'rime))))
+
+
+(with-eval-after-load 'org
+  ;; 目前在笔记本 manjaro 平台做了测试
+
+  ;; obsidan link handling for obsidian:// links
+  (defun org-obidian-link-open (slash-message-id)
+    "Handler for org-link-set-parameters that opens a obsidian:// link in obsidian"
+    (browse-url (concat "obsidian:" slash-message-id))
+    )
+  ;; on obsdian://aoeu link, this will call handler with //aoeu
+  (org-link-set-parameters "obsidian" :follow #'org-obidian-link-open)
+  )
 
 (provide 'init-org)
 ;;; init-org-markdown.el ends here.

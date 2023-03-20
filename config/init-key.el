@@ -303,6 +303,8 @@
 (global-set-key (kbd "C-c C") 'fei-org-capture)
 (global-set-key (kbd "C-c n t") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)
+(global-set-key (kbd "C-c n c") 'fei-org-capture-canvas)
+(global-set-key (kbd "C-c n C") 'fei-org-capture-goto-canvas)
 (global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
 (global-set-key (kbd "C-c n j") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)

@@ -124,7 +124,7 @@
 
 (global-diff-hl-mode)
 (diff-hl-margin-mode)
-(fringe-mode 0)
+(fringe-mode '(1 . 1)) ;不设为 0 0 是因为 dirvish 在 0 0 配置下有的时候工作不正常
 
 (provide 'init-packages)
 

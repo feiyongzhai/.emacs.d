@@ -7,7 +7,7 @@
 ;; Rime
 (add-to-list 'load-path "~/.emacs.d/extensions/rime/")
 
-(setq rime-title "ㄓ ")
+(setq rime-title " ㄓ ")
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 

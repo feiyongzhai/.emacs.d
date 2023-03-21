@@ -25,7 +25,6 @@
 (setq dired-recursive-deletes 'always)
 (setq dired-mouse-drag-files t)		;Powered by emacs29
 (setq dired-listing-switches "-lah")
-(setq dired-clean-confirm-killing-deleted-buffers nil)
 
 (defun fei-dired-toggle-hidden ()
   (interactive)

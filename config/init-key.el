@@ -144,10 +144,16 @@
                       "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
    ))
 
-(global-set-key (kbd "M-s k") 'shell)
-(global-set-key (kbd "M-s M-k") 'shell)
-
 
+
+(cond
+ (*is-windows*
+  (global-set-key (kbd "M-s k") 'shell)
+  (global-set-key (kbd "M-s M-k") 'shell))
+ (*is-linux*
+  (global-set-key (kbd "M-s k") 'fei-ansi-term)
+  (global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
+  ))
 
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
@@ -390,8 +396,6 @@
 
 (global-set-key (kbd "C-M-z") 'fei-compile)
 
-(global-set-key (kbd "M-s k") 'fei-ansi-term)
-(global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
 
 (global-set-key (kbd "s-l") 'lsp)
 (setq lsp-keymap-prefix "s-l")

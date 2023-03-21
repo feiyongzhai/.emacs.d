@@ -49,6 +49,15 @@
 (global-set-key (kbd "C-x <mouse-3>") 'code)
 (global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
 
+(with-eval-after-load 'LaTeX-mode
+  (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
+  (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
+  (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)
+  (define-key LaTeX-mode-map (kbd "C-M-e") 'LaTeX-mark-environment)
+  (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
+  (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
+  )
+
 (define-key global-map (kbd "M-m") 'back-to-indentation)
 (define-key global-map (kbd "M-'") 'use-register-dwim)
 (define-key global-map (kbd "M-M") 'bookmark-set)

@@ -122,6 +122,7 @@
 (popper-echo-mode)
 
 
+(setq diff-hl-show-staged-changes nil)
 (global-diff-hl-mode)
 (diff-hl-margin-mode)
 

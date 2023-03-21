@@ -361,8 +361,8 @@
 
 
 (when *is-linux*
-  (global-set-key (kbd "C-c w") 'counsel-wmctrl)
-  (global-set-key (kbd "C-c m") 'counsel-linux-app)
+  ;; (global-set-key (kbd "C-c w") 'counsel-wmctrl)
+  ;; (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-c p") 'proced)
   )
 

@@ -200,6 +200,10 @@ unwanted space when exporting org-mode to html."
 	  ;; 性：不能适应多 vault 的情况。
 	  ))
 
+(defun insert-fei-generate-obsidian-canvas-uuid-link ()
+  (interactive)
+  (insert (fei-generate-obsidian-canvas-uuid-link)))
+
 ;;; Org-download
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")

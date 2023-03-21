@@ -49,7 +49,7 @@
 (global-set-key (kbd "C-x <mouse-3>") 'code)
 (global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
 
-(with-eval-after-load 'LaTeX-mode
+(with-eval-after-load 'latex
   (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
   (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
   (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)

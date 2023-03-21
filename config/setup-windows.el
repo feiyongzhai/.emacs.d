@@ -121,7 +121,9 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . 5)
          (window-height . (lambda (win) (fit-window-to-buffer win 20 10)))
          (direction . above)
-         (body-function . select-window))
+         ;; (body-function . select-window)
+	 ;; 这个参数会影响 isearch-occur ，因为默认是不选择的
+	 )
 
         ("\\*\\(Flycheck\\|Package-Lint\\).*"
          (display-buffer-in-direction display-buffer-in-side-window)

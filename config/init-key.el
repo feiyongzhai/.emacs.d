@@ -46,6 +46,7 @@
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
 
 (global-set-key (kbd "C-x <mouse-1>") 'dirvish-side)
+(global-set-key (kbd "C-x <mouse-3>") 'code)
 (global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
 
 (define-key global-map (kbd "M-m") 'back-to-indentation)
@@ -77,8 +78,15 @@
 (global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
 
-(global-set-key (kbd "M-s m") 'marker-stack-push)
-(global-set-key (kbd "M-s u") 'marker-stack-pop)
+(global-set-key (kbd "M-s m") 'bookmark-view-push)
+(global-set-key (kbd "M-s u") 'bookmark-view-pop)
+
+(global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
+(global-set-key (kbd "C-c <right>") 'tab-bar-history-forward)
+(global-set-key (kbd "M-<left>") 'tab-bar-history-back)
+(global-set-key (kbd "M-<right>") 'tab-bar-history-back)
+(global-set-key (kbd "C-x C-/") 'tab-bar-history-back)
+(global-set-key (kbd "C-x C-?") 'tab-bar-history-forward)
 
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
@@ -96,12 +104,8 @@
 (global-set-key (kbd "C-x w s") 'window-swap-states)
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
-(global-set-key (kbd "C-x w u") 'transient-winner-undo)
 (global-set-key (kbd "C-x o") 'ace-window) ;ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
 (global-set-key (kbd "C-x O") 'other-frame)
-(global-set-key (kbd "M-<left>") 'winner-undo)
-(global-set-key (kbd "C-x C-/") 'winner-undo)
-(global-set-key (kbd "C-x C-?") 'winner-redo)
 (global-set-key (kbd "C-v") 'my/scroll-up-half)
 (global-set-key (kbd "M-v") 'my/scroll-down-half)
 
@@ -505,6 +509,7 @@
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))

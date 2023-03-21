@@ -5,7 +5,8 @@
 
 ;;; Mode
 
-(winner-mode 1)
+;; 用 tab-bar-history-mode 代替
+;; (winner-mode 1)
 
 ;; ace-window
 (setq aw-ignore-current nil)

@@ -59,6 +59,7 @@
 
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(fringe-mode '(1 . 1)) ;该配置和 diff-hl 配合使用，不设为 0 0 是因为 dirvish 在 0 0 配置下有的时候工作不正常
 (unless *is-termux*
   (scroll-bar-mode -1)
 

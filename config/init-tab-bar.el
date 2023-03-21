@@ -2,13 +2,13 @@
 (setq tab-bar-format
       '(
 	;; tab-bar-format-menu-bar
+	;; tab-bar-format-history
 	tab-bar-format-tabs
 	tab-bar-separator
 	tab-bar-format-add-tab
 	tab-bar-separator
-	tab-bar-format-align-right
-	;; tab-bar-format-history
-	tab-bar-format-global
+	;; tab-bar-format-align-right
+	;; tab-bar-format-global
 	))
 
 (setq tab-bar-show t)

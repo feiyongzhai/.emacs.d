@@ -124,7 +124,6 @@
 
 (global-diff-hl-mode)
 (diff-hl-margin-mode)
-(fringe-mode '(1 . 1)) ;不设为 0 0 是因为 dirvish 在 0 0 配置下有的时候工作不正常
 
 
 ;; 有些时候，我们改变了一些配置导致了 `vertico-posframe' 或者 `ivy-posframe' 等 posframe 相关的

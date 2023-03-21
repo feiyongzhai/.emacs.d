@@ -52,6 +52,7 @@
 	;; ==== 外观 ====
 	standard-themes dashboard
 	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
+	smart-mode-line
 
 	;; === 窗口管理 ===
 	popper bookmark-view

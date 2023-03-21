@@ -2,6 +2,9 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/feebleline")
 (require 'feebleline)
 
+(setq sml/theme nil)
+(sml/setup)
+
 ;; == 修改 mode-line 的一个示例 ==
 
 ;; (setq mode-line-format

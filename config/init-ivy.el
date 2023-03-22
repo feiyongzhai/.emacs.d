@@ -3,6 +3,9 @@
 ;; (ivy-mode 1)
 
 (ivy-posframe-mode)
+(setq ivy-posframe-display-functions-alist
+      '((swiper-isearch  . ivy-display-function-fallback)
+        (t               . ivy-posframe-display)))
 
 (setq counsel-search-engine 'google)
 (setq ivy-use-virtual-buffers t)

@@ -1,3 +1,8 @@
+(vertico-posframe-mode)
+;; (setq vertico-posframe-border-width 4)
+;; (setq vertico-posframe-min-height 20)
+;; (setq vertico-posframe-min-width 150)
+
 (vertico-mode)
 (vertico-mouse-mode)
 ;; (vertico-grid-mode)
@@ -6,11 +11,13 @@
 
 (setq vertico-multiform-commands
       '((consult-line buffer)
+	;; 下面这行的自动打开 vertico-posframe-mode
+	(execute-extended-command (:not posframe) flat)
         (consult-imenu reverse buffer)
 	(fei-consult-ripgrep-my-org buffer)
 	(rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)
-        (execute-extended-command flat)))
+        ))
 
 ;; 回归默认样式
 ;; (setq vertico-multiform-categories
@@ -26,11 +33,6 @@
 ;;; Some enhanced feature
 
 ;; (marginalia-mode -1)
-
-(vertico-posframe-mode)
-;; (setq vertico-posframe-border-width 4)
-;; (setq vertico-posframe-min-height 20)
-;; (setq vertico-posframe-min-width 150)
 
 
 ;; ==== [consult] ====

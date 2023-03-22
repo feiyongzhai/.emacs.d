@@ -9,6 +9,7 @@
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
+(global-set-key (kbd "M-s-j") 'make-frame-command)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
@@ -113,7 +114,9 @@
 (global-set-key (kbd "C-x w s") 'window-swap-states)
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
-(global-set-key (kbd "C-x o") 'ace-window) ;ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
+;; ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
+;; (global-set-key (kbd "C-x o") 'ace-window)
+(global-set-key (kbd "C-x o") 'ace-select-window) ;ace-select-window 也不会选 side bar
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-v") 'my/scroll-up-half)
 (global-set-key (kbd "M-v") 'my/scroll-down-half)

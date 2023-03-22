@@ -1,7 +1,7 @@
 (setq tab-bar-select-tab-modifiers '(meta)) ;这个需要在 tab-bar-mode 启用之前
 (setq tab-bar-format
       '(
-	tab-bar-format-dirvish-button
+	tab-bar-format-treemacs-button
 	;; tab-bar-format-menu-bar
 	;; tab-bar-format-history
 	tab-bar-format-tabs
@@ -12,10 +12,10 @@
 	;; tab-bar-format-global
 	))
 
-(defun tab-bar-format-dirvish-button ()
+(defun tab-bar-format-treemacs-button ()
   "Produce the Menu button for the tab bar that shows the menu bar."
   `((menu-bar menu-item (propertize "📁" 'face 'tab-bar-tab-inactive)
-     dirvish-side :help "Dirvish Side")))
+     treemacs :help "Treemacs Side")))
 
 (setq tab-bar-show t)
 (tab-bar-history-mode)

@@ -5,6 +5,7 @@
 (ivy-posframe-mode)
 (setq ivy-posframe-display-functions-alist
       '((swiper-isearch  . ivy-display-function-fallback)
+	(counsel-compile . ivy-display-function-fallback)
         (t               . ivy-posframe-display)))
 
 (setq counsel-search-engine 'google)

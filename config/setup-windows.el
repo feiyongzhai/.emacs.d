@@ -29,16 +29,6 @@ If buffer-or-name is nil return current buffer's mode."
                                 edebug-eval-mode)
   "List of major-modes used in message buffers")
 
-(defun my/helper-window-mode-line-format ()
-  "Mode-line format for helper (popup) windows"
-  ;; (list " "
-  ;;       (when (bound-and-true-p winum-format)
-  ;;           winum--mode-line-segment)
-  ;;       " POP "
-  ;;       mode-line-buffer-identification)
-  mode-line-format
-  )
-
 ;; display-buffer-action-functions are:
 ;;  `display-buffer-same-window' -- Use the selected window.
 ;;  `display-buffer-reuse-window' -- Use a window already showing the buffer.
@@ -132,7 +122,7 @@ If buffer-or-name is nil return current buffer's mode."
          ;; (window-height . 0.16)
          (side . top)
          (slot . 1)
-         (window-parameters . (;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
+         (window-parameters . (
                                (no-other-window . t))))
 
         ;; ----------------------------------------------------------------
@@ -144,7 +134,6 @@ If buffer-or-name is nil return current buffer's mode."
          (side . right)
          (slot . -2)
          (window-parameters . ((no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
         ;; ----------------------------------------------------------------
@@ -155,18 +144,12 @@ If buffer-or-name is nil return current buffer's mode."
          (window-height . 0.20)
          (side . bottom)
          (slot . -9)
-         ;; (preserve-size . (nil . t))
-         ;; (window-parameters . (;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-         ;;                       ))
          )
 
         ("\\*RefTex" (display-buffer-in-side-window)
          (window-height . 0.25)
          (side . bottom)
          (slot . -9)
-         ;; (preserve-size . (nil . t))
-         ;; (window-parameters . (;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-         ;;                       ))
          )
 
         ((lambda (buf act) (member (buffer-mode buf) my/message-modes-list))
@@ -174,10 +157,6 @@ If buffer-or-name is nil return current buffer's mode."
          (window-height . 0.25)
          (side . bottom)
          (slot . -6)
-         ;; (preserve-size . (nil . t))
-         ;; (window-parameters . ((no-other-window . #'ignore)
-         ;;                       ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-         ;;                       ))
          )
 
         ("\\*\\(?:Warnings\\|Compile-Log\\|Messages\\)\\*" ;\\|Tex Help\\|TeX errors
@@ -190,8 +169,6 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . -5)
          ;; (preserve-size . (nil . t))
          (window-parameters . ((split-window . #'ignore)
-                               ;; (no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
         ("\\(?:[Oo]utput\\)\\*" display-buffer-in-side-window
@@ -199,10 +176,6 @@ If buffer-or-name is nil return current buffer's mode."
                             (fit-window-to-buffer win (floor (frame-height) 2.5))))
          (side . bottom)
          (slot . -4)
-         ;; (preserve-size . (nil . t))
-         ;; (window-parameters . ((no-other-window . t)
-         ;;                       ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-         ;;                       ))
          )
         
         ("\\*Async Shell Command\\*" display-buffer-in-side-window
@@ -211,7 +184,6 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . -4)
          ;; (preserve-size . (nil . t))
          (window-parameters . ((no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
         ("\\*\\(Register Preview\\).*" (display-buffer-in-side-window)
@@ -219,16 +191,12 @@ If buffer-or-name is nil return current buffer's mode."
          (side . bottom)
          (slot . -3)
          (window-parameters . ((no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
         ("\\*Completions\\*" (display-buffer-in-side-window)
          (window-height . 0.20)
          (side . bottom)
          (slot . 2) ;这个里面有一点黑魔法， popper-mode 默认的 slot 是 1 这个是会有复用的表现，体验很奇妙
-         ;; (window-parameters . ((no-other-window . t)
-         ;;                       ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
-         ;;                       ))
          )
 
 	("CAPTURE-.*" (display-buffer-in-direction)
@@ -249,7 +217,6 @@ If buffer-or-name is nil return current buffer's mode."
          (side . right)
          (slot . -2)
          (window-parameters . (;; (no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
         
         ((lambda (buf act) (member (buffer-mode buf) my/help-modes-list))
@@ -258,15 +225,12 @@ If buffer-or-name is nil return current buffer's mode."
           display-buffer-in-side-window)
          (body-function . select-window)
          ;; (direction . bottom)
-         ;; (window-height . (lambda (win) (fit-window-to-buffer win 25 14)))
          (window-width . 77 ;; (lambda (win) (fit-window-to-buffer win nil nil 75 65))
                        )
          (direction . below)
          (side . right)
          (slot . 2)
          (window-parameters . ((split-window . #'ignore)
-                               ;; (no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
         
         ("^\\*eldoc\\*$"
@@ -282,8 +246,6 @@ If buffer-or-name is nil return current buffer's mode."
          (side . below)
          (slot . 2)
          (window-parameters . ((split-window . #'ignore)
-                               ;; (no-other-window . t)
-                               ;; (mode-line-format . (:eval (my/helper-window-mode-line-format)))
                                )))
 
         ((lambda (buf act) (member (buffer-mode buf) '(ibuffer-mode bookmark-bmenu-mode)))

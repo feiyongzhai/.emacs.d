@@ -3,7 +3,7 @@
 (defun +fei-prog-hook ()
   (outline-minor-mode t)
   (display-line-numbers-mode t)
-  ;; (company-mode t)
+  (company-mode t)
   (hl-line-mode t)
   (hs-minor-mode t)
   (diff-hl-mode t)

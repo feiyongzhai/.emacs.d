@@ -79,6 +79,8 @@
     "\\\\" "\\\\\n"
     "KK" "^k"
     "pw" (li (yas-expand-snippet "^{$0}"))
+    "sb" (li (yas-expand-snippet "\\symbf{$0}"))
+    "bb" (li (yas-expand-snippet "\\mathbb{$0}"))
     ))
 
 ;; === Auto Expand option 2 (powered by `yasnippet' & `post-command-hook') ===

@@ -52,13 +52,14 @@
 (defun marker-stack-push (&optional location nomsg activate)
   "Push current point in stack. 如果要作为 advice function，注意参数要和原函数一致"
   (interactive)
-  (message "Location marked.")
   ;; 下面两行，REF: `push-mark'
   ;; (set-marker (mark-marker) (point) (current-buffer))
   ;; 如果放到 advice 中，上面的这个会多建立一个 mark ，直接导致 mark-sexp 无法正常工作
   (when (= marker-stack-max (length marker-stack))
     (setq marker-stack (butlast marker-stack 1)))
-  (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack))
+  (unless (eq major-mode 'minibuffer-mode)
+    (message "Location marked.")
+    (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack)))
   )
 
 (defun marker-stack-pop ()

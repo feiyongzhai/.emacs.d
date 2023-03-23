@@ -249,7 +249,7 @@
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u"
+	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u" "M-n" "M-p"
 	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
 
 (with-eval-after-load 'rime
@@ -323,7 +323,7 @@
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "C-S-y") 'org-download-clipboard)
+(global-set-key (kbd "C-S-y") (li (yank '(4))))
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)

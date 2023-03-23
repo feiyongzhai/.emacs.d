@@ -57,7 +57,8 @@
   ;; 如果放到 advice 中，上面的这个会多建立一个 mark ，直接导致 mark-sexp 无法正常工作
   (when (= marker-stack-max (length marker-stack))
     (setq marker-stack (butlast marker-stack 1)))
-  (unless (eq major-mode 'minibuffer-mode)
+  (unless (or (eq major-mode 'minibuffer-mode) ;不记录 minibuffer 中的 marker
+	      (eq major-mode 'treemacs-mode))  ;不记录 treemacs 中的 marker
     (message "Location marked.")
     (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack)))
   )

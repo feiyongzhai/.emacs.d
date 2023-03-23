@@ -49,7 +49,52 @@
 (defun fei-switch-current-buffer-to-new-tab ()
   (interactive)
   (let ((cur-buf (current-buffer)))
-    (winner-undo)			;切换回上一个状态
+    (tab-bar-history-back)		;切换回上一个状态
     (switch-to-buffer-other-tab cur-buf)))
+
+
+(with-eval-after-load 'tab-bar
+  (defun tab-bar-mouse-context-menu (event)
+    "魔改Pop up the context menu for the tab on which you click."
+    (interactive "e")
+    (let* ((item (tab-bar--event-to-item (event-start event)))
+           (tab-number (tab-bar--key-to-number (nth 0 item)))
+           (menu (make-sparse-keymap (propertize "Context Menu" 'hide t))))
+
+      (cond
+       ((eq tab-number t)
+	(define-key-after menu [new-tab]
+          '(menu-item "New tab" tab-bar-new-tab
+                      :help "Create a new tab"))
+	(when tab-bar-closed-tabs
+          (define-key-after menu [undo-close]
+            '(menu-item "Reopen closed tab" tab-bar-undo-close-tab
+			:help "Undo closing the tab"))))
+
+       (t
+	(define-key-after menu [open-in-vscode]
+          `(menu-item "Open in vscode" code
+                      :help "Open in vscode"))
+	(define-key-after menu [duplicate-tab]
+          `(menu-item "Duplicate" (lambda () (interactive)
+                                    (tab-bar-duplicate-tab
+                                     nil ,tab-number))
+                      :help "Clone the tab"))
+	(define-key-after menu [detach-tab]
+          `(menu-item "Detach" (lambda () (interactive)
+				 (tab-bar-detach-tab
+                                  ,tab-number))
+                      :help "Move the tab to new frame"))
+	(define-key-after menu [close]
+          `(menu-item "Close" (lambda () (interactive)
+				(tab-bar-close-tab ,tab-number))
+                      :help "Close the tab"))
+	(define-key-after menu [close-other]
+          `(menu-item "Close other tabs"
+                      (lambda () (interactive)
+			(tab-bar-close-other-tabs ,tab-number))
+                      :help "Close all other tabs"))))
+
+      (popup-menu menu event))))
 
 (provide 'init-tab-bar)

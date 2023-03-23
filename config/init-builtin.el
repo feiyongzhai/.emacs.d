@@ -73,6 +73,8 @@
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
+(add-hook 'bookmark-bmenu-mode-hook 'hl-line-mode)
+
 ;;; Experiment
 ;; (global-unset-key (kbd "C-x C-c"))
 ;; (defalias 'exit 'save-buffers-kill-terminal)

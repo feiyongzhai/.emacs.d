@@ -16,7 +16,7 @@
   ;; (toggle-truncate-lines -1)
   
   (setq tab-width 2)
-
+  ;; 方便快速输入 =+_ 等强调符号
   (smartparens-mode)
   )
 
@@ -40,6 +40,7 @@
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
+(setq org-agenda-use-time-grid nil)
 (setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
 (setq org-refile-targets
       '((nil :maxlevel . 1)
@@ -94,7 +95,37 @@
       org-appear-autosubmarkers t
       org-appear-autolinks nil)
 
-;;; org 中文格式去除需要添加空格的限制，以及相应的 org-export 配置
+
+;;; ==== Org Export 配置开始 ====
+
+;; @REF: https://emacs-china.org/t/org-mode-pdf/16746/2
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+               '("ctexart" "\\documentclass[11pt]{ctexart}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (setq org-latex-default-class "ctexart")
+  (setq org-latex-compiler "xelatex"))
+
+(with-eval-after-load 'ox
+  (require 'ox-beamer) ;没有这一行在 ox-dispatcher 中不会显示 ox-beamer 的选项
+  (add-to-list 'org-latex-classes
+               '("beamer" "\\documentclass[presentation]{ctexbeamer}"
+		 ("\\section{%s}" . "\\section*{%s}")
+		 ("\\subsection{%s}" . "\\subsection*{%s}")
+		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+
+(with-eval-after-load 'org
+  ;; @REF: https://emacs.stackexchange.com/questions/17988/variable-to-set-org-export-pdf-viewer
+  (when *is-linux*
+    ;; 指定 org-export 后打开 pdf 的软件
+    (add-to-list 'org-file-apps '("\\.pdf" . "evince %s"))))
+
+
+;;; Hack: org 中文格式去除需要添加空格的限制，以及相应的 org-export 配置
 ;; @REF: https://emacs-china.org/t/org-mode/597/6?u=yongfeizhai
 ;; @REF: https://emacs-china.org/t/org-mode/597/5?u=yongfeizhai
 ;; @NOTE: 配置可能存在潜在问题，出现问题的时候留意观察
@@ -116,7 +147,7 @@
          "\\|"
          "\\(?:\\*\\|[+-]?[[:alnum:].,\\]*[[:alnum:]]\\)\\)")))
 
-;;; 关于 org-export 是对于换行符号的处理
+;;; Hack: 关于 org-export 是对于换行符号的处理
 ;; latex 中的 xelatex 可以自己处理换行，所以在 emacs 这边不需要多余的处理
 ;; html 不会，所以需要在 emacs 这边进行一些配置
 ;; @NOTE: 配置可能存在潜在风险，出现问题的留意观察该部分
@@ -137,52 +168,44 @@ unwanted space when exporting org-mode to html."
               "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
       (ad-set-arg 1 fixed-contents)))
 
+;;; ==== Org Export 配置结束 ====
 
 
 (require 'fei-pomodoro "~/.emacs.d/extensions/fei/fei-pomodoro.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
-
 (setq org-directory "~/Nutstore Files/org")
+
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
-	`(("t" "Task" entry
-	   (file "gtd.org")
-	   "* TODO %?\nCREATE: %T\n")
-	  ("T" "Task(为Eshell设计)" entry
-	   (file "gtd.org")
+	`(("t" "Task" entry (file "gtd.org") "* TODO %?\nCREATE: %T\n")
+	  ("T" "Task(为Eshell设计)" entry (file "gtd.org")
 	   "* TODO %i\nCREATE: %T\n"
 	   :immediate-finish t)
-	  ("s" "SomeDay" entry
-	   (file "inbox.org")
-	   "* SOMEDAY %?\nCREATE: %T\n"
-	   :kill-buffer t)
-	  ("S" "SAR" entry
-	   (file+headline "SAR.org" "Inbox")
-	   "* TODO %?")
-	  ("K" "Research" entry
-	   (file+headline "private/Research.org" ,(format-time-string "%Y-%m-%d" (current-time))) 
-	   "* %(substring (current-time-string) 11 16) %?")
-	  ("n" "note" entry
-	   (file "notes.org")
-	   "* %?")
-	  ("P" "Private" entry
-	   (file+headline "private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %i%?"
-	   :immediate-finish t)
-	  ("p" "Private" entry
-	   (file+headline "private/private.org" ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?")
-	  ("c" "Canvas" entry
-	   (file "question.org")
+	  ("c" "Canvas" entry (file "question.org")
 	   "* %(fei-generate-obsidian-canvas-uuid-link) %?"
 	   :jump-to-captured t
 	   :empty-lines 1)
-	  ("d" "Diary" entry
-	   (file "private/diary.org")
-	   "* %t\n%?")
+	  ("n" "note" entry (file "notes.org") "* %?")
+	  ("p" "Private" entry
+	   (file+headline "private/private.org"
+			  ,(format-time-string "%Y-%m-%d" (current-time)))
+	   "* %(substring (current-time-string) 11 16) %?")
+	  ("P" "Private" entry
+	   (file+headline "private/private.org"
+			  ,(format-time-string "%Y-%m-%d" (current-time)))
+	   "* %(substring (current-time-string) 11 16) %i%?"
+	   :immediate-finish t)
+	  ("s" "SomeDay" entry (file "inbox.org") "* SOMEDAY %?\nCREATE: %T\n"
+	   :kill-buffer t)
+	  ("K" "Research" entry
+	   (file+headline "private/Research.org"
+			  ,(format-time-string "%Y-%m-%d" (current-time))) 
+	   "* %(substring (current-time-string) 11 16) %?")
+	  ("S" "SAR" entry (file+headline "SAR.org" "Inbox") "* TODO %?")
+	  ("d" "Diary" entry (file "private/diary.org") "* %t\n%?")
 	  )))
 
 (defun fei-generate-obsidian-canvas-uuid-link ()
@@ -204,12 +227,13 @@ unwanted space when exporting org-mode to html."
   (interactive)
   (insert (fei-generate-obsidian-canvas-uuid-link)))
 
-;;; Org-download
+
+;;; ==== Org-download ====
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
 (with-eval-after-load 'org (org-download-enable))
 
-;; Org Babel Dot(graphviz)
+;;; ==== Org Babel Dot(graphviz) ====
 ;; @REF: https://joy.pm/post/2017-09-17-a_graphviz_primer/
 (with-eval-after-load 'org
   (org-babel-do-load-languages
@@ -217,11 +241,11 @@ unwanted space when exporting org-mode to html."
    '((dot . t)))			; this line activates dot
   )
 
+(add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
+
 (defun my/fix-inline-images ()
   (when org-inline-image-overlays
     (org-redisplay-inline-images)))
-
-(add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
 
 ;; Funcs
 
@@ -336,16 +360,17 @@ unwanted space when exporting org-mode to html."
     (activate-input-method 'rime))))
 
 
+;;; ==== work with obsidian
 (with-eval-after-load 'org
   ;; 目前在笔记本 manjaro 平台做了测试
 
-  ;; obsidan link handling for obsidian:// links
-  (defun org-obidian-link-open (slash-message-id)
+  ;; obsidian link handling for obsidian:// links
+  (defun org-obsidian-link-open (slash-message-id)
     "Handler for org-link-set-parameters that opens a obsidian:// link in obsidian"
     (browse-url (concat "obsidian:" slash-message-id))
     )
-  ;; on obsdian://aoeu link, this will call handler with //aoeu
-  (org-link-set-parameters "obsidian" :follow #'org-obidian-link-open)
+  ;; on obsidian://aoeu link, this will call handler with //aoeu
+  (org-link-set-parameters "obsidian" :follow #'org-obsidian-link-open)
   )
 
 (provide 'init-org)

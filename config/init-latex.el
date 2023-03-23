@@ -1,3 +1,22 @@
+(setq TeX-save-query nil)
+(setq TeX-electric-escape nil)	     ; 打开的时候有点烦人
+(setq font-latex-fontify-script nil) ; 使用朴素的上下标样式，auctex 的配置
+;; (setq tex-fontify-script nil)	  ;使用朴素的上下标样式，自带 tex 的配置
+
+(defun reftex-toc-mode-hor-or-ver ()
+  (interactive)
+  (if reftex-toc-split-windows-horizontally
+      (progn
+	(reftex-toc-quit)
+	(setq reftex-toc-split-windows-horizontally nil)
+	(call-interactively 'reftex-toc))
+    (reftex-toc-quit)
+    (setq reftex-toc-split-windows-horizontally t)
+    (call-interactively 'reftex-toc)))
+
+(with-eval-after-load 'reftex-toc
+  (define-key reftex-toc-mode-map (kbd "v") 'reftex-toc-mode-hor-or-ver))
+
 ;; @REF: https://ks3-cn-beijing.ksyun.com/attachment/9ff9efaf747469424f48741629013db1
 ;; @REF: https://emacs-china.github.io/emacsist/blog/2016/10/26/2016-10-23%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAemacs-latex-make%E5%B7%A5%E5%85%B7%E9%93%BE/
 ;; vscode 的 latex 配置简单好用，emacs 输
@@ -9,43 +28,11 @@
 
 ;; (imenu-add-menubar-index)
 
-(setq TeX-electric-escape nil)		; 打开的时候有点烦人
-(setq TeX-save-query nil)
-
 ;; use xelatex engine
 (with-eval-after-load 'latex
   ;; @ref https://github.com/yangsheng6810/dotfiles/blob/master/.spacemacs.d/init.org
   (add-to-list 'TeX-command-list
 	       '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t)))
-
-;; ==== Org Export ====
-
-;; @REF: https://emacs-china.org/t/org-mode-pdf/16746/2
-(with-eval-after-load 'ox-latex
-  (add-to-list 'org-latex-classes
-               '("ctexart" "\\documentclass[11pt]{ctexart}"
-                 ("\\section{%s}" . "\\section*{%s}")
-                 ("\\subsection{%s}" . "\\subsection*{%s}")
-                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-  (setq org-latex-default-class "ctexart")
-  (setq org-latex-compiler "xelatex"))
-
-(with-eval-after-load 'ox
-  (require 'ox-beamer) ;没有这一行在 ox-dispatcher 中不会显示 ox-beamer 的选项
-  (add-to-list 'org-latex-classes
-               '("beamer" "\\documentclass[presentation]{ctexbeamer}"
-		 ("\\section{%s}" . "\\section*{%s}")
-		 ("\\subsection{%s}" . "\\subsection*{%s}")
-		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
-
-(with-eval-after-load 'org
-  ;; @REF: https://emacs.stackexchange.com/questions/17988/variable-to-set-org-export-pdf-viewer
-  (when *is-linux*
-    (add-to-list 'org-file-apps '("\\.pdf" . "evince %s")) ; 指定 org-export 后打开 pdf 的软件
-    )
-  )
 
 
 ;; ==== Quick Input ====
@@ -57,7 +44,10 @@
 ;; (add-hook 'LaTeX-mode-hook (lambda () (setq-local company-backends '(company-yasnippet))))
 
 (with-eval-after-load 'cdlatex
-  (define-key cdlatex-mode-map (kbd "<") nil))
+  ;; `cdlatex-pbb' 总是工作不符合预期
+  (define-key cdlatex-mode-map (kbd "<") nil)
+  (define-key cdlatex-mode-map (kbd "(") nil)
+  (define-key cdlatex-mode-map (kbd "[") nil))
 
 ;; ===  Auto Expand option 1 (powered by `aas' & `laas') ===
 

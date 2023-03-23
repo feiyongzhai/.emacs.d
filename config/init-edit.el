@@ -7,7 +7,7 @@
 (setq next-screen-context-lines 2)	;default is 2
 (setq scroll-step 1
       scroll-conservatively 10000
-      scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
+      scroll-margin 6 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
       )
 ;; @REF: https://emacs-china.org/t/word/19878
 ;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")

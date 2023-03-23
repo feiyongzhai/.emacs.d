@@ -75,6 +75,8 @@
 ;; dirvish
 (dirvish-override-dired-mode)
 (setq dirvish-mode-line-height 18)
+(setq dirvish-header-line-height 18)
+(setq-default dirvish-mode-line-format '(:left (sort omit symlink) :right (index free-space)))
 (setq dirvish-attributes
       '(subtree-state all-the-icons file-time file-size))
 (setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")

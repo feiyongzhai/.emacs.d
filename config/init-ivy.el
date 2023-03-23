@@ -2,7 +2,7 @@
 
 ;; (ivy-mode 1)
 
-(ivy-posframe-mode)
+;; (ivy-posframe-mode)
 (setq ivy-posframe-display-functions-alist
       '((swiper-isearch  . ivy-display-function-fallback)
 	(counsel-compile . ivy-display-function-fallback)

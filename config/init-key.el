@@ -47,7 +47,6 @@
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
 
 (global-set-key (kbd "C-x <mouse-1>") 'dirvish-side)
-(global-set-key (kbd "C-x <mouse-3>") 'code)
 (global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
 
 (with-eval-after-load 'latex
@@ -121,11 +120,15 @@
 (global-set-key (kbd "C-v") 'my/scroll-up-half)
 (global-set-key (kbd "M-v") 'my/scroll-down-half)
 
+(global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
+(global-set-key (kbd "C-x Q") 'unbury-buffer)
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 
 (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 
+
+(global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
 (global-set-key (kbd "M-k") 'kill-current-buffer)
 (global-set-key (kbd "M-K") 'reopen-killed-file)
 (global-set-key (kbd "C-x k") 'kill-current-buffer)

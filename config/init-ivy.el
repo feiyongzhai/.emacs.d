@@ -23,6 +23,14 @@
     (call-interactively 'counsel-recentf)
     ))
 
+(defun fei-counsel-switch-buffer ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (call-interactively 'counsel-switch-buffer)
+    ))
+
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
   (add-to-list 'counsel-wmctrl-ignore "桌面")

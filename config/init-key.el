@@ -10,6 +10,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "M-s-j") 'make-frame-command)
+(global-set-key (kbd "C-x c") 'compile)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
@@ -23,6 +24,7 @@
   )
 
 (global-set-key (kbd "C-|") 'fei-rime-force-enable)
+(global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
 
 (define-key global-map "\M-Q" 'unfill-paragraph)
 
@@ -225,7 +227,12 @@
   (define-key term-mode-map (kbd "M-`") 'nil)
   )
 
-(global-set-key [remap tab-bar-select-tab] 'fei-select-tab)
+(add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
+(defun fei-tab-bar-define-key ()
+  (global-set-key (kbd "M-1") 'fei-select-tab) ;主 tab
+  (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
+  )
+
 (global-set-key (kbd "M-0") 'tab-close)
 (global-set-key (kbd "M--") 'tab-undo)
 (global-set-key (kbd "M-`") 'tab-recent)
@@ -347,6 +354,8 @@
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
 (with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map (kbd "`") 'fei-org-agenda-toggle-done-entry)
+  (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 

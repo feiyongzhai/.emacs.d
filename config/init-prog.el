@@ -7,6 +7,7 @@
   (hl-line-mode t)
   (hs-minor-mode t)
   (diff-hl-mode t)
+  (toggle-truncate-lines 1)
   (yas-minor-mode t))
 
 ;; use `add-file-local-variable' to change `outline-regexp' for a single file
@@ -15,7 +16,12 @@
 (add-hook 'octave-mode-hook 'electric-pair-local-mode)
 
 ;; Yaml
+;; yaml-mode 居然不是 prog-mode
 (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
+(add-hook 'yaml-mode-hook 'fei-yaml-mode-hook)
+
+(defun fei-yaml-mode-hook ()
+  (toggle-truncate-lines 1))
 
 ;; AHK
 (setq ahk-indentation 4)

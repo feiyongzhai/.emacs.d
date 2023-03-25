@@ -40,12 +40,42 @@
 
 (setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-(setq org-agenda-use-time-grid nil)
-(setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
+
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
+	("~/Nutstore Files/org/inbox.org" :level . 0)
 	("~/Nutstore Files/org/private/private.org" :maxlevel . 1)))
+
+(defun fei-org-refile-to-file ()
+  (interactive)
+  (let ((org-refile-use-outline-path 'file))
+    (call-interactively 'org-refile)))
+
+(defun fei-org-agenda-refile-to-file ()
+  (interactive)
+  (let ((org-refile-use-outline-path 'file))
+    (call-interactively 'org-agenda-refile)))
+
+
+;; ==== Org Agenda 配置开始 ===
+(add-hook 'org-agenda-mode-hook 'hl-line-mode)
+
+(with-eval-after-load 'org-agenda
+  ;; 完成任务时, 将其划线勾掉
+  (set-face-attribute 'org-agenda-done nil :strike-through t))
+
+(defun fei-org-agenda-toggle-done-entry ()
+  (interactive)
+  (if org-agenda-skip-timestamp-if-done
+      (setq org-agenda-skip-timestamp-if-done nil)
+    (setq org-agenda-skip-timestamp-if-done t))
+  (org-agenda-redo))
+
+(setq org-agenda-use-time-grid nil)
+(setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
+;; ==== Org Agenda 配置结束 ===
+
 
 ;; 更好的样式
 (setq org-todo-keyword-faces

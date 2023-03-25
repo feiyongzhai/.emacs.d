@@ -43,7 +43,7 @@
   "W" 'whitespace-mode
   "t" 'fei-switch-to-treemacs
   "j" 'counsel-recentf
-  "TAB" 'fei-meow-last-buffer
+  "TAB" 'mode-line-other-buffer
   "i" 'ibuffer
   "d" 'dired-jump
   "b" 'switch-to-buffer

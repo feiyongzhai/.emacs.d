@@ -1,6 +1,18 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(defun fei-meow-last-buffer (arg)
+  "Switch to last buffer.
+Argument ARG if not nil, switching in a new window."
+  (interactive "P")
+  (cond
+   ((minibufferp)
+    (keyboard-escape-quit))
+   ((not arg)
+    (mode-line-other-buffer))
+   (t
+    (split-window)
+    (mode-line-other-buffer))))
 
 
 ;;; Neotree

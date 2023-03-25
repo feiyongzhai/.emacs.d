@@ -85,20 +85,6 @@ For a location, jump to it."
        next-screen-context-lines)
     2)))
 
-
-(defun fei-meow-last-buffer (arg)
-  "Switch to last buffer.
-Argument ARG if not nil, switching in a new window."
-  (interactive "P")
-  (cond
-   ((minibufferp)
-    (keyboard-escape-quit))
-   ((not arg)
-    (mode-line-other-buffer))
-   (t
-    (split-window)
-    (mode-line-other-buffer))))
-
 (defun sudo-find-this-file ()
   (interactive)
   (if (buffer-file-name)

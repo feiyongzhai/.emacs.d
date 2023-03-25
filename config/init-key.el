@@ -14,8 +14,8 @@
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
-  (define-key yas-minor-mode-map (kbd "<tab>") nil)
-  (define-key yas-minor-mode-map (kbd "TAB") nil)
+  (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
+  (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
   (define-key yas-keymap (kbd "M-n") 'yas-next-field)
   (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
@@ -233,6 +233,8 @@
   (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
   )
 
+(global-set-key (kbd "M-U") 'jump-to-register)
+(global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "M-0") 'tab-close)
 (global-set-key (kbd "M--") 'tab-undo)
 (global-set-key (kbd "M-`") 'tab-recent)
@@ -545,10 +547,10 @@
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
-(global-set-key (kbd "C-x l") 'fei-meow-last-buffer)
-(global-set-key (kbd "C-x C-l") 'fei-meow-last-buffer)
+(global-set-key (kbd "C-x l") 'nil)
+(global-set-key (kbd "C-x C-l") 'nil)
 
-(global-set-key [remap goto-line] 'avy-goto-line)
+(global-set-key [remap goto-line] 'consult-goto-line)
 
 ;;; Navigate
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)

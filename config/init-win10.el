@@ -3,12 +3,16 @@
 
 ;;; Openwith
 (add-hook 'after-init-hook 'openwith-mode)
-(setq openwith-associations '(("\\.pdf\\'" "start" (file))
+(setq openwith-associations '(
                               ("\\.doc\\'" "start" (file))
                               ("\\.docx\\'" "start" (file))
                               ("\\.mp3\\'" "start" (file))
                               ("\\.m4a\\'" "start" (file))
 			      ))
+
+(if (executable-find "epdfinfo")
+    (pdf-tools-install)
+  (add-to-list 'openwith-associations '("\\.pdf\\'" "start" (file))))
 
 ;; font
 (defun fei-setup-win-emoji ()

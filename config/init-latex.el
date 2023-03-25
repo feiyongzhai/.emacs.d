@@ -24,6 +24,7 @@
 (add-hook 'LaTeX-mode-hook #'reftex-mode)
 (add-hook 'LaTeX-mode-hook #'visual-line-mode)
 (add-hook 'LaTeX-mode-hook #'prettify-symbols-mode)
+(add-hook 'LaTeX-mode-hook #'electric-pair-local-mode)
 (add-hook 'LaTeX-mode-hook #'TeX-fold-mode) ;相应快捷键为 C-c C-o 开头
 
 ;; (imenu-add-menubar-index)
@@ -69,6 +70,7 @@
     "\\\\" "\\\\\n"
     "KK" "^k"
     "pw" (li (yas-expand-snippet "^{$0}"))
+    "dn" (li (yas-expand-snippet "_{$0}"))
     "sb" (li (yas-expand-snippet "\\symbf{$0}"))
     "bb" (li (yas-expand-snippet "\\mathbb{$0}"))
     ))

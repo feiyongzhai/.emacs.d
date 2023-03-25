@@ -31,7 +31,7 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	bash-completion pdf-tools
+	bash-completion
 	graphviz-dot-mode lsp-dart flutter
 	;; citre vterm vterm-toggle sx magit
 	))
@@ -41,7 +41,8 @@
       '(
 	;; ==== Misc ====
 	macrostep gcmh tmr git-commit
-	
+	pdf-tools
+
 	all-the-icons-ibuffer
 	scratch imenu-list rg
 	rainbow-mode rainbow-delimiters

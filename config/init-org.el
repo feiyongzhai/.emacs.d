@@ -1,7 +1,5 @@
 ;;; init-org.el == configs for Org/Markdown
 (require 'fei-funcs)
-(when (executable-find "deno")
-  (require 'init-deno-bridge-jieba))
 
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
@@ -52,11 +50,6 @@
   (let ((org-refile-use-outline-path 'file))
     (call-interactively 'org-refile)))
 
-(defun fei-org-agenda-refile-to-file ()
-  (interactive)
-  (let ((org-refile-use-outline-path 'file))
-    (call-interactively 'org-agenda-refile)))
-
 
 ;; ==== Org Agenda 配置开始 ===
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
@@ -72,7 +65,13 @@
     (setq org-agenda-skip-timestamp-if-done t))
   (org-agenda-redo))
 
+(defun fei-org-agenda-refile-to-file ()
+  (interactive)
+  (let ((org-refile-use-outline-path 'file))
+    (call-interactively 'org-agenda-refile)))
+
 (setq org-agenda-use-time-grid nil)
+(setq org-agenda-window-setup 'current-window)
 (setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
 ;; ==== Org Agenda 配置结束 ===
 

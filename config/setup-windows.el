@@ -199,6 +199,19 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . 2) ;这个里面有一点黑魔法， popper-mode 默认的 slot 是 1 这个是会有复用的表现，体验很奇妙
          )
 
+	((lambda (buf act) (with-current-buffer buf (eq major-mode 'pdf-view-mode)))
+	 (display-buffer-in-direction
+	  ;; 用 `display-buffer-in-side-window' 会 `dirvish-side' 纠缠，出现我不能理解的行为
+	  )
+         (window-width . 0.4)		;配合窗口最大化使用
+         (direction . right)
+	 (window-parameters . (
+			       (preserve-size . (t . nil))
+			       (no-delete-other-windows . t)
+                               ))
+         (slot . 0)
+         )
+
 	("CAPTURE-.*" (display-buffer-in-direction)
          (window-height . 0.20)
          (direction . bottom)

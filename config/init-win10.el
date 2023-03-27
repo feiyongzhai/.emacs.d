@@ -6,6 +6,8 @@
 (setq openwith-associations '(
                               ("\\.doc\\'" "start" (file))
                               ("\\.docx\\'" "start" (file))
+                              ("\\.ppt\\'" "start" (file))
+                              ("\\.pptx\\'" "start" (file))
                               ("\\.mp3\\'" "start" (file))
                               ("\\.m4a\\'" "start" (file))
 			      ))

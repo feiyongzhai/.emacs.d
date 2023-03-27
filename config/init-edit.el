@@ -7,7 +7,7 @@
 (setq next-screen-context-lines 2)	;default is 2
 (setq scroll-step 1
       scroll-conservatively 10000
-      scroll-margin 6 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
+      scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
       )
 ;; @REF: https://emacs-china.org/t/word/19878
 ;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")
@@ -21,7 +21,7 @@
   (interactive)
   (if (or (eq last-command 'fei-scroll-down-line)
 	  (eq last-command 'fei-scroll-up-line))
-    (scroll-up-line)
+      (scroll-up-line)
     (scroll-up-line)
     (fei-pulse-current-line)))
 
@@ -29,7 +29,7 @@
   (interactive)
   (if (or (eq last-command 'fei-scroll-down-line)
 	  (eq last-command 'fei-scroll-up-line))
-    (scroll-down-line)
+      (scroll-down-line)
     (scroll-down-line)
     (fei-pulse-current-line)))
 
@@ -59,6 +59,11 @@
     (with-current-buffer buf
       (narrow-to-region start end))))
 
+(defun yank-and-indent ()
+  (interactive)
+  (yank)
+  (call-interactively 'indent-region))
+
 (defun fei-buffer-indent ()
   "Indent all buffer. Copied from `web-mode-buffer-indent'"
   (interactive)
@@ -66,7 +71,7 @@
     (indent-region (point-min) (point-max))
     (when debug
       (setq sub (time-subtract (current-time) ts))
-      (message "buffer-indent: time elapsed = %Ss %9Sµs" (nth 1 sub) (nth 2 sub)))
+      (message "缩进 buffer 花费时间 %Ss %9Sµs" (nth 1 sub) (nth 2 sub)))
     (delete-trailing-whitespace)))
 
 (defun my/select-current-line-and-forward-line (arg)

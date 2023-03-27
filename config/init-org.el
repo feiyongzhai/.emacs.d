@@ -12,7 +12,7 @@
   ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好，这两个函数在终端下表现差异很小
   (visual-line-mode)
   ;; (toggle-truncate-lines -1)
-  
+
   (setq tab-width 2)
   ;; 方便快速输入 =+_ 等强调符号
   (smartparens-mode)
@@ -58,11 +58,17 @@
   ;; 完成任务时, 将其划线勾掉
   (set-face-attribute 'org-agenda-done nil :strike-through t))
 
+(defvar fei/agenda-hide-done-flag nil)
 (defun fei-org-agenda-toggle-done-entry ()
   (interactive)
-  (if org-agenda-skip-timestamp-if-done
-      (setq org-agenda-skip-timestamp-if-done nil)
-    (setq org-agenda-skip-timestamp-if-done t))
+  (if fei/agenda-hide-done-flag
+      (progn
+	(setq fei/agenda-hide-done-flag nil)
+	(setq org-agenda-skip-timestamp-if-done nil)
+	(setq org-agenda-skip-scheduled-if-done nil))
+    (setq fei/agenda-hide-done-flag t)
+    (setq org-agenda-skip-timestamp-if-done t)
+    (setq org-agenda-skip-scheduled-if-done t))
   (org-agenda-redo))
 
 (defun fei-org-agenda-refile-to-file ()
@@ -186,16 +192,16 @@
 ;; 1. 一种方式是：#+options: \n:t
 ;; 2. 另外一种方式如下
 (defadvice org-html-paragraph (before org-html-paragraph-advice
-                                        (paragraph contents info) activate)
-    "Join consecutive Chinese lines into a single long line without
+                                      (paragraph contents info) activate)
+  "Join consecutive Chinese lines into a single long line without
 unwanted space when exporting org-mode to html."
-    (let* ((origin-contents (ad-get-arg 1))
-           (fix-regexp "[[:multibyte:]]")
-           (fixed-contents
-            (replace-regexp-in-string
-             (concat
-              "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
-      (ad-set-arg 1 fixed-contents)))
+  (let* ((origin-contents (ad-get-arg 1))
+         (fix-regexp "[[:multibyte:]]")
+         (fixed-contents
+          (replace-regexp-in-string
+           (concat
+            "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
+    (ad-set-arg 1 fixed-contents)))
 
 ;;; ==== Org Export 配置结束 ====
 
@@ -231,7 +237,7 @@ unwanted space when exporting org-mode to html."
 	   :kill-buffer t)
 	  ("K" "Research" entry
 	   (file+headline "private/Research.org"
-			  ,(format-time-string "%Y-%m-%d" (current-time))) 
+			  ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?")
 	  ("S" "SAR" entry (file+headline "SAR.org" "Inbox") "* TODO %?")
 	  ("d" "Diary" entry (file "private/diary.org") "* %t\n%?")

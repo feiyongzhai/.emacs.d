@@ -68,4 +68,21 @@
       "Switch to buffer with same major-mode: "
       (mapcar (lambda (buf) (buffer-name buf)) filtered-buf)))))
 
+(defun switch-to-locked-buffer ()
+  "切换到启用 `emcas-lock-mode' 的 buffer
+
+这样可以把 `emacs-lock-mode' 作为书签来用标记 “重要” buffer 的方法"
+  (interactive)
+  (let (filtered-buf
+	(cur-major-mode major-mode))
+    (dolist (buf (cdr (buffer-list)))
+      ;; 不显示当前 buffer
+      (with-current-buffer buf
+	(when emacs-lock-mode
+	  (push buf filtered-buf))))
+    (switch-to-buffer
+     (completing-read
+      "Switch to locked buffer: "
+      (mapcar (lambda (buf) (buffer-name buf)) filtered-buf)))))
+
 (provide 'init-fei)

@@ -3,6 +3,11 @@
 (setq font-latex-fontify-script nil) ; 使用朴素的上下标样式，auctex 的配置
 ;; (setq tex-fontify-script nil)	  ;使用朴素的上下标样式，自带 tex 的配置
 
+(defun fei/latex-insert-equation ()
+  (interactive)
+  (yas-expand-snippet
+   (yas-lookup-snippet "\\begin{equation} ... \\end{equation}" 'latex-mode)))
+
 (defun reftex-toc-mode-hor-or-ver ()
   (interactive)
   (if reftex-toc-split-windows-horizontally

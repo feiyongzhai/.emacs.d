@@ -39,7 +39,10 @@
 (global-set-key (kbd "C-S-m") 'point-to-register)
 (global-set-key (kbd "C-S-j") 'jump-to-register)
 
-(global-set-key (kbd "C-S-l") 'bookmark-bmenu-list)
+(global-set-key (kbd "C-M-l") 'recenter-top-bottom)
+(global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
+(global-set-key (kbd "C-S-l") 'scroll-down-line)
+(global-set-key (kbd "C-l") 'scroll-up-line) ;was `recenter-top-bottom'
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump)
   (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
@@ -48,18 +51,20 @@
 (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
 
-(global-set-key (kbd "C-x <mouse-1>") 'dirvish-side)
-(global-set-key (kbd "<left-fringe> <mouse-1>") 'dirvish-side)
+(global-set-key (kbd "M-e") 'yank-and-indent)
+(global-set-key (kbd "M-a") 'indent-for-tab-command)
 
 (with-eval-after-load 'latex
   (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
   (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
   (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)
   (define-key LaTeX-mode-map (kbd "C-M-e") 'LaTeX-mark-environment)
+  (define-key LaTeX-mode-map (kbd "M-=") 'fei/latex-insert-equation)
   (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
   (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
   )
 
+(global-set-key (kbd "C-x M-j") 'fei-buffer-indent)
 (define-key global-map (kbd "M-m") 'back-to-indentation)
 (define-key global-map (kbd "M-'") 'use-register-dwim)
 (define-key global-map (kbd "M-M") 'bookmark-set)
@@ -93,11 +98,11 @@
 (global-set-key (kbd "M-s u") 'bookmark-view-pop)
 
 (global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
+(global-set-key (kbd "C-c C-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "C-c <right>") 'tab-bar-history-forward)
+(global-set-key (kbd "C-c C-<right>") 'tab-bar-history-forward)
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "M-<right>") 'tab-bar-history-back)
-(global-set-key (kbd "C-x C-/") 'tab-bar-history-back)
-(global-set-key (kbd "C-x C-?") 'tab-bar-history-forward)
 
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
@@ -127,13 +132,14 @@
 (global-set-key (kbd "M-s q") 'quit-window)
 (global-set-key (kbd "M-s M-q") 'unbury-buffer)
 
-(global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
-
+;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
+(global-set-key (kbd "C-x C-p") 'goto-last-change)
+(global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 
 (global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
-(global-set-key (kbd "M-k") 'kill-current-buffer)
+(global-set-key (kbd "M-k") 'fei/kill-or-bury-buffer)
 (global-set-key (kbd "M-K") 'reopen-killed-file)
-(global-set-key (kbd "C-x k") 'kill-current-buffer)
+(global-set-key (kbd "C-x k") 'fei/kill-or-bury-buffer)
 (global-set-key (kbd "C-x K") 'reopen-killed-file)
 
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
@@ -233,7 +239,8 @@
   (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
   )
 
-(global-set-key (kbd "M-U") 'jump-to-register)
+(global-set-key (kbd "<f2>") 'new-buffer)
+(global-set-key (kbd "C-x M-h") 'new-buffer)
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "M-0") 'tab-close)
 (global-set-key (kbd "M--") 'tab-undo)
@@ -516,7 +523,6 @@
 (global-set-key (kbd "M-c") 'capitalize-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
-(global-set-key (kbd "C-x C-u") nil)
 
 (global-set-key (kbd "C-x u") 'vundo)
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
@@ -547,8 +553,9 @@
 (global-set-key (kbd "C-c o o") 'counsel-outline)
 (global-set-key (kbd "C-c i") 'counsel-imenu)
 
-(global-set-key (kbd "C-x l") 'nil)
-(global-set-key (kbd "C-x C-l") 'nil)
+(global-set-key (kbd "C-x B") 'new-buffer)
+(global-set-key (kbd "C-x l") 'popper-toggle-latest)
+(global-set-key (kbd "C-x C-l") 'popper-toggle-type)
 
 (global-set-key [remap goto-line] 'consult-goto-line)
 
@@ -596,6 +603,7 @@
 (global-set-key (kbd "C-x j s") (li (find-file "~/Sandbox")))
 
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
+(global-set-key (kbd "C-x L") 'vc-print-root-log)
 
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 
@@ -629,6 +637,8 @@
       ("_" . dired-create-empty-file)
       ("SPC" . find-file)
       ("z" . fei-compile)
+      ("<left>" . dired-up-directory)
+      ("<right>" . dired-find-file)
       ))
 
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
@@ -682,6 +692,7 @@
 ;;; Compile
 (with-eval-after-load 'compile
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
+  (define-key compilation-mode-map (kbd "l") 'recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
   (define-key compilation-mode-map (kbd "r") 'compile)
   )

@@ -40,8 +40,8 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	macrostep gcmh tmr git-commit
-	pdf-tools
+	macrostep gcmh tmr git-commit pdf-tools benchmark-init
+	hungry-delete		 ;发现一个自带的命令 `c-hungry-delete'
 
 	all-the-icons-ibuffer
 	scratch imenu-list rg
@@ -50,9 +50,9 @@
 	interaction-log		 ;这个包需要自己 require，不会自动加载
 	google-translate
 
-	;; ==== 外观 ====
+        ;; ==== 外观 ====
 	standard-themes dashboard
-	auto-dim-other-buffers ;挺喜欢这个插件的，make me know where am i
+	auto-dim-other-buffers
 	smart-mode-line
 
 	;; === 窗口管理 ===
@@ -71,10 +71,8 @@
 	emmet-mode js2-mode web-mode dumb-jump diff-hl
 
 	;; Project
-	project-tab-groups project-mode-line-tag
-	beframe
-	;; tab-bar-groups ; 这个包有一个不好的地方，可以启用，但是无法关闭
-
+	project-tab-groups project-mode-line-tag beframe
+        
 	;; ==== Helm ====
 	;; helm-chrome helm-chrome-history
 
@@ -82,9 +80,7 @@
 	markdown-mode matlab-mode auctex cdlatex
 
 	;; ==== Org ====
-	org-download org-tree-slide org-appear
-	org-contrib
-	obsidian
+	org-download org-tree-slide org-appear org-contrib obsidian
 
 	;; ==== Minibuffer ====
 	orderless vertico embark
@@ -117,10 +113,6 @@
 	;; zone zone-rainbow zone-nyan zone-sl totd
 	;; zoom zlc web-search google-this
 	;; bing-dict emojify focus dired-sider-bar ivy-posframe deadgrep
-	;; zygospore 用自己修的版本了
-	;; ==== 不想折腾了 ====
-	;; w3m mb-url
-	;; ialign 它竟然会修改只读 buffer
 	))
 
 (when *is-linux*

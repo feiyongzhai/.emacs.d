@@ -1,6 +1,18 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun new-buffer ()
+  "refer to `evil-buffer-new'"
+  (interactive)
+  (switch-to-buffer (generate-new-buffer "*new*")))
+
+(defun fei/kill-or-bury-buffer ()
+  (interactive)
+  (if (bound-and-true-p emacs-lock-mode)
+      (call-interactively 'bury-buffer)
+    (call-interactively 'kill-current-buffer)))
+
+
 (defun ascii-table ()
   "Display basic ASCII table (0 thru 127)"
   (interactive)

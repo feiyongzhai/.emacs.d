@@ -16,6 +16,7 @@
 	(fei-consult-ripgrep-my-org buffer)
 	(rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)
+	(switch-to-locked-buffer flat)
         ))
 
 ;; 回归默认样式

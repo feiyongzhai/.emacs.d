@@ -27,7 +27,7 @@
        (string-match-p "android" system-configuration))
   "这个判断方式不一定完全准确")
 
-(setq fei-local-config (cond (*is-windows* "~/Nutstore Files/src/local-win10.el")
+(setq fei-local-config (cond (*is-windows* "~/.emacs.d/local.el")
 			     (*is-termux* "~/Nutstore Files/src/local-termux.el")
 			     (*is-linux* "~/Nutstore Files/src/local-linux.el")
 			     (t "")))

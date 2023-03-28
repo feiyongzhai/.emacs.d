@@ -24,7 +24,8 @@
   )
 
 (global-set-key (kbd "C-|") 'fei-rime-force-enable)
-(global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
+;; (global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
+(global-set-key (kbd "C-x b") 'consult-buffer)
 
 (define-key global-map "\M-Q" 'unfill-paragraph)
 
@@ -62,6 +63,7 @@
   (define-key LaTeX-mode-map (kbd "M-=") 'fei/latex-insert-equation)
   (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
   (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
+  (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
   )
 
 (global-set-key (kbd "C-x M-j") 'fei-buffer-indent)
@@ -102,7 +104,7 @@
 (global-set-key (kbd "C-c <right>") 'tab-bar-history-forward)
 (global-set-key (kbd "C-c C-<right>") 'tab-bar-history-forward)
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
-(global-set-key (kbd "M-<right>") 'tab-bar-history-back)
+(global-set-key (kbd "M-<right>") 'tab-bar-history-forward)
 
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
@@ -483,6 +485,7 @@
   (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
   (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
   (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
+  (define-key ibuffer-mode-map (kbd ";") 'ibuffer-interactive-filter-by-mode)
   )
 
 
@@ -495,12 +498,22 @@
 
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 (global-set-key (kbd "C-c 1") 'fei-frame-one-line)
+;; 这个按键很好按，我想搞一个很全能的命令上去
+(global-set-key (kbd "C-c SPC") 'find-file)
 
 ;; Misc
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
+
+(global-set-key (kbd "C-v") 'yank)
+
+(with-eval-after-load 'pdf-view
+  (define-key pdf-view-mode-map (kbd "<mouse-4>") 'pdf-view-next-page)
+  (define-key pdf-view-mode-map (kbd "<mouse-5>") 'pdf-view-previous-page)
+  (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode)
+  )
 
 (global-set-key (kbd "C-x F") 'set-fill-column)
 
@@ -595,6 +608,7 @@
 (global-set-key (kbd "C-x j f") (li (browse-url "https://feiyongzhai.github.io")))
 (global-set-key (kbd "C-x j g") (li (find-file "~/Nutstore Files/")))
 (global-set-key (kbd "C-x j h") (li (find-file "~")))
+(global-set-key (kbd "C-x j d") (li (find-file fei-desktop-dir)))
 (global-set-key (kbd "C-x j l") (li (find-file fei-local-config)))
 (global-set-key (kbd "C-x j o") (li (find-file "~/Nutstore Files/org")))
 (global-set-key (kbd "C-x j O") (li (find-file "~/Nutstore Files/org/obsidian")))
@@ -655,7 +669,8 @@
 ;;; Dirvish
 (with-eval-after-load 'dirvish
   (fei-define-key-with-map dirvish-mode-map ; Dirvish inherits `dired-mode-map'
-    '(("a"   . dirvish-quick-access)
+    '(
+      ;; ("a"   . dirvish-quick-access)
       ("f"   . dirvish-file-info-menu)
       ("y"   . dirvish-yank-menu)
       ("N"   . dirvish-narrow)

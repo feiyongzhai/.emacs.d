@@ -13,7 +13,8 @@
 			      ))
 
 (if (executable-find "epdfinfo")
-    (pdf-tools-install)
+    ;; (pdf-tools-install)
+    (pdf-loader-install)
   (add-to-list 'openwith-associations '("\\.pdf\\'" "start" (file))))
 
 ;; font

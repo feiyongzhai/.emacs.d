@@ -1,3 +1,12 @@
+(setq all-the-icons-ibuffer-color-icon nil)
+
+(custom-set-faces
+ '(all-the-icons-ibuffer-mode-face ((t nil)))
+ '(all-the-icons-ibuffer-size-face ((t nil)))
+ '(all-the-icons-ibuffer-file-face ((t nil)))
+ '(all-the-icons-ibuffer-icon-face ((t nil)))
+ )
+
 (add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (add-hook 'ibuffer-mode-hook 'hl-line-mode)
 (autoload 'ibuffer-bs-toggle-all "ibuf-ext" nil t)
@@ -17,7 +26,16 @@
 	(mark " "
 	      (icon 2 2 :left :elide)
 	      (name 16 -1)
-	      " " filename)))
+	      " " filename)
+	(mark
+         (mode+ 2 15 :left :elide)
+	 " "
+	 #(" " 0 1
+	   (display
+	    (space :align-to 18)))
+	 (name 18 -1 :left)
+	 " "
+	 )))
 
 (defun fei-remove-ibuffer-tmp-hide-regexps ()
   "`ibuffer-add-to-tmp-hide' 的逆向命令"

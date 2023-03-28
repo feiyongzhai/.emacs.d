@@ -26,7 +26,6 @@
   (require 'init-matlab)
   (require 'init-c)
   (require 'init-lisp)
-
   (require 'init-ivy)
   (require 'init-orderless)
   ;; (require 'init-minibuffer)
@@ -40,13 +39,12 @@
   ;; (auto-save-visited-mode)
   (require 'init-alias)
   (unless *is-termux*
-    (require 'init-proxy))
+    (require 'init-proxy)
+    (require 'init-rime))
 
   (require 'init-tab-line)
   (require 'init-modeline)
   (require 'init-fei)
-  (unless *is-termux*
-    (require 'init-rime))
   (require 'init-dired)
   (require 'init-ibuffer)
   (require 'init-engine)

@@ -25,6 +25,10 @@
 (setq describe-bindings-outline t)
 (setq enable-recursive-minibuffers t)
 
+;; cua
+(setq cua-prefix-override-inhibit-delay .01)
+(setq cua-auto-mark-last-change t)	;cua 提供的 last-change 功能
+
 ;; recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 200)

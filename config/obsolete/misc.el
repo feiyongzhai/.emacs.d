@@ -1,6 +1,14 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(defun fei-svg-clock ()
+  (interactive)
+  (frameset-to-register ?1)
+  (svg-clock :size 800)
+  (sit-for 0.1)
+  (fit-frame-to-buffer))
+
+
 (defun fei-meow-last-buffer (arg)
   "Switch to last buffer.
 Argument ARG if not nil, switching in a new window."

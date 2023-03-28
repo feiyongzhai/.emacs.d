@@ -74,6 +74,7 @@
 
 ;; dirvish
 (dirvish-override-dired-mode)
+(add-hook 'dired-mode-hook #'olivetti-mode) ;不然大屏幕的时候显示效果很奇怪：内容在两边，中间没有内容
 (setq dirvish-mode-line-height 18)
 (setq dirvish-header-line-height 18)
 (setq-default dirvish-mode-line-format '(:left (sort omit symlink) :right (index free-space)))

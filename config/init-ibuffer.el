@@ -37,6 +37,18 @@
 	 " "
 	 )))
 
+(defun fei/ibuffer-mouse-visit-buffer (event)
+  "魔改 `ibuffer-mouse-popup-menu'"
+  (interactive "e")
+  (let ((eventpt (posn-point (event-end event)))
+	(origpt (point)))
+    (unwind-protect
+	(goto-char eventpt)
+      (call-interactively 'ibuffer-visit-buffer)
+      (setq buffer-read-only t)
+      (if (= eventpt (point))
+	  (goto-char origpt)))))
+
 (defun fei-remove-ibuffer-tmp-hide-regexps ()
   "`ibuffer-add-to-tmp-hide' 的逆向命令"
   (interactive)

@@ -38,7 +38,9 @@
 (with-eval-after-load 'latex
   ;; @ref https://github.com/yangsheng6810/dotfiles/blob/master/.spacemacs.d/init.org
   (add-to-list 'TeX-command-list
-	       '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t)))
+	       ;; @REF: https://emacs-china.org/t/auctex-setup-synctex-with-pdf-tools-not-working/11257/2?u=yongfeizhai
+	       ;; 注意：如果想在 windows 平台使用 pdf-tools 实现反向搜索需要保证文件目录不能有中文字符
+	       '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t)))
 
 
 ;; ==== Quick Input ====

@@ -73,9 +73,6 @@
 (autoload 'jetbrains-open-buffer-file "jetbrains" nil t)
 (autoload 'jetbrains-create-dir-local-file "jetbrains" nil t)
 
-;;; 自动调整 gc
-(gcmh-mode)
-
 ;;; interaction-log
 (autoload 'interaction-log-mode "interaction-log" nil t)
 
@@ -100,9 +97,6 @@
 ;; highlight-parentheses
 ;; 配合 `rainbow-delimiters-mode' 只需要显示一层括号颜色就够了
 (setq highlight-parentheses-colors '("Red"))
-
-
-(auto-dim-other-buffers-mode)
 
 
 ;; Dashboard

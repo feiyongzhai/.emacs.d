@@ -63,3 +63,4 @@ var/
 /.sx/
 /mind-wave/*
 local.el
+blink-search.db

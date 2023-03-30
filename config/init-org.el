@@ -216,6 +216,7 @@ unwanted space when exporting org-mode to html."
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
 	`(("t" "Task" entry (file "gtd.org") "* TODO %?\nCREATE: %T\n")
+	  ("r" "Subtask for current clocked entry" entry (clock) "* SUBTODO %?\nCREATE: %T\n")
 	  ("T" "Task(为Eshell设计)" entry (file "gtd.org")
 	   "* TODO %i\nCREATE: %T\n"
 	   :immediate-finish t)
@@ -307,6 +308,11 @@ unwanted space when exporting org-mode to html."
 (defun fei-org-capture-Research ()
   (interactive)
   (org-capture nil "K")
+  (activate-input-method default-input-method))
+
+(defun fei-org-capture-clock ()
+  (interactive)
+  (org-capture nil "r")
   (activate-input-method default-input-method))
 
 (defun fei-org-capture-goto-SAR ()

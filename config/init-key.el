@@ -1,5 +1,12 @@
 (require 'init-thing-edit)
 
+;; (global-set-key (kbd "C-v") 'my/scroll-up-half)
+;; (global-set-key (kbd "M-v") 'my/scroll-down-half)
+;; (global-set-key (kbd "C-v") 'yank)
+(global-set-key (kbd "M-e") 'yank-and-indent)
+(global-set-key (kbd "M-a") 'indent-for-tab-command)
+(cua-mode)
+
 (global-set-key (kbd "M-w") 'easy-kill)
 (with-eval-after-load 'easy-kill
   (define-key easy-kill-base-map (kbd "x") 'easy-kill-exchange-point-and-mark)
@@ -24,12 +31,13 @@
   )
 
 (global-set-key (kbd "C-|") 'fei-rime-force-enable)
+(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 ;; (global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
 (global-set-key (kbd "C-x b") 'consult-buffer)
 
 (define-key global-map "\M-Q" 'unfill-paragraph)
 
-(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
+(global-set-key (kbd "C-a") 'move-beginning-of-line)
 (global-set-key (kbd "M-s TAB") 'window-toggle-side-windows)
 
 (define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
@@ -37,6 +45,7 @@
 (define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
 
+(global-set-key (kbd "C-S-i") 'insert-register)
 (global-set-key (kbd "C-S-m") 'point-to-register)
 (global-set-key (kbd "C-S-j") 'jump-to-register)
 
@@ -51,9 +60,6 @@
 (global-set-key (kbd "M-s C-n") 'popper-cycle)
 (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
-
-(global-set-key (kbd "M-e") 'yank-and-indent)
-(global-set-key (kbd "M-a") 'indent-for-tab-command)
 
 (with-eval-after-load 'latex
   (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
@@ -126,8 +132,6 @@
 ;; (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-select-window) ;ace-select-window 也不会选 side bar
 (global-set-key (kbd "C-x O") 'other-frame)
-(global-set-key (kbd "C-v") 'my/scroll-up-half)
-(global-set-key (kbd "M-v") 'my/scroll-down-half)
 
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
 (global-set-key (kbd "C-x Q") 'unbury-buffer)
@@ -338,7 +342,12 @@
   (define-key symbol-overlay-map (kbd "M-r") 'rg-dwim-current-dir)
   )
 
-;; 快捷键只是用户习惯
+(win10
+ (with-eval-after-load 'ibuffer
+   (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer))
+ (global-set-key (kbd "<mode-line> <mouse-5>") 'ibuffer))
+
+(global-set-key (kbd "<insert>") 'nil)
 
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
@@ -359,6 +368,8 @@
 (global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
 (global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
+(global-set-key (kbd "C-c n m") 'fei-org-capture-clock)
+(global-set-key (kbd "C-c n i") 'fei-org-capture-clock)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
 (global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
 (global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
@@ -506,8 +517,6 @@
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
-
-(global-set-key (kbd "C-v") 'yank)
 
 (with-eval-after-load 'pdf-view
   (define-key pdf-view-mode-map (kbd "<mouse-4>") 'pdf-view-next-page)

@@ -24,14 +24,6 @@
 ;; (custom-set-faces
 ;;  '(tab-line ((t (:inherit nil :background "grey85" :foreground "black" :height 0.95)))))
 
-(transient-command tab-line-switch-to-next-tab (tab-line-switch-to-next-tab)
-  '(("M-n" . tab-line-switch-to-next-tab)
-    ("M-p" . tab-line-switch-to-prev-tab)))
-
-(transient-command tab-line-switch-to-prev-tab (tab-line-switch-to-prev-tab)
-  '(("M-n" . tab-line-switch-to-next-tab)
-    ("M-p" . tab-line-switch-to-prev-tab)))
-
 (defun tab-line-kill-this-buffer ()
   (interactive)
   (call-interactively 'tab-line-select-tab)

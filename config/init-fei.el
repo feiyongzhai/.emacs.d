@@ -78,7 +78,7 @@
     (dolist (buf (cdr (buffer-list)))
       ;; 不显示当前 buffer
       (with-current-buffer buf
-	(when emacs-lock-mode
+	(when (bound-and-true-p emacs-lock-mode)
 	  (push buf filtered-buf))))
     (switch-to-buffer
      (completing-read

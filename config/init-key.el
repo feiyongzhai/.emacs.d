@@ -1,9 +1,7 @@
 (require 'init-thing-edit)
 
-;; (global-set-key (kbd "C-v") 'my/scroll-up-half)
-;; (global-set-key (kbd "M-v") 'my/scroll-down-half)
-;; (global-set-key (kbd "C-v") 'yank)
 (global-set-key (kbd "M-e") 'yank-and-indent)
+(global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "M-a") 'indent-for-tab-command)
 (cua-mode)
 
@@ -16,71 +14,132 @@
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
-(global-set-key (kbd "M-s-j") 'make-frame-command)
+(global-set-key (kbd "C-M-=") 'calculator)
+(global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
+(global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
+(global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
 (global-set-key (kbd "C-x c") 'compile)
 
-;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
-(with-eval-after-load 'yasnippet
-  (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
-  (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
-  (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
-  (define-key yas-keymap (kbd "M-n") 'yas-next-field)
-  (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
-  (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
-  (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
-  )
+(global-set-key (kbd "C-x F") 'set-fill-column)
+(global-set-key (kbd "C-c H") 'fei-pulse-current-line)
 
-(global-set-key (kbd "C-|") 'fei-rime-force-enable)
-(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
-;; (global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
-(global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
+(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 
-(define-key global-map "\M-Q" 'unfill-paragraph)
+(global-set-key (kbd "C-c h") 'webjump)
+(global-set-key (kbd "C-c /") 'webjump)
+(global-set-key (kbd "C-h C-y") 'engine/search-quword)
+(global-set-key (kbd "C-M-<return>") 'engine/search-google)
 
-(global-set-key (kbd "C-a") 'move-beginning-of-line)
+(global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
+(global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
+
+;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
+(global-set-key (kbd "M-c") 'capitalize-dwim)
+(global-set-key (kbd "M-l") 'downcase-dwim)
+(global-set-key (kbd "M-u") 'upcase-dwim)
+
+(global-set-key (kbd "C-x u") 'vundo)
+(global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
+
+(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
+(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
+
+(autoload 'move-text-up "move-text" nil t)
+(autoload 'move-text-down "move-text" nil t)
+(global-set-key (kbd "<M-up>") 'move-text-up)
+(global-set-key (kbd "<M-down>") 'move-text-down)
+(global-set-key (kbd "M-S-<down>") 'fei-duplicate-line-or-region)
+(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
+
+(global-set-key (kbd "C-;") 'iedit-mode)
+(global-set-key (kbd "M-s ;") 'iedit-mode)
+
+(global-set-key (kbd "C-x i") 'insert-char)
+(global-set-key (kbd "C-x I") 'emoji-search)
+(global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
+
+(global-set-key (kbd "C-c o") 'counsel-outline)
+(global-set-key (kbd "C-c i") 'counsel-imenu)
+
+(global-set-key [remap goto-line] 'consult-goto-line)
+
+;;; Navigate
+(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
+(global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
+(global-set-key (kbd "C-x Q") 'unbury-buffer)
+(global-set-key (kbd "M-s q") 'quit-window)
+(global-set-key (kbd "M-s M-q") 'unbury-buffer)
+
+(global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
+
+(global-set-key (kbd "C-'") 'avy-goto-char-timer)
+
+(global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
+(global-set-key (kbd "M-s O") 'fei-occur-at-point)
+
+;;; Kill/Yank
+(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
+(global-set-key (kbd "M-Z") 'zap-up-to-char)
+(global-set-key (kbd "C-x r p") 'replace-string)
+(global-set-key (kbd "M-r") 'replace-string)
+(global-set-key (kbd "M-R") 'replace-regexp)
+
+;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
+;; (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
+
+(global-set-key (kbd "S-SPC") 'set-mark-command)
+(global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
+(global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
+
+(global-set-key (kbd "C-x M-m") mule-keymap)
+(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
+(global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
+(global-set-key (kbd "C-c m") 'execute-extended-command)
+(global-set-key (kbd "C-x M") 'repeat-complex-command)
+
+(global-set-key (kbd "C-M-,") 'marker-stack-pop)
+(global-set-key (kbd "C-x L") 'vc-print-root-log)
+
+(global-set-key (kbd "M-s M-i") 'dirvish-side)
+(global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
+(global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
+
+;; 这个按键很好按，我想搞一个很全能的命令上去
+(global-set-key (kbd "C-c SPC") 'find-file)
+
+(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
+(global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
+
+(global-set-key (kbd "C-h M-c") 'describe-char)
+(global-set-key (kbd "C-h M-f") 'describe-face)
+(global-set-key (kbd "C-h M-k") 'describe-keymap)
+(define-key 'help-command (kbd "C-k") 'find-function-on-key)
+(define-key 'help-command (kbd "C-v") 'find-variable)
+(define-key 'help-command (kbd "C-f") 'find-function)
+(define-key 'help-command (kbd "C-i") 'info-display-manual)
+
+(global-set-key (kbd "M-s-j") 'make-frame-command)
+
+(global-set-key "\M-Q" 'unfill-paragraph)
 (global-set-key (kbd "M-s TAB") 'window-toggle-side-windows)
-
-(define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
-(define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
-(define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
-(define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
-
 (global-set-key (kbd "C-S-i") 'insert-register)
 (global-set-key (kbd "C-S-m") 'point-to-register)
+(global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "C-S-j") 'jump-to-register)
 
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 (global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
+(global-set-key (kbd "M-'") 'bookmark-jump)
+(global-set-key (kbd "M-s m") 'bookmark-view-push)
+(global-set-key (kbd "M-s u") 'bookmark-view-pop)
+
 (global-set-key (kbd "C-S-l") 'scroll-down-line)
 (global-set-key (kbd "C-l") 'scroll-up-line) ;was `recenter-top-bottom'
-(with-eval-after-load 'bookmark
-  (define-key bookmark-bmenu-mode-map (kbd "j") 'bookmark-jump)
-  (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
 
-(global-set-key (kbd "M-s C-n") 'popper-cycle)
-(global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
-(global-set-key (kbd "M-s C-p") 'popper-toggle-type)
-
-(with-eval-after-load 'latex
-  (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
-  (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
-  (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)
-  (define-key LaTeX-mode-map (kbd "C-M-e") 'LaTeX-mark-environment)
-  (define-key LaTeX-mode-map (kbd "M-=") 'fei/latex-insert-equation)
-  (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
-  (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
-  (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
-  )
-
-(global-set-key (kbd "C-x M-j") 'fei-buffer-indent)
-(define-key global-map (kbd "M-m") 'back-to-indentation)
-(define-key global-map (kbd "M-'") 'use-register-dwim)
-(define-key global-map (kbd "M-M") 'bookmark-set)
-(define-key global-map (kbd "M-'") 'bookmark-jump)
+(global-set-key (kbd "C-o") 'open-line)
 (autoload 'open-newline-below "open-newline" nil t)
 (autoload 'open-newline-above "open-newline" nil t)
-(global-set-key (kbd "C-<return>") 'open-newline-below)
-(global-set-key (kbd "C-o") 'open-line)
 (global-set-key (kbd "C-S-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-above)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
@@ -89,21 +148,164 @@
 (global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
-(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer)
 (global-set-key (kbd "M-s =") 'calculator)
-(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
+
 (global-set-key (kbd "M-O") 'embark-act)
 (global-set-key (kbd "M-.") 'embark-dwim)
 
-(global-set-key (kbd "C-=") 'text-scale-adjust)
-(global-set-key (kbd "C--") 'text-scale-adjust)
+(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "C-M-y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "C-c y") 'fei-youdao-at-point)
+
+;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
+(global-set-key (kbd "C-x C-p") 'goto-last-change)
+(global-set-key (kbd "M-p") 'goto-last-change)
+(global-set-key (kbd "M-n") 'goto-last-change-reverse)
+
+(global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
+(global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
+(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer-jump)
+;; (global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
+(global-set-key (kbd "C-x b") 'consult-buffer)
+
+(global-set-key (kbd "M-I") 'symbol-overlay-put)
+(global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
+
+(fei-define-key-with-map global-map
+  '(
+    ("C-h f" . counsel-describe-function)
+    ("C-h o" . counsel-describe-symbol)
+    ("C-h v" . counsel-describe-variable)
+    ("C-h C-l" . counsel-find-library)
+    ("C-c g" . counsel-git)
+    ("C-c k" . counsel-rg)
+    ("C-c j" . fei-counsel-recentf-pinyin)
+    ("C-x f" . counsel-find-file)
+    ("M-x" . counsel-M-x)
+    ))
+
+(with-eval-after-load 'org
+  (global-set-key (kbd "C-c M-l") 'org-store-link)
+  (global-set-key (kbd "C-c s") 'org-store-link))
+
+(global-set-key (kbd "M-s n") 'fei-swiper-isearch)
+(global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
 
 (global-set-key (kbd "<f2>") 'fei-compile) ;笔记本上 C-M-z 不好按
+(global-set-key (kbd "C-M-z") 'fei-compile)
+
+(cond
+ (*is-windows* (global-set-key (kbd "C-c l") 'counsel-locate))
+ (t (global-set-key (kbd "C-c l") 'locate)
+    (global-set-key (kbd "C-c L") 'counsel-locate)
+    ))
+
+(win10
+ (with-eval-after-load 'ibuffer
+   (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer))
+ (global-set-key (kbd "<mode-line> <mouse-5>") 'ibuffer))
+
+(global-set-key (kbd "<insert>") 'nil)
+
+(global-set-key (kbd "C-c T") 'trashed)
+
+(global-set-key (kbd "M-s d") 'olivetti-mode)
+
+(global-set-key (kbd "M-s h a") 'fei-highlight-region)
+(global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s 1") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-s M-2") 'fei-unhighlight-symbol-at-point)
+(global-set-key (kbd "M-s 2") 'fei-unhighlight-symbol-at-point)
+
+(global-set-key (kbd "<pause>") 'fei-org-time)
+(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
+(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
+(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
+
+(global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
+(global-set-key (kbd "C-c A") 'org-agenda)
+(global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
+(global-set-key (kbd "C-c C") 'fei-org-capture)
+(global-set-key (kbd "C-c n c") 'fei-org-capture-canvas)
+(global-set-key (kbd "C-c n C") 'fei-org-capture-goto-canvas)
+(global-set-key (kbd "C-c n n") 'fei-org-capture-note)
+(global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
+(global-set-key (kbd "C-c n j") 'fei-org-capture-private)
+(global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
+(global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
+(global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
+(global-set-key (kbd "C-c n i") 'fei-org-capture-clock)
+(global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
+(global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
+(global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
+(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
+
+(global-set-key (kbd "C-|") 'fei-rime-force-enable)
+(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
+(global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
+(global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-J") (li (deactivate-input-method)))
+;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
+
+(global-set-key (kbd "C-9") 'jetbrains-open-buffer-file)
+(global-set-key (kbd "C-M-9") 'jetbrains-create-dir-local-file)
+
+(global-set-key (kbd "M-s r") 'rg-dwim-current-file)
+(global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
+(global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
+
+(global-set-key (kbd "C-x <left>") 'tab-line-switch-to-prev-tab)
+(global-set-key (kbd "C-x <right>") 'tab-line-switch-to-next-tab)
+;; (define-key tab-line-tab-map [tab-line down-mouse-3] 'tab-line-close-tab) ;tab-line-tab-context-menu
+
+(global-set-key (kbd "M-s C-m") 'browse-url)
+(global-set-key (kbd "M-G") 'fei-search)
+(global-set-key (kbd "M-s M-w") 'fei-search)
+(global-set-key (kbd "M-s M-s") 'fei-search)
+(global-set-key (kbd "M-s s") 'fei-search)
+(global-set-key (kbd "M-S") 'fei-search)
+
+(global-set-key (kbd "M-0") 'tab-close)
+(global-set-key (kbd "M--") 'tab-undo)
+(global-set-key (kbd "M-`") 'tab-recent)
+(global-set-key (kbd "C-x t i") 'tab-bar-mode)
+(global-set-key (kbd "C-x t l") 'tab-recent)
+(global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
+(add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
+(defun fei-tab-bar-define-key ()
+  (global-set-key (kbd "M-1") 'fei-select-tab) ;主 tab
+  (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
+  )
+
+(global-set-key (kbd "C-=") 'text-scale-adjust)
+(global-set-key (kbd "C--") 'text-scale-adjust)
+(global-set-key (kbd "M-+") 'big-font)
+(global-set-key (kbd "M-_") 'small-font)
+
+(global-set-key (kbd "<f2>") 'new-buffer)
+(global-set-key (kbd "C-x M-h") 'new-buffer)
+(global-set-key (kbd "C-x B") 'new-buffer)
+
+(global-set-key (kbd "M-s C-n") 'popper-cycle)
+(global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
+(global-set-key (kbd "M-s l") 'popper-toggle-latest)
+(global-set-key (kbd "C-x l") 'popper-toggle-latest)
+(global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
+(global-set-key (kbd "M-s M-l") 'popper-toggle-latest)
+(global-set-key (kbd "M-s L") 'popper-toggle-type)
+(global-set-key (kbd "C-x C-l") 'popper-toggle-type)
+(global-set-key (kbd "M-s C-p") 'popper-toggle-type)
+
+(global-set-key (kbd "M-k") 'fei/kill-or-bury-buffer)
+(global-set-key (kbd "M-K") 'reopen-killed-file)
+(global-set-key (kbd "C-x k") 'fei/kill-or-bury-buffer)
+(global-set-key (kbd "C-x K") 'reopen-killed-file)
+
 (global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
-
-(global-set-key (kbd "M-s m") 'bookmark-view-push)
-(global-set-key (kbd "M-s u") 'bookmark-view-pop)
 
 (global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
 (global-set-key (kbd "C-c C-<left>") 'tab-bar-history-back)
@@ -112,6 +314,13 @@
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "M-<right>") 'tab-bar-history-forward)
 
+(global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
+(global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
+(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
+(autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
@@ -119,8 +328,6 @@
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
-
-(autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w h") 'windmove-left)
 (global-set-key (kbd "C-x w l") 'windmove-right)
 (global-set-key (kbd "C-x w j") 'windmove-down)
@@ -133,25 +340,32 @@
 (global-set-key (kbd "C-x o") 'ace-select-window) ;ace-select-window 也不会选 side bar
 (global-set-key (kbd "C-x O") 'other-frame)
 
-(global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
-(global-set-key (kbd "C-x Q") 'unbury-buffer)
-(global-set-key (kbd "M-s q") 'quit-window)
-(global-set-key (kbd "M-s M-q") 'unbury-buffer)
+(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
 
-;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
-(global-set-key (kbd "C-x C-p") 'goto-last-change)
-(global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
+;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
+(with-eval-after-load 'yasnippet
+  (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
+  (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
+  (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
+  (define-key yas-keymap (kbd "M-n") 'yas-next-field)
+  (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
+  (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
+  (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
+  )
 
-(global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
-(global-set-key (kbd "M-k") 'fei/kill-or-bury-buffer)
-(global-set-key (kbd "M-K") 'reopen-killed-file)
-(global-set-key (kbd "C-x k") 'fei/kill-or-bury-buffer)
-(global-set-key (kbd "C-x K") 'reopen-killed-file)
+(with-eval-after-load 'bookmark
+  (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
 
-(global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-
-(global-set-key (kbd "C-x M-n") 'transient-tab-line-switch-to-next-tab)
-(global-set-key (kbd "C-x M-p") 'transient-tab-line-switch-to-prev-tab)
+(with-eval-after-load 'latex
+  (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
+  (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
+  (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)
+  (define-key LaTeX-mode-map (kbd "C-M-e") 'LaTeX-mark-environment)
+  (define-key LaTeX-mode-map (kbd "M-=") 'fei/latex-insert-equation)
+  (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
+  (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
+  (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
+  )
 
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
@@ -176,34 +390,13 @@
                       "*fei-python*"
                       "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
    ))
-
 
-
-(cond
- (*is-windows*
-  (global-set-key (kbd "M-s k") 'shell)
-  (global-set-key (kbd "M-s M-k") 'shell))
- (*is-linux*
-  (global-set-key (kbd "M-s k") 'fei-ansi-term)
-  (global-set-key (kbd "M-s M-k") 'fei-term-cd-here)
-  ))
-
-;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
-
-(global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
 (define-key vertico-map "\M-V" #'vertico-multiform-vertical)
 (define-key vertico-map "\M-G" #'vertico-multiform-grid)
 (define-key vertico-map "\M-F" #'vertico-multiform-flat)
 (define-key vertico-map "\M-R" #'vertico-multiform-reverse)
 (define-key vertico-map "\M-U" #'vertico-multiform-unobtrusive)
-
-;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
-;; (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
-
-(global-set-key (kbd "C-x <left>") 'tab-line-switch-to-prev-tab)
-(global-set-key (kbd "C-x <right>") 'tab-line-switch-to-next-tab)
-;; (define-key tab-line-tab-map [tab-line down-mouse-3] 'tab-line-close-tab) ;tab-line-tab-context-menu
 
 (fei-define-key-with-map isearch-mode-map
   '(("M-g" . isearch-cancel)
@@ -214,14 +407,14 @@
     ("M-'" . avy-isearch)	 ;gnome-terminal 读不到 C-',用这个代替
     ("C-c k" . fei-counsel-rg-from-isearch)
     ("M-s r" . rg-isearch-project)
+    ("M-j" . isearch-edit-string)
+    ("M-s r" . rg-isearch-project)
     ))
 
 (with-eval-after-load 'ctrlf
   (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
   (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
   )
-
-(global-set-key (kbd "M-s z") 'shell)
 
 (add-hook 'term-mode-hook '+fei-term-mode-hook)
 (defun +fei-term-mode-hook ()
@@ -239,38 +432,13 @@
   (define-key term-mode-map (kbd "M-`") 'nil)
   )
 
-(add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
-(defun fei-tab-bar-define-key ()
-  (global-set-key (kbd "M-1") 'fei-select-tab) ;主 tab
-  (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
-  )
-
-(global-set-key (kbd "<f2>") 'new-buffer)
-(global-set-key (kbd "C-x M-h") 'new-buffer)
-(global-set-key (kbd "C-x C-u") 'jump-to-register)
-(global-set-key (kbd "M-0") 'tab-close)
-(global-set-key (kbd "M--") 'tab-undo)
-(global-set-key (kbd "M-`") 'tab-recent)
-(global-set-key (kbd "C-x t i") 'tab-bar-mode)
-(global-set-key (kbd "C-x t l") 'tab-recent)
-(global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
-
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
 (with-eval-after-load 'term
   (define-key term-raw-map (kbd "M-s") 'nil))
 
-(global-set-key (kbd "M-s C-m") 'browse-url)
-(global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-s M-w") 'fei-search)
-(global-set-key (kbd "M-s M-s") 'fei-search)
-(global-set-key (kbd "M-s s") 'fei-search)
-(global-set-key (kbd "M-S") 'fei-search)
-
 (with-eval-after-load 'python
   (define-key python-mode-map (kbd "<f5>") (li (compile (concat "python3 " (buffer-file-name))))))
-
-(define-key isearch-mode-map (kbd "M-j") 'isearch-edit-string)
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
@@ -283,9 +451,6 @@
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-active-mode-map (kbd "C-j") 'rime--return)
   )
-
-(global-set-key (kbd "M-j") 'fei-rime-force-enable)
-(global-set-key (kbd "M-J") (li (deactivate-input-method)))
 
 
 ;;; Pyim
@@ -302,21 +467,11 @@
   )
 
 
-(define-key prog-mode-map (kbd "C-c RET") 'er/expand-region)
-(define-key prog-mode-map (kbd "C-c m") 'er/expand-region)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 (define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)
-
-(global-set-key (kbd "C-9") 'jetbrains-open-buffer-file)
-(global-set-key (kbd "C-M-9") 'jetbrains-create-dir-local-file)
-
-(global-set-key (kbd "M-s r") 'rg-dwim-current-file)
-(global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
-(global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
-(define-key isearch-mode-map (kbd "M-s r") 'rg-isearch-project)
 
 ;;; Helpful
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)
@@ -327,14 +482,7 @@
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
   (define-key youdao-dictionary-mode-map (kbd "d") 'fei-quword-at-point))
-(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
-(global-set-key (kbd "C-M-y") 'youdao-dictionary-search-from-input)
-(global-set-key (kbd "C-c y") 'fei-youdao-at-point)
 
-(global-set-key (kbd "M-I") 'symbol-overlay-put)
-(global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
-(global-set-key (kbd "M-P") 'symbol-overlay-switch-backward)
 (with-eval-after-load 'symbol-overlay
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
   (define-key symbol-overlay-map (kbd "l") 'recenter-top-bottom)
@@ -342,47 +490,12 @@
   (define-key symbol-overlay-map (kbd "M-r") 'rg-dwim-current-dir)
   )
 
-(win10
- (with-eval-after-load 'ibuffer
-   (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer))
- (global-set-key (kbd "<mode-line> <mouse-5>") 'ibuffer))
-
-(global-set-key (kbd "<insert>") 'nil)
-
-(global-set-key (kbd "<pause>") 'fei-org-time)
-(global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
-(global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
-(global-set-key (kbd "C-S-y") (li (yank '(4))))
-
-(global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
-(global-set-key (kbd "C-c A") 'org-agenda)
-(global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
-(global-set-key (kbd "C-c C") 'fei-org-capture)
-(global-set-key (kbd "C-c n t") 'fei-org-capture-TODO)
-(global-set-key (kbd "C-c n n") 'fei-org-capture-note)
-(global-set-key (kbd "C-c n c") 'fei-org-capture-canvas)
-(global-set-key (kbd "C-c n C") 'fei-org-capture-goto-canvas)
-(global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
-(global-set-key (kbd "C-c n j") 'fei-org-capture-private)
-(global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
-(global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
-(global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
-(global-set-key (kbd "C-c n m") 'fei-org-capture-clock)
-(global-set-key (kbd "C-c n i") 'fei-org-capture-clock)
-(global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
-(global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
-(global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
-(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
-
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "`") 'fei-org-agenda-toggle-done-entry)
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
-(global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
-(global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
@@ -391,19 +504,8 @@
   (define-key treemacs-mode-map (kbd "G") 'magit)
   )
 
-(global-set-key (kbd "M-s a s") 'alarm-clock-set)
-(global-set-key (kbd "M-s a l") 'alarm-clock-list-view)
-
 (define-key prog-mode-map        (kbd "C-c '") #'separedit)
 (define-key minibuffer-local-map (kbd "C-c '") #'separedit)
-
-(global-set-key (kbd "C-c T") 'trashed)
-
-(global-set-key (kbd "M-s h a") 'fei-highlight-region)
-(global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s 1") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s M-2") 'fei-unhighlight-symbol-at-point)
-(global-set-key (kbd "M-s 2") 'fei-unhighlight-symbol-at-point)
 
 
 (when *is-linux*
@@ -412,40 +514,10 @@
   (global-set-key (kbd "C-c p") 'proced)
   )
 
-(global-set-key (kbd "M-s l") 'counsel-load-theme)
-
 
-
-(fei-define-key-with-map global-map
-  '(
-    ("C-h f" . counsel-describe-function)
-    ("C-h o" . counsel-describe-symbol)
-    ("C-h v" . counsel-describe-variable)
-    ("C-h C-l" . counsel-find-library)
-    ("C-c g" . counsel-git)
-    ("C-c k" . counsel-rg)
-    ("C-c j" . fei-counsel-recentf-pinyin)
-    ("C-x f" . counsel-find-file)
-    ("M-x" . counsel-M-x)
-    ("M-s y" . counsel-yank-pop)
-    ))
-
-
-(cond
- (*is-windows* (global-set-key (kbd "C-c l") 'counsel-locate))
- (t (global-set-key (kbd "C-c l") 'locate)
-    (global-set-key (kbd "C-c L") 'counsel-locate)
-    ))
-
 (with-eval-after-load 'ivy
   (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
   )
-
-(global-set-key (kbd "M-s n") 'fei-swiper-isearch)
-(global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
-
-(global-set-key (kbd "C-M-z") 'fei-compile)
-
 
 (global-set-key (kbd "s-l") 'lsp)
 (setq lsp-keymap-prefix "s-l")
@@ -468,25 +540,22 @@
       ("<M-down>" . markdown-move-down)
       )))
 
-
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "M-s") nil)
   (define-key matlab-mode-map (kbd "M-j") nil)
-  )
-
-(with-eval-after-load 'org
-  (global-set-key (kbd "C-c M-l") 'org-store-link)
-  (global-set-key (kbd "C-c s") 'org-store-link)
   )
 
 (define-key emacs-lisp-mode-map (kbd "<C-right>") 'sp-forward-slurp-sexp)
 (define-key emacs-lisp-mode-map (kbd "<C-left>") 'sp-forward-barf-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-U") 'sp-splice-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
+(define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
+(define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
+(define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
+(define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
 
 
 ;;; Ibuffer
-(global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
@@ -500,23 +569,13 @@
   )
 
 
-
 (with-eval-after-load 'emmet-mode
   (define-key emmet-mode-keymap (kbd "C-M-j") 'emmet-expand-yas))
 
 (with-eval-after-load 'dart-mode
   (define-key dart-mode-map (kbd "C-M-x") #'flutter-run-or-hot-reload))
 
-(global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
-(global-set-key (kbd "C-c 1") 'fei-frame-one-line)
-;; 这个按键很好按，我想搞一个很全能的命令上去
-(global-set-key (kbd "C-c SPC") 'find-file)
-
 ;; Misc
-(global-set-key (kbd "C-M-=") 'calculator)
-(global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
-(global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
-(global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
 
 (with-eval-after-load 'pdf-view
   (define-key pdf-view-mode-map (kbd "<mouse-4>") 'pdf-view-next-page)
@@ -524,111 +583,8 @@
   (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode)
   )
 
-(global-set-key (kbd "C-x F") 'set-fill-column)
-
-(global-set-key (kbd "C-c H") 'fei-pulse-current-line)
-
-(global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
-(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "C-x r p") 'replace-string)
-
-(global-set-key (kbd "C-c /") 'webjump)
-(global-set-key (kbd "C-h C-y") 'engine/search-quword)
-(global-set-key (kbd "C-M-<return>") 'engine/search-google)
-
 (with-eval-after-load 'elfeed
   (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
-
-(global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
-
-;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
-(global-set-key (kbd "M-c") 'capitalize-dwim)
-(global-set-key (kbd "M-l") 'downcase-dwim)
-(global-set-key (kbd "M-u") 'upcase-dwim)
-
-(global-set-key (kbd "C-x u") 'vundo)
-(global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
-
-(global-set-key (kbd "C-s-n") 'fei-scroll-up-line)
-(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
-(global-set-key (kbd "C-s-p") 'fei-scroll-down-line)
-(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
-
-(autoload 'move-text-up "move-text" nil t)
-(autoload 'move-text-down "move-text" nil t)
-(global-set-key (kbd "<M-up>") 'move-text-up)
-(global-set-key (kbd "<M-down>") 'move-text-down)
-
-(global-set-key (kbd "C-;") 'iedit-mode)
-(global-set-key (kbd "M-s ;") 'iedit-mode)
-
-(global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
-(global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
-(global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
-(global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
-
-(global-set-key (kbd "C-x i") 'insert-char)
-(global-set-key (kbd "C-x I") 'emoji-search)
-(global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
-
-(global-set-key (kbd "C-c o o") 'counsel-outline)
-(global-set-key (kbd "C-c i") 'counsel-imenu)
-
-(global-set-key (kbd "C-x B") 'new-buffer)
-(global-set-key (kbd "C-x l") 'popper-toggle-latest)
-(global-set-key (kbd "C-x C-l") 'popper-toggle-type)
-
-(global-set-key [remap goto-line] 'consult-goto-line)
-
-;;; Navigate
-(global-set-key (kbd "C-c b") 'project-switch-to-buffer)
-
-(global-set-key (kbd "M-p") 'goto-last-change)
-(global-set-key (kbd "M-n") 'goto-last-change-reverse)
-
-;;; Highlight
-(global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
-
-(global-set-key (kbd "C-'") 'avy-resume)
-
-(global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
-(global-set-key (kbd "M-s O") 'fei-occur-at-point)
-
-;;; Kill/Yank
-(global-set-key (kbd "M-S-<down>") 'fei-duplicate-line-or-region)
-(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
-(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
-(global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "M-r") 'replace-string)
-(global-set-key (kbd "M-R") 'replace-regexp)
-
-(global-set-key (kbd "S-SPC") 'set-mark-command)
-(global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
-(global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
-
-(global-set-key (kbd "C-x M-m") mule-keymap)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
-(global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
-(global-set-key (kbd "C-x M") 'repeat-complex-command)
-
-(global-set-key (kbd "C-x j c") (li (find-file "~/.config")))
-(global-set-key (kbd "C-x j e") (li (find-file "~/.emacs.d")))
-(global-set-key (kbd "C-x j f") (li (browse-url "https://feiyongzhai.github.io")))
-(global-set-key (kbd "C-x j g") (li (find-file "~/Nutstore Files/")))
-(global-set-key (kbd "C-x j h") (li (find-file "~")))
-(global-set-key (kbd "C-x j d") (li (find-file fei-desktop-dir)))
-(global-set-key (kbd "C-x j l") (li (find-file fei-local-config)))
-(global-set-key (kbd "C-x j o") (li (find-file "~/Nutstore Files/org")))
-(global-set-key (kbd "C-x j O") (li (find-file "~/Nutstore Files/org/obsidian")))
-(global-set-key (kbd "C-x j q") (li (browse-url "https://quword.com")))
-(global-set-key (kbd "C-x j r") (li (find-file "~/Repos")))
-(global-set-key (kbd "C-x j s") (li (find-file "~/Sandbox")))
-
-(global-set-key (kbd "C-M-,") 'marker-stack-pop)
-(global-set-key (kbd "C-x L") 'vc-print-root-log)
-
-(global-set-key (kbd "M-s M-i") 'dirvish-side)
 
 (with-eval-after-load 'vterm
   (define-key vterm-mode-map (kbd "M-s") nil))
@@ -745,19 +701,8 @@
   )
 
 
-;;; Help
-(global-set-key (kbd "C-h M-c") 'describe-char)
-(global-set-key (kbd "C-h M-f") 'describe-face)
-(global-set-key (kbd "C-h M-k") 'describe-keymap)
-(define-key 'help-command (kbd "C-k") 'find-function-on-key)
-(define-key 'help-command (kbd "C-v") 'find-variable)
-(define-key 'help-command (kbd "C-f") 'find-function)
-(define-key 'help-command (kbd "C-i") 'info-display-manual)
 
-
 ;;; VC
-(global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
-(global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 (with-eval-after-load 'vc-dir
   (define-key vc-dir-mode-map (kbd "z") 'fei-compile)
   (define-key vc-dir-mode-map (kbd "e") 'fei-eshell-cd-here) ;default is `vc-find-file'

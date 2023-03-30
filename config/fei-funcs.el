@@ -46,6 +46,10 @@
        (beginning-of-line)))
 
 
+(defun fei/narrow-one-line ()
+  (interactive)
+  (narrow-to-region (line-beginning-position) (line-end-position)))
+
 ;;;###autoload
 (defun store-register-dwim (arg register)
   "Store what I mean in a register.
@@ -80,23 +84,6 @@ For a location, jump to it."
     (user-error (insert-register register arg))))
 
 
-;; Copied from https://github.com/karthink/.emacs.d
-(defun my/scroll-up-half ()
-  (interactive)
-  (scroll-up-command
-   (floor
-    (- (window-height)
-       next-screen-context-lines)
-    2)))
-
-(defun my/scroll-down-half ()
-  (interactive)
-  (scroll-down-command
-   (floor
-    (- (window-height)
-       next-screen-context-lines)
-    2)))
-
 (defun sudo-find-this-file ()
   (interactive)
   (if (buffer-file-name)

@@ -27,6 +27,7 @@
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 
 (global-set-key (kbd "C-c h") 'webjump)
+(global-set-key (kbd "C-c M-h") 'webjump)
 (global-set-key (kbd "C-c /") 'webjump)
 (global-set-key (kbd "C-h C-y") 'engine/search-quword)
 (global-set-key (kbd "C-M-<return>") 'engine/search-google)
@@ -42,8 +43,9 @@
 (global-set-key (kbd "C-x u") 'vundo)
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
 
-(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
-(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
+;; 弥补 cua-mode 下翻页快捷键的缺失
+(global-set-key (kbd "M-s-n") 'scroll-up-command)
+(global-set-key (kbd "M-s-p") 'scroll-down-command)
 
 (autoload 'move-text-up "move-text" nil t)
 (autoload 'move-text-down "move-text" nil t)
@@ -368,14 +370,11 @@
   (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
   )
 
+(autoload 'vertico-multiform-posframe "vertico-posframe" nil t)
+(define-key vertico-multiform-map (kbd "M-P") 'vertico-multiform-posframe)
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
-(define-key vertico-map "\M-V" #'vertico-multiform-vertical)
-(define-key vertico-map "\M-G" #'vertico-multiform-grid)
-(define-key vertico-map "\M-F" #'vertico-multiform-flat)
-(define-key vertico-map "\M-R" #'vertico-multiform-reverse)
-(define-key vertico-map "\M-U" #'vertico-multiform-unobtrusive)
 
 
 (win10

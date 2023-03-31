@@ -213,6 +213,7 @@
 (global-set-key (kbd "C-c T") 'trashed)
 
 (global-set-key (kbd "M-s d") 'olivetti-mode)
+(global-set-key (kbd "M-s a") 'display-line-numbers-mode)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
 (global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
@@ -370,9 +371,13 @@
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
+(define-key vertico-map "\M-V" #'vertico-multiform-vertical)
+(define-key vertico-map "\M-G" #'vertico-multiform-grid)
+(define-key vertico-map "\M-F" #'vertico-multiform-flat)
+(define-key vertico-map "\M-R" #'vertico-multiform-reverse)
+(define-key vertico-map "\M-U" #'vertico-multiform-unobtrusive)
 
 
-;; win10
 (win10
  (with-eval-after-load 'python
    ;; simple complie for python
@@ -391,12 +396,6 @@
                       "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
    ))
 
-
-(define-key vertico-map "\M-V" #'vertico-multiform-vertical)
-(define-key vertico-map "\M-G" #'vertico-multiform-grid)
-(define-key vertico-map "\M-F" #'vertico-multiform-flat)
-(define-key vertico-map "\M-R" #'vertico-multiform-reverse)
-(define-key vertico-map "\M-U" #'vertico-multiform-unobtrusive)
 
 (fei-define-key-with-map isearch-mode-map
   '(("M-g" . isearch-cancel)
@@ -550,9 +549,11 @@
 (define-key emacs-lisp-mode-map (kbd "M-U") 'sp-splice-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
 (define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
-(define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
+(define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-eval-last-sexp)
+(define-key lisp-interaction-mode-map (kbd "C-c M-e") 'pp-macroexpand-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
-(define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-macroexpand-last-sexp)
+(define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-eval-last-sexp)
+(define-key emacs-lisp-mode-map (kbd "C-c M-e") 'pp-macroexpand-last-sexp)
 
 
 ;;; Ibuffer

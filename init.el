@@ -48,6 +48,8 @@
   (require 'init-dired)
   (require 'init-ibuffer)
   (require 'init-engine)
+  (with-eval-after-load 'webjump
+    (require 'init-webjump))
   (require 'init-key)
 
   (when *is-windows*
@@ -75,7 +77,7 @@
      (require 'init-latex)
      (require 'init-shell)
      (require 'init-packages)
-     
+
      (require 'init-yasnippet)
      (require 'init-company)
 
@@ -86,14 +88,14 @@
      (unless (server-running-p)
        (server-start)
        (message "server 启动成功!"))
-     
+
      (message "延时加载包加载完成！")
      ))
 
   ;; local configs
   (when (file-exists-p fei-local-config)
-      (load-file fei-local-config))
-  
+    (load-file fei-local-config))
+
   ;; load `custom-file' if exists
   ;; (when (file-exists-p custom-file)
   ;;   (load-file custom-file))

@@ -85,6 +85,7 @@
 	;; ==== Minibuffer ====
 	orderless vertico embark
 	consult marginalia embark-consult
+        consult-yasnippet
 	smex counsel ivy swiper
 	ivy-posframe vertico-posframe
 

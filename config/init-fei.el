@@ -69,7 +69,7 @@
       (mapcar (lambda (buf) (buffer-name buf)) filtered-buf)))))
 
 (defun switch-to-locked-buffer ()
-  "切换到启用 `emcas-lock-mode' 的 buffer
+  "切换到启用 `emacs-lock-mode' 的 buffer
 
 这样可以把 `emacs-lock-mode' 作为书签来用标记 “重要” buffer 的方法"
   (interactive)

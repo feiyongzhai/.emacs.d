@@ -62,7 +62,8 @@
 (global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
 (global-set-key (kbd "C-c o") 'counsel-outline)
-(global-set-key (kbd "C-c i") 'counsel-imenu)
+;; (global-set-key (kbd "C-c i") 'counsel-imenu)
+(global-set-key (kbd "C-c i") 'consult-imenu)
 
 (global-set-key [remap goto-line] 'consult-goto-line)
 
@@ -186,8 +187,10 @@
     ("C-c k" . counsel-rg)
     ("C-c j" . fei-counsel-recentf-pinyin)
     ("C-x f" . counsel-find-file)
-    ("M-x" . counsel-M-x)
     ))
+
+;; (global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "M-x") 'execute-extended-command)
 
 (with-eval-after-load 'org
   (global-set-key (kbd "C-c M-l") 'org-store-link)
@@ -215,7 +218,9 @@
 (global-set-key (kbd "C-c T") 'trashed)
 
 (global-set-key (kbd "M-s d") 'olivetti-mode)
+(global-set-key (kbd "M-s M-d") 'olivetti-modes)
 (global-set-key (kbd "M-s a") 'display-line-numbers-mode)
+(global-set-key (kbd "M-s M-a") 'display-line-numbers-mode)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
 (global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
@@ -307,7 +312,8 @@
 (global-set-key (kbd "C-x k") 'fei/kill-or-bury-buffer)
 (global-set-key (kbd "C-x K") 'reopen-killed-file)
 
-(global-set-key (kbd "C-x y") 'yas-insert-snippet)
+(global-set-key (kbd "C-x y") 'consult-yasnippet)
+;; (global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
 
 (global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
@@ -375,6 +381,10 @@
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
+(with-eval-after-load 'vertico-grid-mode
+  (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
+  (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
+  )
 
 
 (win10

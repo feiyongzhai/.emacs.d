@@ -10,13 +10,13 @@
 (vertico-multiform-mode)		;I really like this feature
 (setq vertico-multiform-commands
       '((consult-line buffer (:not flat))
-	(yank-pop (:not flat))
-	(cua-paste-pop (:not flat))
+	(yank-pop)			;nil means use vertical
+	(cua-paste-pop)
 	(execute-extended-command flat)
 	(embark-act grid)
-        (consult-imenu reverse buffer)
-	(fei-consult-ripgrep-my-org (:not flat))
-	(rime-select-schema flat)
+        (consult-imenu)
+	(fei-consult-ripgrep-my-org)
+        (rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)
 	(switch-to-locked-buffer flat)
 	(t flat)			; 不匹配的命令所使用的样式

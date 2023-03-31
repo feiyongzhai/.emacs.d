@@ -21,6 +21,10 @@
 		("github" .
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("blog" . "feiyongzhai.github.io")
+		("Emacs China" .
+		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
+		("YouTube" .
+		 [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
                 )
               webjump-sample-sites))
 

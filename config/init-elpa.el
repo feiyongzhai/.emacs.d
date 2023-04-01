@@ -94,7 +94,7 @@
 	eshell-up elfeed pyim pyim-basedict fcitx
 	youdao-dictionary engine-mode hide-mode-line
 	
-        helpful alarm-clock trashed cal-china-x
+        helpful alarm-clock trashed cal-china-x hackernews
 
 	;; ==== 游戏 ====
 	rubik

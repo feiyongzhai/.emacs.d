@@ -2,6 +2,7 @@
 
 (global-set-key (kbd "M-e") 'yank-and-indent)
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
+(global-set-key (kbd "C-x C-y") (li (yank '(4))))
 (global-set-key (kbd "M-a") 'indent-for-tab-command)
 (cua-mode)
 
@@ -61,7 +62,6 @@
 (global-set-key (kbd "C-x I") 'emoji-search)
 (global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
 
-(global-set-key (kbd "C-c o") 'counsel-outline)
 ;; (global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c i") 'consult-imenu)
 
@@ -81,7 +81,6 @@
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 
-;;; Kill/Yank
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 (global-set-key (kbd "C-x r p") 'replace-string)
@@ -153,6 +152,8 @@
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'calculator)
 
+(global-set-key (kbd "C-c o") 'embark-act)
+(global-set-key (kbd "C-c e") 'embark-act)
 (global-set-key (kbd "M-O") 'embark-act)
 (global-set-key (kbd "M-.") 'embark-dwim)
 
@@ -163,8 +164,11 @@
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
-(global-set-key (kbd "M-p") 'goto-last-change)
-(global-set-key (kbd "M-n") 'goto-last-change-reverse)
+(global-set-key (kbd "C-x M-p") 'goto-last-change)
+(global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
+
+(global-set-key (kbd "M-p") 'scroll-down-command)
+(global-set-key (kbd "M-n") 'scroll-up-command)
 
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
@@ -218,7 +222,7 @@
 (global-set-key (kbd "C-c T") 'trashed)
 
 (global-set-key (kbd "M-s d") 'olivetti-mode)
-(global-set-key (kbd "M-s M-d") 'olivetti-modes)
+(global-set-key (kbd "M-s M-d") 'olivetti-mode)
 (global-set-key (kbd "M-s a") 'display-line-numbers-mode)
 (global-set-key (kbd "M-s M-a") 'display-line-numbers-mode)
 
@@ -325,6 +329,7 @@
 
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "C-c 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
 (global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
 (global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
@@ -370,6 +375,7 @@
   (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
   (define-key LaTeX-mode-map (kbd "C-M-w") 'er/mark-LaTeX-math)
   (define-key LaTeX-mode-map (kbd "C-M-e") 'LaTeX-mark-environment)
+  (define-key LaTeX-mode-map (kbd "C-c ,") 'LaTeX-mark-environment)
   (define-key LaTeX-mode-map (kbd "M-=") 'fei/latex-insert-equation)
   (define-key LaTeX-mode-map (kbd "C-s") 'fei-swiper-isearch)
   (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward)
@@ -381,7 +387,7 @@
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
-(with-eval-after-load 'vertico-grid-mode
+(with-eval-after-load 'vertico-grid
   (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
   (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
   )

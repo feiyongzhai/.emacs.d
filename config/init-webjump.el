@@ -21,6 +21,7 @@
 		("github" .
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("blog" . "feiyongzhai.github.io")
+		("HackNews" . "https://news.ycombinator.com/")
 		("Emacs China" .
 		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
 		("YouTube" .

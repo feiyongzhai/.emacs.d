@@ -353,6 +353,7 @@
 ;; (global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "C-x o") 'ace-select-window) ;ace-select-window 也不会选 side bar
 (global-set-key (kbd "C-x O") 'other-frame)
+(global-set-key (kbd "C-x M-o") 'other-frame)
 
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
 

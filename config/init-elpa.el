@@ -31,7 +31,7 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	bash-completion
+	bash-completion fcitx
 	graphviz-dot-mode lsp-dart flutter
 	;; citre vterm vterm-toggle sx magit
 	))
@@ -40,80 +40,90 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	macrostep gcmh tmr git-commit pdf-tools benchmark-init
-	hungry-delete		 ;发现一个自带的命令 `c-hungry-delete'
+	macrostep git-commit benchmark-init
 
-	all-the-icons-ibuffer
-	scratch imenu-list rg
-	rainbow-mode rainbow-delimiters
-	dirvish websocket
+	helpful openwith
+        scratch imenu-list rg websocket
 	interaction-log		 ;这个包需要自己 require，不会自动加载
-	google-translate
+
+	;; ==== 功能包 ====
+	pyim pyim-basedict 		; 内置输入法
+	trashed				; 回收站管理
+	keycast				; 键盘回显
+	tmr alarm-clock			; 定时器、闹钟
+	pdf-tools			; 增强 docview
+	dashboard			; 快速启动页面
+	olivetti			; 内容居中
+	ace-window			; 增强 other-window
+	dirvish				; dired 增强
+	cal-china-x			; 日历汉化
+	vundo				; 可视化 undo
+	hackernews			; hackernews 客户端
+	use-package			; 包管理器
+	general				; 按键配置器
+	elfeed				; rss 客户端
+	rubik				; 魔方游戏
+	google-translate		; 谷歌词典
+	youdao-dictionary		; 有道词典
+	evil				; vim 模拟
+
+	;; ==== Minibuffer ====
+	orderless vertico embark consult embark-consult
+	consult-yasnippet marginalia vertico-posframe
+	smex counsel ivy swiper ivy-posframe
 
         ;; ==== 外观 ====
-	standard-themes dashboard
-	auto-dim-other-buffers
+	rainbow-mode rainbow-delimiters
+	all-the-icons-ibuffer
 	smart-mode-line
+	standard-themes
+	auto-dim-other-buffers
 
 	;; === 窗口管理 ===
 	popper bookmark-view
-	
+
 	;; ==== 编辑相关 ====
-	evil general backward-forward goto-chg
+	hungry-delete		 ;发现一个自带的命令 `c-hungry-delete'
+	backward-forward goto-chg
 	highlight-parentheses highlight-indentation
-	company yasnippet avy ace-window
-	electric-spacing iedit yafolding pyvenv conda
-	symbol-overlay separedit smartparens corfu
-	olivetti math-symbol-lists laas expand-region vundo
-	easy-kill
-
-	;; Programming
-	emmet-mode js2-mode web-mode dumb-jump diff-hl
-
-	;; Project
-	project-tab-groups project-mode-line-tag beframe
-        
-	;; ==== Helm ====
-	;; helm-chrome helm-chrome-history
-
-	;; ==== Major-mode ====
-	markdown-mode matlab-mode auctex cdlatex
+	company corfu yasnippet avy electric-spacing
+	iedit symbol-overlay separedit smartparens
+	math-symbol-lists expand-region easy-kill
 
 	;; ==== Org ====
 	org-download org-tree-slide org-appear org-contrib obsidian
 
-	;; ==== Minibuffer ====
-	orderless vertico embark
-	consult marginalia embark-consult
-        consult-yasnippet
-	smex counsel ivy swiper
-	ivy-posframe vertico-posframe
+	;; ==== Python ====
+	yafolding pyvenv conda
 
 	;; ==== 非编辑相关 ====
-	use-package
-	eshell-up elfeed pyim pyim-basedict fcitx
-	youdao-dictionary engine-mode hide-mode-line
-	
-        helpful alarm-clock trashed cal-china-x hackernews
+	eshell-up engine-mode hide-mode-line
 
-	;; ==== 游戏 ====
-	rubik
+	;; ==== LaTeX ====
+	laas auctex cdlatex
+
+	;; ==== 编程 ====
+	emmet-mode js2-mode web-mode dumb-jump diff-hl
+
+	;; ==== Major-mode ====
+	markdown-mode matlab-mode
+
+	;; ==== Project ====
+	project-tab-groups project-mode-line-tag beframe
+
+	;; ==== Helm ====
+	;; helm-chrome helm-chrome-history
 
 	;; ==== 备忘 ====
-	;; minions openwith neotree
-	;; helm-org-rifle org-roam org-roam-server
-	;; tempel tab-bar-echo-area eyebrowse
+	;; minions helm-org-rifle
+	;; tab-bar-echo-area eyebrowse
 	;; academic-phrases valign tldr
-	;; adafruit-wisdom eshell-autojump
-	;; treemacs-icons-dired
-	;; ctrlf anzu eshell-git-prompt
-	;; highlight-indent-guides
+	;; adafruit-wisdom anzu eshell-git-prompt gcmh
 	;; devdocs sis pinyin-search mini-modeline
-	;; goto-line-preview minimap
-	;; calfw / calfw-org frames-only-mode
+	;; minimap calfw calfw-org frames-only-mode
 	;; zone zone-rainbow zone-nyan zone-sl totd
 	;; zoom zlc web-search google-this
-	;; bing-dict emojify focus dired-sider-bar ivy-posframe deadgrep
+	;; bing-dict emojify focus dired-sider-bar
 	))
 
 (when *is-linux*

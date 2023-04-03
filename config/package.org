@@ -1,11 +1,20 @@
 # -*- coding: utf-8 -*-
 这里面记录自己体验过包及一些想法
 
-| 包名               | 在用 | 看法                                                 |
-|--------------------+------+------------------------------------------------------|
-| magic-latex-buffer | no   | 这个包在我的习惯上，只适合查看，在编辑的时候开不习惯 |
-| tab-bar-groups     | no   | 这个包有一个不好的地方，可以启用，但是无法关闭       |
-| w3m                | no   | 太折腾了                                             |
-| mb-url             | no   |                                                      |
-| ialign             | no   | 它竟然会修改只读 buffer                              |
-| zygospore          |      | 用自己修的版本了                                     |
+| 包名                     | 在用 | 看法                                                 |
+|--------------------------+------+------------------------------------------------------|
+| magic-latex-buffer       | no   | 这个包在我的习惯上，只适合查看，在编辑的时候开不习惯 |
+| tab-bar-groups           | no   | 这个包有一个不好的地方，可以启用，但是无法关闭       |
+| w3m                      | no   | 太折腾了                                             |
+| mb-url                   | no   |                                                      |
+| ialign                   | no   | 它竟然会修改只读 buffer                              |
+| zygospore                |      | 用自己修的版本了                                     |
+| deadgrep                 | no   | rg 够用了                                            |
+| goto-line-preview        | no   | 在用 consult-goto-line                               |
+| highlight-indent-guides  | no   | 在用 highlight-indentation                           |
+| neotree                  | no   | 用 dirvish-side 和 treemacs 代替                     |
+| org-roam org-roam-server | no   | 概念太复杂了，用起来心智负担大                       |
+| tempel                   | no   | 没有 yasnippet 好用                                  |
+| treemacs-icons-dired     | no   | 用 dirvish 代替                                      |
+| ctrlf                    | no   | swiper 和 isearch 够用了                             |
+| eshell-autojump          | no   | 用 zoxide                                             |

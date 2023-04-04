@@ -16,7 +16,8 @@
 (setq aw-char-position 'top-left)
 (custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 
-(transient-command winner-undo (winner-undo)
+(fei-repeat fr/winner-undo
+  (winner-undo)
   '(("u" . winner-undo)
     ("U" . winner-redo)))
 
@@ -40,6 +41,19 @@
   (interactive)
   (when killed-file-list
     (find-file (pop killed-file-list))))
+
+
+(defun fei/scroll-down-push-mark ()
+  (interactive)
+  ;; (push-mark)
+  (window-configuration-to-register ?s)
+  (scroll-down-command))
+
+(defun fei/scroll-up-push-mark ()
+  (interactive)
+  ;; (push-mark)
+  (window-configuration-to-register ?s)
+  (scroll-up-command))
 
 
 ;; mark stack 栈式存储 mark，比自带的 ring 数据结构来的更简单理解一些。
@@ -84,4 +98,3 @@
 ;; (advice-remove 'push-mark #'marker-stack-push)
 
 (provide 'init-window-buffer)
-

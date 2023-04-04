@@ -104,7 +104,6 @@
 (global-set-key (kbd "C-x L") 'vc-print-root-log)
 
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
-(global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 
 ;; 这个按键很好按，我想搞一个很全能的命令上去
@@ -166,6 +165,12 @@
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
+
+(global-set-key (kbd "M-s M-p") 'fei/scroll-down-push-mark)
+(global-set-key (kbd "M-s M-n") 'fei/scroll-up-push-mark)
+
+;; (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
+;; (global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
 
 (global-set-key (kbd "M-p") 'scroll-down-command)
 (global-set-key (kbd "M-n") 'scroll-up-command)
@@ -305,7 +310,6 @@
 (global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
 (global-set-key (kbd "M-s l") 'popper-toggle-latest)
 (global-set-key (kbd "C-x l") 'popper-toggle-latest)
-(global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
 (global-set-key (kbd "M-s M-l") 'popper-toggle-latest)
 (global-set-key (kbd "M-s L") 'popper-toggle-type)
 (global-set-key (kbd "C-x C-l") 'popper-toggle-type)

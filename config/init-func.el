@@ -6,10 +6,10 @@
   `(when *is-linux*
      ,@body))
 
-(defmacro transient-command (fun-name command &rest keymaps)
+(defmacro fei-repeat (fun-name command &rest keymaps)
   "一个方便定义瞬时命令的宏"
   (declare (indent 1))
-  (let ((command-name (intern (format "transient-%s" (symbol-name fun-name)))))
+  (let ((command-name (intern (format "%s" (symbol-name fun-name)))))
     `(defun ,command-name ()
        (interactive)
        (let ((echo-keystrokes nil))

@@ -59,6 +59,7 @@
 
 ;;; Rg
 (rg-define-toggle "--context 3" (kbd "C"))
+(rg-define-toggle "-E gbk" (kbd "E"))
 (rg-define-toggle "-A 5" (kbd "A"))
 (rg-define-toggle "-F" (kbd "F"))	;-F / --fixed-strings flag do a literally search
 (rg-define-search rg-project-all-files-no-ask
@@ -109,7 +110,8 @@
 (setq popper-reference-buffers '("\\*Messages\\*$"
 				 "\\*eshell\\*"
 				 "\\*vterm\\*"
-				 (compilation-mode . hide)
+				 ;; (compilation-mode . hide)
+				 compilation-mode
 				 ))
 
 (popper-mode)

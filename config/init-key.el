@@ -3,6 +3,10 @@
 (global-set-key (kbd "M-e") 'yank-and-indent)
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "C-x C-y") (li (yank '(4))))
+(global-set-key (kbd "M-s C-y") 'yank-and-indent)
+(global-set-key (kbd "C-c C-y") 'yank-and-indent)
+(global-set-key (kbd "M-s M-y") 'yank-and-indent)
+(global-set-key (kbd "M-s y") 'yank-and-indent)
 (global-set-key (kbd "M-a") 'indent-for-tab-command)
 (cua-mode)
 
@@ -156,10 +160,6 @@
 (global-set-key (kbd "M-O") 'embark-act)
 (global-set-key (kbd "M-.") 'embark-dwim)
 
-(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
-(global-set-key (kbd "C-M-y") 'youdao-dictionary-search-from-input)
-(global-set-key (kbd "C-c y") 'fei-youdao-at-point)
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
@@ -210,6 +210,7 @@
 
 (global-set-key (kbd "<f2>") 'fei-compile) ;笔记本上 C-M-z 不好按
 (global-set-key (kbd "C-M-z") 'fei-compile)
+(global-set-key (kbd "M-s z") 'fei-compile)
 
 (cond
  (*is-windows* (global-set-key (kbd "C-c l") 'counsel-locate))
@@ -363,6 +364,7 @@
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
+  (global-set-key (kbd "C-M-y") 'yas/expand)
   (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
@@ -497,7 +499,9 @@
 ;; (global-set-key (kbd "C-h O") 'describe-symbol)
 ;; (global-set-key (kbd "C-h k") 'helpful-key)
 
-;;; youdao-dictionary
+(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
+(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
+(global-set-key (kbd "C-c y") 'fei-youdao-at-point)
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
   (define-key youdao-dictionary-mode-map (kbd "d") 'fei-quword-at-point))
@@ -696,6 +700,7 @@
   (define-key compilation-mode-map (kbd "l") 'recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
   (define-key compilation-mode-map (kbd "r") 'compile)
+  (define-key compilation-mode-map (kbd "z") 'fei-compile)
   )
 
 ;;; Company

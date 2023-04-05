@@ -2,6 +2,6 @@
 # contributor: Xah Lee (XahLee.org)
 # name: interactive
 # group : i
-# key: interactive
+# key: inter
 # --
-(interactive${1: "${2:P}"})
+(interactive)

@@ -71,6 +71,7 @@
 
 (global-set-key [remap goto-line] 'consult-goto-line)
 
+(global-set-key (kbd "M-s `") 'bury-buffer)
 (global-set-key (kbd "M-s ,") 'unbury-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
@@ -98,11 +99,15 @@
 (global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
+(global-set-key (kbd "C-x <return>") 'consult-buffer)
+(global-set-key (kbd "C-x C-m") 'consult-buffer) ;was `mule-keymap'
+
 (global-set-key (kbd "C-x M-m") mule-keymap)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
 (global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
+
+(global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
 (global-set-key (kbd "C-x L") 'vc-print-root-log)
@@ -146,7 +151,7 @@
 (autoload 'open-newline-below "open-newline" nil t)
 (autoload 'open-newline-above "open-newline" nil t)
 (global-set-key (kbd "C-S-o") 'open-newline-above)
-(global-set-key (kbd "C-S-<return>") 'open-newline-above)
+(global-set-key (kbd "C-S-<return>") 'open-newline-below)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-[") 'backward-paragraph)
@@ -262,9 +267,10 @@
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
 (global-set-key (kbd "C-|") 'fei-rime-force-enable)
+(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
-(global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-j") 'delete-indentation)
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
@@ -519,6 +525,8 @@
   (define-key org-agenda-mode-map (kbd "`") 'fei-org-agenda-toggle-done-entry)
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
+  (define-key org-agenda-mode-map (kbd "'") 'org-agenda-list)
+  (define-key org-agenda-mode-map (kbd "\"") 'org-agenda)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
 

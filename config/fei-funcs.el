@@ -1,6 +1,11 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/toggle-comment-line ()
+  (interactive)
+  (save-excursion (call-interactively 'comment-line)))
+
+
 (defun new-buffer ()
   "refer to `evil-buffer-new'"
   (interactive)

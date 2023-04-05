@@ -52,7 +52,13 @@
 
 
 ;; ==== Org Agenda 配置开始 ===
-(add-hook 'org-agenda-mode-hook 'hl-line-mode)
+;; @SEEALSO: https://stackoverflow.com/questions/32423127/how-to-view-the-next-days-in-org-modes-agenda
+(setq org-agenda-span 3)		;控制显示的天数
+(setq org-agenda-start-day "-1d")
+(add-hook 'org-agenda-mode-hook 'fei/org-agenda-mode-hook)
+(defun fei/org-agenda-mode-hook ()
+  (hl-line-mode)
+  )
 
 (with-eval-after-load 'org-agenda
   ;; 完成任务时, 将其划线勾掉
@@ -65,9 +71,11 @@
       (progn
 	(setq fei/agenda-hide-done-flag nil)
 	(setq org-agenda-skip-timestamp-if-done nil)
+	(setq org-agenda-skip-deadline-if-done nil)
 	(setq org-agenda-skip-scheduled-if-done nil))
     (setq fei/agenda-hide-done-flag t)
     (setq org-agenda-skip-timestamp-if-done t)
+    (setq org-agenda-skip-deadline-if-done t)
     (setq org-agenda-skip-scheduled-if-done t))
   (org-agenda-redo))
 

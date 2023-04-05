@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ci
+# key: ci
+# --
+(call-interactively '$0)

@@ -71,12 +71,12 @@
 
 (global-set-key [remap goto-line] 'consult-goto-line)
 
-;;; Navigate
+(global-set-key (kbd "M-s ,") 'unbury-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
 (global-set-key (kbd "C-x Q") 'unbury-buffer)
 (global-set-key (kbd "M-s q") 'quit-window)
-(global-set-key (kbd "M-s M-q") 'unbury-buffer)
+(global-set-key (kbd "M-s M-q") 'quit-window)
 
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
@@ -287,7 +287,6 @@
 (global-set-key (kbd "M-S") 'fei-search)
 
 (global-set-key (kbd "M-0") 'tab-close)
-(global-set-key (kbd "M--") 'tab-undo)
 (global-set-key (kbd "M-`") 'tab-recent)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
@@ -304,6 +303,7 @@
 (global-set-key (kbd "M-_") 'small-font)
 
 (global-set-key (kbd "<f2>") 'new-buffer)
+(global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-h") 'new-buffer)
 (global-set-key (kbd "C-x B") 'new-buffer)
 
@@ -344,7 +344,9 @@
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
-(global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
+(global-set-key (kbd "M--") 'fit-window-to-buffer)
+(global-set-key (kbd "M-s i") 'fit-window-to-buffer)
+(global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
 (global-set-key (kbd "C-x w h") 'windmove-left)

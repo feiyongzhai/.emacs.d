@@ -16,11 +16,6 @@
 (setq aw-char-position 'top-left)
 (custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 
-(fei-repeat fr/winner-undo
-  (winner-undo)
-  '(("u" . winner-undo)
-    ("U" . winner-redo)))
-
 
 ;;; undo kill buffer
 

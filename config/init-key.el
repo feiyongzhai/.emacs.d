@@ -368,6 +368,23 @@
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x M-o") 'other-frame)
 
+(global-set-key (kbd "M-s b") 'fr/bury-or-unbury-buffer)
+(global-set-key (kbd "M-s <") 'fr/bury-or-unbury-buffer)
+
+(fei-repeat fr/winner-undo
+  (winner-undo)
+  '(("u" . winner-undo)
+    ("U" . winner-redo)))
+
+;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
+(fei-repeat fr/bury-or-unbury-buffer
+  (progn (window-configuration-to-register ?b)
+	 (bury-buffer))
+  '(("b" . bury-buffer)
+    ("<" . bury-buffer)
+    (">" . unbury-buffer)
+    ("," . unbury-buffer)))
+
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html

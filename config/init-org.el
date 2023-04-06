@@ -275,6 +275,7 @@ unwanted space when exporting org-mode to html."
 ;;; ==== Org-download ====
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
+(setq org-download-method 'attach)
 (with-eval-after-load 'org (org-download-enable))
 
 ;;; ==== Org Babel Dot(graphviz) ====

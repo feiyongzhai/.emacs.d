@@ -1,5 +1,7 @@
 (require 'init-thing-edit)
 
+(global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
+
 (global-set-key (kbd "M-e") 'yank-and-indent)
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "C-x C-y") (li (yank '(4))))
@@ -155,7 +157,6 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-[") 'backward-paragraph)
-(global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'calculator)
@@ -234,7 +235,7 @@
 
 (global-set-key (kbd "M-s d") 'olivetti-mode)
 (global-set-key (kbd "M-s M-d") 'olivetti-mode)
-(global-set-key (kbd "M-s a") 'display-line-numbers-mode)
+(global-set-key (kbd "M-s '") 'display-line-numbers-mode)
 (global-set-key (kbd "M-s M-a") 'display-line-numbers-mode)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
@@ -248,6 +249,14 @@
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
 
+(global-set-key (kbd "M-s [") (li (load-theme 'zenburn t)))
+(global-set-key (kbd "M-s ]") (li (mapc #'disable-theme custom-enabled-themes)))
+
+(global-set-key (kbd "M-s a") 'org-agenda-list)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "M-s a") nil))
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "M-s a") nil))
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
@@ -312,6 +321,15 @@
 (global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-h") 'new-buffer)
 (global-set-key (kbd "C-x B") 'new-buffer)
+
+(global-set-key (kbd "M-g u") 'jump-to-register)
+(global-set-key (kbd "M-g M-u") 'jump-to-register)
+(global-set-key (kbd "M-g M-f") 'find-file)
+(global-set-key (kbd "M-g f") 'find-file)
+(global-set-key (kbd "M-g d") 'dumb-jump-go)
+(global-set-key (kbd "M-g b") 'dumb-jump-back)
+(global-set-key (kbd "M-g l") 'goto-last-change)
+(global-set-key (kbd "M-g M-l") 'goto-last-change)
 
 (global-set-key (kbd "M-s C-n") 'popper-cycle)
 (global-set-key (kbd "M-s C-j") 'popper-toggle-latest)
@@ -456,11 +474,6 @@
     ("M-j" . isearch-edit-string)
     ("M-s r" . rg-isearch-project)
     ))
-
-(with-eval-after-load 'ctrlf
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
-  )
 
 (add-hook 'term-mode-hook '+fei-term-mode-hook)
 (defun +fei-term-mode-hook ()

@@ -1,6 +1,12 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(with-eval-after-load 'ctrlf
+  (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
+  (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
+  )
+
+
 (defun fei-svg-clock ()
   (interactive)
   (frameset-to-register ?1)

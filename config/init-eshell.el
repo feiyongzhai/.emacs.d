@@ -18,13 +18,8 @@
 ;;             (remove-hook 'eshell-output-filter-functions
 ;;                          'eshell-postoutput-scroll-to-bottom)))
 
-(add-hook 'eshell-mode-hook '+fei-eshell-mode-hook)
-(defun +fei-eshell-mode-hook ()
-  (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
-  (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
-  (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
-  (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
-  (define-key eshell-hist-mode-map (kbd "M-s") nil)
+(add-hook 'eshell-mode-hook 'fei-eshell-mode-hook)
+(defun fei-eshell-mode-hook ()
   ;; `substring' style is very useful for eshell completion
   (setq-local completion-styles '(basic partial-completion substring emacs22))
   (toggle-truncate-lines 0))

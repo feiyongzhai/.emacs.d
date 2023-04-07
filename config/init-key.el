@@ -1,15 +1,45 @@
+;; 思路：给常用的功能一个短一点的快捷键
+;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
+
+;; 功能1: 切换 buffer
+(global-set-key (kbd "M-e") 'consult-buffer)
+(define-key minibuffer-mode-map (kbd "M-q") 'minibuffer-keyboard-quit)
+(with-eval-after-load 'vertico
+  (define-key vertico-map (kbd "M-e") 'vertico-next)
+  (define-key vertico-map (kbd "M-a") 'vertico-exit)
+  (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit)
+  )
+
+;; 功能2: capture 和 agenda
+(global-set-key (kbd "M-a") 'fei-org-capture-TODO)
+(global-set-key (kbd "M-`") 'org-agenda-list)
+
+(global-set-key (kbd "M-s a") 'org-agenda-list)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "M-s a") nil))
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "M-s a") nil))
+
+;; 功能3: find-file
+(global-set-key (kbd "M-s m") 'find-file)
+(global-set-key (kbd "M-s M-m") 'find-file)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; (global-set-key (kbd "M-j") 'delete-indentation)
+(global-set-key (kbd "M-j") 'scroll-up-line)
+(global-set-key (kbd "M-k") 'scroll-down-line)
+
 (require 'init-thing-edit)
 
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
-(global-set-key (kbd "M-e") 'yank-and-indent)
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "C-x C-y") (li (yank '(4))))
 (global-set-key (kbd "M-s C-y") 'yank-and-indent)
 (global-set-key (kbd "C-c C-y") 'yank-and-indent)
 (global-set-key (kbd "M-s M-y") 'yank-and-indent)
 (global-set-key (kbd "M-s y") 'yank-and-indent)
-(global-set-key (kbd "M-a") 'indent-for-tab-command)
 (cua-mode)
 
 (global-set-key (kbd "M-w") 'easy-kill)
@@ -32,6 +62,16 @@
 
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
+
+(add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
+(defun fei-eshell-setup-key ()
+  (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
+  (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
+  (define-key eshell-hist-mode-map (kbd "<up>") nil)
+  (define-key eshell-hist-mode-map (kbd "<down>") nil)
+  (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
+  (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
+  (define-key eshell-hist-mode-map (kbd "M-s") nil))
 
 (global-set-key (kbd "C-c h") 'webjump)
 (global-set-key (kbd "C-c M-h") 'webjump)
@@ -101,8 +141,8 @@
 (global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
-(global-set-key (kbd "C-x <return>") 'consult-buffer)
-(global-set-key (kbd "C-x C-m") 'consult-buffer) ;was `mule-keymap'
+(global-set-key (kbd "C-x <return>") 'execute-extended-command)
+(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
@@ -117,7 +157,7 @@
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 
-;; 这个按键很好按，我想搞一个很全能的命令上去
+;; 这个按键很好按，想搞一个很全能的命令上去
 (global-set-key (kbd "C-c SPC") 'find-file)
 
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
@@ -140,14 +180,13 @@
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "C-S-j") 'jump-to-register)
 
-(global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 (global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-'") 'bookmark-jump)
-(global-set-key (kbd "M-s m") 'bookmark-view-push)
-(global-set-key (kbd "M-s u") 'bookmark-view-pop)
+;; (global-set-key (kbd "M-s m") 'bookmark-view-push)
+;; (global-set-key (kbd "M-s u") 'bookmark-view-pop)
 
-(global-set-key (kbd "C-S-l") 'scroll-down-line)
-(global-set-key (kbd "C-l") 'scroll-up-line) ;was `recenter-top-bottom'
+(global-set-key (kbd "C-l") 'recenter-top-bottom) ;was `recenter-top-bottom'
+(global-set-key (kbd "C-M-l") (li (recenter-top-bottom '(4)))) ;was `reposition-window'
 
 (global-set-key (kbd "C-o") 'open-line)
 (autoload 'open-newline-below "open-newline" nil t)
@@ -162,24 +201,21 @@
 (global-set-key (kbd "M-s =") 'calculator)
 
 (global-set-key (kbd "C-c o") 'embark-act)
-(global-set-key (kbd "C-c e") 'embark-act)
 (global-set-key (kbd "M-O") 'embark-act)
 (global-set-key (kbd "M-.") 'embark-dwim)
-
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
 
-(global-set-key (kbd "M-s M-p") 'fei/scroll-down-push-mark)
-(global-set-key (kbd "M-s M-n") 'fei/scroll-up-push-mark)
+(global-set-key (kbd "M-n") 'fei/scroll-up-push-mark)
+(global-set-key (kbd "M-p") 'fei/scroll-down-push-mark)
+
+(global-set-key (kbd "M-s u") 'jump-to-register)
 
 ;; (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
 ;; (global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
-
-(global-set-key (kbd "M-p") 'scroll-down-command)
-(global-set-key (kbd "M-n") 'scroll-up-command)
 
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
@@ -249,14 +285,9 @@
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
 
-(global-set-key (kbd "M-s [") (li (load-theme 'zenburn t)))
-(global-set-key (kbd "M-s ]") (li (mapc #'disable-theme custom-enabled-themes)))
+(global-set-key (kbd "M-s [") 'fei/load-zenburn)
+(global-set-key (kbd "M-s ]") 'fei/disable-theme)
 
-(global-set-key (kbd "M-s a") 'org-agenda-list)
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "M-s a") nil))
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "M-s a") nil))
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
@@ -279,7 +310,7 @@
 (global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
-(global-set-key (kbd "M-j") 'delete-indentation)
+
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
@@ -301,8 +332,6 @@
 (global-set-key (kbd "M-s s") 'fei-search)
 (global-set-key (kbd "M-S") 'fei-search)
 
-(global-set-key (kbd "M-0") 'tab-close)
-(global-set-key (kbd "M-`") 'tab-recent)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
@@ -340,13 +369,13 @@
 (global-set-key (kbd "C-x C-l") 'popper-toggle-type)
 (global-set-key (kbd "M-s C-p") 'popper-toggle-type)
 
-(global-set-key (kbd "M-k") 'fei/kill-or-bury-buffer)
-(global-set-key (kbd "M-K") 'reopen-killed-file)
+;; (global-set-key (kbd "M-k") 'fei/kill-or-bury-buffer)
+;; (global-set-key (kbd "M-K") 'reopen-killed-file)
 (global-set-key (kbd "C-x k") 'fei/kill-or-bury-buffer)
 (global-set-key (kbd "C-x K") 'reopen-killed-file)
 
-(global-set-key (kbd "C-x y") 'consult-yasnippet)
-;; (global-set-key (kbd "C-x y") 'yas-insert-snippet)
+;; (global-set-key (kbd "C-x y") 'consult-yasnippet)
+(global-set-key (kbd "C-x y") 'yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
 
 (global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
@@ -716,7 +745,7 @@
       ("M-t" . dirvish-layout-toggle)
       ("M-h" . dirvish-layout-toggle)
       ("M-u" . dirvish-setup-menu)
-      ("M-e" . dirvish-emerge-menu)
+      ("M-E" . dirvish-emerge-menu)
       ("M-S" . dirvish-layout-switch)
       )))
 

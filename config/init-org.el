@@ -218,6 +218,7 @@ unwanted space when exporting org-mode to html."
 (setq org-clock-sound "~/Music/rings/ding0.wav")
 (autoload 'org-timer-set-timer "org" t)
 (setq org-directory "~/Nutstore Files/org")
+(setq org-archive-default-command 'org-archive-set-tag)
 
 ;;; org-capture-templates
 (with-eval-after-load 'org-capture

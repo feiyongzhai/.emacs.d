@@ -40,14 +40,16 @@
 
 (defun fei/scroll-down-push-mark ()
   (interactive)
-  ;; (push-mark)
-  (window-configuration-to-register ?s)
+  (when (not (or (eq last-command 'fei/scroll-down-push-mark)
+                 (eq last-command 'fei/scroll-up-push-mark)))
+    (window-configuration-to-register ?s))
   (scroll-down-command))
 
 (defun fei/scroll-up-push-mark ()
   (interactive)
-  ;; (push-mark)
-  (window-configuration-to-register ?s)
+  (when (not (or (eq last-command 'fei/scroll-down-push-mark)
+                 (eq last-command 'fei/scroll-up-push-mark)))
+    (window-configuration-to-register ?s))
   (scroll-up-command))
 
 

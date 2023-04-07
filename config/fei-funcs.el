@@ -1,6 +1,16 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/disable-theme ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(defun fei/load-zenburn ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'zenburn t))
+
+
 (defun fei/toggle-comment-line ()
   (interactive)
   (save-excursion (call-interactively 'comment-line)))

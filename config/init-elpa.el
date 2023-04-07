@@ -66,6 +66,7 @@
 	google-translate		; 谷歌词典
 	youdao-dictionary		; 有道词典
 	evil				; vim 模拟
+	keyfreq				; 统计按键
 
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult

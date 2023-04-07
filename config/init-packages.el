@@ -121,6 +121,8 @@
 (setq diff-hl-show-staged-changes nil)
 (diff-hl-margin-mode)
 
+(setq keyfreq-file "~/.emacs.d/.cache/emacs.keyfreq")
+
 
 ;; 有些时候，我们改变了一些配置导致了 `vertico-posframe' 或者 `ivy-posframe' 等 posframe 相关的
 ;; 包出现显示异常，可以通过 `posframe-delete-all' command 来尝试解决

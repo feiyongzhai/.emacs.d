@@ -20,17 +20,17 @@
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-s a") nil))
 
-;; 功能3: find-file
-(global-set-key (kbd "M-s m") 'find-file)
-(global-set-key (kbd "M-s M-m") 'find-file)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'init-thing-edit)
 
-;; (global-set-key (kbd "M-j") 'delete-indentation)
 (global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-k") 'scroll-down-line)
 
-(require 'init-thing-edit)
+(define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
+(define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
+
+(global-set-key (kbd "M-s m") 'find-file)
+(global-set-key (kbd "M-s M-m") 'find-file)
 
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
@@ -67,11 +67,12 @@
 (defun fei-eshell-setup-key ()
   (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
+  (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
-  (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
+  (define-key eshell-hist-mode-map (kbd "M-s") nil)
   (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
-  (define-key eshell-hist-mode-map (kbd "M-s") nil))
+  )
 
 (global-set-key (kbd "C-c h") 'webjump)
 (global-set-key (kbd "C-c M-h") 'webjump)
@@ -82,17 +83,12 @@
 (global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
 
-;;; @REF: https://karthinks.com/software/batteries-included-with-emacs/
 (global-set-key (kbd "M-c") 'capitalize-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
 
 (global-set-key (kbd "C-x u") 'vundo)
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
-
-;; 弥补 cua-mode 下翻页快捷键的缺失
-(global-set-key (kbd "M-s-n") 'scroll-up-command)
-(global-set-key (kbd "M-s-p") 'scroll-down-command)
 
 (autoload 'move-text-up "move-text" nil t)
 (autoload 'move-text-down "move-text" nil t)
@@ -157,7 +153,8 @@
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 
-;; 这个按键很好按，想搞一个很全能的命令上去
+(global-set-key (kbd "M-s e") 'treemacs)
+
 (global-set-key (kbd "C-c SPC") 'find-file)
 
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
@@ -249,8 +246,7 @@
 
 (global-set-key (kbd "M-s n") 'fei-swiper-isearch)
 (global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
-
-(global-set-key (kbd "<f2>") 'fei-compile) ;笔记本上 C-M-z 不好按
+                                        
 (global-set-key (kbd "C-M-z") 'fei-compile)
 (global-set-key (kbd "M-s z") 'fei-compile)
 
@@ -306,7 +302,6 @@
 (global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
-(global-set-key (kbd "C-|") 'fei-rime-force-enable)
 (global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
@@ -346,7 +341,7 @@
 (global-set-key (kbd "M-+") 'big-font)
 (global-set-key (kbd "M-_") 'small-font)
 
-(global-set-key (kbd "<f2>") 'new-buffer)
+(global-set-key (kbd "<f2>") 'list-bookmarks)
 (global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-h") 'new-buffer)
 (global-set-key (kbd "C-x B") 'new-buffer)
@@ -555,8 +550,6 @@
   )
 
 
-(define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
-(define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)

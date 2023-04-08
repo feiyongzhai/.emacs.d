@@ -51,6 +51,7 @@
   (with-eval-after-load 'webjump
     (require 'init-webjump))
   (require 'init-key)
+  (require 'init-evil)
 
   (when *is-windows*
     (require 'init-win10))
@@ -73,7 +74,6 @@
      (require 'init-compile)
      (require 'init-lsp)
      (require 'init-elfeed)
-     (require 'init-evil)
      (require 'init-latex)
      (require 'init-shell)
      (require 'init-packages)

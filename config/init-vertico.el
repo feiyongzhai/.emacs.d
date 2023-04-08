@@ -26,8 +26,9 @@
 ;; (setq vertico-multiform-categories
 ;;       '((file flat)
 ;; 	(buffer unobtrusive)))
-
-(setq embark-indicators '(embark-minimal-indicator)) ; embark adction buffer is verbose
+(custom-set-faces
+ '(embark-target ((t (:inherit isearch)))))
+(setq embark-indicators '(embark-minimal-indicator embark-highlight-indicator)) ; embark adction buffer is verbose
 (setq prefix-help-command 'embark-prefix-help-command)
 ;; (setq embark-prompter 'embark-completing-read-prompter)
 

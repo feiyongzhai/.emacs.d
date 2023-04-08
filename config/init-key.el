@@ -29,9 +29,6 @@
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 (define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
 
-(global-set-key (kbd "M-s m") 'find-file)
-(global-set-key (kbd "M-s M-m") 'find-file)
-
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
@@ -144,6 +141,8 @@
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
 (global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
+(global-set-key (kbd "M-s m") 'execute-extended-command)
+(global-set-key (kbd "M-s M-m") 'execute-extended-command)
 
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 
@@ -152,7 +151,6 @@
 
 (global-set-key (kbd "M-s M-i") 'dirvish-side)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
-
 (global-set-key (kbd "M-s e") 'treemacs)
 
 (global-set-key (kbd "C-c SPC") 'find-file)
@@ -211,9 +209,6 @@
 
 (global-set-key (kbd "M-s u") 'jump-to-register)
 
-;; (global-set-key (kbd "M-s M-n") 'popper-toggle-latest)
-;; (global-set-key (kbd "M-s M-p") 'fei-switch-to-treemacs)
-
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
@@ -245,7 +240,9 @@
   (global-set-key (kbd "C-c s") 'org-store-link))
 
 (global-set-key (kbd "M-s n") 'fei-swiper-isearch)
+(global-set-key (kbd "M-s M-n") 'fei-swiper-isearch)
 (global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
+(global-set-key (kbd "M-s M-p") 'fei-swiper-isearch-backward)
                                         
 (global-set-key (kbd "C-M-z") 'fei-compile)
 (global-set-key (kbd "M-s z") 'fei-compile)
@@ -268,13 +265,10 @@
 (global-set-key (kbd "M-s d") 'olivetti-mode)
 (global-set-key (kbd "M-s M-d") 'olivetti-mode)
 (global-set-key (kbd "M-s '") 'display-line-numbers-mode)
-(global-set-key (kbd "M-s M-a") 'display-line-numbers-mode)
+(global-set-key (kbd "M-s M-a") 'org-agenda-list)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
-(global-set-key (kbd "M-s M-1") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s 1") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-s M-2") 'fei-unhighlight-symbol-at-point)
-(global-set-key (kbd "M-s 2") 'fei-unhighlight-symbol-at-point)
+(global-set-key (kbd "M-s h ,") 'fei-unhighlight-symbol-at-point)
 
 (global-set-key (kbd "<pause>") 'fei-org-time)
 (global-set-key (kbd "<C-pause>") 'org-timer-set-timer)
@@ -380,6 +374,9 @@
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "M-<right>") 'tab-bar-history-forward)
 
+(global-set-key (kbd "M-s 1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "M-s M-1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "M-s 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-c 0") 'my/delete-window-or-delete-frame)
@@ -456,11 +453,14 @@
   (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
   )
 
+(setq embark-cycle-key ",")
 (autoload 'vertico-multiform-posframe "vertico-posframe" nil t)
 (define-key vertico-multiform-map (kbd "M-P") 'vertico-multiform-posframe)
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
+(define-key vertico-map (kbd "C-c C-o") 'embark-collect)
+(define-key vertico-map (kbd "C-c C-l") 'embark-live)
 (with-eval-after-load 'vertico-grid
   (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
   (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
@@ -576,11 +576,10 @@
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "`") 'fei-org-agenda-toggle-done-entry)
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
-  (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture)
+  (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture-TODO)
   (define-key org-agenda-mode-map (kbd "'") 'org-agenda-list)
   (define-key org-agenda-mode-map (kbd "\"") 'org-agenda)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
-
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
@@ -589,7 +588,8 @@
   (define-key treemacs-mode-map (kbd "G") 'magit)
   )
 
-(define-key prog-mode-map        (kbd "C-c '") #'separedit)
+;; 用得很少
+(define-key prog-mode-map (kbd "C-c '") #'separedit)
 (define-key minibuffer-local-map (kbd "C-c '") #'separedit)
 
 
@@ -759,8 +759,10 @@
 ;;; Compile
 (with-eval-after-load 'compile
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
-  (define-key compilation-mode-map (kbd "l") 'recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
+  (define-key compilation-mode-map (kbd "i") 'fit-window-to-buffer)
+  (define-key compilation-mode-map (kbd "l") 'recompile)
+  (define-key compilation-mode-map (kbd "m") 'minimize-window)
   (define-key compilation-mode-map (kbd "r") 'compile)
   (define-key compilation-mode-map (kbd "z") 'fei-compile)
   )

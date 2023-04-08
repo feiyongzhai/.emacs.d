@@ -1,8 +1,5 @@
 ;;; init-evil --- configs for evil
 
-;; (vim)
-;; (evil-set-undo-system 'undo-redo)
-
 (setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
 (setq evil-insert-state-tag " [I]")
 (setq evil-normal-state-tag " [N]")
@@ -10,9 +7,8 @@
 (setq evil-motion-state-tag " [M]")
 (setq evil-emacs-state-tag " [E]")
 
-;;; Keys
-
 (with-eval-after-load 'evil
+  (evil-set-undo-system 'undo-redo)
   (evil-define-key 'normal messages-buffer-mode-map "q" 'quit-window)
   (evil-global-set-key 'normal "\C-n" 'next-line)
   (evil-global-set-key 'normal "\M-." 'nil)
@@ -39,35 +35,44 @@
 
 (fei-space-leader-def
   "SPC" 'counsel-M-x
-  "w" 'pwd
-  "W" 'whitespace-mode
-  "t" 'fei-switch-to-treemacs
-  "j" 'counsel-recentf
   "TAB" 'mode-line-other-buffer
-  "i" 'ibuffer
-  "d" 'dired-jump
+  "a" 'org-agenda-list
   "b" 'switch-to-buffer
+  "c" 'fei-org-capture-TODO
+  "d" 'dired-jump
   "e" 'eshell
+  "f" 'find-file
+  "F" 'ffap
+  "g" 'fei-vc-dired-jump
+  "G" 'magit
+  "h" 'webjump
+  "i" 'ibuffer
+  "j" 'counsel-recentf
   "k" 'counsel-rg
   "K" 'fei-counsel-rg-my-org
-  "N" 'fei-org-capture-note
-  "n" 'fei-org-capture-private
-  "s" 'fei-search-1
+  "l" 'vc-print-root-log
   "m" 'execute-extended-command
+  "n" 'fei-org-capture-private
+  "N" 'fei-org-capture-note
+  "o" 'other-window
+  "O" 'open-current-file-with-vscode
+  "s" 'fei-search-1
+  "t" 'fei-switch-to-treemacs
+  "v" 'vc-next-action
+  "w" 'pwd
+  "W" 'whitespace-mode
   "x" 'execute-extended-command
-  "g" 'magit
-  "f" 'counsel-find-file
-  "F" 'ffap
+  "z" 'fei-compile
   "0" 'delete-window
+  ";" 'fei/toggle-comment-line
+  "/" 'rg-project-all-files-no-ask
+  "," 'embark-act
   "1" 'zygospore-toggle-delete-other-windows
   "2" 'split-window-below
   "3" 'split-window-right
-  "o" 'other-window
-  "O" 'open-current-file-with-vscode
   )
 
 ;;; Initial states
-
 (with-eval-after-load 'evil
   (dolist (p '((minibuffer-inactive-mode . emacs)
 	       (calendar-mode . emacs)
@@ -147,6 +152,7 @@
   (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
   (message "Now is EVIL 👽"))
 
+(vim)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

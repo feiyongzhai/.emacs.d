@@ -58,6 +58,7 @@
 (add-hook 'org-agenda-mode-hook 'fei/org-agenda-mode-hook)
 (defun fei/org-agenda-mode-hook ()
   (hl-line-mode)
+  (olivetti-mode)
   )
 
 (with-eval-after-load 'org-agenda
@@ -231,7 +232,8 @@ unwanted space when exporting org-mode to html."
 	   :immediate-finish t)
 	  ("c" "Canvas" entry (file "question.org")
 	   "* %(fei-generate-obsidian-canvas-uuid-link) %?"
-	   :jump-to-captured t
+	   ;; 可以用 C-u C-c C-c 跳过去，自动跳过去有点烦
+	   ;; :jump-to-captured t 
 	   :empty-lines 1)
 	  ("n" "note" entry (file "notes.org") "* %?")
 	  ("p" "Private" entry

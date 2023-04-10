@@ -3,6 +3,9 @@
 ;; fei-clock
 (require 'fei-clock)
 
+;; searchbox
+(require 'searchbox)
+
 
 (require 'vxref)
 ;; (require 'tab-bar-mode-indicator)

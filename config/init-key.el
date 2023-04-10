@@ -107,7 +107,8 @@
 (global-set-key [remap goto-line] 'consult-goto-line)
 
 (global-set-key (kbd "M-s `") 'bury-buffer)
-(global-set-key (kbd "M-s ,") 'unbury-buffer)
+(global-set-key (kbd "M-s ,") 'tab-bar-history-back) ; 这个可以处理 quit-window
+;; (global-set-key (kbd "M-s ,") 'unbury-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
 (global-set-key (kbd "C-x Q") 'unbury-buffer)

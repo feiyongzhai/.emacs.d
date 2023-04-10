@@ -45,7 +45,7 @@
   "F" 'ffap
   "g" 'fei-vc-dired-jump
   "G" 'magit
-  "h" 'webjump
+  "h" 'embark-act
   "i" 'ibuffer
   "j" 'counsel-recentf
   "k" 'counsel-rg
@@ -56,7 +56,11 @@
   "N" 'fei-org-capture-note
   "o" 'other-window
   "O" 'open-current-file-with-vscode
-  "s" 'fei-search-1
+  "q" 'quit-window
+  "Q" 'unbury-buffer
+  "s" 'searchbox-search
+  "S" 'fei-search-1
+  "M-s" 'webjump
   "t" 'fei-switch-to-treemacs
   "v" 'vc-next-action
   "w" 'pwd

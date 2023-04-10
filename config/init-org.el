@@ -7,15 +7,12 @@
 (defun +fei-org-mode-hook ()
   ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
-  (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
-
-  ;; `visual-line-mode' 比 `toggle-truncate-lines' 效果更好，这两个函数在终端下表现差异很小
-  (visual-line-mode)
-  ;; (toggle-truncate-lines -1)
+  ;; (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
 
   (setq tab-width 2)
   ;; 方便快速输入 =+_ 等强调符号
   (smartparens-mode)
+  (org-indent-mode)			;试试这个默认样式
   )
 
 (with-eval-after-load 'org
@@ -42,6 +39,7 @@
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
+	("~/Nutstore Files/org/notes.org" :level . 1)
 	("~/Nutstore Files/org/inbox.org" :level . 0)
 	("~/Nutstore Files/org/private/private.org" :maxlevel . 1)))
 
@@ -59,6 +57,7 @@
 (defun fei/org-agenda-mode-hook ()
   (hl-line-mode)
   (olivetti-mode)
+  (toggle-truncate-lines 1)
   )
 
 (with-eval-after-load 'org-agenda
@@ -88,6 +87,23 @@
 (setq org-agenda-use-time-grid nil)
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
+
+
+(defun fei/org-agenda-next-line ()
+  "Move cursor to the next line, and show if follow mode is active."
+  (interactive)
+  (call-interactively 'next-line)
+  (org-agenda-do-context-action)
+  (fei/echo-line)
+  )
+
+(defun fei/org-agenda-prev-line ()
+  "Move cursor to the next line, and show if follow mode is active."
+  (interactive)
+  (call-interactively 'previous-line)
+  (org-agenda-do-context-action)
+  (fei/echo-line)
+  )
 ;; ==== Org Agenda 配置结束 ===
 
 
@@ -117,14 +133,19 @@
   (set-face-attribute 'org-headline-done nil :strike-through t))
 
 ;; 设置各个标题的大小，不使用配色来区分 headline 层级
-(custom-set-faces
- '(org-level-1 ((t (:weight extra-bold :height 1.25))))
- '(org-level-2 ((t (:weight bold :height 1.15))))
- '(org-level-3 ((t (:weight bold :height 1.12))))
- '(org-level-4 ((t (:weight semi-bold :height 1.09))))
- '(org-level-5 ((t (:weight semi-bold :height 1.06))))
- '(org-level-6 ((t (:weight semi-bold :height 1.03))))
- '(org-level-8 ((t (:weight semi-bold)))))
+
+;; 收观点（REF1）的影响和促动，决定还是把 org-mode 搞得简单一点，朴素一点，不太在意 org-mode 长什么样，而是在意我要干什么。
+;; 把重点从 EMACS 的身上转移到我真正要做的事情身上 
+;; @REF1: https://emacs-china.org/t/emacs/23849/94?u=yongfeizhai
+
+;; (custom-set-faces
+;;  '(org-level-1 ((t (:weight extra-bold :height 1.25))))
+;;  '(org-level-2 ((t (:weight bold :height 1.15))))
+;;  '(org-level-3 ((t (:weight bold :height 1.12))))
+;;  '(org-level-4 ((t (:weight semi-bold :height 1.09))))
+;;  '(org-level-5 ((t (:weight semi-bold :height 1.06))))
+;;  '(org-level-6 ((t (:weight semi-bold :height 1.03))))
+;;  '(org-level-8 ((t (:weight semi-bold)))))
 
 ;; headline 上下空一行会好看一些
 

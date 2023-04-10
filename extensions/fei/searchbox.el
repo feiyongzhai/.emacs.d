@@ -74,7 +74,7 @@
 
       (read-only-mode)
 
-      (and evil-mode	    ; 避免问题：不会改变 evil normal state 的快捷键
+      (and (bound-and-true-p evil-mode)	    ; 避免问题：不会改变 evil normal state 的快捷键
 	   (fboundp 'evil-emacs-state)
 	   (evil-emacs-state))
       (let ((map (make-sparse-keymap)))

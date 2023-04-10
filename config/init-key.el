@@ -88,6 +88,7 @@
     ("\\" . fei-rime-force-enable)
     ("," . embark-act)
     ("=" . calculator)
+    ("-" . fei/echo-line)
     ))
 
 ;; 一些感受：
@@ -656,6 +657,8 @@
 
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "(") 'fei-org-agenda-toggle-done-entry)
+  (define-key org-agenda-mode-map (kbd "n") 'fei/org-agenda-next-line)
+  (define-key org-agenda-mode-map (kbd "p") 'fei/org-agenda-prev-line)
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture-TODO)
   (define-key org-agenda-mode-map (kbd "'") 'org-agenda-list)
@@ -831,6 +834,7 @@
   (define-key diff-mode-map (kbd "M-p") nil)
   (define-key diff-mode-map (kbd "M-N") nil)
   (define-key diff-mode-map (kbd "M-P") nil)
+  (define-key diff-mode-map (kbd "l") 'recenter-top-bottom)
   (define-key diff-mode-map (kbd "C-o") 'diff-goto-source)
   (define-key diff-mode-map (kbd "C-M-k") 'diff-hunk-kill))
 

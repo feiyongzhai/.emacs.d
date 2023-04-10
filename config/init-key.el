@@ -20,7 +20,81 @@
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-s a") nil))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defvar fei-leader-keymap (make-sparse-keymap)
+  "My leader keymap")
+
+(global-unset-key (kbd "`"))
+(global-set-key (kbd "`") fei-leader-keymap)
+
+(with-eval-after-load 'org
+  (define-key org-cdlatex-mode-map (kbd "`") 'nil)
+  (define-key org-cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol)
+  )
+
+(with-eval-after-load 'cdlatex
+  (define-key cdlatex-mode-map (kbd "`") nil)
+  (define-key cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol)
+  )
+
+(fei-define-key-with-map fei-leader-keymap
+  '(
+    ("C-q" . (lambda () (interactive) (insert "`")))
+    ("`" . (lambda () (interactive) (insert "`")))
+    ("M-i" . tab-to-tab-stop)
+    ("a" . org-agenda-list)
+    ("b" . consult-buffer)
+    ("c" . fei-org-capture-TODO)	;这组按键不好按
+    ("SPC" . fei-org-capture-TODO)
+    ("e" . eshell)
+    ("n" . fei-org-capture-note)
+    ("s" . searchbox-search)
+    ("S" . fei-search-1)
+    ("M-s" . webjump)
+    ("g" . fei-vc-dired-jump)
+    ("M-g" . magit)
+    ("t" . fei-switch-to-treemacs)
+    ("h" . mode-line-other-buffer)
+    ("i" . ibuffer)
+    ("j" . fei-counsel-recentf-pinyin)
+    ("k" . counsel-rg)
+    ("K" . fei-counsel-rg-my-org)
+    ("y" . yas-insert-snippet)
+    ("l" . vc-print-root-log)
+    ("m" . execute-extended-command)
+    ("o" . other-window)
+    ("p" . fei-org-capture-private)
+    ("u" . tab-bar-history-back)
+    ("w" . pwd)
+    ("v" . vc-next-action)
+    ("z" . fei-compile)
+    ("0" . my/delete-window-or-delete-frame)
+    ("1" . zygospore-toggle-delete-other-windows)
+    ("2" . split-window-below)
+    ("3" . split-window-right)
+    (";" . fei/toggle-comment-line)
+    ("/" . rg-project-all-files-no-ask)
+    ("\\" . fei-rime-force-enable)
+    ("," . embark-act)
+    ))
+
+;; 一些感受：
+
+;; 1. 因为 ` 这个按键位于左边，所以和位于右边的按键配合一起按的时候会
+;; 比较舒适，如果 ` 接下来的按键还是做的话，一方面按起来不舒适，一方面
+;; 左手负担也会比较重，所以和 SPC 相比，输！
+
+;; 2. 在使用自带的 rime 输入法（系统级别的，不是 emacs 内部的），rime
+;; 会在没有候选框的时候读取 ` 这个按键，而 SPC 则不会，所以 ` 会多一步
+;; 切换的操作，输！
+
+;; 3. SPC 目前只能很好的在 vim 或者其他模式编辑中使用，而我只在很少数
+;; 的情况觉得模式编辑（目前指的就是 evil）有用（目前觉得有用的场景就是
+;; 在已有文本上做搜索修改，如果是自己输入和创作大量的文本输入场景，我
+;; 觉得模式编辑会有点束缚），所以这也是我考虑用 ` 作为 leader key 的原
+;; 因，` 赢！
+;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'init-thing-edit)
 
 (global-set-key (kbd "M-j") 'scroll-up-line)
@@ -244,7 +318,7 @@
 (global-set-key (kbd "M-s M-n") 'fei-swiper-isearch)
 (global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
 (global-set-key (kbd "M-s M-p") 'fei-swiper-isearch-backward)
-                                        
+
 (global-set-key (kbd "C-M-z") 'fei-compile)
 (global-set-key (kbd "M-s z") 'fei-compile)
 
@@ -429,7 +503,7 @@
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
-  (global-set-key (kbd "C-M-y") 'yas/expand)
+  (global-set-key (kbd "C-M-y") 'yas-expand)
   (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable

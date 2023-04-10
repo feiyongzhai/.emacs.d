@@ -47,13 +47,13 @@
   "G" 'magit
   "h" 'embark-act
   "i" 'ibuffer
-  "j" 'counsel-recentf
+  "j" 'fei-counsel-recentf-pinyin
   "k" 'counsel-rg
   "K" 'fei-counsel-rg-my-org
   "l" 'vc-print-root-log
   "m" 'execute-extended-command
-  "n" 'fei-org-capture-private
-  "N" 'fei-org-capture-note
+  "n" 'fei-org-capture-note
+  "p" 'fei-org-capture-private
   "o" 'other-window
   "O" 'open-current-file-with-vscode
   "q" 'quit-window

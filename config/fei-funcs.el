@@ -1,6 +1,12 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/fit-window-to-buffer ()
+  (interactive)
+  (frameset-to-register ?f)
+  (call-interactively 'fit-window-to-buffer))
+
+
 (defun fei/disable-theme ()
   (interactive)
   (mapc #'disable-theme custom-enabled-themes))

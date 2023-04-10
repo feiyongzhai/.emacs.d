@@ -156,7 +156,7 @@
   (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
   (message "Now is EVIL 👽"))
 
-(vim)
+;; (vim)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

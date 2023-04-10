@@ -3,9 +3,9 @@
 (defvar searchbox-string-hist nil)
 (defvar searchbox-string-hist-idx 0)
 
-(defun searchbox-search ()
+(defun searchbox-search (&optional initial-input)
   (interactive)
-  (setq searchbox-string (read-string "搜索(谷歌)：" nil 'searchbox-string-hist))
+  (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
   (searchbox-refresh-buffer)
   (browse-url
@@ -50,6 +50,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun searchbox-refresh-buffer ()
+  (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
     (display-buffer-in-direction
      buffer '(nil (window-height . (lambda (win) (fit-window-to-buffer win)))
@@ -69,6 +70,7 @@
       (searchbox-create-button "谷歌(g)" "https://www.google.com/search?ie=utf-8&q=")
       (searchbox-create-button "B站(b)" "https://search.bilibili.com/all?keyword=")
       (searchbox-create-button "趣词(d)" "https://www.quword.com/w/" t)
+      (beginning-of-buffer)
 
       (read-only-mode)
 
@@ -83,7 +85,9 @@
 	(define-key map "d" #'searchbox-search-quword)
 	(define-key map "z" #'searchbox-search-zhihu)
 	(define-key map "r" #'searchbox-research-from-hist)
-	(define-key map "e" #'searchbox-search)
+	(define-key map "h" #'webjump)
+	(define-key map "e" (li (searchbox-search t)))
+	(define-key map "w" #'searchbox-copy-string)
 	(define-key map (kbd "M-p") #'searchbox-prev-hist)
 	(define-key map (kbd "M-n") #'searchbox-next-hist)
 	(define-key map "q" #'quit-window)
@@ -92,10 +96,16 @@
     )
   )
 
+(defun searchbox-copy-string ()
+  (interactive)
+  (and searchbox-string
+       (kill-new searchbox-string)
+       (message searchbox-string)))
+
 (defun searchbox-create-button (label link &optional last)
   ;; @REF：https://www.bilibili.com/video/BV1Pz4y1y7p9?p=2&vd_source=90a81ebe657f51bd739567296e1a9a37
   (insert-button
-   label 'action (lambda (_) (browse-url (concat link searchbox-string))))
+   label 'action `(lambda (_) (browse-url (concat ,link searchbox-string))))
   (unless last (insert " | ")))
 
 (defun searchbox-search-baidu ()

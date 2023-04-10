@@ -20,6 +20,9 @@
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "M-s a") nil))
 
+(with-eval-after-load 'info
+  (define-key Info-mode-map (kbd "M-n") nil))
+
 ;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar fei-leader-keymap (make-sparse-keymap)
@@ -38,6 +41,11 @@
   (define-key cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol)
   )
 
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "`") nil)
+  (define-key ibuffer-mode-map (kbd "'") 'ibuffer-switch-format)
+  )
+
 (fei-define-key-with-map fei-leader-keymap
   '(
     ("C-q" . (lambda () (interactive) (insert "`")))
@@ -47,11 +55,13 @@
     ("b" . consult-buffer)
     ("c" . fei-org-capture-TODO)	;这组按键不好按
     ("SPC" . fei-org-capture-TODO)
+    ("RET" . searchbox-search)
     ("e" . eshell)
     ("n" . fei-org-capture-note)
     ("s" . searchbox-search)
     ("S" . fei-search-1)
-    ("M-s" . webjump)
+    ("C-s" . webjump)
+    ("M-s" . searchbox-refresh-buffer)
     ("g" . fei-vc-dired-jump)
     ("M-g" . magit)
     ("t" . fei-switch-to-treemacs)
@@ -77,6 +87,7 @@
     ("/" . rg-project-all-files-no-ask)
     ("\\" . fei-rime-force-enable)
     ("," . embark-act)
+    ("=" . calculator)
     ))
 
 ;; 一些感受：
@@ -465,7 +476,7 @@
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
 (global-set-key (kbd "M--") 'fit-window-to-buffer)
-(global-set-key (kbd "M-s i") 'fit-window-to-buffer)
+(global-set-key (kbd "M-s i") 'fei/fit-window-to-buffer)
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
@@ -484,11 +495,6 @@
 
 (global-set-key (kbd "M-s b") 'fr/bury-or-unbury-buffer)
 (global-set-key (kbd "M-s <") 'fr/bury-or-unbury-buffer)
-
-(fei-repeat fr/winner-undo
-  (winner-undo)
-  '(("u" . winner-undo)
-    ("U" . winner-redo)))
 
 ;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
 (fei-repeat fr/bury-or-unbury-buffer
@@ -649,7 +655,7 @@
   )
 
 (with-eval-after-load 'org-agenda
-  (define-key org-agenda-mode-map (kbd "`") 'fei-org-agenda-toggle-done-entry)
+  (define-key org-agenda-mode-map (kbd "(") 'fei-org-agenda-toggle-done-entry)
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture-TODO)
   (define-key org-agenda-mode-map (kbd "'") 'org-agenda-list)
@@ -774,7 +780,7 @@
       ("e" . wdired-change-to-wdired-mode)
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
-      ("`" . fei-eshell-cd-here)
+      ("'" . fei-eshell-cd-here)
       ("_" . dired-create-empty-file)
       ("SPC" . find-file)
       ("z" . fei-compile)

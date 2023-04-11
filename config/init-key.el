@@ -276,8 +276,10 @@
 (global-set-key (kbd "C-S-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-below)
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
-(global-set-key (kbd "M-]") 'forward-paragraph)
-(global-set-key (kbd "M-[") 'backward-paragraph)
+(when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
+  (global-set-key (kbd "M-]") 'forward-paragraph)
+  (global-set-key (kbd "M-[") 'backward-paragraph)
+  )
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'calculator)

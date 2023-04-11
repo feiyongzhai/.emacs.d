@@ -70,7 +70,7 @@
       (searchbox-create-button "谷歌(g)" "https://www.google.com/search?ie=utf-8&q=")
       (searchbox-create-button "B站(b)" "https://search.bilibili.com/all?keyword=")
       (searchbox-create-button "趣词(d)" "https://www.quword.com/w/" t)
-      (beginning-of-buffer)
+      (goto-char (point-min))
 
       (read-only-mode)
 

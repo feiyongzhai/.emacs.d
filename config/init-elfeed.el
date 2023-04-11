@@ -16,7 +16,8 @@
 (unless *is-termux*
   (add-hook 'elfeed-show-mode-hook
 	    (lambda ()
-	      (olivetti-mode t)
+              (when (display-graphic-p)
+		(olivetti-mode t))
 	      (olivetti-set-width 80))))
 
 (with-eval-after-load 'elfeed

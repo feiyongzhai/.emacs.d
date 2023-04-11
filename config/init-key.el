@@ -283,7 +283,8 @@
 (global-set-key (kbd "M-s =") 'calculator)
 
 (global-set-key (kbd "C-c o") 'embark-act)
-(global-set-key (kbd "M-O") 'embark-act)
+(when (display-graphic-p)		;终端 M-O 快捷键有特殊含义
+  (global-set-key (kbd "M-O") 'embark-act))
 (global-set-key (kbd "M-.") 'embark-dwim)
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
@@ -544,9 +545,10 @@
 (define-key vertico-map (kbd "C-c C-o") 'embark-collect)
 (define-key vertico-map (kbd "C-c C-l") 'embark-live)
 (with-eval-after-load 'vertico-grid
-  (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
-  (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
-  )
+  (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
+    (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
+    (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
+    ))
 
 
 (win10

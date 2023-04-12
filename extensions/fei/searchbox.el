@@ -60,7 +60,7 @@
     (read-only-mode -1)
     (with-current-buffer buffer
       (erase-buffer)
-      (insert "搜索：" searchbox-string)
+      (insert "搜索：> " searchbox-string " <")
       (if (length> searchbox-string 30)
 	  (insert "\n")
 	(insert " "))

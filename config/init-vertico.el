@@ -27,7 +27,7 @@
 ;;       '((file flat)
 ;; 	(buffer unobtrusive)))
 (custom-set-faces
- '(embark-target ((t (:inherit isearch)))))
+ '(embark-target ((t (:inherit menu)))))
 (setq embark-indicators '(embark-minimal-indicator embark-highlight-indicator)) ; embark adction buffer is verbose
 (setq prefix-help-command 'embark-prefix-help-command)
 ;; (setq embark-prompter 'embark-completing-read-prompter)

@@ -52,10 +52,10 @@
 (defun searchbox-refresh-buffer ()
   (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
-    (display-buffer-in-direction
+    (display-buffer-in-side-window
      buffer '(nil (window-height . (lambda (win) (fit-window-to-buffer win)))
 		  (body-function . select-window)
-		  (direction . above)))
+		  (side . top)))
 
     (read-only-mode -1)
     (with-current-buffer buffer

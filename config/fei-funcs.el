@@ -1,6 +1,18 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/counsel-recentf-dir ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (find-file
+     (ivy-read "Recent Dir: "
+	       (delete-dups
+		(mapcar (lambda (x) (file-name-directory x))
+			recentf-list))))))
+
+
 (defun fei/echo-line ()
   "这是一个非常简单的想法：有的时候，一行太长了在 buffer 页面显示不完全但是 echo area 总是很长，利用起来"
   (interactive)
@@ -69,8 +81,8 @@
 
 
 (defun back-to-indentation-or-beginning () (interactive)
-   (if (= (point) (progn (beginning-of-line-text) (point)))
-       (beginning-of-line)))
+       (if (= (point) (progn (beginning-of-line-text) (point)))
+	   (beginning-of-line)))
 
 
 (defun fei/narrow-one-line ()

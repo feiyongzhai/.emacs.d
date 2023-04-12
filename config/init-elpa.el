@@ -67,6 +67,7 @@
 	youdao-dictionary		; 有道词典
 	evil				; vim 模拟
 	keyfreq				; 统计按键
+	consult-dir			; interactive style `fasd` or `autojump`
 
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult

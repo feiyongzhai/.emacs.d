@@ -68,6 +68,8 @@
     ("h" . mode-line-other-buffer)
     ("i" . ibuffer)
     ("j" . fei-counsel-recentf-pinyin)
+    ("J" . consult-dir)
+    ("M-j" . fei/counsel-recentf-dir)
     ("k" . counsel-rg)
     ("M-k" . fei-consult-ripgrep-my-org)
     ("y" . yas-insert-snippet)

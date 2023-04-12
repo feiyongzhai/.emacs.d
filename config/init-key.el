@@ -69,7 +69,7 @@
     ("i" . ibuffer)
     ("j" . fei-counsel-recentf-pinyin)
     ("k" . counsel-rg)
-    ("K" . fei-counsel-rg-my-org)
+    ("M-k" . fei-consult-ripgrep-my-org)
     ("y" . yas-insert-snippet)
     ("l" . vc-print-root-log)
     ("m" . execute-extended-command)
@@ -112,7 +112,8 @@
 ;; 配合这个命令 GTK_IM_MODULE=emacs XMODIFIERS=@im=emacs emacs 使用，
 ;; 命令的原理不是很清楚，效果是在 emacs 中禁用 fcitx 输入法，这样就实
 ;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法
-(linux (global-set-key (kbd "C-SPC") 'toggle-input-method))
+(linux (global-set-key (kbd "C-SPC") 'toggle-input-method)
+       (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
 
 (global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-k") 'scroll-down-line)

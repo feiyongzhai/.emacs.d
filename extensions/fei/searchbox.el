@@ -69,6 +69,9 @@
       (searchbox-create-button "知乎(z)" "https://www.zhihu.com/search?type=content&q=")
       (searchbox-create-button "谷歌(g)" "https://www.google.com/search?ie=utf-8&q=")
       (searchbox-create-button "B站(b)" "https://search.bilibili.com/all?keyword=")
+      (searchbox-create-button "搜狗(S)" "https://www.sogou.com/web?query=")
+      (searchbox-create-button "Github(G)" "https://github.com/search?ref=simplesearch&q=")
+      (searchbox-create-button "YouTube(y)" "http://www.youtube.com/results?aq=f&oq=&search_query=")
       (searchbox-create-button "趣词(d)" "https://www.quword.com/w/" t)
       (goto-char (point-min))
 
@@ -82,8 +85,11 @@
 	(define-key map "B" #'searchbox-search-baidu)
 	(define-key map "b" #'searchbox-search-bilibili)
 	(define-key map "g" #'searchbox-search-google)
+	(define-key map "G" #'searchbox-search-github)
 	(define-key map "d" #'searchbox-search-quword)
+	(define-key map "S" #'searchbox-search-sogou)
 	(define-key map "z" #'searchbox-search-zhihu)
+	(define-key map "y" #'searchbox-search-youtube)
 	(define-key map "r" #'searchbox-research-from-hist)
 	(define-key map "h" #'webjump)
 	(define-key map "e" (li (searchbox-search t)))
@@ -107,6 +113,24 @@
   (insert-button
    label 'action `(lambda (_) (browse-url (concat ,link searchbox-string))))
   (unless last (insert " | ")))
+
+(defun searchbox-search-sogou ()
+  (interactive)
+  (browse-url
+   (concat "https://www.sogou.com/web?query="
+	   (url-encode-url searchbox-string))))
+
+(defun searchbox-search-youtube ()
+  (interactive)
+  (browse-url
+   (concat "http://www.youtube.com/results?aq=f&oq=&search_query="
+	   (url-encode-url searchbox-string))))
+
+(defun searchbox-search-github ()
+  (interactive)
+  (browse-url
+   (concat "https://github.com/search?ref=simplesearch&q="
+	   (url-encode-url searchbox-string))))
 
 (defun searchbox-search-baidu ()
   (interactive)

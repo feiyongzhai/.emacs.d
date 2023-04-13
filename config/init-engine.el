@@ -163,7 +163,7 @@
   "https://www.google.com/search?ie=utf-8&q=%s"
   :keybinding "g")
 
-(defun eshell/s (&rest search-string)
+(defun eshell/g (&rest search-string)
   (browse-url
    (concat
     "https://www.google.com.hk/search?ie=utf-8&oe=utf-8&q="

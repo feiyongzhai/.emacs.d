@@ -39,6 +39,8 @@
 (defalias 'eshell/eh 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)
 (defalias 'eshell/note 'fei-org-capture-note)
+(defalias 'eshell/n 'fei-org-capture-note)
+(defalias 'eshell/p 'fei-org-capture-private)
 (defalias 'eshell/todo 'fei-org-capture-TODO)
 (defalias 'eshell/ks 'fei-org-capture-SAR)
 (defalias 'eshell/kw 'fei-org-capture-WANT)

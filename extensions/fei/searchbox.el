@@ -3,6 +3,23 @@
 (defvar searchbox-string-hist nil)
 (defvar searchbox-string-hist-idx 0)
 
+(defun eshell/s (&rest input)
+  (interactive)
+  ;; (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))
+  (message "%s" (eshell-flatten-and-stringify input))
+  (let ((in (eshell-flatten-and-stringify input)))
+    (if (string= "" in)
+	(setq searchbox-string (read-string "搜索(谷歌)：" nil 'searchbox-string-hist))
+      (setq searchbox-string in)))
+  (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
+  (searchbox-refresh-buffer)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (url-encode-url searchbox-string)))
+  (message "搜索: %s"searchbox-string)
+  )
+
 (defun searchbox-search (&optional initial-input)
   (interactive)
   (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))

@@ -53,6 +53,7 @@
     ("M-i" . tab-to-tab-stop)
     ("a" . org-agenda-list)
     ("b" . consult-buffer)
+    ("B" . boxes-command-on-region)
     ("c" . fei-org-capture-TODO)	;这组按键不好按
     ("SPC" . fei-org-capture-TODO)
     ("RET" . searchbox-search)

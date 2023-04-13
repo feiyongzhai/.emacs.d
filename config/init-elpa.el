@@ -63,6 +63,9 @@
 	general				; 按键配置器
 	elfeed				; rss 客户端
 	rubik				; 魔方游戏
+	boxes				; ascii art
+	figlet				; ascii art2
+	sl				; 小火车
 	google-translate		; 谷歌词典
 	youdao-dictionary		; 有道词典
 	evil				; vim 模拟

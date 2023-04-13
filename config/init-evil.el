@@ -48,6 +48,7 @@
   "h" 'embark-act
   "i" 'ibuffer
   "j" 'fei-counsel-recentf-pinyin
+  "J" 'fei/counsel-recentf-dir
   "k" 'counsel-rg
   "K" 'fei-counsel-rg-my-org
   "l" 'vc-print-root-log

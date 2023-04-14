@@ -7,13 +7,11 @@
 (with-eval-after-load 'vertico
   (define-key vertico-map (kbd "M-e") 'vertico-next)
   (define-key vertico-map (kbd "M-a") 'vertico-exit)
-  (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit)
-  )
+  (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit))
 
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "M-e") nil)
-  (define-key matlab-mode-map (kbd "M-a") nil)
-  )
+  (define-key matlab-mode-map (kbd "M-a") nil))
 
 ;; 功能2: capture 和 agenda
 (global-set-key (kbd "M-a") 'fei-org-capture-TODO)
@@ -35,34 +33,22 @@
 
 (global-unset-key (kbd "`"))
 (global-set-key (kbd "`") fei-leader-keymap)
-
-(with-eval-after-load 'org
-  (define-key org-cdlatex-mode-map (kbd "`") 'nil)
-  (define-key org-cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol)
-  )
-
-(with-eval-after-load 'cdlatex
-  (define-key cdlatex-mode-map (kbd "`") nil)
-  (define-key cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol)
-  )
-
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "`") nil)
-  (define-key ibuffer-mode-map (kbd "'") 'ibuffer-switch-format)
-  )
+(global-set-key (kbd "<escape>") fei-leader-keymap) ;这个按键只在 gui 下有效
+(global-set-key (kbd "<escape> <escape>") 'keyboard-escape-quit)
+;; (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(define-key transient-map (kbd "<escape>") 'transient-quit-one)
 
 (fei-define-key-with-map fei-leader-keymap
   '(
-    ("C-q" . (lambda () (interactive) (insert "`")))
-    ("`" . (lambda () (interactive) (insert "`")))
-    ("M-i" . tab-to-tab-stop)
+    ("SPC" . fei-org-capture-TODO)
+    ("RET" . searchbox-search)
     ("a" . org-agenda-list)
     ("b" . consult-buffer)
     ("B" . boxes-command-on-region)
     ("c" . fei-org-capture-TODO)	;这组按键不好按
-    ("SPC" . fei-org-capture-TODO)
-    ("RET" . searchbox-search)
+    ("d" . fei/olivetti-truncate)
     ("e" . eshell)
+    ("f" . recentf-open-files)
     ("n" . fei-org-capture-note)
     ("s" . searchbox-search)
     ("S" . fei-search-1)
@@ -78,26 +64,48 @@
     ("M-j" . fei/counsel-recentf-dir)
     ("k" . counsel-rg)
     ("M-k" . fei-consult-ripgrep-my-org)
-    ("y" . yas-insert-snippet)
     ("l" . vc-print-root-log)
     ("m" . execute-extended-command)
     ("o" . other-window)
     ("p" . fei-org-capture-private)
+    ("q" . quit-window)
     ("u" . tab-bar-history-back)
-    ("w" . pwd)
     ("v" . vc-next-action)
+    ("w" . pwd)
+    ("y" . yas-insert-snippet)
     ("z" . fei-compile)
     ("0" . my/delete-window-or-delete-frame)
     ("1" . zygospore-toggle-delete-other-windows)
     ("2" . split-window-below)
     ("3" . split-window-right)
-    (";" . fei/toggle-comment-line)
+    ("5" . make-frame-command)
+    ("7" . counsel-git)
+    ("8" . consult-line)
+    ("9" . fei/swiper)			;swiper 是动态的 occur
+    (";" . fei-swiper-isearch)
+    ("'" . fei-swiper-isearch-backward)
     ("/" . rg-project-all-files-no-ask)
     ("\\" . fei-rime-force-enable)
     ("," . embark-act)
     ("=" . calculator)
     ("-" . fei/echo-line)
+    ("C-q" . (lambda () (interactive) (insert "`")))
+    ("`" . (lambda () (interactive) (insert "`")))
+    ("M-i" . tab-to-tab-stop)
     ))
+
+;; 处理冲突按键
+(with-eval-after-load 'org
+  (define-key org-cdlatex-mode-map (kbd "`") 'nil)
+  (define-key org-cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol))
+
+(with-eval-after-load 'cdlatex
+  (define-key cdlatex-mode-map (kbd "`") nil)
+  (define-key cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol))
+
+(with-eval-after-load 'ibuffer
+  (define-key ibuffer-mode-map (kbd "`") nil)
+  (define-key ibuffer-mode-map (kbd "'") 'ibuffer-switch-format))
 
 ;; 一些感受：
 
@@ -142,11 +150,8 @@
 (global-set-key (kbd "M-w") 'easy-kill)
 (with-eval-after-load 'easy-kill
   (define-key easy-kill-base-map (kbd "x") 'easy-kill-exchange-point-and-mark)
-  (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region)
-  )
+  (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region))
 
-(define-key transient-map (kbd "<escape>") 'transient-quit-one)
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
@@ -168,8 +173,7 @@
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
   (define-key eshell-hist-mode-map (kbd "M-s") nil)
-  (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history)
-  )
+  (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history))
 
 (global-set-key (kbd "C-c h") 'webjump)
 (global-set-key (kbd "C-c M-h") 'webjump)
@@ -292,8 +296,7 @@
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
 (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
   (global-set-key (kbd "M-]") 'forward-paragraph)
-  (global-set-key (kbd "M-[") 'backward-paragraph)
-  )
+  (global-set-key (kbd "M-[") 'backward-paragraph))
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'calculator)
@@ -354,8 +357,7 @@
 (cond
  (*is-windows* (global-set-key (kbd "C-c l") 'counsel-locate))
  (t (global-set-key (kbd "C-c l") 'locate)
-    (global-set-key (kbd "C-c L") 'counsel-locate)
-    ))
+    (global-set-key (kbd "C-c L") 'counsel-locate)))
 
 (win10
  (with-eval-after-load 'ibuffer
@@ -366,8 +368,8 @@
 
 (global-set-key (kbd "C-c T") 'trashed)
 
-(global-set-key (kbd "M-s d") 'olivetti-mode)
-(global-set-key (kbd "M-s M-d") 'olivetti-mode)
+(global-set-key (kbd "M-s d") 'fei/olivetti-truncate)
+(global-set-key (kbd "M-s M-d") 'fei/olivetti-truncate)
 (global-set-key (kbd "M-s '") 'display-line-numbers-mode)
 (global-set-key (kbd "M-s M-a") 'org-agenda-list)
 
@@ -400,7 +402,7 @@
 (global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
-(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
+(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
@@ -563,8 +565,7 @@
 (with-eval-after-load 'vertico-grid
   (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
     (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
-    (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)
-    ))
+    (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)))
 
 
 (win10
@@ -582,8 +583,7 @@
 			"cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
        (start-process "python"
                       "*fei-python*"
-                      "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
-   ))
+                      "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))))
 
 
 (fei-define-key-with-map isearch-mode-map
@@ -612,8 +612,7 @@
   (define-key term-mode-map (kbd "M-7") 'nil)
   (define-key term-mode-map (kbd "M-8") 'nil)
   (define-key term-mode-map (kbd "M-9") 'nil)
-  (define-key term-mode-map (kbd "M-`") 'nil)
-  )
+  (define-key term-mode-map (kbd "M-`") 'nil))
 
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 
@@ -632,8 +631,7 @@
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
-  (define-key rime-active-mode-map (kbd "C-j") 'rime--return)
-  )
+  (define-key rime-active-mode-map (kbd "C-j") 'rime--return))
 
 
 ;;; Pyim
@@ -646,8 +644,7 @@
   (define-key pyim-mode-map (kbd "M-1") (li (pyim-select-subword-by-number 1)))
   (define-key pyim-mode-map (kbd "M-2") (li (pyim-select-subword-by-number 2)))
   (define-key pyim-mode-map (kbd "M-3") (li (pyim-select-subword-by-number 3)))
-  (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4)))
-  )
+  (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
 
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
@@ -670,10 +667,10 @@
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
   (define-key symbol-overlay-map (kbd "l") 'recenter-top-bottom)
   (define-key symbol-overlay-map (kbd "O") 'symbol-overlay-find-at-point-project)
-  (define-key symbol-overlay-map (kbd "M-r") 'rg-dwim-current-dir)
-  )
+  (define-key symbol-overlay-map (kbd "M-r") 'rg-dwim-current-dir))
 
 (with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map (kbd "M-d") 'fei/olivetti-truncate)
   (define-key org-agenda-mode-map (kbd "(") 'fei-org-agenda-toggle-done-entry)
   (define-key org-agenda-mode-map (kbd "n") 'fei/org-agenda-next-line)
   (define-key org-agenda-mode-map (kbd "p") 'fei/org-agenda-prev-line)
@@ -686,9 +683,7 @@
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
   (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
-  (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump)
-  (define-key treemacs-mode-map (kbd "G") 'magit)
-  )
+  (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))
 
 ;; 用得很少
 (define-key prog-mode-map (kbd "C-c '") #'separedit)
@@ -699,11 +694,6 @@
   ;; (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   ;; (global-set-key (kbd "C-c m") 'counsel-linux-app)
   (global-set-key (kbd "C-c p") 'proced)
-  )
-
-
-(with-eval-after-load 'ivy
-  (define-key ivy-minibuffer-map (kbd "M-j") 'fei-rime-force-enable)
   )
 
 (global-set-key (kbd "s-l") 'lsp)
@@ -729,8 +719,7 @@
 
 (with-eval-after-load 'matlab
   (define-key matlab-mode-map (kbd "M-s") nil)
-  (define-key matlab-mode-map (kbd "M-j") nil)
-  )
+  (define-key matlab-mode-map (kbd "M-j") nil))
 
 (define-key emacs-lisp-mode-map (kbd "<C-right>") 'sp-forward-slurp-sexp)
 (define-key emacs-lisp-mode-map (kbd "<C-left>") 'sp-forward-barf-sexp)
@@ -754,8 +743,8 @@
   (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
   (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
   (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
-  (define-key ibuffer-mode-map (kbd ";") 'ibuffer-interactive-filter-by-mode)
-  )
+  (define-key ibuffer-mode-map (kbd "M-d") 'fei/olivetti-truncate)
+  (define-key ibuffer-mode-map (kbd ";") 'ibuffer-interactive-filter-by-mode))
 
 
 (with-eval-after-load 'emmet-mode
@@ -769,8 +758,7 @@
 (with-eval-after-load 'pdf-view
   (define-key pdf-view-mode-map (kbd "<mouse-4>") 'pdf-view-next-page)
   (define-key pdf-view-mode-map (kbd "<mouse-5>") 'pdf-view-previous-page)
-  (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode)
-  )
+  (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode))
 
 (with-eval-after-load 'elfeed
   (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
@@ -809,6 +797,8 @@
       ("<right>" . dired-find-file)
       ))
 
+  (define-key dired-mode-map (kbd "M-d") 'fei/olivetti-truncate)
+
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
   (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
@@ -817,8 +807,7 @@
   (define-key dired-mode-map (kbd ";g") 'fei-git-status)
   (define-key dired-mode-map (kbd ";s") 'fei-vc-dired-jump)
   (define-key dired-mode-map (kbd ";w") 'file-manager-here)
-  (define-key dired-mode-map (kbd ";l") 'vc-print-root-log)
-  )
+  (define-key dired-mode-map (kbd ";l") 'vc-print-root-log))
 
 ;;; Dirvish
 (with-eval-after-load 'dirvish
@@ -867,8 +856,7 @@
   (define-key compilation-mode-map (kbd "l") 'recompile)
   (define-key compilation-mode-map (kbd "m") 'minimize-window)
   (define-key compilation-mode-map (kbd "r") 'compile)
-  (define-key compilation-mode-map (kbd "z") 'fei-compile)
-  )
+  (define-key compilation-mode-map (kbd "z") 'fei-compile))
 
 ;;; Company
 (with-eval-after-load 'company
@@ -890,8 +878,7 @@
 
   (define-key company-search-map (kbd "M-n") 'company-select-next)
   (define-key company-search-map (kbd "M-p") 'company-select-previous)
-  (add-to-list 'company-transformers 'delete-dups)
-  )
+  (add-to-list 'company-transformers 'delete-dups))
 
 
 
@@ -901,12 +888,16 @@
   (define-key vc-dir-mode-map (kbd "e") 'fei-eshell-cd-here) ;default is `vc-find-file'
   (define-key vc-dir-mode-map (kbd "j") 'project-find-file)
   (define-key vc-dir-mode-map (kbd "!") 'shell-command)
-  (define-key vc-dir-mode-map (kbd "&") 'async-shell-command)
-  )
+  (define-key vc-dir-mode-map (kbd "&") 'async-shell-command))
 
 (with-eval-after-load 'vc-git
   (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log)
   (define-key vc-git-log-view-mode-map (kbd "z") 'fei-compile)
-  )
+  (define-key vc-git-log-view-mode-map (kbd "s") 'fei-vc-dired-jump))
+
+(with-eval-after-load 'recentf
+  (define-key recentf-dialog-mode-map (kbd "SPC") 'fei/swiper)
+  (define-key recentf-dialog-mode-map (kbd "e") 'recentf-edit-list)
+  (define-key recentf-dialog-mode-map (kbd "g") 'recentf-open-files))
 
 (provide 'init-key)

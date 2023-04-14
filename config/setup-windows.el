@@ -177,7 +177,7 @@ If buffer-or-name is nil return current buffer's mode."
          (side . bottom)
          (slot . -4)
          )
-        
+
         ("\\*Async Shell Command\\*" display-buffer-in-side-window
          (window-height . 0.20)
          (side . bottom)
@@ -217,7 +217,7 @@ If buffer-or-name is nil return current buffer's mode."
          (direction . bottom)
          (slot . 0)
          )
-	
+
 	("\\*vc-dir\\*.*" (display-buffer-in-direction)
          (window-height . 0.5)
          (direction . bottom)
@@ -231,7 +231,7 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . -2)
          (window-parameters . (;; (no-other-window . t)
                                )))
-        
+
         ((lambda (buf act) (member (buffer-mode buf) my/help-modes-list))
          (display-buffer-reuse-window
           display-buffer-in-direction
@@ -245,7 +245,7 @@ If buffer-or-name is nil return current buffer's mode."
          (slot . 2)
          (window-parameters . ((split-window . #'ignore)
                                )))
-        
+
         ("^\\*eldoc\\*$"
          (display-buffer-reuse-window
           display-buffer-in-direction
@@ -274,7 +274,7 @@ If buffer-or-name is nil return current buffer's mode."
          ;; (direction . right)
          (side . bottom)
          (slot . 2))
-     
+
         ))
 
 (setq window-combination-resize t
@@ -302,11 +302,11 @@ didactic purposes."
                                     win (/ (frame-height) 3)))))))))
 
 (eval-after-load 'org
-  (progn 
+  (progn
     (defun +org-fix-delete-other-windows-a (orig-fn &rest args)
       "docstring"
       (interactive "P")
-      (if popper-mode 
+      (if popper-mode
           (cl-letf (((symbol-function #'delete-other-windows)
                      (symbol-function #'ignore))
                     ((symbol-function #'delete-window)
@@ -325,16 +325,20 @@ didactic purposes."
 
 ;; @REF: https://github.com/karthink/.emacs.d/blob/5c9bb4102e53a60a7f6df2d3fb1cad5086114d1b/lisp/better-buffers.el#L75
 (defun my/delete-window-or-delete-frame (&optional window)
-      "Delete WINDOW using `delete-window'.
+  "Delete WINDOW using `delete-window'.
 If this is the sole window run `delete-frame' instead. WINDOW
 must be a valid window and defaults to the selected one. Return
 nil."
-      (interactive)
-      (condition-case nil
-          (delete-window window)
-        (error (if (and tab-bar-mode
-                        (> (length (funcall tab-bar-tabs-function)) 1))
-                   (tab-bar-close-tab)
-                 (delete-frame)))))
+  (interactive)
+  (condition-case nil
+      (delete-window window)
+    (error (cond ((minibufferp)
+		  (keyboard-escape-quit))
+		 ((and tab-bar-mode
+                       (> (length (funcall tab-bar-tabs-function)) 1))
+		  (tab-bar-close-tab))
+		 (t
+		  (delete-frame))
+		 ))))
 
 (provide 'setup-windows)

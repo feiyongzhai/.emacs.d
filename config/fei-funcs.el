@@ -1,6 +1,12 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/olivetti-truncate ()
+  (interactive)
+  (olivetti-mode 'toggle)
+  (toggle-truncate-lines 1))
+
+
 (defun fei/counsel-recentf-dir ()
   (interactive)
   (require 'pyim-cregexp-utils)

@@ -42,6 +42,14 @@
    '(("t" (lambda (file) (find-file-other-tab file)) "other tab")))
   )
 
+(defun fei/swiper ()
+  (interactive)
+  (require 'pyim-cregexp-utils)
+  (let ((ivy-re-builders-alist
+	 '((t . pyim-cregexp-ivy))))
+    (call-interactively 'swiper)
+    ))
+
 (defun fei-swiper-isearch ()
   (interactive)
   (require 'pyim-cregexp-utils)

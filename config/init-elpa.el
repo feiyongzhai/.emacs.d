@@ -31,7 +31,7 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	bash-completion fcitx
+	bash-completion fcitx tmr
 	graphviz-dot-mode lsp-dart flutter
 	;; citre vterm vterm-toggle sx magit
 	))
@@ -50,7 +50,7 @@
 	pyim pyim-basedict 		; 内置输入法
 	trashed				; 回收站管理
 	keycast				; 键盘回显
-	tmr alarm-clock			; 定时器、闹钟
+	alarm-clock			; 定时器、闹钟
 	pdf-tools			; 增强 docview
 	dashboard			; 快速启动页面
 	olivetti			; 内容居中
@@ -114,7 +114,7 @@
 	markdown-mode matlab-mode
 
 	;; ==== Project ====
-	project-tab-groups project-mode-line-tag beframe
+	;; project-tab-groups project-mode-line-tag beframe
 
 	;; ==== Helm ====
 	;; helm-chrome helm-chrome-history

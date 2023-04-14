@@ -108,8 +108,8 @@
 
 
 (setq popper-reference-buffers '("\\*Messages\\*$"
-				 "\\*eshell\\*"
 				 "\\*vterm\\*"
+				 ;; "\\*eshell\\*"
 				 ;; (compilation-mode . hide)
 				 compilation-mode
 				 ))

@@ -10,6 +10,11 @@
   (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit)
   )
 
+(with-eval-after-load 'matlab
+  (define-key matlab-mode-map (kbd "M-e") nil)
+  (define-key matlab-mode-map (kbd "M-a") nil)
+  )
+
 ;; 功能2: capture 和 agenda
 (global-set-key (kbd "M-a") 'fei-org-capture-TODO)
 (global-set-key (kbd "M-`") 'org-agenda-list)

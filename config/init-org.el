@@ -56,8 +56,6 @@
 (add-hook 'org-agenda-mode-hook 'fei/org-agenda-mode-hook)
 (defun fei/org-agenda-mode-hook ()
   (hl-line-mode)
-  (when (display-graphic-p)		;终端下 olivetti-mode 无法正常工作
-    (olivetti-mode))
   (toggle-truncate-lines 1)
   )
 

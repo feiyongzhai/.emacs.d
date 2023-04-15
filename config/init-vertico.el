@@ -9,7 +9,7 @@
 ;; (vertico-buffer-mode)
 (vertico-multiform-mode)		;I really like this feature
 (setq vertico-multiform-commands
-      '((consult-line buffer (:not flat))
+      '((consult-line (:not flat))
 	(yank-pop)			;nil means use vertical
 	(cua-paste-pop)
 	(execute-extended-command flat)

@@ -42,4 +42,12 @@ confines of word boundaries (e.g. multiple words)."
   (isearch-exit)
   (call-interactively 'copy-region-as-kill))
 
+(defun fei/isearch-occur ()
+  (interactive)
+  (call-interactively 'isearch-occur)
+  (isearch-exit)
+  ;; occur 没有匹配项的时候不会显示，下面的函数会报错
+  (select-window (get-buffer-window "*Occur*"))
+  )
+
 (provide 'init-search)

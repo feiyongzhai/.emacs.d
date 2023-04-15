@@ -26,6 +26,7 @@
 (with-eval-after-load 'info
   (define-key Info-mode-map (kbd "M-n") nil))
 
+
 ;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar fei-leader-keymap (make-sparse-keymap)
@@ -123,6 +124,10 @@
 ;; 觉得模式编辑会有点束缚），所以这也是我考虑用 ` 作为 leader key 的原
 ;; 因，` 赢！
 ;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+(global-set-key (kbd "M--") 'consult-line)
+
 (require 'init-thing-edit)
 
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)
@@ -499,7 +504,6 @@
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
-(global-set-key (kbd "M--") 'fit-window-to-buffer)
 (global-set-key (kbd "M-s i") 'fei/fit-window-to-buffer)
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
@@ -601,6 +605,7 @@
     ("M-s r" . rg-isearch-project)
     ("M-j" . isearch-edit-string)
     ("M-s r" . rg-isearch-project)
+    ("C-c C-o" . fei/isearch-occur)
     ))
 
 (add-hook 'term-mode-hook '+fei-term-mode-hook)

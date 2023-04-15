@@ -1,6 +1,42 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun fei/line-spacing-adjust (inc)
+  (interactive "p")
+  (let ((ev last-command-event)
+	(echo-keystrokes nil))
+    (let* ((base (event-basic-type ev))
+           (step
+            (pcase base
+              ((or ?+ ?=) inc)
+              (?- (- inc))
+              (?0 0)
+              (_ inc))))
+      (fei/line-spacing-increase step)
+      ;; (unless (zerop step)
+      (message "Use +,-,0 for further adjustment")
+      (set-transient-map
+       (let ((map (make-sparse-keymap)))
+         (dolist (mods '(() (control)))
+           (dolist (key '(?- ?+ ?= ?0)) ;; = is often unshifted +.
+             (define-key map (vector (append mods (list key)))
+               (lambda () (interactive) (fei/line-spacing-adjust (abs inc))))))
+         map)))))
+
+(defun fei/line-spacing-increase (inc)
+  (interactive "p")
+  (cond ((> inc 0)
+	 (if line-spacing
+	     (setq line-spacing (1+ line-spacing))
+	   (setq line-spacing 1)))
+	((< inc 0)
+         (when line-spacing
+	   (setq line-spacing (1- line-spacing))
+	   (when (< line-spacing 0) (setq line-spacing 0))))
+	((= inc 0)
+	 (setq line-spacing 0))))
+
+
 (defun fei/olivetti-truncate ()
   (interactive)
   (olivetti-mode 'toggle)

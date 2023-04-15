@@ -50,6 +50,11 @@
     (call-interactively 'swiper)
     ))
 
+(defun fei-swiper-isearch2 ()
+  (interactive)
+  (move-to-window-line 0)
+  (fei-swiper-isearch))
+
 (defun fei-swiper-isearch ()
   (interactive)
   (require 'pyim-cregexp-utils)

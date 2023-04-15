@@ -1,3 +1,4 @@
+
 ;; 思路：给常用的功能一个短一点的快捷键
 ;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
 
@@ -14,7 +15,6 @@
   (define-key matlab-mode-map (kbd "M-a") nil))
 
 ;; 功能2: capture 和 agenda
-(global-set-key (kbd "M-a") 'fei-org-capture-TODO)
 (global-set-key (kbd "M-`") 'org-agenda-list)
 
 (global-set-key (kbd "M-s a") 'org-agenda-list)
@@ -70,6 +70,7 @@
     ("o" . other-window)
     ("p" . fei-org-capture-private)
     ("q" . quit-window)
+    ("M-q" . ,(li (fei-key-mode -1)))
     ("u" . tab-bar-history-back)
     ("v" . vc-next-action)
     ("w" . pwd)
@@ -125,6 +126,24 @@
 ;; 因，` 赢！
 ;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(require 'fei-key)
+
+(unless (fei-key-mode))
+(cua-mode)
+
+(global-set-key (kbd "M-s f") (li (fei-key-mode -1)))
+(global-set-key (kbd "C-c S-SPC") (li (fei-key-mode -1)))
+(global-set-key (kbd "C-c f") (li (fei-key-mode)))
+(global-set-key (kbd "C-c SPC") (li (fei-key-mode)))
+(global-set-key (kbd "M-s SPC") 'fei-key-mode)
+
+(define-key fei-key-mode-map (kbd "M-l") 'my/select-current-line-and-forward-line)
+(define-key fei-key-mode-map (kbd "M-n") 'next-line)
+(define-key fei-key-mode-map (kbd "M-p") 'previous-line)
+(define-key fei-key-mode-map (kbd "M-m") fei-leader-keymap)
+(define-key fei-key-mode-map (kbd "M-s") 'fei-swiper-isearch2)
+(define-key fei-key-mode-map (kbd "M-g") (kbd "C-g"))
+
 
 (global-set-key (kbd "M--") 'consult-line)
 
@@ -154,7 +173,6 @@
 (global-set-key (kbd "C-c C-y") 'yank-and-indent)
 (global-set-key (kbd "M-s M-y") 'yank-and-indent)
 (global-set-key (kbd "M-s y") 'yank-and-indent)
-(cua-mode)
 
 (global-set-key (kbd "M-w") 'easy-kill)
 (with-eval-after-load 'easy-kill
@@ -267,8 +285,6 @@
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 (global-set-key (kbd "M-s e") 'treemacs)
 
-(global-set-key (kbd "C-c SPC") 'find-file)
-
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 
@@ -369,6 +385,7 @@
     (global-set-key (kbd "C-c L") 'counsel-locate)))
 
 (win10
+ (global-set-key (kbd "<scroll>") 'scroll-lock-mode)
  (with-eval-after-load 'ibuffer
    (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer))
  (global-set-key (kbd "<mode-line> <mouse-5>") 'ibuffer))
@@ -381,6 +398,7 @@
 (global-set-key (kbd "M-s M-d") 'fei/olivetti-truncate)
 (global-set-key (kbd "M-s '") 'display-line-numbers-mode)
 (global-set-key (kbd "M-s M-a") 'org-agenda-list)
+(global-set-key (kbd "M-a") 'org-agenda-list)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
 (global-set-key (kbd "M-s h ,") 'fei-unhighlight-symbol-at-point)
@@ -411,7 +429,7 @@
 (global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
-(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
+(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 

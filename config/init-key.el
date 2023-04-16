@@ -1,4 +1,3 @@
-
 ;; 思路：给常用的功能一个短一点的快捷键
 ;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
 
@@ -126,11 +125,9 @@
 ;; 因，` 赢！
 ;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 ;;  __^__               __^__
 ;; ( ___ )-------------( ___ )
 ;;  | / | Fei Key Begin | \ |
-;;  |___|               |___|
 ;; (_____)-------------(_____)
 
 (require 'fei-key)
@@ -138,27 +135,26 @@
 (unless (fei-key-mode))
 (cua-mode)
 
-(global-set-key (kbd "M-s f") (li (fei-key-mode -1)))
 (global-set-key (kbd "C-c S-SPC") (li (fei-key-mode -1)))
 (global-set-key (kbd "C-c f") (li (fei-key-mode)))
 (global-set-key (kbd "C-c SPC") (li (fei-key-mode)))
-(global-set-key (kbd "M-s SPC") 'fei-key-mode)
+(defalias 'k 'fei-key-mode)
+(defalias 'l 'counsel-load-theme)
 
-(define-key fei-key-mode-map (kbd "M-l") 'my/select-current-line-and-forward-line)
-(define-key fei-key-mode-map (kbd "M-n") 'next-line)
-(define-key fei-key-mode-map (kbd "M-p") 'previous-line)
-(define-key fei-key-mode-map (kbd "M-m") fei-leader-keymap)
+(define-key fei-key-mode-map (kbd "M-l") fei-leader-keymap)
+(define-key fei-key-mode-map (kbd "M-u") 'eshell)
+(define-key fei-key-mode-map (kbd "C-M-g") 'fei-vc-dired-jump)
+(define-key fei-key-mode-map (kbd "C-M-v") 'vc-next-action)
+(define-key fei-key-mode-map (kbd "M-q") 'quit-window)
 (define-key fei-key-mode-map (kbd "M-s") 'fei-swiper-isearch2)
 (define-key fei-key-mode-map (kbd "M-g") (kbd "C-g"))
 
 ;;  __^__             __^__
 ;; ( ___ )-----------( ___ )
 ;;  | / | Fei Key End | \ |
-;;  |___|             |___|
 ;; (_____)-----------(_____)
 
 
-
 (global-set-key (kbd "M--") 'consult-line)
 
 (require 'init-thing-edit)

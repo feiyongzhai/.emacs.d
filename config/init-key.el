@@ -45,7 +45,7 @@
     ("RET" . searchbox-search)
     ("a" . org-agenda-list)
     ("b" . consult-buffer)
-    ("B" . boxes-command-on-region)
+    ("M-b" . boxes-command-on-region)
     ("c" . fei-org-capture-TODO)	;这组按键不好按
     ("d" . fei/olivetti-truncate)
     ("e" . eshell)
@@ -126,6 +126,13 @@
 ;; 因，` 赢！
 ;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;;  __^__               __^__
+;; ( ___ )-------------( ___ )
+;;  | / | Fei Key Begin | \ |
+;;  |___|               |___|
+;; (_____)-------------(_____)
+
 (require 'fei-key)
 
 (unless (fei-key-mode))
@@ -143,6 +150,13 @@
 (define-key fei-key-mode-map (kbd "M-m") fei-leader-keymap)
 (define-key fei-key-mode-map (kbd "M-s") 'fei-swiper-isearch2)
 (define-key fei-key-mode-map (kbd "M-g") (kbd "C-g"))
+
+;;  __^__             __^__
+;; ( ___ )-----------( ___ )
+;;  | / | Fei Key End | \ |
+;;  |___|             |___|
+;; (_____)-----------(_____)
+
 
 
 (global-set-key (kbd "M--") 'consult-line)
@@ -357,7 +371,7 @@
     ("C-h f" . counsel-describe-function)
     ("C-h o" . counsel-describe-symbol)
     ("C-h v" . counsel-describe-variable)
-    ("C-h C-l" . counsel-find-library)
+    ("C-h C-l" . find-library)
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
     ("C-c j" . fei-counsel-recentf-pinyin)

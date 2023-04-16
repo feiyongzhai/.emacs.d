@@ -71,7 +71,7 @@
 	evil				; vim 模拟
 	keyfreq				; 统计按键
 	consult-dir			; interactive style `fasd` or `autojump`
-
+        
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult
 	consult-yasnippet marginalia vertico-posframe
@@ -97,6 +97,7 @@
 
 	;; ==== Org ====
 	org-download org-tree-slide org-appear org-contrib obsidian
+	org-kanban
 
 	;; ==== Python ====
 	yafolding pyvenv conda

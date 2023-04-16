@@ -254,7 +254,7 @@ unwanted space when exporting org-mode to html."
 	   "* %(fei-generate-obsidian-canvas-uuid-link) %?"
 	   ;; 可以用 C-u C-c C-c 跳过去，自动跳过去有点烦
 	   ;; :jump-to-captured t 
-	   :empty-lines 1)
+	   )
 	  ("n" "note" entry (file "notes.org") "* %?")
 	  ("p" "Private" entry
 	   (file+headline "private/private.org"

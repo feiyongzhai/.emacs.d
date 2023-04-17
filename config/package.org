@@ -1,20 +1,56 @@
 # -*- coding: utf-8 -*-
+#+STARTUP: content
 这里面记录自己体验过包及一些想法
 
-| 包名                     | 在用 | 看法                                                 |
-|--------------------------+------+------------------------------------------------------|
-| magic-latex-buffer       | no   | 这个包在我的习惯上，只适合查看，在编辑的时候开不习惯 |
-| tab-bar-groups           | no   | 这个包有一个不好的地方，可以启用，但是无法关闭       |
-| w3m                      | no   | 太折腾了                                             |
-| mb-url                   | no   |                                                      |
-| ialign                   | no   | 它竟然会修改只读 buffer                              |
-| zygospore                |      | 用自己修的版本了                                     |
-| deadgrep                 | no   | rg 够用了                                            |
-| goto-line-preview        | no   | 在用 consult-goto-line                               |
-| highlight-indent-guides  | no   | 在用 highlight-indentation                           |
-| neotree                  | no   | 用 dirvish-side 和 treemacs 代替                     |
-| org-roam org-roam-server | no   | 概念太复杂了，用起来心智负担大                       |
-| tempel                   | no   | 没有 yasnippet 好用                                  |
-| treemacs-icons-dired     | no   | 用 dirvish 代替                                      |
-| ctrlf                    | no   | swiper 和 isearch 够用了                             |
-| eshell-autojump          | no   | 用 zoxide                                             |
+#+BEGIN: columnview :hlines 0 :id global :format "%ITEM(包) %TAGS(状态)"
+| 包                       | 状态   |
+|--------------------------+--------|
+| eshell-autojump          | :弃用: |
+| ctrlf                    | :弃用: |
+| treemacs-icons-dired     | :弃用: |
+| tempel                   | :弃用: |
+| org-roam org-roam-server | :弃用: |
+| neotree                  | :弃用: |
+| highlight-indent-guides  | :弃用: |
+| goto-line-preview        | :弃用: |
+| deadgrep                 | :弃用: |
+| zygospore                | :弃用: |
+| ialign                   | :弃用: |
+| mb-url                   | :弃用: |
+| w3m                      | :弃用: |
+| tab-bar-groups           | :弃用: |
+| magic-latex-buffer       | :弃用: |
+| zone-words               | :好玩: |
+#+END:
+
+* eshell-autojump                                                      :弃用:
+用 zoxide
+* ctrlf                                                                :弃用:
+swiper 和 isearch 够用了
+* treemacs-icons-dired                                                 :弃用:
+用 dirvish 代替
+* tempel                                                               :弃用:
+没有 yasnippet 好用
+* org-roam org-roam-server                                             :弃用:
+概念太复杂了，用起来心智负担大
+* neotree                                                              :弃用:
+用 dirvish-side 和 treemacs 代替
+* highlight-indent-guides                                              :弃用:
+在用 highlight-indentation       
+* goto-line-preview                                                    :弃用:
+在用 consult-goto-line
+* deadgrep                                                             :弃用:
+rg 够用了
+* zygospore                                                            :弃用:
+用自己修的版本了
+* ialign                                                               :弃用:
+它竟然会修改只读 buffer
+* mb-url                                                               :弃用:
+* w3m                                                                  :弃用:
+太折腾了
+* tab-bar-groups                                                       :弃用:
+这个包有一个不好的地方，可以启用，但是无法关闭
+* magic-latex-buffer                                                   :弃用:
+这个包在我的习惯上，只适合查看，在编辑的时候开不习惯
+* zone-words                                                           :好玩:
+https://xenodium.com/emacs-zones-to-lift-you-up/

@@ -41,12 +41,14 @@
 
 (defun big-font ()
   (interactive)
+  (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-18"))))
   (custom-set-faces
    '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 180 :width normal))))
    ))
 
 (defun small-font ()
   (interactive)
+  (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-12"))))
   (custom-set-faces
    '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
    ))

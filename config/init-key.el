@@ -204,6 +204,7 @@
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
+  (define-key eshell-hist-mode-map (kbd "C-c C-l") 'vc-print-root-log)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
   (define-key eshell-hist-mode-map (kbd "M-s") nil)
   (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history))

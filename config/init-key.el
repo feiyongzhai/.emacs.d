@@ -132,7 +132,7 @@
 
 (require 'fei-key)
 
-(unless *is-termux* (fei-key-mode))
+;; (unless *is-termux* (fei-key-mode))
 (cua-mode)
 
 (defalias 'k 'fei-key-mode)

@@ -33,9 +33,7 @@
 
 (global-unset-key (kbd "`"))
 (global-set-key (kbd "`") fei-leader-keymap)
-(global-set-key (kbd "<escape>") fei-leader-keymap) ;这个按键只在 gui 下有效
-(global-set-key (kbd "<escape> <escape>") 'keyboard-escape-quit)
-;; (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 
 (fei-define-key-with-map fei-leader-keymap
@@ -93,6 +91,8 @@
     ("C-q" . (lambda () (interactive) (insert "`")))
     ("`" . (lambda () (interactive) (insert "`")))
     ("M-i" . tab-to-tab-stop)
+    ("M-l" . downcase-dwim)
+    ("M-m" . back-to-indentation)
     ))
 
 ;; 处理冲突按键
@@ -132,12 +132,9 @@
 
 (require 'fei-key)
 
-(unless (fei-key-mode))
+(unless *is-termux* (fei-key-mode))
 (cua-mode)
 
-(global-set-key (kbd "C-c S-SPC") (li (fei-key-mode -1)))
-(global-set-key (kbd "C-c f") (li (fei-key-mode)))
-(global-set-key (kbd "C-c SPC") (li (fei-key-mode)))
 (defalias 'k 'fei-key-mode)
 (defalias 'l 'counsel-load-theme)
 
@@ -146,7 +143,6 @@
 (define-key fei-key-mode-map (kbd "C-M-g") 'fei-vc-dired-jump)
 (define-key fei-key-mode-map (kbd "C-M-v") 'vc-next-action)
 (define-key fei-key-mode-map (kbd "M-q") 'quit-window)
-(define-key fei-key-mode-map (kbd "M-s") 'fei-swiper-isearch2)
 (define-key fei-key-mode-map (kbd "M-g") (kbd "C-g"))
 
 ;;  __^__             __^__
@@ -406,7 +402,6 @@
 
 (global-set-key (kbd "M-s d") 'fei/olivetti-truncate)
 (global-set-key (kbd "M-s M-d") 'fei/olivetti-truncate)
-(global-set-key (kbd "M-s '") 'display-line-numbers-mode)
 (global-set-key (kbd "M-s M-a") 'org-agenda-list)
 (global-set-key (kbd "M-a") 'org-agenda-list)
 

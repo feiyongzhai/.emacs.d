@@ -4,8 +4,6 @@
 
 (defvar fei-key-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "M-n") (li (message "jj")))
-    (define-key map (kbd "M-p") (li (message "kk")))
     (define-key map (kbd "M-a") 'org-agenda-list)
     (define-key map (kbd "M-c") 'fei-org-capture-TODO)
     map))

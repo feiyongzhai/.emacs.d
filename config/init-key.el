@@ -333,7 +333,9 @@
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'calculator)
 
-(global-set-key (kbd "C-c o") 'embark-act)
+(global-set-key (kbd "C-c o") 'fei-swiper-isearch2)
+
+(global-set-key (kbd "M-o ,") 'embark-act)
 (when (display-graphic-p)		;终端 M-O 快捷键有特殊含义
   (global-set-key (kbd "M-O") 'embark-act))
 (global-set-key (kbd "M-.") 'embark-dwim)
@@ -368,6 +370,7 @@
     ("C-c g" . counsel-git)
     ("C-c k" . counsel-rg)
     ("C-c j" . fei-counsel-recentf-pinyin)
+    ("C-c M-j" . fei/counsel-recentf-dir)
     ("C-x f" . counsel-find-file)
     ))
 
@@ -866,6 +869,7 @@
       ("M-u" . dirvish-setup-menu)
       ("M-E" . dirvish-emerge-menu)
       ("M-S" . dirvish-layout-switch)
+      ("/"   . dirvish-narrow)
       )))
 
 ;;; Diff

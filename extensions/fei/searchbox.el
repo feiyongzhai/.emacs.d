@@ -82,10 +82,10 @@
 	  (insert "\n")
 	(insert " "))
 
-      (searchbox-create-button "百度(B)" "https://www.baidu.com/s?wd=")
-      (searchbox-create-button "知乎(z)" "https://www.zhihu.com/search?type=content&q=")
       (searchbox-create-button "谷歌(g)" "https://www.google.com/search?ie=utf-8&q=")
       (searchbox-create-button "B站(b)" "https://search.bilibili.com/all?keyword=")
+      (searchbox-create-button "知乎(z)" "https://www.zhihu.com/search?type=content&q=")
+      (searchbox-create-button "百度(B)" "https://www.baidu.com/s?wd=")
       (searchbox-create-button "搜狗(S)" "https://www.sogou.com/web?query=")
       (searchbox-create-button "Github(G)" "https://github.com/search?ref=simplesearch&q=")
       (searchbox-create-button "YouTube(y)" "http://www.youtube.com/results?aq=f&oq=&search_query=")

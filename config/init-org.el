@@ -59,9 +59,9 @@
   (toggle-truncate-lines 1)
   )
 
-(with-eval-after-load 'org-agenda
-  ;; 完成任务时, 将其划线勾掉
-  (set-face-attribute 'org-agenda-done nil :strike-through t))
+;; (with-eval-after-load 'org-agenda
+;;   ;; 完成任务时, 将其划线勾掉
+;;   (set-face-attribute 'org-agenda-done nil :strike-through t))
 
 (defvar fei/agenda-hide-done-flag nil)
 (defun fei-org-agenda-toggle-done-entry ()
@@ -246,6 +246,7 @@ unwanted space when exporting org-mode to html."
   ;; 为什么我这里用 eval-after-load 就不能按照预期运行
   (setq org-capture-templates
 	`(("t" "Task" entry (file "gtd.org") "* TODO %?\nCREATE: %T\n")
+	  ("l" "Log" entry (file "gtd.org") "* %?\nCREATE: %T\n")
 	  ("r" "Subtask for current clocked entry" entry (clock) "* SUBTODO %?\nCREATE: %T\n")
 	  ("T" "Task(为Eshell设计)" entry (file "gtd.org")
 	   "* TODO %i\nCREATE: %T\n"
@@ -336,6 +337,15 @@ unwanted space when exporting org-mode to html."
 (defun fei-org-capture-goto-Research ()
   (interactive)
   (org-capture-goto-target "K"))
+
+(defun fei-org-capture-log ()
+  (interactive)
+  (org-capture nil "l")
+  (activate-input-method default-input-method))
+
+(defun fei-org-capture-goto-log ()
+  (interactive)
+  (org-capture-goto-target "l"))
 
 (defun fei-org-capture-Research ()
   (interactive)

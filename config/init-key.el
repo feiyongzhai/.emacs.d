@@ -427,6 +427,8 @@
 (global-set-key (kbd "C-c n N") 'fei-org-capture-goto-note)
 (global-set-key (kbd "C-c n j") 'fei-org-capture-private)
 (global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
+(global-set-key (kbd "C-c n l") 'fei-org-capture-log)
+(global-set-key (kbd "C-c n L") 'fei-org-capture-goto-log)
 (global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
 (global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
 (global-set-key (kbd "C-c n i") 'fei-org-capture-clock)

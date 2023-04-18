@@ -341,6 +341,7 @@
 (global-set-key (kbd "M-.") 'embark-dwim)
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
+(global-set-key (kbd "C-c C-o") 'rg-dwim)
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)

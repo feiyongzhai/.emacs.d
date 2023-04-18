@@ -6,6 +6,7 @@
         ;; ("https://www.youtube.com/feeds/videos.xml?channel_id=UC0uTPqBCFIpZxlz_Lv1tk_g" personal video)
 	;; ("https://sachachua.com/blog/feed/" SachaChua)
         ("https://planet.emacslife.com/atom.xml" emacsplanet)
+        ("https://yukieyun.net/feed/" 沉默之沙)
 	;; ("https://emacs-china.org/latest.rss" emacs)
         ;; ("http://feed.pippa.io/public/shows/teamhuman" podcast culture)
 	;; ("http://www.geekpark.net/rss" 极客公园)

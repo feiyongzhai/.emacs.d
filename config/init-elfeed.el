@@ -7,6 +7,8 @@
 	;; ("https://sachachua.com/blog/feed/" SachaChua)
         ("https://planet.emacslife.com/atom.xml" emacsplanet)
         ("https://yukieyun.net/feed/" 沉默之沙)
+        ("https://feeds.fireside.fm/steve/rss" steve说)
+        ("https://www.changhai.org/feed.xml" 卢昌海个人主页)
 	;; ("https://emacs-china.org/latest.rss" emacs)
         ;; ("http://feed.pippa.io/public/shows/teamhuman" podcast culture)
 	;; ("http://www.geekpark.net/rss" 极客公园)

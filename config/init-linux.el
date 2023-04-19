@@ -11,9 +11,9 @@
 ;; (require 'init-wanderlust)
 
 ;; Fcitx
-(setq fcitx-active-evil-states '(insert emacs hybrid))
-(fcitx-evil-turn-on)
-(fcitx-aggressive-minibuffer-turn-on)
+;; (setq fcitx-active-evil-states '(insert emacs hybrid))
+;; (fcitx-evil-turn-on)
+;; (fcitx-aggressive-minibuffer-turn-on)
 ;; (fcitx-aggressive-setup)
 ;; (fcitx-prefix-keys-add "M-s")
 ;; (fcitx-prefix-keys-add "C-x")

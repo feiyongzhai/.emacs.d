@@ -31,9 +31,9 @@
 ;;; linux 专属
 (setq fei-package-ensure-installed-linux
       '(
-	bash-completion fcitx tmr exec-path-from-shell
+	bash-completion tmr exec-path-from-shell
 	graphviz-dot-mode lsp-dart flutter
-	;; citre vterm vterm-toggle sx magit
+	;; citre vterm vterm-toggle sx magit fcitx
 	))
 
 ;;; general needed packages

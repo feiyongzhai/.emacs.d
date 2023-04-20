@@ -9,6 +9,8 @@
     ("必应词典(bing-dict)" . "https://www.bing.com/dict/search?q=")
     ("京东(jd)" . "https://search.jd.com/Search?keyword=")
     ("DuckDuckGo(ddg)" . "https://duckduckgo.com/?q=")
+    ("Reddit" . "https://www.reddit.com/search/?q=")
+    ("Emacs China" . "https://emacs-china.org/search?q=")
     ("维基百科(wiki)" . "https://en.wikipedia.org/wiki/")
     ("谷歌图片(image)" . "http://www.google.com/images?q=")
     ("网易公开课(163)" . "https://open.163.com/newview/search/")

@@ -23,8 +23,10 @@
 		("github" .
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("blog" . "feiyongzhai.github.io")
+		("Emacs Plant" . "https://planet.emacslife.com/")
 		("HackNews" . "https://news.ycombinator.com/")
 		("Google street" . "https://neal.fun/wonders-of-street-view/")
+		("Steveshuo" . "http://steveshuo.com/")
 		("Emacs China" .
 		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
 		("YouTube" .

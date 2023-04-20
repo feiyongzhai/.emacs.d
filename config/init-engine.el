@@ -19,9 +19,7 @@
 	   (eshell-flatten-and-stringify search-string))))
 
 ;; 汉典
-(defengine 汉典
-  "https://www.zdic.net/hans/%s"
-  :keybinding "h")
+(defengine 汉典 "https://www.zdic.net/hans/%s" :keybinding "h")
 
 ;; Github
 (defengine github
@@ -36,9 +34,7 @@
        (concat "https://github.com/search?ref=simplesearch&q=" word)))))
 
 ;; Stackoverflow
-(defengine stackoverflow
-  "https://stackoverflow.com/search?q=%s"
-  :keybinding "M-s")
+(defengine stackoverflow "https://stackoverflow.com/search?q=%s" :keybinding "M-s")
 
 ;; 谷歌图片
 ;; (defengine google-images
@@ -58,9 +54,7 @@
   :docstring "Qwant")
 
 ;; DuckDuckgo
-(defengine duckduckgo
-  "https://duckduckgo.com/?q=%s"
-  :keybinding "D")
+(defengine duckduckgo "https://duckduckgo.com/?q=%s" :keybinding "D")
 
 (defun eshell/ddg (&rest search-string)
   (browse-url
@@ -132,9 +126,7 @@
        (concat "https://search.jd.com/Search?keyword=" word)))))
 
 ;; 必应
-(defengine bing
-  "https://www.bing.com/search?q=%s"
-  :keybinding "B")
+(defengine bing "https://www.bing.com/search?q=%s" :keybinding "B")
 
 ;; 必应词典
 (defengine bing-dict
@@ -154,9 +146,7 @@
 	   (eshell-flatten-and-stringify search-string))))
 
 ;; 谷歌
-(defengine google
-  "https://www.google.com/search?ie=utf-8&q=%s"
-  :keybinding "g")
+(defengine google "https://www.google.com/search?ie=utf-8&q=%s" :keybinding "g")
 
 (defun eshell/g (&rest search-string)
   (browse-url
@@ -170,9 +160,7 @@
     (eshell-flatten-and-stringify search-string))))
 
 ;; 百度
-(defengine baidu
-  "https://www.baidu.com/s?wd=%s"
-  :keybinding "d")
+(defengine baidu "https://www.baidu.com/s?wd=%s" :keybinding "d")
 
 (defun eshell/baidu (&rest search-string)
   (browse-url
@@ -180,9 +168,7 @@
 	   (eshell-flatten-and-stringify search-string))))
 
 ;; 搜狗
-(defengine sogou
-  "https://www.sogou.com/web?query=%s"
-  :keybinding "S")
+(defengine sogou "https://www.sogou.com/web?query=%s" :keybinding "S")
 
 (defun eshell/sg (&rest search-string)
   (browse-url

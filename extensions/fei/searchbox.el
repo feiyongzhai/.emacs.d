@@ -78,19 +78,20 @@
     (with-current-buffer buffer
       (erase-buffer)
       (insert "搜索：> " searchbox-string " <")
-      (if (length> searchbox-string 30)
-	  (insert "\n")
-	(insert " "))
+      (insert "\n")
 
       (searchbox-create-button "谷歌(g)" "https://www.google.com/search?ie=utf-8&q=")
-      (searchbox-create-button "B站(b)" "https://search.bilibili.com/all?keyword=")
+      (searchbox-create-button "哔站(b)" "https://search.bilibili.com/all?keyword=")
       (searchbox-create-button "知乎(z)" "https://www.zhihu.com/search?type=content&q=")
       (searchbox-create-button "百度(B)" "https://www.baidu.com/s?wd=")
-      (searchbox-create-button "搜狗(S)" "https://www.sogou.com/web?query=")
       (searchbox-create-button "Github(G)" "https://github.com/search?ref=simplesearch&q=")
-      (searchbox-create-button "YouTube(y)" "http://www.youtube.com/results?aq=f&oq=&search_query=")
+      (searchbox-create-button "油管(y)" "http://www.youtube.com/results?aq=f&oq=&search_query=")
+      ;; (insert "\n")
+      (searchbox-create-button "搜狗(S)" "https://www.sogou.com/web?query=")
+      (searchbox-create-button "抖音(D)" "https://www.douyin.com/search/")
+      (searchbox-create-button "微博(W)" "https://s.weibo.com/weibo?q=")
       (searchbox-create-button "趣词(d)" "https://www.quword.com/w/")
-      (searchbox-create-button "学术(x)" "https://scholar.google.com/scholar?hl=zh-CN&q=" t)
+      (searchbox-create-button "谷歌学术(x)" "https://scholar.google.com/scholar?hl=zh-CN&q=" t)
       (goto-char (point-min))
 
       (read-only-mode)
@@ -108,6 +109,8 @@
 	(define-key map "n" #'fei-org-capture-note)
 	(define-key map "d" #'searchbox-search-quword)
 	(define-key map "S" #'searchbox-search-sogou)
+	(define-key map "W" #'searchbox-search-weibo)
+	(define-key map "D" #'searchbox-search-douyin)
 	(define-key map "z" #'searchbox-search-zhihu)
 	(define-key map "y" #'searchbox-search-youtube)
 	(define-key map "r" #'searchbox-research-from-hist)
@@ -188,6 +191,18 @@
   (interactive)
   (browse-url
    (concat "https://www.quword.com/w/"
+	   (url-encode-url searchbox-string))))
+
+(defun searchbox-search-weibo ()
+  (interactive)
+  (browse-url
+   (concat "https://s.weibo.com/weibo?q="
+	   (url-encode-url searchbox-string))))
+
+(defun searchbox-search-douyin ()
+  (interactive)
+  (browse-url
+   (concat "https://www.douyin.com/search/"
 	   (url-encode-url searchbox-string))))
 
 (provide 'searchbox)

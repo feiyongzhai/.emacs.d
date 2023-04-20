@@ -24,4 +24,4 @@
 ;; CSS
 (add-hook 'css-mode-hook 'electric-pair-local-mode)
 
-(provide 'init-html-css-js)
+(provide 'init-web)

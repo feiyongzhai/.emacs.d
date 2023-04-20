@@ -18,6 +18,8 @@
 		 [simple-query "www.baidu.com" "https://www.baidu.com/s?wd=" ""])
 		("sogou" .
 		 [simple-query "www.sogou.com" "https://www.sogou.com/web?query=" ""])
+		("weibo" .
+		 [simple-query "www.weibo.com" "https://s.weibo.com/weibo?q=" ""])
 		("github" .
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("blog" . "feiyongzhai.github.io")

@@ -1,3 +1,5 @@
+;; HTML/CSS/JS related configuration
+
 ;; 使用 web-mode 来编辑 html，比默认的 html-mode 直观好用一点
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))

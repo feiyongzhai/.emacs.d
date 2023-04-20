@@ -6,8 +6,6 @@
 ;; thing-edit : https://github.com/manateelazycat/thing-edit
 ;; 配置参考   : https://pengpengxp.github.io/emacs/emacs_thing_edit_replace.html
 
-;; (require 'thing-edit)
-
 ;;; Code:
 
 (defvar user-thing-edit-map (make-sparse-keymap)
@@ -72,7 +70,6 @@
     ("M-p" . thing-replace-parentheses)
     ("M-l" . thing-replace-line))
   "thing-edit")
-
 
 ;; Other keys
 (global-set-key (kbd "M-D") 'thing-cut-symbol)

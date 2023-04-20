@@ -3,8 +3,6 @@
 (require 'init-func)
 (autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
 
-;;; Mode
-
 ;; 用 tab-bar-history-mode 代替
 ;; (winner-mode 1)
 

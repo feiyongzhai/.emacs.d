@@ -1,8 +1,6 @@
-;;; 安装遇到的相关问题和解决方法
-
 ;; 需要安装的包
 ;; Deepin 平台
-;; sudo apt install librime-dev
+;;   sudo apt install librime-dev
 
 ;; Rime
 (add-to-list 'load-path "~/.emacs.d/extensions/rime/")
@@ -11,13 +9,12 @@
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
 
-;; Vars
 (setq rime-user-data-dir "~/.emacs.d/rime/") ;linux 和 windows 共用一个配置文件
 
 (when *is-windows*
-  ;; REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
-  ;; REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
-  ;; REF3: https://github.com/DogLooksGood/emacs-rime/issues/64
+  ;; @REF1: https://github.com/DogLooksGood/emacs-rime/pull/92
+  ;; @REF2: https://eason0210.github.io/post/install-emacs-rime-with-msys2/
+  ;; @REF3: https://github.com/DogLooksGood/emacs-rime/issues/64
   ;; 根据上述的方式，可以较方便的在 windows 平台编译 librime-emacs.dll
   ;; 0. 确保自己一定是最新的状态
   ;; pacman -Syu # 这个命令你可能需要运行好几次
@@ -63,9 +60,9 @@
 
 (setq default-input-method "rime")
 
-(setq ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
+(setq rime-show-candidate 'minibuffer
+      ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       ;; rime-show-candidate 'posframe
-      rime-show-candidate 'minibuffer
       rime-show-preedit t
       ;; rime-posframe-style 'vertical
       rime-posframe-style 'horizontal
@@ -74,16 +71,21 @@
 (setq rime-disable-predicates
       '(rime-predicate-auto-english-p
 	fei-rime-predicate-prog-in-code-p
-        ;; rime-predicate-space-after-cc-p
-        ;; rime-predicate-after-alphabet-char-p
-	(lambda () (and (featurep 'tex-site)
-			(texmathp)))
+	;; rime-predicate-space-after-cc-p
+	;; rime-predicate-after-alphabet-char-p
+	fei-texmathp
 	rime-predicate-org-latex-mode-p
 	rime-predicate-org-in-src-block-p))
 
+(defun fei-texmathp ()
+  (and (or (derived-mode-p  'latex-mode)
+	   (derived-mode-p  'org-mode))
+       (featurep 'tex-site)
+       (texmathp)))
+
 (defun fei-rime-predicate-prog-in-code-p ()
-    (and (derived-mode-p 'prog-mode 'conf-mode)
-	 (not (nth 4 (syntax-ppss)))))
+  (and (derived-mode-p 'prog-mode 'conf-mode)
+       (not (nth 4 (syntax-ppss)))))
 
 
 ;; 让 rime 和 isearch 更好的工作，自己乱胡的版本，勉强能用

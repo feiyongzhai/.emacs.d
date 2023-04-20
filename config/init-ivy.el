@@ -15,6 +15,7 @@
       '(
 	(swiper-isearch . 1) ; make swiper-isearch behave like isearch
 	))
+
 (defun fei-counsel-recentf-pinyin ()
   (interactive)
   (require 'pyim-cregexp-utils)

@@ -20,17 +20,10 @@
 
   (require 'init-git)
   (require 'init-prog)
-  (require 'init-html-css-js)
-  (require 'init-python)
-  (require 'init-rust)
-  (require 'init-matlab)
-  (require 'init-c)
-  (require 'init-lisp)
   (require 'init-ivy)
   (require 'init-orderless)
   ;; (require 'init-minibuffer)
   (require 'init-vertico)
-  (require 'init-help)
   (require 'init-search)
 
   (require 'init-edit)
@@ -65,8 +58,6 @@
      (require 'init-mouse)
      (require 'init-tool-bar)
      (require 'init-menu-bar)
-
-     ;; (require 'init-bs)
 
      (require 'init-pyim)
      (require 'init-markdown)

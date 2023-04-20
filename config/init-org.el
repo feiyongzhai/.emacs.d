@@ -33,7 +33,7 @@
   ;; C-c s 用于想在 org-mode 中用 `org-store-link'
   )
 
-(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/init-org-export.el"))
+(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/fei-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
 
 (setq org-refile-targets

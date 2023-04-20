@@ -11,8 +11,6 @@
   (require 'dired-ranger)
   )
 
-;;; Vars
-
 ;; @REF: https://stackoverflow.com/questions/4532241/linux-find-all-symlinks-of-a-given-original-file-reverse-readlink
 ;; find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile
 (setq dired-guess-shell-alist-user
@@ -87,7 +85,6 @@
 (setq dired-listing-switches
       "-l --almost-all --human-readable --group-directories-first --no-group")
 
-
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

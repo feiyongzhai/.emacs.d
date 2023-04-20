@@ -36,8 +36,11 @@
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
 
+(defalias 'eshell/y 'youdao-dictionary-search)
+
 (defalias 'eshell/eh 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)
+(defalias 'eshell/c 'fei-org-capture-TODO)
 (defalias 'eshell/note 'fei-org-capture-note)
 (defalias 'eshell/n 'fei-org-capture-note)
 (defalias 'eshell/p 'fei-org-capture-private)

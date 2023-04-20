@@ -15,9 +15,8 @@
 
 (defun eshell/weixin (&rest search-string)
   (browse-url
-   (concat
-    "https://weixin.sogou.com/weixin?type=2&query="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://weixin.sogou.com/weixin?type=2&query="
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; 汉典
 (defengine 汉典
@@ -65,9 +64,8 @@
 
 (defun eshell/ddg (&rest search-string)
   (browse-url
-   (concat
-    "https://duckduckgo.com/?q="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://duckduckgo.com/?q="
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; 谷歌学术
 (defengine google-scholar
@@ -76,9 +74,8 @@
 
 (defun eshell/gs (&rest search-string)
   (browse-url
-   (concat
-    "https://scholar.google.com/scholar?hl=zh-CN&q="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://scholar.google.com/scholar?hl=zh-CN&q="
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; YouTube
 (defengine youtube
@@ -101,9 +98,8 @@
 
 (defun eshell/zhihu (&rest search-string)
   (browse-url
-   (concat
-    "https://www.zhihu.com/search?type=content&q="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://www.zhihu.com/search?type=content&q="
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; B站
 (defengine bilibili
@@ -154,9 +150,8 @@
 
 (defun eshell/dict (&rest search-string)
   (browse-url
-   (concat
-    "https://www.quword.com/w/"
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://www.quword.com/w/"
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; 谷歌
 (defengine google
@@ -181,9 +176,8 @@
 
 (defun eshell/baidu (&rest search-string)
   (browse-url
-   (concat
-    "https://www.baidu.com/s?wd="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://www.baidu.com/s?wd="
+	   (eshell-flatten-and-stringify search-string))))
 
 ;; 搜狗
 (defengine sogou
@@ -192,9 +186,8 @@
 
 (defun eshell/sg (&rest search-string)
   (browse-url
-   (concat
-    "https://www.sogou.com/web?query="
-    (eshell-flatten-and-stringify search-string))))
+   (concat "https://www.sogou.com/web?query="
+	   (eshell-flatten-and-stringify search-string))))
 
 
 (provide 'init-engine)

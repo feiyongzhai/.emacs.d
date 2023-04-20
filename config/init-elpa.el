@@ -109,7 +109,7 @@
 	laas auctex cdlatex
 
 	;; ==== 编程 ====
-	emmet-mode js2-mode web-mode dumb-jump diff-hl
+	emmet-mode js2-mode web-mode dumb-jump diff-hl yaml-mode
 
 	;; ==== Major-mode ====
 	markdown-mode matlab-mode

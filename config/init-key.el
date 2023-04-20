@@ -800,7 +800,9 @@
   (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode))
 
 (with-eval-after-load 'elfeed
-  (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry))
+  (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry)
+  (define-key elfeed-search-mode-map (kbd "l") 'recenter-top-bottom)
+  )
 
 (with-eval-after-load 'vterm
   (define-key vterm-mode-map (kbd "M-s") nil))

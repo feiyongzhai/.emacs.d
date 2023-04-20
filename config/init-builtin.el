@@ -83,6 +83,10 @@
 
 (add-hook 'bookmark-bmenu-mode-hook 'hl-line-mode)
 
+
+;;; Help
+(setq help-window-select t);always select help window
+
 ;;; Experiment
 ;; (global-unset-key (kbd "C-x C-c"))
 ;; (defalias 'exit 'save-buffers-kill-terminal)

@@ -13,7 +13,6 @@
 ;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")
 (setq sentence-end "\\([.?!…‽][]\"'”’)}»›]*\\($\\|[  ]$\\|\t\\|[  ][  ]\\)\\|[。．？！:：]+\\)[  \t\n]*")
 
-
 ;;; Cursor Movement (experimental config)
 ;; (setq recenter-positions '(top middle bottom))
 

@@ -37,6 +37,8 @@
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
 
 (defalias 'eshell/y 'youdao-dictionary-search)
+(defalias 'eshell/j 'fei-counsel-recentf-pinyin)
+(defalias 'eshell/J 'fei/counsel-recentf-dir)
 
 (defalias 'eshell/eh 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)

@@ -482,6 +482,7 @@
 
 (global-set-key (kbd "<f2>") 'list-bookmarks)
 (global-set-key (kbd "C-x j") 'new-buffer)
+(global-set-key (kbd "C-x M-j") 'new-buffer-other-window)
 (global-set-key (kbd "C-x M-h") 'new-buffer)
 (global-set-key (kbd "C-x B") 'new-buffer)
 

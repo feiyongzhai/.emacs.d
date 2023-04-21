@@ -87,6 +87,26 @@
   (interactive)
   (switch-to-buffer (generate-new-buffer "*new*")))
 
+(defun new-buffer-other-window ()
+  "命令初心：因为有的时候 emacs-rime 的 disable 不够智能。
+
+想着可以通过新建一个 buffer 来输入一段文字然后粘贴过去"
+  (interactive)
+  (let ((buffer (generate-new-buffer "*new*")))
+    (switch-to-buffer-other-window buffer)
+    (with-current-buffer buffer
+      (activate-input-method "rime")
+      (let ((map (make-sparse-keymap)))
+	(set-keymap-parent map (current-local-map))
+	(define-key map (kbd "C-c C-c") 'new-buffer-quit-and-copy)
+	(define-key map (kbd "C-c C-k") 'kill-buffer-and-window)
+	(use-local-map map)))))
+
+(defun new-buffer-quit-and-copy ()
+  (interactive)
+  (kill-new (buffer-string))
+  (kill-buffer-and-window))
+
 (defun fei/kill-or-bury-buffer ()
   (interactive)
   (if (bound-and-true-p emacs-lock-mode)

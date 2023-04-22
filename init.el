@@ -28,8 +28,6 @@
 
   (require 'init-edit)
   (require 'init-auto-save)
-  ;; (setq auto-save-visited-interval 1)
-  ;; (auto-save-visited-mode)
   (require 'init-alias)
   (unless *is-termux*
     (require 'init-proxy)
@@ -80,7 +78,7 @@
        (server-start)
        (message "server 启动成功!"))
 
-     (message "延时加载包加载完成！")
+     (message "延时加载完成！")
      ))
 
   ;; local configs

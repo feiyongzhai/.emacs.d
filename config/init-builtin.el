@@ -2,8 +2,7 @@
 (require 'init-func)
 
 (minibuffer-depth-indicate-mode)
-(global-auto-revert-mode)	    ;autoload the file changes on disk
-(delete-selection-mode)		    ;选中文本后输入会覆盖
+(delete-selection-mode)			;选中文本后输入会覆盖
 (column-number-mode)
 (save-place-mode)
 (show-paren-mode)
@@ -12,6 +11,7 @@
 (savehist-mode t)			;保存 minibuffer 历史
 (global-so-long-mode)
 
+(global-auto-revert-mode)	    ;autoload the file changes on disk
 (setq global-auto-revert-ignore-modes '(pdf-view-mode))
 
 (when (executable-find "rg")
@@ -29,7 +29,7 @@
 (setq cua-prefix-override-inhibit-delay .01)
 (setq cua-auto-mark-last-change t)	;cua 提供的 last-change 功能
 
-;; recentf
+;; Recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 200)
 (add-to-list 'recentf-exclude "bookmarks")
@@ -51,10 +51,7 @@
 
 ;; (setq split-width-threshold nil) ;分屏的时候只使用上下分屏
 
-;; 我的实践过程中发现，在外接显示器或者较大的屏幕的时候，用一些比较宽
-;; 的屏幕的时候，我还是希望可以左右分屏（水平分屏）的
-
-(setq word-wrap-by-category t)	 ;按照中文折行
+(setq word-wrap-by-category t)		;按照中文折行
 
 ;;; Bookmark
 (setq bookmark-set-fringe-mark nil)	;强迫症选项

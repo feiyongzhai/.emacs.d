@@ -22,26 +22,18 @@
 	(t flat)			; 不匹配的命令所使用的样式
         ))
 
-;; 回归默认样式
 ;; (setq vertico-multiform-categories
 ;;       '((file flat)
 ;; 	(buffer unobtrusive)))
+
 (custom-set-faces
  '(embark-target ((t (:inherit menu)))))
 (setq embark-indicators '(embark-minimal-indicator embark-highlight-indicator)) ; embark adction buffer is verbose
 (setq prefix-help-command 'embark-prefix-help-command)
 ;; (setq embark-prompter 'embark-completing-read-prompter)
 
-;; Temporary toggling between the different display modes is
-;; possible. Bind the following commands:
-
 
-;;; Some enhanced feature
-
-;; (marginalia-mode -1)
-
-
-;; ==== [consult] ====
+;;; ==== [Consult] ====
 
 ;; (setq register-preview-function 'consult-register-format)
 ;; consult-register-format 不可以正确处理 register name 是字符串的情况，如 `zygospore-spore-formation-register-name'

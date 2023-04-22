@@ -6,7 +6,7 @@
 ;; 用 tab-bar-history-mode 代替
 ;; (winner-mode 1)
 
-;; ace-window
+;; Ace-Window
 (setq aw-ignore-current nil)
 (setq aw-dispatch-when-more-than 2)
 (setq aw-scope 'frame)
@@ -36,6 +36,7 @@
     (find-file (pop killed-file-list))))
 
 
+
 (defun fei/scroll-down-push-mark ()
   (interactive)
   (when (not (or (eq last-command 'fei/scroll-down-push-mark)

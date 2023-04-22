@@ -9,7 +9,6 @@
  isearch-regexp-lax-whitespace t
  search-whitespace-regexp ".*?")
 
-
 ;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而
 ;; 一般没有光标同时我想要进行复制的场景是在 isearch 的情形下，所以这个配
 ;; 置放在这里也比较合理
@@ -27,7 +26,6 @@
 (setq ctrlf-show-match-count-at-eol nil)
 (setq ctrlf-highlight-current-line nil)
 
-;;; Funcs
 (defun prot-search-isearch-other-end ()
   "End current search in the opposite side of the match.
 Particularly useful when the match does not fall within the
@@ -47,7 +45,6 @@ confines of word boundaries (e.g. multiple words)."
   (call-interactively 'isearch-occur)
   (isearch-exit)
   ;; occur 没有匹配项的时候不会显示，下面的函数会报错
-  (select-window (get-buffer-window "*Occur*"))
-  )
+  (select-window (get-buffer-window "*Occur*")))
 
 (provide 'init-search)

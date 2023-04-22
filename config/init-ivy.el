@@ -21,16 +21,14 @@
   (require 'pyim-cregexp-utils)
   (let ((ivy-re-builders-alist
 	 '((t . pyim-cregexp-ivy))))
-    (call-interactively 'counsel-recentf)
-    ))
+    (call-interactively 'counsel-recentf)))
 
 (defun fei-counsel-switch-buffer ()
   (interactive)
   (require 'pyim-cregexp-utils)
   (let ((ivy-re-builders-alist
 	 '((t . pyim-cregexp-ivy))))
-    (call-interactively 'counsel-switch-buffer)
-    ))
+    (call-interactively 'counsel-switch-buffer)))
 
 (with-eval-after-load 'counsel
   ;; For my laptop: Linux Mint 20
@@ -48,8 +46,7 @@
   (require 'pyim-cregexp-utils)
   (let ((ivy-re-builders-alist
 	 '((t . pyim-cregexp-ivy))))
-    (call-interactively 'swiper)
-    ))
+    (call-interactively 'swiper)))
 
 (defun fei-swiper-isearch2 ()
   (interactive)
@@ -61,16 +58,14 @@
   (require 'pyim-cregexp-utils)
   (let ((ivy-re-builders-alist
 	 '((t . pyim-cregexp-ivy))))
-    (call-interactively 'swiper-isearch)
-    ))
+    (call-interactively 'swiper-isearch)))
 
 (defun fei-swiper-isearch-backward ()
   (interactive)
   (require 'pyim-cregexp-utils)
   (let ((ivy-re-builders-alist
 	 '((t . pyim-cregexp-ivy))))
-    (call-interactively 'swiper-isearch-backward)
-    ))
+    (call-interactively 'swiper-isearch-backward)))
 
 (defun fei-compile ()
   (interactive)

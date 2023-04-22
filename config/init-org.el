@@ -7,11 +7,9 @@
 (defun +fei-org-mode-hook ()
   ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
-  ;; (setq-local line-spacing 3) ;当有大段文字的时候，行与行之间的间距太小的话看起来会比较累
-
+  
   (setq tab-width 2)
-  ;; 方便快速输入 =+_ 等强调符号
-  (smartparens-mode)
+  (smartparens-mode)			;方便快速输入 =+_ 等强调符号
   (org-indent-mode)			;试试这个默认样式
   )
 
@@ -22,8 +20,7 @@
   )
 
 
-;; 使得 org 中的时间格式变成英文来规避乱码问题
-;; (setq system-time-locale "C")
+;; (setq system-time-locale "C") ;使得 org 中的时间格式变成英文来规避乱码问题
 (with-eval-after-load 'org
   ;; 统一 linux 和 windows 平台的时间戳显示
   ;; @REF: https://emacs-china.org/t/topic/1551/31?u=yongfeizhai
@@ -49,7 +46,7 @@
     (call-interactively 'org-refile)))
 
 
-;; ==== Org Agenda 配置开始 ===
+;;; ==== Org Agenda 配置开始 ===
 ;; @SEEALSO: https://stackoverflow.com/questions/32423127/how-to-view-the-next-days-in-org-modes-agenda
 (setq org-agenda-span 3)		;控制显示的天数
 (setq org-agenda-start-day "-1d")
@@ -59,8 +56,8 @@
   (toggle-truncate-lines 1)
   )
 
+;;; org-agenda 完成任务时, 将其划线勾掉
 ;; (with-eval-after-load 'org-agenda
-;;   ;; 完成任务时, 将其划线勾掉
 ;;   (set-face-attribute 'org-agenda-done nil :strike-through t))
 
 (defvar fei/agenda-hide-done-flag nil)

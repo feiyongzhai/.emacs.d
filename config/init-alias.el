@@ -22,8 +22,7 @@
 ;; Designed for `eshell'
 (with-eval-after-load 'eshell
   (require 'eshell-up)
-  (defalias 'eshell/u 'eshell-up)
-  )
+  (defalias 'eshell/u 'eshell-up))
 
 (defun eshell/jo () (eshell/cd "~/Nutstore Files/org"))
 (defun eshell/je () (eshell/cd "~/.emacs.d"))

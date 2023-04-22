@@ -1,14 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/extensions/fei")
 
-;; fei-clock
-(require 'fei-clock)
-
-;; searchbox
-(require 'searchbox)
-
-
+(require 'fei-clock)			;fei-clock
+(require 'searchbox)			;searchbox
 (require 'vxref)
 ;; (require 'tab-bar-mode-indicator)
+
+
 
 ;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
 ;; (defun fei-resize-frame ()
@@ -33,10 +30,8 @@
     (if (eq ch 5)
 	(set-frame-height nil pre-frame-height)
       (setq pre-frame-height ch)
-      (set-frame-height nil 5)
-      )))
+      (set-frame-height nil 5))))
 
-;; 不需要了
 ;; (add-hook 'org-capture-mode-hook (lambda () (set-window-text-height nil 1)))
 
 

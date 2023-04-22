@@ -19,12 +19,11 @@
 ;;                          'eshell-postoutput-scroll-to-bottom)))
 
 (add-hook 'eshell-mode-hook 'fei-eshell-mode-hook)
+
 (defun fei-eshell-mode-hook ()
   ;; `substring' style is very useful for eshell completion
   (setq-local completion-styles '(basic partial-completion substring emacs22))
   (toggle-truncate-lines 0))
-
-;; Funcs
 
 (defun fei-eshell-cd-here ()
   (interactive)
@@ -45,8 +44,7 @@
 	(eshell-reset))
       )))
 
-;; @ref https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
-;; `aweshell-emacs' function
+;; @REF: https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
 (defun eshell/edit (&rest args)
   "Open a file in Emacs with ARGS, Some habits die hard."
   (cond
@@ -55,7 +53,7 @@
    ((eq (length args) 1)
     (eval `(find-file ,@args)))
    (t
-    (mapc (lambda (x) 
+    (mapc (lambda (x)
 	    (find-file-other-tab x))
 	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
 
@@ -112,7 +110,7 @@
 	 (path (replace-regexp-in-string "\n$" "" zoxide-result)))
     (and *is-windows*
 	 ;; 因为 windows 下有的时候可以正确解释为 utf-8 ，有的时候不可以，为 gbk
-	 ;; 思路就是为 gbk 编码的时候，转换成 utf-8，为 utf-8 则不操作
+	 ;; 思路：为 gbk 编码的时候，转换成 utf-8，为 utf-8 则不操作
 	 (text-property-any 0 (1- (length path)) 'charset 'chinese-gbk path)
 	 (setq path (decode-coding-string
 		     (encode-coding-string path 'gbk) 'utf-8)))

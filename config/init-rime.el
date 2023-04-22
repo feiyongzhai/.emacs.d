@@ -118,7 +118,6 @@
   (interactive)
   (activate-input-method "rime")
   (call-interactively 'rime-force-enable)
-  (message "强制启用 rime!")
-  )
+  (message "强制启用 rime!"))
 
 (provide 'init-rime)

@@ -54,7 +54,7 @@
 
 (defun searchbox-search (&optional initial-input)
   (interactive)
-  (setq searchbox-string (read-string "搜索(谷歌)： " (and initial-input searchbox-string) 'searchbox-string-hist))
+  (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
   (searchbox-refresh-buffer)
   (browse-url (concat (searchbox-get-sites-url "谷歌(g)")

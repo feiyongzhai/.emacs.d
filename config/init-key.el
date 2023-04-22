@@ -461,7 +461,7 @@
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-s M-w") 'fei-search)
+(global-set-key (kbd "M-s M-w") 'searchbox-search)
 (global-set-key (kbd "M-s M-s") 'fei-search)
 (global-set-key (kbd "M-s s") 'fei-search)
 (global-set-key (kbd "M-S") 'fei-search)

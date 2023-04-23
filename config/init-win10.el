@@ -93,10 +93,7 @@
 ;; (sis-ism-lazyman-config nil t 'w32)
 ;; (sis-global-respect-mode)
 
-;; (add-hook 'org-capture-mode-hook #'sis-set-other)
-;; (add-hook 'log-edit-mode-hook #'sis-set-other)
-
-;; zoxide
+;;; zoxide
 ;; @REF: https://emacs-china.org/t/emacs-helm-ag/6764
 ;; 使用以下配置之后 eshell 中的 zoxide 命令可以正常工作
 ;; 测试

@@ -796,6 +796,9 @@
 ;; Misc
 
 (with-eval-after-load 'pdf-view
+  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+  (linux (define-key pdf-view-mode-map (kbd "e") 'fei-pdf-view-open-pdf-external))
   (define-key pdf-view-mode-map (kbd "<mouse-4>") 'pdf-view-next-page)
   (define-key pdf-view-mode-map (kbd "<mouse-5>") 'pdf-view-previous-page)
   (define-key pdf-view-mode-map (kbd "i") 'pdf-view-themed-minor-mode))

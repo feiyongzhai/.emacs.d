@@ -1,7 +1,8 @@
 (require 'fei-funcs)
 
 ;; obsidian
-(obsidian-specify-path "~/Nutstore Files/org/obsidian")
+(with-eval-after-load 'markdown-mode
+  (obsidian-specify-path "~/Nutstore Files/org/obsidian"))
 
 ;; @REF: https://emacs-china.org/t/emacs-obsidian/22504/11?u=yongfeizhai
 (defun open-current-file-with-obsidian ()
@@ -12,7 +13,7 @@
   ;; 需要在 windows 平台将 `buffer-file-name' 返回值的盘符大写。
   ;; (if-let* ((file buffer-file-name)
   ;; 	    (disk (upcase (substring file 0 1)))) ;因为 (upcase "/") => "/"，所以也适配 linux 平台
-  ;;     (browse-url (concat "obsidian://open?path=" (url-hexify-string (concat disk (substring file 1)))))    
+  ;;     (browse-url (concat "obsidian://open?path=" (url-hexify-string (concat disk (substring file 1)))))
   ;;   (message "当前 buffer 没有和文件关联!"))
 
   ;; 下面这个方式避免了 Emacs 中文件名中盘符小写的问题

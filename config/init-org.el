@@ -5,7 +5,6 @@
 (add-hook 'org-mode-hook '+fei-org-mode-hook)
 
 (defun +fei-org-mode-hook ()
-  ;; (org-indent-mode) ;@REF: http://0x100.club/wiki_emacs/emacs-tricks.html#orgb2882ba
   (yas-minor-mode)
   
   (setq tab-width 2)
@@ -13,8 +12,7 @@
   (org-indent-mode)			;试试这个默认样式
   )
 
-(with-eval-after-load 'org
-  ;; 控制 org-latex-preview
+(with-eval-after-load 'org		;控制 org-latex-preview
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
   )
@@ -197,6 +195,7 @@
             " \t\r\n,\"'"
             "."
             1))
+
 (with-eval-after-load 'org
   (setq org-match-substring-regexp
         (concat
@@ -313,7 +312,7 @@ unwanted space when exporting org-mode to html."
   (when org-inline-image-overlays
     (org-redisplay-inline-images)))
 
-;; Funcs
+
 
 (defun fei-org-time ()
   (interactive)
@@ -447,8 +446,8 @@ unwanted space when exporting org-mode to html."
   ;; obsidian link handling for obsidian:// links
   (defun org-obsidian-link-open (slash-message-id)
     "Handler for org-link-set-parameters that opens a obsidian:// link in obsidian"
-    (browse-url (concat "obsidian:" slash-message-id))
-    )
+    (browse-url (concat "obsidian:" slash-message-id)))
+
   ;; on obsidian://aoeu link, this will call handler with //aoeu
   (org-link-set-parameters "obsidian" :follow #'org-obsidian-link-open)
   )

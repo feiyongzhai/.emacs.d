@@ -89,14 +89,9 @@
     (set-frame-size frame w h)))
 ;; (arrange-frame 84 30 170 20)
 
-;; 输入法自动切换插件，sis 在 linux 下使用有点问题。windows 下好像还不错。
-;; (sis-ism-lazyman-config nil t 'w32)
-;; (sis-global-respect-mode)
-
 ;;; zoxide
 ;; @REF: https://emacs-china.org/t/emacs-helm-ag/6764
 ;; 使用以下配置之后 eshell 中的 zoxide 命令可以正常工作
-;; 测试
 (modify-coding-system-alist 'process "zoxide" '(utf-8 . chinese-gbk-dos))
 
 ;; 参考上面，解决 windows counsel-rg 乱码的问题

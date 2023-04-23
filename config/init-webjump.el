@@ -22,6 +22,8 @@
 		 [simple-query "www.weibo.com" "https://s.weibo.com/weibo?q=" ""])
 		("github" .
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
+		("douyin" .
+		 [simple-query "www.douyin.com" "https://www.douyin.com/search/" ""])
 		("blog" . "feiyongzhai.github.io")
 		("Emacs Plant" . "https://planet.emacslife.com/")
 		("HackNews" . "https://news.ycombinator.com/")

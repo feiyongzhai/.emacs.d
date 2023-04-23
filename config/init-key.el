@@ -520,9 +520,6 @@
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "M-<right>") 'tab-bar-history-forward)
 
-(global-set-key (kbd "M-s 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s M-1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-c 0") 'my/delete-window-or-delete-frame)
@@ -553,15 +550,12 @@
 (global-set-key (kbd "C-x M-o") 'other-frame)
 
 (global-set-key (kbd "M-s b") 'fr/bury-or-unbury-buffer)
-(global-set-key (kbd "M-s <") 'fr/bury-or-unbury-buffer)
 
 ;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
 (fei-repeat fr/bury-or-unbury-buffer
   (progn (window-configuration-to-register ?b)
 	 (bury-buffer))
   '(("b" . bury-buffer)
-    ("<" . bury-buffer)
-    (">" . unbury-buffer)
     ("," . unbury-buffer)))
 
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
@@ -717,7 +711,6 @@
   (define-key org-agenda-mode-map (kbd "W") 'fei-org-agenda-refile-to-file)
   (define-key org-agenda-mode-map (kbd "k") 'fei-org-capture-TODO)
   (define-key org-agenda-mode-map (kbd "'") 'org-agenda-list)
-  (define-key org-agenda-mode-map (kbd "\"") 'org-agenda)
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
 (with-eval-after-load 'treemacs
@@ -752,7 +745,6 @@
       ("M-s 4" . markdown-insert-header-atx-4)
       ("M-s 5" . markdown-insert-header-atx-5)
       ("M-s 6" . markdown-insert-header-atx-6)
-      ("M-s @" . markdown-insert-header-setext-2)
       ("<M-up>" . markdown-move-up)
       ("<M-down>" . markdown-move-down)
       )))
@@ -793,8 +785,6 @@
 (with-eval-after-load 'dart-mode
   (define-key dart-mode-map (kbd "C-M-x") #'flutter-run-or-hot-reload))
 
-;; Misc
-
 (with-eval-after-load 'pdf-view
   (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
   (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
@@ -805,8 +795,7 @@
 
 (with-eval-after-load 'elfeed
   (define-key elfeed-search-mode-map (kbd "f") 'elfeed-search-show-entry)
-  (define-key elfeed-search-mode-map (kbd "l") 'recenter-top-bottom)
-  )
+  (define-key elfeed-search-mode-map (kbd "l") 'recenter-top-bottom))
 
 (with-eval-after-load 'vterm
   (define-key vterm-mode-map (kbd "M-s") nil))

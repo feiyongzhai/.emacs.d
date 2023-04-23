@@ -15,22 +15,6 @@
 
 ;; (setq recenter-positions '(top middle bottom)) ;备忘
 
-(defun fei-scroll-up-line ()
-  (interactive)
-  (if (or (eq last-command 'fei-scroll-down-line)
-	  (eq last-command 'fei-scroll-up-line))
-      (scroll-up-line)
-    (scroll-up-line)
-    (fei-pulse-current-line)))
-
-(defun fei-scroll-down-line ()
-  (interactive)
-  (if (or (eq last-command 'fei-scroll-down-line)
-	  (eq last-command 'fei-scroll-up-line))
-      (scroll-down-line)
-    (scroll-down-line)
-    (fei-pulse-current-line)))
-
 (autoload 'duplicate-line-below-comment "duplicate-line" nil t)
 (autoload 'duplicate-line-or-region-below "duplicate-line" nil t)
 (defun fei-duplicate-line-or-region (&optional arg)

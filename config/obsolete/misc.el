@@ -1,5 +1,22 @@
 ;; 一些不再使用的包的配置放到这个位置
 
+(defun fei-scroll-up-line ()
+  (interactive)
+  (if (or (eq last-command 'fei-scroll-down-line)
+	  (eq last-command 'fei-scroll-up-line))
+      (scroll-up-line)
+    (scroll-up-line)
+    (fei-pulse-current-line)))
+
+(defun fei-scroll-down-line ()
+  (interactive)
+  (if (or (eq last-command 'fei-scroll-down-line)
+	  (eq last-command 'fei-scroll-up-line))
+      (scroll-down-line)
+    (scroll-down-line)
+    (fei-pulse-current-line)))
+
+
 ;; Fcitx
 ;; (setq fcitx-active-evil-states '(insert emacs hybrid))
 ;; (fcitx-evil-turn-on)

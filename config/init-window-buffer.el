@@ -9,7 +9,7 @@
 ;; Ace-Window
 (setq aw-ignore-current nil)
 (setq aw-dispatch-when-more-than 2)
-(setq aw-scope 'frame)
+(setq aw-scope 'global)
 (setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
 (setq aw-char-position 'top-left)
 (custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))

@@ -215,7 +215,8 @@
 (global-set-key (kbd "C-h C-y") 'engine/search-quword)
 (global-set-key (kbd "C-M-<return>") 'engine/search-google)
 
-(global-set-key (kbd "C-x n c") 'narrow-to-region-indirect)
+(global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
+(global-set-key (kbd "C-x n N") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
 
 (global-set-key (kbd "M-c") 'capitalize-dwim)

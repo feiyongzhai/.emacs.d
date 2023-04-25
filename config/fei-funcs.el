@@ -142,14 +142,17 @@
     (fill-paragraph nil region)))
 
 
-(defun back-to-indentation-or-beginning () (interactive)
-       (if (= (point) (progn (beginning-of-line-text) (point)))
-	   (beginning-of-line)))
+(defun back-to-indentation-or-beginning ()
+  (interactive)
+  (if (= (point) (progn (beginning-of-line-text) (point)))
+      (beginning-of-line)))
 
 
+
 (defun fei/narrow-one-line ()
   (interactive)
   (narrow-to-region (line-beginning-position) (line-end-position)))
+
 
 ;;;###autoload
 (defun store-register-dwim (arg register)

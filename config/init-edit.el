@@ -41,6 +41,14 @@
     (with-current-buffer buf
       (narrow-to-region start end))))
 
+(defun narrow-to-line-indirect ()
+  "Restrict editing in this buffer to the current line, indirectly."
+  (interactive)
+  (deactivate-mark)
+  (let ((buf (clone-indirect-buffer nil 'display)))
+    (with-current-buffer buf
+      (narrow-to-region (line-beginning-position) (line-end-position)))))
+
 (defun yank-and-indent ()
   (interactive)
   (yank)

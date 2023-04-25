@@ -146,7 +146,8 @@
 	(define-key map "x" #'searchbox-search-xueshu)
 	(define-key map "h" #'searchbox-switch-engine)
 	(define-key map "H" #'webjump)
-	(define-key map "e" (li (searchbox-search t)))
+	;; (define-key map "e" (li (searchbox-search t)))
+	(define-key map "e" #'searchbox-edit-string)
 	(define-key map "s" #'searchbox-search)
 	(define-key map "w" #'searchbox-copy-string)
 	(define-key map (kbd "M-p") #'searchbox-prev-hist)
@@ -156,6 +157,32 @@
       )
     )
   )
+
+(defun searchbox-edit-string ()
+  (interactive)
+  (let ((buffer (get-buffer-create searchbox-buffer)))
+    (with-current-buffer buffer
+
+      (read-only-mode -1)
+      (erase-buffer)
+      (goto-char (point-min))
+      (insert searchbox-string)
+
+      (use-local-map nil)		; 先清除 keybinding
+      (let ((map (make-sparse-keymap)))
+	(set-keymap-parent map (current-local-map))
+        (define-key map (kbd "C-c C-c") #'searchbox-edit-confirm)
+	(define-key map (kbd "C-c C-k") #'searchbox-edit-cancel)
+        (use-local-map map)))))
+
+(defun searchbox-edit-confirm ()
+  (interactive)
+  (setq searchbox-string (buffer-substring-no-properties (point-min) (point-max)))
+  (searchbox-refresh-buffer)
+  (searchbox-search-google)
+  )
+
+(defalias 'searchbox-edit-cancel 'searchbox-refresh-buffer)
 
 (defun searchbox-copy-string ()
   (interactive)

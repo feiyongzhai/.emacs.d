@@ -59,6 +59,7 @@
 	cal-china-x			; 日历汉化
 	vundo				; 可视化 undo
 	hackernews			; hackernews 客户端
+	hnreader			; hackernews 客户端2
 	use-package			; 包管理器
 	general				; 按键配置器
 	elfeed				; rss 客户端

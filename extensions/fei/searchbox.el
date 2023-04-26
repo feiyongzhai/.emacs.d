@@ -178,6 +178,8 @@
 (defun searchbox-edit-confirm ()
   (interactive)
   (setq searchbox-string (buffer-substring-no-properties (point-min) (point-max)))
+  (push searchbox-string searchbox-string-hist)
+  (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
   (searchbox-refresh-buffer)
   (searchbox-search-google)
   )

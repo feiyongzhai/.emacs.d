@@ -281,8 +281,11 @@
 (global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
 (global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
-(global-set-key (kbd "M-s m") 'execute-extended-command)
-(global-set-key (kbd "M-s M-m") 'execute-extended-command)
+
+(global-set-key (kbd "C-4") 'set-selective-display-dwim)
+(global-set-key (kbd "C-x C-4") 'set-selective-display)
+
+(global-set-key (kbd "M-s m") 'minimize-window)
 
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 
@@ -332,9 +335,12 @@
   (global-set-key (kbd "M-[") 'backward-paragraph))
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
-(global-set-key (kbd "M-s =") 'calculator)
+(global-set-key (kbd "M-s =") 'quick-calc)
 
 (global-set-key (kbd "C-c o") 'fei-swiper-isearch2)
+
+(with-eval-after-load 'c++-mode
+  (define-key c++-mode-map (kbd "<f5>") #'fei-g++-compile-and-run))
 
 (global-set-key (kbd "M-o ,") 'embark-act)
 (when (display-graphic-p)		;终端 M-O 快捷键有特殊含义
@@ -684,7 +690,7 @@
 
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
-(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-all)
+(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 
 ;;; Helpful
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)

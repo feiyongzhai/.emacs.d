@@ -11,6 +11,7 @@
 
 (setq echo-keystrokes 0.1)
 
+(defalias 'fi 'fei-rime-force-enable)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'code 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
@@ -34,6 +35,8 @@
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
+
+(defalias 'eshell/S 'searchbox-refresh-buffer)
 
 (defalias 'eshell/y 'youdao-dictionary-search)
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)

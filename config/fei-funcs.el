@@ -1,6 +1,11 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun set-selective-display-dwim ()
+  (interactive)
+  (set-selective-display (1+ (current-column))))
+
+
 (defun fei/line-spacing-adjust (inc)
   (interactive "p")
   (let ((ev last-command-event)

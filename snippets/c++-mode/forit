@@ -3,5 +3,6 @@
 # key: forit
 # --
 for (${1:auto }${2:it} = ${3:var}.begin(); $2 != $3.end(); ++$2) {
+    // cout << *it << ' ';
     $0
 }

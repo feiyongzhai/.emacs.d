@@ -29,6 +29,10 @@
 		("HackNews" . "https://news.ycombinator.com/")
 		("Google street" . "https://neal.fun/wonders-of-street-view/")
 		("Steveshuo" . "http://steveshuo.com/")
+		("cplusplus" . "https://cplusplus.com/")
+		("cppsh" . "https://cpp.sh/")
+		("cppsh" . "https://cpp.sh/")
+		("cppreference" . "https://en.cppreference.com/w/")
 		("Emacs China" .
 		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
 		("YouTube" .

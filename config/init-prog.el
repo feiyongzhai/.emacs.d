@@ -4,6 +4,10 @@
 (require 'init-matlab)
 (require 'init-c)
 (require 'init-web)
+(require 'hideshowvis)
+
+;; indent
+(setq-default indent-tabs-mode nil)	;使用 space 代替 tab
 
 ;;; prog-mode-hook
 (add-hook 'prog-mode-hook '+fei-prog-hook)
@@ -15,6 +19,8 @@
   (hs-minor-mode t)
   (diff-hl-mode t)
   (toggle-truncate-lines 1)
+  (hideshowvis-enable)
+  (hideshowvis-symbols)
   (yas-minor-mode t))
 
 ;;; Octave

@@ -197,10 +197,12 @@
 
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
+(global-set-key (kbd "C-c SPC") 'fei-switch-to-treemacs)
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
   (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
+  (define-key eshell-cmpl-mode-map (kbd "C-c SPC") nil)
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
@@ -551,8 +553,7 @@
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
 ;; ace-window 可以 跳到 side-windows 上面，但是 other-window 不行
-;; (global-set-key (kbd "C-x o") 'ace-window)
-(global-set-key (kbd "C-x o") 'ace-select-window) ;ace-select-window 也不会选 side bar
+(global-set-key (kbd "C-x o") 'other-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x M-o") 'other-frame)
 
@@ -721,6 +722,7 @@
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
 (with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map (kbd "N") 'treemacs-next-workspace)
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
   (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
   (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))

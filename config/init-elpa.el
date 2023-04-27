@@ -83,14 +83,14 @@
 	all-the-icons-ibuffer
 	smart-mode-line
 	standard-themes
-	auto-dim-other-buffers
+	;; auto-dim-other-buffers
 
 	;; === 窗口管理 ===
 	popper bookmark-view
 
 	;; ==== 编辑相关 ====
 	hungry-delete		 ;发现一个自带的命令 `c-hungry-delete'
-	backward-forward goto-chg
+	goto-chg
 	highlight-parentheses highlight-indentation
 	company corfu yasnippet avy electric-spacing
 	iedit symbol-overlay separedit smartparens
@@ -123,7 +123,7 @@
 	;; helm-chrome helm-chrome-history
 
 	;; ==== 备忘 ====
-	;; minions helm-org-rifle
+	;; minions helm-org-rifle backward-forward
 	;; tab-bar-echo-area eyebrowse
 	;; academic-phrases valign tldr
 	;; adafruit-wisdom anzu eshell-git-prompt gcmh

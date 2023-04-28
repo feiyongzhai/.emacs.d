@@ -63,6 +63,9 @@
 ;;
 ;;; Changelog
 ;;
+;; v0.7, 2023-04-28
+;; - Adjust face `hs-face'
+;;
 ;; v0.6, 2023-04-28
 ;; - Add new keymap `hideshowvis-overlay-map'
 ;;
@@ -210,7 +213,7 @@ the end of the line for hidden regions."
     :group 'hideshow)
   
   (defface hs-face
-    '((t (:background "#ff8" :box t)))
+    '((t (:inherit default :box t)))
     "Face to hightlight the ... area of hidden regions"
     :group 'hideshow)
 

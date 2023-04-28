@@ -10,6 +10,7 @@
 
 (custom-set-faces
  '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
+ ;; '(default ((t (:family "GoMono Nerd Font Mono" :foundry "    " :slant normal :weight normal :height 98 :width normal))))
  ;; '(default ((t (:family "Hack" :foundry "simp" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "等距更纱黑体 SC" :foundry "????" :slant normal :weight normal :height 158 :width normal))))

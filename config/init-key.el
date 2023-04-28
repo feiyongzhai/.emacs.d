@@ -669,7 +669,9 @@
   (define-key term-raw-map (kbd "M-s") 'nil))
 
 (with-eval-after-load 'python
-  (define-key python-mode-map (kbd "<f5>") (li (compile (concat "python3 " (buffer-file-name))))))
+  (define-key python-mode-map (kbd "<f5>") (li (compile (concat "python3 " (buffer-file-name)))))
+  (define-key python-mode-map (kbd "C-c C-k") 'python-shell-send-buffer)
+  (define-key python-mode-map (kbd "C-c C-c") 'fei-python-compile-and-run))
 
 (setq rime-translate-keybindings
       '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"

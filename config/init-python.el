@@ -32,4 +32,11 @@
   (interactive)
   (jump-to-same-indent -1))
 
+(defun fei-python-compile-and-run ()
+  (interactive)
+  (compile (format "python3 %s" (buffer-file-name)) t)
+  (pop-to-buffer "*compilation*")
+  (with-current-buffer "*compilation*"
+    (goto-char (point-max))))
+
 (provide 'init-python)

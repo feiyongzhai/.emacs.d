@@ -63,6 +63,9 @@
 ;;
 ;;; Changelog
 ;;
+;; v0.6, 2023-04-28
+;; - Add new keymap `hideshowvis-overlay-map'
+;;
 ;; v0.5, 2012-09-11
 ;; - Made ELPA compliant and added function `hideshowvis-symbols'
 ;;
@@ -210,6 +213,10 @@ the end of the line for hidden regions."
     '((t (:background "#ff8" :box t)))
     "Face to hightlight the ... area of hidden regions"
     :group 'hideshow)
+
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<mouse-1>") 'hs-toggle-hiding)
+    (defvar hideshowvis-overlay-map map))
   
   (defun display-code-line-counts (ov)
     (when (eq 'code (overlay-get ov 'hs))
@@ -217,11 +224,12 @@ the end of the line for hidden regions."
              (marker-length (length marker-string))
              (display-string (format "(%d)..." (count-lines (overlay-start ov) (overlay-end ov))))
              )
-        (overlay-put ov 'help-echo "Hiddent text. C-c,= to show")
+        (overlay-put ov 'help-echo "Hiddent text. <mouse-1> to show")
         (put-text-property 0 marker-length 'display (list 'left-fringe 'hs-marker 'hs-fringe-face) marker-string)
         (overlay-put ov 'before-string marker-string)
         (put-text-property 0 (length display-string) 'face 'hs-face display-string)
         (overlay-put ov 'display display-string)
+        (overlay-put ov 'keymap hideshowvis-overlay-map)
         )))
   
   (setq hs-set-up-overlay 'display-code-line-counts))

@@ -67,8 +67,7 @@
 	  (ibuffer-pop-filter)
 	(ibuffer-pop-filter)
 	(ibuffer-push-filter '(filename . "Nutstore Files/org/"))
-	(ibuffer-update nil t)
-	)
+	(ibuffer-update nil t))
     (progn (ibuffer-push-filter '(filename . "Nutstore Files/org/"))
 	   (ibuffer-update nil t))))
 
@@ -80,8 +79,7 @@
 	  (ibuffer-pop-filter)
 	(ibuffer-pop-filter)
 	(ibuffer-push-filter '(filename . "\\.emacs\\.d"))
-	(ibuffer-update nil t)
-	)
+	(ibuffer-update nil t))
     (progn (ibuffer-push-filter '(filename . "\\.emacs\\.d"))
 	   (ibuffer-update nil t))))
 
@@ -93,9 +91,20 @@
 	  (ibuffer-pop-filter)
 	(ibuffer-pop-filter)
 	(ibuffer-push-filter '(filename . ".*"))
-	(ibuffer-update nil t)
-	)
+	(ibuffer-update nil t))
     (progn (ibuffer-push-filter '(filename . ".*"))
+	   (ibuffer-update nil t))))
+
+(defun ibuffer-toggle-special ()
+  "抄的 `ibuffer-bs-toggle-all'"
+  (interactive)
+  (if ibuffer-filtering-qualifiers
+      (if (equal ibuffer-filtering-qualifiers '((not starred-name)))
+	  (ibuffer-pop-filter)
+	(ibuffer-pop-filter)
+	(ibuffer-push-filter '(not starred-name))
+	(ibuffer-update nil t))
+    (progn (ibuffer-push-filter '(not starred-name))
 	   (ibuffer-update nil t))))
 
 (provide 'init-ibuffer)

@@ -35,8 +35,6 @@ swiper 和 isearch 够用了
 概念太复杂了，用起来心智负担大
 * neotree                                                              :弃用:
 用 dirvish-side 和 treemacs 代替
-* highlight-indent-guides                                              :弃用:
-在用 highlight-indentation       
 * goto-line-preview                                                    :弃用:
 在用 consult-goto-line
 * deadgrep                                                             :弃用:

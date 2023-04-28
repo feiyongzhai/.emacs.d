@@ -788,6 +788,7 @@
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
   (define-key ibuffer-mode-map (kbd "_") 'fei-remove-ibuffer-tmp-hide-regexps)
   (define-key ibuffer-mode-map (kbd "a") 'ibuffer-toggle-all)
+  (define-key ibuffer-mode-map (kbd "z") 'ibuffer-toggle-special)
   (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
   (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
   (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
@@ -904,6 +905,7 @@
   (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'compilation-mode)
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
+  (define-key compilation-mode-map (kbd "G") 'fei-cmp-change-run)
   (define-key compilation-mode-map (kbd "i") 'fit-window-to-buffer)
   (define-key compilation-mode-map (kbd "l") 'recompile)
   (define-key compilation-mode-map (kbd "m") 'minimize-window)

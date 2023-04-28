@@ -9,6 +9,10 @@
 ;; indent
 (setq-default indent-tabs-mode nil)	;使用 space 代替 tab
 
+;; highlight-indent-guides emacs-china 上说比较慢，还没有体验到
+(setq highlight-indent-guides-method 'character)
+(setq highlight-indent-guides-responsive 'top)
+
 ;;; prog-mode-hook
 (add-hook 'prog-mode-hook '+fei-prog-hook)
 (defun +fei-prog-hook ()
@@ -19,6 +23,7 @@
   (hs-minor-mode t)
   (diff-hl-mode t)
   (toggle-truncate-lines 1)
+  (highlight-indent-guides-mode)
   (hideshowvis-enable)
   (hideshowvis-symbols)
   (yas-minor-mode t))

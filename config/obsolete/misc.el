@@ -1,6 +1,14 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+;; 这个命令比较慢，弃用
+(defun fei-cmp-change-run ()
+  (interactive)
+  (kill-compilation)
+  (compile compile-command t))
+(define-key compilation-mode-map (kbd "G") 'fei-cmp-change-run)
+
+
 ;; Ibuffer
 (setq ibuffer-show-empty-filter-groups nil) ;; 不显示空组
 (setq ibuffer-movement-cycle nil)

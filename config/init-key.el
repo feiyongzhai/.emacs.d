@@ -198,6 +198,8 @@
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-c SPC") 'fei-switch-to-treemacs)
+(global-set-key (kbd "M-s M-e") 'fei-switch-to-treemacs)
+(global-set-key (kbd "M-s t") 'fei-switch-to-treemacs)
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
@@ -341,8 +343,11 @@
 
 (global-set-key (kbd "C-c o") 'fei-swiper-isearch2)
 
-(with-eval-after-load 'c++-mode
-  (define-key c++-mode-map (kbd "<f5>") #'fei-g++-compile-and-run))
+(with-eval-after-load 'cc-mode        ; 注意不是 c++-mode 而是 cc-mode
+  (define-key c-mode-base-map (kbd "<f5>") #'fei-g++-compile-and-run)
+  (define-key c-mode-base-map (kbd "C-c C-r") #'quickrun-shell)
+  (define-key c-mode-base-map (kbd "C-c C-c") #'fei-g++-compile-and-run) ;was `comment-region'
+  )
 
 (global-set-key (kbd "M-o ,") 'embark-act)
 (when (display-graphic-p)		;终端 M-O 快捷键有特殊含义
@@ -545,6 +550,7 @@
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
+(global-set-key (kbd "C-x w u") 'tab-bar-history-back)
 (global-set-key (kbd "C-x w h") 'windmove-left)
 (global-set-key (kbd "C-x w l") 'windmove-right)
 (global-set-key (kbd "C-x w j") 'windmove-down)
@@ -598,6 +604,7 @@
 (setq embark-cycle-key ",")
 (autoload 'vertico-multiform-posframe "vertico-posframe" nil t)
 (define-key vertico-multiform-map (kbd "M-P") 'vertico-multiform-posframe)
+(define-key vertico-map (kbd "M-h") 'vertico-exit)
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
@@ -894,6 +901,7 @@
 
 ;;; Compile
 (with-eval-after-load 'compile
+  (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'compilation-mode)
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
   (define-key compilation-mode-map (kbd "i") 'fit-window-to-buffer)

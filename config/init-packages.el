@@ -33,6 +33,26 @@
   (setq treemacs-position 'right)
   (treemacs))
 
+(defun treemacs-dired-jump ()
+  "魔改自 `treemacs-select-directory'"
+  (interactive)
+  (require 'treemacs)
+  (treemacs-block
+   (let* ((path (-> default-directory
+                    (treemacs-canonical-path)))
+          (name (treemacs--filename path))
+          (ws (treemacs-current-workspace)))
+     (treemacs-return-if
+         (and (= 1 (length (treemacs-workspace->projects ws)))
+              (string= path (-> ws
+                                (treemacs-workspace->projects)
+                                (car)
+                                (treemacs-project->path))))
+       (treemacs-select-window))
+     (treemacs--show-single-project path name)
+     (treemacs-pulse-on-success "Now showing %s"
+       (propertize path 'face 'font-lock-string-face)))))
+
 ;;; Imenu-list
 (setq imenu-list-focus-after-activation t)
 

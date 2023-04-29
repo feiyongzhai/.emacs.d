@@ -1,6 +1,14 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
+(fei-repeat fr/bury-or-unbury-buffer
+  (progn (window-configuration-to-register ?b)
+	 (bury-buffer))
+  '(("b" . bury-buffer)
+    ("," . unbury-buffer)))
+
+
 ;; Ibuffer
 (setq ibuffer-show-empty-filter-groups nil) ;; 不显示空组
 (setq ibuffer-movement-cycle nil)

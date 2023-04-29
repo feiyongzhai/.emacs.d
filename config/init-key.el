@@ -6,7 +6,10 @@
 (define-key minibuffer-mode-map (kbd "M-q") 'minibuffer-keyboard-quit)
 (with-eval-after-load 'vertico
   (define-key vertico-map (kbd "M-e") 'vertico-next)
+  (define-key vertico-map (kbd "M-j") 'vertico-next)
+  (define-key vertico-map (kbd "M-k") 'vertico-previous)
   (define-key vertico-map (kbd "M-a") 'vertico-exit)
+  (define-key vertico-map (kbd "M-g") 'minibuffer-keyboard-quit)
   (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit))
 
 (with-eval-after-load 'matlab
@@ -296,7 +299,8 @@
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
 (global-set-key (kbd "C-x L") 'vc-print-root-log)
 
-(global-set-key (kbd "M-s M-i") 'dirvish-side)
+(global-set-key (kbd "M-s M-i") 'treemacs-dired-jump)
+(global-set-key (kbd "M-s C-i") 'treemacs-select-directory)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 (global-set-key (kbd "M-s e") 'treemacs)
 
@@ -314,7 +318,6 @@
 (global-set-key (kbd "M-s-j") 'make-frame-command)
 
 (global-set-key "\M-Q" 'unfill-paragraph)
-(global-set-key (kbd "M-s TAB") 'window-toggle-side-windows)
 (global-set-key (kbd "C-S-i") 'insert-register)
 (global-set-key (kbd "C-S-m") 'point-to-register)
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
@@ -563,14 +566,7 @@
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x M-o") 'other-frame)
 
-(global-set-key (kbd "M-s b") 'fr/bury-or-unbury-buffer)
-
-;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
-(fei-repeat fr/bury-or-unbury-buffer
-  (progn (window-configuration-to-register ?b)
-	 (bury-buffer))
-  '(("b" . bury-buffer)
-    ("," . unbury-buffer)))
+(global-set-key (kbd "M-s b") 'consult-buffer)
 
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
 
@@ -732,6 +728,7 @@
 
 (with-eval-after-load 'treemacs
   (define-key treemacs-mode-map (kbd "N") 'treemacs-next-workspace)
+  (define-key treemacs-mode-map (kbd "S") 'treemacs-select-directory)
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
   (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
   (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))

@@ -727,6 +727,8 @@
   (define-key org-agenda-mode-map (kbd "K") 'org-agenda-capture))
 
 (with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map (kbd "e") 'fei-eshell-cd-here)
+  (define-key treemacs-mode-map (kbd "z") 'fei-compile)
   (define-key treemacs-mode-map (kbd "N") 'treemacs-next-workspace)
   (define-key treemacs-mode-map (kbd "S") 'treemacs-select-directory)
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)

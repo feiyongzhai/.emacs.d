@@ -34,9 +34,15 @@
   (treemacs))
 
 (defun treemacs-dired-jump ()
-  "魔改自 `treemacs-select-directory'"
+  "魔改自 `treemacs-select-directory'
+
+一个已知但是不影响使用的问题：当切换目录的时候使用这个命令会出现一次
+Error running timer ‘treemacs--apply-annotations-deferred’
+的错误，之后如果不切换目录就不会出现。"
   (interactive)
   (require 'treemacs)
+  (treemacs-do-create-workspace "Copilot")
+  (treemacs-do-switch-workspace "Copilot")
   (treemacs-block
    (let* ((path (-> default-directory
                     (treemacs-canonical-path)))

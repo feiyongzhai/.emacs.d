@@ -349,6 +349,7 @@
 (with-eval-after-load 'cc-mode        ; 注意不是 c++-mode 而是 cc-mode
   (define-key c-mode-base-map (kbd "<f5>") #'fei-g++-compile-and-run)
   (define-key c-mode-base-map (kbd "C-c C-r") #'quickrun-shell)
+  ;; (define-key c-mode-base-map (kbd "C-c M-m") 'helm-make) ; 备忘
   (define-key c-mode-base-map (kbd "C-c C-c") #'fei-g++-compile-and-run) ;was `comment-region'
   )
 

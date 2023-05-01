@@ -5,7 +5,11 @@
 
 (defun fei-g++-compile-and-run ()
   (interactive)
-  (compile (format "g++ '%s' && ./a.out" (buffer-file-name)) t)
+  (compile
+   (format "%s '%s' && ./a.out"
+           (if (eq major-mode 'c-mode) "gcc" "g++")
+           (buffer-file-name))
+   t)
   (pop-to-buffer "*compilation*")
   (with-current-buffer "*compilation*"
     (goto-char (point-max))))

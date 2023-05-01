@@ -903,7 +903,8 @@
 
 ;;; Compile
 (with-eval-after-load 'compile
-  (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'compilation-mode)
+  ;; (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'compilation-minor-mode) ; 这个方式也不错
+  (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'fei-kill-compilation)
   (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
   (define-key compilation-mode-map (kbd "G") 'fei-cmp-change-run)

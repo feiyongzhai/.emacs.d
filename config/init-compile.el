@@ -1,3 +1,8 @@
+(defun fei-kill-compilation ()
+  (interactive)
+  (ignore-errors (kill-compilation) (message "hh"))
+  (compilation-mode))
+
 (defun fei-cmp-change-run ()
   (interactive)
   (kill-compilation)

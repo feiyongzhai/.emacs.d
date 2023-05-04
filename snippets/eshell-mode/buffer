@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: buffer
+# key: >b
+# type: command
+# --
+(insert "> #<buffer *xx*>; switch-to-buffer *xx*")
+(call-interactively 'eshell-send-input)

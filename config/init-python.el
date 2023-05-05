@@ -9,7 +9,7 @@
 
 ;; 看网上的讨论 yafolding-mode 只是单纯的根据缩进折叠，所以只在 python 中启用了
 (add-hook 'python-mode-hook 'yafolding-mode)
-(add-hook 'python-mode-hook 'highlight-indentation-mode)
+;; (add-hook 'python-mode-hook 'highlight-indentation-mode)
 (add-hook 'python-mode-hook 'electric-pair-local-mode)
 (add-hook 'inferior-python-mode-hook 'electric-pair-local-mode)
 

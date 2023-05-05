@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cout
+# key: cout
+# --
+printf("${1:format string}"${2: ,a0,a1});

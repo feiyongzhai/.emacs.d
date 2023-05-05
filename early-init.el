@@ -52,9 +52,6 @@
 (setq frame-inhibit-implied-resize t)	;不要缩放frame.
 ;; (setq initial-scratch-message "")
 
-(setq modus-themes-mode-line '(3d))
-;; (load-theme 'modus-operandi t)
-
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (unless *is-termux*

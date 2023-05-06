@@ -332,7 +332,9 @@ must be a valid window and defaults to the selected one. Return
 nil."
   (interactive)
   (condition-case nil
-      (delete-window window)
+      (progn
+        (bury-buffer)
+        (delete-window window))
     (error (cond ((minibufferp)
 		  (keyboard-escape-quit))
 		 ((and tab-bar-mode

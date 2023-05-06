@@ -466,8 +466,10 @@
 (global-set-key (kbd "M-J") (li (deactivate-input-method)))
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
-(global-set-key (kbd "C-9") 'jetbrains-open-buffer-file)
-(global-set-key (kbd "C-M-9") 'jetbrains-create-dir-local-file)
+(global-set-key (kbd "C-9") 'tab-bar-history-back)
+(global-set-key (kbd "C-x 9") 'tab-bar-history-back)
+(global-set-key (kbd "C-8") 'jetbrains-open-buffer-file)
+(global-set-key (kbd "C-M-8") 'jetbrains-create-dir-local-file)
 
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)
 (global-set-key (kbd "M-s R") 'rg-dwim-current-dir)

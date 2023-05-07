@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: strtok
+# key: strtok
+# --
+char *token;
+token = strtok(${1:str}, ${2:delim});
+while(token != NULL) {
+  printf("%s\n", token); // your operation
+  token = strtok(NULL, $2);
+}

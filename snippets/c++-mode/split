@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: split
+# key: sp
+# --
+stringstream ss(str);
+string token; vector<string> tokens;
+while(getline(ss, token, ${1:delim})) {
+  tokens.push_back(token);
+}

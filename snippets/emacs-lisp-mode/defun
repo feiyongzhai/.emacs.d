@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: defun
-# key: def
-# group : d
-# --
-(defun $0)

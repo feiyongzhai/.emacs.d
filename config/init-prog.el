@@ -17,7 +17,6 @@
 (add-hook 'prog-mode-hook '+fei-prog-hook)
 (defun +fei-prog-hook ()
   (outline-minor-mode t)
-  (display-line-numbers-mode t)
   (company-mode t)
   (hl-line-mode t)
   (hs-minor-mode t)

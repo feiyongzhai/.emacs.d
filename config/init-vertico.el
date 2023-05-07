@@ -14,7 +14,6 @@
 	(cua-paste-pop)
 	(execute-extended-command flat)
 	(embark-act grid)
-        (consult-imenu posframe)
 	(fei-consult-ripgrep-my-org)
         (rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)

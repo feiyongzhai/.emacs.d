@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: defvar
-# key: defvar
-# group : d
-# --
-(defvar $0)

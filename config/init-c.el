@@ -5,6 +5,7 @@
 
 (defun fei-g++-compile-and-run ()
   (interactive)
+  (save-buffer (current-buffer))
   (compile
    (format
     ;; 不知道在 windows 平台为什么必须是双引号，单引号不行；但在 powershell 或 eshell 中单双引号都可以。
@@ -14,7 +15,7 @@
     (if (eq major-mode 'c-mode) "gcc" "g++")
     (buffer-file-name))
    t)
-  (pop-to-buffer "*compilation*")
+  (pop-to-buffer "*compilation*" '(nil (window-height . 0.3)))
   (with-current-buffer "*compilation*"
     (goto-char (point-max))))
 

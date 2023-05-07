@@ -2,7 +2,7 @@
 ;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
 
 ;; 功能1: 切换 buffer
-(global-set-key (kbd "M-e") 'consult-buffer)
+(global-set-key (kbd "M-e") 'fei/buffer-or-tab-recent)
 (define-key minibuffer-mode-map (kbd "M-q") 'minibuffer-keyboard-quit)
 (with-eval-after-load 'vertico
   (define-key vertico-map (kbd "M-e") 'vertico-next)
@@ -58,7 +58,7 @@
     ("g" . fei-vc-dired-jump)
     ("M-g" . magit)
     ("t" . fei-switch-to-treemacs)
-    ("h" . mode-line-other-buffer)
+    ("h" . fei/buffer-or-tab-recent)
     ("i" . ibuffer)
     ("j" . fei-counsel-recentf-pinyin)
     ("J" . consult-dir)
@@ -250,8 +250,6 @@
 ;; (global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c i") 'consult-imenu)
 
-(global-set-key [remap goto-line] 'consult-goto-line)
-
 (global-set-key (kbd "M-s `") 'bury-buffer)
 (global-set-key (kbd "M-s ,") 'tab-bar-history-back) ; 这个可以处理 quit-window
 ;; (global-set-key (kbd "M-s ,") 'unbury-buffer)
@@ -374,7 +372,7 @@
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 ;; (global-set-key (kbd "C-x b") 'fei-counsel-switch-buffer)
-(global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "C-x b") 'switch-to-buffer)
 
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
@@ -491,8 +489,8 @@
 (global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
 (add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
 (defun fei-tab-bar-define-key ()
-  (global-set-key (kbd "M-1") 'fei-select-tab) ;主 tab
-  (global-set-key (kbd "M-2") 'fei-select-tab) ;从 tab
+  (global-set-key (kbd "M-1") 'fei-select-tab)
+  (global-set-key (kbd "M-2") 'fei-select-tab)
   )
 
 (global-set-key (kbd "C-=") 'text-scale-adjust)

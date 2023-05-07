@@ -1,8 +1,7 @@
 # -*- mode: snippet -*-
-# contributor: York Zhao <gtdplatform@gmail.com>
-# name: cout
-# key: cout
+# name: dout
+# key: dout
 # --
 `(progn (goto-char (point-min)) (unless (re-search-forward
 "^using\\s-+namespace std;" nil 'no-errer) "std::"))
-`cout << ${1:} << endl;
+`cout << "$1: " << $1 << endl; // DEBUG

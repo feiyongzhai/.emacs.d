@@ -2,7 +2,7 @@
 # name: forit
 # key: forit
 # --
-for (${1:auto }${2:it} = ${3:var}.begin(); $2 != $3.end(); ++$2) {
+for (auto it = ${1:var}.begin(); it != $1.end(); ++it) {
     // cout << *it << ' ';
     $0
 }

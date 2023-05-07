@@ -1,6 +1,24 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defun workmode ()
+  (interactive)
+  (treemacs-dired-jump)
+  (tab-bar-mode))
+
+
+(defun fei/buffer-or-tab-recent (&optional window)
+  (interactive)
+  (cond ((minibufferp)
+	 (keyboard-escape-quit))
+	((and tab-bar-mode
+              (> (length (funcall tab-bar-tabs-function)) 1))
+	 (tab-recent))
+	(t
+	 (mode-line-other-buffer))
+	))
+
+
 (defun set-selective-display-dwim ()
   (interactive)
   (set-selective-display (1+ (current-column))))

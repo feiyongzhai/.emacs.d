@@ -55,8 +55,6 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (unless *is-termux*
-  ;; 该配置和 diff-hl 配合使用，不设为 0 0 是因为 dirvish 在 0 0 配置下有的时候工作不正常
-  (fringe-mode '(1 . 1))
   (scroll-bar-mode -1)
 
   ;; `early-init.el' 可对 emacsclient 生效

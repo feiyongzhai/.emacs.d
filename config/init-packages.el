@@ -145,7 +145,7 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 
 
 (setq diff-hl-show-staged-changes nil)
-(diff-hl-margin-mode)
+;; (diff-hl-margin-mode)
 
 (setq keyfreq-file "~/.emacs.d/.cache/emacs.keyfreq")
 

@@ -7,7 +7,7 @@
 (require 'hideshowvis)
 
 ;; indent
-(setq-default indent-tabs-mode nil)	;使用 space 代替 tab
+(setq-default indent-tabs-mode nil)	;space 代替 tab
 
 ;; highlight-indent-guides emacs-china 上说比较慢，还没有体验到
 (setq highlight-indent-guides-method 'character)
@@ -18,8 +18,8 @@
 (defun +fei-prog-hook ()
   (outline-minor-mode t)
   (company-mode t)
-  (hl-line-mode t)
   (hs-minor-mode t)
+  ;; (hl-line-mode t)
   (diff-hl-mode t)
   (toggle-truncate-lines 1)
   (highlight-indent-guides-mode)

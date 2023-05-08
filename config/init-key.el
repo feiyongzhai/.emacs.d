@@ -44,7 +44,7 @@
     ("SPC" . fei-org-capture-TODO)
     ("RET" . searchbox-search)
     ("a" . org-agenda-list)
-    ("b" . consult-buffer)
+    ("b" . switch-to-buffer)
     ("M-b" . boxes-command-on-region)
     ("c" . fei-org-capture-TODO)	;这组按键不好按
     ("d" . fei/olivetti-truncate)
@@ -342,7 +342,7 @@
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 (global-set-key (kbd "M-s =") 'quick-calc)
 
-(global-set-key (kbd "C-c o") 'fei-swiper-isearch2)
+(global-set-key (kbd "C-c o") 'consult-line)
 
 (with-eval-after-load 'cc-mode        ; 注意不是 c++-mode 而是 cc-mode
   (define-key c-mode-base-map (kbd "<f5>") #'fei-g++-compile-and-run)
@@ -357,8 +357,8 @@
 (global-set-key (kbd "M-.") 'embark-dwim)
 
 ;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
-(global-set-key (kbd "C-c C-o") 'rg-dwim)
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
+(global-set-key (kbd "C-c C-o") 'rg-dwim)
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
 
@@ -366,6 +366,7 @@
 (global-set-key (kbd "M-p") 'fei/scroll-down-push-mark)
 
 (global-set-key (kbd "M-s u") 'jump-to-register)
+(global-set-key (kbd "M-s M-u") 'jump-to-register)
 
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
@@ -479,8 +480,8 @@
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-s M-w") 'searchbox-search)
-(global-set-key (kbd "M-s M-s") 'fei-search)
+(global-set-key (kbd "M-s M-w") 'fei-search)
+(global-set-key (kbd "M-s M-s") 'searchbox-search)
 (global-set-key (kbd "M-s s") 'fei-search)
 (global-set-key (kbd "M-S") 'fei-search)
 

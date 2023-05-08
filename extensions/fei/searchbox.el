@@ -99,17 +99,12 @@
 (defun searchbox-refresh-buffer ()
   (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
-    (display-buffer-in-side-window
-     buffer '(nil (window-height . 2)
-		  (body-function . select-window)
-                  (window-parameters . ((mode-line-format . none)))
-		  (side . top)))
-
-    (read-only-mode -1)
     (with-current-buffer buffer
+      (read-only-mode -1)
       (erase-buffer)
       (insert "搜索：> " (if searchbox-string searchbox-string "") " <")
-      (insert "\n")
+      ;; (insert "\n")
+      (insert " ")
 
       (insert-button "Quit" 'action `(lambda (_) (quit-window)))
       (insert " | ")
@@ -159,8 +154,11 @@
 	(define-key map "q" #'quit-window)
 	(use-local-map map))
       )
-    )
-  )
+    (display-buffer-in-side-window
+     buffer '(nil (window-height . 1)
+		  (body-function . select-window)
+                  (window-parameters . ((mode-line-format . none)))
+		  (side . bottom)))))
 
 (defun searchbox-edit-string ()
   (interactive)

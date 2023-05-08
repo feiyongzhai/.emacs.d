@@ -54,7 +54,7 @@
    (lambda ()
      ;; 把一些不是立刻需要的功能放到这里
      (require 'init-mouse)
-     (require 'init-tool-bar)
+     ;; (require 'init-tool-bar)
      (require 'init-menu-bar)
 
      (require 'init-pyim)

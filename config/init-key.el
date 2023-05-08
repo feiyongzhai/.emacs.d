@@ -6,8 +6,6 @@
 (define-key minibuffer-mode-map (kbd "M-q") 'minibuffer-keyboard-quit)
 (with-eval-after-load 'vertico
   (define-key vertico-map (kbd "M-e") 'vertico-next)
-  (define-key vertico-map (kbd "M-j") 'vertico-next)
-  (define-key vertico-map (kbd "M-k") 'vertico-previous)
   (define-key vertico-map (kbd "M-a") 'vertico-exit)
   (define-key vertico-map (kbd "M-g") 'minibuffer-keyboard-quit)
   (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit))
@@ -169,6 +167,8 @@
        (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
 
 (global-set-key (kbd "M-j") 'scroll-up-line)
+(global-set-key (kbd "M-J") 'fei-rime-force-enable)
+(global-set-key (kbd "M-K") 'new-buffer-other-window)
 (global-set-key (kbd "M-k") 'scroll-down-line)
 
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
@@ -462,7 +462,6 @@
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
-(global-set-key (kbd "M-J") (li (deactivate-input-method)))
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
 
 (global-set-key (kbd "C-9") 'tab-bar-history-back)

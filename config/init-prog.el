@@ -22,7 +22,7 @@
   ;; (hl-line-mode t)
   (diff-hl-mode t)
   (toggle-truncate-lines 1)
-  (highlight-indent-guides-mode)
+  ;; (highlight-indent-guides-mode)
   (hideshowvis-enable)
   (hideshowvis-symbols)
   (yas-minor-mode t))

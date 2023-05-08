@@ -144,6 +144,9 @@
 	(define-key map "r" #'searchbox-research-from-hist)
 	(define-key map "x" #'searchbox-search-xueshu)
 	(define-key map "h" #'searchbox-switch-engine)
+	(define-key map "t" #'toggle-truncate-lines)
+	(define-key map "i" #'fei/fit-window-to-buffer)
+	(define-key map "m" #'minimize-window)
 	(define-key map "H" #'webjump)
 	;; (define-key map "e" (li (searchbox-search t)))
 	(define-key map "e" #'searchbox-edit-string)
@@ -154,11 +157,14 @@
 	(define-key map "q" #'quit-window)
 	(use-local-map map))
       )
+    (setq window-min-height 1)        ;会影响 `minimize-window' 的行为
     (display-buffer-in-side-window
      buffer '(nil (window-height . 1)
-		  (body-function . select-window)
+	          (body-function . (lambda (w) (select-window w)
+                                     ;; (toggle-truncate-lines 1)
+                                     (fit-window-to-buffer w)))
                   (window-parameters . ((mode-line-format . none)))
-		  (side . bottom)))))
+	          (side . bottom)))))
 
 (defun searchbox-edit-string ()
   (interactive)

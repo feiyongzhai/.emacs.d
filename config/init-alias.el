@@ -39,6 +39,8 @@
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
 
 (defalias 'eshell/S 'searchbox-refresh-buffer)
+(defalias 'eshell/i 'ibuffer)
+(defalias 'eshell/q 'bury-buffer)
 
 (defalias 'eshell/y 'youdao-dictionary-search)
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)

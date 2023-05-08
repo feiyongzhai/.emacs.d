@@ -95,12 +95,14 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(window-divider-mode) ; 目前不能实现 window-divider-local-mode，不过全局开也不是很影响
 (defun searchbox-refresh-buffer ()
   (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
     (display-buffer-in-side-window
-     buffer '(nil (window-height . (lambda (win) (fit-window-to-buffer win)))
+     buffer '(nil (window-height . 2)
 		  (body-function . select-window)
+                  (window-parameters . ((mode-line-format . none)))
 		  (side . top)))
 
     (read-only-mode -1)
@@ -109,6 +111,8 @@
       (insert "搜索：> " (if searchbox-string searchbox-string "") " <")
       (insert "\n")
 
+      (insert-button "Quit" 'action `(lambda (_) (quit-window)))
+      (insert " | ")
       (searchbox-create-button "谷歌(g)" (searchbox-get-sites-url "谷歌(g)"))
       (searchbox-create-button "哔站(b)" (searchbox-get-sites-url "哔站(b)"))
       (searchbox-create-button "知乎(z)" (searchbox-get-sites-url "知乎(z)"))

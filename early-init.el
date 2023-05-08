@@ -53,7 +53,6 @@
 ;; (setq initial-scratch-message "")
 
 (tool-bar-mode -1)
-(menu-bar-mode -1)
 (unless *is-termux*
   (scroll-bar-mode -1)
 

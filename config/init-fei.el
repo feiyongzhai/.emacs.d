@@ -61,10 +61,12 @@
       (with-current-buffer buf
 	(when (eq major-mode cur-major-mode)
 	  (push buf filtered-buf))))
-    (switch-to-buffer
-     (completing-read
-      "Switch to buffer with same major-mode: "
-      (mapcar (lambda (buf) (buffer-name buf)) filtered-buf)))))
+    (if (length= filtered-buf 0)
+        (message "No same marjo-mode buffer!")
+      (switch-to-buffer
+       (completing-read
+        "Switch to buffer with same major-mode: "
+        (mapcar (lambda (buf) (buffer-name buf)) filtered-buf))))))
 
 (defun switch-to-locked-buffer ()
   "切换到启用 `emacs-lock-mode' 的 buffer

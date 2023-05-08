@@ -261,7 +261,7 @@
 
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
 
-(global-set-key (kbd "C-'") 'avy-goto-char-timer)
+(global-set-key (kbd "C-'") 'new-buffer-other-window)
 
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
@@ -678,6 +678,7 @@
 (with-eval-after-load 'rime
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
+  (define-key rime-active-mode-map (kbd "M-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-active-mode-map (kbd "C-j") 'rime--return))
 
@@ -775,6 +776,8 @@
 (define-key emacs-lisp-mode-map (kbd "<C-left>") 'sp-forward-barf-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-U") 'sp-splice-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-q") 'sp-indent-defun)
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
+(define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
 (define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-eval-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c M-e") 'pp-macroexpand-last-sexp)

@@ -200,9 +200,12 @@
 
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "C-c SPC") 'fei-switch-to-treemacs)
+(global-set-key (kbd "C-c SPC") 'set-mark-command)
 (global-set-key (kbd "M-s M-e") 'fei-switch-to-treemacs)
 (global-set-key (kbd "M-s t") 'fei-switch-to-treemacs)
+
+(with-eval-after-load 'conf-mode
+  (define-key conf-space-mode-map (kbd "C-c SPC") nil))
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
@@ -481,7 +484,8 @@
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-s M-w") 'fei-search)
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
-(global-set-key (kbd "M-s s") 'searchbox-switch-to-buffer)
+(global-set-key (kbd "M-s s") 'searchbox-search)
+(global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)
 (global-set-key (kbd "M-S") 'fei-search)
 
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)

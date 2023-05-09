@@ -157,26 +157,44 @@
 	(define-key map "q" #'quit-window)
 	(use-local-map map))
       )
+    ;;; Note:
+    ;; 在使用过程中发现一个问题：如果使用 display-buffer-in-side-window 结合
+    ;; window-min-height 为 1 的设置会出现问题。
+
+    ;; 问题详细说明：因为在显示 searchbox-buffer 的时候没有显示 mode-line，所以
+    ;; window-height 为 1 的时候可以正常显示窗口，但是当其他 window 也使用
+    ;; display-buffer-in-side-window 进行显示时，此时 window-height 被
+    ;; searchbox-buffer 限制为了 1 ，但是由于会显示 mode-line，mode-line
+    ;; 会占据 1 个高度。这就导致了 buffer 的内容无法显示，此时 emacs 会出现卡
+    ;; 死或者崩溃的情况。
+
+    ;; 使用 display-buffer-at-bottom 就是为了避免这个问题。不再 side-window
+    ;; 中进行显示，不会有限制 window 大小的情况。
+    
+    ;; 总结的经验为：三个条件不要同时满足，否则很容易出现问题。这三个条件分别为：
+    ;; 1. 在 side-window 中显示 buffer，
+    ;; 2. 在 side-window 中显示的 buffer 没有 mode-line
+    ;; 3. window-min-height 设置为 1
     (setq window-min-height 1)        ;会影响 `minimize-window' 的行为
-    (display-buffer-in-side-window
+    (display-buffer-at-bottom
      buffer '(nil (window-height . 1)
 	          (body-function . (lambda (w)
                                      ;; (toggle-truncate-lines 1)
                                      (fit-window-to-buffer w)))
                   (window-parameters . ((mode-line-format . none)))
-	          (side . bottom)))))
+	          ))))
 
 (defun searchbox-switch-to-buffer ()
   (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
-    (display-buffer-in-side-window
+    (display-buffer-at-bottom
      buffer '(nil (window-height . 1)
 	          (body-function . (lambda (w)
                                      (select-window w)
                                      ;; (toggle-truncate-lines 1)
                                      (fit-window-to-buffer w)))
                   (window-parameters . ((mode-line-format . none)))
-	          (side . bottom)))))
+	          ))))
 
 (defun searchbox-edit-string ()
   (interactive)

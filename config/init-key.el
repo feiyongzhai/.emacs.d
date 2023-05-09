@@ -481,7 +481,7 @@
 (global-set-key (kbd "M-G") 'fei-search)
 (global-set-key (kbd "M-s M-w") 'fei-search)
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
-(global-set-key (kbd "M-s s") 'fei-search)
+(global-set-key (kbd "M-s s") 'searchbox-switch-to-buffer)
 (global-set-key (kbd "M-S") 'fei-search)
 
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
@@ -501,7 +501,7 @@
 (global-set-key (kbd "<f2>") 'list-bookmarks)
 (global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-j") 'new-buffer-other-window)
-(global-set-key (kbd "C-x M-h") 'new-buffer)
+(global-set-key (kbd "C-x M-h") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x B") 'new-buffer)
 
 (global-set-key (kbd "M-g u") 'jump-to-register)
@@ -577,8 +577,6 @@
   (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
-  (define-key yas-keymap (kbd "M-n") 'yas-next-field)
-  (define-key yas-keymap (kbd "M-p") 'yas-prev-field)
   (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
   (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
   )
@@ -926,7 +924,6 @@
       ("M-p" . company-select-previous)
       ("C-h" . company-show-doc-buffer)
       ("M-i" . yas-expand)
-      ("TAB" . company-complete-selection)
       ("M-h" . company-complete-selection)
       ("M-H" . company-complete-common)
       ("M-w" . company-show-location)

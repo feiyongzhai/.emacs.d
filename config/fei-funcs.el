@@ -1,6 +1,17 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
 
+(defalias 'time 'echo-current-time)
+(defun echo-current-time ()
+  (interactive)
+  (message (format-time-string "%H:%M")))
+
+(defalias 'date 'echo-current-date)
+(defun echo-current-date ()
+  (interactive)
+  (message (format-time-string "%Y-%m-%d")))
+
+
 (defun workmode ()
   (interactive)
   (treemacs-dired-jump)

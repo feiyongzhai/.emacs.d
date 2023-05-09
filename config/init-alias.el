@@ -41,6 +41,7 @@
 (defalias 'eshell/S 'searchbox-refresh-buffer)
 (defalias 'eshell/i 'ibuffer)
 (defalias 'eshell/q 'bury-buffer)
+(defalias 'eshell/h 'webjump)
 
 (defalias 'eshell/y 'youdao-dictionary-search)
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)

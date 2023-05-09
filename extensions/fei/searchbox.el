@@ -133,8 +133,6 @@
 	(define-key map "b" #'searchbox-search-bilibili)
 	(define-key map "g" #'searchbox-search-google)
 	(define-key map "G" #'searchbox-search-github)
-	(define-key map "c" #'fei-org-capture-TODO)
-	(define-key map "n" #'fei-org-capture-note)
 	(define-key map "d" #'searchbox-search-quword)
 	(define-key map "S" #'searchbox-search-sogou)
 	(define-key map "W" #'searchbox-search-weibo)
@@ -152,6 +150,8 @@
 	(define-key map "e" #'searchbox-edit-string)
 	(define-key map "s" #'searchbox-search)
 	(define-key map "w" #'searchbox-copy-string)
+	(define-key map "p" #'searchbox-prev-hist)
+        (define-key map "n" #'searchbox-next-hist)
 	(define-key map (kbd "M-p") #'searchbox-prev-hist)
 	(define-key map (kbd "M-n") #'searchbox-next-hist)
 	(define-key map "q" #'quit-window)
@@ -160,7 +160,19 @@
     (setq window-min-height 1)        ;会影响 `minimize-window' 的行为
     (display-buffer-in-side-window
      buffer '(nil (window-height . 1)
-	          (body-function . (lambda (w) (select-window w)
+	          (body-function . (lambda (w)
+                                     ;; (toggle-truncate-lines 1)
+                                     (fit-window-to-buffer w)))
+                  (window-parameters . ((mode-line-format . none)))
+	          (side . bottom)))))
+
+(defun searchbox-switch-to-buffer ()
+  (interactive)
+  (let ((buffer (get-buffer-create searchbox-buffer)))
+    (display-buffer-in-side-window
+     buffer '(nil (window-height . 1)
+	          (body-function . (lambda (w)
+                                     (select-window w)
                                      ;; (toggle-truncate-lines 1)
                                      (fit-window-to-buffer w)))
                   (window-parameters . ((mode-line-format . none)))
@@ -170,7 +182,6 @@
   (interactive)
   (let ((buffer (get-buffer-create searchbox-buffer)))
     (with-current-buffer buffer
-
       (read-only-mode -1)
       (erase-buffer)
       (goto-char (point-min))

@@ -1,5 +1,11 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+(defun emacs-debug-init ()
+  "这样打开的 emacs 会继承当前 emacs 进程的环境变量。如果需要调试环
+境变量相关的，请从终端或者其他方式启用"
+  (interactive)
+  (start-process "emacs-debug-init" nil "emacs" "--debug-init"))
+
 
 (defalias 'time 'echo-current-time)
 (defun echo-current-time ()

@@ -39,10 +39,6 @@
 (setq-default display-line-numbers-width 3)
 (setq show-paren-style 'parenthesis)
 
-(setq display-time-format " %H:%M  %Y-%m-%d")
-(setq display-time-default-load-average nil) ; 不显示time后面的不明数字
-(display-time-mode)
-
 ;; redirect the backup file path
 (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 

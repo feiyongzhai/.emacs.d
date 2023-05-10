@@ -456,7 +456,7 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
 ;; `fit-frame-to-buffer' 做了差不多的事情
 (defun adjust-frame-by-longest-line ()
   (interactive)
-  (set-frame-width nil (+ (if display-line-numbers-mode 5 0)
+  (set-frame-width nil (+ (if (bound-and-true-p display-line-numbers-mode) 5 0)
 			  (longest-line-colum))))
 
 (provide 'fei-funcs)

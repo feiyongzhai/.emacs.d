@@ -31,3 +31,6 @@
 [submodule "extensions/deno-bridge-jieba"]
 	path = extensions/deno-bridge-jieba
 	url = https://github.com/ginqi7/deno-bridge-jieba
+[submodule "extensions/awesome-tray"]
+	path = extensions/awesome-tray
+	url = https://github.com/manateelazycat/awesome-tray

@@ -9,7 +9,7 @@
 
 
 ;; Awesome-tray
-(add-to-list 'load-path "~/Repos/awesome-tray")
+(add-to-list 'load-path "~/.emacs.d/extensions/awesome-tray")
 (require 'awesome-tray)
 (setq awesome-tray-date-format "%H:%M %m-%d %a")
 (setq awesome-tray-hide-mode-line nil)

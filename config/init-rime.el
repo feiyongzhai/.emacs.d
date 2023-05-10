@@ -60,7 +60,7 @@
 
 (setq default-input-method "rime")
 
-(setq rime-show-candidate 'minibuffer
+(setq rime-show-candidate 'posframe ; minibuffer 的方式会和 awesome-tab 冲突
       ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
       ;; rime-show-candidate 'posframe
       rime-show-preedit t

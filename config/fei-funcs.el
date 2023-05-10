@@ -127,11 +127,15 @@
   (interactive)
   (switch-to-buffer (generate-new-buffer "*new*")))
 
+(defvar new-buffer-jump-from-minibuffer-p nil)
+
 (defun new-buffer-other-window ()
   "命令初心：因为有的时候 emacs-rime 的 disable 不够智能。
 
 想着可以通过新建一个 buffer 来输入一段文字然后粘贴过去"
   (interactive)
+  (and (minibufferp)
+       (setq new-buffer-jump-from-minibuffer-p t))
   (let ((buffer (generate-new-buffer "*new*")))
     (switch-to-buffer-other-window buffer)
     (with-current-buffer buffer
@@ -145,7 +149,9 @@
 (defun new-buffer-quit-and-copy ()
   (interactive)
   (kill-new (buffer-string))
-  (kill-buffer-and-window))
+  (kill-buffer-and-window)
+  (when new-buffer-jump-from-minibuffer-p
+    (switch-to-minibuffer)))
 
 (defun fei/kill-or-bury-buffer ()
   (interactive)

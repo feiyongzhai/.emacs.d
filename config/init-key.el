@@ -172,7 +172,6 @@
 (global-set-key (kbd "M-k") 'scroll-down-line)
 
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
-(define-key prog-mode-map (kbd "C-c C-l") 'vc-print-root-log)
 
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
@@ -214,7 +213,6 @@
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
-  (define-key eshell-hist-mode-map (kbd "C-c C-l") 'vc-print-root-log)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
   (define-key eshell-hist-mode-map (kbd "M-s") nil)
   (define-key eshell-hist-mode-map (kbd "M-r") 'fei-my/ivy-eshell-history))
@@ -952,7 +950,6 @@
   (define-key vc-dir-mode-map (kbd "&") 'async-shell-command))
 
 (with-eval-after-load 'vc-git
-  (define-key vc-git-log-edit-mode-map (kbd "C-c C-l") 'vc-print-root-log)
   (define-key vc-git-log-view-mode-map (kbd "z") 'fei-compile)
   (define-key vc-git-log-view-mode-map (kbd "s") 'fei-vc-dired-jump))
 

@@ -553,6 +553,7 @@
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
 (global-set-key (kbd "M-s i") 'fei/fit-window-to-buffer)
+(global-set-key (kbd "M-s I") 'balance-windows)
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)

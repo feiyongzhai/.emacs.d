@@ -128,12 +128,15 @@
   (switch-to-buffer (generate-new-buffer "*new*")))
 
 (defvar new-buffer-jump-from-minibuffer-p nil)
+(defvar new-buffer-before-buffer nil
+  "运行 `new-buffer-other-window' 之前的 buffer 和位置信息")
 
 (defun new-buffer-other-window ()
   "命令初心：因为有的时候 emacs-rime 的 disable 不够智能。
 
 想着可以通过新建一个 buffer 来输入一段文字然后粘贴过去"
   (interactive)
+  (setq new-buffer-before-buffer (cons (current-buffer) (point)))
   (and (minibufferp)
        (setq new-buffer-jump-from-minibuffer-p t))
   (let ((buffer (generate-new-buffer "*new*")))
@@ -150,6 +153,10 @@
   (interactive)
   (kill-new (buffer-string))
   (kill-buffer-and-window)
+  (with-selected-window (get-buffer-window (car new-buffer-before-buffer))
+    (goto-char (cdr new-buffer-before-buffer))
+    (call-interactively 'yank))
+  
   (when new-buffer-jump-from-minibuffer-p
     (switch-to-minibuffer)))
 

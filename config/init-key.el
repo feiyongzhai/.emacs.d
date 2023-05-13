@@ -484,7 +484,6 @@
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)
-(global-set-key (kbd "M-S") 'fei-search)
 
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)

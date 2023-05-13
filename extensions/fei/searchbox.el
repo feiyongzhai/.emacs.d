@@ -50,16 +50,13 @@
 	(setq searchbox-string (read-string "搜索(谷歌)：" nil 'searchbox-string-hist))
       (setq searchbox-string in)))
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
-  (searchbox-refresh-buffer)
   (browse-url (concat (searchbox-get-sites-url "谷歌(g)")
-		      (url-encode-url searchbox-string)))
-  (message "搜索: %s"searchbox-string))
+		      (url-encode-url searchbox-string))))
 
 (defun searchbox-search (&optional initial-input)
   (interactive)
   (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
-  (searchbox-refresh-buffer)
   (browse-url (concat (searchbox-get-sites-url "谷歌(g)")
 		      (url-encode-url searchbox-string))))
 
@@ -176,8 +173,10 @@
     ;; 2. 在 side-window 中显示的 buffer 没有 mode-line
     ;; 3. window-min-height 设置为 1
     (setq window-min-height 1)        ;会影响 `minimize-window' 的行为
-    (display-buffer-at-bottom
+    (display-buffer-in-direction
      buffer '(nil (window-height . 1)
+                  (window . root)
+                  (direction . up)
 	          (body-function . (lambda (w)
                                      ;; (toggle-truncate-lines 1)
                                      (fit-window-to-buffer w)))
@@ -186,15 +185,8 @@
 
 (defun searchbox-switch-to-buffer ()
   (interactive)
-  (let ((buffer (get-buffer-create searchbox-buffer)))
-    (display-buffer-at-bottom
-     buffer '(nil (window-height . 1)
-	          (body-function . (lambda (w)
-                                     (select-window w)
-                                     ;; (toggle-truncate-lines 1)
-                                     (fit-window-to-buffer w)))
-                  (window-parameters . ((mode-line-format . none)))
-	          ))))
+  (searchbox-refresh-buffer)
+  (select-window (get-buffer-window searchbox-buffer)))
 
 (defun searchbox-edit-string ()
   (interactive)

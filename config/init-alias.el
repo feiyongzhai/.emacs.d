@@ -12,7 +12,6 @@
 (setq echo-keystrokes 0.1)
 
 (defalias 'set-number 'display-line-numbers-mode)
-(defalias 'm 'set-mark-command)
 (defalias 'fi 'fei-rime-force-enable)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'code 'open-current-file-with-vscode)

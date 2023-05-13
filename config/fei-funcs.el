@@ -248,34 +248,6 @@ For a location, jump to it."
       (find-file (concat "/sudo:root@localhost:" buffer-file-name))
     (message "buffer without file can't deal with sudo")))
 
-(defun fei-google-search (&optional search-string)
-  "Googles a query or region if any.
-
-参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/"
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (or search-string
-	(if mark-active
-            (buffer-substring-no-properties (region-beginning) (region-end))
-	  (url-encode-url (read-string "Google: ")))))))
-
-(defvar fei-search-prompt)
-
-(defun fei-search (&optional arg)
-  "A wrapper for `fei-google-search', powered by `engine-mode'"
-  (interactive "P")
-  (if arg
-      (progn
-	(message fei-search-prompt)
-	(set-transient-map 'engine-mode-prefixed-map))
-    (call-interactively 'fei-google-search)))
-
-(defun fei-search-1 ()
-  (interactive)
-  (fei-search 1))
-
 (defun backward-kill-word-or-region (&optional arg)
   "Kill word backwards unless region is active,
 kill region instead"

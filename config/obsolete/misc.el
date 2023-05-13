@@ -1,6 +1,40 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+;; 搜索相关的命令
+(defvar fei-search-prompt)
+
+(setq fei-search-prompt
+      (concat "[b/B] B站/Bing [w/i] Wikipedia/Github [h/c] 汉典/词典 [y] YouTube \n"
+	      "[s/S/M-s] 学术/搜狗/StackOverFlow [d/D] 百度/DuckDuckGo [g/i] 谷歌/图片"))
+
+(defun fei-search (&optional arg)
+  "A wrapper for `fei-google-search', powered by `engine-mode'"
+  (interactive "P")
+  (if arg
+      (progn
+	(message fei-search-prompt)
+	(set-transient-map 'engine-mode-prefixed-map))
+    (call-interactively 'fei-google-search)))
+
+(defun fei-search-1 ()
+  (interactive)
+  (fei-search 1))
+
+(defun fei-google-search (&optional search-string)
+  "Googles a query or region if any.
+
+参考链接：https://liujiacai.net/blog/2020/11/25/why-emacs/"
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (or search-string
+	(if mark-active
+            (buffer-substring-no-properties (region-beginning) (region-end))
+	  (url-encode-url (read-string "Google: ")))))))
+
+
 ;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
 (fei-repeat fr/bury-or-unbury-buffer
   (progn (window-configuration-to-register ?b)

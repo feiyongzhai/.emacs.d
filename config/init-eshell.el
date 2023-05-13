@@ -44,6 +44,16 @@
 	(eshell-reset))
       )))
 
+
+(defun fei/eshell-bash-commit ()
+  (interactive)
+  (eshell-bol)
+  (save-excursion
+    (insert "bash -c '")
+    (goto-char (line-end-position))
+    (insert "'"))
+  (eshell-send-input))
+
 ;; @REF: https://github.com/manateelazycat/aweshell/blob/master/aweshell.el
 (defun eshell/edit (&rest args)
   "Open a file in Emacs with ARGS, Some habits die hard."

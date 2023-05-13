@@ -93,7 +93,7 @@
 	goto-chg
 	highlight-parentheses highlight-indentation highlight-indent-guides
 	company corfu yasnippet avy electric-spacing
-	iedit symbol-overlay separedit smartparens
+	iedit symbol-overlay smartparens
 	math-symbol-lists expand-region easy-kill
 
 	;; ==== Org ====
@@ -125,7 +125,7 @@
 	;; ==== 备忘 ====
 	;; minions helm-org-rifle backward-forward
 	;; tab-bar-echo-area eyebrowse
-	;; academic-phrases valign tldr
+	;; academic-phrases valign tldr separedit
 	;; adafruit-wisdom anzu eshell-git-prompt gcmh
 	;; devdocs sis pinyin-search mini-modeline
 	;; minimap calfw calfw-org frames-only-mode

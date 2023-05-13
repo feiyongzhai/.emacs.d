@@ -176,7 +176,7 @@
     (display-buffer-in-direction
      buffer '(nil (window-height . 1)
                   (window . root)
-                  (direction . up)
+                  (direction . down)
 	          (body-function . (lambda (w)
                                      ;; (toggle-truncate-lines 1)
                                      (fit-window-to-buffer w)))

@@ -15,7 +15,7 @@
 (defun tab-bar-format-treemacs-button ()
   "Produce the Menu button for the tab bar that shows the menu bar."
   `((menu-bar menu-item (propertize "📁" 'face 'tab-bar-tab-inactive)
-     treemacs :help "Treemacs Side")))
+     treemacs-dired-jump :help "Treemacs Side")))
 
 (setq tab-bar-show t)
 (tab-bar-history-mode)

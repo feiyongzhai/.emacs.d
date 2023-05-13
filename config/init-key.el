@@ -210,7 +210,9 @@
 (defun fei-eshell-setup-key ()
   (define-key eshell-mode-map (kbd "C-l") (li (recenter 0)))
   (define-key eshell-cmpl-mode-map (kbd "C-c SPC") nil)
+  (define-key eshell-mode-map (kbd "C-o") 'fei/eshell-bash-commit)
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
+  (define-key eshell-mode-map (kbd "C-M-<return>") 'fei/eshell-bash-commit)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
@@ -221,7 +223,6 @@
 (global-set-key (kbd "C-c M-h") 'webjump)
 (global-set-key (kbd "C-c /") 'webjump)
 (global-set-key (kbd "C-h C-y") 'engine/search-quword)
-(global-set-key (kbd "C-M-<return>") 'engine/search-google)
 
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n N") 'narrow-to-region-indirect)
@@ -485,6 +486,9 @@
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)
 
+(global-set-key (kbd "C-c ;") 'comment-region)
+(global-set-key (kbd "C-S-g") 'fei-vc-dired-jump)
+
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
@@ -736,10 +740,6 @@
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
   (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
   (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))
-
-;; 用得很少
-(define-key prog-mode-map (kbd "C-c '") #'separedit)
-(define-key minibuffer-local-map (kbd "C-c '") #'separedit)
 
 
 (when *is-linux*

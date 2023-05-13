@@ -5,6 +5,10 @@
 ;; Rime
 (add-to-list 'load-path "~/.emacs.d/extensions/rime/")
 
+;; https://github.com/DogLooksGood/emacs-rime/issues/161#issuecomment-979907791
+(with-eval-after-load 'rime
+  (add-hook 'kill-emacs-hook #'rime-lib-finalize))
+
 (setq rime-title " ㄓ ")
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)

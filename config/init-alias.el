@@ -11,6 +11,9 @@
 
 (setq echo-keystrokes 0.1)
 
+
+(defalias 'k 'fei-key-mode)
+(defalias 'l 'counsel-load-theme)
 (defalias 'set-number 'display-line-numbers-mode)
 (defalias 'fi 'fei-rime-force-enable)
 (defalias 'ov 'open-current-file-with-vscode)

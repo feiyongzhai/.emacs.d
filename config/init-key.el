@@ -1,30 +1,10 @@
-;; 思路：给常用的功能一个短一点的快捷键
 ;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
-
-;; 功能1: 切换 buffer
-(global-set-key (kbd "M-e") 'fei/buffer-or-tab-recent)
-(define-key minibuffer-mode-map (kbd "M-q") 'minibuffer-keyboard-quit)
-(with-eval-after-load 'vertico
-  (define-key vertico-map (kbd "M-e") 'vertico-next)
-  (define-key vertico-map (kbd "M-a") 'vertico-exit)
-  (define-key vertico-map (kbd "M-g") 'minibuffer-keyboard-quit)
-  (define-key vertico-map (kbd "M-q") 'minibuffer-keyboard-quit))
-
-(with-eval-after-load 'matlab
-  (define-key matlab-mode-map (kbd "M-e") nil)
-  (define-key matlab-mode-map (kbd "M-a") nil))
-
-;; 功能2: capture 和 agenda
-(global-set-key (kbd "M-`") 'org-agenda-list)
-
-(global-set-key (kbd "M-s a") 'org-agenda-list)
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "M-s a") nil))
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "M-s a") nil))
-
-(with-eval-after-load 'info
-  (define-key Info-mode-map (kbd "M-n") nil))
+
+;; 配合这个命令 GTK_IM_MODULE=emacs XMODIFIERS=@im=emacs emacs 使用，
+;; 命令的原理不是很清楚，效果是在 emacs 中禁用 fcitx 输入法，这样就实
+;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法
+(linux (global-set-key (kbd "C-SPC") 'toggle-input-method)
+       (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
 
 
 ;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -132,12 +112,8 @@
 ;; (_____)-------------(_____)
 
 (require 'fei-key)
-
 ;; (unless *is-termux* (fei-key-mode))
 (cua-mode)
-
-(defalias 'k 'fei-key-mode)
-(defalias 'l 'counsel-load-theme)
 
 (define-key fei-key-mode-map (kbd "M-l") fei-leader-keymap)
 (define-key fei-key-mode-map (kbd "M-u") 'eshell)
@@ -152,7 +128,15 @@
 ;; (_____)-----------(_____)
 
 
-(global-set-key (kbd "M--") 'consult-line)
+(global-set-key (kbd "M--") 'split-window-below)
+(global-set-key (kbd "M-e") 'treemacs-dired-jump)
+
+(with-eval-after-load 'matlab
+  (define-key matlab-mode-map (kbd "M-e") nil)
+  (define-key matlab-mode-map (kbd "M-a") nil))
+
+(with-eval-after-load 'info
+  (define-key Info-mode-map (kbd "M-n") nil))
 
 (require 'init-thing-edit)
 
@@ -160,15 +144,9 @@
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
 
-;; 配合这个命令 GTK_IM_MODULE=emacs XMODIFIERS=@im=emacs emacs 使用，
-;; 命令的原理不是很清楚，效果是在 emacs 中禁用 fcitx 输入法，这样就实
-;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法
-(linux (global-set-key (kbd "C-SPC") 'toggle-input-method)
-       (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
-
-(global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-J") 'fei-rime-force-enable)
 (global-set-key (kbd "M-K") 'new-buffer-other-window)
+(global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-k") 'scroll-down-line)
 
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
@@ -176,9 +154,7 @@
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
-(global-set-key (kbd "C-x C-y") (li (yank '(4))))
-(global-set-key (kbd "M-s C-y") 'yank-and-indent)
-(global-set-key (kbd "C-c C-y") 'yank-and-indent)
+(global-set-key (kbd "C-x C-y") 'yank-and-indent)
 (global-set-key (kbd "M-s M-y") 'yank-and-indent)
 (global-set-key (kbd "M-s y") 'yank-and-indent)
 
@@ -188,6 +164,7 @@
   (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region))
 
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
+(global-set-key (kbd "C-S-l") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
@@ -195,14 +172,13 @@
 (global-set-key (kbd "C-x c") 'compile)
 
 (global-set-key (kbd "C-x F") 'set-fill-column)
-(global-set-key (kbd "C-c H") 'fei-pulse-current-line)
+(global-set-key (kbd "C-S-h") 'fei-pulse-current-line)
 
 (global-set-key (kbd "M-s j") 'eshell)	;many times eshell is enough
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "C-c SPC") 'set-mark-command)
 (global-set-key (kbd "M-s M-e") 'fei-switch-to-treemacs)
-(global-set-key (kbd "M-s t") 'fei-switch-to-treemacs)
 
+(global-set-key (kbd "C-c SPC") 'set-mark-command)
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
 
@@ -222,11 +198,11 @@
 (global-set-key (kbd "C-c h") 'webjump)
 (global-set-key (kbd "C-c M-h") 'webjump)
 (global-set-key (kbd "C-c /") 'webjump)
-(global-set-key (kbd "C-h C-y") 'engine/search-quword)
 
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
-(global-set-key (kbd "C-x n N") 'narrow-to-region-indirect)
+(global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
+(global-set-key (kbd "C-x n r") 'replace-string-one-line)
 
 (global-set-key (kbd "M-c") 'capitalize-dwim)
 (global-set-key (kbd "M-l") 'downcase-dwim)
@@ -244,6 +220,10 @@
 
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
+
+(global-set-key (kbd "M-`") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "C-x m") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "C-x RET") 'fei/buffer-or-tab-recent)
 
 (global-set-key (kbd "C-x i") 'insert-char)
 (global-set-key (kbd "C-x I") 'emoji-search)
@@ -282,17 +262,13 @@
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
 (global-set-key (kbd "C-x <return>") 'execute-extended-command)
-(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;was `mule-keymap'
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
-(global-set-key (kbd "C-x m") 'execute-extended-command) ;was `compose-mail'
 (global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
 
 (global-set-key (kbd "C-4") 'set-selective-display-dwim)
 (global-set-key (kbd "C-x C-4") 'set-selective-display)
-
-(global-set-key (kbd "M-s m") 'minimize-window)
 
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 
@@ -480,8 +456,8 @@
 ;; (define-key tab-line-tab-map [tab-line down-mouse-3] 'tab-line-close-tab) ;tab-line-tab-context-menu
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
-(global-set-key (kbd "M-G") 'fei-search)
-(global-set-key (kbd "M-s M-w") 'fei-search)
+(global-set-key (kbd "M-G") 'searchbox-search)
+(global-set-key (kbd "M-s M-w") 'engine/search-quword)
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)
@@ -556,6 +532,7 @@
 (global-set-key (kbd "C-x w K") (li (evil-move-window 'above)))
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
 (global-set-key (kbd "M-s i") 'fei/fit-window-to-buffer)
+(global-set-key (kbd "M-s m") 'minimize-window)
 (global-set-key (kbd "M-s I") 'balance-windows)
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer) ;一个 window 的时候和 `fit-window-to-buffer'
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
@@ -627,11 +604,9 @@
      (interactive "P")
      (save-buffer (current-buffer))
      (if flag
-	 (start-process "python"
-			"*fei-python*"
+	 (start-process "python" "*fei-python*"
 			"cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
-       (start-process "python"
-                      "*fei-python*"
+       (start-process "python" "*fei-python*"
                       "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))))
 
 

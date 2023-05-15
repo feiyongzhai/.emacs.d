@@ -11,7 +11,7 @@
 ;; (benchmark-init/activate)
 
 ;;; 预先加载的很小一部分配置
-(global-set-key (kbd "C-x l") #'load-my-config)
+(global-set-key (kbd "C-x l") #'load-my-config-manually)
 (global-set-key (kbd "C-x j") #'open-inbox-md)
 
 (defun open-inbox-md ()
@@ -20,8 +20,16 @@
   (require 'init-yasnippet)
   (find-file "~/Nutstore Files/org/private/inbox.md"))
 
+(defvar has-load-config nil)
+
 (defun load-my-config ()
   (interactive)
+  (or has-load-config
+      (load "~/.emacs.d/config/load-config.el")))
+
+(defun load-my-config-manually ()
+  (interactive)
+  (setq has-load-config t)
   (load "~/.emacs.d/config/load-config.el"))
 
 ;;; 延时加载重量级配置

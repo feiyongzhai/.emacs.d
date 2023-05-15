@@ -1,7 +1,6 @@
 # -*- mode: snippet -*-
-# contributor: Xah Lee (XahLee.org)
 # name: interactive
-# group : i
-# key: inter
+# key: in
+# group: i
 # --
 (interactive)

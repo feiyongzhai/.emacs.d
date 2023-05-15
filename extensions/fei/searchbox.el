@@ -75,9 +75,9 @@
   (if (length> searchbox-string-hist (1+ searchbox-string-hist-idx))
       (progn
 	(setq searchbox-string-hist-idx (1+ searchbox-string-hist-idx))
-	(message "item %d" searchbox-string-hist-idx)
-	(setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist)))
+	(message "item %d" searchbox-string-hist-idx))
     (message "已经是最后一个了"))
+  (setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist))
   (searchbox-refresh-buffer))
 
 (defun searchbox-next-hist ()
@@ -85,9 +85,9 @@
   (if (> searchbox-string-hist-idx 0)
       (progn
         (setq searchbox-string-hist-idx (1- searchbox-string-hist-idx))
-	(message "item %d" searchbox-string-hist-idx)
-	(setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist)))
+	(message "item %d" searchbox-string-hist-idx))
     (message "已经是最新"))
+  (setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist))
   (searchbox-refresh-buffer))
 
 (defun searchbox-oldest-hist ()

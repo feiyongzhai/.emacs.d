@@ -90,6 +90,38 @@
     (message "已经是最新"))
   (searchbox-refresh-buffer))
 
+(defun searchbox-oldest-hist ()
+  (interactive)
+  (setq searchbox-string-hist-idx (1- (length searchbox-string-hist)))
+  (setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist))
+  (message "最远搜索项")
+  (searchbox-refresh-buffer))
+
+(defun searchbox-newest-hist ()
+  (interactive)
+  (setq searchbox-string-hist-idx 0)
+  (setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist))
+  (message "最近搜索项")
+  (searchbox-refresh-buffer))
+
+(defun searchbox-remove-this-hist ()
+  (interactive)
+
+  ;; remove nth element in list
+  ;; @REF: https://emacs.stackexchange.com/questions/29786/how-to-remove-delete-nth-element-of-a-list
+  (if (zerop searchbox-string-hist-idx)
+      (setq searchbox-string-hist (cdr searchbox-string-hist))
+    (let ((last (nthcdr (1- searchbox-string-hist-idx) searchbox-string-hist)))
+      (setcdr last (cddr last))))    ;destructive version 操作上像指针
+
+  ;; remove 会删除所有相等的项，很可能不止一项
+  ;; (setq searchbox-string-hist (remove searchbox-string searchbox-string-hist))
+
+
+  (and (length= searchbox-string-hist searchbox-string-hist-idx)
+       (setq searchbox-string-hist-idx (1- searchbox-string-hist-idx)))
+  (setq searchbox-string (nth searchbox-string-hist-idx searchbox-string-hist))
+  (searchbox-refresh-buffer))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (window-divider-mode) ; 目前不能实现 window-divider-local-mode，不过全局开也不是很影响
@@ -147,6 +179,9 @@
 	(define-key map "e" #'searchbox-edit-string)
 	(define-key map "s" #'searchbox-search)
 	(define-key map "w" #'searchbox-copy-string)
+	(define-key map (kbd "M-d") #'searchbox-remove-this-hist)
+	(define-key map ">" #'searchbox-newest-hist)
+	(define-key map "<" #'searchbox-oldest-hist)
 	(define-key map "p" #'searchbox-prev-hist)
         (define-key map "n" #'searchbox-next-hist)
 	(define-key map (kbd "M-p") #'searchbox-prev-hist)
@@ -167,7 +202,7 @@
 
     ;; 使用 display-buffer-at-bottom 就是为了避免这个问题。不再 side-window
     ;; 中进行显示，不会有限制 window 大小的情况。
-    
+
     ;; 总结的经验为：三个条件不要同时满足，否则很容易出现问题。这三个条件分别为：
     ;; 1. 在 side-window 中显示 buffer，
     ;; 2. 在 side-window 中显示的 buffer 没有 mode-line

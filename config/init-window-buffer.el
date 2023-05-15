@@ -1,10 +1,8 @@
 ;;; init-window-buffer.el  --- configs for Window/Buffer
 
 (require 'init-func)
-(autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
 
-;; 用 tab-bar-history-mode 代替
-;; (winner-mode 1)
+;; (winner-mode 1)                         ;用 tab-bar-history-mode 代替
 
 ;; Ace-Window
 (setq aw-ignore-current nil)
@@ -15,7 +13,7 @@
 (custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
 
 
-;;; undo kill buffer
+;;; undo killed buffer
 
 ;; @REF https://emacs.stackexchange.com/questions/3330/how-to-reopen-just-killed-buffer-like-c-s-t-in-firefox-browser
 (defvar killed-file-list nil
@@ -36,7 +34,6 @@
     (find-file (pop killed-file-list))))
 
 
-
 (defun fei/scroll-down-push-mark ()
   (interactive)
   (when (not (or (eq last-command 'fei/scroll-down-push-mark)
@@ -70,8 +67,7 @@
   (unless (or (eq major-mode 'minibuffer-mode) ;不记录 minibuffer 中的 marker
 	      (eq major-mode 'treemacs-mode))  ;不记录 treemacs 中的 marker
     (message "Location marked.")
-    (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack)))
-  )
+    (setq marker-stack (cons (copy-marker (mark-marker)) marker-stack))))
 
 (defun marker-stack-pop ()
   "Pop point from stack."
@@ -86,8 +82,7 @@
 	  (switch-to-buffer buffer)
 	  (goto-char position))
       (message "buffer has been killed."))
-    (setq marker-stack (cdr marker-stack)))
-  )
+    (setq marker-stack (cdr marker-stack))))
 
 (advice-add 'push-mark :after #'marker-stack-push)
 ;; If something go wrong, remove this advice function

@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: overlay-put
 # key: op
+# group: o
 # --
 (overlay-put $0)

@@ -300,7 +300,7 @@
 (global-set-key (kbd "C-S-j") 'jump-to-register)
 
 (global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
-(global-set-key (kbd "M-'") 'bookmark-jump)
+(global-set-key (kbd "M-'") 'bookmark-bmenu-list)
 ;; (global-set-key (kbd "M-s m") 'bookmark-view-push)
 ;; (global-set-key (kbd "M-s u") 'bookmark-view-pop)
 
@@ -519,6 +519,7 @@
 (global-set-key (kbd "M-<left>") 'tab-bar-history-back)
 (global-set-key (kbd "M-<right>") 'tab-bar-history-forward)
 
+(autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-c 0") 'my/delete-window-or-delete-frame)

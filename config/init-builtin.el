@@ -51,7 +51,8 @@
 
 ;;; Bookmark
 (setq bookmark-set-fringe-mark nil)	;强迫症选项
-(setq bookmark-save-flag 1)	 ;auto save bookmark file when changes
+(setq bookmark-save-flag 1)	 ;auto save bookmark file when change
+(add-hook 'bookmark-bmenu-mode-hook 'hl-line-mode)
 
 ;;; y-or-n
 ;; (fset 'yes-or-no-p 'y-or-n-p)
@@ -59,12 +60,6 @@
 (define-key y-or-n-p-map [return] 'act)
 (define-key y-or-n-p-map (kbd "C-m") 'act)
 (define-key y-or-n-p-map (kbd "C-j") 'act)
-
-;;; Speedbar
-;; 让 `speedbar' 显示隐藏文件
-;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565
-;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html
-(setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
 
 ;;; hl-line
 ;; (setq hl-line-sticky-flag t)
@@ -74,11 +69,16 @@
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
-(add-hook 'bookmark-bmenu-mode-hook 'hl-line-mode)
-
 
 ;;; Help
-(setq help-window-select t);always select help window
+(setq help-window-select t)             ;always select help window
+
+
+;;; Speedbar
+;; 让 `speedbar' 显示隐藏文件
+;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565
+;; @REF2: https://lists.gnu.org/archive/html/emacs-devel/2016-02/msg00953.html
+(setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
 
 ;;; Experiment
 ;; (global-unset-key (kbd "C-x C-c"))

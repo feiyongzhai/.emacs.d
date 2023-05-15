@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: add-to-list-load-path
 # key: alp
+# group: a
 # --
 (add-to-list 'load-path "$1")

@@ -6,23 +6,21 @@
 (require 'init-web)
 (require 'hideshowvis)
 
-;; indent
-(setq-default indent-tabs-mode nil)	;space 代替 tab
+(setq-default indent-tabs-mode nil)	;缩进配置，space 代替 tab
 
-;; highlight-indent-guides emacs-china 上说比较慢，还没有体验到
+;; highlight-indent-guides-mode 配置
 (setq highlight-indent-guides-method 'character)
 (setq highlight-indent-guides-responsive 'top)
 
-;;; prog-mode-hook
 (add-hook 'prog-mode-hook '+fei-prog-hook)
 (defun +fei-prog-hook ()
-  (outline-minor-mode t)
+  ;; (outline-minor-mode t)
+  ;; (hl-line-mode t)
+  ;; (highlight-indent-guides-mode)
   (company-mode t)
   (hs-minor-mode t)
-  ;; (hl-line-mode t)
   (diff-hl-mode t)
   (toggle-truncate-lines 1)
-  ;; (highlight-indent-guides-mode)
   (hideshowvis-enable)
   (hideshowvis-symbols)
   (yas-minor-mode t))
@@ -32,10 +30,9 @@
 
 ;;; Yaml
 ;; yaml-mode 居然不是 prog-mode
-(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
 (add-hook 'yaml-mode-hook 'fei-yaml-mode-hook)
-
 (defun fei-yaml-mode-hook ()
+  (highlight-indentation-mode)
   (toggle-truncate-lines 1))
 
 ;;; AHK

@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: ci
 # key: ci
+# group: c
 # --
 (call-interactively '$0)

@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: linux
 # key: linux
+# group: *
 # --
 *is-linux*

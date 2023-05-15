@@ -19,5 +19,4 @@
 ;; 添加子菜单示例
 ;; (define-key my-menu-bar-menu [my-cmd8] `(menu-item "Search" ,menu-bar-search-menu))
 
-
 (provide 'init-menu-bar)

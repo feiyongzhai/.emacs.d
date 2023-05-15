@@ -129,6 +129,7 @@
 
 
 (global-set-key (kbd "M--") 'split-window-below)
+(global-set-key (kbd "C-M-<return>") 'split-window-right)
 (global-set-key (kbd "M-e") 'treemacs-dired-jump)
 
 (with-eval-after-load 'matlab
@@ -188,7 +189,6 @@
   (define-key eshell-cmpl-mode-map (kbd "C-c SPC") nil)
   (define-key eshell-mode-map (kbd "C-o") 'fei/eshell-bash-commit)
   (define-key eshell-mode-map (kbd "C-j") 'eshell-send-input)
-  (define-key eshell-mode-map (kbd "C-M-<return>") 'fei/eshell-bash-commit)
   (define-key eshell-mode-map (kbd "C-d") '+eshell/quit-or-delete-char)
   (define-key eshell-hist-mode-map (kbd "<up>") nil)
   (define-key eshell-hist-mode-map (kbd "<down>") nil)
@@ -292,13 +292,11 @@
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
 (global-set-key (kbd "M-s-j") 'make-frame-command)
+(global-set-key (kbd "M-s-k") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "M-s-l") 'fei/buffer-or-tab-recent)
 
 (global-set-key "\M-Q" 'unfill-paragraph)
-(global-set-key (kbd "C-S-i") 'insert-register)
-(global-set-key (kbd "C-S-m") 'point-to-register)
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
-(global-set-key (kbd "C-S-j") 'jump-to-register)
-
 (global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-'") 'bookmark-bmenu-list)
 ;; (global-set-key (kbd "M-s m") 'bookmark-view-push)

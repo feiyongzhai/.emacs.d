@@ -160,7 +160,7 @@
   "Keymap for hideshowvis mode")
 
 ;;;###autoload
-(define-minor-mode hideshowvis-minor-mode ()
+(define-minor-mode hideshowvis-minor-mode
   "Will indicate regions foldable with hideshow in the fringe."
   :init-value nil
   :require 'hideshow

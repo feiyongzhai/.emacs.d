@@ -47,11 +47,12 @@
 (defalias 'eshell/q 'bury-buffer)
 (defalias 'eshell/h 'webjump)
 
+(defalias 'eshell/b (li (call-interactively 'bookmark-bmenu-list)))
 (defalias 'eshell/y 'youdao-dictionary-search)
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)
 (defalias 'eshell/J 'fei/counsel-recentf-dir)
 
-(defalias 'eshell/eh 'find-file-other-frame)
+(defalias 'eshell/ec 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)
 (defalias 'eshell/c 'fei-org-capture-TODO)
 (defalias 'eshell/note 'fei-org-capture-note)

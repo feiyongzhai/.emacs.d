@@ -19,6 +19,12 @@
   (message "输入法切换成英文模式"))
 (global-set-key (kbd "C-x l") #'load-my-config-manually)
 (global-set-key (kbd "C-x j") #'open-inbox-md)
+(global-set-key (kbd "C-\\") #'fei/toggle-input-method)
+
+(defun fei/toggle-input-method ()
+  (interactive)
+  (require 'init-rime)
+  (call-interactively 'toggle-input-method))
 
 (defun open-inbox-md ()
   (interactive)

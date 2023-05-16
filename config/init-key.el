@@ -437,6 +437,7 @@
 
 (global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
 (global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))

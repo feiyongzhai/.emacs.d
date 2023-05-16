@@ -1,5 +1,7 @@
 ;;; windows 平台专属
 (require 'fei-funcs)
+(setq app-launcher-apps-directories '("~/.local/share/applications"))
+(require 'app-launcher)
 
 ;;; Openwith
 (add-hook 'after-init-hook 'openwith-mode)

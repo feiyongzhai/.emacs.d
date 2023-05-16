@@ -720,8 +720,9 @@
 
 (when *is-linux*
   ;; (global-set-key (kbd "C-c w") 'counsel-wmctrl)
-  ;; (global-set-key (kbd "C-c m") 'counsel-linux-app)
+  (global-set-key (kbd "C-c m") 'counsel-linux-app)
   )
+(win10 (global-set-key (kbd "C-c m") 'app-launcher-run-app))
 (global-set-key (kbd "C-c p") 'proced)
 
 (global-set-key (kbd "s-l") 'lsp)

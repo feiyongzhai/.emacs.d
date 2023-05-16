@@ -1,4 +1,5 @@
 (let ((file-name-handler-alist nil))
+  (require 'init-elpa)
   (require 'init-builtin)
   (require 'init-cursor)
   (require 'init-window-buffer)

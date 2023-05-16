@@ -11,6 +11,7 @@
 ;; (benchmark-init/activate)
 
 ;;; 预先加载的很小一部分配置
+(when *is-windows* (w32-set-ime-open-status nil))
 (global-set-key (kbd "C-x l") #'load-my-config-manually)
 (global-set-key (kbd "C-x j") #'open-inbox-md)
 
@@ -34,6 +35,6 @@
 
 ;;; 延时加载重量级配置
 ;;@REF: https://github.com/lujun9972/emacs-document/blob/master/emacs-common/2个鲜为人知的提高Emacs启动速度的步骤.org
-(run-with-idle-timer 5 nil 'load-my-config)
+;; (run-with-idle-timer 5 nil 'load-my-config)
 
 ;; init.el ends here

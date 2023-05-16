@@ -41,11 +41,10 @@
 
 
 (package-initialize)		 ;这行代码放在这里，启动速度会快一点，
+;; (setq package-enable-at-startup nil)
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "extensions" user-emacs-directory))
-
-(require 'init-elpa)
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq inhibit-splash-screen t)

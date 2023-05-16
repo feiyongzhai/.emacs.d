@@ -11,7 +11,12 @@
 ;; (benchmark-init/activate)
 
 ;;; 预先加载的很小一部分配置
-(when *is-windows* (w32-set-ime-open-status nil))
+(when *is-windows*
+  ;; windows 平台下，输入法状态和窗口有绑定关系，需要抢一下窗口焦点。
+  ;; 保证输入法状态被准确放到 emacs 的窗口上。
+  (raise-frame)
+  (w32-set-ime-open-status nil)
+  (message "输入法切换成英文模式"))
 (global-set-key (kbd "C-x l") #'load-my-config-manually)
 (global-set-key (kbd "C-x j") #'open-inbox-md)
 

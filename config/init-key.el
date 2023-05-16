@@ -159,18 +159,12 @@
 (global-set-key (kbd "M-s M-y") 'yank-and-indent)
 (global-set-key (kbd "M-s y") 'yank-and-indent)
 
-(global-set-key (kbd "M-w") 'easy-kill)
-(with-eval-after-load 'easy-kill
-  (define-key easy-kill-base-map (kbd "x") 'easy-kill-exchange-point-and-mark)
-  (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region))
-
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "C-S-l") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "C-M-=") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
-(global-set-key (kbd "C-x c") 'compile)
 
 (global-set-key (kbd "C-x F") 'set-fill-column)
 (global-set-key (kbd "C-S-h") 'fei-pulse-current-line)
@@ -197,7 +191,6 @@
 
 (global-set-key (kbd "C-c h") 'webjump)
 (global-set-key (kbd "C-c M-h") 'webjump)
-(global-set-key (kbd "C-c /") 'webjump)
 
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
@@ -225,9 +218,9 @@
 (global-set-key (kbd "C-x m") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x RET") 'fei/buffer-or-tab-recent)
 
-(global-set-key (kbd "C-x i") 'insert-char)
-(global-set-key (kbd "C-x I") 'emoji-search)
-(global-set-key (kbd "C-x M-i") 'all-the-icons-insert)
+(global-set-key (kbd "C-x i") 'insert-register)
+(global-set-key (kbd "C-x I") 'all-the-icons-insert)
+(global-set-key (kbd "C-x M-i") 'insert-file)
 
 ;; (global-set-key (kbd "C-c i") 'counsel-imenu)
 (global-set-key (kbd "C-c i") 'consult-imenu)
@@ -242,8 +235,6 @@
 (global-set-key (kbd "M-s M-q") 'quit-window)
 
 (global-set-key (kbd "M-s M-h") 'highlight-symbol-at-point)
-
-(global-set-key (kbd "C-'") 'new-buffer-other-window)
 
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
@@ -509,7 +500,7 @@
 (global-set-key (kbd "C-x K") 'reopen-killed-file)
 
 ;; (global-set-key (kbd "C-x y") 'consult-yasnippet)
-(global-set-key (kbd "C-x y") 'yas-insert-snippet)
+(global-set-key (kbd "C-x y") 'fei/yas-insert-snippet)
 (global-set-key (kbd "C-x Y") 'yas-new-snippet)
 
 (global-set-key (kbd "C-c <left>") 'tab-bar-history-back)
@@ -612,7 +603,7 @@
 
 
 (fei-define-key-with-map isearch-mode-map
-  '(("M-g" . isearch-cancel)
+  '(("C-g" . isearch-cancel)
     ("M-<" . isearch-beginning-of-buffer)
     ("M->" . isearch-end-of-buffer)
     ("<C-return>" . prot-search-isearch-other-end)
@@ -650,18 +641,6 @@
   (define-key python-mode-map (kbd "C-c C-k") 'python-shell-send-buffer)
   (define-key python-mode-map (kbd "C-c C-c") 'fei-python-compile-and-run))
 
-(setq rime-translate-keybindings
-      '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
-	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u" "M-n" "M-p"
-	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
-
-(with-eval-after-load 'rime
-  (global-set-key (kbd "C-`") 'rime-select-schema)
-  (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-i") 'rime-inline-ascii)
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
-  (define-key rime-active-mode-map (kbd "C-j") 'rime--return))
-
 
 ;;; Pyim
 (with-eval-after-load 'pyim
@@ -675,7 +654,6 @@
   (define-key pyim-mode-map (kbd "M-3") (li (pyim-select-subword-by-number 3)))
   (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
-
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)

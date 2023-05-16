@@ -45,6 +45,23 @@
   (setq rime-share-data-dir
 	"c:/msys64/mingw64/share/rime-data"))
 
+(setq rime-translate-keybindings
+      '("C-f" "C-b" "C-n" "C-p" "C-g" "C-h" "C-e" "C-v" "M-v" "M-f" "M-b"
+	"C-`" "C-d" "C-k" "C-y" "<tab>" "C-a" "C-u" "M-n" "M-p"
+	"<left>" "<right>" "<up>" "<down>" "<prior>" "<next>" "<delete>"))
+
+(with-eval-after-load 'rime
+  (global-set-key (kbd "C-`") 'rime-select-schema)
+  (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
+  (define-key rime-active-mode-map (kbd "M-i") 'rime-return-yas-expand)
+  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
+  (define-key rime-active-mode-map (kbd "C-j") 'rime--return))
+
+(defun rime-return-yas-expand ()
+  (interactive)
+  (call-interactively 'rime--return)
+  (call-interactively 'yas-expand))
+
 (with-eval-after-load 'rime
   (face-spec-set 'rime-default-face
 		 '((((class color) (background dark))

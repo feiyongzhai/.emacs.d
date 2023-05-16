@@ -13,7 +13,7 @@
 (setq awesome-tray-date-format "%H:%M %m-%d %a")
 (setq awesome-tray-hide-mode-line nil)
 (setq awesome-tray-active-modules '("date"))
-(awesome-tray-mode)
+(when (window-system) (awesome-tray-mode))
 
 ;; == 修改 mode-line 的一个示例 ==
 

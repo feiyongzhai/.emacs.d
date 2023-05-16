@@ -1,5 +1,19 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+(defun fei/org-notes-archive ()
+  (interactive)
+  (let ((source-dir (expand-file-name "~/Nutstore Files/"))
+        (destination (concat (expand-file-name "~/Archives/org-notes/")
+                             "org-"
+                             (format-time-string "%Y-%m-%d-%H-%M")
+                             ".zip")))
+    (async-shell-command
+     (concat
+      (format "cd \"%s\" && " source-dir) ;先切到目标目录，不要 zip -r 得到的压缩包会有绝对路径
+      "zip -r "                           ;递归的压缩文件
+      (format "\"%s\" \"%s\"" destination "org/")))))
+
+
 (defun replace-string-one-line ()
   (interactive)
   (replace-string-in-region (read-string "原始字符串: ")
@@ -150,6 +164,7 @@
     (switch-to-buffer-other-window buffer)
     (with-current-buffer buffer
       (activate-input-method "rime")
+      (yas-minor-mode) ;其实挺好奇的，为什么这个 buffer 不会自动启用 yas-minor-mode
       (let ((map (make-sparse-keymap)))
 	(set-keymap-parent map (current-local-map))
 	(define-key map (kbd "C-c C-c") 'new-buffer-quit-and-copy)

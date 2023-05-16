@@ -11,7 +11,7 @@
 
 (setq echo-keystrokes 0.1)
 
-
+(defalias 'c 'copy-to-register)
 (defalias 'k 'fei-key-mode)
 (defalias 'l 'counsel-load-theme)
 (defalias 'set-number 'display-line-numbers-mode)

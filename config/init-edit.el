@@ -1,7 +1,5 @@
 (require 'fei-funcs)
 
-(global-subword-mode)
-
 (setq shift-select-mode t)		;回归默认行为
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
 (setq next-screen-context-lines 2)

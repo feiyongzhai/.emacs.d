@@ -264,7 +264,6 @@
 (global-set-key (kbd "C-x <return>") 'execute-extended-command)
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
-(global-set-key (kbd "C-c m") 'execute-extended-command)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
 
 (global-set-key (kbd "C-4") 'set-selective-display-dwim)

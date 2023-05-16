@@ -400,8 +400,10 @@
 
 (global-set-key (kbd "M-s d") 'fei/olivetti-truncate)
 (global-set-key (kbd "M-s M-d") 'fei/olivetti-truncate)
-(global-set-key (kbd "M-s M-a") 'org-agenda-list)
+(global-set-key (kbd "M-s a") 'org-agenda-list) ;windows 平台 M-a 和微信的截图快捷键冲突
 (global-set-key (kbd "M-a") 'org-agenda-list)
+
+(global-set-key (kbd "C-:") 'pp-eval-expression)
 
 (global-set-key (kbd "M-s h a") 'fei-highlight-region)
 (global-set-key (kbd "M-s h ,") 'fei-unhighlight-symbol-at-point)
@@ -719,8 +721,8 @@
 (when *is-linux*
   ;; (global-set-key (kbd "C-c w") 'counsel-wmctrl)
   ;; (global-set-key (kbd "C-c m") 'counsel-linux-app)
-  (global-set-key (kbd "C-c p") 'proced)
   )
+(global-set-key (kbd "C-c p") 'proced)
 
 (global-set-key (kbd "s-l") 'lsp)
 (setq lsp-keymap-prefix "s-l")

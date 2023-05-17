@@ -252,7 +252,7 @@
 (global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
-(global-set-key (kbd "C-x <return>") 'execute-extended-command)
+(global-set-key (kbd "C-x <return>") 'fei/buffer-or-tab-recent)
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)

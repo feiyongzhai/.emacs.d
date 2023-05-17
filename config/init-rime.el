@@ -9,6 +9,7 @@
 (with-eval-after-load 'rime
   (add-hook 'kill-emacs-hook #'rime-lib-finalize))
 
+(setq default-input-method "rime")
 (setq rime-title " ㄓ ")
 (autoload 'rime-activate "rime" nil nil nil)
 (register-input-method "rime" "euc-cn" 'rime-activate rime-title)
@@ -63,14 +64,16 @@
   (call-interactively 'yas-expand))
 
 (with-eval-after-load 'rime
+  (face-spec-set 'rime-highlight-candidate-face
+                 '((t :height 1.2 :bold t)))
   (face-spec-set 'rime-default-face
 		 '((((class color) (background dark))
-		    (:background "#333333" :foreground "#dcdccc" :slant italic))
+		    (:height 1.2 :background "#333333" :foreground "#dcdccc"))
 		   (((class color) (background light))
-		    (:background "#dcdccc" :foreground "#333333" :slant italic)))))
+		    (:height 1.2 :background "#dcdccc" :foreground "#333333")))))
 
 (setq rime-posframe-properties
-      (list :internal-border-width 2)
+      (list :internal-border-width 8)
       rime-candidate-num-format-function 'fei-rime--candidate-num-format)
 
 (defun fei-rime--candidate-num-format (num select-labels)
@@ -79,15 +82,13 @@
       (format "%s. " (nth (1- num) select-labels))
     (format "%d." num)))
 
-(setq default-input-method "rime")
-
-(setq rime-show-candidate 'posframe ; minibuffer 的方式会和 awesome-tab 冲突
-      ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
-      ;; rime-show-candidate 'posframe
-      rime-show-preedit t
-      ;; rime-posframe-style 'vertical
-      rime-posframe-style 'horizontal
-      rime-posframe-fixed-position t)
+(setq
+ rime-show-candidate 'posframe ; minibuffer 的方式会和 awesome-tab 冲突
+ ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
+ rime-show-preedit 'inline
+ rime-posframe-style 'vertical ;选择竖着的原因，是因为横着的时候很容易出现 posframe 碰到 emacs frame 边界的情况，导致候选框一直跳动
+ ;; rime-posframe-style 'horizontal
+ rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates
       '(

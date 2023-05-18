@@ -472,7 +472,7 @@
 
 (global-set-key (kbd "<f2>") 'list-bookmarks)
 (global-set-key (kbd "C-x j") 'new-buffer)
-(global-set-key (kbd "C-x M-j") 'new-buffer-other-window)
+(global-set-key (kbd "C-x M-j") 'new-buffer-same-major-mode)
 (global-set-key (kbd "C-x M-h") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x B") 'new-buffer)
 

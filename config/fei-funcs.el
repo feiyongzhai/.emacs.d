@@ -143,6 +143,15 @@
   (save-excursion (call-interactively 'comment-line)))
 
 
+(defun new-buffer-same-major-mode ()
+  "refer to `evil-buffer-new'"
+  (interactive)
+  (let ((buffer (generate-new-buffer "*new*"))
+        (mode major-mode))
+    (with-current-buffer buffer
+      (funcall mode)
+      (switch-to-buffer-other-window buffer))))
+
 (defun new-buffer ()
   "refer to `evil-buffer-new'"
   (interactive)

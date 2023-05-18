@@ -15,6 +15,12 @@
 (setq awesome-tray-active-modules '("date"))
 (when (window-system) (awesome-tray-mode))
 
+
+;; Doom-mode-line
+(setq doom-modeline-icon nil)
+(setq doom-modeline-height 18)
+(setq doom-modeline-highlight-modified-buffer-name nil)
+
 ;; == 修改 mode-line 的一个示例 ==
 
 ;; (setq mode-line-format

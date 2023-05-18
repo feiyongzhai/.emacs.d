@@ -317,4 +317,30 @@
   (browse-url (concat (searchbox-get-sites-url "抖音(D)")
 		      (url-encode-url searchbox-string))))
 
+
+;;; 想法：用 tabulated-list-mode 显示 searchbox-string-hist，还没有实现。
+;; @REF: https://emacs-china.org/t/emacs/12024/2
+
+(define-derived-mode searchbox-hist-list-mode tabulated-list-mode "Modules"
+  (setq tabulated-list-padding 0)
+  (setq tabulated-list-format `[("History Entry" 20 nil)])
+  (tabulated-list-init-header)
+  (add-hook 'tabulated-list-revert-hook 'searchbox-hist-list-do-refresh nil t))
+
+(defun searchbox-hist-list-do-refresh ()
+  (setq tabulated-list-entries (searchbox-string-hist-to-entries)))
+
+(defun searchbox-string-hist-to-entries ()
+  (let ((i 0))
+    (mapcar (lambda (x) `(,(setq i (1+ i)) [,x]))
+            searchbox-string-hist)))
+
+(defun searchbox-hist-list-show ()
+  (interactive)
+  (let ((buf (get-buffer-create "*My tab*")))
+    (switch-to-buffer buf)
+    (searchbox-hist-list-mode)
+    (searchbox-hist-list-do-refresh)
+    (tabulated-list-print)))
+
 (provide 'searchbox)

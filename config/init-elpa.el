@@ -72,7 +72,8 @@
 	evil				; vim 模拟
 	keyfreq				; 统计按键
 	consult-dir			; interactive style `fasd` or `autojump`
-        
+        tldr                            ; 这个命令怎么用？
+
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult
 	consult-yasnippet marginalia vertico-posframe
@@ -125,7 +126,7 @@
 	;; ==== 备忘 ====
 	;; minions helm-org-rifle backward-forward
 	;; tab-bar-echo-area eyebrowse
-	;; academic-phrases valign tldr separedit
+	;; academic-phrases valign separedit
 	;; adafruit-wisdom anzu eshell-git-prompt gcmh
 	;; devdocs sis pinyin-search mini-modeline
 	;; minimap calfw calfw-org frames-only-mode

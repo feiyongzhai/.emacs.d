@@ -2,6 +2,9 @@
 
 (require 'fei-funcs)
 
+;;; TLDR
+(setq tldr-locales '("zh"))
+
 ;;; 百度网盘
 (add-to-list 'load-path "~/.emacs.d/extensions/baidupan")
 (require 'dupan)

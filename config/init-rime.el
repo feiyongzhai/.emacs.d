@@ -2,6 +2,15 @@
 ;; Deepin 平台
 ;;   sudo apt install librime-dev
 
+;; 目前笔记本电脑上出现 librime 日志输出总是打乱终端 emacs 界面的问题。
+;; emacs-rime 的 issue 上有两个相似的问题
+;; @ISSUE: https://github.com/DogLooksGood/emacs-rime/issues/137
+;; @ISSUE: https://github.com/DogLooksGood/emacs-rime/issues/145
+;;
+;; 解决方案一致，都是使用 emacs --daemon 的方式，在终端下用 emacsclient
+;; 就可以了。其实这个思路就是在 emacs --daemon 放在后台 librime 的输出日志
+;; 在那个进程中输出，不会在 emacsclient 的界面输出。
+
 ;; Rime
 (add-to-list 'load-path "~/.emacs.d/extensions/rime/")
 

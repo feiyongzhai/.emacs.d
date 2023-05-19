@@ -1,10 +1,13 @@
 ;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
-
+
 ;; 配合这个命令 GTK_IM_MODULE=emacs XMODIFIERS=@im=emacs emacs 使用，
 ;; 命令的原理不是很清楚，效果是在 emacs 中禁用 fcitx 输入法，这样就实
 ;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法
 (linux (global-set-key (kbd "C-SPC") 'toggle-input-method)
        (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
+(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
+(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 
 
 ;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -129,7 +132,8 @@
 
 
 (global-set-key (kbd "M--") 'split-window-below)
-(global-set-key (kbd "C-M-<return>") 'split-window-right)
+(global-set-key (kbd "M-<return>") 'split-window-right)
+(global-set-key (kbd "M-C") 'delete-window)
 (global-set-key (kbd "M-e") 'treemacs-dired-jump)
 
 (with-eval-after-load 'matlab
@@ -149,8 +153,6 @@
 (global-set-key (kbd "M-K") 'new-buffer-other-window)
 (global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-k") 'scroll-down-line)
-
-(define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
@@ -217,6 +219,7 @@
 (global-set-key (kbd "M-`") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x m") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x RET") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "C-x <return>") 'fei/buffer-or-tab-recent)
 
 (global-set-key (kbd "C-x i") 'insert-register)
 (global-set-key (kbd "C-x I") 'all-the-icons-insert)
@@ -226,7 +229,7 @@
 (global-set-key (kbd "C-c i") 'consult-imenu)
 
 (global-set-key (kbd "M-s `") 'bury-buffer)
-(global-set-key (kbd "M-s ,") 'tab-bar-history-back) ; 这个可以处理 quit-window
+(global-set-key (kbd "M-s ,") 'tab-bar-history-back) ;这个可以处理 quit-window
 ;; (global-set-key (kbd "M-s ,") 'unbury-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
@@ -252,15 +255,11 @@
 (global-set-key (kbd "C-M-w") 'set-mark-command) ;was `append-next-kill'
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
-(global-set-key (kbd "C-x <return>") 'fei/buffer-or-tab-recent)
-
 (global-set-key (kbd "C-x M-m") mule-keymap)
 (global-set-key (kbd "C-x M") 'repeat-complex-command)
 
 (global-set-key (kbd "C-4") 'set-selective-display-dwim)
 (global-set-key (kbd "C-x C-4") 'set-selective-display)
-
-(global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
 (global-set-key (kbd "C-x L") 'vc-print-root-log)
@@ -284,9 +283,10 @@
 (global-set-key (kbd "M-s-j") 'make-frame-command)
 (global-set-key (kbd "M-s-k") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "M-s-l") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
+(global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
 
 (global-set-key "\M-Q" 'unfill-paragraph)
-(global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
 (global-set-key (kbd "M-'") 'bookmark-bmenu-list)
 ;; (global-set-key (kbd "M-s m") 'bookmark-view-push)
@@ -331,6 +331,7 @@
 (global-set-key (kbd "M-n") 'fei/scroll-up-push-mark)
 (global-set-key (kbd "M-p") 'fei/scroll-down-push-mark)
 
+(global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "M-s u") 'jump-to-register)
 (global-set-key (kbd "M-s M-u") 'jump-to-register)
 
@@ -403,7 +404,7 @@
 (global-set-key (kbd "<M-pause>") 'fei-pomodoro-timer)
 (global-set-key (kbd "ESC <pause>") 'fei-pomodoro-timer)
 
-(global-set-key (kbd "M-s [") 'fei/load-zenburn)
+(global-set-key (kbd "M-s [") 'fei/load-zenburn)
 (global-set-key (kbd "M-s ]") 'fei/disable-theme)
 
 (global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
@@ -426,9 +427,6 @@
 (global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 
-(global-set-key (kbd "M-s \\") 'fei-rime-force-enable)
-(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
-(global-set-key (kbd "C-\\") 'toggle-input-method)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
 ;; (global-set-key (kbd "M-J") (li (w32-set-ime-open-status nil)))
@@ -453,9 +451,11 @@
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)
 
+(global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 (global-set-key (kbd "C-c ;") 'comment-region)
 (global-set-key (kbd "C-S-g") 'fei-vc-dired-jump)
 
+(global-set-key (kbd "C-S-i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (global-set-key (kbd "C-x t h") 'fei-switch-current-buffer-to-new-tab)
@@ -474,7 +474,6 @@
 (global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-j") 'new-buffer-same-major-mode)
 (global-set-key (kbd "C-x M-h") 'fei/buffer-or-tab-recent)
-(global-set-key (kbd "C-x B") 'new-buffer)
 
 (global-set-key (kbd "M-g u") 'jump-to-register)
 (global-set-key (kbd "M-g M-u") 'jump-to-register)
@@ -513,11 +512,10 @@
 (autoload 'zygospore-toggle-delete-other-windows "zygospore" t nil)
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
-(global-set-key (kbd "C-c 0") 'my/delete-window-or-delete-frame)
-(global-set-key (kbd "C-1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "C-2") (li (split-window-below) (other-window 1)))
-(global-set-key (kbd "C-3") (li (split-window-right) (other-window 1)))
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "M-s 1") 'zygospore-toggle-delete-other-windows)
+(global-set-key (kbd "M-s 2") (li (split-window-below) (other-window 1)))
+(global-set-key (kbd "M-s 3") (li (split-window-right) (other-window 1)))
 (autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
@@ -553,8 +551,7 @@
   (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
   (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
-  (define-key yas-keymap (kbd "M-I") 'yas-prev-field)
-  )
+  (define-key yas-keymap (kbd "M-I") 'yas-prev-field))
 
 (with-eval-after-load 'bookmark
   (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
@@ -601,7 +598,6 @@
        (start-process "python" "*fei-python*"
                       "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))))
 
-
 (fei-define-key-with-map isearch-mode-map
   '(("C-g" . isearch-cancel)
     ("M-<" . isearch-beginning-of-buffer)
@@ -655,8 +651,9 @@
   (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
-(define-key prog-mode-map (kbd "M-RET") 'hs-toggle-hiding)
+(define-key prog-mode-map (kbd "C-M-<return>") 'hs-hide-level)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
+(define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 
 ;;; Helpful
 ;; (global-set-key (kbd "C-h o") 'helpful-symbol)
@@ -696,10 +693,7 @@
   (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))
 
 
-(when *is-linux*
-  ;; (global-set-key (kbd "C-c w") 'counsel-wmctrl)
-  (global-set-key (kbd "C-c m") 'counsel-linux-app)
-  )
+(linux (global-set-key (kbd "C-c m") 'counsel-linux-app))
 (win10 (global-set-key (kbd "C-c m") 'app-launcher-run-app))
 (global-set-key (kbd "C-c p") 'proced)
 
@@ -742,7 +736,6 @@
 
 
 ;;; Ibuffer
-
 (with-eval-after-load 'ibuffer
   (define-key ibuffer-mode-map (kbd "j") 'ibuffer-forward-line) ;was `ibuffer-jump-to-buffer'
   (define-key ibuffer-mode-map (kbd "k") 'ibuffer-backward-line) ;was `ibuffer-kill-line'
@@ -781,11 +774,8 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map [mouse-3] 'fei-dired-mouse-find-file-externally)
   (define-key dired-mode-map [mouse-2] 'dired-mouse-find-file)
-  (cond
-   (*is-linux*
-    (define-key dired-mode-map [mouse-8] 'dired-up-directory))
-   (*is-windows*
-    (define-key dired-mode-map [mouse-4] 'dired-up-directory)))
+  (linux (define-key dired-mode-map [mouse-8] 'dired-up-directory))
+  (win10 (define-key dired-mode-map [mouse-4] 'dired-up-directory))
 
   (fei-define-key-with-map dired-mode-map
     `(
@@ -809,7 +799,6 @@
       ))
 
   (define-key dired-mode-map (kbd "M-d") 'fei/olivetti-truncate)
-
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
   (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
@@ -831,7 +820,7 @@
       ("^"   . dirvish-history-last)
       ("H"   . dirvish-history-jump)	; remapped `describe-mode'
       ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
-      ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
+      ("v"   . dirvish-vc-menu)         ; remapped `dired-view-file'
       ("TAB" . dirvish-subtree-toggle)
       ("M-n" . dirvish-history-go-forward)
       ("M-p" . dirvish-history-go-backward)

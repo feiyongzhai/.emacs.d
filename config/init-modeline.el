@@ -1,6 +1,6 @@
 ;; smart-mode-line
 (setq sml/theme nil)
-(sml/setup)
+;; (sml/setup)
 
 (setq display-time-format " %H:%M %Y-%m-%d")
 (setq display-time-default-load-average nil) ;不显示time后面的不明数字

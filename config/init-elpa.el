@@ -43,7 +43,7 @@
 	macrostep git-commit benchmark-init
 
 	helpful openwith
-        scratch imenu-list rg websocket
+        imenu-list rg websocket
 	interaction-log		 ;这个包需要自己 require，不会自动加载
 
 	;; ==== 功能包 ====
@@ -131,7 +131,7 @@
 	;; devdocs sis pinyin-search mini-modeline
 	;; minimap calfw calfw-org frames-only-mode
 	;; zone zone-rainbow zone-nyan zone-sl totd
-	;; zoom zlc web-search google-this
+	;; zoom zlc web-search google-this scratch
 	;; bing-dict emojify focus dired-sider-bar
 	))
 

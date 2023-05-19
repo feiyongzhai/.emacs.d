@@ -24,8 +24,7 @@
 	      (olivetti-set-width 80))))
 
 (with-eval-after-load 'elfeed
-  (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-12"))))
-  )
+  (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-12")))))
 
 ;; (setq shr-inhibit-images t) ;nil
 

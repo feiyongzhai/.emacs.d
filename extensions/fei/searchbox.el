@@ -175,6 +175,7 @@
 	(define-key map "i" #'fei/fit-window-to-buffer)
 	(define-key map "m" #'minimize-window)
 	(define-key map "H" #'webjump)
+	(define-key map "l" (li (quit-window) (call-interactively 'searchbox-hist-list-show)))
 	;; (define-key map "e" (li (searchbox-search t)))
 	(define-key map "e" #'searchbox-edit-string)
 	(define-key map "s" #'searchbox-search)

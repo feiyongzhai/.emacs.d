@@ -91,6 +91,15 @@
     (set-frame-size frame w h)))
 ;; (arrange-frame 84 30 170 20)
 
+(defun fei-python-run (&optional flag)
+     (interactive "P")
+     (save-buffer (current-buffer))
+     (if flag
+	 (start-process "python" "*fei-python*"
+			"cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
+       (start-process "python" "*fei-python*"
+                      "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
+
 ;;; zoxide
 ;; @REF: https://emacs-china.org/t/emacs-helm-ag/6764
 ;; 使用以下配置之后 eshell 中的 zoxide 命令可以正常工作

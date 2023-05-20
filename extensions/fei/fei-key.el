@@ -15,7 +15,13 @@
   :keymap fei-key-mode-map
   (if fei-key-mode
       (message " 🥏 飞 开启！")
-    (message " 🦉 飞 关闭！"))
-  )
+    (message " 🦉 飞 关闭！")))
+
+;; 示意按键
+(define-key fei-key-mode-map (kbd "M-u") 'eshell)
+(define-key fei-key-mode-map (kbd "C-M-g") 'fei-vc-dired-jump)
+(define-key fei-key-mode-map (kbd "C-M-v") 'vc-next-action)
+(define-key fei-key-mode-map (kbd "M-q") 'quit-window)
+(define-key fei-key-mode-map (kbd "M-g") (kbd "C-g"))
 
 (provide 'fei-key)

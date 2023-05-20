@@ -1,5 +1,21 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+(defun split-window-right-select ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
+(defun split-window-below-select ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun eshell-other-window ()
+  (interactive)
+  (split-window-right)
+  (other-window 1)
+  (eshell))
+
 (defun fei/org-notes-archive ()
   (interactive)
   (let ((source-dir (expand-file-name "~/Nutstore Files/"))

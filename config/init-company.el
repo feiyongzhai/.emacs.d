@@ -1,5 +1,8 @@
 (require 'init-func)
 
+(with-eval-after-load 'company
+  (add-to-list 'company-transformers 'delete-dups))
+
 (setq company-minimum-prefix-length 2	;为 1 的时候总是跳出来，很烦人
       ;; company-idle-delay 0.1
       company-tooltip-limit 10

@@ -2,9 +2,6 @@
 
 (setq bs-default-configuration "all")
 
-(defun fei-bs-not-all (buf)
-  t)
-
 (defun fei-bs-not-dired (buf)
   (with-current-buffer buf
     (not (eq major-mode 'dired-mode))))
@@ -59,7 +56,6 @@
     (switch-to-buffer-other-tab buf)))
 
 ;; @REF https://emacs.stackexchange.com/questions/65094/how-to-quickly-cycles-through-buffers-of-the-same-major-mode-as-current-one
-(global-set-key (kbd "C-x C-b") 'fei-bs-show)
 (defun fei-bs-show ()
   (interactive)
   (setq bs-cur-major-mode major-mode)
@@ -69,7 +65,7 @@
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)
-	("not-all" nil nil nil fei-bs-not-all )
+	("not-all" nil nil nil t)
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("dired" nil nil nil fei-bs-not-dired bs-sort-buffer-interns-are-last)
 	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)

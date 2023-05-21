@@ -31,7 +31,6 @@
 (set-fontset-font t '(#x22000 . #x22fff) (font-spec :family "SimSun-ExtB")) ;中日韩统一表意文字扩展区B
 (set-fontset-font t '(#x13000 . #x1342F) (font-spec :family "Segoe UI Historic")) ;圣书体
 
-
 (setenv "EDITOR" "emacsclientw -c")
 
 (w32-set-ime-open-status nil)
@@ -59,19 +58,13 @@
 	    ))
 
 ;; ;;; I do not why, but `w32-register-hot-key' must after `w32-lwindow-modifier' setting
-;; (dolist (keys '([s-0] [s-1] [s-2] [s-3]
-;; 		[s-s] [s-u] [s-e]
-;; 		[s-return] [M-escape]))
+;; (dolist (keys '([s-0] [s-1] [s-2] [s-3] [s-s] [s-u] [s-e] [s-return] [M-escape]))
 ;;   (w32-register-hot-key keys))
-
-;; (tool-bar-add-item "show" 'file-manager-here 'file-manager-here :help "file-manager-here")
 
 ;;; @DOWNLOAD: https://www.voidtools.com/zh-cn/downloads/
 (setq locate-command "es.exe")
-
 (setq browse-url-handlers '(("." . browse-url-default-browser)))
 
-;;; Funcs
 (defun wt()
   "Open an external Windows cmd in the current directory"
   (interactive)
@@ -92,13 +85,13 @@
 ;; (arrange-frame 84 30 170 20)
 
 (defun fei-python-run (&optional flag)
-     (interactive "P")
-     (save-buffer (current-buffer))
-     (if flag
-	 (start-process "python" "*fei-python*"
-			"cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
-       (start-process "python" "*fei-python*"
-                      "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
+  (interactive "P")
+  (save-buffer (current-buffer))
+  (if flag
+      (start-process "python" "*fei-python*"
+		     "cmd" "/c" "start" "cmd" "/k" "python" "-i" (buffer-file-name))
+    (start-process "python" "*fei-python*"
+                   "cmd" "/c" "start" "cmd" "/k" "python" (buffer-file-name))))
 
 ;;; zoxide
 ;; @REF: https://emacs-china.org/t/emacs-helm-ag/6764
@@ -107,12 +100,11 @@
 
 ;; 参考上面，解决 windows counsel-rg 乱码的问题
 (modify-coding-system-alist 'process "rg" '(utf-8 . chinese-gbk-dos))
-
+
 ;; Eshell
 (defun eshell/d () (eshell/cd "d:/"))
 (defun eshell/c () (eshell/cd "c:/"))
 
-
 (with-eval-after-load 'counsel
   (defun counsel-git (&optional initial-input)
     "魔改的 counsel-git 原始版本，解决编码问题

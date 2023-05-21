@@ -42,7 +42,6 @@
     ("," . embark-act)
     ("=" . calculator)
     ("-" . fei/echo-line)
-    ("C-q" . (lambda () (interactive) (insert "`")))
     ("`" . (lambda () (interactive) (insert "`")))
     ("M-i" . tab-to-tab-stop)
     ))
@@ -78,6 +77,7 @@
 ;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; 受启发于平铺窗口的快捷键
+(global-set-key (kbd "C-M-<return>") 'split-window-below-select)
 (global-set-key (kbd "M-<return>") 'eshell-other-window)
 (global-set-key (kbd "M-C") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "M--") 'split-window-below)
@@ -96,7 +96,8 @@
 
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "C-S-l") 'my/select-current-line-and-forward-line)
-(global-set-key (kbd "C-M-=") 'calculator)
+(global-set-key (kbd "M-s =") 'calculator)
+(global-set-key (kbd "C-M-=") 'quick-calc)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
@@ -106,7 +107,6 @@
 
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
-(global-set-key (kbd "M-s M-e") 'fei-switch-to-treemacs)
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
@@ -129,7 +129,6 @@
 (global-set-key (kbd "M-s M-h") 'hs-toggle-hiding)
 
 (global-set-key (kbd "C-c M-h") 'webjump)
-
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
@@ -139,7 +138,7 @@
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
 
-(global-set-key (kbd "C-x u") 'vundo)
+(global-set-key (kbd "C-x M-u") 'vundo)
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
 
 (autoload 'move-text-up "move-text" nil t)
@@ -226,9 +225,6 @@
   (global-set-key (kbd "M-[") 'backward-paragraph))
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
-(global-set-key (kbd "M-s =") 'quick-calc)
-
-(global-set-key (kbd "C-c o") 'consult-line)
 
 (with-eval-after-load 'cc-mode        ;注意不是 c++-mode 而是 cc-mode
   (define-key c-mode-base-map (kbd "<f5>") #'fei-g++-compile-and-run)
@@ -259,6 +255,7 @@
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer-jump)
+(global-set-key (kbd "C-x C-b") 'fei-bs-show)
 
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
@@ -268,6 +265,8 @@
 (global-set-key (kbd "C-h o") 'counsel-describe-symbol)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 (global-set-key (kbd "C-h C-l") 'find-library)
+(global-set-key (kbd "C-c o") 'consult-line)
+(global-set-key (kbd "C-c i") 'consult-imenu)
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c k") 'counsel-rg)
 (global-set-key (kbd "C-c j") 'fei-counsel-recentf-pinyin)
@@ -338,11 +337,10 @@
 (global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
 (global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
-
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
-(global-set-key (kbd "C-8") 'jetbrains-open-buffer-file)
-(global-set-key (kbd "C-M-8") 'jetbrains-create-dir-local-file)
+;; (global-set-key (kbd "C-8") 'jetbrains-open-buffer-file)
+;; (global-set-key (kbd "C-M-8") 'jetbrains-create-dir-local-file)
 
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)
 (global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
@@ -431,8 +429,6 @@
 (global-set-key (kbd "C-x w m") 'minimize-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x M-o") 'other-frame)
-
-(global-set-key (kbd "C-c i") 'consult-imenu)
 
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
 
@@ -530,7 +526,6 @@
 
 (global-set-key (kbd "C-S-g") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
-(define-key prog-mode-map (kbd "C-M-<return>") 'hs-toggle-hiding)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 

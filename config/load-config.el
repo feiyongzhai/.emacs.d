@@ -29,6 +29,7 @@
   (require 'init-modeline)
   (require 'init-fei)
   (require 'init-dired)
+  (require 'init-bs)
   (require 'init-ibuffer)
   (require 'init-engine)
   (with-eval-after-load 'webjump

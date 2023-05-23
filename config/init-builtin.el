@@ -40,7 +40,7 @@
 (setq show-paren-style 'parenthesis)
 
 ;; redirect the backup file path
-(setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
+;; (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
 
 ;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
 (setq ring-bell-function 'ignore)	;no bell

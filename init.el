@@ -10,6 +10,8 @@
 ;; (require 'benchmark-init)
 ;; (benchmark-init/activate)
 
+(setq make-backup-files nil)            ;不生成 file-name~ 文件
+
 ;;; 预先加载的很小一部分配置
 (when *is-windows*
   ;; windows 平台下，输入法状态和窗口有绑定关系，需要抢一下窗口焦点。

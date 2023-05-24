@@ -65,7 +65,7 @@
 (add-hook 'bs-mode-hook 'hl-line-mode)
 (setq bs-configurations
       '(("all" nil nil nil nil nil)
-	("not-all" nil nil nil t)
+	("not-all" nil nil nil (lambda (buf) t))
 	("files" nil nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
 	("dired" nil nil nil fei-bs-not-dired bs-sort-buffer-interns-are-last)
 	("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)

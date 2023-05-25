@@ -1,12 +1,20 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(defun fei-terminal-here ()
+  (interactive)
+  (if *is-linux*
+      (start-process "xfce4-terminal" nil "xfce4-terminal")
+    (if (fboundp 'terminal-here)
+	(terminal-here)
+      (message "can't open terminal here"))))
+
+
 ;; easy-kill 相关配置
 (global-set-key (kbd "M-w") 'easy-kill)
 (with-eval-after-load 'easy-kill
   (define-key easy-kill-base-map (kbd "x") 'easy-kill-exchange-point-and-mark)
   (define-key easy-kill-base-map (kbd "C-w") 'easy-kill-region))
-
 
 
 ;; 搜索相关的命令

@@ -33,7 +33,6 @@
 (global-set-key (kbd "C-x C-y") 'yank-and-indent)
 
 (global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
-(global-set-key (kbd "C-S-l") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "M-s =") 'calculator)
 (global-set-key (kbd "C-M-=") 'quick-calc)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
@@ -76,7 +75,7 @@
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
 
-(global-set-key (kbd "C-x M-u") 'vundo)
+(global-set-key (kbd "C-x U") 'vundo)   ;更容易记忆
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
 
 (autoload 'move-text-up "move-text" nil t)
@@ -124,7 +123,7 @@
 
 (global-set-key (kbd "C-x m") 'push-mark)
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
-(global-set-key (kbd "C-x L") 'vc-print-root-log)
+(global-set-key (kbd "C-S-l") 'vc-print-root-log)
 
 (global-set-key (kbd "M-e") 'treemacs-dired-jump)
 (global-set-key (kbd "M-s M-i") 'treemacs-dired-jump)

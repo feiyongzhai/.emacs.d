@@ -20,7 +20,7 @@
 (defalias 'code 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
 (defalias 'of 'file-manager-here)
-(defalias 'ot 'fei-terminal-here)
+(defalias 'ot 'terminal-here)
 (defalias 'ui 'fei-toggle-ui)
 (defalias 'cmp 'compile)
 

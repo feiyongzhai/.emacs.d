@@ -447,15 +447,6 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
               :caller 'fei-counsel-fd-file-jump)))
 
 
-(defun fei-terminal-here ()
-  (interactive)
-  (if *is-linux*
-      (start-process "xfce4-terminal" nil "xfce4-terminal")
-    (if (fboundp 'terminal-here)
-	(terminal-here)
-      (message "can't open terminal here"))))
-
-
 ;; @REF: https://emacs-china.org/t/topic/18075/3
 (defun goto-longest-line ()
   (interactive)

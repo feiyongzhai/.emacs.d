@@ -40,7 +40,7 @@
 (setq fei-package-ensure-installed
       '(
 	;; ==== Misc ====
-	macrostep git-commit benchmark-init
+	macrostep git-commit benchmark-init terminal-here
 
 	helpful openwith
         imenu-list rg websocket

@@ -14,7 +14,7 @@
 (define-key my-menu-bar-menu [my-cmd5] '(menu-item "用emacsq打开" open-current-file-with-emacsq))
 (define-key my-menu-bar-menu [separator] '(menu-item "--" nil))
 (define-key my-menu-bar-menu [my-cmd6] '(menu-item "打开所在文件夹" file-manager-here))
-(define-key my-menu-bar-menu [my-cmd7] '(menu-item "此位置打开终端" fei-terminal-here))
+(define-key my-menu-bar-menu [my-cmd7] '(menu-item "此位置打开终端" terminal-here))
 
 ;; 添加子菜单示例
 ;; (define-key my-menu-bar-menu [my-cmd8] `(menu-item "Search" ,menu-bar-search-menu))

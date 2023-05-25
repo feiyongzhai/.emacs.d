@@ -14,68 +14,6 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 
-
-;;;;;;;;;;;;;;;;;;;; leader key begin ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar fei-leader-keymap (make-sparse-keymap)
-  "My leader keymap")
-
-(global-unset-key (kbd "`"))
-(global-set-key (kbd "`") fei-leader-keymap)
-
-(fei-define-key-with-map fei-leader-keymap
-  '(("SPC" . set-mark-command)
-    ("a" . org-agenda-list)
-    ("b" . boxes-command-on-region)
-    ("f" . recentf-open-files)
-    ("g" . fei-vc-dired-jump)
-    ("j" . fei/counsel-recentf-dir)
-    ("l" . vc-print-root-log)
-    ("o" . other-window)
-    ("q" . quit-window)
-    ("u" . tab-bar-history-back)
-    ("v" . vc-next-action)
-    ("w" . pwd)
-    ("0" . my/delete-window-or-delete-frame)
-    ("1" . zygospore-toggle-delete-other-windows)
-    ("2" . split-window-below)
-    ("3" . split-window-right)
-    ("," . embark-act)
-    ("=" . calculator)
-    ("-" . fei/echo-line)
-    ("`" . (lambda () (interactive) (insert "`")))
-    ("M-i" . tab-to-tab-stop)
-    ))
-
-;; 处理冲突按键
-(with-eval-after-load 'org
-  (define-key org-cdlatex-mode-map (kbd "`") 'nil)
-  (define-key org-cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol))
-
-(with-eval-after-load 'cdlatex
-  (define-key cdlatex-mode-map (kbd "`") nil)
-  (define-key cdlatex-mode-map (kbd "M-i") 'cdlatex-math-symbol))
-
-(with-eval-after-load 'ibuffer
-  (define-key ibuffer-mode-map (kbd "`") nil)
-  (define-key ibuffer-mode-map (kbd "'") 'ibuffer-switch-format))
-
-;; 一些感受：
-
-;; 1. 因为 ` 这个按键位于左边，所以和位于右边的按键配合一起按的时候会
-;; 比较舒适，如果 ` 接下来的按键还是做的话，一方面按起来不舒适，一方面
-;; 左手负担也会比较重，所以和 SPC 相比，输！
-
-;; 2. 在使用自带的 rime 输入法（系统级别的，不是 emacs 内部的），rime
-;; 会在没有候选框的时候读取 ` 这个按键，而 SPC 则不会，所以 ` 会多一步
-;; 切换的操作，输！
-
-;; 3. SPC 目前只能很好的在 vim 或者其他模式编辑中使用，而我只在很少数
-;; 的情况觉得模式编辑（目前指的就是 evil）有用（目前觉得有用的场景就是
-;; 在已有文本上做搜索修改，如果是自己输入和创作大量的文本输入场景，我
-;; 觉得模式编辑会有点束缚），所以这也是我考虑用 ` 作为 leader key 的原
-;; 因，` 赢！
-;;;;;;;;;;;;;;;;;;;; leader key end ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; 受启发于平铺窗口的快捷键
 (global-set-key (kbd "C-M-<return>") 'split-window-below-select)
 (global-set-key (kbd "M-<return>") 'eshell-other-window)
@@ -335,7 +273,7 @@
 (global-set-key (kbd "C-c n i") 'fei-org-capture-clock)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
 (global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
-(global-set-key (kbd "C-c n k") 'fei-orgn-capture-Research)
+(global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 

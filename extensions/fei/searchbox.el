@@ -231,7 +231,7 @@
       (read-only-mode -1)
       (erase-buffer)
       (goto-char (point-min))
-      (insert searchbox-string)
+      (insert (or searchbox-string ""))
 
       (use-local-map nil)		; 先清除 keybinding
       (let ((map (make-sparse-keymap)))

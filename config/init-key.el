@@ -192,7 +192,6 @@
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
-(global-set-key (kbd "C-x C-b") 'ibuffer-jump)
 (global-set-key (kbd "C-x C-b") 'fei-bs-show)
 
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
@@ -529,7 +528,6 @@
 (define-key lisp-interaction-mode-map (kbd "C-c =") 'macrostep-expand)
 (define-key lisp-interaction-mode-map (kbd "C-c C-e") 'pp-eval-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c M-e") 'pp-macroexpand-last-sexp)
-(define-key emacs-lisp-mode-map (kbd "C-c =") 'macrostep-expand)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'pp-eval-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c M-e") 'pp-macroexpand-last-sexp)
 
@@ -663,7 +661,6 @@
       ("C-h" . company-show-doc-buffer)
       ("M-i" . yas-expand)
       ("M-h" . company-complete-selection)
-      ("M-H" . company-complete-common)
       ("M-w" . company-show-location)
       ("M-s" . company-filter-candidates)
       ("M-/" . company-other-backend)

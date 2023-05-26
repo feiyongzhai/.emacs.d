@@ -1,6 +1,5 @@
 (setq webjump-sites
-      (append '(
-		("Google xueshu" .
+      (append '(("Google xueshu" .
 		 [simple-query "scholar.google.com" "https://scholar.google.com/scholar?hl=zh-CN&q=" ""])
 		("zhihu" .
 		 [simple-query "www.zhihu.com" "https://www.zhihu.com/search?type=content&q=" ""])

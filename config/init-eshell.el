@@ -19,7 +19,6 @@
 ;;                          'eshell-postoutput-scroll-to-bottom)))
 
 (add-hook 'eshell-mode-hook 'fei-eshell-mode-hook)
-
 (defun fei-eshell-mode-hook ()
   ;; `substring' style is very useful for eshell completion
   (setq-local completion-styles '(basic partial-completion substring emacs22))
@@ -63,8 +62,7 @@
    ((eq (length args) 1)
     (eval `(find-file ,@args)))
    (t
-    (mapc (lambda (x)
-	    (find-file-other-tab x))
+    (mapc (lambda (x) (find-file-other-tab x))
 	  (mapcar #'expand-file-name (eshell-flatten-list (reverse args)))))))
 
 ;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai
@@ -129,6 +127,5 @@
       (eshell/cd path)
       ;; (eshell/echo path)
       )))
-
 
 (provide 'init-eshell)

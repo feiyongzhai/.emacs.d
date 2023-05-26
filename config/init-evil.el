@@ -60,8 +60,6 @@
   "q" 'quit-window
   "Q" 'unbury-buffer
   "s" 'searchbox-search
-  "S" 'fei-search-1
-  "M-s" 'webjump
   "t" 'fei-switch-to-treemacs
   "v" 'vc-next-action
   "w" 'pwd
@@ -123,7 +121,7 @@
     (evil-set-initial-state (car p) (cdr p)))
   )
 
-;; Funcs
+
 (defun evil-mode-with-cursor ()
   "设置 message 就是为了终端下面有一个提示"
   (interactive)

@@ -8,11 +8,10 @@
 
 (let ((tool-bar-map (default-value 'tool-bar-map)))
   (tool-bar-add-item "index" (lambda ()
-			      (interactive)
-			      (popup-menu my-menu-bar-menu))
+			       (interactive)
+			       (popup-menu my-menu-bar-menu))
 		     'help
 		     :help "Pop up the Help menu"
 		     :label ""))
 
 (provide 'init-tool-bar)
-

@@ -1,6 +1,11 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(setq ctrlf-default-search-style 'fuzzy)
+(setq ctrlf-show-match-count-at-eol nil)
+(setq ctrlf-highlight-current-line nil)
+
+
 (defun fei-terminal-here ()
   (interactive)
   (if *is-linux*

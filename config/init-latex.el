@@ -19,9 +19,6 @@
     (setq reftex-toc-split-windows-horizontally t)
     (call-interactively 'reftex-toc)))
 
-(with-eval-after-load 'reftex-toc
-  (define-key reftex-toc-mode-map (kbd "v") 'reftex-toc-mode-hor-or-ver))
-
 ;; @REF: https://ks3-cn-beijing.ksyun.com/attachment/9ff9efaf747469424f48741629013db1
 ;; @REF: https://emacs-china.github.io/emacsist/blog/2016/10/26/2016-10-23%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAemacs-latex-make%E5%B7%A5%E5%85%B7%E9%93%BE/
 ;; vscode 的 latex 配置简单好用，emacs 输
@@ -68,6 +65,7 @@
     "dm" (li (yas-expand-snippet "\\[\n$0\n\\]"))
     "mk" (li (yas-expand-snippet (yas-lookup-snippet "Inline Math" 'latex-mode))) ;可以复用 yasnippets
     )
+
   (aas-set-snippets 'laas-mode
     :cond 'texmathp
     "st" "\\text{s.t.}"

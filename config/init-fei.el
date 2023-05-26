@@ -6,14 +6,6 @@
 ;; (require 'tab-bar-mode-indicator)
 
 
-
-;; (add-hook 'server-after-make-frame-hook 'fei-resize-frame)
-;; (defun fei-resize-frame ()
-;;   (interactive)
-;;   (when (display-graphic-p)
-;;     (set-frame-width nil 125)))
-
-
 ;; require `pulse' library
 (defun fei-pulse-current-line ()
   (interactive)
@@ -50,7 +42,6 @@
 	  (t (message "当前不支持这个文件")))))
 
 
-
 (defun switch-to-same-major-mode-buffer ()
   "切换到和当前 buffer 相同 major-mode 的 buffer"
   (interactive)

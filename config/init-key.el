@@ -686,4 +686,7 @@
   (define-key recentf-dialog-mode-map (kbd "e") 'recentf-edit-list)
   (define-key recentf-dialog-mode-map (kbd "g") 'recentf-open-files))
 
+(with-eval-after-load 'reftex-toc
+  (define-key reftex-toc-mode-map (kbd "v") 'reftex-toc-mode-hor-or-ver))
+
 (provide 'init-key)

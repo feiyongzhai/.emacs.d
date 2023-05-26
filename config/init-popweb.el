@@ -1,4 +1,3 @@
-;; ==== Popweb ====
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/dict/")
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/extension/latex/")
 (add-to-list 'load-path "~/.emacs.d/extensions/popweb/")

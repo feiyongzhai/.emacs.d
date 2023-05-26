@@ -106,8 +106,6 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 ;;; interaction-log
 (autoload 'interaction-log-mode "interaction-log" nil t)
 
-;;; Funcs
-
 ;; youdao-dictionary
 (defun fei-youdao-at-point ()
   (interactive)

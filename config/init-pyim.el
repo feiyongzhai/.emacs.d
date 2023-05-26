@@ -3,8 +3,6 @@
 (require 'fei-funcs)
 (require 'pyim)
 
-;; Pyim
-
 ;; (pyim-isearch-mode)
 
 ;; 这行配置存在性能问题：
@@ -52,7 +50,6 @@
       (setq fei-pyim-force-enable nil)
     (setq fei-pyim-force-enable t))
   (activate-input-method 'pyim))
-
 
 (provide 'init-pyim)
 ;;; init-pyim.el ends here.

@@ -19,13 +19,6 @@
   (isearch-exit)
   (counsel-rg isearch-string))
 
-;; ==== ctrlf-mode ====
-;; (ctrlf-mode 1)
-
-(setq ctrlf-default-search-style 'fuzzy)
-(setq ctrlf-show-match-count-at-eol nil)
-(setq ctrlf-highlight-current-line nil)
-
 (defun prot-search-isearch-other-end ()
   "End current search in the opposite side of the match.
 Particularly useful when the match does not fall within the

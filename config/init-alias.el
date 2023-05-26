@@ -11,6 +11,7 @@
 
 (setq echo-keystrokes 0.1)
 
+(defalias 'a 'org-agenda-list)
 (defalias 'c 'copy-to-register)
 (defalias 'k 'fei-key-mode)
 (defalias 'l 'counsel-load-theme)

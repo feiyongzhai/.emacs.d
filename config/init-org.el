@@ -6,7 +6,7 @@
 
 (defun +fei-org-mode-hook ()
   (yas-minor-mode)
-  
+
   (setq tab-width 2)
   (smartparens-mode)			;方便快速输入 =+_ 等强调符号
   (org-indent-mode)			;试试这个默认样式
@@ -51,8 +51,7 @@
 (add-hook 'org-agenda-mode-hook 'fei/org-agenda-mode-hook)
 (defun fei/org-agenda-mode-hook ()
   (hl-line-mode)
-  (toggle-truncate-lines 1)
-  )
+  (toggle-truncate-lines 1))
 
 ;;; org-agenda 完成任务时, 将其划线勾掉
 ;; (with-eval-after-load 'org-agenda
@@ -96,8 +95,7 @@
   (interactive)
   (call-interactively 'previous-line)
   (org-agenda-do-context-action)
-  (fei/echo-line)
-  )
+  (fei/echo-line))
 ;; ==== Org Agenda 配置结束 ===
 
 
@@ -114,10 +112,10 @@
 	("NOTE" . "blue")
         ("CANCELED" . (:foreground "grey" :weight bold))))
 
-(setq org-fontify-quote-and-verse-blocks t) ;给 quote 和 verse block 添加样式
-(setq org-log-into-drawer t)		;把 log 放到 drawer 中，看起来更规整一些
 ;; (setq org-level-color-stars-only t)	;只高亮 stars
 ;; (setq org-hide-leading-stars t)
+(setq org-fontify-quote-and-verse-blocks t) ;给 quote 和 verse block 添加样式
+(setq org-log-into-drawer t)		;把 log 放到 drawer 中，看起来更规整一些
 (setq org-highlight-latex-and-related '(native)
       ;; org-ellipsis " ∇ "
       org-ellipsis " ↩"
@@ -128,8 +126,8 @@
 
 ;; 设置各个标题的大小，不使用配色来区分 headline 层级
 
-;; 收观点（REF1）的影响和促动，决定还是把 org-mode 搞得简单一点，朴素一点，不太在意 org-mode 长什么样，而是在意我要干什么。
-;; 把重点从 EMACS 的身上转移到我真正要做的事情身上 
+;; 受观点（REF1）的影响和促动，决定还是把 org-mode 搞得简单一点，朴素一点，不太在意 org-mode 长什么样，而是在意我要干什么。
+;; 把重点从 EMACS 的身上转移到我真正要做的事情身上
 ;; @REF1: https://emacs-china.org/t/emacs/23849/94?u=yongfeizhai
 
 ;; (custom-set-faces
@@ -250,7 +248,7 @@ unwanted space when exporting org-mode to html."
 	  ("c" "Canvas" entry (file "question.org")
 	   "* %(fei-generate-obsidian-canvas-uuid-link) %?"
 	   ;; 可以用 C-u C-c C-c 跳过去，自动跳过去有点烦
-	   ;; :jump-to-captured t 
+	   ;; :jump-to-captured t
 	   )
 	  ("n" "note" entry (file "notes.org") "* %?")
 	  ("p" "Private" entry
@@ -313,7 +311,6 @@ unwanted space when exporting org-mode to html."
     (org-redisplay-inline-images)))
 
 
-
 (defun fei-org-time ()
   (interactive)
   (if (not (boundp 'org-timer-start-time))
@@ -322,7 +319,7 @@ unwanted space when exporting org-mode to html."
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
-;; Org-capture
+
 (autoload 'org-capture-goto-target "org-capture")
 
 (defun fei-org-capture ()
@@ -439,7 +436,7 @@ unwanted space when exporting org-mode to html."
     (activate-input-method 'rime))))
 
 
-;;; ==== work with obsidian
+;;; ==== work with obsidian ====
 (with-eval-after-load 'org
   ;; 目前在笔记本 manjaro 平台做了测试
 
@@ -453,4 +450,3 @@ unwanted space when exporting org-mode to html."
   )
 
 (provide 'init-org)
-;;; init-org-markdown.el ends here.

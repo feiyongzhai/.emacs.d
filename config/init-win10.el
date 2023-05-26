@@ -19,7 +19,7 @@
     (pdf-loader-install)
   (add-to-list 'openwith-associations '("\\.pdf\\'" "start" (file))))
 
-;; font
+;; Font
 (defun fei-setup-win-emoji ()
   (set-fontset-font "fontset-default" 'unicode '("微软雅黑"))
   ;; @REF: https://ianyepan.github.io/posts/emacs-emojis/

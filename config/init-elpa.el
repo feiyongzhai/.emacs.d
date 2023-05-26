@@ -47,32 +47,32 @@
 	interaction-log		 ;这个包需要自己 require，不会自动加载
 
 	;; ==== 功能包 ====
-	pyim pyim-basedict 		; 内置输入法
-	trashed				; 回收站管理
-	keycast				; 键盘回显
-	alarm-clock			; 定时器、闹钟
-	pdf-tools			; 增强 docview
-	dashboard			; 快速启动页面
-	olivetti			; 内容居中
-	ace-window			; 增强 other-window
-	dirvish				; dired 增强
-	cal-china-x			; 日历汉化
-	vundo				; 可视化 undo
-	hackernews			; hackernews 客户端
-	hnreader			; hackernews 客户端2
-	use-package			; 包管理器
-	general				; 按键配置器
-	elfeed				; rss 客户端
-	rubik				; 魔方游戏
-	boxes				; ascii art
-	figlet				; ascii art2
-	sl				; 小火车
-	google-translate		; 谷歌词典
-	youdao-dictionary		; 有道词典
-	evil				; vim 模拟
-	keyfreq				; 统计按键
-	consult-dir			; interactive style `fasd` or `autojump`
-        tldr                            ; 这个命令怎么用？
+	pyim pyim-basedict    ; 内置输入法
+	trashed               ; 回收站管理
+	keycast               ; 键盘回显
+	alarm-clock           ; 定时器、闹钟
+	pdf-tools             ; 增强 docview
+	dashboard             ; 快速启动页面
+	olivetti              ; 内容居中
+	ace-window            ; 增强 other-window
+	dirvish               ; dired 增强
+	cal-china-x           ; 日历汉化
+	vundo                 ; 可视化 undo
+	hackernews            ; hackernews 客户端
+	hnreader              ; hackernews 客户端2
+	use-package           ; 包管理器
+	general               ; 按键配置器
+	elfeed                ; rss 客户端
+	rubik                 ; 魔方游戏
+	boxes                 ; ascii art
+	figlet                ; ascii art2
+	sl                    ; 小火车
+	google-translate      ; 谷歌词典
+	youdao-dictionary     ; 有道词典
+	evil                  ; vim 模拟
+	keyfreq               ; 统计按键
+	consult-dir           ; interactive style `fasd` or `autojump`
+        tldr                  ; 这个命令怎么用？
 
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult
@@ -80,21 +80,18 @@
 	smex counsel ivy swiper ivy-posframe
 
         ;; ==== 外观 ====
-	rainbow-mode rainbow-delimiters
-	all-the-icons-ibuffer
-	smart-mode-line
-	standard-themes
+	rainbow-mode rainbow-delimiters all-the-icons-ibuffer
+	smart-mode-line standard-themes
 	;; auto-dim-other-buffers
 
 	;; === 窗口管理 ===
 	popper bookmark-view
 
 	;; ==== 编辑相关 ====
-	hungry-delete		 ;发现一个自带的命令 `c-hungry-delete'
-	goto-chg
+	hungry-delete           ; 发现一个自带的命令 `c-hungry-delete'
+	goto-chg iedit symbol-overlay smartparens
 	highlight-parentheses highlight-indentation highlight-indent-guides
 	company corfu yasnippet avy electric-spacing
-	iedit symbol-overlay smartparens
 	math-symbol-lists expand-region easy-kill
 
 	;; ==== Org ====

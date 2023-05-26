@@ -3,10 +3,10 @@
 ;; @REF: https://guidao.github.io/emacs_blog.html#org38eccd7
 
 (global-set-key (kbd "C-c P")
-		;; load `init-publish.el' 以保证 preamble.html 的修改可以更新
+		;; load `init-blog.el' 以保证 preamble.html 的修改可以更新
 		;; 这个和 elisp 的 backquote 的语法有关
 		(li (require 'ox-publish)
-		    (load "init-publish.el")
+		    (load "init-blog.el")
 		    (call-interactively 'org-publish)))
 
 ;; (setq org-html-validation-link nil)
@@ -47,4 +47,4 @@
         ("blog" :components ("blog-orgs" "blog-images"))
         ))
 
-(provide 'init-publish)
+(provide 'init-blog)

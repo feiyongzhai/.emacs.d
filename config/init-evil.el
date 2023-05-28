@@ -45,7 +45,7 @@
   "F" 'ffap
   "g" 'fei-vc-dired-jump
   "G" 'magit
-  "h" 'embark-act
+  "h" 'fei/buffer-or-tab-recent
   "i" 'ibuffer
   "j" 'fei-counsel-recentf-pinyin
   "J" 'fei/counsel-recentf-dir

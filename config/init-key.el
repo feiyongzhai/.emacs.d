@@ -65,7 +65,7 @@
 (global-set-key (kbd "C-c h o") 'hs-show-block)
 (global-set-key (kbd "M-s M-h") 'hs-toggle-hiding)
 
-(global-set-key (kbd "C-c M-h") 'webjump)
+(global-set-key (kbd "C-c 0") 'webjump)
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
@@ -289,7 +289,7 @@
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "M-s M-w") 'engine/search-quword)
-(global-set-key (kbd "M-s M-s") 'searchbox-search)
+(global-set-key (kbd "M-s M-s") 'searchbox-buffer-search)
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s b") 'searchbox-switch-to-buffer)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)

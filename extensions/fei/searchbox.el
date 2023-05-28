@@ -219,6 +219,12 @@
                   (window-parameters . ((mode-line-format . none)))
 	          ))))
 
+(defun searchbox-buffer-search ()
+  (interactive)
+  (let (searchbox-string)
+    (searchbox-switch-to-buffer)
+    (searchbox-edit-string)))
+
 (defun searchbox-switch-to-buffer ()
   (interactive)
   (searchbox-refresh-buffer)
@@ -238,6 +244,8 @@
 	(set-keymap-parent map (current-local-map))
         (define-key map (kbd "C-c C-c") #'searchbox-edit-confirm)
 	(define-key map (kbd "C-c C-k") #'searchbox-edit-cancel)
+        (define-key map (kbd "RET") #'searchbox-edit-confirm)
+	(define-key map (kbd "C-g") #'searchbox-edit-cancel)
         (use-local-map map)))))
 
 (defun searchbox-edit-confirm ()
@@ -246,8 +254,7 @@
   (push searchbox-string searchbox-string-hist)
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
   (searchbox-refresh-buffer)
-  (searchbox-search-google)
-  )
+  (searchbox-search-google))
 
 (defalias 'searchbox-edit-cancel 'searchbox-refresh-buffer)
 

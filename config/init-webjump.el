@@ -23,6 +23,10 @@
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("douyin" .
 		 [simple-query "www.douyin.com" "https://www.douyin.com/search/" ""])
+		("Emacs China" .
+		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
+		("YouTube" .
+		 [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
 		("blog" . "feiyongzhai.github.io")
 		("Emacs Plant" . "https://planet.emacslife.com/")
 		("HackNews" . "https://news.ycombinator.com/")
@@ -32,10 +36,7 @@
 		("cppsh" . "https://cpp.sh/")
 		("cppsh" . "https://cpp.sh/")
 		("cppreference" . "https://en.cppreference.com/w/")
-		("Emacs China" .
-		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
-		("YouTube" .
-		 [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
+		("clash" . "https://clash.razord.top/#/proxies")
                 )
               webjump-sample-sites))
 

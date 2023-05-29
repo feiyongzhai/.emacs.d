@@ -65,7 +65,7 @@
 (global-set-key (kbd "C-c h o") 'hs-show-block)
 (global-set-key (kbd "M-s M-h") 'hs-toggle-hiding)
 
-(global-set-key (kbd "C-c 0") 'webjump)
+(global-set-key (kbd "M-G") 'webjump)
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)

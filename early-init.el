@@ -53,8 +53,10 @@
 
 (unless *is-termux*
   (scroll-bar-mode -1)
-  (tool-bar-mode -1)
 
   ;; `early-init.el' 可对 emacsclient 生效
   (require 'init-font)
   )
+
+(and *is-linux*
+     (tool-bar-mode -1))

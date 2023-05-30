@@ -14,10 +14,6 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
 
-;; 受启发于平铺窗口的快捷键
-(global-set-key (kbd "C-M-<return>") 'split-window-below-select)
-(global-set-key (kbd "M-<return>") 'eshell-other-window)
-(global-set-key (kbd "M-C") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "M--") 'split-window-below)
 
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)

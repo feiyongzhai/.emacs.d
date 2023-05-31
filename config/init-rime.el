@@ -91,13 +91,12 @@
       (format "%s. " (nth (1- num) select-labels))
     (format "%d." num)))
 
-(setq
- rime-show-candidate 'posframe ; minibuffer 的方式会和 awesome-tab 冲突
- ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
- rime-show-preedit 'inline
- rime-posframe-style 'vertical ;选择竖着的原因，是因为横着的时候很容易出现 posframe 碰到 emacs frame 边界的情况，导致候选框一直跳动
- ;; rime-posframe-style 'horizontal
- rime-posframe-fixed-position t)
+(setq rime-show-candidate 'posframe ;minibuffer 的方式会和 awesome-tab 冲突
+      ;; posframe 的显示效果和桌面环境相关，目前在 gnome 下工作良好，在 cinnamon 下工作会有问题
+      rime-show-preedit 'inline
+      rime-posframe-style 'vertical ;选择竖着的原因，是因为横着的时候很容易出现 posframe 碰到 emacs frame 边界的情况，导致候选框一直跳动
+      ;; rime-posframe-style 'horizontal
+      rime-posframe-fixed-position t)
 
 (setq rime-disable-predicates
       '(

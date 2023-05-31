@@ -245,7 +245,7 @@
         (define-key map (kbd "C-c C-c") #'searchbox-edit-confirm)
 	(define-key map (kbd "C-c C-k") #'searchbox-edit-cancel)
         (define-key map (kbd "RET") #'searchbox-edit-confirm)
-	(define-key map (kbd "C-g") #'searchbox-edit-cancel)
+	(define-key map (kbd "C-g") #'searchbox-edit-quit)
         (use-local-map map)))))
 
 (defun searchbox-edit-confirm ()
@@ -257,6 +257,11 @@
   (searchbox-search-google))
 
 (defalias 'searchbox-edit-cancel 'searchbox-refresh-buffer)
+
+(defun searchbox-edit-quit ()
+  (interactive)
+  (searchbox-refresh-buffer)
+  (quit-window))
 
 (defun searchbox-copy-string ()
   (interactive)

@@ -362,7 +362,7 @@
 (global-set-key (kbd "C-x O") 'other-frame)
 (global-set-key (kbd "C-x M-o") 'other-frame)
 
-(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'ibuffer-jump)
+(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'fei-bs-show)
 
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet

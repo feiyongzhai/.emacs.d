@@ -112,7 +112,6 @@
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
 (global-set-key (kbd "C-c SPC") 'set-mark-command)
-(global-set-key (kbd "S-SPC") 'set-mark-command)
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
@@ -202,7 +201,7 @@
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c k") 'counsel-rg)
 (global-set-key (kbd "C-c j") 'fei-counsel-recentf-pinyin)
-(global-set-key (kbd "C-c M-j") 'fei/counsel-recentf-dir)
+(global-set-key (kbd "C-c J") 'fei/counsel-recentf-dir)
 (global-set-key (kbd "C-x f") 'counsel-find-file)
 
 (global-set-key (kbd "M-s n") 'fei-swiper-isearch)
@@ -229,7 +228,7 @@
    (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer)))
 
 (global-set-key (kbd "<insert>") 'nil)
-(global-set-key (kbd "C-c T") 'trashed)
+(global-set-key (kbd "C-c t") 'trashed)
 
 (global-set-key (kbd "M-s d") 'fei/olivetti-truncate)
 (global-set-key (kbd "M-s M-d") 'fei/olivetti-truncate)

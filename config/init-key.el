@@ -3,6 +3,9 @@
 (require 'init-thing-edit)
 (cua-mode)
 
+(global-set-key (kbd "C-c d s") 'desktop-save)
+(global-set-key (kbd "C-c d r") 'desktop-read)
+
 ;; 配合这个命令 GTK_IM_MODULE=emacs XMODIFIERS=@im=emacs emacs 使用，
 ;; 命令的原理不是很清楚，效果是在 emacs 中禁用 fcitx 输入法，这样就实
 ;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法

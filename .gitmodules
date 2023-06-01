@@ -25,12 +25,6 @@
 [submodule "extensions/zoxide"]
 	path = extensions/zoxide
 	url = https://github.com/feiyongzhai/zoxide
-[submodule "extensions/deno-bridge"]
-	path = extensions/deno-bridge
-	url = https://github.com/manateelazycat/deno-bridge
-[submodule "extensions/deno-bridge-jieba"]
-	path = extensions/deno-bridge-jieba
-	url = https://github.com/ginqi7/deno-bridge-jieba
 [submodule "extensions/awesome-tray"]
 	path = extensions/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray

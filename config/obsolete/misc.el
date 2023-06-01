@@ -1,6 +1,10 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(with-eval-after-load 'org
+  ;; 完成任务时, 将其划线勾掉
+  (set-face-attribute 'org-headline-done nil :strike-through t))
+
 (defun fei-org-capture-goto-SAR ()
   (interactive)
   (org-capture-goto-target "S"))

@@ -65,4 +65,6 @@
     (save-buffer)
     (kill-this-buffer)))
 
-(provide 'fei-bookmark-org)
+(fei-bookmark-to-org)
+
+;; 使用 eval-buffer 导出 chrome bookmark to org

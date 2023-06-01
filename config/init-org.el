@@ -120,9 +120,6 @@
       ;; org-ellipsis " ∇ "
       org-ellipsis " ↩"
       org-adapt-indentation nil)
-(with-eval-after-load 'org
-  ;; 完成任务时, 将其划线勾掉
-  (set-face-attribute 'org-headline-done nil :strike-through t))
 
 ;; 设置各个标题的大小，不使用配色来区分 headline 层级
 
@@ -213,7 +210,7 @@
 ;; @REF: https://emacs-china.org/t/org-mode-html/7174/2?u=yongfeizhai
 ;; @REF: https://github.com/syl20bnr/spacemacs/blob/84d649ac2e5e6de508d3e5b57be38b6e00d5cdc1/layers/%2Bintl/chinese/packages.el#L131
 ;; 1. 一种方式是：#+options: \n:t
-;; 2. 另外一种方式如下
+;; 2. 另一种方式如下
 (defadvice org-html-paragraph (before org-html-paragraph-advice
                                       (paragraph contents info) activate)
   "Join consecutive Chinese lines into a single long line without

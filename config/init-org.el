@@ -266,7 +266,7 @@ unwanted space when exporting org-mode to html."
 	   (file+headline "private/Research.org"
 			  ,(format-time-string "%Y-%m-%d" (current-time)))
 	   "* %(substring (current-time-string) 11 16) %?")
-	  ("S" "SAR" entry (file+headline "SAR.org" "Inbox") "* TODO %?")
+	  ;; ("S" "SAR" entry (file "SAR.org") "* TODO %?")
 	  ("d" "Diary" entry (file "private/diary.org") "* %t\n%?")
 	  )))
 
@@ -319,7 +319,7 @@ unwanted space when exporting org-mode to html."
 	(org-timer-start)
       (call-interactively 'org-timer-pause-or-continue))))
 
-
+;;; Org-capture 相关配置
 (autoload 'org-capture-goto-target "org-capture")
 
 (defun fei-org-capture ()
@@ -350,10 +350,6 @@ unwanted space when exporting org-mode to html."
   (org-capture nil "r")
   (activate-input-method default-input-method))
 
-(defun fei-org-capture-goto-SAR ()
-  (interactive)
-  (org-capture-goto-target "S"))
-
 (defun fei-org-capture-goto-canvas ()
   (interactive)
   (org-capture-goto-target "c"))
@@ -361,11 +357,6 @@ unwanted space when exporting org-mode to html."
 (defun fei-org-capture-canvas ()
   (interactive)
   (org-capture nil "c")
-  (activate-input-method default-input-method))
-
-(defun fei-org-capture-SAR ()
-  (interactive)
-  (org-capture nil "S")
   (activate-input-method default-input-method))
 
 (defun fei-org-capture-goto-WANT ()

@@ -1,6 +1,16 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+(defun fei-org-capture-goto-SAR ()
+  (interactive)
+  (org-capture-goto-target "S"))
+
+(defun fei-org-capture-SAR ()
+  (interactive)
+  (org-capture nil "S")
+  (activate-input-method default-input-method))
+
+
 (setq ctrlf-default-search-style 'fuzzy)
 (setq ctrlf-show-match-count-at-eol nil)
 (setq ctrlf-highlight-current-line nil)

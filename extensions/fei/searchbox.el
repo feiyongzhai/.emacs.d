@@ -245,6 +245,7 @@
         (define-key map (kbd "C-c C-c") #'searchbox-edit-confirm)
 	(define-key map (kbd "C-c C-k") #'searchbox-edit-cancel)
         (define-key map (kbd "RET") #'searchbox-edit-confirm)
+        (define-key map (kbd "C-j") #'searchbox-edit-confirm)
 	(define-key map (kbd "C-g") #'searchbox-edit-quit)
         (use-local-map map)))))
 

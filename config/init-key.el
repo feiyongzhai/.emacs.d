@@ -370,10 +370,12 @@
 (with-eval-after-load 'yasnippet
   (global-set-key (kbd "C-M-y") 'yas-expand)
   (define-key yas-minor-mode-map (kbd "C-M-j") yas-maybe-expand)
+  (define-key yas-minor-mode-map (kbd "C-j") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "<tab>") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "TAB") yas-maybe-expand)
   (define-key yas-minor-mode-map (kbd "M-i") yas-maybe-expand) ;注意：`yas-maybe-expand' 是一个 variable
   (define-key yas-keymap (kbd "M-i") 'yas-next-field-or-maybe-expand)
+  (define-key yas-keymap (kbd "C-j") 'yas-next-field-or-maybe-expand)
   (define-key yas-keymap (kbd "M-I") 'yas-prev-field))
 
 (with-eval-after-load 'bookmark

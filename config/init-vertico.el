@@ -40,6 +40,7 @@
 (setq register-preview-delay .1)
 (setq register-preview-function 'register-preview-default)
 
+(setq consult-async-min-input 2)
 (defun fei-consult-ripgrep-my-org ()
   (interactive)
   (consult-ripgrep "~/Nutstore Files/org" nil))

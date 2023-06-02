@@ -687,4 +687,7 @@
 (with-eval-after-load 'reftex-toc
   (define-key reftex-toc-mode-map (kbd "v") 'reftex-toc-mode-hor-or-ver))
 
+(with-eval-after-load 'web-mode
+  (define-key web-mode-map (kbd "C-c C-v") 'browse-url-of-buffer))
+
 (provide 'init-key)

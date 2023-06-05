@@ -6,7 +6,8 @@
 (setq lazy-count-suffix-format " [%s/%s]")
 (setq lazy-count-prefix-format nil)
 (setq-default
- isearch-regexp-lax-whitespace t
+ isearch-lax-whitespace nil
+ isearch-regexp-lax-whitespace nil
  search-whitespace-regexp ".*?")
 
 ;; 控制 `kill-ring-save'(M-w) 在没有高亮选择区的时候的光标闪烁时间，而

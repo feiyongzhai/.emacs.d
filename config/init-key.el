@@ -295,7 +295,7 @@
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 (global-set-key (kbd "C-c ;") 'comment-region)
 
-(global-set-key (kbd "C-S-i") 'tab-bar-mode)
+(global-set-key (kbd "C-S-i") 'tab-bar-mode) ;org 中按键冲突
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)

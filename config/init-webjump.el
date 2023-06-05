@@ -23,10 +23,9 @@
 		 [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
 		("douyin" .
 		 [simple-query "www.douyin.com" "https://www.douyin.com/search/" ""])
-		("Emacs China" .
-		 [simple-query "emacs-china.org" "https://emacs-china.org/search?q=" ""])
 		("YouTube" .
 		 [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
+		("Emacs China" . "https://emacs-china.org")
 		("blog" . "feiyongzhai.github.io")
 		("Emacs Plant" . "https://planet.emacslife.com/")
 		("HackNews" . "https://news.ycombinator.com/")

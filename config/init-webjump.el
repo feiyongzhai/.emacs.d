@@ -27,7 +27,7 @@
 		 [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
 		("Emacs China" . "https://emacs-china.org")
 		("blog" . "feiyongzhai.github.io")
-		("Emacs Plant" . "https://planet.emacslife.com/")
+		("Emacs Planet" . "https://planet.emacslife.com/")
 		("HackNews" . "https://news.ycombinator.com/")
 		("Google street" . "https://neal.fun/wonders-of-street-view/")
 		("Steveshuo" . "http://steveshuo.com/")

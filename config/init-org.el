@@ -79,7 +79,7 @@
 
 (setq org-agenda-use-time-grid nil)
 (setq org-agenda-window-setup 'current-window)
-(setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/SAR.org"))
+(setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/work.org"))
 
 
 (defun fei/org-agenda-next-line ()

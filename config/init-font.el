@@ -41,6 +41,7 @@
   (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-18"))))
   (face-spec-set 'elfeed-search-unread-title-face '((t (:font "Sarasa Mono SC-18"))))
   (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-18"))))
+  (setq rime-show-candidate 'minibuffer)
   (custom-set-faces
    '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 180 :width normal))))
    ))
@@ -50,6 +51,7 @@
   (face-spec-set 'org-table '((t (:font "Sarasa Mono SC-12"))))
   (face-spec-set 'elfeed-search-unread-title-face '((t (:font "Sarasa Mono SC-12"))))
   (face-spec-set 'elfeed-search-title-face '((t (:font "Sarasa Mono SC-12"))))
+  (setq rime-show-candidate 'posframe)
   (custom-set-faces
    '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
    ))

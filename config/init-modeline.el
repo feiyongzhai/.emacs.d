@@ -7,15 +7,6 @@
 ;; (display-time-mode)
 
 
-;; Awesome-tray
-(add-to-list 'load-path "~/.emacs.d/extensions/awesome-tray")
-(require 'awesome-tray)
-(setq awesome-tray-date-format "%H:%M %m-%d %a")
-(setq awesome-tray-hide-mode-line nil)
-(setq awesome-tray-active-modules '("date"))
-(when (window-system) (awesome-tray-mode))
-
-
 ;; Doom-mode-line
 (setq doom-modeline-icon nil)
 (setq doom-modeline-height 18)

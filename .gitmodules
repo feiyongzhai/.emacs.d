@@ -25,6 +25,3 @@
 [submodule "extensions/zoxide"]
 	path = extensions/zoxide
 	url = https://github.com/feiyongzhai/zoxide
-[submodule "extensions/awesome-tray"]
-	path = extensions/awesome-tray
-	url = https://github.com/manateelazycat/awesome-tray

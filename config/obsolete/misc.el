@@ -1,6 +1,15 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+;; Awesome-tray
+(add-to-list 'load-path "~/.emacs.d/extensions/awesome-tray")
+(require 'awesome-tray)
+(setq awesome-tray-date-format "%H:%M %m-%d %a")
+(setq awesome-tray-hide-mode-line nil)
+(setq awesome-tray-active-modules '("date"))
+(when (window-system) (awesome-tray-mode))
+
+
 (with-eval-after-load 'org
   ;; 完成任务时, 将其划线勾掉
   (set-face-attribute 'org-headline-done nil :strike-through t))

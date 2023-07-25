@@ -6,16 +6,13 @@
 
 (defun +fei-org-mode-hook ()
   (yas-minor-mode)
-
-  (setq tab-width 2)
   (smartparens-mode)			;方便快速输入 =+_ 等强调符号
   (org-indent-mode)			;试试这个默认样式
-  )
+  (setq tab-width 2))
 
 (with-eval-after-load 'org		;控制 org-latex-preview
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot))
-  )
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot)))
 
 
 ;; (setq system-time-locale "C") ;使得 org 中的时间格式变成英文来规避乱码问题
@@ -87,8 +84,7 @@
   (interactive)
   (call-interactively 'next-line)
   (org-agenda-do-context-action)
-  (fei/echo-line)
-  )
+  (fei/echo-line))
 
 (defun fei/org-agenda-prev-line ()
   "Move cursor to the next line, and show if follow mode is active."
@@ -224,7 +220,6 @@ unwanted space when exporting org-mode to html."
     (ad-set-arg 1 fixed-contents)))
 
 ;;; ==== Org Export 配置结束 ====
-
 
 (require 'fei-pomodoro "~/.emacs.d/extensions/fei/fei-pomodoro.el")
 (setq org-clock-sound "~/Music/rings/ding0.wav")
@@ -298,7 +293,7 @@ unwanted space when exporting org-mode to html."
 (with-eval-after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((dot . t)))			; this line activates dot
+   '((dot . t)))			;this line activates dot
   )
 
 (add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
@@ -434,7 +429,6 @@ unwanted space when exporting org-mode to html."
     (browse-url (concat "obsidian:" slash-message-id)))
 
   ;; on obsidian://aoeu link, this will call handler with //aoeu
-  (org-link-set-parameters "obsidian" :follow #'org-obsidian-link-open)
-  )
+  (org-link-set-parameters "obsidian" :follow #'org-obsidian-link-open))
 
 (provide 'init-org)

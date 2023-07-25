@@ -1,6 +1,4 @@
-;;; 安装遇到的相关问题和解决方法
-
-;; TODO: 待补充
+;;;TODO: 安装遇到的相关问题和解决方法
 
 ;; 相关链接：https://zevlg.github.io/telega.el/#windows-10-users
 

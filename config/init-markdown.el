@@ -1,6 +1,6 @@
 (require 'fei-funcs)
 
-;; obsidian
+;; Obsidian
 (with-eval-after-load 'markdown-mode
   (obsidian-specify-path "~/Nutstore Files/org/obsidian"))
 

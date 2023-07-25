@@ -1,8 +1,6 @@
-;;; 安装遇到的相关问题和解决方法
+;;; TODO: 安装遇到的相关问题和解决方法
 
-;;TODO: 待补充
-
-;; Code:
+;; Code
 (require 'init-func)
 (require 'fei-funcs)
 
@@ -22,7 +20,6 @@
 (require 'eaf-vue-demo)
 
 ;;; Vars
-
 (setq eaf-org-override-pdf-links-store t)
 (setq eaf-browser-continue-where-left-off t)
 (setq eaf-browser-default-zoom (if (> (frame-pixel-width) 3000) 2.3 1))
@@ -37,7 +34,7 @@
       eaf-proxy-host "127.0.0.1"
       eaf-proxy-port "1089")
 
-;;XXX: `browse-url-browser-function' 在 emacs-28 已经过时
+;; `browse-url-browser-function' 在 emacs-28 已经过时
 ;; (setq browse-url-browser-function '(("^http.*" . fei-eaf-browse-url)
 ;; 				      ("." . browse-url-default-browser)))
 ;; (setq browse-url-handlers '(("^http.*" . fei-eaf-browse-url)
@@ -74,7 +71,7 @@
   (eaf-bind-key youdao-dictionary-search-from-input "y" eaf-pdf-viewer-keybinding)
   (eaf-bind-key counsel-imenu "C-c i" eaf-pdf-viewer-keybinding)
   (eaf-bind-key nil "C-e" eaf-pdf-viewer-keybinding)
-  
+
   (define-key eaf-mode-map* (kbd "C-c B") #'eaf-open-bookmark)
   ;; (define-key eaf-mode-map* (kbd "C-c b") #'helm-chrome-history)
   )
@@ -96,7 +93,7 @@
 (defmacro fei-eaf-wrapper (sym)
   "给 EAF 相关的命令添加一个 wrapper ，避免在终端下不小心调用到出现问题"
   `(defun ,(intern (format "fei-%s" (symbol-name sym))) ()
-       (interactive)
+     (interactive)
      (if (display-graphic-p)
 	 (call-interactively ',(intern (symbol-name sym)))
        (message "EAF doesn't support in terminal"))))

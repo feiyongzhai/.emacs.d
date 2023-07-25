@@ -40,8 +40,7 @@
   (let ((find-file-visit-truename t)
 	(file (file-truename (dired-get-filename))))
     (dired (file-name-directory file))
-    (dired-goto-file file)
-    ))
+    (dired-goto-file file)))
 
 (defun fei-dired-mouse-find-file-externally (event)
   (interactive "e")
@@ -70,7 +69,7 @@
   (revert-buffer))
 
 
-;; dirvish
+;; Dirvish
 (dirvish-override-dired-mode)
 (setq dirvish-mode-line-height 18)
 (setq dirvish-header-line-height 18)
@@ -81,7 +80,6 @@
 
 (setq dired-listing-switches
       "-l --almost-all --human-readable --group-directories-first --no-group")
-
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

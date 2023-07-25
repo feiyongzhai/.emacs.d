@@ -58,14 +58,12 @@
 	(tab-new)
       (tab-bar-select-tab tab-number))))
 
-
 (defun fei-switch-current-buffer-to-new-tab ()
   (interactive)
   (let ((cur-buf (current-buffer)))
     (tab-bar-history-back)		;切换回上一个状态
     (switch-to-buffer-other-tab cur-buf)))
 
-
 (with-eval-after-load 'tab-bar
   (defun tab-bar-mouse-context-menu (event)
     "魔改Pop up the context menu for the tab on which you click."

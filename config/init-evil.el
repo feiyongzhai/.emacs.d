@@ -23,9 +23,9 @@
   (evil-global-set-key 'insert "\C-n" 'nil)
   (evil-global-set-key 'insert "\C-p" 'nil)
   (evil-define-key 'normal org-mode-map
-    (kbd "TAB") 'org-cycle
-    ">" 'org-shiftmetaright
-    "<" 'org-shiftmetaleft)
+                   (kbd "TAB") 'org-cycle
+                   ">" 'org-shiftmetaright
+                   "<" 'org-shiftmetaleft)
   )
 
 ;;; Leader Key

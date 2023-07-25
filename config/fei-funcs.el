@@ -29,21 +29,19 @@
       "zip -r "                           ;递归的压缩文件
       (format "\"%s\" \"%s\"" destination "org/")))))
 
-
 (defun replace-string-one-line ()
   (interactive)
   (replace-string-in-region (read-string "原始字符串: ")
                             (read-string "替换字符串: ")
                             (line-beginning-position)
                             (line-end-position)))
-
+
 (defun emacs-debug-init ()
   "这样打开的 emacs 会继承当前 emacs 进程的环境变量。如果需要调试环
 境变量相关的，请从终端或者其他方式启用"
   (interactive)
   (start-process "emacs-debug-init" nil "emacs" "--debug-init"))
 
-
 (defalias 'time 'echo-current-time)
 (defun echo-current-time ()
   (interactive)
@@ -54,13 +52,11 @@
   (interactive)
   (message (format-time-string "%Y-%m-%d")))
 
-
 (defun workmode ()
   (interactive)
   (treemacs-dired-jump)
   (tab-bar-mode))
 
-
 (defun fei/buffer-or-tab-recent (&optional window)
   (interactive)
   (cond ((minibufferp)
@@ -72,12 +68,10 @@
 	 (mode-line-other-buffer))
 	))
 
-
 (defun set-selective-display-dwim ()
   (interactive)
   (set-selective-display (1+ (current-column))))
 
-
 (defun fei/line-spacing-adjust (inc)
   (interactive "p")
   (let ((ev last-command-event)
@@ -113,13 +107,11 @@
 	((= inc 0)
 	 (setq line-spacing 0))))
 
-
 (defun fei/olivetti-truncate ()
   (interactive)
   (olivetti-mode 'toggle)
   (toggle-truncate-lines 1))
 
-
 (defun fei/counsel-recentf-dir ()
   (interactive)
   (require 'pyim-cregexp-utils)
@@ -131,19 +123,16 @@
 		(mapcar (lambda (x) (file-name-directory x))
 			recentf-list))))))
 
-
 (defun fei/echo-line ()
   "这是一个非常简单的想法：有的时候，一行太长了在 buffer 页面显示不完全但是 echo area 总是很长，利用起来"
   (interactive)
   (message (string-trim (thing-at-point 'line))))
 
-
 (defun fei/fit-window-to-buffer ()
   (interactive)
   (frameset-to-register ?f)
   (call-interactively 'fit-window-to-buffer))
 
-
 (defun fei/disable-theme ()
   (interactive)
   (mapc #'disable-theme custom-enabled-themes))
@@ -153,12 +142,10 @@
   (mapc #'disable-theme custom-enabled-themes)
   (load-theme 'zenburn t))
 
-
 (defun fei/toggle-comment-line ()
   (interactive)
   (save-excursion (call-interactively 'comment-line)))
 
-
 (defun new-buffer-same-major-mode ()
   "refer to `evil-buffer-new'"
   (interactive)
@@ -213,7 +200,6 @@
       (call-interactively 'bury-buffer)
     (call-interactively 'kill-current-buffer)))
 
-
 (defun ascii-table ()
   "Display basic ASCII table (0 thru 127)"
   (interactive)
@@ -241,13 +227,10 @@
         (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
-
 (defun back-to-indentation-or-beginning ()
   (interactive)
   (if (= (point) (progn (beginning-of-line-text) (point)))
       (beginning-of-line)))
-
-
 
 (defun fei/narrow-one-line ()
   (interactive)
@@ -365,8 +348,6 @@ kill region instead"
 		   (concat "+" line ":" column)
 		   (or (buffer-file-name)
 		       default-directory))))
-
-;;; Misc
 
 (defun file-manager-here()
   "Open an external Windows cmd in the current directory"

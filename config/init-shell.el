@@ -11,8 +11,7 @@
 	       'comint-postoutput-scroll-to-bottom)
   (when *is-linux*
     (require 'bash-completion)
-    (bash-completion-setup))
-  )
+    (bash-completion-setup)))
 
 (provide 'init-shell)
 ;;; init-shell.el ends here.

@@ -85,7 +85,6 @@ Error running timer ‘treemacs--apply-annotations-deferred’
   (interactive)
   (engine/search-quword (thing-at-point 'word)))
 
-
 ;;; Rg
 (rg-define-toggle "--context 3" (kbd "C"))
 (rg-define-toggle "-E gbk" (kbd "E"))
@@ -94,7 +93,6 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 (rg-define-search rg-project-all-files-no-ask
   :dir project :files "all")
 
-
 ;;; grep-dired
 (add-to-list 'load-path "~/.emacs.d/extensions/grep-dired")
 (autoload 'grep-dired "grep-dired" nil t) ;emacs 自带了一个相似的命令 `find-name-dired'
@@ -121,19 +119,16 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 (require 'zoxide)
 (global-zoxide-mode)
 
-
 ;; highlight-parentheses
 ;; 配合 `rainbow-delimiters-mode' 只需要显示一层括号颜色就够了
 (setq highlight-parentheses-colors '("Red"))
 
-
 ;; Dashboard
 (setq dashboard-startup-banner 'logo)
 (setq dashboard-center-content t)
 ;; known bugs: 在 side 新 tab 的时候会报错
 ;; (setq tab-bar-new-tab-choice 'dashboard-open)
 
-
 (setq popper-reference-buffers '("\\*Messages\\*$"
 				 "\\*vterm\\*"
 				 ;; "\\*eshell\\*"
@@ -144,13 +139,11 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 (popper-mode)
 (popper-echo-mode)
 
-
 (setq diff-hl-show-staged-changes nil)
 ;; (diff-hl-margin-mode)
 
 (setq keyfreq-file "~/.emacs.d/.cache/emacs.keyfreq")
 
-
 ;; 有些时候，我们改变了一些配置导致了 `vertico-posframe' 或者 `ivy-posframe' 等 posframe 相关的
 ;; 包出现显示异常，可以通过 `posframe-delete-all' command 来尝试解决
 (setq vertico-posframe-parameters

@@ -34,13 +34,12 @@
 
 
 ;;; ==== Encode config ====
-
 (set-charset-priority 'unicode)
 (set-terminal-coding-system  'utf-8)
 (set-keyboard-coding-system  'utf-8)
 
 
-(package-initialize)		 ;这行代码放在这里，启动速度会快一点，
+(package-initialize)           ;这行代码放在这里，启动速度会快一点，
 ;; (setq package-enable-at-startup nil)
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
@@ -53,10 +52,8 @@
 
 (unless *is-termux*
   (scroll-bar-mode -1)
-
   ;; `early-init.el' 可对 emacsclient 生效
-  (require 'init-font)
-  )
+  (require 'init-font))
 
 (and *is-linux*
      (tool-bar-mode -1))

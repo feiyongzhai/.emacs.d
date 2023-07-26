@@ -14,7 +14,6 @@
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
   (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot)))
 
-
 ;; (setq system-time-locale "C") ;使得 org 中的时间格式变成英文来规避乱码问题
 (with-eval-after-load 'org
   ;; 统一 linux 和 windows 平台的时间戳显示
@@ -25,9 +24,7 @@
   ;; C-c s 用于想在 org-mode 中用 `org-store-link'
   )
 
-(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/fei-org-export.el"))
 (setq org-default-notes-file "~/Nutstore Files/org/capture.org")
-
 (setq org-refile-targets
       '((nil :maxlevel . 1)
 	(org-agenda-files :maxlevel . 1)
@@ -40,7 +37,6 @@
   (let ((org-refile-use-outline-path 'file))
     (call-interactively 'org-refile)))
 
-
 ;;; ==== Org Agenda 配置开始 ===
 ;; @SEEALSO: https://stackoverflow.com/questions/32423127/how-to-view-the-next-days-in-org-modes-agenda
 (setq org-agenda-span 3)		;控制显示的天数
@@ -78,7 +74,6 @@
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-files '("~/Nutstore Files/org/gtd.org" "~/Nutstore Files/org/work.org"))
 
-
 (defun fei/org-agenda-next-line ()
   "Move cursor to the next line, and show if follow mode is active."
   (interactive)
@@ -94,8 +89,7 @@
   (fei/echo-line))
 ;; ==== Org Agenda 配置结束 ===
 
-
-;; 更好的样式
+;; 修改 Org 中一些关键词的样式
 (setq org-todo-keyword-faces
       '(("TODO" . org-warning)
 	("PLAN" . "brown")
@@ -145,10 +139,10 @@
       org-appear-autosubmarkers t
       org-appear-autolinks nil)
 
-
 ;;; ==== Org Export 配置开始 ====
 
 ;; @REF: https://emacs-china.org/t/org-mode-pdf/16746/2
+(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/fei-org-export.el"))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
                '("ctexart" "\\documentclass[11pt]{ctexart}"
@@ -174,7 +168,6 @@
     ;; 指定 org-export 后打开 pdf 的软件
     (add-to-list 'org-file-apps '("\\.pdf" . "evince %s"))))
 
-
 ;;; Hack: org 中文格式去除需要添加空格的限制，以及相应的 org-export 配置
 ;; @REF: https://emacs-china.org/t/org-mode/597/6?u=yongfeizhai
 ;; @REF: https://emacs-china.org/t/org-mode/597/5?u=yongfeizhai
@@ -254,11 +247,7 @@ unwanted space when exporting org-mode to html."
 	   :immediate-finish t)
 	  ("s" "SomeDay" entry (file "inbox.org") "* SOMEDAY %?\nCREATE: %T\n"
 	   :kill-buffer t)
-	  ("K" "Research" entry
-	   (file+headline "private/Research.org"
-			  ,(format-time-string "%Y-%m-%d" (current-time)))
-	   "* %(substring (current-time-string) 11 16) %?")
-	  ;; ("S" "SAR" entry (file "SAR.org") "* TODO %?")
+	  ("K" "Work" entry (file "work.org") "* TODO %?\nCREATE: %T\n")
 	  ("d" "Diary" entry (file "private/diary.org") "* %t\n%?")
 	  )))
 
@@ -281,7 +270,6 @@ unwanted space when exporting org-mode to html."
   (interactive)
   (insert (fei-generate-obsidian-canvas-uuid-link)))
 
-
 ;;; ==== Org-download ====
 (setq org-download-display-inline-images nil)
 (setq-default org-download-image-dir "./images")
@@ -302,7 +290,7 @@ unwanted space when exporting org-mode to html."
   (when org-inline-image-overlays
     (org-redisplay-inline-images)))
 
-
+;; ==== Org time related ====
 (defun fei-org-time ()
   (interactive)
   (if (not (boundp 'org-timer-start-time))
@@ -319,10 +307,6 @@ unwanted space when exporting org-mode to html."
   (call-interactively 'org-capture)
   (activate-input-method default-input-method))
 
-(defun fei-org-capture-goto-Research ()
-  (interactive)
-  (org-capture-goto-target "K"))
-
 (defun fei-org-capture-log ()
   (interactive)
   (org-capture nil "l")
@@ -332,28 +316,28 @@ unwanted space when exporting org-mode to html."
   (interactive)
   (org-capture-goto-target "l"))
 
-(defun fei-org-capture-Research ()
+(defun fei-org-capture-work ()
   (interactive)
   (org-capture nil "K")
   (activate-input-method default-input-method))
+
+(defun fei-org-capture-goto-work ()
+  (interactive)
+  (org-capture-goto-target "K"))
 
 (defun fei-org-capture-clock ()
   (interactive)
   (org-capture nil "r")
   (activate-input-method default-input-method))
 
-(defun fei-org-capture-goto-canvas ()
-  (interactive)
-  (org-capture-goto-target "c"))
-
 (defun fei-org-capture-canvas ()
   (interactive)
   (org-capture nil "c")
   (activate-input-method default-input-method))
 
-(defun fei-org-capture-goto-WANT ()
+(defun fei-org-capture-goto-canvas ()
   (interactive)
-  (org-capture-goto-target "s"))
+  (org-capture-goto-target "c"))
 
 (defun fei-org-capture-TODO (&rest strings)
   (interactive)
@@ -372,6 +356,10 @@ unwanted space when exporting org-mode to html."
   (org-capture nil "s")
   (activate-input-method default-input-method))
 
+(defun fei-org-capture-goto-WANT ()
+  (interactive)
+  (org-capture-goto-target "s"))
+
 (defun fei-org-capture-note (&rest strings)
   (interactive)
   ;; (setq strings (eshell-flatten-and-stringify strings)) ;FIXME: 如果语句在这，strings 将总是会为 t
@@ -388,16 +376,16 @@ unwanted space when exporting org-mode to html."
   (interactive)
   (org-capture-goto-target "n"))
 
-(defun fei-org-capture-goto-private ()
-  (interactive)
-  (org-capture-goto-target "p"))
-
 (defun fei-org-capture-private ()
   (interactive)
   (org-capture nil "p")
   (when (bound-and-true-p evil-mode)
     (evil-insert 0))
   (activate-input-method default-input-method))
+
+(defun fei-org-capture-goto-private ()
+  (interactive)
+  (org-capture-goto-target "p"))
 
 (defun fei-org-capture-diary ()
   (interactive)
@@ -411,14 +399,6 @@ unwanted space when exporting org-mode to html."
   (org-agenda nil "a")
   (delete-other-windows))
 
-(defun fei-activate-ime ()
-  (cond
-   (*is-windows*
-    (w32-set-ime-open-status t))
-   (*is-linux*
-    (activate-input-method 'rime))))
-
-
 ;;; ==== work with obsidian ====
 (with-eval-after-load 'org
   ;; 目前在笔记本 manjaro 平台做了测试

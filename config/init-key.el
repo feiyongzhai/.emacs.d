@@ -3,6 +3,15 @@
 (require 'init-thing-edit)
 (cua-mode)
 
+;; 常用快捷键，基本不会变动
+(global-set-key (kbd "M-s j") 'eshell)
+(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+(global-set-key (kbd "M-J") 'fei-rime-force-enable)
+(global-set-key (kbd "M-K") 'new-buffer-other-window)
+
+
+;; 不常用快捷键，可能会变动
 (global-set-key (kbd "C-c d s") 'desktop-save)
 (global-set-key (kbd "C-c d r") 'desktop-read)
 
@@ -11,20 +20,14 @@
 ;; 现了在 emacs 中 C-SPC 激活 emacs 的输入法，在其他程序激活 fcitx 输入法
 (linux (global-set-key (kbd "C-SPC") 'toggle-input-method)
        (global-set-key (kbd "C-x C-SPC") 'fei-rime-force-enable))
-(global-set-key (kbd "C-x C-\\") 'fei-rime-force-enable)
-(global-set-key (kbd "C-\\") 'toggle-input-method)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (define-key transient-map (kbd "<escape>") 'transient-quit-one)
-
-(global-set-key (kbd "M--") 'split-window-below)
 
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
 
-(global-set-key (kbd "M-J") 'fei-rime-force-enable)
-(global-set-key (kbd "M-K") 'new-buffer-other-window)
 (global-set-key (kbd "M-j") 'scroll-up-line)
 (global-set-key (kbd "M-k") 'scroll-down-line)
 
@@ -40,9 +43,6 @@
 
 (global-set-key (kbd "C-x F") 'set-fill-column)
 (global-set-key (kbd "C-S-h") 'fei-pulse-current-line)
-
-(global-set-key (kbd "M-s j") 'eshell)
-(global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
@@ -140,7 +140,6 @@
 
 (global-set-key (kbd "M-s-j") 'make-frame-command)
 (global-set-key (kbd "M-s-k") 'my/delete-window-or-delete-frame)
-(global-set-key (kbd "M-s-l") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
 (global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
 
@@ -264,13 +263,11 @@
 (global-set-key (kbd "C-c n J") 'fei-org-capture-goto-private)
 (global-set-key (kbd "C-c n l") 'fei-org-capture-log)
 (global-set-key (kbd "C-c n L") 'fei-org-capture-goto-log)
-(global-set-key (kbd "C-c n s") 'fei-org-capture-SAR)
-(global-set-key (kbd "C-c n S") 'fei-org-capture-goto-SAR)
 (global-set-key (kbd "C-c n i") 'fei-org-capture-clock)
 (global-set-key (kbd "C-c n w") 'fei-org-capture-WANT)
 (global-set-key (kbd "C-c n W") 'fei-org-capture-goto-WANT)
-(global-set-key (kbd "C-c n k") 'fei-org-capture-Research)
-(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-Research)
+(global-set-key (kbd "C-c n k") 'fei-org-capture-work)
+(global-set-key (kbd "C-c n K") 'fei-org-capture-goto-work)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
 ;; (global-set-key (kbd "C-8") 'jetbrains-open-buffer-file)

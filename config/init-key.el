@@ -109,9 +109,6 @@
 (global-set-key (kbd "M-r") 'replace-string)
 (global-set-key (kbd "M-R") 'replace-regexp)
 
-;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
-;; (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
-
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
 (global-set-key (kbd "C-c SPC") 'set-mark-command)
@@ -278,8 +275,8 @@
 (global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
-(global-set-key (kbd "C-x <left>") 'tab-line-switch-to-prev-tab)
-(global-set-key (kbd "C-x <right>") 'tab-line-switch-to-next-tab)
+;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
+;; (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
 ;; (define-key tab-line-tab-map [tab-line down-mouse-3] 'tab-line-close-tab) ;tab-line-tab-context-menu
 
 (global-set-key (kbd "M-s C-m") 'browse-url)

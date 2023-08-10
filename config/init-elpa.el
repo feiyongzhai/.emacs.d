@@ -89,7 +89,8 @@
 	;; ==== 编辑相关 ====
 	hungry-delete           ; 发现一个自带的命令 `c-hungry-delete'
 	goto-chg iedit symbol-overlay smartparens
-	highlight-parentheses highlight-indentation highlight-indent-guides
+	highlight-parentheses highlight-indent-guides
+        ;; highlight-indentation
 	company corfu yasnippet avy electric-spacing
 	math-symbol-lists expand-region easy-kill
 

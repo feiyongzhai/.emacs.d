@@ -3,15 +3,12 @@
 (require 'init-thing-edit)
 (cua-mode)
 
-;; 常用快捷键，基本不会变动
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 (global-set-key (kbd "M-J") 'fei-rime-force-enable)
 (global-set-key (kbd "M-K") 'new-buffer-other-window)
 
-
-;; 不常用快捷键，可能会变动
 (global-set-key (kbd "C-c d s") 'desktop-save)
 (global-set-key (kbd "C-c d r") 'desktop-read)
 

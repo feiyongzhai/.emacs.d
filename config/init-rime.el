@@ -64,7 +64,6 @@
   (global-set-key (kbd "C-`") 'rime-select-schema)
   (define-key rime-active-mode-map (kbd "C-i") 'rime-inline-ascii)
   (define-key rime-active-mode-map (kbd "M-i") 'rime-return-yas-expand)
-  (define-key rime-active-mode-map (kbd "M-h") 'rime--return)
   (define-key rime-active-mode-map (kbd "C-j") 'rime--return))
 
 (defun rime-return-yas-expand ()

@@ -77,7 +77,10 @@
                              (when (> (ring-size eshell-history-ring) 0)
                                (ring-elements eshell-history-ring)))
                             :initial-input input)))
-    (setf (buffer-substring start-pos end-pos) command)
+    (delete-region start-pos end-pos)
+    (insert command)
+    ;; 在 emacs29 版本中，下面会报警告：obsolete generalized variable.
+    ;; (setf (buffer-substring start-pos end-pos) command)
     (end-of-line)))
 
 ;; @REF: https://emacs-china.org/t/topic/5362?u=yongfeizhai

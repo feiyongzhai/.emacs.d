@@ -450,9 +450,9 @@
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 
-(global-set-key (kbd "<menu>") 'youdao-dictionary-search-at-point-tooltip)
-(global-set-key (kbd "C-h y") 'youdao-dictionary-search-from-input)
-(global-set-key (kbd "C-c y") 'fei-youdao-at-point)
+(global-set-key (kbd "<menu>") 'google-translate-at-point)
+(global-set-key (kbd "C-h y") 'google-translate-query-translate)
+(global-set-key (kbd "C-c y") 'google-translate-at-point)
 (with-eval-after-load 'youdao-dictionary
   (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
   (define-key youdao-dictionary-mode-map (kbd "d") 'fei-quword-at-point))

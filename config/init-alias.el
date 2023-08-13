@@ -49,7 +49,6 @@
 (defalias 'eshell/h 'webjump)
 
 (defalias 'eshell/b (li (call-interactively 'bookmark-bmenu-list)))
-(defalias 'eshell/y 'youdao-dictionary-search)
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)
 (defalias 'eshell/J 'fei/counsel-recentf-dir)
 

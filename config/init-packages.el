@@ -104,6 +104,10 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 ;;; interaction-log
 (autoload 'interaction-log-mode "interaction-log" nil t)
 
+;; google-translate
+(setq google-translate-default-source-language "auto")
+(setq google-translate-default-target-language "zh-CN")
+
 ;; youdao-dictionary
 (defun fei-youdao-at-point ()
   (interactive)

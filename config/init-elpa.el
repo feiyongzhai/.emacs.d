@@ -68,7 +68,7 @@
 	figlet                ; ascii art2
 	sl                    ; 小火车
 	google-translate      ; 谷歌词典
-	youdao-dictionary     ; 有道词典
+	;; youdao-dictionary     ; 有道词典 插件使用的 api 已经过时
 	evil                  ; vim 模拟
 	consult-dir           ; interactive style `fasd` or `autojump`
         tldr                  ; 这个命令怎么用？

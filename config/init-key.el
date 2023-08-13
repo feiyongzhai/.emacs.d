@@ -6,8 +6,9 @@
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-\\") 'toggle-input-method)
-(global-set-key (kbd "M-J") 'fei-rime-force-enable)
-(global-set-key (kbd "M-K") 'new-buffer-other-window)
+(global-set-key (kbd "M-J") 'new-buffer-other-window)
+(global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(global-set-key (kbd "M-k") (li (deactivate-input-method)))
 
 (global-set-key (kbd "C-c d s") 'desktop-save)
 (global-set-key (kbd "C-c d r") 'desktop-read)
@@ -19,8 +20,9 @@
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
 
-(global-set-key (kbd "M-j") 'scroll-up-line)
-(global-set-key (kbd "M-k") 'scroll-down-line)
+(global-set-key (kbd "M-n") 'scroll-up-line)
+(global-set-key (kbd "M-p") 'scroll-down-line)
+(with-eval-after-load 'info (define-key Info-mode-map (kbd "M-n") nil))
 
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "C-x C-y") 'yank-and-indent)
@@ -165,10 +167,6 @@
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
 
-(global-set-key (kbd "M-n") 'fei/scroll-up-push-mark)
-(global-set-key (kbd "M-p") 'fei/scroll-down-push-mark)
-(with-eval-after-load 'info (define-key Info-mode-map (kbd "M-n") nil))
-
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
 (global-set-key (kbd "M-s u") 'jump-to-register)
 (global-set-key (kbd "M-s M-u") 'jump-to-register)
@@ -195,12 +193,10 @@
 (global-set-key (kbd "C-x f") 'counsel-find-file)
 
 (global-set-key (kbd "M-s n") 'fei-swiper-isearch)
-(global-set-key (kbd "M-s M-n") 'fei-swiper-isearch)
 (global-set-key (kbd "M-s p") 'fei-swiper-isearch-backward)
-(global-set-key (kbd "M-s M-p") 'fei-swiper-isearch-backward)
 
-(global-set-key (kbd "C-M-z") 'fei-compile)
-(global-set-key (kbd "M-s z") 'fei-compile)
+(global-set-key (kbd "C-c z") 'fei-compile)
+(global-set-key (kbd "C-c u") 'fei-compile)
 
 (with-eval-after-load 'org
   (global-set-key (kbd "C-c M-l") 'org-store-link)
@@ -272,7 +268,7 @@
 
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "M-s M-w") 'engine/search-quword)
-(global-set-key (kbd "M-s M-s") 'searchbox-buffer-search)
+(global-set-key (kbd "M-s M-s") 'searchbox-search)
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s b") 'searchbox-switch-to-buffer)
 (global-set-key (kbd "M-s M-b") 'searchbox-switch-to-buffer)

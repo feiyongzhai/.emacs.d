@@ -147,7 +147,6 @@
 (defun fei-rime-force-enable ()
   (interactive)
   (activate-input-method "rime")
-  (call-interactively 'rime-force-enable)
-  (message "强制启用 rime!"))
+  (call-interactively 'rime-force-enable))
 
 (provide 'init-rime)

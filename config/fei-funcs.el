@@ -91,7 +91,7 @@
          (dolist (mods '(() (control)))
            (dolist (key '(?- ?+ ?= ?0)) ;; = is often unshifted +.
              (define-key map (vector (append mods (list key)))
-               'fei/line-spacing-adjust)))
+                         'fei/line-spacing-adjust)))
          map)))))
 
 (defun fei/line-spacing-increase (inc)

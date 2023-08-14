@@ -14,15 +14,6 @@
   ;; 完成任务时, 将其划线勾掉
   (set-face-attribute 'org-headline-done nil :strike-through t))
 
-(defun fei-org-capture-goto-SAR ()
-  (interactive)
-  (org-capture-goto-target "S"))
-
-(defun fei-org-capture-SAR ()
-  (interactive)
-  (org-capture nil "S")
-  (activate-input-method default-input-method))
-
 
 (setq ctrlf-default-search-style 'fuzzy)
 (setq ctrlf-show-match-count-at-eol nil)

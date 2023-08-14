@@ -12,11 +12,7 @@
 (setq echo-keystrokes 0.1)
 
 (defalias 'a 'org-agenda-list)
-(defalias 'c 'copy-to-register)
-(defalias 'k 'fei-key-mode)
 (defalias 'l 'counsel-load-theme)
-(defalias 'set-number 'display-line-numbers-mode)
-(defalias 'fi 'fei-rime-force-enable)
 (defalias 'ov 'open-current-file-with-vscode)
 (defalias 'code 'open-current-file-with-vscode)
 (defalias 'oe 'open-current-file-with-emacsq)
@@ -33,37 +29,24 @@
 
 (defun eshell/jo () (eshell/cd "~/Nutstore Files/org"))
 (defun eshell/je () (eshell/cd "~/.emacs.d"))
-(defun eshell/repo () (eshell/cd "~/Repos"))
+(defun eshell/a () (org-agenda nil "a"))
 
-(defalias 'eshell/vim 'vim)
-(defalias 'eshell/emacs 'emacs)
-
-(defalias 'eshell/lt 'treemacs-dired-jump)
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
 (defalias 'eshell/z 'samray/eshell-zoxide-z)
-
-(defalias 'eshell/S 'searchbox-refresh-buffer)
-(defalias 'eshell/i 'ibuffer)
 (defalias 'eshell/q 'bury-buffer)
-(defalias 'eshell/h 'webjump)
-
 (defalias 'eshell/b (li (call-interactively 'bookmark-bmenu-list)))
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)
 (defalias 'eshell/J 'fei/counsel-recentf-dir)
 
 (defalias 'eshell/ec 'find-file-other-frame)
 (defalias 'eshell/k 'fei-org-capture-TODO)
-(defalias 'eshell/c 'fei-org-capture-TODO)
 (defalias 'eshell/note 'fei-org-capture-note)
 (defalias 'eshell/n 'fei-org-capture-note)
 (defalias 'eshell/p 'fei-org-capture-private)
 (defalias 'eshell/todo 'fei-org-capture-TODO)
-(defalias 'eshell/ks 'fei-org-capture-SAR)
 (defalias 'eshell/kw 'fei-org-capture-WANT)
 (defalias 'eshell/kd 'fei-org-capture-diary)
-
-(defun eshell/a () (org-agenda nil "a"))
 
 (defun eshell/desktop () (eshell/cd fei-desktop-dir))
 (defun eshell/de () (eshell/cd fei-desktop-dir))

@@ -54,9 +54,8 @@
 (global-set-key (kbd "C-c h h") 'hs-toggle-hiding)
 (global-set-key (kbd "C-c h l") 'hs-hide-all)
 (global-set-key (kbd "C-c h o") 'hs-show-block)
-(global-set-key (kbd "M-s M-h") 'hs-toggle-hiding)
+(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 
-(global-set-key (kbd "M-G") 'webjump)
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
@@ -107,8 +106,7 @@
 (global-set-key (kbd "C-x M-m") mule-keymap)
 
 (global-set-key (kbd "C-x m") 'execute-extended-command)
-(global-set-key (kbd "C-M-,") 'marker-stack-pop)
-(global-set-key (kbd "C-S-l") 'vc-print-root-log)
+(global-set-key (kbd "C-x ,") 'vc-print-root-log)
 
 (global-set-key (kbd "M-e") 'treemacs-dired-jump)
 (global-set-key (kbd "M-s M-i") 'treemacs-dired-jump)
@@ -148,7 +146,6 @@
 
 (with-eval-after-load 'cc-mode        ;注意不是 c++-mode 而是 cc-mode
   (define-key c-mode-base-map (kbd "<f5>") #'fei-g++-compile-and-run)
-  ;; (define-key c-mode-base-map (kbd "C-c M-m") 'helm-make) ;备忘
   (define-key c-mode-base-map (kbd "C-c C-c") #'fei-g++-compile-and-run) ;was `comment-region'
   (define-key c-mode-base-map (kbd "C-c C-r") #'quickrun-shell))
 
@@ -157,12 +154,11 @@
   (global-set-key (kbd "M-O") 'embark-act))
 (global-set-key (kbd "M-.") 'embark-dwim)
 
-(global-set-key (kbd "C-x C-p") 'goto-last-change)
-(global-set-key (kbd "C-c C-o") 'rg-dwim)
-(global-set-key (kbd "C-x M-p") 'goto-last-change)
-(global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
-
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
+(global-set-key (kbd "C-x C-p") 'goto-last-change)
+(global-set-key (kbd "C-,") 'goto-last-change)
+(global-set-key (kbd "C-M-,") 'marker-stack-pop)
+(global-set-key (kbd "C-c C-o") 'rg-dwim)
 
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
@@ -228,7 +224,7 @@
 (global-set-key (kbd "M-s [") 'fei/load-zenburn)
 (global-set-key (kbd "M-s ]") 'fei/disable-theme)
 
-(global-set-key (kbd "C-c a") (li (org-agenda nil "a")))
+(global-set-key (kbd "C-c a") 'org-agenda-list)
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
@@ -247,18 +243,12 @@
 (global-set-key (kbd "C-c n K") 'fei-org-capture-goto-work)
 (global-set-key (kbd "C-c K") 'fei-consult-ripgrep-my-org)
 
-;; (global-set-key (kbd "C-8") 'jetbrains-open-buffer-file)
-;; (global-set-key (kbd "C-M-8") 'jetbrains-create-dir-local-file)
-
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)
 (global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
 (global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
-;; 在这个操作之后，再用鼠标左键选 tab-line 会出现标签跳动的情况
-;; (global-set-key (kbd "<tab-line> <C-mouse-3>") 'tab-line-kill-this-buffer)
-;; (define-key tab-line-tab-map [tab-line down-mouse-3] 'tab-line-close-tab) ;tab-line-tab-context-menu
-
+(global-set-key (kbd "M-G") 'webjump)
 (global-set-key (kbd "M-s C-m") 'browse-url)
 (global-set-key (kbd "M-s M-w") 'engine/search-quword)
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
@@ -269,7 +259,6 @@
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 (global-set-key (kbd "C-c ;") 'comment-region)
 
-(global-set-key (kbd "C-S-i") 'tab-bar-mode) ;org 中按键冲突
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
@@ -318,7 +307,6 @@
 (global-set-key (kbd "C-x w J") (li (evil-move-window 'below)))
 (global-set-key (kbd "M-s i") 'fei/fit-window-to-buffer)
 (global-set-key (kbd "M-s m") 'minimize-window)
-(global-set-key (kbd "M-s I") 'balance-windows)
 (global-set-key (kbd "C-x 4 -") 'fit-window-to-buffer)
 (global-set-key (kbd "C-x 5 -") 'fit-frame-to-buffer)
 (global-set-key (kbd "C-x _") 'adjust-frame-by-longest-line)
@@ -331,7 +319,6 @@
 (global-set-key (kbd "C-x w M") 'maximize-window)
 (global-set-key (kbd "C-x w m") 'minimize-window)
 (global-set-key (kbd "C-x O") 'other-frame)
-(global-set-key (kbd "C-x M-o") 'other-frame)
 
 (define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'fei-bs-show)
 
@@ -364,7 +351,6 @@
 (setq embark-cycle-key ",")
 (autoload 'vertico-multiform-posframe "vertico-posframe" nil t)
 (define-key vertico-multiform-map (kbd "M-P") 'vertico-multiform-posframe)
-(define-key vertico-map (kbd "M-h") 'vertico-exit)
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
 (define-key vertico-map (kbd "C-'") 'vertico-quick-exit)
 (define-key vertico-map (kbd "M-o") 'embark-act)
@@ -420,7 +406,6 @@
 ;;; Pyim
 (with-eval-after-load 'pyim
   (define-key pyim-mode-map (kbd "C-h") 'pyim-delete-backward-char)
-  (define-key pyim-mode-map (kbd "M-h") 'pyim-quit-no-clear)
   (define-key pyim-mode-map (kbd "<escape>") 'pyim-quit-clear)
   (define-key pyim-mode-map (kbd "C-v") 'pyim-next-page)
   (define-key pyim-mode-map (kbd "M-v") 'pyim-previous-page)
@@ -430,15 +415,11 @@
   (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
-(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 
 (global-set-key (kbd "<menu>") 'google-translate-at-point)
 (global-set-key (kbd "C-h y") 'google-translate-query-translate)
 (global-set-key (kbd "C-c y") 'google-translate-at-point)
-(with-eval-after-load 'youdao-dictionary
-  (define-key youdao-dictionary-mode-map "i" #'youdao-dictionary-search-from-input)
-  (define-key youdao-dictionary-mode-map (kbd "d") 'fei-quword-at-point))
 
 (with-eval-after-load 'symbol-overlay
   (define-key symbol-overlay-map (kbd "o") 'fei-occur-at-point)
@@ -475,9 +456,8 @@
 (with-eval-after-load 'markdown-mode
   (define-key markdown-mode-map (kbd "C-c M-o") 'obsidian-follow-link-at-point)
   (define-key markdown-mode-map (kbd "C-x M-o") 'open-current-file-with-obsidian)
-  (fei-define-key-with-map markdown-mode-map
-    '(("<M-up>" . markdown-move-up)
-      ("<M-down>" . markdown-move-down))))
+  (define-key markdown-mode-map (kbd "<M-up>") 'markdown-move-up)
+  (define-key markdown-mode-map (kbd "<M-down>") 'markdown-move-down))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "<C-right>") 'sp-forward-slurp-sexp)
@@ -547,7 +527,6 @@
       ("e" . wdired-change-to-wdired-mode)
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
-      ("'" . fei-eshell-cd-here)
       ("_" . dired-create-empty-file)
       ("SPC" . find-file)
       ("z" . fei-compile)
@@ -619,7 +598,6 @@
       ("M-p" . company-select-previous)
       ("C-h" . company-show-doc-buffer)
       ("M-i" . yas-expand)
-      ("M-h" . company-complete-selection)
       ("M-w" . company-show-location)
       ("M-s" . company-filter-candidates)
       ("M-/" . company-other-backend)

@@ -55,5 +55,5 @@
   ;; `early-init.el' 可对 emacsclient 生效
   (require 'init-font))
 
-(and *is-linux*
-     (tool-bar-mode -1))
+(when *is-linux*
+  (tool-bar-mode -1))

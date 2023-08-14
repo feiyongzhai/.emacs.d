@@ -52,15 +52,15 @@ Error running timer ‘treemacs--apply-annotations-deferred’
           (name (treemacs--filename path))
           (ws (treemacs-current-workspace)))
      (treemacs-return-if
-         (and (= 1 (length (treemacs-workspace->projects ws)))
-              (string= path (-> ws
-                                (treemacs-workspace->projects)
-                                (car)
-                                (treemacs-project->path))))
-       (treemacs-select-window))
+      (and (= 1 (length (treemacs-workspace->projects ws)))
+           (string= path (-> ws
+                             (treemacs-workspace->projects)
+                             (car)
+                             (treemacs-project->path))))
+      (treemacs-select-window))
      (treemacs--show-single-project path name)
      (treemacs-pulse-on-success "Now showing %s"
-       (propertize path 'face 'font-lock-string-face)))))
+                                (propertize path 'face 'font-lock-string-face)))))
 
 ;;; Imenu-list
 (setq imenu-list-focus-after-activation t)
@@ -68,9 +68,7 @@ Error running timer ‘treemacs--apply-annotations-deferred’
 (defun fei-unhighlight-symbol-at-point ()
   (interactive)
   (unhighlight-regexp
-   (concat "\\_<"
-	   (thing-at-point 'symbol)
-	   "\\_>")))
+   (concat "\\_<" (thing-at-point 'symbol) "\\_>")))
 
 (defun fei-highlight-region (b e)
   (interactive "r")

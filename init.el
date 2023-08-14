@@ -49,5 +49,5 @@
 ;;; 延时加载重量级配置
 ;;@REF: https://github.com/lujun9972/emacs-document/blob/master/emacs-common/2个鲜为人知的提高Emacs启动速度的步骤.org
 ;; (run-with-idle-timer 5 nil 'load-my-config)
-
+(when *is-linux* (load-my-config))
 ;; init.el ends here

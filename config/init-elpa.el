@@ -72,6 +72,7 @@
 	evil                  ; vim 模拟
 	consult-dir           ; interactive style `fasd` or `autojump`
         tldr                  ; 这个命令怎么用？
+        treemacs              ; 侧边栏文件管理器
 
 	;; ==== Minibuffer ====
 	orderless vertico embark consult embark-consult

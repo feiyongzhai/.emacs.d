@@ -35,7 +35,6 @@
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
 
 (global-set-key (kbd "C-x F") 'set-fill-column)
-(global-set-key (kbd "C-S-h") 'fei-pulse-current-line)
 
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()
@@ -98,9 +97,7 @@
 
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "C-x r p") 'replace-string)
-(global-set-key (kbd "M-r") 'replace-string)
-(global-set-key (kbd "M-R") 'replace-regexp)
+(global-set-key (kbd "C-S-h") 'replace-string)
 
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
@@ -109,7 +106,7 @@
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
 
-(global-set-key (kbd "C-x m") 'push-mark)
+(global-set-key (kbd "C-x m") 'execute-extended-command)
 (global-set-key (kbd "C-M-,") 'marker-stack-pop)
 (global-set-key (kbd "C-S-l") 'vc-print-root-log)
 
@@ -147,7 +144,6 @@
 (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
   (global-set-key (kbd "M-]") 'forward-paragraph)
   (global-set-key (kbd "M-[") 'backward-paragraph))
-(global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 
 (with-eval-after-load 'cc-mode        ;注意不是 c++-mode 而是 cc-mode
@@ -161,15 +157,12 @@
   (global-set-key (kbd "M-O") 'embark-act))
 (global-set-key (kbd "M-.") 'embark-dwim)
 
-;; (global-set-key (kbd "C-x C-p") (li (set-mark-command 4)))
 (global-set-key (kbd "C-x C-p") 'goto-last-change)
 (global-set-key (kbd "C-c C-o") 'rg-dwim)
 (global-set-key (kbd "C-x M-p") 'goto-last-change)
 (global-set-key (kbd "C-x M-n") 'goto-last-change-reverse)
 
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
-(global-set-key (kbd "M-s u") 'jump-to-register)
-(global-set-key (kbd "M-s M-u") 'jump-to-register)
 
 (global-set-key (kbd "C-x M-l") 'switch-to-locked-buffer)
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
@@ -298,8 +291,6 @@
 (global-set-key (kbd "M-g l") 'goto-last-change)
 (global-set-key (kbd "M-g M-l") 'goto-last-change)
 
-(global-set-key (kbd "M-s l") 'popper-toggle-latest)
-(global-set-key (kbd "M-s M-l") 'popper-toggle-type)
 (global-set-key (kbd "C-x l") 'popper-toggle-latest)
 (global-set-key (kbd "C-x C-l") 'popper-toggle-type)
 
@@ -320,9 +311,6 @@
 (global-set-key (kbd "C-0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 0") 'my/delete-window-or-delete-frame)
 (global-set-key (kbd "C-x 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s 1") 'zygospore-toggle-delete-other-windows)
-(global-set-key (kbd "M-s 2") 'split-window-below-select)
-(global-set-key (kbd "M-s 3") 'split-window-right-select)
 (autoload 'evil-move-window "evil" nil t)
 (global-set-key (kbd "C-x w H") (li (evil-move-window 'left)))
 (global-set-key (kbd "C-x w L") (li (evil-move-window 'right)))
@@ -441,7 +429,6 @@
   (define-key pyim-mode-map (kbd "M-3") (li (pyim-select-subword-by-number 3)))
   (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
-(global-set-key (kbd "C-S-g") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
@@ -489,14 +476,7 @@
   (define-key markdown-mode-map (kbd "C-c M-o") 'obsidian-follow-link-at-point)
   (define-key markdown-mode-map (kbd "C-x M-o") 'open-current-file-with-obsidian)
   (fei-define-key-with-map markdown-mode-map
-    '(("M-s !" . markdown-insert-header-setext-1)
-      ("M-s 1" . markdown-insert-header-atx-1)
-      ("M-s 2" . markdown-insert-header-atx-2)
-      ("M-s 3" . markdown-insert-header-atx-3)
-      ("M-s 4" . markdown-insert-header-atx-4)
-      ("M-s 5" . markdown-insert-header-atx-5)
-      ("M-s 6" . markdown-insert-header-atx-6)
-      ("<M-up>" . markdown-move-up)
+    '(("<M-up>" . markdown-move-up)
       ("<M-down>" . markdown-move-down))))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
@@ -555,13 +535,15 @@
 
   (fei-define-key-with-map dired-mode-map
     `(("b" . dired-up-directory)
-      ("h" . dired-up-directory)
       ("K" . dired-do-kill-lines)
       ("C-k" . dired-kill-subdir)
+      ("<left>" . dired-up-directory)
+      ("<right>" . dired-find-file)
+      ("h" . dired-up-directory)
       ("j" . dired-next-line)
-      ("J" . fei-counsel-fd-file-jump)
       ("k" . dired-previous-line)
       ("l" . dired-find-file)
+      ("J" . fei-counsel-fd-file-jump)
       ("e" . wdired-change-to-wdired-mode)
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
@@ -569,8 +551,7 @@
       ("_" . dired-create-empty-file)
       ("SPC" . find-file)
       ("z" . fei-compile)
-      ("<left>" . dired-up-directory)
-      ("<right>" . dired-find-file)))
+      ))
 
   (define-key dired-mode-map (kbd "M-d") 'fei/olivetti-truncate)
   (define-key dired-mode-map (kbd ";f") 'dired-jump-following-symlinks)
@@ -578,8 +559,6 @@
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
   (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
   (define-key dired-mode-map (kbd ";d") 'dired-duplicate-this-file)
-  (define-key dired-mode-map (kbd ";g") 'fei-git-status)
-  (define-key dired-mode-map (kbd ";s") 'fei-vc-dired-jump)
   (define-key dired-mode-map (kbd ";w") 'file-manager-here)
   (define-key dired-mode-map (kbd ";l") 'vc-print-root-log))
 

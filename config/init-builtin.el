@@ -69,11 +69,9 @@
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
 
-
 ;;; Help
 (setq help-window-select t)             ;always select help window
 
-
 ;;; Speedbar
 ;; 让 `speedbar' 显示隐藏文件
 ;; @REF1: https://stackoverflow.com/questions/5135209/show-hidden-files-in-speedbar/5189565

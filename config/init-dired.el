@@ -8,8 +8,7 @@
 
 (with-eval-after-load 'dired
   ;; (require 'dired-filter)
-  (require 'dired-ranger)
-  )
+  (require 'dired-ranger))
 
 ;; @REF: https://stackoverflow.com/questions/4532241/linux-find-all-symlinks-of-a-given-original-file-reverse-readlink
 ;; find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile
@@ -47,7 +46,6 @@
   (mouse-set-point event)
   (call-interactively 'browse-url-of-dired-file))
 
-
 (defun fei-git-status ()
   (interactive)
   (compile "git status"))
@@ -68,7 +66,6 @@
     (dired-copy-file this new nil))
   (revert-buffer))
 
-
 ;; Dirvish
 (dirvish-override-dired-mode)
 (setq dirvish-mode-line-height 18)

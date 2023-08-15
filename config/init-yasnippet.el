@@ -1,4 +1,3 @@
-;; ==== Yasnippet ====
 (yas-global-mode)
 
 (defun fei/yas-insert-snippet ()

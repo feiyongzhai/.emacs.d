@@ -6,7 +6,6 @@
 (setq display-time-default-load-average nil) ;不显示time后面的不明数字
 ;; (display-time-mode)
 
-
 ;; Doom-mode-line
 (setq doom-modeline-icon nil)
 (setq doom-modeline-height 18)
@@ -24,7 +23,6 @@
 ;;             mouse-face highlight
 ;;             local-map ,(make-mode-line-mouse-map 'mouse-1 my-menu-bar-menu)))
 
-
 ;;; 把 modeline 到顶部
 ;; (setq-default header-line-format mode-line-format) ; Copy mode-line
 ;; (setq-default mode-line-format nil) ; Remove mode-line

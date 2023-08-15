@@ -45,7 +45,7 @@
      'face (funcall tab-bar-tab-face-function tab))))
 
 (defun fei-select-tab (&optional tab-number)
-  "抄的 `tab-bar-select-tab'"
+  "魔改自 `tab-bar-select-tab'"
   (interactive "P")
   (unless (integerp tab-number)
     (let ((key (event-basic-type last-command-event)))

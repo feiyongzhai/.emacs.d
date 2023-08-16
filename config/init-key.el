@@ -1,4 +1,3 @@
-;; 不要为自己一时爽的按键很高的优先级，要在实践中总结经验
 (require 'fei-key)
 (require 'init-thing-edit)
 (cua-mode)
@@ -50,11 +49,11 @@
 
 (global-set-key (kbd "C-4") 'set-selective-display-dwim)
 (global-set-key (kbd "C-x C-4") 'set-selective-display)
-(global-set-key (kbd "C-c h k") 'hs-show-all)
 (global-set-key (kbd "C-c h h") 'hs-toggle-hiding)
-(global-set-key (kbd "C-c h l") 'hs-hide-all)
+(global-set-key (kbd "C-c h a") 'hs-hide-all)
+(global-set-key (kbd "C-c h k") 'hs-show-all)
+(global-set-key (kbd "C-c h l") 'hs-hide-level)
 (global-set-key (kbd "C-c h o") 'hs-show-block)
-(define-key prog-mode-map (kbd "M-S-<return>") 'hs-hide-level)
 
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
@@ -245,7 +244,6 @@
 
 (global-set-key (kbd "M-s r") 'rg-dwim-current-file)
 (global-set-key (kbd "M-s R") 'rg-dwim-current-dir)
-(global-set-key (kbd "M-s M-r") 'rg-project-all-files-no-ask)
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 
 (global-set-key (kbd "M-G") 'webjump)
@@ -277,8 +275,6 @@
 
 (global-set-key (kbd "M-g d") 'dumb-jump-go)
 (global-set-key (kbd "M-g b") 'dumb-jump-back)
-(global-set-key (kbd "M-g l") 'goto-last-change)
-(global-set-key (kbd "M-g M-l") 'goto-last-change)
 
 (global-set-key (kbd "C-x l") 'popper-toggle-latest)
 (global-set-key (kbd "C-x C-l") 'popper-toggle-type)

@@ -1,4 +1,3 @@
-(require 'fei-key)
 (require 'init-thing-edit)
 (cua-mode)
 
@@ -26,7 +25,6 @@
 (global-set-key (kbd "C-S-y") (li (yank '(4))))
 (global-set-key (kbd "C-x C-y") 'yank-and-indent)
 
-(global-set-key (kbd "M-H") 'my/select-current-line-and-forward-line)
 (global-set-key (kbd "M-s =") 'calculator)
 (global-set-key (kbd "C-M-=") 'quick-calc)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
@@ -99,7 +97,9 @@
 
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
-(global-set-key (kbd "C-c SPC") 'set-mark-command)
+(global-set-key (kbd "C-c SPC") 'my/select-current-line-and-forward-line)
+(global-set-key (kbd "M-H") 'set-mark-command)
+(global-set-key (kbd "M-s SPC") 'set-mark-command)
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
 (global-set-key (kbd "C-x M-m") mule-keymap)

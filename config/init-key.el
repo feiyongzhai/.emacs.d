@@ -7,6 +7,19 @@
 (global-set-key (kbd "M-J") 'new-buffer-other-window)
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
 (global-set-key (kbd "M-k") (li (deactivate-input-method)))
+(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
+(global-set-key (kbd "M-c") 'capitalize-dwim)
+(global-set-key (kbd "M-l") 'downcase-dwim)
+(global-set-key (kbd "M-u") 'upcase-dwim)
+
+(global-set-key (kbd "C-c SPC") 'my/select-current-line-and-forward-line)
+(global-set-key (kbd "M-s SPC") 'set-mark-command)
+
+(autoload 'move-text-up "move-text" nil t)
+(autoload 'move-text-down "move-text" nil t)
+(global-set-key (kbd "<M-up>") 'move-text-up)
+(global-set-key (kbd "<M-down>") 'move-text-down)
+(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 
 (global-set-key (kbd "C-c d s") 'desktop-save)
 (global-set-key (kbd "C-c d r") 'desktop-read)
@@ -17,6 +30,10 @@
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
+(global-set-key (kbd "C-=") 'text-scale-adjust)
+(global-set-key (kbd "C--") 'text-scale-adjust)
+(global-set-key (kbd "M-+") 'big-font)
+(global-set-key (kbd "M-_") 'small-font)
 
 (global-set-key (kbd "M-n") 'scroll-up-line)
 (global-set-key (kbd "M-p") 'scroll-down-line)
@@ -56,20 +73,9 @@
 (global-set-key (kbd "C-x n c") 'narrow-to-line-indirect)
 (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (global-set-key (kbd "C-x n l") 'fei/narrow-one-line)
-(global-set-key (kbd "C-x n r") 'replace-string-one-line)
-
-(global-set-key (kbd "M-c") 'capitalize-dwim)
-(global-set-key (kbd "M-l") 'downcase-dwim)
-(global-set-key (kbd "M-u") 'upcase-dwim)
 
 (global-set-key (kbd "C-x U") 'vundo)   ;更容易记忆
 (global-set-key (kbd "C-/") 'undo-only)	;undo-only 不会被打断
-
-(autoload 'move-text-up "move-text" nil t)
-(autoload 'move-text-down "move-text" nil t)
-(global-set-key (kbd "<M-up>") 'move-text-up)
-(global-set-key (kbd "<M-down>") 'move-text-down)
-(global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
@@ -78,7 +84,7 @@
 (global-set-key (kbd "C-x RET") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "C-x <return>") 'fei/buffer-or-tab-recent)
 
-(global-set-key (kbd "C-x i") 'insert-register)
+(global-set-key (kbd "C-x i") 'insert-char)
 (global-set-key (kbd "C-x I") 'all-the-icons-insert)
 (global-set-key (kbd "C-x M-i") 'insert-file)
 
@@ -91,15 +97,12 @@
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 
-(global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 (global-set-key (kbd "C-S-h") 'replace-string)
+(global-set-key (kbd "M-H") 'replace-string-one-line)
 
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))
-(global-set-key (kbd "C-c SPC") 'my/select-current-line-and-forward-line)
-(global-set-key (kbd "M-H") 'set-mark-command)
-(global-set-key (kbd "M-s SPC") 'set-mark-command)
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 
 (global-set-key (kbd "C-x M-m") mule-keymap)
@@ -132,12 +135,12 @@
 
 (global-set-key (kbd "C-M-l") (li (recenter-top-bottom '(4)))) ;was `reposition-window'
 
+(global-set-key (kbd "C-S-k") 'kill-whole-line)
 (autoload 'open-newline-below "open-newline" nil t)
 (autoload 'open-newline-above "open-newline" nil t)
 (global-set-key (kbd "C-S-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-below)
 (global-set-key (kbd "C-S-m") 'open-newline-below)
-(global-set-key (kbd "C-S-k") 'kill-whole-line)
 (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
   (global-set-key (kbd "M-]") 'forward-paragraph)
   (global-set-key (kbd "M-[") 'backward-paragraph))
@@ -148,9 +151,8 @@
   (define-key c-mode-base-map (kbd "C-c C-c") #'fei-g++-compile-and-run) ;was `comment-region'
   (define-key c-mode-base-map (kbd "C-c C-r") #'quickrun-shell))
 
+(setq embark-cycle-key ",")
 (global-set-key (kbd "M-o ,") 'embark-act)
-(when (display-graphic-p)		;终端 M-O 快捷键有特殊含义
-  (global-set-key (kbd "M-O") 'embark-act))
 (global-set-key (kbd "M-.") 'embark-dwim)
 
 (global-set-key (kbd "C-x C-u") 'jump-to-register)
@@ -163,6 +165,7 @@
 (global-set-key (kbd "C-x M-b") 'switch-to-same-major-mode-buffer)
 (global-set-key (kbd "C-c b") 'project-switch-to-buffer)
 (global-set-key (kbd "C-x C-b") 'fei-bs-show)
+(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'fei-bs-show)
 
 (global-set-key (kbd "M-I") 'symbol-overlay-put)
 (global-set-key (kbd "M-N") 'symbol-overlay-switch-forward)
@@ -197,7 +200,6 @@
 
 (win10
  (global-set-key (kbd "<scroll>") 'scroll-lock-mode)
- (global-set-key (kbd "<mode-line> <mouse-5>") 'ibuffer)
  (with-eval-after-load 'ibuffer
    (define-key ibuffer-mode-map (kbd "<mouse-5>") 'fei/ibuffer-mouse-visit-buffer)))
 
@@ -257,6 +259,7 @@
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 (global-set-key (kbd "C-c ;") 'comment-region)
 
+(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)
 (add-hook 'tab-bar-mode-hook 'fei-tab-bar-define-key)
@@ -264,12 +267,6 @@
   (global-set-key (kbd "M-1") 'fei-select-tab)
   (global-set-key (kbd "M-2") 'fei-select-tab))
 
-(global-set-key (kbd "C-=") 'text-scale-adjust)
-(global-set-key (kbd "C--") 'text-scale-adjust)
-(global-set-key (kbd "M-+") 'big-font)
-(global-set-key (kbd "M-_") 'small-font)
-
-(global-set-key (kbd "<f2>") 'list-bookmarks)
 (global-set-key (kbd "C-x j") 'new-buffer)
 (global-set-key (kbd "C-x M-j") 'new-buffer-same-major-mode)
 
@@ -316,8 +313,6 @@
 (global-set-key (kbd "C-x w m") 'minimize-window)
 (global-set-key (kbd "C-x O") 'other-frame)
 
-(define-key mode-line-buffer-identification-keymap [mode-line mouse-2] 'fei-bs-show)
-
 ;; @REF: http://joaotavora.github.io/yasnippet/snippet-expansion.html
 (with-eval-after-load 'yasnippet
   (global-set-key (kbd "C-M-y") 'yas-expand)
@@ -344,7 +339,6 @@
   (define-key LaTeX-mode-map (kbd "C-c C-i") 'fei-buffer-indent) ;was `TeX-goto-info-page'
   (define-key LaTeX-mode-map (kbd "C-r") 'fei-swiper-isearch-backward))
 
-(setq embark-cycle-key ",")
 (autoload 'vertico-multiform-posframe "vertico-posframe" nil t)
 (define-key vertico-multiform-map (kbd "M-P") 'vertico-multiform-posframe)
 (define-key vertico-map (kbd "C-M-j") 'vertico-exit-input)
@@ -352,10 +346,6 @@
 (define-key vertico-map (kbd "M-o") 'embark-act)
 (define-key vertico-map (kbd "C-c C-o") 'embark-collect)
 (define-key vertico-map (kbd "C-c C-l") 'embark-live)
-(with-eval-after-load 'vertico-grid
-  (when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
-    (define-key vertico-grid-map (kbd "M-[") 'vertico-grid-scroll-up)
-    (define-key vertico-grid-map (kbd "M-]") 'vertico-grid-scroll-down)))
 
 (win10
  (with-eval-after-load 'python
@@ -369,11 +359,12 @@
     ("M->" . isearch-end-of-buffer)
     ("<C-return>" . prot-search-isearch-other-end)
     ("C-'" . avy-isearch)
-    ("M-'" . avy-isearch)	 ;gnome-terminal 读不到 C-',用这个代替
     ("C-c k" . fei-counsel-rg-from-isearch)
     ("M-s r" . rg-isearch-project)
     ("C-c C-o" . fei/isearch-occur)))
 
+(with-eval-after-load 'term (define-key term-raw-map (kbd "M-s") 'nil))
+(with-eval-after-load 'vterm (define-key vterm-mode-map (kbd "M-s") nil))
 (add-hook 'term-mode-hook '+fei-term-mode-hook)
 (defun +fei-term-mode-hook ()
   (define-key term-mode-map (kbd "M-s") 'nil)
@@ -388,11 +379,6 @@
   (define-key term-mode-map (kbd "M-8") 'nil)
   (define-key term-mode-map (kbd "M-9") 'nil)
   (define-key term-mode-map (kbd "M-`") 'nil))
-
-(define-key tab-switcher-mode-map (kbd "q") 'tab-close)
-
-(with-eval-after-load 'term (define-key term-raw-map (kbd "M-s") 'nil))
-(with-eval-after-load 'vterm (define-key vterm-mode-map (kbd "M-s") nil))
 
 (with-eval-after-load 'python
   (define-key python-mode-map (kbd "<f5>") (li (compile (concat "python3 " (buffer-file-name)))))
@@ -410,9 +396,9 @@
   (define-key pyim-mode-map (kbd "M-3") (li (pyim-select-subword-by-number 3)))
   (define-key pyim-mode-map (kbd "M-4") (li (pyim-select-subword-by-number 4))))
 
-(define-key prog-mode-map (kbd "C-c C-s") 'fei-vc-dired-jump)
 (define-key prog-mode-map (kbd "C-c TAB") 'fei-buffer-indent)
 
+;; 翻译
 (global-set-key (kbd "<menu>") 'google-translate-at-point)
 (global-set-key (kbd "C-h y") 'google-translate-query-translate)
 (global-set-key (kbd "C-c y") 'google-translate-at-point)
@@ -439,8 +425,7 @@
   (define-key treemacs-mode-map (kbd "N") 'treemacs-next-workspace)
   (define-key treemacs-mode-map (kbd "S") 'treemacs-select-directory)
   (define-key treemacs-mode-map (kbd "J") 'fei-treemacs-move-to-left)
-  (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right)
-  (define-key treemacs-mode-map (kbd "v") 'fei-vc-dired-jump))
+  (define-key treemacs-mode-map (kbd "K") 'fei-treemacs-move-to-right))
 
 (linux (global-set-key (kbd "C-c m") 'counsel-linux-app))
 (win10 (global-set-key (kbd "C-c m") 'app-launcher-run-app))
@@ -534,8 +519,7 @@
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
   (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
   (define-key dired-mode-map (kbd ";d") 'dired-duplicate-this-file)
-  (define-key dired-mode-map (kbd ";w") 'file-manager-here)
-  (define-key dired-mode-map (kbd ";l") 'vc-print-root-log))
+  (define-key dired-mode-map (kbd ";w") 'file-manager-here))
 
 ;;; Dirvish
 (with-eval-after-load 'dirvish

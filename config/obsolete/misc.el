@@ -15,11 +15,6 @@
   (set-face-attribute 'org-headline-done nil :strike-through t))
 
 
-(setq ctrlf-default-search-style 'fuzzy)
-(setq ctrlf-show-match-count-at-eol nil)
-(setq ctrlf-highlight-current-line nil)
-
-
 (defun fei-terminal-here ()
   (interactive)
   (if *is-linux*
@@ -68,14 +63,6 @@
 	(if mark-active
             (buffer-substring-no-properties (region-beginning) (region-end))
 	  (url-encode-url (read-string "Google: ")))))))
-
-
-;; 这是一个比较笨蛋的命令，就和 Alt+Tab 一样
-(fei-repeat fr/bury-or-unbury-buffer
-  (progn (window-configuration-to-register ?b)
-	 (bury-buffer))
-  '(("b" . bury-buffer)
-    ("," . unbury-buffer)))
 
 
 ;; Ibuffer
@@ -143,12 +130,6 @@
 ;; (setq sis-prefix-override-keys '("C-c" "C-x" "C-h" "M-s"))
 ;; (sis-ism-lazyman-config "1" "2" 'fcitx)
 ;; (sis-global-respect-mode 1)
-
-
-(with-eval-after-load 'ctrlf
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-p") 'ctrlf-previous-match)
-  (define-key ctrlf-minibuffer-mode-map (kbd "C-n") 'ctrlf-next-match)
-  )
 
 
 (defun fei-svg-clock ()

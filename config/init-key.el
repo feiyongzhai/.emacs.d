@@ -259,6 +259,9 @@
 (global-set-key (kbd "C-M-;") 'fei/toggle-comment-line)
 (global-set-key (kbd "C-c ;") 'comment-region)
 
+(global-set-key (kbd "C-c <down>") 'fei/store-frameset)
+(global-set-key (kbd "C-c <up>") 'fei/load-frameset)
+
 (define-key tab-switcher-mode-map (kbd "q") 'tab-close)
 (global-set-key (kbd "C-x t i") 'tab-bar-mode)
 (global-set-key (kbd "C-x t l") 'tab-recent)

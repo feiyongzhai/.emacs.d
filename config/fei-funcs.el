@@ -123,6 +123,14 @@
 		(mapcar (lambda (x) (file-name-directory x))
 			recentf-list))))))
 
+(defun fei/store-frameset ()
+  (interactive)
+  (frameset-to-register ?f))
+
+(defun fei/load-frameset ()
+  (interactive)
+  (jump-to-register ?f))
+
 (defun fei/echo-line ()
   "这是一个非常简单的想法：有的时候，一行太长了在 buffer 页面显示不完全但是 echo area 总是很长，利用起来"
   (interactive)

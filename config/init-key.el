@@ -21,7 +21,7 @@
 (global-set-key (kbd "<M-down>") 'move-text-down)
 (global-set-key (kbd "M-L") 'fei-duplicate-line-or-region)
 
-(global-set-key (kbd "C-c d s") 'desktop-save)
+(global-set-key (kbd "C-c d s") (li (desktop-save user-emacs-directory)))
 (global-set-key (kbd "C-c d r") 'desktop-read)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -141,9 +141,6 @@
 (global-set-key (kbd "C-S-o") 'open-newline-above)
 (global-set-key (kbd "C-S-<return>") 'open-newline-below)
 (global-set-key (kbd "C-S-m") 'open-newline-below)
-(when (display-graphic-p)		;终端 M-[ 快捷键有特殊含义
-  (global-set-key (kbd "M-]") 'forward-paragraph)
-  (global-set-key (kbd "M-[") 'backward-paragraph))
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 
 (with-eval-after-load 'cc-mode        ;注意不是 c++-mode 而是 cc-mode

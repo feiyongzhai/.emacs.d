@@ -10,6 +10,7 @@
 (vertico-multiform-mode)		;I really like this feature
 (setq vertico-multiform-commands
       '((consult-line (:not flat))
+        (consult-imenu (:not flat))
 	(yank-pop)			;nil means use vertical
 	(cua-paste-pop)
 	(execute-extended-command flat)

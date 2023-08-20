@@ -1,21 +1,5 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
-(defun split-window-right-select ()
-  (interactive)
-  (split-window-right)
-  (other-window 1))
-
-(defun split-window-below-select ()
-  (interactive)
-  (split-window-below)
-  (other-window 1))
-
-(defun eshell-other-window ()
-  (interactive)
-  (split-window-right)
-  (other-window 1)
-  (eshell))
-
 (defun fei/org-notes-archive ()
   (interactive)
   (let ((source-dir (expand-file-name "~/Nutstore Files/"))
@@ -28,13 +12,6 @@
       (format "cd \"%s\" && " source-dir) ;先切到目标目录，不要 zip -r 得到的压缩包会有绝对路径
       "zip -r "                           ;递归的压缩文件
       (format "\"%s\" \"%s\"" destination "org/")))))
-
-(defun replace-string-one-line ()
-  (interactive)
-  (replace-string-in-region (read-string "原始字符串: ")
-                            (read-string "替换字符串: ")
-                            (line-beginning-position)
-                            (line-end-position)))
 
 (defun emacs-debug-init ()
   "这样打开的 emacs 会继承当前 emacs 进程的环境变量。如果需要调试环
@@ -51,11 +28,6 @@
 (defun echo-current-date ()
   (interactive)
   (message (format-time-string "%Y-%m-%d")))
-
-(defun workmode ()
-  (interactive)
-  (treemacs-dired-jump)
-  (tab-bar-mode))
 
 (defun fei/buffer-or-tab-recent (&optional window)
   (interactive)
@@ -476,5 +448,34 @@ INITIAL-DIRECTORY, if non-nil, is used as the root directory for search."
   (interactive)
   (set-frame-width nil (+ (if (bound-and-true-p display-line-numbers-mode) 5 0)
 			  (longest-line-colum))))
+
+;; 准备弃用的命令
+(defun split-window-right-select ()
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
+(defun split-window-below-select ()
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+
+(defun eshell-other-window ()
+  (interactive)
+  (split-window-right)
+  (other-window 1)
+  (eshell))
+
+(defun replace-string-one-line ()
+  (interactive)
+  (replace-string-in-region (read-string "原始字符串: ")
+                            (read-string "替换字符串: ")
+                            (line-beginning-position)
+                            (line-end-position)))
+
+(defun workmode ()
+  (interactive)
+  (treemacs-dired-jump)
+  (tab-bar-mode))
 
 (provide 'fei-funcs)

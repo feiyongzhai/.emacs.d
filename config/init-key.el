@@ -1,11 +1,15 @@
 (require 'init-thing-edit)
 (cua-mode)
 
+(setq echo-keystrokes 0.1)
+
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 (global-set-key (kbd "M-J") 'new-buffer-other-window)
 (global-set-key (kbd "M-j") 'fei-rime-force-enable)
+(with-eval-after-load 'ivy
+  (define-key ivy-minibuffer-map (kbd "M-j") nil)) ; was `ivy-yank-word'
 (global-set-key (kbd "M-k") (li (deactivate-input-method)))
 (global-set-key (kbd "C-w") 'backward-kill-word-or-region)
 (global-set-key (kbd "M-c") 'capitalize-dwim)
@@ -39,11 +43,11 @@
 (global-set-key (kbd "M-p") 'scroll-down-line)
 (with-eval-after-load 'info (define-key Info-mode-map (kbd "M-n") nil))
 
-(global-set-key (kbd "C-S-y") (li (yank '(4))))
+(global-set-key (kbd "C-S-y") (li (yank '(4)))) ; 准备弃用于2023-08-20
 (global-set-key (kbd "C-x C-y") 'yank-and-indent)
 
+(global-set-key (kbd "M-=") 'quick-calc) ; was `count-words-region'
 (global-set-key (kbd "M-s =") 'calculator)
-(global-set-key (kbd "C-M-=") 'quick-calc)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
@@ -98,8 +102,7 @@
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)
 
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
-(global-set-key (kbd "C-S-h") 'replace-string)
-(global-set-key (kbd "M-H") 'replace-string-one-line)
+(global-set-key (kbd "M-H") 'replace-string)
 
 (with-eval-after-load 'conf-mode
   (define-key conf-space-mode-map (kbd "C-c SPC") nil))

@@ -9,8 +9,6 @@
 
 (require 'fei-funcs)
 
-(setq echo-keystrokes 0.1)
-
 (defalias 'a 'org-agenda-list)
 (defalias 'l 'counsel-load-theme)
 (defalias 'ov 'open-current-file-with-vscode)

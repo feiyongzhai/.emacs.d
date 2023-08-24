@@ -3,6 +3,8 @@
 
 (setq echo-keystrokes 0.1)
 
+(global-set-key (kbd "M-g w l") 'wuliaojn)
+
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-\\") 'toggle-input-method)

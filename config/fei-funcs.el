@@ -1,5 +1,10 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+;; 无聊锦囊
+(defun wuliaojn ()
+  (interactive)
+  (dired "/home/yongfeizhai/Nutstore Files/org/无聊锦囊/"))
+
 (defun fei/org-notes-archive ()
   (interactive)
   (let ((source-dir (expand-file-name "~/Nutstore Files/"))

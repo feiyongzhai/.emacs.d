@@ -1,6 +1,6 @@
 (require 'init-lisp)
 (require 'init-python)
-(require 'init-rust)
+(require 'x-rust)
 (require 'init-matlab)
 (require 'init-c)
 (require 'init-web)

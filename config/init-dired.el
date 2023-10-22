@@ -1,27 +1,17 @@
 ;;; init-dired.el
-(add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
 (require 'fei-funcs)
 
 ;; (add-hook 'dired-mode-hook #'treemacs-icons-dired-mode)
 ;; (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 (add-hook 'dired-mode-hook #'hl-line-mode)
 
-(with-eval-after-load 'dired
-  ;; (require 'dired-filter)
-  (require 'dired-ranger))
-
-;; @REF: https://stackoverflow.com/questions/4532241/linux-find-all-symlinks-of-a-given-original-file-reverse-readlink
-;; find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile
-(setq dired-guess-shell-alist-user
-      '(("\\.pdf\\'"
-	 "find -L /home/yongfeizhai/Desktop/文献仓库/ -samefile"
-	 "xpdf")))
-
 (setq delete-by-moving-to-trash t)	;删除 `dired' 文件进入回收站
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
 (setq dired-mouse-drag-files t)		;Powered by emacs29
 (setq dired-listing-switches "-lah")
+(setq dired-listing-switches
+      "-l --almost-all --human-readable --group-directories-first --no-group")
 
 (defun fei-dired-toggle-hidden ()
   (interactive)
@@ -46,10 +36,6 @@
   (mouse-set-point event)
   (call-interactively 'browse-url-of-dired-file))
 
-(defun fei-git-status ()
-  (interactive)
-  (compile "git status"))
-
 ;; @REF: https://emacs.stackexchange.com/questions/60661/how-to-duplicate-a-file-in-dired
 (defun dired-duplicate-this-file ()
   "Duplicate file on this line.
@@ -65,18 +51,6 @@
             new  (format "%s[%d].%s" name ctr ext)))
     (dired-copy-file this new nil))
   (revert-buffer))
-
-;; Dirvish
-(dirvish-override-dired-mode)
-(setq dirvish-mode-line-height 18)
-(setq dirvish-header-line-height 18)
-(setq-default dirvish-mode-line-format '(:left (sort omit symlink) :right (index free-space)))
-(setq dirvish-attributes
-      '(subtree-state all-the-icons file-time file-size))
-(setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")
-
-(setq dired-listing-switches
-      "-l --almost-all --human-readable --group-directories-first --no-group")
 
 (provide 'init-dired)
 ;;; init-dired.el ends here.

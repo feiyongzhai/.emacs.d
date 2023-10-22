@@ -1,5 +1,6 @@
 (let ((file-name-handler-alist nil))
   (require 'init-elpa)
+  (require 'init-private)
   (require 'init-builtin)
   (require 'init-cursor)
   (require 'init-window-buffer)
@@ -12,10 +13,10 @@
 
   (require 'init-git)
   (require 'init-prog)
-  (require 'init-ivy)
-  (require 'init-orderless)
+  (require 'x-ivy)
+  (require 'x-orderless)
   ;; (require 'init-minibuffer)
-  (require 'init-vertico)
+  (require 'x-vertico)
   (require 'init-search)
 
   (require 'init-edit)
@@ -23,19 +24,18 @@
   (require 'init-alias)
   (unless *is-termux*
     (require 'init-proxy)
-    (require 'init-rime))
+    (require 'x-rime))
 
   (require 'init-tab-line)
   (require 'init-modeline)
   (require 'init-fei)
-  (require 'init-dired)
   (require 'init-bs)
   (require 'init-ibuffer)
-  (require 'init-engine)
+  (require 'x-engine)
   (with-eval-after-load 'webjump
     (require 'init-webjump))
   (require 'init-key)
-  (require 'init-evil)
+  (require 'x-evil)
 
   (when *is-windows*
     (require 'init-win10))
@@ -50,15 +50,14 @@
   (require 'init-pyim)
   (require 'init-markdown)
 
-  (require 'init-compile)
-  (require 'init-lsp)
+  (require 'x-lsp)
   (require 'init-elfeed)
   (require 'init-latex)
   (require 'init-shell)
   (require 'init-packages)
 
-  (require 'init-yasnippet)
-  (require 'init-company)
+  (require 'x-yasnippet)
+  (require 'x-company)
 
   (when *is-linux*
     (require 'init-linux))

@@ -152,6 +152,22 @@ Error running timer ‘treemacs--apply-annotations-deferred’
       '((left-fringe . 8)
         (right-fringe . 8)))
 
+(add-to-list 'load-path "~/.emacs.d/extensions/dired-hacks")
+(with-eval-after-load 'dired
+  ;; (require 'dired-filter)
+  (require 'dired-ranger))
+
+;; Dirvish
+(dirvish-override-dired-mode)
+(setq dirvish-mode-line-height 18)
+(setq dirvish-header-line-height 18)
+(setq-default dirvish-mode-line-format '(:left (sort omit symlink) :right (index free-space)))
+(setq dirvish-attributes
+      '(subtree-state all-the-icons file-time file-size))
+(setq dirvish-cache-dir "~/.emacs.d/.cache/dirvish/")
+
+
+
 (provide 'init-packages)
 
 ;; Local Variables:

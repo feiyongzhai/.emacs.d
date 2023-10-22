@@ -25,13 +25,13 @@
 
 (defun fei/toggle-input-method ()
   (interactive)
-  (require 'init-rime)
+  (require 'x-rime)
   (call-interactively 'toggle-input-method))
 
 (defun open-inbox-md ()
   (interactive)
-  (require 'init-rime)
-  (require 'init-yasnippet)
+  (require 'x-rime)
+  (require 'x-yasnippet)
   (find-file "~/Nutstore Files/org/private/inbox.md"))
 
 (defvar has-load-config nil)

@@ -158,4 +158,4 @@
   (interactive)
   (fei-google-search (car kill-ring)))
 
-(provide 'init-eaf)
+(provide 'x-eaf)

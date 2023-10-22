@@ -17,4 +17,4 @@
 ;; 避免补全中文的一个workaround
 (setq company-dabbrev-char-regexp "[-_a-zA-Z0-9]")
 
-(provide 'init-company)
+(provide 'x-company)

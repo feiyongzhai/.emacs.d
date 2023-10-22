@@ -7,4 +7,4 @@
 
 (add-hook 'rust-mode-hook 'electric-pair-local-mode)
 
-(provide 'init-rust)
+(provide 'x-rust)

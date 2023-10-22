@@ -4,4 +4,4 @@
 (setq flutter-sdk-path "~/.local/opt/flutter/")
 (setq lsp-dart-flutter-sdk-dir "~/.local/opt/flutter/")
 
-(provide 'init-flutter)
+(provide 'x-flutter)

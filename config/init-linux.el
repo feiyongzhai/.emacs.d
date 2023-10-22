@@ -3,8 +3,8 @@
 (require 'fei-funcs)
 
 (unless *is-termux*
-  (require 'init-pdf-tools)
-  (require 'init-flutter))
+  (require 'x-pdf-tools)
+  (require 'x-flutter))
 
 
 ;; @REF: https://oremacs.com/page32/

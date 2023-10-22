@@ -1,18 +1,21 @@
+;; 内置功能，无依赖
+
 (require 'fei-funcs)
 (require 'init-func)
+(require 'init-compile)
+(require 'init-dired)
+(require 'init-edit)
 
+(delete-selection-mode)             ;选中文本后输入会覆盖
+(savehist-mode t)                   ;保存 minibuffer 历史
+(global-auto-revert-mode)	    ;autoload the file changes on disk
 (minibuffer-depth-indicate-mode)
-(delete-selection-mode)			;选中文本后输入会覆盖
 (column-number-mode)
 (save-place-mode)
 (show-paren-mode)
 (blink-cursor-mode -1)
 (repeat-mode)
-(savehist-mode t)			;保存 minibuffer 历史
 (global-so-long-mode)
-
-(global-auto-revert-mode)	    ;autoload the file changes on disk
-(setq global-auto-revert-ignore-modes '(pdf-view-mode))
 
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))

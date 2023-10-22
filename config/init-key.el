@@ -328,9 +328,6 @@
   (define-key yas-keymap (kbd "C-j") 'yas-next-field-or-maybe-expand)
   (define-key yas-keymap (kbd "M-I") 'yas-prev-field))
 
-(with-eval-after-load 'bookmark
-  (define-key bookmark-bmenu-mode-map (kbd "SPC") 'bookmark-jump))
-
 (with-eval-after-load 'latex
   (autoload 'er/mark-LaTeX-math "latex-mode-expansions" nil t)
   (autoload 'er/mark-LaTeX-inside-environment "latex-mode-expansions" nil t)
@@ -464,7 +461,6 @@
   (define-key ibuffer-mode-map (kbd "z") 'ibuffer-toggle-special)
   (define-key ibuffer-mode-map (kbd "i") 'ibuffer-toggle-emacs)
   (define-key ibuffer-mode-map (kbd "c") 'ibuffer-toggle-notes)
-  (define-key ibuffer-mode-map (kbd "SPC") 'switch-to-buffer)
   (define-key ibuffer-mode-map (kbd "M-d") 'fei/olivetti-truncate)
   (define-key ibuffer-mode-map (kbd ";") 'ibuffer-interactive-filter-by-mode))
 
@@ -512,7 +508,6 @@
       ("," . browse-url-of-dired-file)
       ("." . fei-dired-toggle-hidden)
       ("_" . dired-create-empty-file)
-      ("SPC" . find-file)
       ("z" . fei-compile)
       ))
 

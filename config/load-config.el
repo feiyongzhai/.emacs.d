@@ -37,8 +37,6 @@
   (when *is-termux*
     (require 'init-termux))
   
-  (require 'init-mouse)
-
   (require 'init-pyim)
   (require 'init-latex)
   (require 'init-packages)

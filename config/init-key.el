@@ -95,8 +95,6 @@
 (global-set-key (kbd "M-s ,") 'tab-bar-history-back) ;这个可以处理 quit-window
 (global-set-key (kbd "C-x q") 'bury-buffer) ;`kbd-macro-query'
 (global-set-key (kbd "C-x Q") 'unbury-buffer)
-(global-set-key (kbd "M-s q") 'quit-window)
-(global-set-key (kbd "M-s M-q") 'quit-window)
 
 (global-set-key (kbd "M-s M-o") 'multi-occur-in-this-mode)
 (global-set-key (kbd "M-s O") 'fei-occur-at-point)

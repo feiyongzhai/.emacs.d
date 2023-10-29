@@ -15,4 +15,4 @@
 (with-eval-after-load 'yasnippet
   (yas-load-directory (expand-file-name "~/.emacs.d/snippets") t))
 
-(provide 'x-yasnippet)
+(provide 'ext-yasnippet)

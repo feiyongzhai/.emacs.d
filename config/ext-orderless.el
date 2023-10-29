@@ -12,4 +12,4 @@
 
 (advice-add 'orderless-regexp :around #'my-orderless-regexp)
 
-(provide 'x-orderless)
+(provide 'ext-orderless)

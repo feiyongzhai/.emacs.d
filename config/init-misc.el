@@ -1,5 +1,25 @@
-;; The tweak for default minibuffer completion ui
+;; 零撒配置集合
 
+
+;; icomplete 相关配置
+(fido-mode)
+(fido-vertical-mode)
+(setq icomplete-compute-delay 0.01)
+
+(define-key icomplete-fido-mode-map (kbd "C-M-j") 'icomplete-fido-exit)
+
+
+;; ido 配置
+(setq ido-enable-flex-matching t)
+(setq ido-use-virtual-buffers nil)
+;; (setq ido-max-window-height 1)
+;; Disable auto merge work directories behavior, But you can merge
+;; manually by M-s, undo merge by C-z manually
+(setq ido-auto-merge-work-directories-length -1)
+(define-key ido-common-completion-map (kbd "C-M-j") 'ido-select-text)
+
+
+;; minibuffer 配置
 (define-key minibuffer-local-map (kbd "C-M-i") 'switch-to-completions)
 (define-key completion-list-mode-map (kbd "C-M-i") 'switch-to-minibuffer)
 (define-key completion-list-mode-map (kbd "M-e") 'switch-to-minibuffer) ;参照 isearch 快捷键
@@ -33,4 +53,3 @@
 ;; (define-key minibuffer-local-map (kbd "<return>") 'minibuffer-choose-completion)
 ;; (define-key minibuffer-local-map (kbd "C-M-j") 'minibuffer-complete-and-exit)
 
-(provide 'init-minibuffer)

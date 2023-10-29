@@ -8,4 +8,4 @@
 (setq popweb-python-command "/usr/bin/python3")
 (global-set-key (kbd "C-h u") 'popweb-dict-youdao-pointer)
 
-(provide 'x-popweb)
+(provide 'ext-popweb)

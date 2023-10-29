@@ -4,8 +4,7 @@
  '(all-the-icons-ibuffer-mode-face ((t nil)))
  '(all-the-icons-ibuffer-size-face ((t nil)))
  '(all-the-icons-ibuffer-file-face ((t nil)))
- '(all-the-icons-ibuffer-icon-face ((t nil)))
- )
+ '(all-the-icons-ibuffer-icon-face ((t nil))))
 
 (add-hook 'ibuffer-mode-hook 'all-the-icons-ibuffer-mode)
 (add-hook 'ibuffer-mode-hook 'hl-line-mode)

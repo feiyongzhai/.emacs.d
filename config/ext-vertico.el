@@ -46,4 +46,4 @@
   (interactive)
   (consult-ripgrep "~/Nutstore Files/org" nil))
 
-(provide 'x-vertico)
+(provide 'ext-vertico)

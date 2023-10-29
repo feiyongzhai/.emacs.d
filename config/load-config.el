@@ -1,22 +1,20 @@
 (let ((file-name-handler-alist nil))
+  (require 'init-ui)
   (require 'init-elpa)
   (require 'init-private)
   (require 'init-builtin)
-  (require 'init-cursor)
   (require 'init-window-buffer)
   (require 'setup-windows)
   (require 'init-tab-bar)
 
   (require 'init-eshell)
-
   (require 'init-org)
 
   (require 'init-git)
   (require 'init-prog)
-  (require 'x-ivy)
-  (require 'x-orderless)
-  ;; (require 'init-minibuffer)
-  (require 'x-vertico)
+  (require 'ext-ivy.el)
+  (require 'ext-orderless)
+  (require 'ext-vertico)
   (require 'init-search)
 
   (require 'init-edit)
@@ -24,40 +22,29 @@
   (require 'init-alias)
   (unless *is-termux*
     (require 'init-proxy)
-    (require 'x-rime))
+    (require 'ext-rime))
 
-  (require 'init-tab-line)
-  (require 'init-modeline)
   (require 'init-fei)
   (require 'init-bs)
   (require 'init-ibuffer)
-  (require 'x-engine)
-  (with-eval-after-load 'webjump
-    (require 'init-webjump))
+  (require 'ext-engine)
+
   (require 'init-key)
-  (require 'x-evil)
+  (require 'ext-evil)
 
   (when *is-windows*
     (require 'init-win10))
   (when *is-termux*
     (require 'init-termux))
-
-  ;; 把一些不是立刻需要的功能放到这里
+  
   (require 'init-mouse)
-  ;; (require 'init-tool-bar)
-  (require 'init-menu-bar)
 
   (require 'init-pyim)
-  (require 'init-markdown)
-
-  (require 'x-lsp)
-  (require 'init-elfeed)
   (require 'init-latex)
-  (require 'init-shell)
   (require 'init-packages)
-
-  (require 'x-yasnippet)
-  (require 'x-company)
+  (require 'ext-yasnippet)
+  (require 'ext-company)
+  (require 'ext-lsp)
 
   (when *is-linux*
     (require 'init-linux))

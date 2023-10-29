@@ -1,5 +1,4 @@
 ;;; config for search
-(require 'init-func)
 (require 'fei-funcs)
 
 (setq isearch-lazy-count t)

@@ -9,4 +9,4 @@
     (start-process "evince" nil
 		   "evince" "-i" (number-to-string (pdf-view-current-page)) (buffer-file-name))))
 
-(provide 'x-pdf-tools)
+(provide 'ext-pdf-tools)

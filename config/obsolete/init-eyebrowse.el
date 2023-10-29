@@ -1,4 +1,4 @@
-(require 'init-func)
+(require 'fei-funcs)
 
 ;; Eyebrowse
 (eyebrowse-mode 1)

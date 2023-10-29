@@ -149,4 +149,4 @@
   (activate-input-method "rime")
   (call-interactively 'rime-force-enable))
 
-(provide 'x-rime)
+(provide 'ext-rime)

@@ -1,4 +1,4 @@
-;;; x-ivy.el  --- configs for counsel/swiper/ivy
+;;; ext-ivy.el.el  --- configs for counsel/swiper/ivy
 
 ;; (ivy-mode 1)
 
@@ -75,4 +75,4 @@
       (call-interactively 'counsel-compile)
     (error (call-interactively 'compile))))
 
-(provide 'x-ivy)
+(provide 'ext-ivy.el)

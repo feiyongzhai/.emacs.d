@@ -3,8 +3,7 @@
 (require 'fei-funcs)
 
 (unless *is-termux*
-  (require 'x-pdf-tools)
-  (require 'x-flutter))
+  (require 'ext-pdf-tools))
 
 
 ;; @REF: https://oremacs.com/page32/

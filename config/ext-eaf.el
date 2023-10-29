@@ -1,7 +1,6 @@
 ;;; TODO: 安装遇到的相关问题和解决方法
 
 ;; Code
-(require 'init-func)
 (require 'fei-funcs)
 
 (add-to-list 'load-path "~/.emacs.d/extensions/eaf")
@@ -158,4 +157,4 @@
   (interactive)
   (fei-google-search (car kill-ring)))
 
-(provide 'x-eaf)
+(provide 'ext-eaf)

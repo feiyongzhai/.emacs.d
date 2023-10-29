@@ -1,4 +1,4 @@
-(require 'init-func)
+(require 'fei-funcs)
 
 (with-eval-after-load 'company
   (add-to-list 'company-transformers 'delete-dups))
@@ -17,4 +17,4 @@
 ;; 避免补全中文的一个workaround
 (setq company-dabbrev-char-regexp "[-_a-zA-Z0-9]")
 
-(provide 'x-company)
+(provide 'ext-company)

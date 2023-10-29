@@ -1,5 +1,43 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+;; 宏
+(defmacro win10 (&rest body)
+  `(when (or (eq system-type 'ms-dos)
+             (eq system-type 'windows-nt))
+     ,@body))
+
+(defmacro linux (&rest body)
+  `(when (eq system-type 'gnu/linux)
+     ,@body))
+
+(defmacro fei-repeat (fun-name command &rest keymaps)
+  "一个方便定义瞬时命令的宏"
+  (declare (indent 1))
+  (let ((command-name (intern (format "%s" (symbol-name fun-name)))))
+    `(defun ,command-name ()
+       (interactive)
+       (let ((echo-keystrokes nil))
+	 ,command
+	 (set-transient-map
+	  (let ((map (make-sparse-keymap)))
+	    (mapcar (lambda (x)
+		      (define-key map (kbd (car x)) (cdr x)))
+		    ,@keymaps)
+	    map)
+	  t)))))
+
+(defmacro fei-define-key-with-map (map keymaps &optional filename)
+  (declare (indent 1))
+  `(mapcar (lambda (x)
+	     (define-key ,map (kbd (car x)) (cdr x))
+	     (when ,filename
+	       (autoload (cdr x) ,filename nil t)))
+	   ,keymaps))
+
+(defmacro li (&rest body)
+  `(lambda () (interactive) ,@body))
+
+
 (defun emacs-debug-init ()
   "这样打开的 emacs 会继承当前 emacs 进程的环境变量。如果需要调试环
 境变量相关的，请从终端或者其他方式启用"
@@ -323,12 +361,6 @@ kill region instead"
 	 (call-process-shell-command "start explorer ."))
 	(*is-linux*
 	 (call-process-shell-command "xdg-open ."))))
-
-(defun fei-toggle-ui ()
-  (interactive)
-  (if menu-bar-mode (menu-bar-mode -1) (menu-bar-mode t))
-  (if tool-bar-mode (tool-bar-mode -1) (tool-bar-mode t))
-  (if scroll-bar-mode (scroll-bar-mode -1) (scroll-bar-mode t)))
 
 (defun fei-occur-for-mouse ()
   (interactive)

@@ -1,6 +1,6 @@
 ;;; init-window-buffer.el  --- configs for Window/Buffer
 
-(require 'init-func)
+(require 'fei-funcs)
 
 ;; (winner-mode 1)                         ;用 tab-bar-history-mode 代替
 

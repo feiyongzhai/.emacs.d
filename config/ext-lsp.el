@@ -4,4 +4,4 @@
 ;; 不自动启用 flymake
 (setq lsp-diagnostic-package :none)
 
-(provide 'x-lsp)
+(provide 'ext-lsp)

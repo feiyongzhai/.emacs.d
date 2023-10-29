@@ -1,4 +1,4 @@
-;;; x-evil --- configs for evil
+;;; ext-evil --- configs for evil
 
 (setq evil-mode-line-format '(before . mode-line-front-space)) ;move tag to beginning-of-line
 (setq evil-insert-state-tag " [I]")
@@ -155,5 +155,5 @@
   (remove-hook 'post-command-hook 'fei-change-cursor-when-readonly)
   (message "Now is EVIL 👽"))
 
-(provide 'x-evil)
-;;; x-evil.el ends here
+(provide 'ext-evil)
+;;; ext-evil.el ends here

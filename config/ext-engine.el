@@ -171,4 +171,4 @@
    (concat "https://www.sogou.com/web?query="
 	   (eshell-flatten-and-stringify search-string))))
 
-(provide 'x-engine)
+(provide 'ext-engine)

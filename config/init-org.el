@@ -142,7 +142,7 @@
 ;;; ==== Org Export 配置开始 ====
 
 ;; @REF: https://emacs-china.org/t/org-mode-pdf/16746/2
-(setq org-export-async-init-file (expand-file-name "~/.emacs.d/config/fei-org-export.el"))
+(setq org-export-async-init-file (expand-file-name "~/.emacs.d/misc/fei-org-export.el"))
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
                '("ctexart" "\\documentclass[11pt]{ctexart}"

@@ -118,6 +118,14 @@
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 
+(with-eval-after-load 'vertico-grid
+  
+(define-key vertico-grid-map (kbd "M-l") 'vertico-grid-right)
+(define-key vertico-grid-map (kbd "M-j") 'vertico-next)
+(define-key vertico-grid-map (kbd "M-k") 'vertico-previous)
+(define-key vertico-grid-map (kbd "M-h") 'vertico-grid-left)
+)
+
 (global-set-key (kbd "C-h M-c") 'describe-char)
 (global-set-key (kbd "C-h M-f") 'describe-face)
 (global-set-key (kbd "C-h M-k") 'describe-keymap)
@@ -556,7 +564,7 @@
 (with-eval-after-load 'compile
   ;; (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'compilation-minor-mode) ; 这个方式也不错
   (define-key compilation-shell-minor-mode-map (kbd "C-c C-k") 'fei-kill-compilation)
-  (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dire-recompile)
+  (define-key compilation-mode-map (kbd "d") 'fei-cmp-change-dir-recompile)
   (define-key compilation-mode-map (kbd "e") 'compile)
   (define-key compilation-mode-map (kbd "G") 'fei-cmp-change-run)
   (define-key compilation-mode-map (kbd "i") 'fit-window-to-buffer)

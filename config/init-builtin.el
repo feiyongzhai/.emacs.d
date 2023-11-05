@@ -1,7 +1,6 @@
 ;; 内置功能，无依赖
 
 (require 'fei-funcs)
-(require 'init-compile)
 (require 'init-dired)
 (require 'init-edit)
 
@@ -89,11 +88,11 @@
   (setq webjump-sites
         (append '(("Google xueshu" .
 		   [simple-query "scholar.google.com" "https://scholar.google.com/scholar?hl=zh-CN&q=" ""])
-		  ("zhihu" .
+		  ("知乎" .
 		   [simple-query "www.zhihu.com" "https://www.zhihu.com/search?type=content&q=" ""])
 		  ("bilibili" .
 		   [simple-query "bilibili.com" "https://search.bilibili.com/all?keyword=" ""])
-		  ("jd" .
+		  ("京东" .
 		   [simple-query "www.jd.com" "https://search.jd.com/Search?keyword=" ""])
 		  ("bing" .
 		   [simple-query "www.bing.com" "https://www.bing.com/search?q=" ""])
@@ -114,7 +113,7 @@
 		  ("YouTube" .
 		   [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
 		  ("Emacs China" . "https://emacs-china.org")
-		  ("blog" . "feiyongzhai.github.io")
+		  ("博客" . "feiyongzhai.github.io")
 		  ("Emacs Planet" . "https://planet.emacslife.com/")
 		  ("HackNews" . "https://news.ycombinator.com/")
 		  ("Google street" . "https://neal.fun/wonders-of-street-view/")
@@ -126,6 +125,32 @@
 		  ("clash" . "https://clash.razord.top/#/proxies")
                   )
                 webjump-sample-sites)))
+
+;;; Compile
 
+(defun fei-kill-compilation ()
+  (interactive)
+  (ignore-errors (kill-compilation) (message "hh"))
+  (compilation-mode))
+
+(defun fei-cmp-change-run ()
+  (interactive)
+  (kill-compilation)
+  (compile compile-command t))
+
+(defun fei-cmp-change-dir-recompile ()
+  (interactive)
+  (setq target-dir (read-file-name "recompile at: " default-directory nil t))
+  (let ((default-directory target-dir))
+    (message "%s" default-directory)
+    (compile compile-command)))
+
+(defun my/apply-ansi-color-to-compilation-buffer-h ()
+  "Applies ansi codes to the compilation buffers. Meant for
+  `compilation-filter-hook'."
+  (with-silent-modifications
+    (ansi-color-apply-on-region compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook #'my/apply-ansi-color-to-compilation-buffer-h)
 
 (provide 'init-builtin)

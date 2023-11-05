@@ -18,7 +18,7 @@
 (global-set-key (kbd "M-l") 'downcase-dwim)
 (global-set-key (kbd "M-u") 'upcase-dwim)
 
-(global-set-key (kbd "C-c SPC") 'my/select-current-line-and-forward-line)
+(global-set-key (kbd "C-c SPC") 'set-mark-command)
 (global-set-key (kbd "M-s SPC") 'set-mark-command)
 
 (autoload 'move-text-up "move-text" nil t)
@@ -195,6 +195,7 @@
 
 (global-set-key (kbd "C-c z") 'fei-compile)
 (global-set-key (kbd "C-c u") 'fei-compile)
+(global-set-key (kbd "C-M-<return>") 'fei-compile)
 
 (with-eval-after-load 'org
   (global-set-key (kbd "C-c M-l") 'org-store-link)

@@ -12,14 +12,6 @@
 
 ;; (setq recenter-positions '(top middle bottom)) ;备忘
 
-(autoload 'duplicate-line-below-comment "duplicate-line" nil t)
-(autoload 'duplicate-line-or-region-below "duplicate-line" nil t)
-(defun fei-duplicate-line-or-region (&optional arg)
-  (interactive "P")
-  (if arg
-      (call-interactively 'duplicate-line-below-comment)
-    (call-interactively 'duplicate-line-or-region-below)))
-
 (defun fei-scroll-up-line-other-window ()
   (interactive)
   (with-selected-window (next-window)

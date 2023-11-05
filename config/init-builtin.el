@@ -90,8 +90,6 @@
 		   [simple-query "scholar.google.com" "https://scholar.google.com/scholar?hl=zh-CN&q=" ""])
 		  ("知乎" .
 		   [simple-query "www.zhihu.com" "https://www.zhihu.com/search?type=content&q=" ""])
-		  ("bilibili" .
-		   [simple-query "bilibili.com" "https://search.bilibili.com/all?keyword=" ""])
 		  ("京东" .
 		   [simple-query "www.jd.com" "https://search.jd.com/Search?keyword=" ""])
 		  ("bing" .
@@ -108,10 +106,10 @@
 		   [simple-query "www.weibo.com" "https://s.weibo.com/weibo?q=" ""])
 		  ("github" .
 		   [simple-query "www.github.com" "https://github.com/search?ref=simplesearch&q=" ""])
-		  ("douyin" .
-		   [simple-query "www.douyin.com" "https://www.douyin.com/search/" ""])
 		  ("YouTube" .
 		   [simple-query "youtube.com" "http://www.youtube.com/results?aq=f&oq=&search_query=" ""])
+		  ("douyin" . "www.douyin.com")
+                  ("bilibili" . "bilibili.com")
 		  ("Emacs China" . "https://emacs-china.org")
 		  ("博客" . "feiyongzhai.github.io")
 		  ("Emacs Planet" . "https://planet.emacslife.com/")

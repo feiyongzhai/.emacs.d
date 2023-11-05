@@ -7,9 +7,6 @@
 [submodule "extensions/dired-hacks"]
 	path = extensions/dired-hacks
 	url = https://github.com/feiyongzhai/dired-hacks.git
-[submodule "extensions/feebleline"]
-	path = extensions/feebleline
-	url = https://github.com/feiyongzhai/feebleline.git
 [submodule "extensions/telega"]
 	path = extensions/telega
 	url = https://github.com/zevlg/telega.el.git

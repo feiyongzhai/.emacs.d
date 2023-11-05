@@ -1,5 +1,8 @@
 ;; 私人配置：包含私人文件夹和文件的配置
 
+(unless *is-termux*
+  (require 'init-proxy))
+
 ;; 无聊锦囊
 (defun wuliaojn ()
   (interactive)

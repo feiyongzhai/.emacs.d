@@ -21,7 +21,6 @@
   (require 'init-auto-save)
   (require 'init-alias)
   (unless *is-termux*
-    (require 'init-proxy)
     (require 'ext-rime))
 
   (require 'init-fei)

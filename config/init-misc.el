@@ -53,3 +53,19 @@
 ;; (define-key minibuffer-local-map (kbd "<return>") 'minibuffer-choose-completion)
 ;; (define-key minibuffer-local-map (kbd "C-M-j") 'minibuffer-complete-and-exit)
 
+
+;;; Org
+;; 设置各个标题的大小，不使用配色来区分 headline 层级
+
+;; 受观点（REF1）的影响和促动，决定还是把 org-mode 搞得简单一点，朴素一点，不太在意 org-mode 长什么样，而是在意我要干什么。
+;; 把重点从 EMACS 的身上转移到我真正要做的事情身上
+;; @REF1: https://emacs-china.org/t/emacs/23849/94?u=yongfeizhai
+
+(custom-set-faces
+ '(org-level-1 ((t (:weight extra-bold :height 1.25))))
+ '(org-level-2 ((t (:weight bold :height 1.15))))
+ '(org-level-3 ((t (:weight bold :height 1.12))))
+ '(org-level-4 ((t (:weight semi-bold :height 1.09))))
+ '(org-level-5 ((t (:weight semi-bold :height 1.06))))
+ '(org-level-6 ((t (:weight semi-bold :height 1.03))))
+ '(org-level-8 ((t (:weight semi-bold)))))

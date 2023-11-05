@@ -111,23 +111,6 @@
       org-ellipsis " ↩"
       org-adapt-indentation nil)
 
-;; 设置各个标题的大小，不使用配色来区分 headline 层级
-
-;; 受观点（REF1）的影响和促动，决定还是把 org-mode 搞得简单一点，朴素一点，不太在意 org-mode 长什么样，而是在意我要干什么。
-;; 把重点从 EMACS 的身上转移到我真正要做的事情身上
-;; @REF1: https://emacs-china.org/t/emacs/23849/94?u=yongfeizhai
-
-;; (custom-set-faces
-;;  '(org-level-1 ((t (:weight extra-bold :height 1.25))))
-;;  '(org-level-2 ((t (:weight bold :height 1.15))))
-;;  '(org-level-3 ((t (:weight bold :height 1.12))))
-;;  '(org-level-4 ((t (:weight semi-bold :height 1.09))))
-;;  '(org-level-5 ((t (:weight semi-bold :height 1.06))))
-;;  '(org-level-6 ((t (:weight semi-bold :height 1.03))))
-;;  '(org-level-8 ((t (:weight semi-bold)))))
-
-;; headline 上下空一行会好看一些
-
 ;; org-num-mode: 给 headline 添加数字标题（内置功能）
 ;; org-bars: 添加缩进线（外部包，目前只在 github 上）
 ;; org-fragtog: latex 预览（melpa 可下载）

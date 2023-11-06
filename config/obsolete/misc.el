@@ -1,6 +1,15 @@
 ;; 一些不再使用的包的配置放到这个位置
 
 
+;; Ace-Window
+(setq aw-ignore-current nil)
+(setq aw-dispatch-when-more-than 2)
+(setq aw-scope 'global)
+(setq aw-keys '(?j ?k ?l ?h ?g ?f ?d ?s ?a))
+(setq aw-char-position 'top-left)
+(custom-set-faces '(aw-leading-char-face ((t (:foreground "red" :height 1.5)))))
+
+
 ;; Awesome-tray
 (add-to-list 'load-path "~/.emacs.d/extensions/awesome-tray")
 (require 'awesome-tray)

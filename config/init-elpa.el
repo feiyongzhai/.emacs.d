@@ -54,7 +54,6 @@
 	pdf-tools             ; 增强 docview
 	dashboard             ; 快速启动页面
 	olivetti              ; 内容居中
-	ace-window            ; 增强 other-window
 	dirvish               ; dired 增强
 	cal-china-x           ; 日历汉化
 	vundo                 ; 可视化 undo

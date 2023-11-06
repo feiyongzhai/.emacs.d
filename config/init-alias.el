@@ -31,7 +31,6 @@
 
 (defalias 'eshell/of 'browse-url-default-browser)
 (defalias 'eshell/e 'eshell/edit)
-(defalias 'eshell/z 'samray/eshell-zoxide-z)
 (defalias 'eshell/q 'bury-buffer)
 (defalias 'eshell/b (li (call-interactively 'bookmark-bmenu-list)))
 (defalias 'eshell/j 'fei-counsel-recentf-pinyin)

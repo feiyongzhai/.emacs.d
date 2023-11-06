@@ -113,25 +113,6 @@
       (eshell-command-result unpack-command))
     ))
 
-;; @REF https://0x709394.me/Fasd%E4%B8%8E-Eshell%E7%9A%84%E4%B8%8D%E6%9C%9F%E8%80%8C%E9%81%87
-(defun samray/eshell-zoxide-z (&rest args)
-  "Use zoxide to change directory more effectively by passing ARGS."
-  (setq args (eshell-flatten-and-stringify args))
-  (let* ((zoxide (concat "zoxide query " args))
-	 (zoxide-result (shell-command-to-string zoxide))
-	 (path (replace-regexp-in-string "\n$" "" zoxide-result)))
-    (and *is-windows*
-	 ;; 因为 windows 下有的时候可以正确解释为 utf-8 ，有的时候不可以，为 gbk
-	 ;; 思路：为 gbk 编码的时候，转换成 utf-8，为 utf-8 则不操作
-	 (text-property-any 0 (1- (length path)) 'charset 'chinese-gbk path)
-	 (setq path (decode-coding-string
-		     (encode-coding-string path 'gbk) 'utf-8)))
-    (if (eq 0 (length args))
-	(eshell/cd "-")
-      (eshell/cd path)
-      ;; (eshell/echo path)
-      )))
-
 
 
 ;;;;;;;;;;;; Shell ;;;;;;;;;;;;

@@ -97,11 +97,6 @@
   (define-key bs-mode-map (kbd "k") 'nil) ;default is `bs-delete', 但是最近总是误触
   (define-key bs-mode-map (kbd "f") (li (fei-bs-set-configuration-default "files")))
   (define-key bs-mode-map (kbd "C-t") 'fei-bs-switch-buffer-other-tab)
-  (define-key bs-mode-map (kbd "<mouse-1>") 'bs-select)
-  (define-key bs-mode-map (kbd "<mouse-2>") 'bs-select-other-window)
-  (define-key bs-mode-map (kbd "<mouse-3>") 'bs-mouse-select-other-frame)
-  (define-key bs-mode-map (kbd "<mouse-8>") 'bs-select-next-configuration)
-  (define-key bs-mode-map (kbd "<mouse-9>") (li (fei-bs-set-configuration-default "same-major")))
   )
 
 (provide 'init-bs)

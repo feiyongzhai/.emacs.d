@@ -87,7 +87,9 @@
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 
-(global-set-key (kbd "M-`") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "M-r") 'fei-bs-show)
+;; (global-set-key (kbd "M-r") 'fei/buffer-or-tab-recent)
+(global-set-key (kbd "M-`") 'list-bookmarks)
 
 (global-set-key (kbd "C-x i") 'insert-char)
 (global-set-key (kbd "C-x I") 'all-the-icons-insert)

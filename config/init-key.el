@@ -526,7 +526,7 @@
   (define-key dired-mode-map (kbd ";c") 'dired-ranger-copy)
   (define-key dired-mode-map (kbd ";v") 'dired-ranger-paste)
   (define-key dired-mode-map (kbd ";V") 'dired-ranger-move)
-  (define-key dired-mode-map (kbd ";d") 'dired-duplicate-this-file)
+  (define-key dired-mode-map (kbd "M-L") 'dired-duplicate-this-file)
   (define-key dired-mode-map (kbd ";w") 'file-manager-here))
 
 ;;; Dirvish

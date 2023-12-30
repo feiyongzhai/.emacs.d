@@ -87,7 +87,6 @@
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 
-(global-set-key (kbd "M-r") 'fei-bs-show)
 ;; (global-set-key (kbd "M-r") 'fei/buffer-or-tab-recent)
 (global-set-key (kbd "M-`") 'list-bookmarks)
 
@@ -122,7 +121,6 @@
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
 
 (with-eval-after-load 'vertico-grid
-  
 (define-key vertico-grid-map (kbd "M-l") 'vertico-grid-right)
 (define-key vertico-grid-map (kbd "M-j") 'vertico-next)
 (define-key vertico-grid-map (kbd "M-k") 'vertico-previous)
@@ -137,13 +135,14 @@
 (define-key 'help-command (kbd "C-f") 'find-function)
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
-(global-set-key (kbd "M-s-j") 'make-frame-command)
-(global-set-key (kbd "M-s-k") 'my/delete-window-or-delete-frame)
+(global-set-key (kbd "M-s-j") 'clone-frame)
+(global-set-key (kbd "M-s-o") 'other-frame)
+(global-set-key (kbd "M-s-l") 'make-frame-command)
+(global-set-key (kbd "M-s-k") 'delete-frame) ; `my/delete-window-or-delete-frame'
 (global-set-key (kbd "M-s-n") 'fei-scroll-up-line-other-window)
 (global-set-key (kbd "M-s-p") 'fei-scroll-down-line-other-window)
 
 (global-set-key "\M-Q" 'unfill-paragraph)
-(global-set-key (kbd "C-S-b") 'bookmark-bmenu-list)
 
 (global-set-key (kbd "C-M-l") (li (recenter-top-bottom '(4)))) ;was `reposition-window'
 

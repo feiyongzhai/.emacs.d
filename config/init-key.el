@@ -148,11 +148,6 @@
 (global-set-key (kbd "C-M-l") (li (recenter-top-bottom '(4)))) ;was `reposition-window'
 
 (global-set-key (kbd "C-S-k") 'kill-whole-line)
-(autoload 'open-newline-below "open-newline" nil t)
-(autoload 'open-newline-above "open-newline" nil t)
-(global-set-key (kbd "C-S-o") 'open-newline-above)
-(global-set-key (kbd "C-S-<return>") 'open-newline-below)
-(global-set-key (kbd "C-S-m") 'open-newline-below)
 (global-set-key (kbd "M-s c") 'fei-clock-count-down)
 
 (with-eval-after-load 'cc-mode        ;注意不是 c++-mode 而是 cc-mode

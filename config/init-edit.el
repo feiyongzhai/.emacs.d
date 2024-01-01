@@ -2,15 +2,13 @@
 (setq mouse-yank-at-point t)		;粘贴于光标处,而不是鼠标指针处
 (setq next-screen-context-lines 2)
 (setq scroll-step 1
-      scroll-conservatively 10000
       scroll-margin 0 ;此变量会影响到 C-l(recenter-top-bottom) 的行为，用的默认值
-      )
+      scroll-conservatively 10000)
+;; (setq recenter-positions '(top middle bottom)) ;备忘
 
 ;; @REF: https://emacs-china.org/t/word/19878
 ;; (setq sentence-end "\\([。！？:：]\\)[ \t\n]*")
 (setq sentence-end "\\([.?!…‽][]\"'”’)}»›]*\\($\\|[  ]$\\|\t\\|[  ][  ]\\)\\|[。．？！:：]+\\)[  \t\n]*")
-
-;; (setq recenter-positions '(top middle bottom)) ;备忘
 
 (defun fei-scroll-up-line-other-window ()
   (interactive)

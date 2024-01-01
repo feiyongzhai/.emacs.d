@@ -8,51 +8,42 @@
 (savehist-mode t)                   ;保存 minibuffer 历史
 (global-auto-revert-mode)	    ;autoload the file changes on disk
 (minibuffer-depth-indicate-mode)
+(blink-cursor-mode -1)
+(global-so-long-mode)
 (column-number-mode)
 (save-place-mode)
 (show-paren-mode)
-(blink-cursor-mode -1)
 (repeat-mode)
-(global-so-long-mode)
 
 (when (executable-find "rg")
   (setq xref-search-program 'ripgrep))
 
-(setq-default
- window-divider-default-bottom-width 1
- window-divider-default-places (quote bottom-only))
-
-(setq whitespace-line-column nil)	;nil means use fill-column
-(setq describe-bindings-outline t)
+(setq-default window-divider-default-bottom-width 1
+              window-divider-default-places (quote bottom-only))
+(setq-default cursor-in-non-selected-windows nil)
+(setq-default display-line-numbers-width 3)
 (setq enable-recursive-minibuffers t)
-
-;; cua
-(setq cua-prefix-override-inhibit-delay .01)
+(setq show-paren-style 'parenthesis)
+(setq describe-bindings-outline t)
+(setq cua-prefix-override-inhibit-delay .01) ;cua 前缀键等待时间
+(setq whitespace-line-column nil)       ;nil means use fill-column
 (setq cua-auto-mark-last-change t)	;cua 提供的 last-change 功能
+(setq ring-bell-function 'ignore)       ;no bell @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
+(setq word-wrap-by-category t)          ;按照中文折行
+(setq help-window-select t)             ;always select help window
+;; redirect the backup file path
+;; (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
+;; (setq split-width-threshold nil) ;分屏的时候只使用上下分屏
 
 ;; Recentf
 (recentf-mode t)
 (setq recentf-max-saved-items 200)
 (add-to-list 'recentf-exclude "bookmarks")
 (add-to-list 'recentf-exclude "elgrep-data.el")
-
-(setq-default cursor-in-non-selected-windows nil)
-(setq-default display-line-numbers-width 3)
-(setq show-paren-style 'parenthesis)
-
-;; redirect the backup file path
-;; (setq backup-directory-alist (quote (("." . "~/.emacs.d/.backup"))))
-
-;; @REF：https://www.newsmth.net/nForum/#!article/Emacs/97642
-(setq ring-bell-function 'ignore)	;no bell
-
-;; (setq split-width-threshold nil) ;分屏的时候只使用上下分屏
-
-(setq word-wrap-by-category t)		;按照中文折行
-
+                                        
 ;;; Bookmark
+(setq bookmark-save-flag 1)       ;auto save bookmark file when change
 (setq bookmark-set-fringe-mark nil)	;强迫症选项
-(setq bookmark-save-flag 1)	 ;auto save bookmark file when change
 (add-hook 'bookmark-bmenu-mode-hook 'hl-line-mode)
 
 ;;; y-or-n
@@ -69,9 +60,6 @@
 (setq Man-notify-method 'aggressive)
 (with-eval-after-load 'man
   (define-key Man-mode-map (kbd "o") 'zygospore-toggle-delete-other-windows))
-
-;;; Help
-(setq help-window-select t)             ;always select help window
 
 ;;; Speedbar
 ;; 让 `speedbar' 显示隐藏文件
@@ -120,8 +108,7 @@
 		  ("cppsh" . "https://cpp.sh/")
 		  ("cppsh" . "https://cpp.sh/")
 		  ("cppreference" . "https://en.cppreference.com/w/")
-		  ("clash" . "https://clash.razord.top/#/proxies")
-                  )
+		  ("clash" . "https://clash.razord.top/#/proxies"))
                 webjump-sample-sites)))
 
 ;;; Compile

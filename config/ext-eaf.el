@@ -7,9 +7,9 @@
 (setq eaf-python-command "/usr/bin/python3") ;有时会用别的 python 环境，指定更稳定
 
 (require 'eaf)
-(require 'eaf-org)
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
+;; (require 'eaf-org)
 ;; (require 'eaf-image-viewer)
 ;; (require 'eaf-video-player)
 ;; (require 'eaf-music-player)

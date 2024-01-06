@@ -9,7 +9,7 @@
 ;; @REF: https://emacs.stackexchange.com/questions/62049/override-the-default-font-for-emoji-characters
 
 (custom-set-faces
- '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 110 :width normal))))
+ '(default ((t (:family "JetBrains Mono" :foundry "JB" :slant normal :weight normal :height 100 :width normal))))
  ;; '(default ((t (:family "GoMono Nerd Font Mono" :foundry "    " :slant normal :weight normal :height 98 :width normal))))
  ;; '(default ((t (:family "Hack" :foundry "simp" :slant normal :weight normal :height 143 :width normal))))
  ;; '(default ((t (:family "Fantasque Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 143 :width normal))))

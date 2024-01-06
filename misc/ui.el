@@ -1,3 +1,10 @@
+;; 根据时间切换主题
+(let ((current-hour (string-to-number (format-time-string "%H"))))
+  (if (and (> current-hour 7)
+           (< current-hour 17))
+      (load-theme 'spacemacs-light t)
+    (load-theme 'spacemacs-dark t)))
+
 ;;;;;;;;;;;; mode-line ;;;;;;;;;;;;
 
 ;; == 修改 mode-line 的一个示例 ==

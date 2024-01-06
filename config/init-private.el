@@ -3,11 +3,6 @@
 (unless *is-termux*
   (require 'init-proxy))
 
-;; 无聊锦囊
-(defun wuliaojn ()
-  (interactive)
-  (dired "/home/yongfeizhai/Nutstore Files/org/无聊锦囊/"))
-
 (defun fei/org-notes-archive ()
   (interactive)
   (let ((source-dir (expand-file-name "~/Nutstore Files/"))

@@ -3,7 +3,7 @@
 ;; Code
 (require 'fei-funcs)
 
-(add-to-list 'load-path "~/.emacs.d/extensions/eaf")
+(add-to-list 'load-path "~/Repos/eaf")
 (setq eaf-python-command "/usr/bin/python3") ;有时会用别的 python 环境，指定更稳定
 
 (require 'eaf)

@@ -102,7 +102,7 @@
 	yafolding pyvenv conda
 
 	;; ==== 非编辑相关 ====
-	eshell-up engine-mode hide-mode-line
+	eshell-up hide-mode-line
 
 	;; ==== LaTeX ====
 	laas auctex cdlatex
@@ -122,7 +122,7 @@
 
 	;; ==== 备忘 ====
 	;; minions helm-org-rifle backward-forward
-	;; tab-bar-echo-area eyebrowse
+	;; tab-bar-echo-area eyebrowse engine-mode
 	;; academic-phrases valign separedit
 	;; adafruit-wisdom anzu eshell-git-prompt gcmh
 	;; devdocs sis pinyin-search mini-modeline

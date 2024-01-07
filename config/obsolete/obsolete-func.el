@@ -1,6 +1,15 @@
 ;; 没用的，过时的函数
 
 
+(defun eshell/github (&rest search-string)
+  "用于备忘"
+  (let ((word (eshell-flatten-and-stringify search-string)))
+    (browse-url
+     (if (string-empty-p word)
+	 "https://www.github.com"
+       (concat "https://github.com/search?ref=simplesearch&q=" word)))))
+
+
 (defun open-current-file-with-emacsv ()
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))

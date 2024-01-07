@@ -25,7 +25,6 @@
   (require 'init-fei)
   (require 'init-bs)
   (require 'init-ibuffer)
-  (require 'ext-engine)
 
   (require 'init-key)
   (require 'ext-evil)

@@ -201,7 +201,7 @@
 (global-set-key (kbd "M-s /") 'rg-project-all-files-no-ask)
 (global-set-key (kbd "M-G") 'webjump)
 (global-set-key (kbd "M-s C-m") 'browse-url)
-(global-set-key (kbd "M-s M-w") 'engine/search-quword)
+(global-set-key (kbd "M-s M-w") 'webjump)
 (global-set-key (kbd "M-s M-s") 'searchbox-search)
 (global-set-key (kbd "M-s s") 'searchbox-search)
 (global-set-key (kbd "M-s b") 'searchbox-switch-to-buffer)

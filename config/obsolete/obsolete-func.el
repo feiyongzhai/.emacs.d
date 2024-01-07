@@ -1,6 +1,17 @@
 ;; 没用的，过时的函数
 
 
+(defun open-current-file-with-emacsv ()
+  (interactive)
+  (let ((line (number-to-string (line-number-at-pos)))
+	;; emacs 中的 column 是从 0 开始计数的
+	(column (number-to-string (1+ (current-column)))))
+    (start-process "emacsq" nil "emacs" "-Q" "-l" "~/.emacs.d/etc/mini-vi.el"
+		   (concat "+" line ":" column)
+		   (or (buffer-file-name)
+		       default-directory))))
+
+
 (defun my/select-current-line-and-forward-line (arg)
   "Select the current line and move the cursor by ARG lines IF
 no region is selected.

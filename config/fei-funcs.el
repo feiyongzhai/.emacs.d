@@ -355,16 +355,6 @@ kill region instead"
 		   (or (buffer-file-name)
 		       default-directory))))
 
-(defun open-current-file-with-emacsv ()
-  (interactive)
-  (let ((line (number-to-string (line-number-at-pos)))
-	;; emacs 中的 column 是从 0 开始计数的
-	(column (number-to-string (1+ (current-column)))))
-    (start-process "emacsq" nil "emacs" "-Q" "-l" "~/.emacs.d/etc/mini-vi.el"
-		   (concat "+" line ":" column)
-		   (or (buffer-file-name)
-		       default-directory))))
-
 (defun file-manager-here()
   "Open an external Windows cmd in the current directory"
   (interactive)

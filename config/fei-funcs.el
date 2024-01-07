@@ -1,5 +1,16 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+;; Alias
+(defalias 'a 'org-agenda-list)
+(defalias 'l 'counsel-load-theme)
+(defalias 'ov 'open-current-file-with-vscode)
+(defalias 'code 'open-current-file-with-vscode)
+(defalias 'oe 'open-current-file-with-emacsq)
+(defalias 'of 'file-manager-here)
+(defalias 'ot 'terminal-here)
+(defalias 'ui 'fei-toggle-ui)
+(defalias 'cmp 'compile)
+
 ;; 宏
 (defmacro win10 (&rest body)
   `(when (or (eq system-type 'ms-dos)

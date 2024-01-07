@@ -19,7 +19,6 @@
 
   (require 'init-edit)
   (require 'init-auto-save)
-  (require 'init-alias)
   (unless *is-termux*
     (require 'ext-rime))
 

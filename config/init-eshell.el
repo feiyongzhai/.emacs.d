@@ -129,4 +129,42 @@
     (require 'bash-completion)
     (bash-completion-setup)))
 
+
+;; Alias
+(with-eval-after-load 'eshell
+  (require 'eshell-up)
+  (defalias 'eshell/u 'eshell-up))
+
+(defun eshell/jo () (eshell/cd "~/Nutstore Files/org"))
+(defun eshell/je () (eshell/cd "~/.emacs.d"))
+(defun eshell/a () (org-agenda nil "a"))
+
+(defalias 'eshell/of 'browse-url-default-browser)
+(defalias 'eshell/e 'eshell/edit)
+(defalias 'eshell/q 'bury-buffer)
+(defalias 'eshell/b (li (call-interactively 'bookmark-bmenu-list)))
+(defalias 'eshell/j 'fei-counsel-recentf-pinyin)
+(defalias 'eshell/J 'fei/counsel-recentf-dir)
+
+(defalias 'eshell/ec 'find-file-other-frame)
+(defalias 'eshell/k 'fei-org-capture-TODO)
+(defalias 'eshell/note 'fei-org-capture-note)
+(defalias 'eshell/n 'fei-org-capture-note)
+(defalias 'eshell/p 'fei-org-capture-private)
+(defalias 'eshell/todo 'fei-org-capture-TODO)
+(defalias 'eshell/kw 'fei-org-capture-WANT)
+(defalias 'eshell/kd 'fei-org-capture-diary)
+
+(defun eshell/desktop () (eshell/cd fei-desktop-dir))
+(defun eshell/de () (eshell/cd fei-desktop-dir))
+
+
+;; 不推荐用 `eshll/alias' 设置 alias，因为会在每次启动的时候重置 eshell/alias 文件
+
+;; (with-eval-after-load 'em-alias
+;;   (eshell/alias "tig" "magit")
+;;   (eshell/alias "of" "browse-url-default-browser $1")
+;;   )
+
+
 (provide 'init-eshell)

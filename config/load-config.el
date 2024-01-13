@@ -21,8 +21,7 @@
   (require 'init-auto-save)
   (unless *is-termux*
     (require 'ext-rime))
-
-  (require 'init-fei)
+  
   (require 'init-bs)
   (require 'init-ibuffer)
 

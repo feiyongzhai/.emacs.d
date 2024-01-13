@@ -8,7 +8,6 @@
 ;; 目前效果勉勉强强能够使用
 
 (require 'which-func)									     ;use for know fn-called-from
-(require 'fei-funcs)
 
 (defvar vxref-buffer-name "*VXREF*")
 

@@ -161,15 +161,6 @@
   (frameset-to-register ?f)
   (call-interactively 'fit-window-to-buffer))
 
-(defun fei/disable-theme ()
-  (interactive)
-  (mapc #'disable-theme custom-enabled-themes))
-
-(defun fei/load-zenburn ()
-  (interactive)
-  (mapc #'disable-theme custom-enabled-themes)
-  (load-theme 'zenburn t))
-
 (defun fei/toggle-comment-line ()
   (interactive)
   (save-excursion (call-interactively 'comment-line)))

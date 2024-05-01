@@ -1,5 +1,15 @@
 ;; 没用的，过时的函数
 
+
+(defun fei/disable-theme ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(defun fei/load-zenburn ()
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes)
+  (load-theme 'zenburn t))
+
 
 (defun eshell/github (&rest search-string)
   "用于备忘"

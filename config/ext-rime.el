@@ -73,12 +73,12 @@
 
 (with-eval-after-load 'rime
   (face-spec-set 'rime-highlight-candidate-face
-                 '((t :height 1.2 :bold t)))
+                 '((t :height 1.5 :bold t)))
   (face-spec-set 'rime-default-face
 		 '((((class color) (background dark))
-		    (:height 1.2 :background "#333333" :foreground "#dcdccc"))
+		    (:height 1.5 :background "#333333" :foreground "#dcdccc"))
 		   (((class color) (background light))
-		    (:height 1.2 :background "#dcdccc" :foreground "#333333")))))
+		    (:height 1.5 :background "#dcdccc" :foreground "#333333")))))
 
 (setq rime-posframe-properties
       (list :internal-border-width 8)

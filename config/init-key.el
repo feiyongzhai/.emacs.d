@@ -175,6 +175,7 @@
 (global-set-key (kbd "C-c A") 'org-agenda)
 (global-set-key (kbd "C-c c") 'fei-org-capture-TODO)
 (global-set-key (kbd "C-c C") 'fei-org-capture)
+(global-set-key (kbd "C-c n o") 'fei-find-today-file)
 (global-set-key (kbd "C-c n c") 'fei-org-capture-canvas)
 (global-set-key (kbd "C-c n C") 'fei-org-capture-goto-canvas)
 (global-set-key (kbd "C-c n n") 'fei-org-capture-note)

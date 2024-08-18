@@ -1,5 +1,15 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
 
+(defun fei-find-today-file ()
+  (interactive)
+  (let ((file (concat "~/Nutstore Files/org/每日碎碎念/"
+                      (format-time-string "%Y-%m-%d" (current-time))
+                      ".org")))
+    (if (file-exists-p file)
+        (find-file file)
+      (make-empty-file file 'parents)
+      (find-file file))))
+
 
 ;; ========= 自己写的插件 ========
 

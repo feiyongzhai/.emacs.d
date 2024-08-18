@@ -81,7 +81,7 @@
 		    (:height 1.5 :background "#dcdccc" :foreground "#333333")))))
 
 (setq rime-posframe-properties
-      (list :internal-border-width 8)
+      (list :internal-border-width 12)
       rime-candidate-num-format-function 'fei-rime--candidate-num-format)
 
 (defun fei-rime--candidate-num-format (num select-labels)

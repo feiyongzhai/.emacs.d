@@ -3,6 +3,7 @@
 
 (setq echo-keystrokes 0.1)
 
+(global-set-key (kbd "C-t") 'toggle-truncate-lines)
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
 (global-set-key (kbd "C-\\") 'toggle-input-method)
@@ -92,12 +93,6 @@
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
 (global-set-key (kbd "C-x v j") 'fei-vc-dired-jump)
-(with-eval-after-load 'vertico-grid
-(define-key vertico-grid-map (kbd "M-l") 'vertico-grid-right)
-(define-key vertico-grid-map (kbd "M-j") 'vertico-next)
-(define-key vertico-grid-map (kbd "M-k") 'vertico-previous)
-(define-key vertico-grid-map (kbd "M-h") 'vertico-grid-left)
-)
 (global-set-key (kbd "C-h M-c") 'describe-char)
 (global-set-key (kbd "C-h M-f") 'describe-face)
 (global-set-key (kbd "C-h M-k") 'describe-keymap)

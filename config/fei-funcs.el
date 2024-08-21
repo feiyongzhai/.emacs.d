@@ -1,14 +1,21 @@
 ;;; fei-funcs.el === 一些单独工作的小函数
+(defvar fei-find-today-file-before-buffer nil)
 
 (defun fei-find-today-file ()
   (interactive)
-  (let ((file (concat "~/Nutstore Files/org/每日碎碎念/"
-                      (format-time-string "%Y-%m-%d" (current-time))
-                      ".org")))
-    (if (file-exists-p file)
-        (find-file file)
-      (make-empty-file file 'parents)
-      (find-file file))))
+  (let ((file (expand-file-name
+               (concat "~/Nutstore Files/org/每日碎碎念/"
+                       (format-time-string "%Y-%m-%d" (current-time))
+                       ".org")))
+        (name (or (buffer-file-name)
+		  (buffer-name))))
+    (unless (file-exists-p file)
+      (make-empty-file file 'parents))
+    (if (string= file name)
+        (switch-to-buffer fei-find-today-file-before-buffer)
+      (setq fei-find-today-file-before-buffer (current-buffer))
+      (find-file file))
+    ))
 
 
 ;; ========= 自己写的插件 ========

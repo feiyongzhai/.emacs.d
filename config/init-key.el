@@ -45,7 +45,7 @@
 (global-set-key (kbd "M-s =") 'calculator)
 (global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
-(global-set-key (kbd "<f9>") 'recompile)  ;<f9> 外置的机械键盘更好按
+(global-set-key (kbd "<f9>") 'fei-find-today-file)
 (global-set-key (kbd "C-x F") 'set-fill-column)
 (add-hook 'eshell-mode-hook 'fei-eshell-setup-key)
 (defun fei-eshell-setup-key ()

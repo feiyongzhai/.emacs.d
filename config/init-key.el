@@ -31,6 +31,7 @@
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
+(global-set-key (kbd "C-M-=") 'global-text-scale-adjust)
 (global-set-key (kbd "C-=") 'text-scale-adjust)
 (global-set-key (kbd "C--") 'text-scale-adjust)
 (global-set-key (kbd "M-+") 'big-font)

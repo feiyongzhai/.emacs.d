@@ -3,6 +3,7 @@
 
 (setq echo-keystrokes 0.1)
 
+(global-set-key (kbd "M-t") 'revert-buffer-quick)
 (global-set-key (kbd "C-t") 'toggle-truncate-lines)
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: time
-# key: time
+# key: sj
 # --
 `(format-time-string "%H:%M:%S")`

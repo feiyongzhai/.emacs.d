@@ -13,13 +13,13 @@
         (consult-imenu (:not flat))
 	(yank-pop)			;nil means use vertical
 	(cua-paste-pop)
-	(execute-extended-command grid)
+	(execute-extended-command flat)
 	(embark-act grid)
 	(fei-consult-ripgrep-my-org)
         (rime-select-schema flat)
 	(fei-switch-to-buffer-from-bs flat)
 	(switch-to-locked-buffer flat)
-	(t grid)			; 不匹配的命令所使用的样式
+	(t flat)			; 不匹配的命令所使用的样式
         ))
 
 ;; (setq vertico-multiform-categories

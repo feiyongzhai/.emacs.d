@@ -4,6 +4,7 @@
 (setq echo-keystrokes 0.1)
 
 (global-set-key (kbd "M-r") 'revert-buffer-quick)
+(global-set-key (kbd "M-t") 'toggle-truncate-lines)
 (global-set-key (kbd "C-t") 'toggle-truncate-lines)
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
@@ -73,7 +74,8 @@
 (global-set-key (kbd "C-;") 'iedit-mode)
 (global-set-key (kbd "M-s ;") 'iedit-mode)
 ;; (global-set-key (kbd "M-r") 'fei/buffer-or-tab-recent)
-(global-set-key (kbd "M-`") 'list-bookmarks)
+(global-set-key (kbd "<f6>") 'list-bookmarks)
+(global-set-key (kbd "M-`") 'mode-line-other-buffer)
 (global-set-key (kbd "C-x i") 'insert-char)
 (global-set-key (kbd "C-x I") 'all-the-icons-insert)
 (global-set-key (kbd "C-x M-i") 'insert-file)

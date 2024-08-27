@@ -3,7 +3,7 @@
 
 (setq echo-keystrokes 0.1)
 
-(global-set-key (kbd "M-t") 'revert-buffer-quick)
+(global-set-key (kbd "M-r") 'revert-buffer-quick)
 (global-set-key (kbd "C-t") 'toggle-truncate-lines)
 (global-set-key (kbd "M-s j") 'eshell)
 (global-set-key (kbd "M-s M-j") 'fei-eshell-cd-here)
@@ -32,7 +32,6 @@
 (global-set-key (kbd "C-c C-=") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C--") 'fei/line-spacing-adjust)
 (global-set-key (kbd "C-c C-0") 'fei/line-spacing-adjust)
-(global-set-key (kbd "C-M-=") 'global-text-scale-adjust)
 (global-set-key (kbd "C-=") 'text-scale-adjust)
 (global-set-key (kbd "C--") 'text-scale-adjust)
 (global-set-key (kbd "M-+") 'big-font)
@@ -44,7 +43,7 @@
 (global-set-key (kbd "C-x C-y") 'yank-and-indent)
 (global-set-key (kbd "M-=") 'quick-calc) ; was `count-words-region'
 (global-set-key (kbd "M-s =") 'calculator)
-(global-set-key (kbd "<f7>") 'fei-ff-find-other-file-pdf-org)
+(global-set-key (kbd "<f7>") 'org-agenda-list)
 (global-set-key (kbd "<f5>") 'recompile)  ;<f5> 笔记本电脑更好按
 (global-set-key (kbd "<f9>") 'fei-find-today-file)
 (global-set-key (kbd "C-x F") 'set-fill-column)

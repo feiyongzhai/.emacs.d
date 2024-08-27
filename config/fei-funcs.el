@@ -6,7 +6,7 @@
   (let ((file (expand-file-name
                (concat "~/Nutstore Files/org/每日碎碎念/"
                        (format-time-string "%Y-%m-%d" (current-time))
-                       ".org")))
+                       ".md")))
         (name (or (buffer-file-name)
 		  (buffer-name))))
     (unless (file-exists-p file)

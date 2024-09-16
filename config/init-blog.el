@@ -2,12 +2,15 @@
 ;; @REF: http://www.zhangjiee.com/blog/2019/build-site-with-org-mode.html
 ;; @REF: https://guidao.github.io/emacs_blog.html#org38eccd7
 
-(global-set-key (kbd "C-c P")
-		;; load `init-blog.el' 以保证 preamble.html 的修改可以更新
-		;; 这个和 elisp 的 backquote 的语法有关
-		(li (require 'ox-publish)
-		    (load "init-blog.el")
-		    (call-interactively 'org-publish)))
+(global-set-key (kbd "C-c P") 'fei-org-publish)
+
+(defun fei-org-publish ()
+  (interactive)
+  (require 'ox-publish)
+  ;; load `init-blog.el' 以保证 preamble.html 的修改可以更新
+  ;; 这个和 elisp 的 backquote 的语法有关
+  (load "init-blog.el")
+  (call-interactively 'org-publish))
 
 ;; (setq org-html-validation-link nil)
 

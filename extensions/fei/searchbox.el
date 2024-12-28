@@ -58,8 +58,7 @@
   (interactive)
   (setq searchbox-string (read-string "搜索(谷歌)：" (and initial-input searchbox-string) 'searchbox-string-hist))
   (setq searchbox-string-hist-idx 0) ;重置 `searchbox-string-hist-idx'
-  (browse-url (concat (searchbox-get-sites-url "谷歌(g)")
-		      (url-encode-url searchbox-string))))
+  (searchbox-search-google))
 
 (defun searchbox-research-from-hist ()
   "这个命令搜索的 item 不会记录到 `searchbox-string-hist' 中"

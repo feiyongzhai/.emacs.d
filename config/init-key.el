@@ -87,7 +87,7 @@
 (global-set-key (kbd "<f12>") (li (save-buffer) (open-current-file-with-vscode)))
 (global-set-key (kbd "C-x m") 'execute-extended-command)
 (global-set-key (kbd "C-x ,") 'vc-print-root-log)
-(global-set-key (kbd "M-e") 'dired-jump)
+(global-set-key (kbd "M-e") 'execute-extended-command)
 (global-set-key (kbd "M-s M-i") 'treemacs-dired-jump)
 (global-set-key (kbd "<f8>") 'fei-switch-to-treemacs)
 (global-set-key (kbd "C-x g") 'fei-vc-dired-jump)
